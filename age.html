@@ -1,1 +1,90 @@
-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Age Calculator - AI Calculator</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #1A202C, #2D3748);
+            color: #fff;
+            margin: 0;
+        }
+        .header { background: #2c3e50; padding: 20px 0; text-align: center; }
+        .nav-tabs { display: flex; justify-content: center; gap: 20px; padding: 10px 0; background: #34495e; }
+        .nav-tab { color: white; text-decoration: none; padding: 5px 15px; transition: background 0.3s; }
+        .nav-tab:hover, .nav-tab.active { background: #3498db; border-radius: 5px; }
+        .calculator-content { max-width: 600px; margin: 20px auto; padding: 20px; background: rgba(45, 55, 72, 0.9); border-radius: 10px; box-shadow: 0 0 15px rgba(0,0,0,0.5); }
+        .lang-switch { background: #34495e; padding: 6px 12px; border-radius: 5px; cursor: pointer; color: white; margin-left: 10px; display: inline-block; }
+        .lang-switch:hover { background: #3498db; }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <h1 class="text-4xl font-bold">AI Calculator</h1>
+        <p id="tagline" class="text-lg">A to Z Calculators Powered by AI</p>
+    </header>
+    <nav class="nav-tabs">
+        <a href="#financial" class="nav-tab" onclick="showCategory('financial')">Financial</a>
+        <a href="#health" class="nav-tab" onclick="showCategory('health')">Health</a>
+        <a href="#math" class="nav-tab" onclick="showCategory('math')">Math</a>
+        <a href="#conversion" class="nav-tab" onclick="showCategory('conversion')">Conversion</a>
+        <a href="#misc" class="nav-tab" onclick="showCategory('misc')">Miscellaneous</a>
+    </nav>
+    <div class="calculator-content">
+        <h2 id="age-title" class="text-2xl font-semibold mb-4 text-center">Age Calculator</h2>
+        <p id="age-subtitle" class="text-center text-gray-300 mb-4">Calculate age from date of birth to present date.</p>
+        <div class="mb-4">
+            <label for="dob" class="block mb-2">Date of Birth</label>
+            <input type="date" id="dob" class="w-full p-2 bg-gray-700 border border-gray-600 rounded">
+        </div>
+        <button onclick="calculateAge()" class="w-full bg-blue-500 text-white p-2 rounded hover:bg-blue-600">Calculate Age</button>
+        <div id="age-result" class="mt-4 text-center font-semibold"></div>
+    </div>
+    <div class="text-center mt-4">
+        <div class="lang-switch" onclick="toggleLanguage()">
+            <span id="lang-text">Eng</span>
+        </div>
+    </div>
+    <footer class="bg-gray-800 text-white text-center py-4 mt-8">
+        <p>© 2025 AI Calculator. All rights reserved.</p>
+        <a href="privacy.html" class="text-blue-400 ml-2">Privacy Policy</a> |
+        <a href="disclaimer.html" class="text-blue-400 ml-2">Disclaimer</a> |
+        <a href="howtouse.html" class="text-blue-400 ml-2">How to Use</a>
+    </footer>
+    <script>
+        function showCategory(category) {
+            window.location.href = 'index.html#' + category;
+        }
+        let lang = 'en';
+        const translations = {
+            en: { tagline: "A to Z Calculators Powered by AI", ageTitle: "Age Calculator", ageSubtitle: "Calculate age from date of birth to present date." },
+            hi: { tagline: "ए टू जेड कैलकुलेटर, AI द्वारा संचालित", ageTitle: "आयु कैलकुलेटर", ageSubtitle: "जन्म तिथि से वर्तमान तिथि तक आयु की गणना करें।" }
+        };
+        function toggleLanguage() {
+            lang = lang === 'en' ? 'hi' : 'en';
+            document.getElementById('lang-text').textContent = lang === 'en' ? 'Eng' : 'हिं';
+            document.querySelector('header p').textContent = translations[lang].tagline;
+            document.getElementById('age-title').textContent = translations[lang].ageTitle;
+            document.getElementById('age-subtitle').textContent = translations[lang].ageSubtitle;
+        }
+        function calculateAge() {
+            let dob = new Date(document.getElementById("dob").value);
+            let today = new Date();
+            let resultDiv = document.getElementById("age-result");
+            if (dob && dob <= today) {
+                let age = today.getFullYear() - dob.getFullYear();
+                let monthDiff = today.getMonth() - dob.getMonth();
+                if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < dob.getDate())) {
+                    age--;
+                }
+                resultDiv.innerText = `Age: ${age} years`;
+            } else {
+                resultDiv.innerText = "Please enter a valid date of birth";
+            }
+        }
+    </script>
+</html>
