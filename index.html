@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Calculator - A to Z Calculators</title>
+    <meta name="description" content="AI Calculator offers free online calculators from A to Z - math, finance, health, conversions, and more. Powered by AI.">
+    <meta name="keywords" content="calculator, online calculator, AI calculator, GST calculator, loan calculator, length converter">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #1A202C, #2D3748);
+            color: #fff;
+            margin: 0;
+        }
+        .header {
+            background: #2c3e50;
+            padding: 20px 0;
+            text-align: center;
+        }
+        .nav-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            padding: 10px 0;
+            background: #34495e;
+        }
+        .nav-tab {
+            color: white;
+            text-decoration: none;
+            padding: 5px 15px;
+            transition: background 0.3s;
+        }
+        .nav-tab:hover, .nav-tab.active {
+            background: #3498db;
+            border-radius: 5px;
+        }
+        .search-bar {
+            width: 300px;
+            padding: 5px;
+            margin: 10px auto;
+            display: block;
+            background: #4A5568;
+            border: none;
+            color: #fff;
+            border-radius: 5px;
+        }
+        .calculator-section {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 20px;
+            background: rgba(45, 55, 72, 0.9);
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0,0,0,0.5);
+        }
+        .calculator-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 15px;
+        }
+        .calculator-item {
+            text-align: center;
+            padding: 15px;
+            background: #2D3748;
+            border-radius: 8px;
+            transition: transform 0.3s, box-shadow 0.3s;
+            text-decoration: none;
+            color: #fff;
+        }
+        .calculator-item:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(52, 152, 219, 0.5);
+        }
+        .lang-switch {
+            background: #34495e;
+            padding: 6px 12px;
+            border-radius: 5px;
+            cursor: pointer;
+            color: white;
+            margin-left: 10px;
+            display: inline-block;
+        }
+        .lang-switch:hover {
+            background: #3498db;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <h1 class="text-4xl font-bold">AI Calculator</h1>
+        <p id="tagline" class="text-lg">A to Z Calculators Powered by AI</p>
+    </header>
+    <nav class="nav-tabs">
+        <a href="#financial" class="nav-tab active" onclick="showCategory('financial')">Financial</a>
+        <a href="#health" class="nav-tab" onclick="showCategory('health')">Health</a>
+        <a href="#math" class="nav-tab" onclick="showCategory('math')">Math</a>
+        <a href="#conversion" class="nav-tab" onclick="showCategory('conversion')">Conversion</a>
+        <a href="#misc" class="nav-tab" onclick="showCategory('misc')">Miscellaneous</a>
+    </nav>
+    <input type="text" id="search-bar" class="search-bar" placeholder="Search calculators...">
+    <div class="calculator-section">
+        <div id="financial" class="calculator-category">
+            <h2 class="text-2xl font-semibold mb-4">Financial Calculators</h2>
+            <div class="calculator-grid">
+                <a href="gst.html" class="calculator-item">GST Calculator</a>
+                <a href="loan.html" class="calculator-item">Loan Calculator</a>
+                <a href="mortgage.html" class="calculator-item">Mortgage Calculator</a>
+                <a href="roi.html" class="calculator-item">ROI Calculator</a>
+                <a href="savings.html" class="calculator-item">Savings Calculator</a>
+                <a href="investment.html" class="calculator-item">Investment Calculator</a>
+            </div>
+        </div>
+        <div id="health" class="calculator-category hidden">
+            <h2 class="text-2xl font-semibold mb-4">Health Calculators</h2>
+            <div class="calculator-grid">
+                <a href="bmi.html" class="calculator-item">BMI Calculator</a>
+                <a href="bmr.html" class="calculator-item">BMR Calculator</a>
+                <a href="calorie.html" class="calculator-item">Calorie Calculator</a>
+                <a href="bodyfat.html" class="calculator-item">Body Fat Calculator</a>
+            </div>
+        </div>
+        <div id="math" class="calculator-category hidden">
+            <h2 class="text-2xl font-semibold mb-4">Math Calculators</h2>
+            <div class="calculator-grid">
+                <a href="percentage.html" class="calculator-item">Percentage Calculator</a>
+                <a href="scientific.html" class="calculator-item">Scientific Calculator</a>
+                <a href="algebra.html" class="calculator-item">Algebra Calculator</a>
+                <a href="geometry.html" class="calculator-item">Geometry Calculator</a>
+            </div>
+        </div>
+        <div id="conversion" class="calculator-category hidden">
+            <h2 class="text-2xl font-semibold mb-4">Conversion Calculators</h2>
+            <div class="calculator-grid">
+                <a href="length.html" class="calculator-item">Length Converter</a>
+                <a href="currency.html" class="calculator-item">Currency Converter</a>
+                <a href="temperature.html" class="calculator-item">Temperature Converter</a>
+                <a href="weight.html" class="calculator-item">Weight Converter</a>
+            </div>
+        </div>
+        <div id="misc" class="calculator-category hidden">
+            <h2 class="text-2xl font-semibold mb-4">Miscellaneous Calculators</h2>
+            <div class="calculator-grid">
+                <a href="tip.html" class="calculator-item">Tip Calculator</a>
+                <a href="age.html" class="calculator-item">Age Calculator</a>
+                <a href="datediff.html" class="calculator-item">Date Difference Calculator</a>
+                <a href="random.html" class="calculator-item">Random Number Generator</a>
+            </div>
+        </div>
+    </div>
+    <div class="text-center mt-4">
+        <div class="lang-switch" onclick="toggleLanguage()">
+            <span id="lang-text">Eng</span>
+        </div>
+    </div>
+    <footer class="bg-gray-800 text-white text-center py-4 mt-8">
+        <p>© 2025 AI Calculator. All rights reserved.</p>
+        <a href="privacy.html" class="text-blue-400 ml-2">Privacy Policy</a> |
+        <a href="disclaimer.html" class="text-blue-400 ml-2">Disclaimer</a> |
+        <a href="howtouse.html" class="text-blue-400 ml-2">How to Use</a>
+    </footer>
+    <script>
+        function showCategory(category) {
+            document.querySelectorAll('.calculator-category').forEach(cat => cat.classList.add('hidden'));
+            document.getElementById(category).classList.remove('hidden');
+            document.querySelectorAll('.nav-tab').forEach(tab => tab.classList.remove('active'));
+            document.querySelector(`a[href="#${category}"]`).classList.add('active');
+        }
+        window.onload = () => showCategory('financial');
+        document.getElementById('search-bar').addEventListener('input', function(e) {
+            const searchTerm = e.target.value.toLowerCase();
+            document.querySelectorAll('.calculator-item').forEach(item => {
+                const text = item.textContent.toLowerCase();
+                item.style.display = text.includes(searchTerm) ? 'block' : 'none';
+            });
+        });
+        let lang = 'en';
+        const translations = {
+            en: {
+                tagline: "A to Z Calculators Powered by AI",
+                financial: "Financial Calculators",
+                health: "Health Calculators",
+                math: "Math Calculators",
+                conversion: "Conversion Calculators",
+                misc: "Miscellaneous Calculators",
+                search: "Search calculators..."
+            },
+            hi: {
+                tagline: "ए टू जेड कैलकुलेटर, AI द्वारा संचालित",
+                financial: "वित्तीय कैलकुलेटर",
+                health: "स्वास्थ्य कैलकुलेटर",
+                math: "गणित कैलकुलेटर",
+                conversion: "रूपांतरण कैलकुलेटर",
+                misc: "विविध कैलकुलेटर",
+                search: "कैलकुलेटर खोजें..."
+            }
+        };
+        function toggleLanguage() {
+            lang = lang === 'en' ? 'hi' : 'en';
+            document.getElementById('lang-text').textContent = lang === 'en' ? 'Eng' : 'हिं';
+            document.querySelector('header p').textContent = translations[lang].tagline;
+            document.getElementById('financial').querySelector('h2').textContent = translations[lang].financial;
+            document.getElementById('health').querySelector('h2').textContent = translations[lang].health;
+            document.getElementById('math').querySelector('h2').textContent = translations[lang].math;
+            document.getElementById('conversion').querySelector('h2').textContent = translations[lang].conversion;
+            document.getElementById('misc').querySelector('h2').textContent = translations[lang].misc;
+            document.getElementById('search-bar').placeholder = translations[lang].search;
+        }
+    </script>
+</html>
