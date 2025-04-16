@@ -1,1 +1,97 @@
-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mortgage Calculator - AI Calculator</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #1A202C, #2D3748);
+            color: #fff;
+            margin: 0;
+        }
+        .header { background: #2c3e50; padding: 20px 0; text-align: center; }
+        .nav-tabs { display: flex; justify-content: center; gap: 20px; padding: 10px 0; background: #34495e; }
+        .nav-tab { color: white; text-decoration: none; padding: 5px 15px; transition: background 0.3s; }
+        .nav-tab:hover, .nav-tab.active { background: #3498db; border-radius: 5px; }
+        .calculator-content { max-width: 600px; margin: 20px auto; padding: 20px; background: rgba(45, 55, 72, 0.9); border-radius: 10px; box-shadow: 0 0 15px rgba(0,0,0,0.5); }
+        .lang-switch { background: #34495e; padding: 6px 12px; border-radius: 5px; cursor: pointer; color: white; margin-left: 10px; display: inline-block; }
+        .lang-switch:hover { background: #3498db; }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <h1 class="text-4xl font-bold">AI Calculator</h1>
+        <p id="tagline" class="text-lg">A to Z Calculators Powered by AI</p>
+    </header>
+    <nav class="nav-tabs">
+        <a href="#financial" class="nav-tab" onclick="showCategory('financial')">Financial</a>
+        <a href="#health" class="nav-tab" onclick="showCategory('health')">Health</a>
+        <a href="#math" class="nav-tab" onclick="showCategory('math')">Math</a>
+        <a href="#conversion" class="nav-tab" onclick="showCategory('conversion')">Conversion</a>
+        <a href="#misc" class="nav-tab" onclick="showCategory('misc')">Miscellaneous</a>
+    </nav>
+    <div class="calculator-content">
+        <h2 id="mortgage-title" class="text-2xl font-semibold mb-4 text-center">Mortgage Calculator</h2>
+        <p id="mortgage-subtitle" class="text-center text-gray-300 mb-4">Calculate your monthly mortgage payment.</p>
+        <div class="mb-4">
+            <label for="mortgage-principal" class="block mb-2">Principal Amount (₹)</label>
+            <input type="number" id="mortgage-principal" class="w-full p-2 bg-gray-700 border border-gray-600 rounded" placeholder="e.g., 500000">
+        </div>
+        <div class="mb-4">
+            <label for="mortgage-rate" class="block mb-2">Annual Interest Rate (%)</label>
+            <input type="number" id="mortgage-rate" class="w-full p-2 bg-gray-700 border border-gray-600 rounded" placeholder="e.g., 6">
+        </div>
+        <div class="mb-4">
+            <label for="mortgage-tenure" class="block mb-2">Loan Tenure (Years)</label>
+            <input type="number" id="mortgage-tenure" class="w-full p-2 bg-gray-700 border border-gray-600 rounded" placeholder="e.g., 20">
+        </div>
+        <button onclick="calculateMortgage()" class="w-full bg-blue-500 text-white p-2 rounded hover:bg-blue-600">Calculate</button>
+        <div id="mortgage-result" class="mt-4 text-center font-semibold"></div>
+    </div>
+    <div class="text-center mt-4">
+        <div class="lang-switch" onclick="toggleLanguage()">
+            <span id="lang-text">Eng</span>
+        </div>
+    </div>
+    <footer class="bg-gray-800 text-white text-center py-4 mt-8">
+        <p>© 2025 AI Calculator. All rights reserved.</p>
+        <a href="privacy.html" class="text-blue-400 ml-2">Privacy Policy</a> |
+        <a href="disclaimer.html" class="text-blue-400 ml-2">Disclaimer</a> |
+        <a href="howtouse.html" class="text-blue-400 ml-2">How to Use</a>
+    </footer>
+    <script>
+        function showCategory(category) {
+            window.location.href = 'index.html#' + category;
+        }
+        let lang = 'en';
+        const translations = {
+            en: { tagline: "A to Z Calculators Powered by AI", mortgageTitle: "Mortgage Calculator", mortgageSubtitle: "Calculate your monthly mortgage payment." },
+            hi: { tagline: "ए टू जेड कैलकुलेटर, AI द्वारा संचालित", mortgageTitle: "मॉर्गेज कैलकुलेटर", mortgageSubtitle: "अपनी मासिक मॉर्गेज भुगतान की गणना करें।" }
+        };
+        function toggleLanguage() {
+            lang = lang === 'en' ? 'hi' : 'en';
+            document.getElementById('lang-text').textContent = lang === 'en' ? 'Eng' : 'हिं';
+            document.querySelector('header p').textContent = translations[lang].tagline;
+            document.getElementById('mortgage-title').textContent = translations[lang].mortgageTitle;
+            document.getElementById('mortgage-subtitle').textContent = translations[lang].mortgageSubtitle;
+        }
+        function calculateMortgage() {
+            let principal = parseFloat(document.getElementById("mortgage-principal").value);
+            let rate = parseFloat(document.getElementById("mortgage-rate").value) / 12 / 100;
+            let tenure = parseFloat(document.getElementById("mortgage-tenure").value) * 12;
+            let resultDiv = document.getElementById("mortgage-result");
+            if (principal && rate && tenure) {
+                let monthlyPayment = (principal * rate * Math.pow(1 + rate, tenure)) / (Math.pow(1 + rate, tenure) - 1);
+                let totalPayment = monthlyPayment * tenure;
+                let totalInterest = totalPayment - principal;
+                resultDiv.innerHTML = `Monthly Payment: ₹${monthlyPayment.toFixed(2)}<br>Total Payment: ₹${totalPayment.toFixed(2)}<br>Total Interest: ₹${totalInterest.toFixed(2)}`;
+            } else {
+                resultDiv.innerText = "Please enter valid values";
+            }
+        }
+    </script>
+</html>
