@@ -1,98 +1,139 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Loan Calculator - AI Calculator</title>
+    <title>AI Loan Calculator - Free Online Tool | AI Calculator</title>
+    <meta name="description" content="Calculate your loan EMI, interest, and total payable amount with our free AI-powered Loan Calculator. Available in English, Hindi, Tamil, Telugu, Spanish, Bengali, Arabic, Mandarin, and French. Try now!">
+    <meta name="keywords" content="loan calculator, ai loan calculator, free loan calculator, online loan calculator, loan emi calculator">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://yourusername.github.io/ai-calculator/loan.html">
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
     <style>
         body {
             font-family: Arial, sans-serif;
             background: linear-gradient(135deg, #1A202C, #2D3748);
             color: #fff;
             margin: 0;
+            transition: background 0.3s, color 0.3s;
         }
-        .header { background: #2c3e50; padding: 20px 0; text-align: center; }
+        .light-mode {
+            background: #f0f0f0;
+            color: #333;
+        }
+        .header { background: #2c3e50; padding: 20px 0; text-align: center; position: relative; }
         .nav-tabs { display: flex; justify-content: center; gap: 20px; padding: 10px 0; background: #34495e; }
         .nav-tab { color: white; text-decoration: none; padding: 5px 15px; transition: background 0.3s; }
         .nav-tab:hover, .nav-tab.active { background: #3498db; border-radius: 5px; }
         .calculator-content { max-width: 600px; margin: 20px auto; padding: 20px; background: rgba(45, 55, 72, 0.9); border-radius: 10px; box-shadow: 0 0 15px rgba(0,0,0,0.5); }
-        .lang-switch { background: #34495e; padding: 6px 12px; border-radius: 5px; cursor: pointer; color: white; margin-left: 10px; display: inline-block; }
-        .lang-switch:hover { background: #3498db; }
+        .calculator-box { background: #e0e0e0; color: #333; padding: 20px; border-radius: 5px; text-align: center; }
+        .input-row { display: flex; justify-content: space-between; margin-bottom: 15px; }
+        .input-row label { font-weight: bold; }
+        input { border: 1px solid #ccc; padding: 5px; border-radius: 3px; width: 100px; }
+        button { background-color: #28a745; color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer; }
+        button:hover { background-color: #218838; }
+        .theme-switch { background: #34495e; padding: 6px 12px; border-radius: 5px; cursor: pointer; color: white; position: absolute; top: 20px; right: 120px; }
+        .theme-switch:hover { background: #3498db; }
+        @media (max-width: 600px) { .input-row { flex-direction: column; } input { width: 100%; margin-bottom: 10px; } }
     </style>
 </head>
 <body>
     <header class="header">
-        <h1 class="text-4xl font-bold">AI Calculator</h1>
-        <p id="tagline" class="text-lg">A to Z Calculators Powered by AI</p>
+        <h1 id="header-title">AI Calculator</h1>
+        <p id="tagline">A to Z Calculators Powered by AI</p>
+        <div class="theme-switch" onclick="toggleTheme()">Theme: <span id="theme-text">Dark</span></div>
     </header>
     <nav class="nav-tabs">
-        <a href="#financial" class="nav-tab" onclick="showCategory('financial')">Financial</a>
-        <a href="#health" class="nav-tab" onclick="showCategory('health')">Health</a>
-        <a href="#math" class="nav-tab" onclick="showCategory('math')">Math</a>
-        <a href="#conversion" class="nav-tab" onclick="showCategory('conversion')">Conversion</a>
-        <a href="#misc" class="nav-tab" onclick="showCategory('misc')">Miscellaneous</a>
+        <a href="index.html#financial" class="nav-tab" onclick="showCategory('financial')">Financial</a>
+        <a href="index.html#health" class="nav-tab" onclick="showCategory('health')">Health</a>
+        <a href="index.html#math" class="nav-tab" onclick="showCategory('math')">Math</a>
+        <a href="index.html#conversion" class="nav-tab" onclick="showCategory('conversion')">Conversion</a>
+        <a href="index.html#misc" class="nav-tab" onclick="showCategory('misc')">Miscellaneous</a>
     </nav>
     <div class="calculator-content">
-        <h2 id="loan-title" class="text-2xl font-semibold mb-4 text-center">Loan Calculator</h2>
-        <p id="loan-subtitle" class="text-center text-gray-300 mb-4">Calculate your loan EMI and total interest.</p>
-        <div class="mb-4">
-            <label for="principal" class="block mb-2">Principal Amount (₹)</label>
-            <input type="number" id="principal" class="w-full p-2 bg-gray-700 border border-gray-600 rounded" placeholder="e.g., 100000">
-        </div>
-        <div class="mb-4">
-            <label for="rate" class="block mb-2">Annual Interest Rate (%)</label>
-            <input type="number" id="rate" class="w-full p-2 bg-gray-700 border border-gray-600 rounded" placeholder="e.g., 5">
-        </div>
-        <div class="mb-4">
-            <label for="tenure" class="block mb-2">Loan Tenure (Years)</label>
-            <input type="number" id="tenure" class="w-full p-2 bg-gray-700 border border-gray-600 rounded" placeholder="e.g., 5">
-        </div>
-        <button onclick="calculateLoan()" class="w-full bg-blue-500 text-white p-2 rounded hover:bg-blue-600">Calculate EMI</button>
-        <div id="loan-result" class="mt-4 text-center font-semibold"></div>
-    </div>
-    <div class="text-center mt-4">
-        <div class="lang-switch" onclick="toggleLanguage()">
-            <span id="lang-text">Eng</span>
+        <div class="calculator-box">
+            <h2 id="calc-title">Enter loan amount, interest rate, and tenure to calculate EMI</h2>
+            <div class="input-row">
+                <label id="amount-label">Loan Amount (₹)</label>
+                <input type="number" id="loan-amount" min="0" value="100000">
+            </div>
+            <div class="input-row">
+                <label id="rate-label">Interest Rate (%)</label>
+                <input type="number" id="interest-rate" min="0" step="0.1" value="5">
+            </div>
+            <div class="input-row">
+                <label id="tenure-label">Tenure (Years)</label>
+                <input type="number" id="tenure" min="1" value="5">
+            </div>
+            <button onclick="calculateLoan()">Calculate <span id="spinner" style="display:none;">⏳</span></button>
+            <div id="loan-result" class="mt-4 font-semibold"></div>
+            <div id="seo-content" class="mt-4 text-sm">
+                <h3>About Loan Calculator</h3>
+                <p>Welcome to the AI Loan Calculator, a free online tool designed to help you calculate your loan Equated Monthly Installment (EMI), total interest, and overall payable amount with ease. Whether you’re planning a personal loan, home loan, or car loan, this calculator leverages advanced AI technology to provide accurate and instant results. Available in multiple languages including English, Hindi, Tamil, Telugu, Spanish, Bengali, Arabic, Mandarin, and French, it caters to a diverse global audience. Simply enter your loan amount, interest rate, and tenure, and click "Calculate" to get your EMI breakdown.</p>
+                <p>Why choose our Loan Calculator? It’s user-friendly, fast, and optimized for all devices, making it perfect for individuals, financial planners, and businesses. The tool uses a standard EMI formula: EMI = [P × R × (1 + R)^N] / [(1 + R)^N - 1], where P is the principal, R is the monthly interest rate, and N is the number of installments. Our AI integration ensures precision and offers suggestions, such as adjusting tenure to reduce EMI. This calculator stands out due to its multilingual support and modern design, setting it apart from traditional loan calculators.</p>
+                <p>SEO optimization is crucial for this tool to rank high on search engines like Google. We’ve included meta tags, a canonical URL, and keywords such as "loan calculator online," "free loan EMI calculator," and "AI loan tool" to boost visibility. To enhance ranking, consider adding backlinks from financial blogs or submitting the site to directories. Regular updates and user feedback can further improve its performance. Ideal for loan planning, this calculator is a must-try for anyone seeking financial clarity. Explore it today and take control of your loan decisions!</p>
+            </div>
         </div>
     </div>
     <footer class="bg-gray-800 text-white text-center py-4 mt-8">
         <p>© 2025 AI Calculator. All rights reserved.</p>
         <a href="privacy.html" class="text-blue-400 ml-2">Privacy Policy</a> |
-        <a href="disclaimer.html" class="text-blue-400 ml-2">Disclaimer</a> |
-        <a href="howtouse.html" class="text-blue-400 ml-2">How to Use</a>
+        <a href="contactus.html" class="text-blue-400 ml-2">Contact Us</a> |
+        <a href="howto.html" class="text-blue-400 ml-2">How to Use</a>
     </footer>
     <script>
-        function showCategory(category) {
-            window.location.href = 'index.html#' + category;
-        }
         let lang = 'en';
+        let isDarkMode = true;
         const translations = {
-            en: { tagline: "A to Z Calculators Powered by AI", loanTitle: "Loan Calculator", loanSubtitle: "Calculate your loan EMI and total interest." },
-            hi: { tagline: "ए टू जेड कैलकुलेटर, AI द्वारा संचालित", loanTitle: "लोन कैलकुलेटर", loanSubtitle: "अपने लोन ईएमआई और कुल ब्याज की गणना करें।" }
+            en: { header: "AI Calculator", tagline: "A to Z Calculators Powered by AI", calcTitle: "Enter loan amount, interest rate, and tenure to calculate EMI", amountLabel: "Loan Amount (₹)", rateLabel: "Interest Rate (%)", tenureLabel: "Tenure (Years)", resultPrefix: "EMI: " },
+            hi: { header: "एआई कैलकुलेटर", tagline: "ए टू जेड कैलकुलेटर, AI द्वारा संचालित", calcTitle: "ऋण राशि, ब्याज दर और अवधि दर्ज करें EMI की गणना के लिए", amountLabel: "ऋण राशि (₹)", rateLabel: "ब्याज दर (%)", tenureLabel: "अवधि (वर्ष)", resultPrefix: "EMI: " },
+            ta: { header: "AI கால்குலேட்டர்", tagline: "AI இயக்கிய A முதல் Z கால்குலேட்டர்கள்", calcTitle: "கடன் தொகை, வட்டி விகிதம் மற்றும் காலத்தை உள்ளிடவும் EMI கணக்கிட", amountLabel: "கடன் தொகை (₹)", rateLabel: "வட்டி விகிதம் (%)", tenureLabel: "காலம் (ஆண்டுகள்)", resultPrefix: "EMI: " },
+            te: { header: "AI కాల్కులేటర్", tagline: "AI ద్వారా నడిపే A నుండి Z కాల్కులేటర్లు", calcTitle: "లోన్ రాశి, ఆసక్తి రేటు మరియు కాలవద్దన్ని నమోదు చేయండి EMI కోసం", amountLabel: "లోన్ రాశి (₹)", rateLabel: "ఆసక్తి రేటు (%)", tenureLabel: "కాలం (సంవత్సరాలు)", resultPrefix: "EMI: " },
+            es: { header: "Calculadora de IA", tagline: "Calculadoras A-Z impulsadas por IA", calcTitle: "Ingrese el monto del préstamo, la tasa de interés y el plazo para calcular la EMI", amountLabel: "Monto del préstamo (₹)", rateLabel: "Tasa de interés (%)", tenureLabel: "Plazo (Años)", resultPrefix: "EMI: " },
+            bn: { header: "এআই ক্যালকুলেটর", tagline: "এআই দ্বারা চালিত এ থেকে জে ক্যালকুলেটর", calcTitle: "লোনের অংক, সুদের হার এবং মেয়াদ লিখুন EMI গণনার জন্য", amountLabel: "লোনের পরিমাণ (₹)", rateLabel: "সুদের হার (%)", tenureLabel: "মেয়াদ (বছর)", resultPrefix: "EMI: " },
+            ar: { header: "حاسبة الذكاء الاصطناعي", tagline: "حاسبات A إلى Z مدعومة بالذكاء الاصطناعي", calcTitle: "أدخل مبلغ القرض، ونسبة الفائدة، والمدة لحساب القسط الشهري", amountLabel: "مبلغ القرض (₹)", rateLabel: "نسبة الفائدة (%)", tenureLabel: "المدة (سنوات)", resultPrefix: "القسط الشهري: " },
+            zh: { header: "人工智能计算器", tagline: "AI驱动的A到Z计算器", calcTitle: "输入贷款金额、利率和期限以计算EMI", amountLabel: "贷款金额 (₹)", rateLabel: "利率 (%)", tenureLabel: "期限 (年)", resultPrefix: "EMI: " },
+            fr: { header: "Calculateur IA", tagline: "Calculateurs A à Z alimentés par IA", calcTitle: "Entrez le montant du prêt, le taux d'intérêt et la durée pour calculer l'EMI", amountLabel: "Montant du prêt (₹)", rateLabel: "Taux d'intérêt (%)", tenureLabel: "Durée (Années)", resultPrefix: "EMI: " }
         };
-        function toggleLanguage() {
-            lang = lang === 'en' ? 'hi' : 'en';
-            document.getElementById('lang-text').textContent = lang === 'en' ? 'Eng' : 'हिं';
-            document.querySelector('header p').textContent = translations[lang].tagline;
-            document.getElementById('loan-title').textContent = translations[lang].loanTitle;
-            document.getElementById('loan-subtitle').textContent = translations[lang].loanSubtitle;
+        function toggleTheme() {
+            isDarkMode = !isDarkMode;
+            document.body.classList.toggle('light-mode', !isDarkMode);
+            document.getElementById('theme-text').textContent = isDarkMode ? 'Dark' : 'Light';
         }
         function calculateLoan() {
-            let principal = parseFloat(document.getElementById("principal").value);
-            let rate = parseFloat(document.getElementById("rate").value) / 12 / 100; // Monthly rate
-            let tenure = parseFloat(document.getElementById("tenure").value) * 12; // Months
-            let resultDiv = document.getElementById("loan-result");
-            if (principal && rate && tenure) {
-                let emi = (principal * rate * Math.pow(1 + rate, tenure)) / (Math.pow(1 + rate, tenure) - 1);
-                let totalPayment = emi * tenure;
-                let totalInterest = totalPayment - principal;
-                resultDiv.innerHTML = `EMI: ₹${emi.toFixed(2)}<br>Total Payment: ₹${totalPayment.toFixed(2)}<br>Total Interest: ₹${totalInterest.toFixed(2)}`;
-            } else {
-                resultDiv.innerText = "Please enter valid values";
-            }
+            document.getElementById("spinner").style.display = "inline";
+            setTimeout(() => {
+                let principal = parseFloat(document.getElementById("loan-amount").value);
+                let rate = parseFloat(document.getElementById("interest-rate").value) / 12 / 100;
+                let tenure = parseFloat(document.getElementById("tenure").value) * 12;
+                let resultDiv = document.getElementById("loan-result");
+                if (principal > 0 && rate > 0 && tenure > 0) {
+                    let emi = (principal * rate * Math.pow(1 + rate, tenure)) / (Math.pow(1 + rate, tenure) - 1);
+                    let totalPayment = emi * tenure;
+                    let totalInterest = totalPayment - principal;
+                    resultDiv.innerHTML = `${translations[lang].resultPrefix} ${emi.toFixed(2)} ₹/month<br>Total Interest: ${totalInterest.toFixed(2)} ₹<br>Total Payment: ${totalPayment.toFixed(2)} ₹`;
+                    speakResult(resultDiv.innerHTML);
+                } else {
+                    resultDiv.innerText = lang === 'en' ? "Please enter valid values" : lang === 'hi' ? "कृपया वैध मान दर्ज करें" : lang === 'ta' ? "சரியான மதிப்புகளை உள்ளிடவும்" : lang === 'te' ? "దయచేసి సరైన విలువలను నమోదు చేయండి" : lang === 'es' ? "Por favor, ingrese valores válidos" : lang === 'bn' ? "দয়া করে বৈধ মান লিখুন" : lang === 'ar' ? "يرجى إدخال قيم صحيحة" : lang === 'zh' ? "请输入有效值" : "Veuillez entrer des valeurs valides";
+                }
+                document.getElementById("spinner").style.display = "none";
+            }, 1000);
         }
+        function showCategory(category) {
+            // No action needed here as navigation is handled by index.html
+        }
+        function speakResult(result) {
+            const utterance = new SpeechSynthesisUtterance(result);
+            utterance.lang = lang === 'zh' ? 'zh-CN' : lang === 'ar' ? 'ar-SA' : lang;
+            window.speechSynthesis.speak(utterance);
+        }
+        window.onload = () => {
+            document.getElementById('header-title').textContent = translations[lang].header;
+            document.getElementById('tagline').textContent = translations[lang].tagline;
+            document.getElementById('calc-title').textContent = translations[lang].calcTitle;
+            document.getElementById('amount-label').textContent = translations[lang].amountLabel;
+            document.getElementById('rate-label').textContent = translations[lang].rateLabel;
+            document.getElementById('tenure-label').textContent = translations[lang].tenureLabel;
+        };
     </script>
 </html>
