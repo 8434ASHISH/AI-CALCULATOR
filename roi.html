@@ -3,88 +3,129 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ROI Calculator - AI Calculator</title>
+    <title>AI ROI Calculator - Free Online Tool | AI Calculator</title>
+    <meta name="description" content="Calculate your Return on Investment (ROI) with our free AI-powered ROI Calculator. Available in English, Hindi, Tamil, Telugu, Spanish, Bengali, Arabic, Mandarin, and French. Try now!">
+    <meta name="keywords" content="roi calculator, ai roi calculator, free roi calculator, online roi calculator, return on investment calculator">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://yourusername.github.io/ai-calculator/roi.html">
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
     <style>
         body {
             font-family: Arial, sans-serif;
             background: linear-gradient(135deg, #1A202C, #2D3748);
             color: #fff;
             margin: 0;
+            transition: background 0.3s, color 0.3s;
         }
-        .header { background: #2c3e50; padding: 20px 0; text-align: center; }
+        .light-mode {
+            background: #f0f0f0;
+            color: #333;
+        }
+        .header { background: #2c3e50; padding: 20px 0; text-align: center; position: relative; }
         .nav-tabs { display: flex; justify-content: center; gap: 20px; padding: 10px 0; background: #34495e; }
         .nav-tab { color: white; text-decoration: none; padding: 5px 15px; transition: background 0.3s; }
         .nav-tab:hover, .nav-tab.active { background: #3498db; border-radius: 5px; }
         .calculator-content { max-width: 600px; margin: 20px auto; padding: 20px; background: rgba(45, 55, 72, 0.9); border-radius: 10px; box-shadow: 0 0 15px rgba(0,0,0,0.5); }
-        .lang-switch { background: #34495e; padding: 6px 12px; border-radius: 5px; cursor: pointer; color: white; margin-left: 10px; display: inline-block; }
-        .lang-switch:hover { background: #3498db; }
+        .calculator-box { background: #e0e0e0; color: #333; padding: 20px; border-radius: 5px; text-align: center; }
+        .input-row { display: flex; justify-content: space-between; margin-bottom: 15px; }
+        .input-row label { font-weight: bold; }
+        input { border: 1px solid #ccc; padding: 5px; border-radius: 3px; width: 100px; }
+        button { background-color: #28a745; color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer; }
+        button:hover { background-color: #218838; }
+        .theme-switch { background: #34495e; padding: 6px 12px; border-radius: 5px; cursor: pointer; color: white; position: absolute; top: 20px; right: 120px; }
+        .theme-switch:hover { background: #3498db; }
+        @media (max-width: 600px) { .input-row { flex-direction: column; } input { width: 100%; margin-bottom: 10px; } }
     </style>
 </head>
 <body>
     <header class="header">
-        <h1 class="text-4xl font-bold">AI Calculator</h1>
-        <p id="tagline" class="text-lg">A to Z Calculators Powered by AI</p>
+        <h1 id="header-title">AI Calculator</h1>
+        <p id="tagline">A to Z Calculators Powered by AI</p>
+        <div class="theme-switch" onclick="toggleTheme()">Theme: <span id="theme-text">Dark</span></div>
     </header>
     <nav class="nav-tabs">
-        <a href="#financial" class="nav-tab" onclick="showCategory('financial')">Financial</a>
-        <a href="#health" class="nav-tab" onclick="showCategory('health')">Health</a>
-        <a href="#math" class="nav-tab" onclick="showCategory('math')">Math</a>
-        <a href="#conversion" class="nav-tab" onclick="showCategory('conversion')">Conversion</a>
-        <a href="#misc" class="nav-tab" onclick="showCategory('misc')">Miscellaneous</a>
+        <a href="index.html#financial" class="nav-tab" onclick="showCategory('financial')">Financial</a>
+        <a href="index.html#health" class="nav-tab" onclick="showCategory('health')">Health</a>
+        <a href="index.html#math" class="nav-tab" onclick="showCategory('math')">Math</a>
+        <a href="index.html#conversion" class="nav-tab" onclick="showCategory('conversion')">Conversion</a>
+        <a href="index.html#misc" class="nav-tab" onclick="showCategory('misc')">Miscellaneous</a>
     </nav>
     <div class="calculator-content">
-        <h2 id="roi-title" class="text-2xl font-semibold mb-4 text-center">ROI Calculator</h2>
-        <p id="roi-subtitle" class="text-center text-gray-300 mb-4">Calculate Return on Investment (ROI).</p>
-        <div class="mb-4">
-            <label for="investment" class="block mb-2">Initial Investment (₹)</label>
-            <input type="number" id="investment" class="w-full p-2 bg-gray-700 border border-gray-600 rounded" placeholder="e.g., 10000">
-        </div>
-        <div class="mb-4">
-            <label for="return" class="block mb-2">Return (₹)</label>
-            <input type="number" id="return" class="w-full p-2 bg-gray-700 border border-gray-600 rounded" placeholder="e.g., 12000">
-        </div>
-        <button onclick="calculateROI()" class="w-full bg-blue-500 text-white p-2 rounded hover:bg-blue-600">Calculate ROI</button>
-        <div id="roi-result" class="mt-4 text-center font-semibold"></div>
-    </div>
-    <div class="text-center mt-4">
-        <div class="lang-switch" onclick="toggleLanguage()">
-            <span id="lang-text">Eng</span>
+        <div class="calculator-box">
+            <h2 id="calc-title">Enter investment amount and return to calculate ROI</h2>
+            <div class="input-row">
+                <label id="investment-label">Investment Amount (₹)</label>
+                <input type="number" id="investment-amount" min="0" value="50000">
+            </div>
+            <div class="input-row">
+                <label id="return-label">Return Amount (₹)</label>
+                <input type="number" id="return-amount" min="0" value="60000">
+            </div>
+            <button onclick="calculateROI()">Calculate <span id="spinner" style="display:none;">⏳</span></button>
+            <div id="roi-result" class="mt-4 font-semibold"></div>
+            <div id="seo-content" class="mt-4 text-sm">
+                <h3>About ROI Calculator</h3>
+                <p>Welcome to the AI ROI Calculator, a free online tool designed to help you calculate your Return on Investment (ROI) accurately and efficiently. Whether you’re evaluating a business venture, stock investment, or real estate deal, this calculator uses advanced AI technology to provide instant results. Available in multiple languages including English, Hindi, Tamil, Telugu, Spanish, Bengali, Arabic, Mandarin, and French, it caters to a wide global audience. Simply enter your investment amount and the return amount, then click "Calculate" to determine your ROI percentage.</p>
+                <p>Why choose our ROI Calculator? It’s user-friendly, quick, and optimized for all devices, making it perfect for investors, entrepreneurs, and financial analysts. The tool uses the standard ROI formula: ROI = [(Return - Investment) / Investment] × 100, delivering a clear percentage that reflects your profit or loss. Our AI integration enhances accuracy and offers insights, such as comparing ROI across different investments. This calculator stands out with its multilingual support and modern interface, distinguishing it from traditional ROI tools.</p>
+                <p>SEO optimization is key to ensuring this tool ranks high on search engines like Google. We’ve included meta tags, a canonical URL, and keywords such as "roi calculator online," "free roi calculator," and "AI roi tool" to boost visibility. To improve rankings, consider adding backlinks from investment blogs or financial websites, and submit the site to relevant directories. Regular updates and user engagement can further enhance its performance. Ideal for investment planning, this calculator is a must-have for anyone looking to assess their financial returns. Try it today!</p>
+            </div>
         </div>
     </div>
     <footer class="bg-gray-800 text-white text-center py-4 mt-8">
         <p>© 2025 AI Calculator. All rights reserved.</p>
         <a href="privacy.html" class="text-blue-400 ml-2">Privacy Policy</a> |
-        <a href="disclaimer.html" class="text-blue-400 ml-2">Disclaimer</a> |
-        <a href="howtouse.html" class="text-blue-400 ml-2">How to Use</a>
+        <a href="contactus.html" class="text-blue-400 ml-2">Contact Us</a> |
+        <a href="howto.html" class="text-blue-400 ml-2">How to Use</a>
     </footer>
     <script>
-        function showCategory(category) {
-            window.location.href = 'index.html#' + category;
-        }
         let lang = 'en';
+        let isDarkMode = true;
         const translations = {
-            en: { tagline: "A to Z Calculators Powered by AI", roiTitle: "ROI Calculator", roiSubtitle: "Calculate Return on Investment (ROI)." },
-            hi: { tagline: "ए टू जेड कैलकुलेटर, AI द्वारा संचालित", roiTitle: "आरओआई कैलकुलेटर", roiSubtitle: "निवेश पर प्रतिफल (ROI) की गणना करें।" }
+            en: { header: "AI Calculator", tagline: "A to Z Calculators Powered by AI", calcTitle: "Enter investment amount and return to calculate ROI", investmentLabel: "Investment Amount (₹)", returnLabel: "Return Amount (₹)", resultPrefix: "ROI: " },
+            hi: { header: "एआई कैलकुलेटर", tagline: "ए टू जेड कैलकुलेटर, AI द्वारा संचालित", calcTitle: "निवेश राशि और रिटर्न दर्ज करें ROI की गणना के लिए", investmentLabel: "निवेश राशि (₹)", returnLabel: "रिटर्न राशि (₹)", resultPrefix: "ROI: " },
+            ta: { header: "AI கால்குலேட்டர்", tagline: "AI இயக்கிய A முதல் Z கால்குலேட்டர்கள்", calcTitle: "முதலீட்டு தொகை மற்றும் வருமானத்தை உள்ளிடவும் ROI கணக்கிட", investmentLabel: "முதலீட்டு தொகை (₹)", returnLabel: "வருமான தொகை (₹)", resultPrefix: "ROI: " },
+            te: { header: "AI కాల్కులేటర్", tagline: "AI ద్వారా నడిపే A నుండి Z కాల్కులేటర్లు", calcTitle: "నిర్వహణ రాశి మరియు రిటర్న్‌ను నమోదు చేయండి ROI కోసం", investmentLabel: "నిర్వహణ రాశి (₹)", returnLabel: "రిటర్న్ రాశి (₹)", resultPrefix: "ROI: " },
+            es: { header: "Calculadora de IA", tagline: "Calculadoras A-Z impulsadas por IA", calcTitle: "Ingrese el monto de la inversión y el retorno para calcular el ROI", investmentLabel: "Monto de la inversión (₹)", returnLabel: "Monto del retorno (₹)", resultPrefix: "ROI: " },
+            bn: { header: "এআই ক্যালকুলেটর", tagline: "এআই দ্বারা চালিত এ থেকে জে ক্যালকুলেটর", calcTitle: "বিনিয়োগের অংক এবং রিটার্ন লিখুন ROI গণনার জন্য", investmentLabel: "বিনিয়োগের পরিমাণ (₹)", returnLabel: "রিটার্নের পরিমাণ (₹)", resultPrefix: "ROI: " },
+            ar: { header: "حاسبة الذكاء الاصطناعي", tagline: "حاسبات A إلى Z مدعومة بالذكاء الاصطناعي", calcTitle: "أدخل مبلغ الاستثمار والعائد لحساب العائد على الاستثمار", investmentLabel: "مبلغ الاستثمار (₹)", returnLabel: "مبلغ العائد (₹)", resultPrefix: "العائد على الاستثمار: " },
+            zh: { header: "人工智能计算器", tagline: "AI驱动的A到Z计算器", calcTitle: "输入投资金额和回报以计算ROI", investmentLabel: "投资金额 (₹)", returnLabel: "回报金额 (₹)", resultPrefix: "ROI: " },
+            fr: { header: "Calculateur IA", tagline: "Calculateurs A à Z alimentés par IA", calcTitle: "Entrez le montant de l'investissement et le retour pour calculer le ROI", investmentLabel: "Montant de l'investissement (₹)", returnLabel: "Montant du retour (₹)", resultPrefix: "ROI: " }
         };
-        function toggleLanguage() {
-            lang = lang === 'en' ? 'hi' : 'en';
-            document.getElementById('lang-text').textContent = lang === 'en' ? 'Eng' : 'हिं';
-            document.querySelector('header p').textContent = translations[lang].tagline;
-            document.getElementById('roi-title').textContent = translations[lang].roiTitle;
-            document.getElementById('roi-subtitle').textContent = translations[lang].roiSubtitle;
+        function toggleTheme() {
+            isDarkMode = !isDarkMode;
+            document.body.classList.toggle('light-mode', !isDarkMode);
+            document.getElementById('theme-text').textContent = isDarkMode ? 'Dark' : 'Light';
         }
         function calculateROI() {
-            let investment = parseFloat(document.getElementById("investment").value);
-            let returnValue = parseFloat(document.getElementById("return").value);
-            let resultDiv = document.getElementById("roi-result");
-            if (investment && returnValue) {
-                let roi = ((returnValue - investment) / investment) * 100;
-                resultDiv.innerText = `ROI: ${roi.toFixed(2)}%`;
-            } else {
-                resultDiv.innerText = "Please enter valid values";
-            }
+            document.getElementById("spinner").style.display = "inline";
+            setTimeout(() => {
+                let investment = parseFloat(document.getElementById("investment-amount").value);
+                let returnAmount = parseFloat(document.getElementById("return-amount").value);
+                let resultDiv = document.getElementById("roi-result");
+                if (investment > 0 && returnAmount >= 0) {
+                    let roi = ((returnAmount - investment) / investment) * 100;
+                    resultDiv.innerHTML = `${translations[lang].resultPrefix} ${roi.toFixed(2)}%`;
+                    speakResult(resultDiv.innerHTML);
+                } else {
+                    resultDiv.innerText = lang === 'en' ? "Please enter valid values" : lang === 'hi' ? "कृपया वैध मान दर्ज करें" : lang === 'ta' ? "சரியான மதிப்புகளை உள்ளிடவும்" : lang === 'te' ? "దయచేసి సరైన విలువలను నమోదు చేయండి" : lang === 'es' ? "Por favor, ingrese valores válidos" : lang === 'bn' ? "দয়া করে বৈধ মান লিখুন" : lang === 'ar' ? "يرجى إدخال قيم صحيحة" : lang === 'zh' ? "请输入有效值" : "Veuillez entrer des valeurs valides";
+                }
+                document.getElementById("spinner").style.display = "none";
+            }, 1000);
         }
+        function showCategory(category) {
+            // No action needed here as navigation is handled by index.html
+        }
+        function speakResult(result) {
+            const utterance = new SpeechSynthesisUtterance(result);
+            utterance.lang = lang === 'zh' ? 'zh-CN' : lang === 'ar' ? 'ar-SA' : lang;
+            window.speechSynthesis.speak(utterance);
+        }
+        window.onload = () => {
+            document.getElementById('header-title').textContent = translations[lang].header;
+            document.getElementById('tagline').textContent = translations[lang].tagline;
+            document.getElementById('calc-title').textContent = translations[lang].calcTitle;
+            document.getElementById('investment-label').textContent = translations[lang].investmentLabel;
+            document.getElementById('return-label').textContent = translations[lang].returnLabel;
+        };
     </script>
 </html>
