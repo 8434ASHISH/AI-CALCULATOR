@@ -3,12 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI Calculator - Free Online Tools | All Calculators</title>
-    <meta name="description" content="Explore our free AI-powered calculators for finance, health, math, conversion, and more. Available in multiple languages. Try now!">
-    <meta name="keywords" content="ai calculator, free calculator, online calculator, financial calculator, health calculator, math calculator, conversion calculator">
-    <meta name="robots" content="index, follow">
-    <link rel="canonical" href="https://8434ashish.github.io/AI-CALCULATOR/index.html">
+    <title>AI Calculator - All-in-One Calculator Tools</title>
+    <meta name="description" content="Explore our free AI-powered calculators including age, BMI, loan, and more. Available in multiple languages!">
+    <meta name="keywords" content="ai calculator, age calculator, bmi calculator, loan calculator, free calculator">
     <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -27,286 +26,243 @@
             text-align: center;
             position: relative;
         }
-        .theme-switch {
-            background: #34495e;
-            padding: 6px 12px;
-            border-radius: 5px;
-            cursor: pointer;
-            color: white;
-            position: absolute;
-            top: 20px;
-            left: 20px;
-        }
-        .theme-switch:hover { background: #3498db; }
-        .lang-switch {
-            background: #34495e;
-            padding: 6px 12px;
-            border-radius: 5px;
-            cursor: pointer;
-            color: white;
+        .lang-dropdown {
             position: absolute;
             top: 20px;
             right: 20px;
-            z-index: 10;
+            background: #34495e;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
         }
-        .lang-switch:hover { background: #3498db; }
-        .lang-dropdown {
+        .lang-dropdown:hover, .lang-list:hover .lang-dropdown {
+            background: #3498db;
+        }
+        .lang-list {
             display: none;
             position: absolute;
             top: 100%;
             right: 0;
             background: #34495e;
             border-radius: 5px;
-            padding: 5px 0;
             min-width: 100px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+            z-index: 1;
         }
-        .lang-dropdown.active { display: block; }
+        .lang-list.active {
+            display: block;
+        }
         .lang-option {
-            padding: 5px 15px;
+            padding: 8px 12px;
             color: white;
             text-decoration: none;
             display: block;
         }
-        .lang-option:hover { background: #3498db; }
-        .nav-tabs { display: flex; justify-content: center; gap: 20px; padding: 10px 0; background: #34495e; }
-        .nav-tab { color: white; text-decoration: none; padding: 5px 15px; transition: background 0.3s; }
-        .nav-tab:hover, .nav-tab.active { background: #3498db; border-radius: 5px; }
-        .calculator-list { max-width: 800px; margin: 20px auto; padding: 20px; }
-        .calculator-item { margin-bottom: 10px; }
-        .calculator-item a { color: #3498db; text-decoration: none; }
-        .calculator-item a:hover { text-decoration: underline; }
-        footer { background: #2c3e50; padding: 20px 0; text-align: center; }
+        .lang-option:hover {
+            background: #3498db;
+        }
+        .nav-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            padding: 10px 0;
+            background: #34495e;
+        }
+        .nav-tab {
+            color: white;
+            text-decoration: none;
+            padding: 5px 15px;
+            transition: background 0.3s;
+            border: 2px solid #3498db;
+            border-radius: 5px;
+        }
+        .nav-tab:hover, .nav-tab.active {
+            background: #3498db;
+        }
+        .calculator-content {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background: rgba(45, 55, 72, 0.9);
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0,0,0,0.5);
+            text-align: center;
+        }
+        .category-box {
+            display: inline-block;
+            width: 150px;
+            height: 150px;
+            margin: 10px;
+            background: #34495e;
+            border: 2px solid #3498db;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: transform 0.3s;
+            text-align: center;
+            padding-top: 20px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+        .category-box:hover {
+            transform: scale(1.1);
+            background: #3498db;
+        }
+        .theme-switch {
+            background: #34495e;
+            padding: 6px 12px;
+            border-radius: 5px;
+            cursor: pointer;
+            color: white;
+            margin-left: 10px;
+            display: inline-block;
+        }
+        .theme-switch:hover {
+            background: #3498db;
+        }
         @media (max-width: 600px) {
             .nav-tabs { flex-direction: column; text-align: center; }
-            .calculator-list { padding: 10px; }
+            .nav-tab { margin: 5px 0; }
+            .lang-dropdown { top: 10px; right: 10px; }
+            .category-box { width: 100px; height: 100px; margin: 5px; }
         }
     </style>
 </head>
 <body>
     <header class="header">
-        <h1><span style="font-weight: bold; color: #3498db;">AI CALCULATOR</span></h1>
-        <p id="tagline">A to Z Calculators Powered by AI</p>
-        <div class="theme-switch" onclick="toggleTheme()">Theme: <span id="theme-text">Dark</span></div>
-        <div class="lang-switch" onclick="toggleLanguageDropdown()">Language: <span id="lang-text">English</span></div>
-        <div class="lang-dropdown" id="lang-dropdown">
+        <h1><span style="font-weight: bold; color: #ff0000;">AI CALCULATOR</span></h1>
+        <p id="tagline" style="font-weight: bold; color: #3498db;">A to Z Calculators Powered by AI</p>
+        <div class="lang-dropdown" onclick="toggleLangList()">Language: <span id="lang-text">Eng</span> <i class="fas fa-caret-down"></i></div>
+        <div class="lang-list" id="lang-list">
             <a href="#" class="lang-option" onclick="changeLanguage('en')">English</a>
-            <a href="#" class="lang-option" onclick="changeLanguage('hi')">Hindi</a>
-            <a href="#" class="lang-option" onclick="changeLanguage('ta')">Tamil</a>
-            <a href="#" class="lang-option" onclick="changeLanguage('te')">Telugu</a>
-            <a href="#" class="lang-option" onclick="changeLanguage('es')">Spanish</a>
-            <a href="#" class="lang-option" onclick="changeLanguage('bn')">Bengali</a>
-            <a href="#" class="lang-option" onclick="changeLanguage('ar')">Arabic</a>
-            <a href="#" class="lang-option" onclick="changeLanguage('zh')">Mandarin</a>
-            <a href="#" class="lang-option" onclick="changeLanguage('fr')">French</a>
+            <a href="#" class="lang-option" onclick="changeLanguage('hi')">हिन्दी (Hindi)</a>
+            <a href="#" class="lang-option" onclick="changeLanguage('ta')">தமிழ் (Tamil)</a>
+            <a href="#" class="lang-option" onclick="changeLanguage('te')">తెలుగు (Telugu)</a>
+            <a href="#" class="lang-option" onclick="changeLanguage('es')">Español (Spanish)</a>
+            <a href="#" class="lang-option" onclick="changeLanguage('bn')">বাংলা (Bengali)</a>
+            <a href="#" class="lang-option" onclick="changeLanguage('ar')">العربية (Arabic)</a>
+            <a href="#" class="lang-option" onclick="changeLanguage('zh')">中文 (Mandarin)</a>
+            <a href="#" class="lang-option" onclick="changeLanguage('fr')">Français (French)</a>
         </div>
     </header>
     <nav class="nav-tabs">
-        <a href="#financial" class="nav-tab" id="nav-financial">Financial</a>
-        <a href="#health" class="nav-tab" id="nav-health">Health</a>
-        <a href="#math" class="nav-tab" id="nav-math">Math</a>
-        <a href="#conversion" class="nav-tab" id="nav-conversion">Conversion</a>
-        <a href="#misc" class="nav-tab" id="nav-misc">Miscellaneous</a>
+        <a href="javascript:void(0)" class="nav-tab" onclick="showCategory('home')">Home</a>
+        <a href="javascript:void(0)" class="nav-tab" onclick="showCategory('financial')">Financial</a>
+        <a href="javascript:void(0)" class="nav-tab" onclick="showCategory('health')">Health</a>
+        <a href="javascript:void(0)" class="nav-tab" onclick="showCategory('math')">Math</a>
+        <a href="javascript:void(0)" class="nav-tab" onclick="showCategory('conversion')">Conversion</a>
+        <a href="javascript:void(0)" class="nav-tab" onclick="showCategory('misc')">Miscellaneous</a>
     </nav>
-    <div class="calculator-list">
-        <h2 id="category-title">Available Calculators</h2>
-        <div id="financial-section">
-            <h3>Financial Calculators</h3>
-            <div class="calculator-item"><a href="financialcalculator.html">Financial Calculator</a></div>
-            <div class="calculator-item"><a href="householdcalculator.html">Household Calculator</a></div>
-            <div class="calculator-item"><a href="tipcalculator.html">Tip Calculator</a></div>
-            <div class="calculator-item"><a href="retirementcalculator.html">Retirement Calculator</a></div>
-            <div class="calculator-item"><a href="amortizationcalculator.html">Amortization Calculator</a></div>
-            <div class="calculator-item"><a href="inflationcalculator.html">Inflation Calculator</a></div>
-            <div class="calculator-item"><a href="salarycalculator.html">Salary Calculator</a></div>
-            <div class="calculator-item"><a href="salestaxcalculator.html">Sales Tax Calculator</a></div>
+    <div class="calculator-content" id="calculator-content">
+        <div id="home-box" class="category-box active">
+            <span>🏠</span><br>Home
         </div>
-        <div id="health-section">
-            <h3>Health Calculators</h3>
-            <div class="calculator-item"><a href="agecalculator.html">Age Calculator</a></div>
-            <div class="calculator-item"><a href="idealweightcalculator.html">Ideal Weight Calculator</a></div>
-            <div class="calculator-item"><a href="pregnancyconceptioncalculator.html">Pregnancy Conception Calculator</a></div>
+        <div id="financial-box" class="category-box" onclick="showCalculators('financial')">
+            <span>💰</span><br>Financial
         </div>
-        <div id="math-section">
-            <h3>Math Calculators</h3>
-            <div class="calculator-item"><a href="gpacalculator.html">GPA Calculator</a></div>
-            <div class="calculator-item"><a href="gradecalculator.html">Grade Calculator</a></div>
-            <div class="calculator-item"><a href="standarddeviationcalculator.html">Standard Deviation Calculator</a></div>
+        <div id="health-box" class="category-box" onclick="showCalculators('health')">
+            <span>❤️</span><br>Health
         </div>
-        <div id="conversion-section">
-            <h3>Conversion Calculators</h3>
-            <div class="calculator-item"><a href="timeconverter.html">Time Converter</a></div>
-            <div class="calculator-item"><a href="datediffcalculator.html">Date Difference Calculator</a></div>
-            <div class="calculator-item"><a href="pacecalculator.html">Pace Calculator</a></div>
+        <div id="math-box" class="category-box" onclick="showCalculators('math')">
+            <span>📐</span><br>Math
         </div>
-        <div id="misc-section">
-            <h3>Miscellaneous Calculators</h3>
-            <div class="calculator-item"><a href="randomcalculator.html">Random Calculator</a></div>
-            <div class="calculator-item"><a href="concretecalculator.html">Concrete Calculator</a></div>
-            <div class="calculator-item"><a href="subnetcalculator.html">Subnet Calculator</a></div>
-            <div class="calculator-item"><a href="passwordgenerator.html">Password Generator</a></div>
-            <!-- Future Calculators (Placeholders) -->
-            <div class="calculator-item"><a href="#">Standard Deviation Calculator</a></div>
-            <div class="calculator-item"><a href="#">Pregnancy Conception Calculator</a></div>
-            <div class="calculator-item"><a href="#">Ideal Weight Calculator</a></div>
-            <div class="calculator-item"><a href="#">Retirement Calculator</a></div>
-            <div class="calculator-item"><a href="#">Amortization Calculator</a></div>
-            <div class="calculator-item"><a href="#">Inflation Calculator</a></div>
-            <div class="calculator-item"><a href="#">Salary Calculator</a></div>
-            <div class="calculator-item"><a href="#">Sales Tax Calculator</a></div>
-            <div class="calculator-item"><a href="#">Pace Calculator</a></div>
-            <div class="calculator-item"><a href="#">GPA Calculator</a></div>
-            <div class="calculator-item"><a href="#">Grade Calculator</a></div>
-            <div class="calculator-item"><a href="#">Concrete Calculator</a></div>
-            <div class="calculator-item"><a href="#">Subnet Calculator</a></div>
-            <div class="calculator-item"><a href="#">Password Generator</a></div>
+        <div id="conversion-box" class="category-box" onclick="showCalculators('conversion')">
+            <span>🔄</span><br>Conversion
+        </div>
+        <div id="misc-box" class="category-box" onclick="showCalculators('misc')">
+            <span>🌟</span><br>Miscellaneous
+        </div>
+        <div id="feedback-box" class="category-box">
+            <span>💡</span><br>Feedback/Suggestion
         </div>
     </div>
-    <footer>
-        <p id="footer-text">© 2025 AI Calculator. All rights reserved.</p>
-        <a href="privacy.html" class="text-blue-400 ml-2" id="privacy-link">Privacy Policy</a> |
-        <a href="contactus.html" class="text-blue-400 ml-2" id="contact-link">Contact Us</a> |
-        <a href="howto.html" class="text-blue-400 ml-2" id="howto-link">How to Use</a>
+    <footer class="bg-gray-800 text-white text-center py-4 mt-8">
+        <p>© 2025 AI Calculator. All rights reserved.</p>
+        <a href="https://yourusername.github.io/ai-calculator/privacy.html" class="text-blue-400 ml-2" target="_blank">Privacy Policy</a> |
+        <a href="https://yourusername.github.io/ai-calculator/contactus.html" class="text-blue-400 ml-2" target="_blank">Contact Us</a> |
+        <a href="https://yourusername.github.io/ai-calculator/howto.html" class="text-blue-400 ml-2" target="_blank">How to Use</a>
     </footer>
     <script>
+        function showCategory(category) {
+            const boxes = document.querySelectorAll('.category-box');
+            boxes.forEach(box => box.classList.remove('active'));
+            document.getElementById(`${category}-box`).classList.add('active');
+            if (category === 'home') {
+                document.getElementById('calculator-content').innerHTML = `
+                    <div id="home-box" class="category-box active">
+                        <span>🏠</span><br>Home
+                    </div>
+                    <div id="financial-box" class="category-box" onclick="showCalculators('financial')">
+                        <span>💰</span><br>Financial
+                    </div>
+                    <div id="health-box" class="category-box" onclick="showCalculators('health')">
+                        <span>❤️</span><br>Health
+                    </div>
+                    <div id="math-box" class="category-box" onclick="showCalculators('math')">
+                        <span>📐</span><br>Math
+                    </div>
+                    <div id="conversion-box" class="category-box" onclick="showCalculators('conversion')">
+                        <span>🔄</span><br>Conversion
+                    </div>
+                    <div id="misc-box" class="category-box" onclick="showCalculators('misc')">
+                        <span>🌟</span><br>Miscellaneous
+                    </div>
+                    <div id="feedback-box" class="category-box">
+                        <span>💡</span><br>Feedback/Suggestion
+                    </div>
+                `;
+            } else {
+                showCalculators(category);
+            }
+        }
+
+        function showCalculators(category) {
+            const categoryMap = {
+                financial: ['loan', 'mortgage', 'roi', 'saving', 'gst', 'discount', 'compound', 'emi', 'investment', 'percentage'],
+                health: ['bmi', 'bmr', 'bodyfat', 'calories', 'pregnancy'],
+                math: ['percentile', 'meanmode', 'decimal', 'scientific', 'algebra', 'geometry'],
+                conversion: ['length', 'temperature', 'weight', 'currency', 'timeconv'],
+                misc: ['age', 'datediff', 'random', 'tip', 'household']
+            };
+            const content = document.getElementById('calculator-content');
+            content.innerHTML = `
+                <h2 id="category-title" class="text-2xl font-semibold mb-4 text-center">${category.charAt(0).toUpperCase() + category.slice(1)} Calculators</h2>
+                <div id="calculators-list" class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    ${categoryMap[category].map(calc => `
+                        <a href="${calc}.html" class="bg-${category === 'financial' ? 'blue' : category === 'health' ? 'green' : category === 'math' ? 'yellow' : category === 'conversion' ? 'purple' : 'red'}-500 text-white p-2 rounded hover:bg-${category === 'financial' ? 'blue' : category === 'health' ? 'green' : category === 'math' ? 'yellow' : category === 'conversion' ? 'purple' : 'red'}-600 block text-center">
+                            ${calc.charAt(0).toUpperCase() + calc.slice(1)} Calculator
+                        </a>
+                    `).join('')}
+                </div>
+            `;
+        }
+
         let lang = 'en';
         let isDarkMode = true;
         const translations = {
-            en: {
-                header: "AI CALCULATOR",
-                tagline: "A to Z Calculators Powered by AI",
-                categoryTitle: "Available Calculators",
-                navFinancial: "Financial",
-                navHealth: "Health",
-                navMath: "Math",
-                navConversion: "Conversion",
-                navMisc: "Miscellaneous",
-                footerText: "© 2025 AI Calculator. All rights reserved.",
-                privacyLink: "Privacy Policy",
-                contactLink: "Contact Us",
-                howtoLink: "How to Use",
-                langText: "English"
-            },
-            hi: {
-                header: "एआई कैलकुलेटर",
-                tagline: "ए टू जेड कैलकुलेटर, AI द्वारा संचालित",
-                categoryTitle: "उपलब्ध कैलकुलेटर",
-                navFinancial: "वित्तीय",
-                navHealth: "स्वास्थ्य",
-                navMath: "गणित",
-                navConversion: "रूपांतरण",
-                navMisc: "विविध",
-                footerText: "© 2025 एआई कैलकुलेटर। सर्वाधिकार सुरक्षित।",
-                privacyLink: "गोपनीयता नीति",
-                contactLink: "संपर्क करें",
-                howtoLink: "उपयोग कैसे करें",
-                langText: "हिंदी"
-            },
-            ta: {
-                header: "AI கால்குலேட்டர்",
-                tagline: "AI இயக்கிய A முதல் Z கால்குலேட்டர்கள்",
-                categoryTitle: "கிடைக்கும் கால்குலேட்டர்கள்",
-                navFinancial: "நிதி",
-                navHealth: "ஆரோக்கியம்",
-                navMath: "கணிதம்",
-                navConversion: "மாற்றம்",
-                navMisc: "பலதரப்பட்ட",
-                footerText: "© 2025 AI கால்குலேட்டர். அனைத்து உரிமைகளும் பாதுகாக்கப்பட்டவை.",
-                privacyLink: "தனியுரிமை கொள்கை",
-                contactLink: "எங்களை தொடர்பு கொள்ளவும்",
-                howtoLink: "எப்படி பயன்படுத்துவது",
-                langText: "தமிழ்"
-            },
-            te: {
-                header: "AI కాల్కులేటర్",
-                tagline: "AI ద్వారా నడిపే A నుండి Z కాల్కులేటర్లు",
-                categoryTitle: "అందుబాటులో ఉన్న కాల్కులేటర్లు",
-                navFinancial: "నైతిక",
-                navHealth: "ఆరోగ్యం",
-                navMath: "గణితం",
-                navConversion: "రూపాంతరం",
-                navMisc: "ఇతర",
-                footerText: "© 2025 AI కాల్కులేటర్. అన్ని హక్కులు పరిరక్షితమైనవి.",
-                privacyLink: "గోప్యతా విధానం",
-                contactLink: "మమ్మల్ని సంప్రదించండి",
-                howtoLink: "ఎలా ఉపయోగించాలి",
-                langText: "తెలుగు"
-            },
-            es: {
-                header: "Calculadora de IA",
-                tagline: "Calculadoras A-Z impulsadas por IA",
-                categoryTitle: "Calculadoras Disponibles",
-                navFinancial: "Financiero",
-                navHealth: "Salud",
-                navMath: "Matemáticas",
-                navConversion: "Conversión",
-                navMisc: "Varios",
-                footerText: "© 2025 Calculadora de IA. Todos los derechos reservados.",
-                privacyLink: "Política de Privacidad",
-                contactLink: "Contáctenos",
-                howtoLink: "Cómo Usar",
-                langText: "Español"
-            },
-            bn: {
-                header: "এআই ক্যালকুলেটর",
-                tagline: "এআই দ্বারা চালিত এ থেকে জে ক্যালকুলেটর",
-                categoryTitle: "উপলব্ধ ক্যালকুলেটর",
-                navFinancial: "আর্থিক",
-                navHealth: "স্বাস্থ্য",
-                navMath: "গণিত",
-                navConversion: "রূপান্তর",
-                navMisc: "বিবিধ",
-                footerText: "© 2025 এআই ক্যালকুলেটর। সব অধিকার সংরক্ষিত।",
-                privacyLink: "গোপনীয়তা নীতি",
-                contactLink: "যোগাযোগ করুন",
-                howtoLink: "কীভাবে ব্যবহার করবেন",
-                langText: "বাংলা"
-            },
-            ar: {
-                header: "حاسبة الذكاء الاصطناعي",
-                tagline: "حاسبات A إلى Z مدعومة بالذكاء الاصطناعي",
-                categoryTitle: "الآلات الحاسبة المتاحة",
-                navFinancial: "مالي",
-                navHealth: "صحة",
-                navMath: "رياضيات",
-                navConversion: "تحويل",
-                navMisc: "متنوع",
-                footerText: "© 2025 حاسبة الذكاء الاصطناعي. جميع الحقوق محفوظة.",
-                privacyLink: "سياسة الخصوصية",
-                contactLink: "اتصل بنا",
-                howtoLink: "كيفية الاستخدام",
-                langText: "عربي"
-            },
-            zh: {
-                header: "人工智能计算器",
-                tagline: "AI驱动的A到Z计算器",
-                categoryTitle: "可用计算器",
-                navFinancial: "财务",
-                navHealth: "健康",
-                navMath: "数学",
-                navConversion: "转换",
-                navMisc: "杂项",
-                footerText: "© 2025 人工智能计算器。版权所有。",
-                privacyLink: "隐私政策",
-                contactLink: "联系我们",
-                howtoLink: "如何使用",
-                langText: "中文"
-            },
-            fr: {
-                header: "Calculateur IA",
-                tagline: "Calculateurs A à Z alimentés par IA",
-                categoryTitle: "Calculateurs Disponibles",
-                navFinancial: "Financier",
-                navHealth: "Santé",
-                navMath: "Mathématiques",
-                navConversion: "Conversion",
-                navMisc: "Divers",
-                footerText: "© 2025 Calculateur IA. Tous droits réservés.",
-                privacyLink: "Politique de Confidentialité",
-                contactLink: "Contactez-nous",
-                howtoLink: "Comment Utiliser",
-                langText: "Français"
-            }
+            en: { tagline: "A to Z Calculators Powered by AI", categoryTitle: "Select a Calculator" },
+            hi: { tagline: "ए टू जेड कैलकुलेटर, AI द्वारा संचालित", categoryTitle: "कैलकुलेटर चुनें" },
+            ta: { tagline: "AI இயக்கிய A முதல் Z கால்குலேட்டர்கள்", categoryTitle: "கால்குலேட்டரைத் தேர்ந்தெடுக்கவும்" },
+            te: { tagline: "AI ద్వారా నడిపే A నుండి Z కాల్కులేటర్లు", categoryTitle: "కాల్కులేటర్‌ను ఎంచుకోండి" },
+            es: { tagline: "Calculadoras A-Z impulsadas por IA", categoryTitle: "Seleccione una calculadora" },
+            bn: { tagline: "এআই দ্বারা চालিত এ থেকে জে ক্যালকুলেটর", categoryTitle: "ক্যালকুলেটর নির্বাচন করুন" },
+            ar: { tagline: "حاسبات A إلى Z مدعومة بالذكاء الاصطनاعي", categoryTitle: "اختر حاسبة" },
+            zh: { tagline: "AI驱动的A到Z计算器", categoryTitle: "选择计算器" },
+            fr: { tagline: "Calculateurs A à Z alimentés par IA", categoryTitle: "Sélectionnez une calculatrice" }
         };
+
+        function toggleLangList() {
+            document.getElementById('lang-list').classList.toggle('active');
+        }
+
+        function changeLanguage(newLang) {
+            lang = newLang;
+            document.getElementById('lang-text').textContent = lang;
+            document.getElementById('tagline').textContent = translations[lang].tagline;
+            document.getElementById('category-title').textContent = translations[lang].categoryTitle || "Select a Calculator";
+            document.getElementById('lang-list').classList.remove('active');
+        }
 
         function toggleTheme() {
             isDarkMode = !isDarkMode;
@@ -314,35 +270,13 @@
             document.getElementById('theme-text').textContent = isDarkMode ? 'Dark' : 'Light';
         }
 
-        function toggleLanguageDropdown() {
-            document.getElementById('lang-dropdown').classList.toggle('active');
-        }
-
-        function changeLanguage(newLang) {
-            lang = newLang;
-            updateLanguage();
-            document.getElementById('lang-dropdown').classList.remove('active');
-        }
-
-        function updateLanguage() {
-            const t = translations[lang];
-            document.getElementById('header-title').textContent = t.header;
-            document.getElementById('tagline').textContent = t.tagline;
-            document.getElementById('category-title').textContent = t.categoryTitle;
-            document.getElementById('nav-financial').textContent = t.navFinancial;
-            document.getElementById('nav-health').textContent = t.navHealth;
-            document.getElementById('nav-math').textContent = t.navMath;
-            document.getElementById('nav-conversion').textContent = t.navConversion;
-            document.getElementById('nav-misc').textContent = t.navMisc;
-            document.getElementById('footer-text').textContent = t.footerText;
-            document.getElementById('privacy-link').textContent = t.privacyLink;
-            document.getElementById('contact-link').textContent = t.contactLink;
-            document.getElementById('howto-link').textContent = t.howtoLink;
-            document.getElementById('lang-text').textContent = t.langText;
-        }
-
-        window.onload = () => {
-            updateLanguage();
+        window.onclick = function(event) {
+            if (!event.target.matches('.lang-dropdown')) {
+                document.getElementById('lang-list').classList.remove('active');
+            }
         };
+
+        window.onload = () => showCategory('home');
     </script>
+    <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'931e37c32de6afba',t:'MTc0NDkxNjk3Ny4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script>
 </html>
