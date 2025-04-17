@@ -109,6 +109,25 @@
             transform: scale(1.1);
             background: #3498db;
         }
+        .suggestion-box {
+            display: inline-block;
+            width: 150px;
+            height: 150px;
+            margin: 10px;
+            background: #34495e;
+            border: 2px solid #e74c3c;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: transform 0.3s;
+            text-align: center;
+            padding-top: 20px;
+            font-size: 16px;
+            font-weight: bold;
+        }
+        .suggestion-box:hover {
+            transform: scale(1.1);
+            background: #e74c3c;
+        }
         .theme-switch {
             background: #34495e;
             padding: 6px 12px;
@@ -125,7 +144,8 @@
             .nav-tabs { flex-direction: column; text-align: center; }
             .nav-tab { margin: 5px 0; }
             .lang-dropdown { top: 10px; right: 10px; }
-            .category-box { width: 100px; height: 100px; margin: 5px; }
+            .calculator-content { padding: 10px; }
+            .category-box, .suggestion-box { width: 100px; height: 100px; margin: 5px; font-size: 14px; padding-top: 10px; }
         }
     </style>
 </head>
@@ -173,8 +193,8 @@
         <div id="misc-box" class="category-box" onclick="showCalculators('misc')">
             <span>🌟</span><br>Miscellaneous
         </div>
-        <div id="feedback-box" class="category-box">
-            <span>💡</span><br>Feedback/Suggestion
+        <div id="suggestion-box" class="suggestion-box">
+            <span>💡</span><br>Feedback<br><span style="color: #e74c3c; font-size: 12px;">Send us your ideas at<br><b>first4bencher@gmail.com</b><br>🚀 Let's make it awesome!</span>
         </div>
     </div>
     <footer class="bg-gray-800 text-white text-center py-4 mt-8">
@@ -185,7 +205,7 @@
     </footer>
     <script>
         function showCategory(category) {
-            const boxes = document.querySelectorAll('.category-box');
+            const boxes = document.querySelectorAll('.category-box, .suggestion-box');
             boxes.forEach(box => box.classList.remove('active'));
             document.getElementById(`${category}-box`).classList.add('active');
             if (category === 'home') {
@@ -208,8 +228,8 @@
                     <div id="misc-box" class="category-box" onclick="showCalculators('misc')">
                         <span>🌟</span><br>Miscellaneous
                     </div>
-                    <div id="feedback-box" class="category-box">
-                        <span>💡</span><br>Feedback/Suggestion
+                    <div id="suggestion-box" class="suggestion-box">
+                        <span>💡</span><br>Feedback<br><span style="color: #e74c3c; font-size: 12px;">Send us your ideas at<br><b>first4bencher@gmail.com</b><br>🚀 Let's make it awesome!</span>
                     </div>
                 `;
             } else {
@@ -219,21 +239,54 @@
 
         function showCalculators(category) {
             const categoryMap = {
-                financial: ['loan', 'mortgage', 'roi', 'saving', 'gst', 'discount', 'compound', 'emi', 'investment', 'percentage'],
-                health: ['bmi', 'bmr', 'bodyfat', 'calories', 'pregnancy'],
-                math: ['percentile', 'meanmode', 'decimal', 'scientific', 'algebra', 'geometry'],
-                conversion: ['length', 'temperature', 'weight', 'currency', 'timeconv'],
-                misc: ['age', 'datediff', 'random', 'tip', 'household']
+                financial: [
+                    { name: 'Financial Calculator', link: 'financialcalculator.html' },
+                    { name: 'Household Calculator', link: 'householdcalculator.html' },
+                    { name: 'Tip Calculator', link: 'tipcalculator.html' },
+                    { name: 'Retirement Calculator', link: 'retirementcalculator.html' },
+                    { name: 'Amortization Calculator', link: 'amortizationcalculator.html' },
+                    { name: 'Inflation Calculator', link: 'inflationcalculator.html' },
+                    { name: 'Salary Calculator', link: 'salarycalculator.html' },
+                    { name: 'Sales Tax Calculator', link: 'salestaxcalculator.html' }
+                ],
+                health: [
+                    { name: 'Age Calculator', link: 'agecalculator.html' },
+                    { name: 'BMI Calculator', link: 'bmicalculator.html' },
+                    { name: 'BMR Calculator', link: 'bmrcalculator.html' },
+                    { name: 'Ideal Weight Calculator', link: 'idealweightcalculator.html' },
+                    { name: 'Pregnancy Conception Calculator', link: 'pregnancyconceptioncalculator.html' }
+                ],
+                math: [
+                    { name: 'GPA Calculator', link: 'gpacalculator.html' },
+                    { name: 'Grade Calculator', link: 'gradecalculator.html' },
+                    { name: 'Standard Deviation Calculator', link: 'standarddeviationcalculator.html' }
+                ],
+                conversion: [
+                    { name: 'Time Converter', link: 'timeconverter.html' },
+                    { name: 'Date Difference Calculator', link: 'datediffcalculator.html' },
+                    { name: 'Pace Calculator', link: 'pacecalculator.html' },
+                    { name: 'Weight Converter', link: 'weightconverter.html' },
+                    { name: 'Currency Converter', link: 'currencyconverter.html' }
+                ],
+                misc: [
+                    { name: 'Random Calculator', link: 'randomcalculator.html' },
+                    { name: 'Concrete Calculator', link: 'concretecalculator.html' },
+                    { name: 'Subnet Calculator', link: 'subnetcalculator.html' },
+                    { name: 'Password Generator', link: 'passwordgenerator.html' }
+                ]
             };
             const content = document.getElementById('calculator-content');
             content.innerHTML = `
                 <h2 id="category-title" class="text-2xl font-semibold mb-4 text-center">${category.charAt(0).toUpperCase() + category.slice(1)} Calculators</h2>
                 <div id="calculators-list" class="grid grid-cols-1 md:grid-cols-2 gap-4">
                     ${categoryMap[category].map(calc => `
-                        <a href="${calc}.html" class="bg-${category === 'financial' ? 'blue' : category === 'health' ? 'green' : category === 'math' ? 'yellow' : category === 'conversion' ? 'purple' : 'red'}-500 text-white p-2 rounded hover:bg-${category === 'financial' ? 'blue' : category === 'health' ? 'green' : category === 'math' ? 'yellow' : category === 'conversion' ? 'purple' : 'red'}-600 block text-center">
-                            ${calc.charAt(0).toUpperCase() + calc.slice(1)} Calculator
+                        <a href="${calc.link}" class="bg-${category === 'financial' ? 'blue' : category === 'health' ? 'green' : category === 'math' ? 'yellow' : category === 'conversion' ? 'purple' : 'red'}-500 text-white p-2 rounded hover:bg-${category === 'financial' ? 'blue' : category === 'health' ? 'green' : category === 'math' ? 'yellow' : category === 'conversion' ? 'purple' : 'red'}-600 block text-center">
+                            ${calc.name}
                         </a>
                     `).join('')}
+                </div>
+                <div class="mt-4">
+                    <a href="javascript:void(0)" class="nav-tab" onclick="showCategory('home')">Back to Home</a>
                 </div>
             `;
         }
@@ -246,8 +299,8 @@
             ta: { tagline: "AI இயக்கிய A முதல் Z கால்குலேட்டர்கள்", categoryTitle: "கால்குலேட்டரைத் தேர்ந்தெடுக்கவும்" },
             te: { tagline: "AI ద్వారా నడిపే A నుండి Z కాల్కులేటర్లు", categoryTitle: "కాల్కులేటర్‌ను ఎంచుకోండి" },
             es: { tagline: "Calculadoras A-Z impulsadas por IA", categoryTitle: "Seleccione una calculadora" },
-            bn: { tagline: "এআই দ্বারা চालিত এ থেকে জে ক্যালকুলেটর", categoryTitle: "ক্যালকুলেটর নির্বাচন করুন" },
-            ar: { tagline: "حاسبات A إلى Z مدعومة بالذكاء الاصطनاعي", categoryTitle: "اختر حاسبة" },
+            bn: { tagline: "এআই দ্বারা চালিত এ থেকে জে ক্যালকুলেটর", categoryTitle: "ক্যালকুলেটর নির্বাচন করুন" },
+            ar: { tagline: "حاسبات A إلى Z مدعومة بالذكاء الاصطناعي", categoryTitle: "اختر حاسبة" },
             zh: { tagline: "AI驱动的A到Z计算器", categoryTitle: "选择计算器" },
             fr: { tagline: "Calculateurs A à Z alimentés par IA", categoryTitle: "Sélectionnez une calculatrice" }
         };
