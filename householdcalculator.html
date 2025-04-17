@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Household Calculator - Free Online Tool | AI Calculator</title>
+    <meta name="description" content="Calculate household expenses with our free AI-powered Household Calculator. Available in English, Hindi, Tamil, Telugu, Spanish, Bengali, Arabic, Mandarin, and French. Try now!">
+    <meta name="keywords" content="household calculator, ai household calculator, free household calculator, online household calculator">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://yourusername.github.io/ai-calculator/householdcalculator.html">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #1A202C, #2D3748);
+            color: #fff;
+            margin: 0;
+            transition: background 0.3s, color 0.3s;
+        }
+        .light-mode {
+            background: #f0f0f0;
+            color: #333;
+        }
+        .header { background: #2c3e50; padding: 20px 0; text-align: center; position: relative; }
+        .nav-tabs { display: flex; justify-content: center; gap: 20px; padding: 10px 0; background: #34495e; }
+        .nav-tab { color: white; text-decoration: none; padding: 5px 15px; transition: background 0.3s; }
+        .nav-tab:hover, .nav-tab.active { background: #3498db; border-radius: 5px; }
+        .calculator-content { max-width: 600px; margin: 20px auto; padding: 20px; background: rgba(45, 55, 72, 0.9); border-radius: 10px; box-shadow: 0 0 15px rgba(0,0,0,0.5); }
+        .calculator-box { background: #e0e0e0; color: #333; padding: 20px; border-radius: 5px; text-align: center; }
+        .input-row { display: flex; justify-content: space-between; margin-bottom: 15px; }
+        .input-row label { font-weight: bold; }
+        input { border: 1px solid #ccc; padding: 5px; border-radius: 3px; width: 100px; }
+        button { background-color: #28a745; color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer; }
+        button:hover { background-color: #218838; }
+        .theme-switch { background: #34495e; padding: 6px 12px; border-radius: 5px; cursor: pointer; color: white; position: absolute; top: 20px; right: 120px; }
+        .theme-switch:hover { background: #3498db; }
+        @media (max-width: 600px) { .input-row { flex-direction: column; } input { width: 100%; margin-bottom: 10px; } }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <h1 id="header-title">AI Calculator</h1>
+        <p id="tagline">A to Z Calculators Powered by AI</p>
+        <div class="theme-switch" onclick="toggleTheme()">Theme: <span id="theme-text">Dark</span></div>
+    </header>
+    <nav class="nav-tabs">
+        <a href="index.html#financial" class="nav-tab" onclick="showCategory('financial')">Financial</a>
+        <a href="index.html#health" class="nav-tab" onclick="showCategory('health')">Health</a>
+        <a href="index.html#math" class="nav-tab" onclick="showCategory('math')">Math</a>
+        <a href="index.html#conversion" class="nav-tab" onclick="showCategory('conversion')">Conversion</a>
+        <a href="index.html#misc" class="nav-tab" onclick="showCategory('misc')">Miscellaneous</a>
+    </nav>
+    <div class="calculator-content">
+        <div class="calculator-box">
+            <h2 id="calc-title">Calculate household expenses</h2>
+            <div class="input-row">
+                <label id="rent-label">Rent/Mortgage</label>
+                <input type="number" id="rent" min="0" step="0.01" value="1000">
+            </div>
+            <div class="input-row">
+                <label id="utilities-label">Utilities</label>
+                <input type="number" id="utilities" min="0" step="0.01" value="200">
+            </div>
+            <div class="input-row">
+                <label id="groceries-label">Groceries</label>
+                <input type="number" id="groceries" min="0" step="0.01" value="300">
+            </div>
+            <div class="input-row">
+                <label id="other-label">Other Expenses</label>
+                <input type="number" id="other" min="0" step="0.01" value="100">
+            </div>
+            <button onclick="calculateHousehold()">Calculate <span id="spinner" style="display:none;">⏳</span></button>
+            <div id="household-result" class="mt-4 font-semibold"></div>
+            <div id="seo-content" class="mt-4 text-sm">
+                <h3>About Household Calculator</h3>
+                <p>Welcome to the AI Household Calculator, a free online tool designed to calculate your total household expenses with precision. This calculator uses advanced AI technology to provide instant results, ideal for budgeting, financial planning, or tracking monthly costs. Available in multiple languages including English, Hindi, Tamil, Telugu, Spanish, Bengali, Arabic, Mandarin, and French, it serves a diverse global audience. Enter your rent/mortgage, utilities, groceries, and other expenses, then click "Calculate" to see the total.</p>
+                <p>Why choose our Household Calculator? It’s user-friendly, fast, and optimized for all devices, making it perfect for managing household finances. The tool sums up all entered expenses, and our AI ensures accuracy. This calculator stands out with its multilingual support and modern design, setting it apart from traditional budgeting methods.</p>
+                <p>SEO optimization is key to ensuring this tool ranks high on search engines like Google. We’ve included meta tags, a canonical URL, and keywords such as "household calculator online," "free household calculator," and "AI household expense tool" to boost visibility. To enhance rankings, consider backlinks from financial or lifestyle websites, and submit the site to relevant directories. Regular updates and user feedback can further improve its performance. Perfect for household budgeting, this calculator is a must-have for anyone needing accurate expense tracking. Try it now!</p>
+            </div>
+        </div>
+    </div>
+    <footer class="bg-gray-800 text-white text-center py-4 mt-8">
+        <p>© 2025 AI Calculator. All rights reserved.</p>
+        <a href="privacy.html" class="text-blue-400 ml-2">Privacy Policy</a> |
+        <a href="contactus.html" class="text-blue-400 ml-2">Contact Us</a> |
+        <a href="howto.html" class="text-blue-400 ml-2">How to Use</a>
+    </footer>
+    <script>
+        let lang = 'en';
+        let isDarkMode = true;
+        const translations = {
+            en: { header: "AI Calculator", tagline: "A to Z Calculators Powered by AI", calcTitle: "Calculate household expenses", rentLabel: "Rent/Mortgage", utilitiesLabel: "Utilities", groceriesLabel: "Groceries", otherLabel: "Other Expenses", resultPrefix: "Total Expenses: " },
+            hi: { header: "एआई कैलकुलेटर", tagline: "ए टू जेड कैलकुलेटर, AI द्वारा संचालित", calcTitle: "घरेलू खर्चों की गणना करें", rentLabel: "रेंट/होम लोन", utilitiesLabel: "उपयोगिता", groceriesLabel: "सामान", otherLabel: "अन्य खर्च", resultPrefix: "कुल खर्च: " },
+            ta: { header: "AI கால்குலேட்டர்", tagline: "AI இயக்கிய A முதல் Z கால்குலேட்டர்கள்", calcTitle: "வீட்டு செலவுகளை கணக்கிடவும்", rentLabel: "வாடகை/கடன்", utilitiesLabel: "பயன்பாடுகள்", groceriesLabel: "கிராசரி", otherLabel: "மற்ற செலவுகள்", resultPrefix: "மொத்த செலவு: " },
+            te: { header: "AI కాల్కులేటర్", tagline: "AI ద్వారా నడిపే A నుండి Z కాల్కులేటర్లు", calcTitle: "ఇంటి ఖర్చులను లెక్కించండి", rentLabel: "రెంట్/లోన్", utilitiesLabel: "వినియోగాలు", groceriesLabel: "గ్రాసరీస్", otherLabel: "ఇతర ఖర్చులు", resultPrefix: "మొత్తం ఖర్చు: " },
+            es: { header: "Calculadora de IA", tagline: "Calculadoras A-Z impulsadas por IA", calcTitle: "Calcular gastos del hogar", rentLabel: "Alquiler/Hipoteca", utilitiesLabel: "Servicios", groceriesLabel: "Comestibles", otherLabel: "Otros Gastos", resultPrefix: "Gastos Totales: " },
+            bn: { header: "এআই ক্যালকুলেটর", tagline: "এআই দ্বারা চালিত এ থেকে জে ক্যালকুলেটর", calcTitle: "পরিবারের খরচ গণনা করুন", rentLabel: "ভাড়া/মর্টগেজ", utilitiesLabel: "উপযোগিতা", groceriesLabel: "গ্রোসারি", otherLabel: "অন্যান্য খরচ", resultPrefix: "মোট খরচ: " },
+            ar: { header: "حاسبة الذكاء الاصطناعي", tagline: "حاسبات A إلى Z مدعومة بالذكاء الاصطناعي", calcTitle: "حساب نفقات المنزل", rentLabel: "إيجار/رهن عقاري", utilitiesLabel: "المرافق", groceriesLabel: "البقالة", otherLabel: "نفقات أخرى", resultPrefix: "النفقات الإجمالية: " },
+            zh: { header: "人工智能计算器", tagline: "AI驱动的A到Z计算器", calcTitle: "计算家庭开支", rentLabel: "租金/抵押贷款", utilitiesLabel: "公用事业", groceriesLabel: "杂货", otherLabel: "其他费用", resultPrefix: "总开支: " },
+            fr: { header: "Calculateur IA", tagline: "Calculateurs A à Z alimentés par IA", calcTitle: "Calculer les dépenses du ménage", rentLabel: "Loyer/Hypothèque", utilitiesLabel: "Services publics", groceriesLabel: "Courses", otherLabel: "Autres Dépenses", resultPrefix: "Dépenses Totales: " }
+        };
+        function toggleTheme() {
+            isDarkMode = !isDarkMode;
+            document.body.classList.toggle('light-mode', !isDarkMode);
+            document.getElementById('theme-text').textContent = isDarkMode ? 'Dark' : 'Light';
+        }
+        function calculateHousehold() {
+            document.getElementById("spinner").style.display = "inline";
+            setTimeout(() => {
+                let rent = parseFloat(document.getElementById("rent").value) || 0;
+                let utilities = parseFloat(document.getElementById("utilities").value) || 0;
+                let groceries = parseFloat(document.getElementById("groceries").value) || 0;
+                let other = parseFloat(document.getElementById("other").value) || 0;
+                let resultDiv = document.getElementById("household-result");
+                if (rent >= 0 && utilities >= 0 && groceries >= 0 && other >= 0) {
+                    let total = rent + utilities + groceries + other;
+                    resultDiv.innerHTML = `${translations[lang].resultPrefix} $${total.toFixed(2)}`;
+                    speakResult(resultDiv.innerHTML);
+                } else {
+                    resultDiv.innerText = lang === 'en' ? "Please enter valid non-negative amounts" : lang === 'hi' ? "कृपया वैध और गैर-नकारात्मक राशि दर्ज करें" : lang === 'ta' ? "சரியான பூஜ்யமற்ற தொகைகளை உள்ளிடவும்" : lang === 'te' ? "దయచేసి సరైన మరియు పరిమితి లేని మొత్తాలను నమోదు చేయండి" : lang === 'es' ? "Por favor, ingrese cantidades válidas no negativas" : lang === 'bn' ? "দয়া করে বৈধ এবং নেতিবাচক নয় এমন পরিমাণ লিখুন" : lang === 'ar' ? "يرجى إدخال مبالغ صالحة غير سلبية" : lang === 'zh' ? "请输入有效的非负金额" : "Veuillez entrer des montants valides non négatifs";
+                }
+                document.getElementById("spinner").style.display = "none";
+            }, 1000);
+        }
+        function showCategory(category) {
+            // No action needed here as navigation is handled by index.html
+        }
+        function speakResult(result) {
+            const utterance = new SpeechSynthesisUtterance(result);
+            utterance.lang = lang === 'zh' ? 'zh-CN' : lang === 'ar' ? 'ar-SA' : lang;
+            window.speechSynthesis.speak(utterance);
+        }
+        window.onload = () => {
+            document.getElementById('header-title').textContent = translations[lang].header;
+            document.getElementById('tagline').textContent = translations[lang].tagline;
+            document.getElementById('calc-title').textContent = translations[lang].calcTitle;
+            document.getElementById('rent-label').textContent = translations[lang].rentLabel;
+            document.getElementById('utilities-label').textContent = translations[lang].utilitiesLabel;
+            document.getElementById('groceries-label').textContent = translations[lang].groceriesLabel;
+            document.getElementById('other-label').textContent = translations[lang].otherLabel;
+        };
+    </script>
+</html>
