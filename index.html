@@ -190,11 +190,11 @@
             const calculators = document.getElementById('calculators-list');
             calculators.innerHTML = '';
             const categoryMap = {
-                financial: ['loan', 'car', 'auto', 'mortgage', 'roi', 'saving', 'gst', 'discount', 'compound', 'emi', 'sip', 'investment', 'percentage'],
+                financial: ['loan', 'car-loan', 'auto-loan', 'mortgage', 'roi', 'saving', 'gst', 'discount', 'compound-interest', 'emi', 'sip', 'investment', 'percentage'],
                 health: ['bmi', 'bmr', 'bodyfat', 'calories', 'pregnancy'],
-                math: ['percentile', 'meanmode', 'decimal', 'scientific', 'algebra', 'geometry'],
-                conversion: ['length', 'temperature', 'weight', 'currency', 'timeconv'],
-                misc: ['age', 'datediff', 'random', 'tip', 'household']
+                math: ['percentile', 'meanmodemedian', 'decimaltofraction', 'scientific', 'algebra', 'geometry'],
+                conversion: ['length', 'temperature', 'weight', 'currencyexchange', 'timeconversion'],
+                misc: ['age', 'datedifference', 'randomnumberfinder', 'tip', 'household']
             };
             categoryMap[category].forEach(calc => {
                 const a = document.createElement('a');
