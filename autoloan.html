@@ -1,0 +1,119 @@
+<!-- Same structure as the Car Loan Calculator with minor tweaks in names and labels -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Auto loan calculator to calculate monthly payments for auto loans, including principal, interest, and total payment.">
+    <meta name="keywords" content="auto loan calculator, car loan, calculate monthly auto payment, auto loan interest">
+    <meta name="author" content="Your Name">
+    <title>Auto Loan Calculator</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .hidden {
+            display: none;
+        }
+        .visible {
+            display: block;
+        }
+    </style>
+</head>
+<body class="bg-gray-200">
+    <div class="max-w-lg mx-auto p-6 bg-white rounded-lg shadow-lg">
+        <h1 class="text-center text-2xl font-semibold mb-6" id="calculator-name">Auto Loan Calculator</h1>
+        <!-- Dark/Light Theme Toggle -->
+        <div class="flex justify-between items-center mb-4">
+            <button id="theme-toggle" class="text-xl p-2 bg-gray-300 rounded-full">🌙</button>
+            <div>
+                <button id="lang-en" class="mr-2">English</button>
+                <button id="lang-hi">Hindi</button>
+            </div>
+        </div>
+
+        <div id="loan-details">
+            <label for="loan-amount" class="block mb-2">Loan Amount</label>
+            <input type="number" id="loan-amount" class="w-full mb-4 p-2 border" placeholder="Enter loan amount">
+
+            <label for="interest-rate" class="block mb-2">Interest Rate (%)</label>
+            <input type="number" id="interest-rate" class="w-full mb-4 p-2 border" placeholder="Enter interest rate">
+
+            <label for="loan-term" class="block mb-2">Loan Term (in years)</label>
+            <input type="number" id="loan-term" class="w-full mb-4 p-2 border" placeholder="Enter loan term in years">
+
+            <button id="calculate-btn" class="w-full bg-blue-500 text-white p-3 rounded-lg">Calculate</button>
+        </div>
+
+        <div id="result" class="hidden mt-4">
+            <p class="text-xl font-semibold" id="monthly-payment"></p>
+            <button id="copy-btn" class="mt-4 bg-green-500 text-white p-2 rounded-lg w-full">Copy Result</button>
+        </div>
+    </div>
+
+    <script>
+        let theme = 'light';
+        let language = 'en';
+
+        // Theme Toggle
+        document.getElementById('theme-toggle').addEventListener('click', () => {
+            if (theme === 'light') {
+                document.body.classList.add('bg-gray-800');
+                document.body.classList.remove('bg-gray-200');
+                theme = 'dark';
+                document.getElementById('theme-toggle').innerHTML = '☀️';
+            } else {
+                document.body.classList.remove('bg-gray-800');
+                document.body.classList.add('bg-gray-200');
+                theme = 'light';
+                document.getElementById('theme-toggle').innerHTML = '🌙';
+            }
+        });
+
+        // Language Switch
+        document.getElementById('lang-en').addEventListener('click', () => {
+            language = 'en';
+            document.getElementById('calculator-name').innerText = 'Auto Loan Calculator';
+            document.querySelector('label[for="loan-amount"]').innerText = 'Loan Amount';
+            document.querySelector('label[for="interest-rate"]').innerText = 'Interest Rate (%)';
+            document.querySelector('label[for="loan-term"]').innerText = 'Loan Term (in years)';
+            document.getElementById('calculate-btn').innerText = 'Calculate';
+            document.getElementById('copy-btn').innerText = 'Copy Result';
+        });
+
+        document.getElementById('lang-hi').addEventListener('click', () => {
+            language = 'hi';
+            document.getElementById('calculator-name').innerText = 'ऑटो ऋण कैलकुलेटर';
+            document.querySelector('label[for="loan-amount"]').innerText = 'ऋण राशि';
+            document.querySelector('label[for="interest-rate"]').innerText = 'ब्याज दर (%)';
+            document.querySelector('label[for="loan-term"]').innerText = 'ऋण अवधि (वर्षों में)';
+            document.getElementById('calculate-btn').innerText = 'गणना करें';
+            document.getElementById('copy-btn').innerText = 'परिणाम कॉपी करें';
+        });
+
+        // Calculate Monthly Payment
+        document.getElementById('calculate-btn').addEventListener('click', () => {
+            const loanAmount = parseFloat(document.getElementById('loan-amount').value);
+            const interestRate = parseFloat(document.getElementById('interest-rate').value) / 100 / 12;
+            const loanTerm = parseInt(document.getElementById('loan-term').value) * 12;
+
+            if (isNaN(loanAmount) || isNaN(interestRate) || isNaN(loanTerm)) {
+                alert("Please enter valid values.");
+                return;
+            }
+
+            const monthlyPayment = (loanAmount * interestRate) / (1 - Math.pow(1 + interestRate, -loanTerm));
+            document.getElementById('monthly-payment').innerText = `Monthly Payment: ₹${monthlyPayment.toFixed(2)}`;
+            document.getElementById('result').classList.remove('hidden');
+        });
+
+        // Copy Button
+        document.getElementById('copy-btn').addEventListener('click', () => {
+            const paymentText = document.getElementById('monthly-payment').innerText;
+            navigator.clipboard.writeText(paymentText);
+            alert("Result copied to clipboard!");
+        });
+    </script>
+</body>
+</html>
