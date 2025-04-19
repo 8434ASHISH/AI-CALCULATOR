@@ -10,240 +10,483 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
     <style>
         body {
-            font-family: Arial, sans-serif;
-            background: linear-gradient(135deg, #1A202C, #2D3748);
-            color: #fff;
-            margin: 0;
-            transition: background 0.3s, color 0.3s;
-        }
-        .light-mode {
-            background: #f0f0f0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f8f9fa;
             color: #333;
+            margin: 0;
         }
         .header {
-            background: #2c3e50;
-            padding: 20px 0;
+            background: linear-gradient(135deg, #4e54c8, #8f94fb);
+            padding: 25px 0;
             text-align: center;
             position: relative;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        .header h1 {
+            color: white;
+            font-size: 2.5rem;
+            font-weight: 800;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+            margin-bottom: 10px;
+        }
+        #tagline {
+            color: white;
+            font-size: 1.2rem;
+            font-weight: 500;
+            margin-bottom: 15px;
         }
         .lang-dropdown {
             position: absolute;
             top: 20px;
             right: 20px;
-            background: #34495e;
+            background: rgba(255,255,255,0.2);
             color: white;
-            padding: 5px 10px;
-            border-radius: 5px;
+            padding: 8px 15px;
+            border-radius: 25px;
             cursor: pointer;
-            font-weight: bold;
+            font-weight: 600;
+            transition: all 0.3s;
+            border: 1px solid rgba(255,255,255,0.3);
         }
-        .lang-dropdown:hover, .lang-list:hover .lang-dropdown {
-            background: #3498db;
+        .lang-dropdown:hover {
+            background: rgba(255,255,255,0.3);
         }
         .lang-list {
             display: none;
             position: absolute;
             top: 100%;
             right: 0;
-            background: #34495e;
-            border-radius: 5px;
-            min-width: 100px;
-            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
-            z-index: 1;
+            background: white;
+            border-radius: 8px;
+            min-width: 150px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+            z-index: 10;
+            overflow: hidden;
         }
         .lang-list.active {
             display: block;
         }
         .lang-option {
-            padding: 8px 12px;
-            color: white;
+            padding: 10px 15px;
+            color: #333;
             text-decoration: none;
             display: block;
+            transition: all 0.2s;
         }
         .lang-option:hover {
-            background: #3498db;
+            background: #f0f0f0;
+            color: #4e54c8;
         }
         .nav-tabs {
             display: flex;
             justify-content: center;
-            gap: 20px;
-            padding: 10px 0;
-            background: #34495e;
+            gap: 15px;
+            padding: 15px 0;
+            background: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            flex-wrap: wrap;
         }
         .nav-tab {
-            color: white;
+            color: #555;
             text-decoration: none;
-            padding: 5px 15px;
-            transition: background 0.3s;
+            padding: 8px 20px;
+            transition: all 0.3s;
+            font-weight: 600;
+            border-radius: 25px;
         }
         .nav-tab:hover, .nav-tab.active {
-            background: #3498db;
-            border-radius: 5px;
+            background: #4e54c8;
+            color: white;
         }
         .calculator-content {
-            max-width: 800px;
-            margin: 20px auto;
-            padding: 20px;
-            background: rgba(45, 55, 72, 0.9);
-            border-radius: 10px;
-            box-shadow: 0 0 15px rgba(0,0,0,0.5);
+            max-width: 1100px;
+            margin: 30px auto;
+            padding: 25px;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
         }
-        .theme-switch {
-            background: #34495e;
-            padding: 6px 12px;
-            border-radius: 5px;
+        #category-title {
+            color: #4e54c8;
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 25px;
+            text-align: center;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .action-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 25px;
+        }
+        .action-btn {
+            padding: 10px 25px;
+            border-radius: 25px;
+            font-weight: 600;
             cursor: pointer;
-            color: white;
-            margin-left: 10px;
+            transition: all 0.3s;
+            text-decoration: none;
             display: inline-block;
         }
-        .theme-switch:hover {
-            background: #3498db;
+        .home-btn {
+            background: #4e54c8;
+            color: white;
+            border: 2px solid #4e54c8;
         }
-        @media (max-width: 600px) {
-            .nav-tabs { flex-direction: column; text-align: center; }
-            .nav-tab { margin: 5px 0; }
-            .lang-dropdown { top: 10px; right: 10px; }
+        .home-btn:hover {
+            background: #3a41b8;
+            border-color: #3a41b8;
+        }
+        .feedback-btn {
+            background: #ff6b6b;
+            color: white;
+            border: 2px solid #ff6b6b;
+        }
+        .feedback-btn:hover {
+            background: #ff5252;
+            border-color: #ff5252;
+        }
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 10px;
+        }
+        .social-icon {
+            color: #4e54c8;
+            font-size: 1.5rem;
+            transition: all 0.3s;
+        }
+        .social-icon:hover {
+            color: #3a41b8;
+            transform: translateY(-3px);
+        }
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2rem;
+            }
+            #tagline {
+                font-size: 1rem;
+            }
+            .nav-tabs {
+                gap: 10px;
+                padding: 10px;
+            }
+            .nav-tab {
+                padding: 6px 15px;
+                font-size: 0.9rem;
+            }
+            .calculator-content {
+                padding: 15px;
+            }
         }
     </style>
 </head>
 <body>
     <header class="header">
-        <h1>AI Calculator</h1>
+        <h1>AI CALCULATOR</h1>
         <p id="tagline">A to Z Calculators Powered by AI</p>
-        <div class="lang-dropdown" onclick="toggleLangList()">Language: <span id="lang-text">Eng</span> <i class="fas fa-caret-down"></i></div>
-        <div class="lang-list" id="lang-list">
-            <a href="#" class="lang-option" onclick="changeLanguage('en')">English</a>
-            <a href="#" class="lang-option" onclick="changeLanguage('hi')">हिन्दी (Hindi)</a>
-            <a href="#" class="lang-option" onclick="changeLanguage('ta')">தமிழ் (Tamil)</a>
-            <a href="#" class="lang-option" onclick="changeLanguage('te')">తెలుగు (Telugu)</a>
-            <a href="#" class="lang-option" onclick="changeLanguage('es')">Español (Spanish)</a>
-            <a href="#" class="lang-option" onclick="changeLanguage('bn')">বাংলা (Bengali)</a>
-            <a href="#" class="lang-option" onclick="changeLanguage('ar')">العربية (Arabic)</a>
-            <a href="#" class="lang-option" onclick="changeLanguage('zh')">中文 (Mandarin)</a>
-            <a href="#" class="lang-option" onclick="changeLanguage('fr')">Français (French)</a>
+        <div class="lang-dropdown" onclick="toggleLangList()">
+            <span id="lang-text">English</span> <i class="fas fa-caret-down"></i>
+            <div class="lang-list" id="lang-list">
+                <a href="#" class="lang-option" onclick="changeLanguage('en', 'English')">English</a>
+                <a href="#" class="lang-option" onclick="changeLanguage('hi', 'हिन्दी')">हिन्दी (Hindi)</a>
+                <a href="#" class="lang-option" onclick="changeLanguage('ta', 'தமிழ்')">தமிழ் (Tamil)</a>
+                <a href="#" class="lang-option" onclick="changeLanguage('te', 'తెలుగు')">తెలుగు (Telugu)</a>
+                <a href="#" class="lang-option" onclick="changeLanguage('es', 'Español')">Español (Spanish)</a>
+                <a href="#" class="lang-option" onclick="changeLanguage('bn', 'বাংলা')">বাংলা (Bengali)</a>
+                <a href="#" class="lang-option" onclick="changeLanguage('ar', 'العربية')">العربية (Arabic)</a>
+                <a href="#" class="lang-option" onclick="changeLanguage('zh', '中文')">中文 (Mandarin)</a>
+                <a href="#" class="lang-option" onclick="changeLanguage('fr', 'Français')">Français (French)</a>
+            </div>
         </div>
     </header>
     <nav class="nav-tabs">
-        <a href="#financial" class="nav-tab" onclick="showCategory('financial')">Financial</a>
+        <a href="#financial" class="nav-tab active" onclick="showCategory('financial')">Financial</a>
+        <a href="#mathematics" class="nav-tab" onclick="showCategory('mathematics')">Mathematics</a>
         <a href="#health" class="nav-tab" onclick="showCategory('health')">Health</a>
-        <a href="#math" class="nav-tab" onclick="showCategory('mathematics')">Mathematics</a>
-        <a href="#conversion" class="nav-tab" onclick="showCategory('conversion')">Conversion</a>
-        <a href="#construction & home" class="nav-tab" onclick="showCategory('construction & home')">Construction & home</a>
-          <a href="#time forecasting" class="nav-tab" onclick="showCategory('Time forecasting')">Time forecasting</a>
-          <a href="#college academic" class="nav-tab" onclick="showCategory('college Academic')">college Academic</a>
-          <a href="#school academic" class="nav-tab" onclick="showCategory('school Academic')">school Academic</a>
-          <a href="#machine learning" class="nav-tab" onclick="showCategory('Machine learning')">Machine learning</a>
-        <a href="#fun tools" class="nav-tab" onclick="showCategory('fun tools')">Fun Tools</a>
+        <a href="#unit-converter" class="nav-tab" onclick="showCategory('unit-converter')">Unit Converter</a>
+        <a href="#academic" class="nav-tab" onclick="showCategory('academic')">Academic</a>
+        <a href="#construction" class="nav-tab" onclick="showCategory('construction')">Construction</a>
+        <a href="#ml" class="nav-tab" onclick="showCategory('ml')">ML Models</a>
+        <a href="#time-series" class="nav-tab" onclick="showCategory('time-series')">Time Series</a>
+        <a href="#fun" class="nav-tab" onclick="showCategory('fun')">Fun</a>
         <a href="#misc" class="nav-tab" onclick="showCategory('misc')">Miscellaneous</a>
     </nav>
     <div class="calculator-content">
-        <h2 id="category-title" class="text-2xl font-semibold mb-4 text-center">Select a Calculator</h2>
-        <div id="calculators-list" class="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <!-- Financial Calculators -->
-            <a href="loan.html" class="bg-blue-500 text-white p-2 rounded hover:bg-blue-600 block text-center">Loan Calculator</a>
-            <a href="mortgage.html" class="bg-blue-500 text-white p-2 rounded hover:bg-blue-600 block text-center">Mortgage Calculator</a>
-            <a href="roi.html" class="bg-blue-500 text-white p-2 rounded hover:bg-blue-600 block text-center">ROI Calculator</a>
-            <a href="savings.html" class="bg-blue-500 text-white p-2 rounded hover:bg-blue-600 block text-center">Saving Calculator</a>
-            <a href="gst.html" class="bg-blue-500 text-white p-2 rounded hover:bg-blue-600 block text-center">GST Calculator</a>
-            <a href="discount.html" class="bg-blue-500 text-white p-2 rounded hover:bg-blue-600 block text-center">Discount Calculator</a>
-            <a href="compoundinterestcalculator.html" class="bg-blue-500 text-white p-2 rounded hover:bg-blue-600 block text-center">Compound Interest Calculator</a>
-            <a href="emi.html" class="bg-blue-500 text-white p-2 rounded hover:bg-blue-600 block text-center">EMI Calculator</a>
-            <a href="investment.html" class="bg-blue-500 text-white p-2 rounded hover:bg-blue-600 block text-center">Investment Calculator</a>
-            <a href="percentage.html" class="bg-blue-500 text-white p-2 rounded hover:bg-blue-600 block text-center">Percentage Calculator</a>
-            <a href="sip.html" class="bg-blue-500 text-white p-2 rounded hover:bg-blue-600 block text-center">Sip Plan Calculator</a>
-            <a href="carloan.html" class="bg-blue-500 text-white p-2 rounded hover:bg-blue-600 block text-center">Car Loan Calculator</a>
-            <a href="autoloan.html" class="bg-blue-500 text-white p-2 rounded hover:bg-blue-600 block text-center">Auto Loan Calculator</a>
-            <!-- Health Calculators -->
-            <a href="bmi.html" class="bg-green-500 text-white p-2 rounded hover:bg-green-600 block text-center">BMI Calculator</a>
-            <a href="bmr.html" class="bg-green-500 text-white p-2 rounded hover:bg-green-600 block text-center">BMR Calculator</a>
-            <a href="bodyfat.html" class="bg-green-500 text-white p-2 rounded hover:bg-green-600 block text-center">Body Fat Calculator</a>
-            <a href="calories.html" class="bg-green-500 text-white p-2 rounded hover:bg-green-600 block text-center">Calories Calculator</a>
-            <a href="pregnancy.html" class="bg-green-500 text-white p-2 rounded hover:bg-green-600 block text-center">Pregnancy Calculator</a>
-            <!-- Mathematics Calculators -->
-            <a href="percentile.html" class="bg-yellow-500 text-white p-2 rounded hover:bg-yellow-600 block text-center">Percentile Calculator</a>
-            <a href="meanmodemedian.html" class="bg-yellow-500 text-white p-2 rounded hover:bg-yellow-600 block text-center">Mean-Mode-Median Calculator</a>
-            <a href="decimal.html" class="bg-yellow-500 text-white p-2 rounded hover:bg-yellow-600 block text-center">Decimal to Fraction Calculator</a>
-            <a href="scientific.html" class="bg-yellow-500 text-white p-2 rounded hover:bg-yellow-600 block text-center">Scientific Calculator</a>
-            <a href="algebra.html" class="bg-yellow-500 text-white p-2 rounded hover:bg-yellow-600 block text-center">Algebra Calculator</a>
-            <a href="geometry.html" class="bg-yellow-500 text-white p-2 rounded hover:bg-yellow-600 block text-center">Geometry Calculator</a>
-            <!-- Conversion Calculators -->
-            <a href="length.html" class="bg-purple-500 text-white p-2 rounded hover:bg-purple-600 block text-center">Length Converter</a>
-            <a href="temperature.html" class="bg-purple-500 text-white p-2 rounded hover:bg-purple-600 block text-center">Temperature Converter</a>
-            <a href="weight.html" class="bg-purple-500 text-white p-2 rounded hover:bg-purple-600 block text-center">Weight Converter</a>
-            <a href="currency.html" class="bg-purple-500 text-white p-2 rounded hover:bg-purple-600 block text-center">Currency Converter</a>
-            <a href="timeconv.html" class="bg-purple-500 text-white p-2 rounded hover:bg-purple-600 block text-center">Time Conversion Calculator</a>
-            <!-- Miscellaneous Calculators -->
-            <a href="age.html" class="bg-red-500 text-white p-2 rounded hover:bg-red-600 block text-center">Age Calculator</a>
-            <a href="datediff.html" class="bg-red-500 text-white p-2 rounded hover:bg-red-600 block text-center">Date Difference Calculator</a>
-            <a href="random.html" class="bg-red-500 text-white p-2 rounded hover:bg-red-600 block text-center">Random Number Generator</a>
-            <a href="tip.html" class="bg-red-500 text-white p-2 rounded hover:bg-red-600 block text-center">Tip Calculator</a>
-            <a href="household.html" class="bg-red-500 text-white p-2 rounded hover:bg-red-600 block text-center">Household Menu Calculator</a>
+        <h2 id="category-title" class="text-2xl font-semibold mb-4 text-center">FINANCIAL CALCULATORS</h2>
+        <div id="calculators-list" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+            <!-- Calculators will be dynamically loaded here -->
         </div>
-        <div class="text-center mt-4">
-            <div class="theme-switch" onclick="toggleTheme()">Theme: <span id="theme-text">Dark</span></div>
+        
+        <div class="action-buttons">
+            <a href="index.html" class="action-btn home-btn">
+                <i class="fas fa-home"></i> Home
+            </a>
+            <a href="mailto:first4bencher@gmail.com?subject=Feedback%20on%20AI%20Calculator" class="action-btn feedback-btn">
+                <i class="fas fa-comment-alt"></i> Feedback
+            </a>
         </div>
     </div>
-    <footer class="bg-gray-800 text-white text-center py-4 mt-8">
-        <p>© 2025 AI Calculator. All rights reserved.</p>
-        <a href="https://yourusername.github.io/ai-calculator/privacy.html" class="text-blue-400 ml-2" target="_blank">Privacy Policy</a> |
-        <a href="https://yourusername.github.io/ai-calculator/contactus.html" class="text-blue-400 ml-2" target="_blank">Contact Us</a> |
-        <a href="https://yourusername.github.io/ai-calculator/howto.html" class="text-blue-400 ml-2" target="_blank">How to Use</a>
+    <footer class="bg-gray-100 text-gray-700 text-center py-6 mt-8">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="flex flex-wrap justify-center gap-4 mb-4">
+                <a href="privacy.html" class="hover:text-blue-600 font-medium">Privacy Policy</a>
+                <a href="disclaimer.html" class="hover:text-blue-600 font-medium">Disclaimer</a>
+                <a href="how-to-use.html" class="hover:text-blue-600 font-medium">How to Use</a>
+                <a href="contact-us.html" class="hover:text-blue-600 font-medium">Contact Us</a>
+            </div>
+            
+            <div class="social-icons mb-4">
+                <a href="https://www.facebook.com/sharer/sharer.php?u=https://yourusername.github.io/ai-calculator/" target="_blank" class="social-icon">
+                    <i class="fab fa-facebook"></i>
+                </a>
+                <a href="https://twitter.com/intent/tweet?url=https://yourusername.github.io/ai-calculator/&text=Check%20out%20this%20awesome%20AI%20Calculator!" target="_blank" class="social-icon">
+                    <i class="fab fa-twitter"></i>
+                </a>
+                <a href="https://wa.me/?text=Check%20out%20this%20awesome%20AI%20Calculator%20https://yourusername.github.io/ai-calculator/" target="_blank" class="social-icon">
+                    <i class="fab fa-whatsapp"></i>
+                </a>
+            </div>
+            
+            <p class="text-sm">© 2025 AI Calculator. All rights reserved.</p>
+        </div>
     </footer>
     <script>
+        // Language translation data
+        const translations = {
+            en: {
+                tagline: "A to Z Calculators Powered by AI",
+                categories: {
+                    financial: "FINANCIAL CALCULATORS",
+                    mathematics: "MATHEMATICS CALCULATORS",
+                    health: "HEALTH CALCULATORS",
+                    "unit-converter": "UNIT CONVERTER CALCULATORS",
+                    academic: "ACADEMIC CALCULATORS",
+                    construction: "CONSTRUCTION CALCULATORS",
+                    ml: "ML MODEL CALCULATORS",
+                    "time-series": "TIME SERIES CALCULATORS",
+                    fun: "FUN CALCULATORS",
+                    misc: "MISCELLANEOUS CALCULATORS"
+                },
+                calculatorNames: {
+                    // Financial
+                    "loan": "Loan Calculator",
+                    "car-loan": "Car Loan Calculator",
+                    "auto-loan": "Auto Loan Calculator",
+                    "mortgage": "Mortgage Calculator",
+                    "roi": "ROI Calculator",
+                    "saving": "Saving Calculator",
+                    "gst": "GST Calculator",
+                    "discount": "Discount Calculator",
+                    "emi": "EMI Calculator",
+                    "sip": "SIP Calculator",
+                    "investment": "Investment Calculator",
+                    "amortization": "Amortization Calculator",
+                    "inflation": "Inflation Calculator",
+                    "sales-tax": "Sales Tax Calculator",
+                    // Mathematics
+                    "percentage": "Percentage Calculator",
+                    "compound-interest": "Compound Interest Calculator",
+                    "gpa": "GPA Calculator",
+                    "standard-deviation": "Standard Deviation Calculator",
+                    "percentile": "Percentile Calculator",
+                    "mean-mode-median": "Mean-Mode-Median Calculator",
+                    "decimal-to-fraction": "Decimal to Fraction Calculator",
+                    "scientific": "Scientific Calculator",
+                    "algebra": "Algebra Calculator",
+                    "geometry": "Geometry Calculator",
+                    "pythagoras": "Pythagoras Theorem Calculator",
+                    // Health
+                    "bmi": "BMI Calculator",
+                    "bmr": "BMR Calculator",
+                    "body-fat": "Body Fat Calculator",
+                    "pregnancy": "Pregnancy Calculator",
+                    "calories": "Calories Calculator",
+                    "weight": "Weight Calculator",
+                    "pregnancy-conception": "Pregnancy Conception Calculator",
+                    "menstruation-cycle": "Menstruation Cycle Calculator",
+                    // Unit Converter
+                    "length": "Length Converter",
+                    "temperature": "Temperature Converter",
+                    "weight": "Weight Converter",
+                    "currency": "Currency Converter",
+                    "time-conversion": "Time Conversion Calculator",
+                    "si-unit": "SI Unit Calculator",
+                    // Academic
+                    "cgpa": "CGPA Calculator",
+                    "marks-percentage": "Marks Percentage Calculator",
+                    "indian-exam-admission": "Indian Exam Admission Predictor",
+                    "global-exam-admission": "Global Exam Admission Predictor",
+                    // Construction
+                    "paint": "Paint Calculator",
+                    "tile": "Tile Calculator",
+                    "concrete-volume": "Concrete Volume Calculator",
+                    "cement": "Cement Calculator",
+                    "flooring-cost": "Flooring Cost Estimator",
+                    "wall-plaster": "Wall Plaster Calculator",
+                    "construction-material": "Construction Material Estimator",
+                    "labour-cost": "Labour Cost Calculator",
+                    // ML Models
+                    "ml-model-evaluator": "ML Model Evaluator",
+                    "classification-regression": "Classification & Regression Calculator",
+                    // Time Series
+                    "arima": "ARIMA Calculator",
+                    "lstm": "LSTM Calculator",
+                    "trend-analysis": "Trend Analysis Calculator",
+                    "railway-trends": "Railway Trends Calculator",
+                    // Fun
+                    "hangman-game": "Hangman Game",
+                    "tic-tac-toe": "Tic Tac Toe Game",
+                    "rock-paper-scissors": "Rock Paper Scissors Game",
+                    "word-guessing": "Word Guessing Game",
+                    "mental-math": "Mental Math Game",
+                    "quiz-game": "Quiz Game",
+                    // Miscellaneous
+                    "age": "Age Calculator",
+                    "date-difference": "Date Difference Calculator",
+                    "tip": "Tip Calculator",
+                    "household-item": "Household Item Calculator",
+                    "random-number": "Random Number Generator",
+                    "password-generator": "Password Generator",
+                    "subnet": "Subnet Calculator",
+                    "retirement": "Retirement Calculator",
+                    "salary": "Salary Calculator"
+                },
+                buttons: {
+                    home: "Home",
+                    feedback: "Feedback"
+                }
+            },
+            hi: {
+                tagline: "AI द्वारा संचालित A से Z कैलकुलेटर",
+                categories: {
+                    financial: "वित्तीय कैलकुलेटर",
+                    mathematics: "गणित कैलकुलेटर",
+                    health: "स्वास्थ्य कैलकुलेटर",
+                    "unit-converter": "यूनिट कनवर्टर कैलकुलेटर",
+                    academic: "शैक्षणिक कैलकुलेटर",
+                    construction: "निर्माण कैलकुलेटर",
+                    ml: "एमएल मॉडल कैलकुलेटर",
+                    "time-series": "टाइम सीरीज कैलकुलेटर",
+                    fun: "मनोरंजन कैलकुलेटर",
+                    misc: "विविध कैलकुलेटर"
+                },
+                calculatorNames: {
+                    // Add Hindi translations for all calculator names
+                    "loan": "लोन कैलकुलेटर",
+                    // ... other translations
+                },
+                buttons: {
+                    home: "होम",
+                    feedback: "प्रतिक्रिया"
+                }
+            }
+            // Add other languages similarly
+        };
+
+        // Current language
+        let currentLang = 'en';
+
         function showCategory(category) {
-            document.getElementById('category-title').textContent = `${category.charAt(0).toUpperCase() + category.slice(1)} Calculators`;
-            const calculators = document.getElementById('calculators-list');
-            calculators.innerHTML = '';
+            // Update category title
+            document.getElementById('category-title').textContent = 
+                translations[currentLang].categories[category] || translations['en'].categories[category];
+            
+            // Clear current calculators
+            const calculatorsList = document.getElementById('calculators-list');
+            calculatorsList.innerHTML = '';
+            
+            // Define category map
             const categoryMap = {
-                financial: ['loan', 'car-loan', 'auto-loan', 'mortgage', 'roi', 'saving', 'gst', 'discount', 'compound-interest', 'emi', 'sip', 'investment', 'percentage'],
-                health: ['bmi', 'bmr', 'bodyfat', 'calories', 'pregnancy'],
-                mathematics: ['percentile', 'meanmodemedian', 'decimaltofraction', 'scientific', 'algebra', 'geometry'],
-                conversion: ['length', 'temperature', 'weight', 'currencyexchange', 'timeconversion'],
-                misc: ['age', 'datedifference', 'randomnumberfinder', 'tip', 'household']
+                'financial': ['loan', 'car-loan', 'auto-loan', 'mortgage', 'roi', 'saving', 'gst', 'discount', 'emi', 'sip', 'investment', 'amortization', 'inflation', 'sales-tax'],
+                'mathematics': ['percentage', 'compound-interest', 'gpa', 'standard-deviation', 'percentile', 'mean-mode-median', 'decimal-to-fraction', 'scientific', 'algebra', 'geometry', 'pythagoras'],
+                'health': ['bmi', 'bmr', 'body-fat', 'pregnancy', 'calories', 'weight', 'pregnancy-conception', 'menstruation-cycle'],
+                'unit-converter': ['length', 'temperature', 'weight', 'currency', 'time-conversion', 'si-unit'],
+                'academic': ['cgpa', 'marks-percentage', 'indian-exam-admission', 'global-exam-admission'],
+                'construction': ['paint', 'tile', 'concrete-volume', 'cement', 'flooring-cost', 'wall-plaster', 'construction-material', 'labour-cost'],
+                'ml': ['ml-model-evaluator', 'classification-regression'],
+                'time-series': ['arima', 'lstm', 'trend-analysis', 'railway-trends'],
+                'fun': ['hangman-game', 'tic-tac-toe', 'rock-paper-scissors', 'word-guessing', 'mental-math', 'quiz-game'],
+                'misc': ['age', 'date-difference', 'tip', 'household-item', 'random-number', 'password-generator', 'subnet', 'retirement', 'salary']
             };
-            categoryMap[category].forEach(calc => {
+            
+            // Get calculators for this category
+            const calculators = categoryMap[category] || [];
+            
+            // Add calculators to the list
+            calculators.forEach(calc => {
                 const a = document.createElement('a');
                 a.href = `${calc}.html`;
-                a.className = `bg-${category === 'financial' ? 'blue' : category === 'health' ? 'green' : category === 'math' ? 'yellow' : category === 'conversion' ? 'purple' : 'red'}-500 text-white p-2 rounded hover:bg-${category === 'financial' ? 'blue' : category === 'health' ? 'green' : category === 'math' ? 'yellow' : category === 'conversion' ? 'purple' : 'red'}-600 block text-center`;
-                a.textContent = `${calc.charAt(0).toUpperCase() + calc.slice(1)} Calculator`;
-                calculators.appendChild(a);
+                a.className = `bg-${getCategoryColor(category)}-500 text-white p-3 rounded-lg hover:bg-${getCategoryColor(category)}-600 block text-center font-medium`;
+                a.textContent = translations[currentLang].calculatorNames[calc] || translations['en'].calculatorNames[calc];
+                calculatorsList.appendChild(a);
             });
+            
+            // Update active tab
+            document.querySelectorAll('.nav-tab').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            document.querySelector(`.nav-tab[href="#${category}"]`).classList.add('active');
         }
-        let lang = 'en';
-        let isDarkMode = true;
-        const translations = {
-            en: { tagline: "A to Z Calculators Powered by AI", categoryTitle: "Select a Calculator" },
-            hi: { tagline: "ए टू जेड कैलकुलेटर, AI द्वारा संचालित", categoryTitle: "कैलकुलेटर चुनें" },
-            ta: { tagline: "AI இயக்கிய A முதல் Z கால்குலேட்டர்கள்", categoryTitle: "கால்குலேட்டரைத் தேர்ந்தெடுக்கவும்" },
-            te: { tagline: "AI ద్వారా నడిపే A నుండి Z కాల్కులేటర్లు", categoryTitle: "కాల్కులేటర్‌ను ఎంచుకోండి" },
-            es: { tagline: "Calculadoras A-Z impulsadas por IA", categoryTitle: "Seleccione una calculadora" },
-            bn: { tagline: "এআই দ্বারা চালিত এ থেকে জে ক্যালকুলেটর", categoryTitle: "ক্যালকুলেটর নির্বাচন করুন" },
-            ar: { tagline: "حاسبات A إلى Z مدعومة بالذكاء الاصطناعي", categoryTitle: "اختر حاسبة" },
-            zh: { tagline: "AI驱动的A到Z计算器", categoryTitle: "选择计算器" },
-            fr: { tagline: "Calculateurs A à Z alimentés par IA", categoryTitle: "Sélectionnez une calculatrice" }
-        };
+        
+        function getCategoryColor(category) {
+            const colors = {
+                'financial': 'blue',
+                'mathematics': 'yellow',
+                'health': 'green',
+                'unit-converter': 'purple',
+                'academic': 'indigo',
+                'construction': 'pink',
+                'ml': 'teal',
+                'time-series': 'orange',
+                'fun': 'red',
+                'misc': 'gray'
+            };
+            return colors[category] || 'blue';
+        }
+
         function toggleLangList() {
             document.getElementById('lang-list').classList.toggle('active');
         }
-        function changeLanguage(newLang) {
-            lang = newLang;
-            document.getElementById('lang-text').textContent = lang;
-            document.getElementById('tagline').textContent = translations[lang].tagline;
-            document.getElementById('category-title').textContent = translations[lang].categoryTitle;
+        
+        function changeLanguage(langCode, langName) {
+            currentLang = langCode;
+            document.getElementById('lang-text').textContent = langName;
+            document.getElementById('tagline').textContent = translations[langCode].tagline;
+            
+            // Update UI elements
+            document.querySelectorAll('.nav-tab').forEach(tab => {
+                const category = tab.getAttribute('href').substring(1);
+                tab.textContent = translations[langCode].categories[category] || translations['en'].categories[category];
+            });
+            
+            // Update buttons
+            document.querySelector('.home-btn').innerHTML = `<i class="fas fa-home"></i> ${translations[langCode].buttons.home}`;
+            document.querySelector('.feedback-btn').innerHTML = `<i class="fas fa-comment-alt"></i> ${translations[langCode].buttons.feedback}`;
+            
+            // Refresh current category
+            const activeTab = document.querySelector('.nav-tab.active');
+            if (activeTab) {
+                const category = activeTab.getAttribute('href').substring(1);
+                showCategory(category);
+            }
+            
             document.getElementById('lang-list').classList.remove('active');
-            // Update all calculator links and content dynamically (to be implemented in individual pages)
         }
-        function toggleTheme() {
-            isDarkMode = !isDarkMode;
-            document.body.classList.toggle('light-mode', !isDarkMode);
-            document.getElementById('theme-text').textContent = isDarkMode ? 'Dark' : 'Light';
-        }
+
         window.onclick = function(event) {
-            if (!event.target.matches('.lang-dropdown')) {
+            if (!event.target.matches('.lang-dropdown') && !event.target.matches('.lang-dropdown *')) {
                 document.getElementById('lang-list').classList.remove('active');
             }
         };
-        window.onload = () => showCategory('financial');
+        
+        // Initialize
+        window.onload = () => {
+            showCategory('financial');
+        };
     </script>
+</body>
 </html>
