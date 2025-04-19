@@ -56,11 +56,8 @@
       left: 0;
       right: auto;
       width: auto;
-      background: rgba(255, 255, 255, 0.9);
+      background: #000;
       z-index: 1000;
-    }
-    .lang-container.dark-mode {
-      background: rgba(31, 41, 55, 0.9);
     }
     .theme-container {
       display: flex;
@@ -70,20 +67,22 @@
       right: 0;
       left: auto;
       width: auto;
-      background: rgba(255, 255, 255, 0.9);
+      background: #000;
       z-index: 1000;
-    }
-    .theme-container.dark-mode {
-      background: rgba(31, 41, 55, 0.9);
     }
     .lang-select {
       padding: 0.4rem;
       border-radius: 8px;
       border: 1px solid #ddd;
+      background: #000;
+      color: #fff;
+      font-weight: bold;
     }
     .theme-btn {
       background: none;
       font-size: 1.5rem;
+      color: #fff;
+      font-weight: bold;
       cursor: pointer;
     }
     .grid-container {
@@ -137,6 +136,10 @@
     .dark-mode .calculator-list strong {
       color: #93c5fd;
     }
+    .active-link {
+      text-decoration: underline;
+      color: #2563eb !important;
+    }
     .footer {
       margin-top: 2rem;
       background: #111827;
@@ -187,7 +190,7 @@
     <div class="theme-btn" id="themeToggle">🌙</div>
   </div>
   <div class="grid-container">
-    <div class="category-box" onclick="toggleList('finance')">
+    <div class="category-box" onclick="toggleList('finance', this)">
       <div class="category-name" id="finance-name">💰 Finance</div>
       <ul class="calculator-list" id="finance">
         <li><a href="loan-calculator.html"><strong>Loan Calculator</strong></a></li>
@@ -206,7 +209,7 @@
         <li><a href="sales-tax-calculator.html"><strong>Sales Tax Calculator</strong></a></li>
       </ul>
     </div>
-    <div class="category-box" onclick="toggleList('math')">
+    <div class="category-box" onclick="toggleList('math', this)">
       <div class="category-name" id="math-name">➗ Mathematics</div>
       <ul class="calculator-list" id="math">
         <li><a href="percentage-calculator.html"><strong>Percentage Calculator</strong></a></li>
@@ -222,7 +225,7 @@
         <li><a href="pythagoras-theorem-calculator.html"><strong>Pythagoras Theorem Calculator</strong></a></li>
       </ul>
     </div>
-    <div class="category-box" onclick="toggleList('health')">
+    <div class="category-box" onclick="toggleList('health', this)">
       <div class="category-name" id="health-name">❤️ Health</div>
       <ul class="calculator-list" id="health">
         <li><a href="bmi-calculator.html"><strong>BMI Calculator</strong></a></li>
@@ -235,7 +238,7 @@
         <li><a href="menstruation-cycle-calculator.html"><strong>Menstruation Cycle Calculator</strong></a></li>
       </ul>
     </div>
-    <div class="category-box" onclick="toggleList('unit')">
+    <div class="category-box" onclick="toggleList('unit', this)">
       <div class="category-name" id="unit-name">📏 Unit Converter</div>
       <ul class="calculator-list" id="unit">
         <li><a href="length-converter.html"><strong>Length Converter</strong></a></li>
@@ -246,7 +249,7 @@
         <li><a href="si-unit-converter.html"><strong>SI Unit Converter</strong></a></li>
       </ul>
     </div>
-    <div class="category-box" onclick="toggleList('school')">
+    <div class="category-box" onclick="toggleList('school', this)">
       <div class="category-name" id="school-name">🏫 School Academic</div>
       <ul class="calculator-list" id="school">
         <li><a href="cgpa-calculator.html"><strong>CGPA Calculator</strong></a></li>
@@ -254,14 +257,14 @@
         <li><a href="gpa-calculator.html"><strong>GPA Calculator</strong></a></li>
       </ul>
     </div>
-    <div class="category-box" onclick="toggleList('college')">
+    <div class="category-box" onclick="toggleList('college', this)">
       <div class="category-name" id="college-name">🎓 College Academic</div>
       <ul class="calculator-list" id="college">
         <li><a href="indian-exam-admission-predictor.html"><strong>Indian Exam Admission Predictor</strong></a></li>
         <li><a href="global-exam-admission-predictor.html"><strong>Global Exam Admission Predictor</strong></a></li>
       </ul>
     </div>
-    <div class="category-box" onclick="toggleList('construction')">
+    <div class="category-box" onclick="toggleList('construction', this)">
       <div class="category-name" id="construction-name">🏗️ Construction & Home</div>
       <ul class="calculator-list" id="construction">
         <li><a href="paint-calculator.html"><strong>Paint Calculator</strong></a></li>
@@ -274,7 +277,7 @@
         <li><a href="labour-cost-calculator.html"><strong>Labour Cost Calculator</strong></a></li>
       </ul>
     </div>
-    <div class="category-box" onclick="toggleList('ml')">
+    <div class="category-box" onclick="toggleList('ml', this)">
       <div class="category-name" id="ml-name">🤖 ML Model Evaluator</div>
       <ul class="calculator-list" id="ml">
         <li><a href="ml-model-evaluator.html"><strong>ML Model Evaluator</strong></a></li>
@@ -282,7 +285,7 @@
         <li><a href="regression-calculator.html"><strong>Regression Calculator</strong></a></li>
       </ul>
     </div>
-    <div class="category-box" onclick="toggleList('time')">
+    <div class="category-box" onclick="toggleList('time', this)">
       <div class="category-name" id="time-name">⏳ Time Forecasting</div>
       <ul class="calculator-list" id="time">
         <li><a href="arima-calculator.html"><strong>ARIMA Calculator</strong></a></li>
@@ -290,7 +293,7 @@
         <li><a href="railway-trend-analysis.html"><strong>Railway Trend Analysis</strong></a></li>
       </ul>
     </div>
-    <div class="category-box" onclick="toggleList('fun')">
+    <div class="category-box" onclick="toggleList('fun', this)">
       <div class="category-name" id="fun-name">🎮 Fun</div>
       <ul class="calculator-list" id="fun">
         <li><a href="hangman-game.html"><strong>Hangman Game</strong></a></li>
@@ -301,7 +304,7 @@
         <li><a href="quiz-game.html"><strong>Quiz Game</strong></a></li>
       </ul>
     </div>
-    <div class="category-box" onclick="toggleList('misc')">
+    <div class="category-box" onclick="toggleList('misc', this)">
       <div class="category-name" id="misc-name">🧮 Miscellaneous</div>
       <ul class="calculator-list" id="misc">
         <li><a href="date-difference.html"><strong>Date Difference</strong></a></li>
@@ -330,8 +333,9 @@
   </div>
 
   <script>
-    function toggleList(id) {
+    function toggleList(id, box) {
       const allLists = document.querySelectorAll('.calculator-list');
+      const allBoxes = document.querySelectorAll('.category-box');
       allLists.forEach(list => {
         if (list.id !== id) list.style.display = 'none';
       });
@@ -339,7 +343,28 @@
       if (list) {
         list.style.display = list.style.display === 'block' ? 'none' : 'block';
       }
+      allBoxes.forEach(b => b.classList.remove('active'));
+      box.classList.add('active');
     }
+
+    // Highlight active link on click
+    document.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', function(e) {
+        document.querySelectorAll('a').forEach(l => l.classList.remove('active-link'));
+        this.classList.add('active-link');
+        // Prevent default navigation and store current category state
+        e.preventDefault();
+        window.history.pushState({ category: this.closest('.calculator-list').id }, '', this.href);
+      });
+    });
+
+    // Handle back button to return to category
+    window.onpopstate = function(event) {
+      if (event.state && event.state.category) {
+        const category = event.state.category;
+        toggleList(category, document.querySelector(`[onclick="toggleList('${category}', this)"]`));
+      }
+    };
 
     // Language Switcher with Translations
     const translations = {
@@ -607,6 +632,16 @@
       document.getElementById('time').innerHTML = trans.timeList.map(item => `<li><a href="${item.toLowerCase().replace(/ /g, '-')}.html"><strong>${item}</strong></a></li>`).join('');
       document.getElementById('fun').innerHTML = trans.funList.map(item => `<li><a href="${item.toLowerCase().replace(/ /g, '-')}.html"><strong>${item}</strong></a></li>`).join('');
       document.getElementById('misc').innerHTML = trans.miscList.map(item => `<li><a href="${item.toLowerCase().replace(/ /g, '-')}.html"><strong>${item}</strong></a></li>`).join('');
+
+      // Re-attach click event listeners after language change
+      document.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', function(e) {
+          document.querySelectorAll('a').forEach(l => l.classList.remove('active-link'));
+          this.classList.add('active-link');
+          e.preventDefault();
+          window.history.pushState({ category: this.closest('.calculator-list').id }, '', this.href);
+        });
+      });
     });
 
     // Theme Toggle
@@ -617,6 +652,17 @@
       document.querySelector('.lang-container').classList.toggle('dark-mode', isDarkMode);
       document.querySelector('.theme-container').classList.toggle('dark-mode', isDarkMode);
       this.textContent = isDarkMode ? '☀️' : '🌙';
+    });
+
+    // Initial click event setup
+    document.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', function(e) {
+        document.querySelectorAll('a').forEach(l => l.classList.remove('active-link'));
+        this.classList.add('active-link');
+        e.preventDefault();
+        window.history.pushState({ category: this.closest('.calculator-list').id }, '', this.href);
+        window.location.href = this.href; // Navigate to the calculator page
+      });
     });
   </script>
 </body>
