@@ -1,0 +1,98 @@
+<!-- HEAD + STYLES remain same as previous -->
+<!-- Only the script section updated below -->
+
+<script>
+  let score = 0;
+  let timeLeft = 15;
+  let correctAnswer = 0;
+  let timer;
+
+  const questionEl = document.getElementById("question");
+  const timerEl = document.getElementById("timer");
+  const scoreEl = document.getElementById("score");
+  const input = document.getElementById("answerInput");
+  const statusMsg = document.getElementById("statusMsg");
+
+  const wordProblems = [
+    { q: "Ravi had 7 pens. He gave 3 to his friend. How many left?", a: 4 },
+    { q: "A box has 6 apples. You buy 2 more. Total apples?", a: 8 },
+    { q: "If 1 pencil costs ₹5, what is cost of 4 pencils?", a: 20 },
+    { q: "You walk 2 km in morning, 3 km in evening. Total?", a: 5 },
+    { q: "If a train travels 60km/hr for 2 hours, distance?", a: 120 },
+  ];
+
+  function generateQuestion() {
+    const type = Math.floor(Math.random() * 4); // 0: easy, 1: mid, 2: complex, 3: word
+
+    let a, b, operator, q, ans;
+
+    switch (type) {
+      case 0: // Easy
+        a = Math.floor(Math.random() * 10);
+        b = Math.floor(Math.random() * 10);
+        operator = Math.random() < 0.5 ? "+" : "-";
+        correctAnswer = operator === "+" ? a + b : a - b;
+        questionEl.textContent = `What is ${a} ${operator} ${b}?`;
+        break;
+
+      case 1: // Medium
+        a = Math.floor(Math.random() * 15) + 5;
+        b = Math.floor(Math.random() * 10) + 1;
+        operator = Math.random() < 0.5 ? "*" : "/";
+        correctAnswer = operator === "*" ? a * b : Math.floor(a / b);
+        a = operator === "/" ? correctAnswer * b : a; // Clean division
+        questionEl.textContent = `What is ${a} ${operator} ${b}?`;
+        break;
+
+      case 2: // Complex expressions
+        const x = Math.floor(Math.random() * 5) + 2;
+        const y = Math.floor(Math.random() * 5) + 3;
+        const z = Math.floor(Math.random() * 4) + 1;
+        q = `(${x} + ${y} × ${z})`;
+        correctAnswer = x + y * z;
+        questionEl.textContent = `Solve: ${q}`;
+        break;
+
+      case 3: // Word problems
+        const wp = wordProblems[Math.floor(Math.random() * wordProblems.length)];
+        questionEl.textContent = wp.q;
+        correctAnswer = wp.a;
+        break;
+    }
+
+    statusMsg.textContent = "⏳ Think & solve!";
+    input.value = "";
+    input.focus();
+    resetTimer();
+  }
+
+  function resetTimer() {
+    clearInterval(timer);
+    timeLeft = 15;
+    timerEl.textContent = timeLeft;
+    timer = setInterval(() => {
+      timeLeft--;
+      timerEl.textContent = timeLeft;
+      if (timeLeft === 0) {
+        clearInterval(timer);
+        statusMsg.textContent = `⏱️ Time's up! Answer: ${correctAnswer}`;
+        setTimeout(generateQuestion, 2000);
+      }
+    }, 1000);
+  }
+
+  function submitAnswer() {
+    clearInterval(timer);
+    const userAnswer = parseInt(input.value);
+    if (userAnswer === correctAnswer) {
+      score++;
+      scoreEl.textContent = score;
+      statusMsg.textContent = "✅ Correct!";
+    } else {
+      statusMsg.textContent = `❌ Incorrect! Answer was ${correctAnswer}`;
+    }
+    setTimeout(generateQuestion, 1500);
+  }
+
+  generateQuestion();
+</script>
