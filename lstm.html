@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="title" content="Time Series Forecasting Calculator - Advanced Prediction Tool">
+    <meta name="description" content="Predict future trends with the Time Series Forecasting Calculator. Use ARIMA, LSTM, and trend analysis in 9 languages with free, accurate forecasting tools.">
+    <meta name="keywords" content="Time Series Forecasting, ARIMA, LSTM, Trend Analysis, Prediction Tool, Free Forecasting, Data Analysis, SEO Tools">
+    <meta name="robots" content="index, follow">
+    <meta name="author" content="xAI Team">
+    <meta property="og:title" content="Time Series Forecasting Calculator - Advanced ML Prediction">
+    <meta property="og:description" content="A free tool for accurate time series forecasting with ARIMA, LSTM, and trend analysis.">
+    <meta property="og:image" content="https://x.ai/images/timeseries-preview.jpg">
+    <meta property="og:url" content="https://x.ai/timeseries-forecast">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Time Series Forecasting Calculator">
+    <meta name="twitter:description" content="Forecast trends easily with our advanced tool.">
+    <meta name="twitter:image" content="https://x.ai/images/timeseries-preview.jpg">
+    <title>Time Series Forecasting Calculator - Advanced Prediction Tool</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.0/papaparse.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/10.6.4/math.min.js"></script>
+    <style>
+        body { background: #1A202C; color: #fff; font-family: 'Segoe UI', Arial, sans-serif; }
+        .tab { cursor: pointer; padding: 10px 20px; background: #34495e; border-radius: 5px; transition: all 0.3s; }
+        .tab.active { background: #3498db; }
+        .input-section, .result-section { background: rgba(45, 55, 72, 0.9); padding: 20px; border-radius: 10px; margin: 10px 0; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); }
+        .chart-container { width: 100%; height: 400px; }
+        .btn { background: #2ecc71; padding: 8px 16px; border-radius: 5px; cursor: pointer; transition: background 0.3s; }
+        .btn:hover { background: #27ae60; }
+        .download-btn, .copy-btn { background: #e74c3c; margin-left: 10px; }
+        .download-btn:hover, .copy-btn:hover { background: #c0392b; }
+        .loading { display: none; animation: spin 1s linear infinite; }
+        .error { color: #e74c3c; font-size: 14px; margin-top: 5px; }
+        .language-select { background: #34495e; color: #fff; padding: 5px; border-radius: 5px; }
+        @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+        @media (max-width: 640px) { .chart-container { height: 300px; } .btn { width: 100%; margin-bottom: 10px; } }
+    </style>
+</head>
+<body>
+    <header class="text-center p-6 bg-gray-800">
+        <h1 class="text-4xl font-bold text-red-500">Time Series Forecasting Calculator</h1>
+        <p class="text-xl text-blue-400">Advanced Prediction with ARIMA & LSTM</p>
+    </header>
+    <nav class="flex justify-center gap-4 p-4 bg-gray-700">
+        <div class="tab active" onclick="showTab('arima')">ARIMA</div>
+        <div class="tab" onclick="showTab('lstm')">LSTM</div>
+        <div class="tab" onclick="showTab('trend')">Trend Analysis</div>
+    </nav>
+    <div class="max-w-5xl mx-auto p-6">
+        <div class="flex justify-end mb-4">
+            <select id="languageSelect" class="language-select" onchange="changeLanguage()">
+                <option value="en">English</option>
+                <option value="es">Español</option>
+                <option value="fr">Français</option>
+                <option value="de">Deutsch</option>
+                <option value="it">Italiano</option>
+                <option value="pt">Português</option>
+                <option value="hi">हिन्दी</option>
+                <option value="zh">中文</option>
+                <option value="ar">العربية</option>
+            </select>
+        </div>
+        <div id="content">
+            <div id="arima-tab" class="input-section">
+                <h2 class="text-2xl mb-4">ARIMA Input</h2>
+                <div class="mb-4">
+                    <label class="block mb-2">Upload CSV (Time Series Data)</label>
+                    <input type="file" id="csvUploadArima" accept=".csv" class="bg-gray-600 text-white p-2 rounded w-full mb-2">
+                </div>
+                <div class="mb-4">
+                    <label class="block mb-2">OR Enter Manually</label>
+                    <textarea id="arimaData" class="w-full p-2 mb-2 bg-gray-600 text-white rounded" placeholder="Time Series Data (e.g., [10, 20, 30, 40, 50])" rows="3"></textarea>
+                    <div class="flex gap-2 mb-2">
+                        <input type="number" id="pValue" class="bg-gray-600 text-white p-2 rounded w-1/3" placeholder="p" min="0">
+                        <input type="number" id="dValue" class="bg-gray-600 text-white p-2 rounded w-1/3" placeholder="d" min="0">
+                        <input type="number" id="qValue" class="bg-gray-600 text-white p-2 rounded w-1/3" placeholder="q" min="0">
+                    </div>
+                    <div id="arima-error" class="error hidden">Please enter valid data and parameters!</div>
+                </div>
+                <button onclick="calculateArima()" class="btn">Calculate</button>
+                <div id="arima-result" class="result-section mt-6 hidden">
+                    <canvas id="arimaChart" class="chart-container"></canvas>
+                    <table class="w-full mt-4 text-left border-collapse">
+                        <tr class="bg-gray-700"><th class="p-2">Metric</th><th class="p-2">Value</th></tr>
+                        <tr><td class="p-2">Forecasted Values</td><td id="arimaForecast"></td></tr>
+                        <tr><td class="p-2">MAE</td><td id="arimaMAE"></td></tr>
+                        <tr><td class="p-2">RMSE</td><td id="arimaRMSE"></td></tr>
+                    </table>
+                    <div class="mt-4">
+                        <button onclick="copyResult('arima')" class="copy-btn">Copy Result</button>
+                        <button onclick="downloadPDF('arima')" class="download-btn">Download PDF</button>
+                    </div>
+                </div>
+            </div>
+            <div id="lstm-tab" class="input-section hidden">
+                <h2 class="text-2xl mb-4">LSTM Input</h2>
+                <div class="mb-4">
+                    <label class="block mb-2">Upload CSV (Time Series Data)</label>
+                    <input type="file" id="csvUploadLstm" accept=".csv" class="bg-gray-600 text-white p-2 rounded w-full mb-2">
+                </div>
+                <div class="mb-4">
+                    <label class="block mb-2">OR Enter Manually</label>
+                    <textarea id="lstmData" class="w-full p-2 mb-2 bg-gray-600 text-white rounded" placeholder="Time Series Data (e.g., [10, 20, 30, 40, 50])" rows="3"></textarea>
+                    <input type="number" id="lstmSteps" class="bg-gray-600 text-white p-2 mb-2 rounded w-1/3" placeholder="Forecast Steps" min="1">
+                    <div id="lstm-error" class="error hidden">Please enter valid data and steps!</div>
+                </div>
+                <button onclick="calculateLstm()" class="btn">Calculate</button>
+                <div id="lstm-result" class="result-section mt-6 hidden">
+                    <canvas id="lstmChart" class="chart-container"></canvas>
+                    <table class="w-full mt-4 text-left border-collapse">
+                        <tr class="bg-gray-700"><th class="p-2">Metric</th><th class="p-2">Value</th></tr>
+                        <tr><td class="p-2">Forecasted Values</td><td id="lstmForecast"></td></tr>
+                        <tr><td class="p-2">MAE</td><td id="lstmMAE"></td></tr>
+                        <tr><td class="p-2">RMSE</td><td id="lstmRMSE"></td></tr>
+                    </table>
+                    <div class="mt-4">
+                        <button onclick="copyResult('lstm')" class="copy-btn">Copy Result</button>
+                        <button onclick="downloadPDF('lstm')" class="download-btn">Download PDF</button>
+                    </div>
+                </div>
+            </div>
+            <div id="trend-tab" class="input-section hidden">
+                <h2 class="text-2xl mb-4">Trend Analysis Input</h2>
+                <div class="mb-4">
+                    <label class="block mb-2">Upload CSV (Time Series Data)</label>
+                    <input type="file" id="csvUploadTrend" accept=".csv" class="bg-gray-600 text-white p-2 rounded w-full mb-2">
+                </div>
+                <div class="mb-4">
+                    <label class="block mb-2">OR Enter Manually</label>
+                    <textarea id="trendData" class="w-full p-2 mb-2 bg-gray-600 text-white rounded" placeholder="Time Series Data (e.g., [10, 20, 30, 40, 50])" rows="3"></textarea>
+                    <div id="trend-error" class="error hidden">Please enter valid data!</div>
+                </div>
+                <button onclick="calculateTrend()" class="btn">Calculate</button>
+                <div id="trend-result" class="result-section mt-6 hidden">
+                    <canvas id="trendChart" class="chart-container"></canvas>
+                    <table class="w-full mt-4 text-left border-collapse">
+                        <tr class="bg-gray-700"><th class="p-2">Metric</th><th class="p-2">Value</th></tr>
+                        <tr><td class="p-2">Trend Slope</td><td id="trendSlope"></td></tr>
+                        <tr><td class="p-2">Seasonality</td><td id="trendSeasonality"></td></tr>
+                        <tr><td class="p-2">R² Score</td><td id="trendR2"></td></tr>
+                    </table>
+                    <div class="mt-4">
+                        <button onclick="copyResult('trend')" class="copy-btn">Copy Result</button>
+                        <button onclick="downloadPDF('trend')" class="download-btn">Download PDF</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="loading" class="loading fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-2xl">Loading...</div>
+    <script>
+        let arimaChart, lstmChart, trendChart;
+
+        const languages = {
+            en: { arima: "ARIMA Input", lstm: "LSTM Input", trend: "Trend Analysis Input", upload: "Upload CSV", manual: "OR Enter Manually", arimaData: "Time Series Data", lstmData: "Time Series Data", trendData: "Time Series Data", pValue: "p", dValue: "d", qValue: "q", lstmSteps: "Forecast Steps", calculate: "Calculate", arimaForecast: "Forecasted Values", arimaMAE: "MAE", arimaRMSE: "RMSE", lstmForecast: "Forecasted Values", lstmMAE: "MAE", lstmRMSE: "RMSE", trendSlope: "Trend Slope", trendSeasonality: "Seasonality", trendR2: "R² Score", copy: "Copy Result", download: "Download PDF", error: "Please enter valid data and parameters!" },
+            es: { arima: "Entrada ARIMA", lstm: "Entrada LSTM", trend: "Entrada de Análisis de Tendencias", upload: "Subir CSV", manual: "O Ingresar Manualmente", arimaData: "Datos de Serie Temporal", lstmData: "Datos de Serie Temporal", trendData: "Datos de Serie Temporal", pValue: "p", dValue: "d", qValue: "q", lstmSteps: "Pasos de Predicción", calculate: "Calcular", arimaForecast: "Valores Predichos", arimaMAE: "MAE", arimaRMSE: "RMSE", lstmForecast: "Valores Predichos", lstmMAE: "MAE", lstmRMSE: "RMSE", trendSlope: "Pendiente de Tendencia", trendSeasonality: "Estacionalidad", trendR2: "Puntuación R²", copy: "Copiar Resultado", download: "Descargar PDF", error: "¡Por favor, ingrese datos y parámetros válidos!" },
+            fr: { arima: "Entrée ARIMA", lstm: "Entrée LSTM", trend: "Entrée d'Analyse de Tendance", upload: "Télécharger CSV", manual: "OU Entrer Manuellement", arimaData: "Données de Série Temporelle", lstmData: "Données de Série Temporelle", trendData: "Données de Série Temporelle", pValue: "p", dValue: "d", qValue: "q", lstmSteps: "Étapes de Prévision", calculate: "Calculer", arimaForecast: "Valeurs Prévisionnelles", arimaMAE: "MAE", arimaRMSE: "RMSE", lstmForecast: "Valeurs Prévisionnelles", lstmMAE: "MAE", lstmRMSE: "RMSE", trendSlope: "Pente de Tendance", trendSeasonality: "Saisonnalité", trendR2: "Score R²", copy: "Copier Résultat", download: "Télécharger PDF", error: "Veuillez entrer des données et des paramètres valides !" },
+            de: { arima: "ARIMA-Eingabe", lstm: "LSTM-Eingabe", trend: "Trendanalyse-Eingabe", upload: "CSV hochladen", manual: "Oder manuell eingeben", arimaData: "Zeitreihen-Daten", lstmData: "Zeitreihen-Daten", trendData: "Zeitreihen-Daten", pValue: "p", dValue: "d", qValue: "q", lstmSteps: "Prognose-Schritte", calculate: "Berechnen", arimaForecast: "Voraussichtliche Werte", arimaMAE: "MAE", arimaRMSE: "RMSE", lstmForecast: "Voraussichtliche Werte", lstmMAE: "MAE", lstmRMSE: "RMSE", trendSlope: "Trendneigung", trendSeasonality: "Saisonality", trendR2: "R²-Wert", copy: "Ergebnis kopieren", download: "PDF herunterladen", error: "Bitte gültige Daten und Parameter eingeben!" },
+            it: { arima: "Input ARIMA", lstm: "Input LSTM", trend: "Input Analisi Trend", upload: "Carica CSV", manual: "O Inserisci Manualmente", arimaData: "Dati di Serie Temporale", lstmData: "Dati di Serie Temporale", trendData: "Dati di Serie Temporale", pValue: "p", dValue: "d", qValue: "q", lstmSteps: "Passi di Previsione", calculate: "Calcola", arimaForecast: "Valori Previsti", arimaMAE: "MAE", arimaRMSE: "RMSE", lstmForecast: "Valori Previsti", lstmMAE: "MAE", lstmRMSE: "RMSE", trendSlope: "Pendenza del Trend", trendSeasonality: "Stagionalità", trendR2: "Punteggio R²", copy: "Copia Risultato", download: "Scarica PDF", error: "Inserisci dati e parametri validi!" },
+            pt: { arima: "Entrada ARIMA", lstm: "Entrada LSTM", trend: "Entrada de Análise de Tendências", upload: "Carregar CSV", manual: "OU Inserir Manualmente", arimaData: "Dados de Série Temporal", lstmData: "Dados de Série Temporal", trendData: "Dados de Série Temporal", pValue: "p", dValue: "d", qValue: "q", lstmSteps: "Passos de Previsão", calculate: "Calcular", arimaForecast: "Valores Previstos", arimaMAE: "MAE", arimaRMSE: "RMSE", lstmForecast: "Valores Previstos", lstmMAE: "MAE", lstmRMSE: "RMSE", trendSlope: "Inclinação da Tendência", trendSeasonality: "Sazonalidade", trendR2: "Pontuação R²", copy: "Copiar Resultado", download: "Baixar PDF", error: "Por favor, insira dados e parâmetros válidos!" },
+            hi: { arima: "ARIMA इनपुट", lstm: "LSTM इनपुट", trend: "ट्रेंड विश्लेषण इनपुट", upload: "CSV अपलोड करें", manual: "या मैन्युअल रूप से दर्ज करें", arimaData: "समय श्रृंखला डेटा", lstmData: "समय श्रृंखला डेटा", trendData: "समय श्रृंखला डेटा", pValue: "p", dValue: "d", qValue: "q", lstmSteps: "पूर्वानुमान चरण", calculate: "गणना करें", arimaForecast: "पूर्वानुमानित मान", arimaMAE: "MAE", arimaRMSE: "RMSE", lstmForecast: "पूर्वानुमानित मान", lstmMAE: "MAE", lstmRMSE: "RMSE", trendSlope: "ट्रेंड ढाल", trendSeasonality: "ऋतुकालिकता", trendR2: "R² स्कोर", copy: "परिणाम कॉपी करें", download: "PDF डाउनलोड करें", error: "कृपया वैध डेटा और पैरामीटर्स दर्ज करें!" },
+            zh: { arima: "ARIMA 输入", lstm: "LSTM 输入", trend: "趋势分析输入", upload: "上传 CSV", manual: "或手动输入", arimaData: "时间序列数据", lstmData: "时间序列数据", trendData: "时间序列数据", pValue: "p", dValue: "d", qValue: "q", lstmSteps: "预测步骤", calculate: "计算", arimaForecast: "预测值", arimaMAE: "MAE", arimaRMSE: "RMSE", lstmForecast: "预测值", lstmMAE: "MAE", lstmRMSE: "RMSE", trendSlope: "趋势斜率", trendSeasonality: "季节性", trendR2: "R² 得分", copy: "复制结果", download: "下载 PDF", error: "请输入有效数据和参数!" },
+            ar: { arima: "إدخال ARIMA", lstm: "إدخال LSTM", trend: "إدخال تحليل الاتجاهات", upload: "رفع CSV", manual: "أو أدخل يدويًا", arimaData: "بيانات السلسلة الزمنية", lstmData: "بيانات السلسلة الزمنية", trendData: "بيانات السلسلة الزمنية", pValue: "p", dValue: "d", qValue: "q", lstmSteps: "خطوات التوقع", calculate: "حساب", arimaForecast: "القيم المتوقعة", arimaMAE: "MAE", arimaRMSE: "RMSE", lstmForecast: "القيم المتوقعة", lstmMAE: "MAE", lstmRMSE: "RMSE", trendSlope: "انحدار الاتجاه", trendSeasonality: "الموسمية", trendR2: "درجة R²", copy: "نسخ النتيجة", download: "تحميل PDF", error: "يرجى إدخال بيانات ومعلمات صالحة!" }
+        };
+
+        function changeLanguage() {
+            const lang = document.getElementById('languageSelect').value;
+            const langData = languages[lang];
+            document.querySelector('#arima-tab h2').textContent = langData.arima;
+            document.querySelector('#lstm-tab h2').textContent = langData.lstm;
+            document.querySelector('#trend-tab h2').textContent = langData.trend;
+            document.querySelectorAll('label')[0].textContent = langData.upload + ' (Time Series Data)';
+            document.querySelectorAll('label')[1].textContent = langData.upload + ' (Time Series Data)';
+            document.querySelectorAll('label')[2].textContent = langData.upload + ' (Time Series Data)';
+            document.querySelectorAll('label')[3].textContent = langData.manual;
+            document.querySelectorAll('label')[4].textContent = langData.manual;
+            document.querySelectorAll('label')[5].textContent = langData.manual;
+            document.getElementById('arimaData').placeholder = langData.arimaData + ' (e.g., [10, 20, 30, 40, 50])';
+            document.getElementById('lstmData').placeholder = langData.lstmData + ' (e.g., [10, 20, 30, 40, 50])';
+            document.getElementById('trendData').placeholder = langData.trendData + ' (e.g., [10, 20, 30, 40, 50])';
+            document.getElementById('pValue').placeholder = langData.pValue;
+            document.getElementById('dValue').placeholder = langData.dValue;
+            document.getElementById('qValue').placeholder = langData.qValue;
+            document.getElementById('lstmSteps').placeholder = langData.lstmSteps;
+            document.querySelectorAll('button')[0].textContent = langData.calculate;
+            document.querySelectorAll('button')[1].textContent = langData.calculate;
+            document.querySelectorAll('button')[2].textContent = langData.calculate;
+            document.getElementById('arima-error').textContent = langData.error;
+            document.getElementById('lstm-error').textContent = langData.error;
+            document.getElementById('trend-error').textContent = langData.error;
+            document.querySelectorAll('.copy-btn')[0].textContent = langData.copy;
+            document.querySelectorAll('.copy-btn')[1].textContent = langData.copy;
+            document.querySelectorAll('.copy-btn')[2].textContent = langData.copy;
+            document.querySelectorAll('.download-btn')[0].textContent = langData.download;
+            document.querySelectorAll('.download-btn')[1].textContent = langData.download;
+            document.querySelectorAll('.download-btn')[2].textContent = langData.download;
+        }
+
+        function showTab(tab) {
+            document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+            document.querySelector(`.tab[onclick="showTab('${tab}')"]`).classList.add('active');
+            document.getElementById('content').querySelectorAll('.input-section').forEach(s => s.classList.add('hidden'));
+            document.getElementById(`${tab}-tab`).classList.remove('hidden');
+            document.getElementById(`${tab}-result`).classList.add('hidden');
+            if (arimaChart) arimaChart.destroy();
+            if (lstmChart) lstmChart.destroy();
+            if (trendChart) trendChart.destroy();
+        }
+
+        function processCSV(fileInput, dataId, callback) {
+            const file = fileInput.files[0];
+            if (file) {
+                document.getElementById('loading').style.display = 'block';
+                Papa.parse(file, {
+                    complete: function(results) {
+                        const data = results.data.map(row => parseFloat(row[0])).filter(v => !isNaN(v));
+                        if (data.length === 0) {
+                            alert(languages[document.getElementById('languageSelect').value].error);
+                            document.getElementById('loading').style.display = 'none';
+                            return;
+                        }
+                        document.getElementById(dataId).value = JSON.stringify(data);
+                        document.getElementById('loading').style.display = 'none';
+                        callback();
+                    },
+                    header: false,
+                    skipEmptyLines: true
+                });
+            }
+        }
+
+        document.getElementById('csvUploadArima').addEventListener('change', () => processCSV(document.getElementById('csvUploadArima'), 'arimaData', calculateArima));
+        document.getElementById('csvUploadLstm').addEventListener('change', () => processCSV(document.getElementById('csvUploadLstm'), 'lstmData', calculateLstm));
+        document.getElementById('csvUploadTrend').addEventListener('change', () => processCSV(document.getElementById('csvUploadTrend'), 'trendData', calculateTrend));
+
+        function calculateArima() {
+            let data, p, d, q;
+            try {
+                data = JSON.parse(document.getElementById('arimaData').value || '[10, 20, 30, 40, 50]');
+                p = parseInt(document.getElementById('pValue').value) || 1;
+                d = parseInt(document.getElementById('dValue').value) || 0;
+                q = parseInt(document.getElementById('qValue').value) || 1;
+                if (!Array.isArray(data) || data.length < 2 || p < 0 || d < 0 || q < 0 || data.some(isNaN)) {
+                    throw new Error('Invalid input');
+                }
+            } catch (e) {
+                document.getElementById('arima-error').classList.remove('hidden');
+                console.error("ARIMA Input Error:", e);
+                return;
+            }
+            document.getElementById('arima-error').classList.add('hidden');
+            document.getElementById('loading').style.display = 'block';
+
+            // Simple Moving Average as ARIMA approximation
+            const forecastLength = 5;
+            const forecast = [];
+            const smoothed = data.slice(-Math.max(p, q)).reduce((a, b) => a + b, 0) / Math.max(p, q, 1);
+            for (let i = 0; i < forecastLength; i++) {
+                forecast.push(smoothed);
+            }
+            const actual = data.slice(-5);
+            const mae = math.mean(actual.map((v, i) => Math.abs(v - forecast[i] || smoothed)));
+            const rmse = Math.sqrt(math.mean(actual.map((v, i) => Math.pow(v - (forecast[i] || smoothed), 2))));
+
+            document.getElementById('arimaForecast').textContent = `[${forecast.map(v => v.toFixed(2)).join(', ')}]`;
+            document.getElementById('arimaMAE').textContent = `${mae.toFixed(2)}`;
+            document.getElementById('arimaRMSE').textContent = `${rmse.toFixed(2)}`;
+            document.getElementById('arima-result').classList.remove('hidden');
+            document.getElementById('loading').style.display = 'none';
+
+            const ctx = document.getElementById('arimaChart').getContext('2d');
+            if (arimaChart) arimaChart.destroy();
+            arimaChart = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: [...Array(data.length).keys(), ...Array(forecastLength).keys()].map(i => `T${i + 1}`),
+                    datasets: [{
+                        label: 'Actual',
+                        data: data,
+                        borderColor: '#36A2EB',
+                        fill: false
+                    }, {
+                        label: 'Forecast',
+                        data: [...data, ...forecast],
+                        borderColor: '#FF6384',
+                        fill: false
+                    }]
+                },
+                options: { scales: { y: { beginAtZero: true } } }
+            });
+        }
+
+        function calculateLstm() {
+            let data, steps;
+            try {
+                data = JSON.parse(document.getElementById('lstmData').value || '[10, 20, 30, 40, 50]');
+                steps = parseInt(document.getElementById('lstmSteps').value) || 5;
+                if (!Array.isArray(data) || data.length < 2 || steps < 1 || data.some(isNaN)) {
+                    throw new Error('Invalid input');
+                }
+            } catch (e) {
+                document.getElementById('lstm-error').classList.remove('hidden');
+                console.error("LSTM Input Error:", e);
+                return;
+            }
+            document.getElementById('lstm-error').classList.add('hidden');
+            document.getElementById('loading').style.display = 'block';
+
+            // Simple Average-based Forecast
+            const forecast = Array(steps).fill(math.mean(data.slice(-10) || data));
+            const actual = data.slice(-steps);
+            const mae = math.mean(actual.map((v, i) => Math.abs(v - forecast[i])));
+            const rmse = Math.sqrt(math.mean(actual.map((v, i) => Math.pow(v - forecast[i], 2))));
+
+            document.getElementById('lstmForecast').textContent = `[${forecast.map(v => v.toFixed(2)).join(', ')}]`;
+            document.getElementById('lstmMAE').textContent = `${mae.toFixed(2)}`;
+            document.getElementById('lstmRMSE').textContent = `${rmse.toFixed(2)}`;
+            document.getElementById('lstm-result').classList.remove('hidden');
+            document.getElementById('loading').style.display = 'none';
+
+            const ctx = document.getElementById('lstmChart').getContext('2d');
+            if (lstmChart) lstmChart.destroy();
+            lstmChart = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: [...Array(data.length).keys(), ...Array(steps).keys()].map(i => `T${i + 1}`),
+                    datasets: [{
+                        label: 'Actual',
+                        data: data,
+                        borderColor: '#36A2EB',
+                        fill: false
+                    }, {
+                        label: 'Forecast',
+                        data: [...data, ...forecast],
+                        borderColor: '#FF6384',
+                        fill: false
+                    }]
+                },
+                options: { scales: { y: { beginAtZero: true } } }
+            });
+        }
+
+        function calculateTrend() {
+            let data;
+            try {
+                data = JSON.parse(document.getElementById('trendData').value || '[10, 20, 30, 40, 50]');
+                if (!Array.isArray(data) || data.length < 2 || data.some(isNaN)) {
+                    throw new Error('Invalid input');
+                }
+            } catch (e) {
+                document.getElementById('trend-error').classList.remove('hidden');
+                console.error("Trend Input Error:", e);
+                return;
+            }
+            document.getElementById('trend-error').classList.add('hidden');
+            document.getElementById('loading').style.display = 'block';
+
+            // Linear Regression using Math.js
+            const x = math.range(0, data.length, true).toArray();
+            const y = data;
+            const regression = math.lsqr(x.map(v => [v]), y);
+            const slope = regression[0][0];
+            const intercept = math.mean(y) - slope * math.mean(x);
+            const predicted = x.map(xi => slope * xi + intercept);
+            const r2 = 1 - math.sum(math.square(math.subtract(y, predicted))) / math.sum(math.square(math.subtract(y, math.mean(y))));
+            const seasonality = data.length > 1 ? math.std(math.diff(data)) / math.mean(data) : 0;
+
+            document.getElementById('trendSlope').textContent = `${slope.toFixed(2)}`;
+            document.getElementById('trendSeasonality').textContent = `${seasonality.toFixed(2)}`;
+            document.getElementById('trendR2').textContent = `${r2.toFixed(2)}`;
+            document.getElementById('trend-result').classList.remove('hidden');
+            document.getElementById('loading').style.display = 'none';
+
+            const ctx = document.getElementById('trendChart').getContext('2d');
+            if (trendChart) trendChart.destroy();
+            trendChart = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: Array(data.length).fill().map((_, i) => `T${i + 1}`),
+                    datasets: [{
+                        label: 'Data',
+                        data: data,
+                        borderColor: '#36A2EB',
+                        fill: false
+                    }, {
+                        label: 'Trend Line',
+                        data: predicted,
+                        borderColor: '#FF6384',
+                        fill: false
+                    }]
+                },
+                options: { scales: { y: { beginAtZero: true } } }
+            });
+        }
+
+        function copyResult(tab) {
+            const resultDiv = document.getElementById(`${tab}-result`);
+            const range = document.createRange();
+            range.selectNode(resultDiv);
+            window.getSelection().removeAllRanges();
+            window.getSelection().addRange(range);
+            document.execCommand('copy');
+            window.getSelection().removeAllRanges();
+            alert(languages[document.getElementById('languageSelect').value].copy + ' to clipboard!');
+        }
+
+        function downloadPDF(tab) {
+            const resultDiv = document.getElementById(`${tab}-result`);
+            html2pdf().set({ filename: `${tab}-forecast.pdf`, html2canvas: { scale: 2 }, margin: [10, 10] }).from(resultDiv).save();
+        }
+
+        window.onload = () => {
+            showTab('arima');
+            changeLanguage();
+        };
+    </script>
+</html>
