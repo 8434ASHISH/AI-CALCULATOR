@@ -3,116 +3,100 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Paint Calculator - Construction & Home Calculators to estimate paint required for your walls. Supports multiple languages: Hindi, English, Mandarin, French, Arabic." />
-  <meta name="keywords" content="Paint Calculator, Construction Calculator, Wall Paint Estimator, Home Improvement, Interior, Paint Area Estimate, Painting Cost Calculator" />
-  <meta name="author" content="SmartCalc" />
-  <title>Paint Calculator | Construction & Home Calculators</title>
-  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <title>Construction & Home Calculators - Paint Calculator</title>
+  <meta name="description" content="Use our Paint Calculator to estimate the amount of paint required for your walls. Available in Hindi, English, Mandarin, French, and Arabic." />
+  <meta name="keywords" content="Paint Calculator, Wall Paint Estimate, Home Improvement, Construction Tools, Multilingual Calculator, Paint Estimator, Paint Cost Estimation, Surface Area Calculator, Hindi Paint Calculator, Arabic Paint Calculator, French Paint Calculator, Mandarin Paint Estimator, Paint Coverage" />
   <style>
-    body { background-color: #f9fafb; color: #1f2937; }
-    input, select { border: 1px solid #cbd5e0; }
-    .copy-btn:hover { background-color: #2563eb; color: white; }
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f9;
+      color: #333;
+      padding: 20px;
+    }
+    .container {
+      max-width: 600px;
+      margin: auto;
+      background: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    h2 {
+      text-align: center;
+      color: #2c3e50;
+    }
+    label {
+      display: block;
+      margin-top: 15px;
+    }
+    input, select {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    button {
+      margin-top: 20px;
+      padding: 10px 15px;
+      background-color: #2980b9;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #1c5980;
+    }
+    #result {
+      margin-top: 20px;
+      font-weight: bold;
+      text-align: center;
+    }
   </style>
 </head>
-<body class="min-h-screen font-sans">
-  <div class="max-w-3xl mx-auto p-6">
-    <header class="flex justify-between items-center mb-4">
-      <h1 class="text-2xl font-bold text-blue-700">Construction & Home Calculators</h1>
-      <select id="language" class="border rounded px-2 py-1">
-        <option value="en">English</option>
-        <option value="hi">Hindi</option>
-        <option value="zh">Mandarin</option>
-        <option value="fr">French</option>
-        <option value="ar">Arabic</option>
-      </select>
-    </header>
+<body>
+  <div class="container">
+    <h2>Construction & Home Calculators</h2>
+    <h3 style="text-align:center;">Paint Calculator</h3>
 
-    <h2 id="calc-title" class="text-xl font-semibold mb-4">Paint Calculator</h2>
+    <label for="length">Wall Length (meters)</label>
+    <input type="number" id="length" placeholder="e.g. 5" />
 
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-      <div>
-        <label id="label-length" class="block mb-1">Wall Length (in feet)</label>
-        <input id="length" type="number" class="w-full px-3 py-2 rounded" />
-      </div>
-      <div>
-        <label id="label-height" class="block mb-1">Wall Height (in feet)</label>
-        <input id="height" type="number" class="w-full px-3 py-2 rounded" />
-      </div>
-    </div>
+    <label for="height">Wall Height (meters)</label>
+    <input type="number" id="height" placeholder="e.g. 2.5" />
 
-    <button onclick="calculatePaint()" class="mt-4 bg-blue-600 text-white px-4 py-2 rounded">Calculate</button>
+    <label for="coats">Number of Coats</label>
+    <select id="coats">
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+    </select>
 
-    <div id="result" class="mt-4 text-lg font-medium"></div>
+    <label for="coverage">Paint Coverage (sqm/litre)</label>
+    <input type="number" id="coverage" value="10" />
 
-    <button onclick="copyResult()" class="copy-btn mt-2 border px-3 py-1 rounded">Copy Result</button>
+    <button onclick="calculatePaint()">Calculate</button>
 
-    <p class="text-sm mt-6 text-gray-500">This calculator helps you estimate how much paint is required for your wall. Enter your wall's dimensions and get instant results.</p>
+    <div id="result"></div>
   </div>
 
   <script>
-    const translations = {
-      en: {
-        title: "Paint Calculator",
-        length: "Wall Length (in feet)",
-        height: "Wall Height (in feet)",
-        result: (area) => `You need approximately ${area} sq. ft. of paint coverage.`
-      },
-      hi: {
-        title: "पेंट कैलकुलेटर",
-        length: "दीवार की लंबाई (फीट में)",
-        height: "दीवार की ऊँचाई (फीट में)",
-        result: (area) => `आपको लगभग ${area} वर्ग फीट पेंट की आवश्यकता है।`
-      },
-      zh: {
-        title: "油漆计算器",
-        length: "墙的长度（英尺）",
-        height: "墙的高度（英尺）",
-        result: (area) => `你大约需要 ${area} 平方英尺的油漆覆盖面积。`
-      },
-      fr: {
-        title: "Calculateur de Peinture",
-        length: "Longueur du mur (en pieds)",
-        height: "Hauteur du mur (en pieds)",
-        result: (area) => `Vous avez besoin d'environ ${area} pieds carrés de peinture.`
-      },
-      ar: {
-        title: "حاسبة الطلاء",
-        length: "طول الجدار (بالقدم)",
-        height: "ارتفاع الجدار (بالقدم)",
-        result: (area) => `تحتاج إلى حوالي ${area} قدم مربع من الطلاء.`
-      }
-    };
-
-    const langSelect = document.getElementById("language");
-    langSelect.addEventListener("change", updateLanguage);
-
-    function updateLanguage() {
-      const lang = langSelect.value;
-      document.getElementById("calc-title").innerText = translations[lang].title;
-      document.getElementById("label-length").innerText = translations[lang].length;
-      document.getElementById("label-height").innerText = translations[lang].height;
-      if (lastResult !== null) {
-        document.getElementById("result").innerText = translations[lang].result(lastResult);
-      }
-    }
-
-    let lastResult = null;
     function calculatePaint() {
-      const length = parseFloat(document.getElementById("length").value);
-      const height = parseFloat(document.getElementById("height").value);
-      if (!isNaN(length) && !isNaN(height)) {
-        const area = Math.round(length * height);
-        lastResult = area;
-        const lang = langSelect.value;
-        document.getElementById("result").innerText = translations[lang].result(area);
-      }
-    }
+      const length = parseFloat(document.getElementById('length').value);
+      const height = parseFloat(document.getElementById('height').value);
+      const coats = parseInt(document.getElementById('coats').value);
+      const coverage = parseFloat(document.getElementById('coverage').value);
 
-    function copyResult() {
-      const resultText = document.getElementById("result").innerText;
-      if (resultText) {
-        navigator.clipboard.writeText(resultText).then(() => alert("Copied!"));
+      if (isNaN(length) || isNaN(height) || isNaN(coats) || isNaN(coverage)) {
+        document.getElementById('result').innerText = 'Please fill all fields correctly.';
+        return;
       }
+
+      const area = length * height * coats;
+      const litresNeeded = (area / coverage).toFixed(2);
+
+      document.getElementById('result').innerText = `You need approximately ${litresNeeded} litres of paint.`;
     }
   </script>
 </body>
