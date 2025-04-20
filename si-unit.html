@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="title" content="AI SI Unit Converter Calculator">
+    <meta name="description" content="Convert between SI units with our AI-powered SI Unit Converter Calculator. Covers length, mass, time, temperature, and more for accurate conversions.">
+    <meta name="keywords" content="SI unit converter, unit calculator, metric converter, AI calculator, conversion tools, physics calculator">
+    <meta name="robots" content="index, follow">
+    <title>AI SI Unit Converter Calculator</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #ffffff;
+            color: #1a202c;
+        }
+        .calculator-title {
+            font-weight: bold;
+            text-align: center;
+            background-color: #f6e05e;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+        .input-field, .select-field {
+            border: 2px solid #e2e8f0;
+            border-radius: 8px;
+            padding: 10px;
+            font-weight: bold;
+            width: 100%;
+            box-sizing: border-box;
+        }
+        .language-switcher {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            cursor: pointer;
+        }
+        .theme-switcher {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            cursor: pointer;
+        }
+        .calculate-btn {
+            background-color: #4299e1;
+            color: white;
+            font-weight: bold;
+            padding: 12px;
+            border-radius: 8px;
+            width: 100%;
+        }
+        .result-box {
+            border: 2px solid #e2e8f0;
+            border-radius: 8px;
+            padding: 15px;
+            margin-top: 20px;
+            font-weight: bold;
+        }
+        footer a {
+            color: #4299e1;
+            text-decoration: none;
+        }
+        footer a:hover {
+            text-decoration: underline;
+        }
+        .share-icons img {
+            width: 30px;
+            margin: 0 10px;
+        }
+        .dark-mode {
+            background-color: #1a202c;
+            color: #e2e8f0;
+        }
+        .dark-mode .input-field, .dark-mode .select-field {
+            border-color: #4a5568;
+            background-color: #2d3748;
+            color: #e2e8f0;
+        }
+        .dark-mode .result-box {
+            border-color: #4a5568;
+            background-color: #2d3748;
+        }
+        .dark-mode .calculator-title {
+            background-color: #b83280;
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col">
+    <header class="relative">
+        <h1 class="calculator-title text-3xl">AI CALCULATOR</h1>
+        <h2 class="text-center text-xl font-bold mb-4" id="calcTitle">SI Unit Converter Calculator</h2>
+        <div class="language-switcher">
+            <img src="https://img.icons8.com/ios-filled/50/000000/globe.png" alt="Language Switcher" id="langToggle" width="30">
+        </div>
+        <div class="theme-switcher">
+            <img src="https://img.icons8.com/ios-filled/50/000000/moon-symbol.png" alt="Theme Switcher" id="themeToggle" width="30">
+        </div>
+    </header>
+    <main class="flex-grow container mx-auto px-4 py-6">
+        <section class="max-w-md mx-auto">
+            <div class="mb-4">
+                <label for="unitType" class="block font-bold mb-2" id="unitTypeLabel">Select Unit Type</label>
+                <select id="unitType" class="select-field" onchange="updateUnits()" required>
+                    <option value="" disabled selected>Select Unit Type</option>
+                    <option value="length">Length</option>
+                    <option value="mass">Mass</option>
+                    <option value="time">Time</option>
+                    <option value="temperature">Temperature</option>
+                    <option value="area">Area</option>
+                    <option value="volume">Volume</option>
+                    <option value="speed">Speed</option>
+                    <option value="energy">Energy</option>
+                </select>
+            </div>
+            <div class="mb-4">
+                <label for="value" class="block font-bold mb-2" id="valueLabel">Value</label>
+                <input type="number" id="value" class="input-field" placeholder="e.g. 100" step="any" required>
+            </div>
+            <div class="mb-4">
+                <label for="fromUnit" class="block font-bold mb-2" id="fromUnitLabel">From Unit</label>
+                <select id="fromUnit" class="select-field" required></select>
+            </div>
+            <div class="mb-4">
+                <label for="toUnit" class="block font-bold mb-2" id="toUnitLabel">To Unit</label>
+                <select id="toUnit" class="select-field" required></select>
+            </div>
+            <button class="calculate-btn" onclick="convertUnits()" id="calcButton">Convert</button>
+            <div id="result" class="result-box hidden">
+                <p id="conversionResult"></p>
+            </div>
+        </section>
+        <section class="mt-8 max-w-2xl mx-auto">
+            <h3 class="text-xl font-bold mb-4" id="aboutTitle">About the SI Unit Converter Calculator</h3>
+            <p class="mb-4" id="aboutText1">
+                The SI Unit Converter Calculator allows you to convert between various SI units, covering length, mass, time, temperature, area, volume, speed, and energy. Select the unit type, input a value, and choose the units to convert from and to for instant results.
+            </p>
+            <p id="aboutText2">
+                This tool uses standard SI conversion factors to ensure accuracy. It’s ideal for students, scientists, engineers, or anyone needing precise unit conversions. Whether you're converting meters to kilometers or joules to kilojoules, this calculator simplifies the process.
+            </p>
+        </section>
+    </main>
+    <footer class="bg-gray-100 py-6 mt-8">
+        <div class="container mx-auto px-4 text-center">
+            <div class="mb-4">
+                <a href="/privacy-policy" class="mx-2">Privacy Policy</a> |
+                <a href="/disclaimer" class="mx-2">Disclaimer</a> |
+                <a href="/how-to-use" class="mx-2">How to Use</a> |
+                <a href="/contact-us" class="mx-2">Contact Us</a>
+            </div>
+            <div class="share-icons mb-4 flex justify-center">
+                <a href="https://www.facebook.com/sharer/sharer.php?u=#" target="_blank">
+                    <img src="https://img.icons8.com/color/48/000000/facebook-new.png" alt="Facebook">
+                </a>
+                <a href="https://twitter.com/intent/tweet?url=#&text=Check out this AI SI Unit Converter Calculator!" target="_blank">
+                    <img src="https://img.icons8.com/color/48/000000/twitter.png" alt="X">
+                </a>
+                <a href="https://api.whatsapp.com/send?text=Check out this AI SI Unit Converter Calculator: #" target="_blank">
+                    <img src="https://img.icons8.com/color/48/000000/whatsapp.png" alt="WhatsApp">
+                </a>
+                <a href="https://www.instagram.com/" target="_blank">
+                    <img src="https://img.icons8.com/color/48/000000/instagram-new.png" alt="Instagram">
+                </a>
+            </div>
+            <p class="text-sm">© 2025 All Rights Reserved</p>
+        </div>
+    </footer>
+    <script>
+        let isHindi = false;
+
+        const unitData = {
+            length: {
+                units: ['meter (m)', 'kilometer (km)', 'centimeter (cm)', 'millimeter (mm)'],
+                conversions: {
+                    'meter (m)': { 'meter (m)': 1, 'kilometer (km)': 0.001, 'centimeter (cm)': 100, 'millimeter (mm)': 1000 },
+                    'kilometer (km)': { 'meter (m)': 1000, 'kilometer (km)': 1, 'centimeter (cm)': 100000, 'millimeter (mm)': 1000000 },
+                    'centimeter (cm)': { 'meter (m)': 0.01, 'kilometer (km)': 0.00001, 'centimeter (cm)': 1, 'millimeter (mm)': 10 },
+                    'millimeter (mm)': { 'meter (m)': 0.001, 'kilometer (km)': 0.000001, 'centimeter (cm)': 0.1, 'millimeter (mm)': 1 }
+                }
+            },
+            mass: {
+                units: ['kilogram (kg)', 'gram (g)', 'milligram (mg)', 'tonne (t)'],
+                conversions: {
+                    'kilogram (kg)': { 'kilogram (kg)': 1, 'gram (g)': 1000, 'milligram (mg)': 1000000, 'tonne (t)': 0.001 },
+                    'gram (g)': { 'kilogram (kg)': 0.001, 'gram (g)': 1, 'milligram (mg)': 1000, 'tonne (t)': 0.000001 },
+                    'milligram (mg)': { 'kilogram (kg)': 0.000001, 'gram (g)': 0.001, 'milligram (mg)': 1, 'tonne (t)': 0.000000001 },
+                    'tonne (t)': { 'kilogram (kg)': 1000, 'gram (g)': 1000000, 'milligram (mg)': 1000000000, 'tonne (t)': 1 }
+                }
+            },
+            time: {
+                units: ['second (s)', 'minute (min)', 'hour (h)'],
+                conversions: {
+                    'second (s)': { 'second (s)': 1, 'minute (min)': 1/60, 'hour (h)': 1/3600 },
+                    'minute (min)': { 'second (s)': 60, 'minute (min)': 1, 'hour (h)': 1/60 },
+                    'hour (h)': { 'second (s)': 3600, 'minute (min)': 60, 'hour (h)': 1 }
+                }
+            },
+            temperature: {
+                units: ['kelvin (K)', 'celsius (°C)'],
+                conversions: {
+                    'kelvin (K)': { 'kelvin (K)': x => x, 'celsius (°C)': x => x - 273.15 },
+                    'celsius (°C)': { 'kelvin (K)': x => x + 273.15, 'celsius (°C)': x => x }
+                }
+            },
+            area: {
+                units: ['square meter (m²)', 'square kilometer (km²)', 'hectare (ha)'],
+                conversions: {
+                    'square meter (m²)': { 'square meter (m²)': 1, 'square kilometer (km²)': 0.000001, 'hectare (ha)': 0.0001 },
+                    'square kilometer (km²)': { 'square meter (m²)': 1000000, 'square kilometer (km²)': 1, 'hectare (ha)': 100 },
+                    'hectare (ha)': { 'square meter (m²)': 10000, 'square kilometer (km²)': 0.01, 'hectare (ha)': 1 }
+                }
+            },
+            volume: {
+                units: ['cubic meter (m³)', 'liter (L)', 'milliliter (mL)'],
+                conversions: {
+                    'cubic meter (m³)': { 'cubic meter (m³)': 1, 'liter (L)': 1000, 'milliliter (mL)': 1000000 },
+                    'liter (L)': { 'cubic meter (m³)': 0.001, 'liter (L)': 1, 'milliliter (mL)': 1000 },
+                    'milliliter (mL)': { 'cubic meter (m³)': 0.000001, 'liter (L)': 0.001, 'milliliter (mL)': 1 }
+                }
+            },
+            speed: {
+                units: ['meter per second (m/s)', 'kilometer per hour (km/h)'],
+                conversions: {
+                    'meter per second (m/s)': { 'meter per second (m/s)': 1, 'kilometer per hour (km/h)': 3.6 },
+                    'kilometer per hour (km/h)': { 'meter per second (m/s)': 1/3.6, 'kilometer per hour (km/h)': 1 }
+                }
+            },
+            energy: {
+                units: ['joule (J)', 'kilojoule (kJ)', 'megajoule (MJ)'],
+                conversions: {
+                    'joule (J)': { 'joule (J)': 1, 'kilojoule (kJ)': 0.001, 'megajoule (MJ)': 0.000001 },
+                    'kilojoule (kJ)': { 'joule (J)': 1000, 'kilojoule (kJ)': 1, 'megajoule (MJ)': 0.001 },
+                    'megajoule (MJ)': { 'joule (J)': 1000000, 'kilojoule (kJ)': 1000, 'megajoule (MJ)': 1 }
+                }
+            }
+        };
+
+        function updateUnits() {
+            const unitType = document.getElementById('unitType').value;
+            const fromUnit = document.getElementById('fromUnit');
+            const toUnit = document.getElementById('toUnit');
+            fromUnit.innerHTML = '';
+            toUnit.innerHTML = '';
+
+            if (unitType && unitData[unitType]) {
+                unitData[unitType].units.forEach(unit => {
+                    const option1 = document.createElement('option');
+                    const option2 = document.createElement('option');
+                    option1.value = unit;
+                    option2.value = unit;
+                    option1.textContent = unit;
+                    option2.textContent = unit;
+                    fromUnit.appendChild(option1);
+                    toUnit.appendChild(option2);
+                });
+            }
+        }
+
+        function convertUnits() {
+            const unitType = document.getElementById('unitType').value;
+            const value = parseFloat(document.getElementById('value').value);
+            const fromUnit = document.getElementById('fromUnit').value;
+            const toUnit = document.getElementById('toUnit').value;
+
+            if (!unitType || isNaN(value) || !fromUnit || !toUnit) {
+                alert(isHindi ? 'कृपया मान्य इकाई प्रकार, मान और इकाइयाँ चुनें।' : 'Please select a valid unit type, value, and units.');
+                return;
+            }
+
+            let result;
+            if (unitType === 'temperature') {
+                result = unitData[unitType].conversions[fromUnit][toUnit](value);
+            } else {
+                result = value * unitData[unitType].conversions[fromUnit][toUnit];
+            }
+
+            document.getElementById('conversionResult').textContent = isHindi 
+                ? `${value} ${fromUnit} = ${result.toFixed(4)} ${toUnit}` 
+                : `${value} ${fromUnit} = ${result.toFixed(4)} ${toUnit}`;
+            document.getElementById('result').classList.remove('hidden');
+        }
+
+        document.getElementById('themeToggle').addEventListener('click', () => {
+            document.body.classList.toggle('dark-mode');
+            const icon = document.getElementById('themeToggle');
+            icon.src = document.body.classList.contains('dark-mode')
+                ? 'https://img.icons8.com/ios-filled/50/ffffff/sun.png'
+                : 'https://img.icons8.com/ios-filled/50/000000/moon-symbol.png';
+        });
+
+        document.getElementById('langToggle').addEventListener('click', () => {
+            isHindi = !isHindi;
+
+            document.getElementById('calcTitle').textContent = isHindi 
+                ? 'एसआई इकाई परिवर्तक कैलकुलेटर' 
+                : 'SI Unit Converter Calculator';
+            document.getElementById('unitTypeLabel').textContent = isHindi 
+                ? 'इकाई प्रकार चुनें' 
+                : 'Select Unit Type';
+            document.getElementById('valueLabel').textContent = isHindi 
+                ? 'मान' 
+                : 'Value';
+            document.getElementById('fromUnitLabel').textContent = isHindi 
+                ? 'से इकाई' 
+                : 'From Unit';
+            document.getElementById('toUnitLabel').textContent = isHindi 
+                ? 'में इकाई' 
+                : 'To Unit';
+            document.getElementById('calcButton').textContent = isHindi 
+                ? 'परिवर्तन करें' 
+                : 'Convert';
+            document.getElementById('aboutTitle').textContent = isHindi 
+                ? 'एसआई इकाई परिवर्तक कैलकुलेटर के बारे में' 
+                : 'About the SI Unit Converter Calculator';
+            document.getElementById('aboutText1').textContent = isHindi 
+                ? 'एसआई इकाई परिवर्तक कैलकुलेटर आपको विभिन्न एसआई इकाइयों, जैसे लंबाई, द्रव्यमान, समय, तापमान, क्षेत्रफल, आयतन, गति, और ऊर्जा के बीच परिवर्तन करने की अनुमति देता है। इकाई प्रकार चुनें, मान दर्ज करें, और परिवर्तन के लिए इकाइयाँ चुनें ताकि तत्काल परिणाम प्राप्त हो।'
+                : 'The SI Unit Converter Calculator allows you to convert between various SI units, covering length, mass, time, temperature, area, volume, speed, and energy. Select the unit type, input a value, and choose the units to convert from and to for instant results.';
+            document.getElementById('aboutText2').textContent = isHindi 
+                ? 'यह उपकरण सटीकता सुनिश्चित करने के लिए मानक एसआई परिवर्तन कारकों का उपयोग करता है। यह छात्रों, वैज्ञानिकों, इंजीनियरों, या किसी भी व्यक्ति के लिए आदर्श है जिसे सटीक इकाई परिवर्तनों की आवश्यकता है। चाहे आप मीटर को किलोमीटर या जूल को किलोजूल में परिवर्तित कर रहे हों, यह कैलकुलेटर प्रक्रिया को सरल बनाता है।'
+                : 'This tool uses standard SI conversion factors to ensure accuracy. It’s ideal for students, scientists, engineers, or anyone needing precise unit conversions. Whether you\'re converting meters to kilometers or joules to kilojoules, this calculator simplifies the process.';
+        });
+    </script>
+</body>
+</html>
