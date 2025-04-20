@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ML Model Evaluator</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.0/papaparse.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    <style>
+        body { background: #1A202C; color: #fff; font-family: 'Segoe UI', Arial, sans-serif; }
+        .tab { cursor: pointer; padding: 10px 20px; background: #34495e; border-radius: 5px; transition: all 0.3s; }
+        .tab.active { background: #3498db; }
+        .input-section, .result-section { background: rgba(45, 55, 72, 0.9); padding: 20px; border-radius: 10px; margin: 10px 0; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); }
+        .chart-container { width: 100%; height: 400px; }
+        .btn { background: #2ecc71; padding: 8px 16px; border-radius: 5px; cursor: pointer; transition: background 0.3s; }
+        .btn:hover { background: #27ae60; }
+        .download-btn, .copy-btn { background: #e74c3c; margin-left: 10px; }
+        .download-btn:hover, .copy-btn:hover { background: #c0392b; }
+        .loading { display: none; animation: spin 1s linear infinite; }
+        .error { color: #e74c3c; font-size: 14px; margin-top: 5px; }
+        .language-select { background: #34495e; color: #fff; padding: 5px; border-radius: 5px; }
+        @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+        @media (max-width: 640px) { .chart-container { height: 300px; } .btn { width: 100%; margin-bottom: 10px; } }
+    </style>
+</head>
+<body>
+    <header class="text-center p-6 bg-gray-800">
+        <h1 class="text-4xl font-bold text-red-500">ML Model Evaluator</h1>
+        <p class="text-xl text-blue-400">Advanced Performance Analysis with SEO Insights</p>
+    </header>
+    <nav class="flex justify-center gap-4 p-4 bg-gray-700">
+        <div class="tab active" onclick="showTab('classification')">Classification</div>
+        <div class="tab" onclick="showTab('regression')">Regression</div>
+    </nav>
+    <div class="max-w-5xl mx-auto p-6">
+        <div class="flex justify-end mb-4">
+            <select id="languageSelect" class="language-select" onchange="changeLanguage()">
+                <option value="en">English</option>
+                <option value="es">Español</option>
+                <option value="fr">Français</option>
+                <option value="de">Deutsch</option>
+                <option value="it">Italiano</option>
+                <option value="pt">Português</option>
+                <option value="hi">हिन्दी</option>
+                <option value="zh">中文</option>
+                <option value="ar">العربية</option>
+            </select>
+        </div>
+        <div id="content">
+            <div id="classification-tab" class="input-section">
+                <h2 class="text-2xl mb-4">Input de Clasificación</h2>
+                <div class="mb-4">
+                    <label class="block mb-2">Subir CSV (Etiquetas Verdaderas, Etiquetas Predichas)</label>
+                    <input type="file" id="csvUploadClass" accept=".csv" class="bg-gray-600 text-white p-2 rounded w-full mb-2">
+                </div>
+                <div class="mb-4">
+                    <label class="block mb-2">O Ingresar Manualmente</label>
+                    <textarea id="trueLabels" class="w-full p-2 mb-2 bg-gray-600 text-white rounded" placeholder="Etiquetas Verdaderas (ejemplo: [0, 1, 1, 0])" rows="3"></textarea>
+                    <textarea id="predLabels" class="w-full p-2 mb-2 bg-gray-600 text-white rounded" placeholder="Etiquetas Predichas (ejemplo: [0, 1, 0, 0])" rows="3"></textarea>
+                    <div id="class-error" class="error hidden">Por favor, ingrese matrices válidas de la misma longitud!</div>
+                </div>
+                <button onclick="calculateClassification()" class="btn">Calcular</button>
+                <div id="classification-result" class="result-section mt-6 hidden">
+                    <canvas id="confusionChart" class="chart-container"></canvas>
+                    <table class="w-full mt-4 text-left border-collapse">
+                        <tr class="bg-gray-700"><th class="p-2">Métrica</th><th class="p-2">Valor</th></tr>
+                        <tr><td class="p-2">Precisión</td><td id="accuracy" class="p-2"></td></tr>
+                        <tr><td class="p-2">Precisión</td><td id="precision" class="p-2"></td></tr>
+                        <tr><td class="p-2">Recall</td><td id="recall" class="p-2"></td></tr>
+                        <tr><td class="p-2">F1-Score</td><td id="f1" class="p-2"></td></tr>
+                    </table>
+                    <div class="mt-4">
+                        <button onclick="copyResult('classification')" class="copy-btn">Copiar Resultado</button>
+                        <button onclick="downloadPDF('classification')" class="download-btn">Descargar PDF</button>
+                    </div>
+                    <p class="mt-4 text-sm text-gray-400">SEO Tools Recomendados (300-500 USD): Sitechecker, Ubersuggest, Serpstat</p>
+                </div>
+            </div>
+            <div id="regression-tab" class="input-section hidden">
+                <h2 class="text-2xl mb-4">Input de Regresión</h2>
+                <div class="mb-4">
+                    <label class="block mb-2">Subir CSV (Valores Verdaderos, Valores Predichos)</label>
+                    <input type="file" id="csvUploadReg" accept=".csv" class="bg-gray-600 text-white p-2 rounded w-full mb-2">
+                </div>
+                <div class="mb-4">
+                    <label class="block mb-2">O Ingresar Manualmente</label>
+                    <textarea id="trueValues" class="w-full p-2 mb-2 bg-gray-600 text-white rounded" placeholder="Valores Verdaderos (ejemplo: [10, 20, 30])" rows="3"></textarea>
+                    <textarea id="predValues" class="w-full p-2 mb-2 bg-gray-600 text-white rounded" placeholder="Valores Predichos (ejemplo: [12, 18, 28])" rows="3"></textarea>
+                    <div id="reg-error" class="error hidden">Por favor, ingrese matrices válidas de la misma longitud!</div>
+                </div>
+                <button onclick="calculateRegression()" class="btn">Calcular</button>
+                <div id="regression-result" class="result-section mt-6 hidden">
+                    <canvas id="scatterChart" class="chart-container"></canvas>
+                    <table class="w-full mt-4 text-left border-collapse">
+                        <tr class="bg-gray-700"><th class="p-2">Métrica</th><th class="p-2">Valor</th></tr>
+                        <tr><td class="p-2">MAE</td><td id="mae" class="p-2"></td></tr>
+                        <tr><td class="p-2">MSE</td><td id="mse" class="p-2"></td></tr>
+                        <tr><td class="p-2">RMSE</td><td id="rmse" class="p-2"></td></tr>
+                    </table>
+                    <div class="mt-4">
+                        <button onclick="copyResult('regression')" class="copy-btn">Copiar Resultado</button>
+                        <button onclick="downloadPDF('regression')" class="download-btn">Descargar PDF</button>
+                    </div>
+                    <p class="mt-4 text-sm text-gray-400">SEO Tools Recomendados (300-500 USD): Sitechecker, Ubersuggest, Serpstat</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="loading" class="loading fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-2xl">Cargando...</div>
+    <script>
+        let confusionChart, scatterChart;
+        const languages = {
+            en: { classification: "Classification Input", regression: "Regression Input", upload: "Upload CSV", manual: "OR Enter Manually", trueLabels: "True Labels", predLabels: "Predicted Labels", trueValues: "True Values", predValues: "Predicted Values", calculate: "Calculate", accuracy: "Accuracy", precision: "Precision", recall: "Recall", f1: "F1-Score", mae: "MAE", mse: "MSE", rmse: "RMSE", copy: "Copy Result", download: "Download PDF", seoTools: "Recommended SEO Tools (300-500 USD): Sitechecker, Ubersuggest, Serpstat", error: "Please enter valid arrays of the same length!" },
+            es: { classification: "Input de Clasificación", regression: "Input de Regresión", upload: "Subir CSV", manual: "O Ingresar Manualmente", trueLabels: "Etiquetas Verdaderas", predLabels: "Etiquetas Predichas", trueValues: "Valores Verdaderos", predValues: "Valores Predichos", calculate: "Calcular", accuracy: "Precisión", precision: "Precisión", recall: "Recall", f1: "F1-Score", mae: "MAE", mse: "MSE", rmse: "RMSE", copy: "Copiar Resultado", download: "Descargar PDF", seoTools: "Herramientas SEO Recomendadas (300-500 USD): Sitechecker, Ubersuggest, Serpstat", error: "¡Por favor, ingrese matrices válidas de la misma longitud!" },
+            fr: { classification: "Entrée de Classification", regression: "Entrée de Régression", upload: "Télécharger CSV", manual: "OU Entrer Manuellement", trueLabels: "Étiquettes Vraies", predLabels: "Étiquettes Prédites", trueValues: "Valeurs Vraies", predValues: "Valeurs Prédites", calculate: "Calculer", accuracy: "Précision", precision: "Précision", recall: "Rappel", f1: "Score F1", mae: "MAE", mse: "MSE", rmse: "RMSE", copy: "Copier Résultat", download: "Télécharger PDF", seoTools: "Outils SEO Recommandés (300-500 USD): Sitechecker, Ubersuggest, Serpstat", error: "Veuillez entrer des tableaux valides de même longueur !" },
+            de: { classification: "Klassifikations-Eingabe", regression: "Regressions-Eingabe", upload: "CSV hochladen", manual: "Oder manuell eingeben", trueLabels: "Wahre Labels", predLabels: "Vorhergesagte Labels", trueValues: "Wahre Werte", predValues: "Vorhergesagte Werte", calculate: "Berechnen", accuracy: "Genauigkeit", precision: "Präzision", recall: "Recall", f1: "F1-Score", mae: "MAE", mse: "MSE", rmse: "RMSE", copy: "Ergebnis kopieren", download: "PDF herunterladen", seoTools: "Empfohlene SEO-Tools (300-500 USD): Sitechecker, Ubersuggest, Serpstat", error: "Bitte gültige Arrays gleicher Länge eingeben!" },
+            it: { classification: "Input di Classificazione", regression: "Input di Regressione", upload: "Carica CSV", manual: "O Inserisci Manualmente", trueLabels: "Etichette Vere", predLabels: "Etichette Predette", trueValues: "Valori Veri", predValues: "Valori Predetti", calculate: "Calcola", accuracy: "Precisione", precision: "Precisione", recall: "Richiamo", f1: "Punteggio F1", mae: "MAE", mse: "MSE", rmse: "RMSE", copy: "Copia Risultato", download: "Scarica PDF", seoTools: "Strumenti SEO Raccomandati (300-500 USD): Sitechecker, Ubersuggest, Serpstat", error: "Inserisci array validi della stessa lunghezza!" },
+            pt: { classification: "Entrada de Classificação", regression: "Entrada de Regressão", upload: "Carregar CSV", manual: "OU Inserir Manualmente", trueLabels: "Etiquetas Verdadeiras", predLabels: "Etiquetas Previstas", trueValues: "Valores Verdadeiros", predValues: "Valores Previstos", calculate: "Calcular", accuracy: "Acurácia", precision: "Precisão", recall: "Recall", f1: "F1-Score", mae: "MAE", mse: "MSE", rmse: "RMSE", copy: "Copiar Resultado", download: "Baixar PDF", seoTools: "Ferramentas SEO Recomendadas (300-500 USD): Sitechecker, Ubersuggest, Serpstat", error: "Por favor, insira arrays válidos de mesmo comprimento!" },
+            hi: { classification: "वर्गीकरण इनपुट", regression: "रिग्रेशन इनपुट", upload: "CSV अपलोड करें", manual: "या मैन्युअल रूप से दर्ज करें", trueLabels: "सत्य लेबल", predLabels: "भविष्यवाणी लेबल", trueValues: "सत्य मान", predValues: "भविष्यवाणी मान", calculate: "गणना करें", accuracy: "सटीकता", precision: "सटीकता", recall: "स्मरण", f1: "F1-स्कोर", mae: "MAE", mse: "MSE", rmse: "RMSE", copy: "परिणाम कॉपी करें", download: "PDF डाउनलोड करें", seoTools: "अनुशंसित SEO टूल्स (300-500 USD): Sitechecker, Ubersuggest, Serpstat", error: "कृपया समान लंबाई के वैध सरणियाँ दर्ज करें!" },
+            zh: { classification: "分类输入", regression: "回归输入", upload: "上传 CSV", manual: "或手动输入", trueLabels: "真实标签", predLabels: "预测标签", trueValues: "真实值", predValues: "预测值", calculate: "计算", accuracy: "准确率", precision: "精确度", recall: "召回率", f1: "F1 分数", mae: "MAE", mse: "MSE", rmse: "RMSE", copy: "复制结果", download: "下载 PDF", seoTools: "推荐 SEO 工具 (300-500 USD): Sitechecker, Ubersuggest, Serpstat", error: "请输入相同长度的有效数组!" },
+            ar: { classification: "إدخال التصنيف", regression: "إدخال الانحدار", upload: "رفع CSV", manual: "أو أدخل يدويًا", trueLabels: "العلامات الحقيقية", predLabels: "العلامات المتوقعة", trueValues: "القيم الحقيقية", predValues: "القيم المتوقعة", calculate: "حساب", accuracy: "الدقة", precision: "الدقة", recall: "التذكر", f1: "درجة F1", mae: "MAE", mse: "MSE", rmse: "RMSE", copy: "نسخ النتيجة", download: "تحميل PDF", seoTools: "أدوات SEO الموصى بها (300-500 USD): Sitechecker, Ubersuggest, Serpstat", error: "يرجى إدخال مصفوفات صالحة بنفس الطول!" }
+        };
+
+        function changeLanguage() {
+            const lang = document.getElementById('languageSelect').value;
+            const langData = languages[lang];
+            document.querySelector('#classification-tab h2').textContent = langData.classification;
+            document.querySelector('#regression-tab h2').textContent = langData.regression;
+            document.querySelectorAll('label')[0].textContent = langData.upload + ' (True Labels, Predicted Labels)';
+            document.querySelectorAll('label')[1].textContent = langData.upload + ' (True Values, Predicted Values)';
+            document.querySelectorAll('label')[2].textContent = langData.manual;
+            document.getElementById('trueLabels').placeholder = langData.trueLabels + ' (e.g., [0, 1, 1, 0])';
+            document.getElementById('predLabels').placeholder = langData.predLabels + ' (e.g., [0, 1, 0, 0])';
+            document.getElementById('trueValues').placeholder = langData.trueValues + ' (e.g., [10, 20, 30])';
+            document.getElementById('predValues').placeholder = langData.predValues + ' (e.g., [12, 18, 28])';
+            document.querySelectorAll('button')[0].textContent = langData.calculate;
+            document.querySelectorAll('button')[1].textContent = langData.calculate;
+            document.getElementById('class-error').textContent = langData.error;
+            document.getElementById('reg-error').textContent = langData.error;
+            document.querySelectorAll('.copy-btn')[0].textContent = langData.copy;
+            document.querySelectorAll('.copy-btn')[1].textContent = langData.copy;
+            document.querySelectorAll('.download-btn')[0].textContent = langData.download;
+            document.querySelectorAll('.download-btn')[1].textContent = langData.download;
+            document.querySelectorAll('p')[0].textContent = langData.seoTools;
+            document.querySelectorAll('p')[1].textContent = langData.seoTools;
+        }
+
+        function showTab(tab) {
+            document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+            document.querySelector(`.tab[onclick="showTab('${tab}')"]`).classList.add('active');
+            document.getElementById('content').querySelectorAll('.input-section').forEach(s => s.classList.add('hidden'));
+            document.getElementById(`${tab}-tab`).classList.remove('hidden');
+            document.getElementById(`${tab}-result`).classList.add('hidden');
+            if (confusionChart) confusionChart.destroy();
+            if (scatterChart) scatterChart.destroy();
+        }
+
+        function processCSV(fileInput, trueId, predId, callback) {
+            const file = fileInput.files[0];
+            if (file) {
+                document.getElementById('loading').style.display = 'block';
+                Papa.parse(file, {
+                    complete: function(results) {
+                        const data = results.data;
+                        const trueValues = data.map(row => parseFloat(row[0])).filter(v => !isNaN(v));
+                        const predValues = data.map(row => parseFloat(row[1])).filter(v => !isNaN(v));
+                        if (trueValues.length !== predValues.length || trueValues.length === 0) {
+                            alert(languages[document.getElementById('languageSelect').value].error);
+                            document.getElementById('loading').style.display = 'none';
+                            return;
+                        }
+                        document.getElementById(trueId).value = JSON.stringify(trueValues);
+                        document.getElementById(predId).value = JSON.stringify(predValues);
+                        document.getElementById('loading').style.display = 'none';
+                        callback();
+                    },
+                    header: false,
+                    skipEmptyLines: true
+                });
+            }
+        }
+
+        document.getElementById('csvUploadClass').addEventListener('change', () => processCSV(document.getElementById('csvUploadClass'), 'trueLabels', 'predLabels', calculateClassification));
+        document.getElementById('csvUploadReg').addEventListener('change', () => processCSV(document.getElementById('csvUploadReg'), 'trueValues', 'predValues', calculateRegression));
+
+        function calculateClassification() {
+            let trueLabels, predLabels;
+            try {
+                trueLabels = JSON.parse(document.getElementById('trueLabels').value || '[0]');
+                predLabels = JSON.parse(document.getElementById('predLabels').value || '[0]');
+                if (!Array.isArray(trueLabels) || !Array.isArray(predLabels) || trueLabels.length !== predLabels.length || trueLabels.length === 0) {
+                    throw new Error('Invalid input');
+                }
+            } catch (e) {
+                document.getElementById('class-error').classList.remove('hidden');
+                return;
+            }
+            document.getElementById('class-error').classList.add('hidden');
+            let tp = 0, fp = 0, fn = 0, tn = 0;
+            trueLabels.forEach((t, i) => {
+                if (t === 1 && predLabels[i] === 1) tp++;
+                else if (t === 0 && predLabels[i] === 1) fp++;
+                else if (t === 1 && predLabels[i] === 0) fn++;
+                else tn++;
+            });
+            const accuracy = ((tp + tn) / trueLabels.length * 100).toFixed(2);
+            const precision = (tp / (tp + fp) * 100 || 0).toFixed(2);
+            const recall = (tp / (tp + fn) * 100 || 0).toFixed(2);
+            const f1 = (2 * precision * recall / (precision + recall) || 0).toFixed(2);
+
+            document.getElementById('accuracy').textContent = `${accuracy}%`;
+            document.getElementById('precision').textContent = `${precision}%`;
+            document.getElementById('recall').textContent = `${recall}%`;
+            document.getElementById('f1').textContent = `${f1}%`;
+            document.getElementById('classification-result').classList.remove('hidden');
+
+            const ctx = document.getElementById('confusionChart').getContext('2d');
+            if (confusionChart) confusionChart.destroy();
+            confusionChart = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: ['True Positive', 'False Positive', 'False Negative', 'True Negative'],
+                    datasets: [{
+                        label: 'Confusion Matrix',
+                        data: [tp, fp, fn, tn],
+                        backgroundColor: ['#36A2EB', '#FF6384', '#FFCE56', '#4BC0C0'],
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    scales: { y: { beginAtZero: true, title: { display: true, text: 'Count' } } },
+                    plugins: { tooltip: { callbacks: { label: ctx => `${ctx.label}: ${ctx.raw}` } } }
+                }
+            });
+        }
+
+        function calculateRegression() {
+            let trueValues, predValues;
+            try {
+                trueValues = JSON.parse(document.getElementById('trueValues').value || '[0]');
+                predValues = JSON.parse(document.getElementById('predValues').value || '[0]');
+                if (!Array.isArray(trueValues) || !Array.isArray(predValues) || trueValues.length !== predValues.length || trueValues.length === 0) {
+                    throw new Error('Invalid input');
+                }
+            } catch (e) {
+                document.getElementById('reg-error').classList.remove('hidden');
+                return;
+            }
+            document.getElementById('reg-error').classList.add('hidden');
+            let mae = 0, mse = 0;
+            trueValues.forEach((t, i) => {
+                const error = t - predValues[i];
+                mae += Math.abs(error);
+                mse += error * error;
+            });
+            mae /= trueValues.length;
+            mse /= trueValues.length;
+            const rmse = Math.sqrt(mse);
+
+            document.getElementById('mae').textContent = `${mae.toFixed(2)}`;
+            document.getElementById('mse').textContent = `${mse.toFixed(2)}`;
+            document.getElementById('rmse').textContent = `${rmse.toFixed(2)}`;
+            document.getElementById('regression-result').classList.remove('hidden');
+
+            const ctx = document.getElementById('scatterChart').getContext('2d');
+            if (scatterChart) scatterChart.destroy();
+            scatterChart = new Chart(ctx, {
+                type: 'scatter',
+                data: {
+                    datasets: [{
+                        label: 'Actual vs Predicted',
+                        data: trueValues.map((t, i) => ({ x: t, y: predValues[i] })),
+                        backgroundColor: 'rgba(75, 192, 192, 0.5)',
+                        pointRadius: 5,
+                        pointHoverRadius: 7
+                    }]
+                },
+                options: {
+                    scales: { x: { title: { display: true, text: 'Actual' } }, y: { title: { display: true, text: 'Predicted' } } },
+                    plugins: { tooltip: { callbacks: { label: ctx => `Point: (${ctx.raw.x}, ${ctx.raw.y})` } } }
+                }
+            });
+        }
+
+        function copyResult(tab) {
+            const resultDiv = document.getElementById(`${tab}-result`);
+            const range = document.createRange();
+            range.selectNode(resultDiv);
+            window.getSelection().removeAllRanges();
+            window.getSelection().addRange(range);
+            document.execCommand('copy');
+            window.getSelection().removeAllRanges();
+            alert(languages[document.getElementById('languageSelect').value].copy + ' ' + languages[document.getElementById('languageSelect').value].success);
+        }
+
+        function downloadPDF(tab) {
+            const resultDiv = document.getElementById(`${tab}-result`);
+            html2pdf().set({ filename: `${tab}-evaluation.pdf`, html2canvas: { scale: 2 } }).from(resultDiv).save();
+        }
+
+        window.onload = () => {
+            showTab('classification');
+            changeLanguage();
+        };
+    </script>
+</html>
