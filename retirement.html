@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Retirement Calculator | AI CALCULATOR</title>
+  <meta name="description" content="Calculate how much you need to save for a comfortable retirement. रिटायरमेंट कैलकुलेटर से जानें भविष्य की तैयारी।" />
+  <meta name="keywords" content="Retirement Calculator, Pension, AI Calculator, रिटायरमेंट योजना, बचत योजना" />
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 20px;
+      background: white;
+      color: #111;
+      transition: background 0.3s, color 0.3s;
+    }
+    .dark {
+      background: #121212;
+      color: #eee;
+    }
+    .container {
+      max-width: 600px;
+      margin: auto;
+    }
+    .highlight {
+      color: #4CAF50;
+      font-weight: bold;
+    }
+    .title {
+      text-align: center;
+      font-size: 2em;
+    }
+    .subtitle {
+      text-align: center;
+      font-size: 1.2em;
+      margin-bottom: 30px;
+    }
+    label {
+      font-weight: bold;
+      margin-top: 10px;
+      display: block;
+    }
+    input {
+      width: 100%;
+      padding: 8px;
+      margin-top: 5px;
+      box-sizing: border-box;
+    }
+    #result {
+      margin-top: 20px;
+      padding: 10px;
+      font-size: 1.1em;
+      font-weight: bold;
+      border: 1px solid #ccc;
+    }
+    button {
+      margin-top: 20px;
+      padding: 10px 20px;
+      background: #4CAF50;
+      color: white;
+      border: none;
+      cursor: pointer;
+      width: 100%;
+    }
+    .footer {
+      text-align: center;
+      font-size: 0.9em;
+      margin-top: 40px;
+    }
+    .footer a {
+      color: #4CAF50;
+      margin: 0 10px;
+      text-decoration: none;
+    }
+    .toggle {
+      position: fixed;
+      top: 10px;
+      right: 15px;
+      cursor: pointer;
+      font-size: 20px;
+    }
+    select {
+      margin-bottom: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div class="toggle" onclick="toggleTheme()">🌓</div>
+  <div class="container">
+    <div class="title"><span class="highlight">AI CALCULATOR</span></div>
+    <div class="subtitle">Retirement Calculator</div>
+
+    <select id="lang" onchange="switchLang(this.value)">
+      <option value="en">English</option>
+      <option value="hi">हिन्दी</option>
+    </select>
+
+    <label id="currAgeLbl">Current Age</label>
+    <input type="number" id="currAge" value="30" min="18">
+
+    <label id="retAgeLbl">Retirement Age</label>
+    <input type="number" id="retAge" value="60" min="30">
+
+    <label id="monthlySaveLbl">Monthly Savings (₹)</label>
+    <input type="number" id="monthlySave" value="5000" min="0">
+
+    <label id="rateLbl">Expected Annual Interest Rate (%)</label>
+    <input type="number" id="rate" value="7" step="0.1">
+
+    <button onclick="calculateRetirement()">Calculate</button>
+    <div id="result">Your retirement corpus will appear here.</div>
+
+    <p id="about">
+      This calculator helps you estimate the total retirement savings you'll have by the time you retire. रिटायरमेंट कैलकुलेटर आपकी रिटायरमेंट के लिए भविष्य की बचत का आकलन करता है।
+    </p>
+
+    <div class="footer">
+      <a href="#">Privacy Policy</a> |
+      <a href="#">Disclaimer</a> |
+      <a href="#">How to Use</a> |
+      <a href="#">Contact Us</a><br><br>
+      <span>Share:</span>
+      <a href="#">FB</a>
+      <a href="#">X</a>
+      <a href="#">Insta</a>
+      <a href="#">WhatsApp</a><br><br>
+      <span>© 2025 All rights reserved.</span>
+    </div>
+  </div>
+
+  <script>
+    function calculateRetirement() {
+      const currAge = parseInt(document.getElementById("currAge").value);
+      const retAge = parseInt(document.getElementById("retAge").value);
+      const months = (retAge - currAge) * 12;
+      const monthlySave = parseFloat(document.getElementById("monthlySave").value);
+      const rate = parseFloat(document.getElementById("rate").value) / 100 / 12;
+
+      let futureValue = 0;
+      for (let i = 0; i < months; i++) {
+        futureValue = (futureValue + monthlySave) * (1 + rate);
+      }
+
+      document.getElementById("result").innerText =
+        "Estimated Retirement Corpus: ₹" + futureValue.toFixed(2);
+    }
+
+    function toggleTheme() {
+      document.body.classList.toggle("dark");
+    }
+
+    function switchLang(lang) {
+      const en = {
+        currAgeLbl: "Current Age",
+        retAgeLbl: "Retirement Age",
+        monthlySaveLbl: "Monthly Savings (₹)",
+        rateLbl: "Expected Annual Interest Rate (%)",
+        about: "This calculator helps you estimate the total retirement savings you'll have by the time you retire."
+      };
+      const hi = {
+        currAgeLbl: "वर्तमान आयु",
+        retAgeLbl: "रिटायरमेंट आयु",
+        monthlySaveLbl: "मासिक बचत (₹)",
+        rateLbl: "अपेक्षित वार्षिक ब्याज दर (%)",
+        about: "यह कैलकुलेटर आपकी रिटायरमेंट तक की कुल बचत का अनुमान लगाने में मदद करता है।"
+      };
+      const txt = lang === "hi" ? hi : en;
+      document.getElementById("currAgeLbl").innerText = txt.currAgeLbl;
+      document.getElementById("retAgeLbl").innerText = txt.retAgeLbl;
+      document.getElementById("monthlySaveLbl").innerText = txt.monthlySaveLbl;
+      document.getElementById("rateLbl").innerText = txt.rateLbl;
+      document.getElementById("about").innerText = txt.about;
+    }
+  </script>
+</body>
+</html>
