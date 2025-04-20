@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="title" content="AI Marks Percentage Calculator">
+    <meta name="description" content="Calculate your marks percentage with our AI-powered Marks Percentage Calculator. Input obtained and total marks for instant results.">
+    <meta name="keywords" content="marks percentage calculator, grade calculator, percentage calculator, AI calculator, education tools, marks calculation">
+    <meta name="robots" content="index, follow">
+    <title>AI Marks Percentage Calculator</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #ffffff;
+            color: #1a202c;
+        }
+        .calculator-title {
+            font-weight: bold;
+            text-align: center;
+            background-color: #f6e05e;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+        .input-field {
+            border: 2px solid #e2e8f0;
+            border-radius: 8px;
+            padding: 10px;
+            font-weight: bold;
+            width: 100%;
+            box-sizing: border-box;
+        }
+        .language-switcher {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            cursor: pointer;
+        }
+        .theme-switcher {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            cursor: pointer;
+        }
+        .calculate-btn {
+            background-color: #4299e1;
+            color: white;
+            font-weight: bold;
+            padding: 12px;
+            border-radius: 8px;
+            width: 100%;
+        }
+        .result-box {
+            border: 2px solid #e2e8f0;
+            border-radius: 8px;
+            padding: 15px;
+            margin-top: 20px;
+            font-weight: bold;
+        }
+        footer a {
+            color: #4299e1;
+            text-decoration: none;
+        }
+        footer a:hover {
+            text-decoration: underline;
+        }
+        .share-icons img {
+            width: 30px;
+            margin: 0 10px;
+        }
+        .dark-mode {
+            background-color: #1a202c;
+            color: #e2e8f0;
+        }
+        .dark-mode .input-field {
+            border-color: #4a5568;
+            background-color: #2d3748;
+            color: #e2e8f0;
+        }
+        .dark-mode .result-box {
+            border-color: #4a5568;
+            background-color: #2d3748;
+        }
+        .dark-mode .calculator-title {
+            background-color: #b83280;
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col">
+    <header class="relative">
+        <h1 class="calculator-title text-3xl">AI CALCULATOR</h1>
+        <h2 class="text-center text-xl font-bold mb-4" id="calcTitle">Marks Percentage Calculator</h2>
+        <div class="language-switcher">
+            <img src="https://img.icons8.com/ios-filled/50/000000/globe.png" alt="Language Switcher" id="langToggle" width="30">
+        </div>
+        <div class="theme-switcher">
+            <img src="https://img.icons8.com/ios-filled/50/000000/moon-symbol.png" alt="Theme Switcher" id="themeToggle" width="30">
+        </div>
+    </header>
+    <main class="flex-grow container mx-auto px-4 py-6">
+        <section class="max-w-md mx-auto">
+            <div class="mb-4">
+                <label for="obtainedMarks" class="block font-bold mb-2" id="obtainedMarksLabel">Obtained Marks</label>
+                <input type="number" id="obtainedMarks" class="input-field" placeholder="e.g. 85" step="any" required>
+            </div>
+            <div class="mb-4">
+                <label for="totalMarks" class="block font-bold mb-2" id="totalMarksLabel">Total Marks</label>
+                <input type="number" id="totalMarks" class="input-field" placeholder="e.g. 100" step="any" required>
+            </div>
+            <button class="calculate-btn" onclick="calculatePercentage()" id="calcButton">Calculate</button>
+            <div id="result" class="result-box hidden">
+                <p id="percentageResult"></p>
+            </div>
+        </section>
+        <section class="mt-8 max-w-2xl mx-auto">
+            <h3 class="text-xl font-bold mb-4" id="aboutTitle">About the Marks Percentage Calculator</h3>
+            <p class="mb-4" id="aboutText1">
+                The Marks Percentage Calculator helps you determine the percentage of marks obtained in exams or assignments. Simply input the obtained marks and the total marks to get the percentage instantly.
+            </p>
+            <p id="aboutText2">
+                This tool uses the formula: (Obtained Marks / Total Marks) × 100. It’s perfect for students, teachers, or anyone needing to calculate academic performance quickly and accurately.
+            </p>
+        </section>
+    </main>
+    <footer class="bg-gray-100 py-6 mt-8">
+        <div class="container mx-auto px-4 text-center">
+            <div class="mb-4">
+                <a href="/privacy-policy" class="mx-2">Privacy Policy</a> |
+                <a href="/disclaimer" class="mx-2">Disclaimer</a> |
+                <a href="/how-to-use" class="mx-2">How to Use</a> |
+                <a href="/contact-us" class="mx-2">Contact Us</a>
+            </div>
+            <div class="share-icons mb-4 flex justify-center">
+                <a href="https://www.facebook.com/sharer/sharer.php?u=#" target="_blank">
+                    <img src="https://img.icons8.com/color/48/000000/facebook-new.png" alt="Facebook">
+                </a>
+                <a href="https://twitter.com/intent/tweet?url=#&text=Check out this AI Marks Percentage Calculator!" target="_blank">
+                    <img src="https://img.icons8.com/color/48/000000/twitter.png" alt="X">
+                </a>
+                <a href="https://api.whatsapp.com/send?text=Check out this AI Marks Percentage Calculator: #" target="_blank">
+                    <img src="https://img.icons8.com/color/48/000000/whatsapp.png" alt="WhatsApp">
+                </a>
+                <a href="https://www.instagram.com/" target="_blank">
+                    <img src="https://img.icons8.com/color/48/000000/instagram-new.png" alt="Instagram">
+                </a>
+            </div>
+            <p class="text-sm">© 2025 All Rights Reserved</p>
+        </div>
+    </footer>
+    <script>
+        let isHindi = false;
+
+        function calculatePercentage() {
+            const obtainedMarks = parseFloat(document.getElementById('obtainedMarks').value);
+            const totalMarks = parseFloat(document.getElementById('totalMarks').value);
+
+            if (isNaN(obtainedMarks) || isNaN(totalMarks) || totalMarks <= 0 || obtainedMarks < 0) {
+                alert(isHindi ? 'कृपया मान्य अंक और कुल अंक दर्ज करें।' : 'Please enter valid obtained and total marks.');
+                return;
+            }
+
+            if (obtainedMarks > totalMarks) {
+                alert(isHindi ? 'प्राप्त अंक कुल अंकों से अधिक नहीं हो सकते।' : 'Obtained marks cannot exceed total marks.');
+                return;
+            }
+
+            const percentage = (obtainedMarks / totalMarks) * 100;
+
+            document.getElementById('percentageResult').textContent = isHindi 
+                ? `प्रतिशत: ${percentage.toFixed(2)}%` 
+                : `Percentage: ${percentage.toFixed(2)}%`;
+            document.getElementById('result').classList.remove('hidden');
+        }
+
+        document.getElementById('themeToggle').addEventListener('click', () => {
+            document.body.classList.toggle('dark-mode');
+            const icon = document.getElementById('themeToggle');
+            icon.src = document.body.classList.contains('dark-mode')
+                ? 'https://img.icons8.com/ios-filled/50/ffffff/sun.png'
+                : 'https://img.icons8.com/ios-filled/50/000000/moon-symbol.png';
+        });
+
+        document.getElementById('langToggle').addEventListener('click', () => {
+            isHindi = !isHindi;
+
+            document.getElementById('calcTitle').textContent = isHindi 
+                ? 'अंक प्रतिशत कैलकुलेटर' 
+                : 'Marks Percentage Calculator';
+            document.getElementById('obtainedMarksLabel').textContent = isHindi 
+                ? 'प्राप्त अंक' 
+                : 'Obtained Marks';
+            document.getElementById('totalMarksLabel').textContent = isHindi 
+                ? 'कुल अंक' 
+                : 'Total Marks';
+            document.getElementById('calcButton').textContent = isHindi 
+                ? 'गणना करें' 
+                : 'Calculate';
+            document.getElementById('aboutTitle').textContent = isHindi 
+                ? 'अंक प्रतिशत कैलकुलेटर के बारे में' 
+                : 'About the Marks Percentage Calculator';
+            document.getElementById('aboutText1').textContent = isHindi 
+                ? 'अंक प्रतिशत कैलकुलेटर आपको परीक्षा या असाइनमेंट में प्राप्त अंकों का प्रतिशत निर्धारित करने में मदद करता है। बस प्राप्त अंक और कुल अंक दर्ज करें ताकि प्रतिशत तुरंत प्राप्त हो।'
+                : 'The Marks Percentage Calculator helps you determine the percentage of marks obtained in exams or assignments. Simply input the obtained marks and the total marks to get the percentage instantly.';
+            document.getElementById('aboutText2').textContent = isHindi 
+                ? 'यह उपकरण सूत्र का उपयोग करता है: (प्राप्त अंक / कुल अंक) × 100। यह छात्रों, शिक्षकों, या किसी भी व्यक्ति के लिए आदर्श है जिसे शैक्षणिक प्रदर्शन की त्वरित और सटीक गणना करने की आवश्यकता है।'
+                : 'This tool uses the formula: (Obtained Marks / Total Marks) × 100. It’s perfect for students, teachers, or anyone needing to calculate academic performance quickly and accurately.';
+        });
+    </script>
+</body>
+</html>
