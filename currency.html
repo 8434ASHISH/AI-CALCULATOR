@@ -3,153 +3,255 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI Currency Converter - Free Online Tool | AI Calculator</title>
-    <meta name="description" content="Convert currencies with our free AI-powered Currency Converter. Available in English, Hindi, Tamil, Telugu, Spanish, Bengali, Arabic, Mandarin, and French. Try now!">
-    <meta name="keywords" content="currency converter, ai currency converter, free currency converter, online currency converter">
+    <meta name="title" content="AI Currency Exchange Calculator">
+    <meta name="description" content="Convert currencies with our AI-powered Currency Exchange Calculator. Input an amount and select currencies for real-time exchange rates.">
+    <meta name="keywords" content="currency exchange calculator, forex converter, money converter, AI calculator, financial tools, exchange rates">
     <meta name="robots" content="index, follow">
-    <link rel="canonical" href="https://yourusername.github.io/ai-calculator/currencyconverter.html">
-    <script src="https://cdn.tailwindcss.com"></script>
+    <title>AI Currency Exchange Calculator</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <style>
         body {
-            font-family: Arial, sans-serif;
-            background: linear-gradient(135deg, #1A202C, #2D3748);
-            color: #fff;
-            margin: 0;
-            transition: background 0.3s, color 0.3s;
+            font-family: 'Arial', sans-serif;
+            background-color: #ffffff;
+            color: #1a202c;
         }
-        .light-mode {
-            background: #f0f0f0;
-            color: #333;
+        .calculator-title {
+            font-weight: bold;
+            text-align: center;
+            background-color: #f6e05e;
+            padding: 10px;
+            margin-bottom: 10px;
         }
-        .header { background: #2c3e50; padding: 20px 0; text-align: center; position: relative; }
-        .nav-tabs { display: flex; justify-content: center; gap: 20px; padding: 10px 0; background: #34495e; }
-        .nav-tab { color: white; text-decoration: none; padding: 5px 15px; transition: background 0.3s; }
-        .nav-tab:hover, .nav-tab.active { background: #3498db; border-radius: 5px; }
-        .calculator-content { max-width: 600px; margin: 20px auto; padding: 20px; background: rgba(45, 55, 72, 0.9); border-radius: 10px; box-shadow: 0 0 15px rgba(0,0,0,0.5); }
-        .calculator-box { background: #e0e0e0; color: #333; padding: 20px; border-radius: 5px; text-align: center; }
-        .input-row { display: flex; justify-content: space-between; margin-bottom: 15px; }
-        .input-row label { font-weight: bold; }
-        input { border: 1px solid #ccc; padding: 5px; border-radius: 3px; width: 100px; }
-        select { border: 1px solid #ccc; padding: 5px; border-radius: 3px; width: 110px; }
-        button { background-color: #28a745; color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer; }
-        button:hover { background-color: #218838; }
-        .theme-switch { background: #34495e; padding: 6px 12px; border-radius: 5px; cursor: pointer; color: white; position: absolute; top: 20px; right: 120px; }
-        .theme-switch:hover { background: #3498db; }
-        @media (max-width: 600px) { .input-row { flex-direction: column; } input, select { width: 100%; margin-bottom: 10px; } }
+        .input-field, .select-field {
+            border: 2px solid #e2e8f0;
+            border-radius: 8px;
+            padding: 10px;
+            font-weight: bold;
+            width: 100%;
+            box-sizing: border-box;
+        }
+        .language-switcher {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            cursor: pointer;
+        }
+        .theme-switcher {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            cursor: pointer;
+        }
+        .calculate-btn {
+            background-color: #4299e1;
+            color: white;
+            font-weight: bold;
+            padding: 12px;
+            border-radius: 8px;
+            width: 100%;
+        }
+        .result-box {
+            border: 2px solid #e2e8f0;
+            border-radius: 8px;
+            padding: 15px;
+            margin-top: 20px;
+            font-weight: bold;
+        }
+        footer a {
+            color: #4299e1;
+            text-decoration: none;
+        }
+        footer a:hover {
+            text-decoration: underline;
+        }
+        .share-icons img {
+            width: 30px;
+            margin: 0 10px;
+        }
+        .dark-mode {
+            background-color: #1a202c;
+            color: #e2e8f0;
+        }
+        .dark-mode .input-field, .dark-mode .select-field {
+            border-color: #4a5568;
+            background-color: #2d3748;
+            color: #e2e8f0;
+        }
+        .dark-mode .result-box {
+            border-color: #4a5568;
+            background-color: #2d3748;
+        }
+        .dark-mode .calculator-title {
+            background-color: #b83280;
+        }
+        .note {
+            font-size: 0.9em;
+            color: #e53e3e;
+            margin-top: 10px;
+        }
     </style>
 </head>
-<body>
-    <header class="header">
-        <h1 id="header-title">AI Calculator</h1>
-        <p id="tagline">A to Z Calculators Powered by AI</p>
-        <div class="theme-switch" onclick="toggleTheme()">Theme: <span id="theme-text">Dark</span></div>
-    </header>
-    <nav class="nav-tabs">
-        <a href="index.html#financial" class="nav-tab" onclick="showCategory('financial')">Financial</a>
-        <a href="index.html#health" class="nav-tab" onclick="showCategory('health')">Health</a>
-        <a href="index.html#math" class="nav-tab" onclick="showCategory('math')">Math</a>
-        <a href="index.html#conversion" class="nav-tab" onclick="showCategory('conversion')">Conversion</a>
-        <a href="index.html#misc" class="nav-tab" onclick="showCategory('misc')">Miscellaneous</a>
-    </nav>
-    <div class="calculator-content">
-        <div class="calculator-box">
-            <h2 id="calc-title">Convert currency between units</h2>
-            <div class="input-row">
-                <label id="value-label">Value</label>
-                <input type="number" id="value" min="0" step="0.01" value="100">
-            </div>
-            <div class="input-row">
-                <label id="from-unit-label">From Currency</label>
-                <select id="from-unit">
-                    <option value="USD">USD (US Dollar)</option>
-                    <option value="EUR">EUR (Euro)</option>
-                    <option value="GBP">GBP (British Pound)</option>
-                    <option value="INR">INR (Indian Rupee)</option>
-                </select>
-            </div>
-            <div class="input-row">
-                <label id="to-unit-label">To Currency</label>
-                <select id="to-unit">
-                    <option value="USD">USD (US Dollar)</option>
-                    <option value="EUR">EUR (Euro)</option>
-                    <option value="GBP">GBP (British Pound)</option>
-                    <option value="INR">INR (Indian Rupee)</option>
-                </select>
-            </div>
-            <button onclick="convertCurrency()">Convert <span id="spinner" style="display:none;">⏳</span></button>
-            <div id="currency-result" class="mt-4 font-semibold"></div>
-            <div id="seo-content" class="mt-4 text-sm">
-                <h3>About Currency Converter</h3>
-                <p>Welcome to the AI Currency Converter, a free online tool designed to convert currencies with precision using real-time exchange rates (as of April 17, 2025). This calculator uses advanced AI technology to provide instant conversions, ideal for travelers, businesses, and financial enthusiasts. Available in multiple languages including English, Hindi, Tamil, Telugu, Spanish, Bengali, Arabic, Mandarin, and French, it serves a diverse global audience. Enter a value and select the currencies to convert, then click "Convert" to see the result.</p>
-                <p>Why choose our Currency Converter? It’s user-friendly, fast, and optimized for all devices, making it perfect for quick conversions between USD, EUR, GBP, INR, and more. The tool relies on approximate exchange rates, and our AI ensures accuracy based on the latest data available. This calculator stands out with its multilingual support and modern design, setting it apart from traditional conversion tools.</p>
-                <p>SEO optimization is key to ensuring this tool ranks high on search engines like Google. We’ve included meta tags, a canonical URL, and keywords such as "currency converter online," "free currency converter," and "AI currency conversion tool" to boost visibility. To enhance rankings, consider backlinks from financial or travel websites, and submit the site to relevant directories. Regular updates with current exchange rates and user feedback can further improve its performance. Perfect for currency conversions, this calculator is a must-have for anyone needing accurate rates. Try it now!</p>
-            </div>
+<body class="min-h-screen flex flex-col">
+    <header class="relative">
+        <h1 class="calculator-title text-3xl">AI CALCULATOR</h1>
+        <h2 class="text-center text-xl font-bold mb-4" id="calcTitle">Currency Exchange Calculator</h2>
+        <div class="language-switcher">
+            <img src="https://img.icons8.com/ios-filled/50/000000/globe.png" alt="Language Switcher" id="langToggle" width="30">
         </div>
-    </div>
-    <footer class="bg-gray-800 text-white text-center py-4 mt-8">
-        <p>© 2025 AI Calculator. All rights reserved.</p>
-        <a href="privacy.html" class="text-blue-400 ml-2">Privacy Policy</a> |
-        <a href="contactus.html" class="text-blue-400 ml-2">Contact Us</a> |
-        <a href="howto.html" class="text-blue-400 ml-2">How to Use</a>
+        <div class="theme-switcher">
+            <img src="https://img.icons8.com/ios-filled/50/000000/moon-symbol.png" alt="Theme Switcher" id="themeToggle" width="30">
+        </div>
+    </header>
+    <main class="flex-grow container mx-auto px-4 py-6">
+        <section class="max-w-md mx-auto">
+            <div class="mb-4">
+                <label for="amount" class="block font-bold mb-2" id="amountLabel">Amount</label>
+                <input type="number" id="amount" class="input-field" placeholder="e.g. 100" step="any" required>
+            </div>
+            <div class="mb-4">
+                <label for="fromCurrency" class="block font-bold mb-2" id="fromCurrencyLabel">From Currency</label>
+                <select id="fromCurrency" class="select-field" required>
+                    <option value="USD">USD - US Dollar</option>
+                    <option value="EUR">EUR - Euro</option>
+                    <option value="GBP">GBP - British Pound</option>
+                    <option value="INR">INR - Indian Rupee</option>
+                    <option value="JPY">JPY - Japanese Yen</option>
+                    <option value="AUD">AUD - Australian Dollar</option>
+                    <option value="CAD">CAD - Canadian Dollar</option>
+                    <option value="CHF">CHF - Swiss Franc</option>
+                    <option value="CNY">CNY - Chinese Yuan</option>
+                    <option value="BRL">BRL - Brazilian Real</option>
+                </select>
+            </div>
+            <div class="mb-4">
+                <label for="toCurrency" class="block font-bold mb-2" id="toCurrencyLabel">To Currency</label>
+                <select id="toCurrency" class="select-field" required>
+                    <option value="USD">USD - US Dollar</option>
+                    <option value="EUR">EUR - Euro</option>
+                    <option value="GBP">GBP - British Pound</option>
+                    <option value="INR">INR - Indian Rupee</option>
+                    <option value="JPY">JPY - Japanese Yen</option>
+                    <option value="AUD">AUD - Australian Dollar</option>
+                    <option value="CAD">CAD - Canadian Dollar</option>
+                    <option value="CHF">CHF - Swiss Franc</option>
+                    <option value="CNY">CNY - Chinese Yuan</option>
+                    <option value="BRL">BRL - Brazilian Real</option>
+                </select>
+            </div>
+            <button class="calculate-btn" onclick="convertCurrency()" id="calcButton">Convert</button>
+            <div id="result" class="result-box hidden">
+                <p id="conversionResult"></p>
+                <p class="note">Note: Exchange rates are illustrative and may not reflect real-time rates. For accurate rates, check with a financial service provider.</p>
+            </div>
+        </section>
+        <section class="mt-8 max-w-2xl mx-auto">
+            <h3 class="text-xl font-bold mb-4" id="aboutTitle">About the Currency Exchange Calculator</h3>
+            <p class="mb-4" id="aboutText1">
+                The Currency Exchange Calculator helps you convert between major world currencies, including USD, EUR, GBP, INR, and more. Enter an amount and select the currencies to see the converted value based on illustrative exchange rates.
+            </p>
+            <p id="aboutText2">
+                This tool uses static exchange rates for demonstration purposes. For real-time rates, consult a financial service provider. It’s ideal for travelers, businesses, or anyone needing quick currency conversions. Always verify rates before making financial decisions.
+            </p>
+        </section>
+    </main>
+    <footer class="bg-gray-100 py-6 mt-8">
+        <div class="container mx-auto px-4 text-center">
+            <div class="mb-4">
+                <a href="/privacy-policy" class="mx-2">Privacy Policy</a> |
+                <a href="/disclaimer" class="mx-2">Disclaimer</a> |
+                <a href="/how-to-use" class="mx-2">How to Use</a> |
+                <a href="/contact-us" class="mx-2">Contact Us</a>
+            </div>
+            <div class="share-icons mb-4 flex justify-center">
+                <a href="https://www.facebook.com/sharer/sharer.php?u=#" target="_blank">
+                    <img src="https://img.icons8.com/color/48/000000/facebook-new.png" alt="Facebook">
+                </a>
+                <a href="https://twitter.com/intent/tweet?url=#&text=Check out this AI Currency Exchange Calculator!" target="_blank">
+                    <img src="https://img.icons8.com/color/48/000000/twitter.png" alt="X">
+                </a>
+                <a href="https://api.whatsapp.com/send?text=Check out this AI Currency Exchange Calculator: #" target="_blank">
+                    <img src="https://img.icons8.com/color/48/000000/whatsapp.png" alt="WhatsApp">
+                </a>
+                <a href="https://www.instagram.com/" target="_blank">
+                    <img src="https://img.icons8.com/color/48/000000/instagram-new.png" alt="Instagram">
+                </a>
+            </div>
+            <p class="text-sm">© 2025 All Rights Reserved</p>
+        </div>
     </footer>
     <script>
-        let lang = 'en';
-        let isDarkMode = true;
-        // Approximate exchange rates as of April 17, 2025 (for demonstration; in practice, fetch real-time data)
+        let isHindi = false;
+
+        // Static exchange rates for demonstration (relative to USD)
         const exchangeRates = {
-            USD: { EUR: 0.94, GBP: 0.80, INR: 83.50 },
-            EUR: { USD: 1.06, GBP: 0.85, INR: 88.78 },
-            GBP: { USD: 1.25, EUR: 1.18, INR: 104.38 },
-            INR: { USD: 0.012, EUR: 0.0113, GBP: 0.0096 }
+            USD: 1,
+            EUR: 0.92,
+            GBP: 0.79,
+            INR: 83.50,
+            JPY: 149.20,
+            AUD: 1.50,
+            CAD: 1.38,
+            CHF: 0.87,
+            CNY: 7.10,
+            BRL: 5.60
         };
-        const translations = {
-            en: { header: "AI Calculator", tagline: "A to Z Calculators Powered by AI", calcTitle: "Convert currency between units", valueLabel: "Value", fromUnitLabel: "From Currency", toUnitLabel: "To Currency", resultPrefix: "Converted Amount: " },
-            hi: { header: "एआई कैलकुलेटर", tagline: "ए टू जेड कैलकुलेटर, AI द्वारा संचालित", calcTitle: "इकाइयों के बीच मुद्रा को परिवर्तित करें", valueLabel: "मान", fromUnitLabel: "से मुद्रा", toUnitLabel: "में मुद्रा", resultPrefix: "परिवर्तित राशि: " },
-            ta: { header: "AI கால்குலேட்டர்", tagline: "AI இயக்கிய A முதல் Z கால்குலேட்டர்கள்", calcTitle: "அலகுகளுக்கு இடையே நாணயத்தை மாற்றவும்", valueLabel: "மதிப்பு", fromUnitLabel: "இருந்து நாணயம்", toUnitLabel: "ஆக நாணயம்", resultPrefix: "மாற்றப்பட்ட தொகை: " },
-            te: { header: "AI కాల్కులేటర్", tagline: "AI ద్వారా నడిపే A నుండి Z కాల్కులేటర్లు", calcTitle: "అంకెల మధ్య కరెన్సీని మార్చండి", valueLabel: "విలువ", fromUnitLabel: "నుండి కరెన్సీ", toUnitLabel: "కు కరెన్సీ", resultPrefix: "మార్చబడిన మొత్తం: " },
-            es: { header: "Calculadora de IA", tagline: "Calculadoras A-Z impulsadas por IA", calcTitle: "Convertir moneda entre unidades", valueLabel: "Valor", fromUnitLabel: "De Moneda", toUnitLabel: "A Moneda", resultPrefix: "Cantidad Convertida: " },
-            bn: { header: "এআই ক্যালকুলেটর", tagline: "এআই দ্বারা চালিত এ থেকে জে ক্যালকুলেটর", calcTitle: "ইউনিটের মধ্যে মুদ্রা রূপান্তর করুন", valueLabel: "মান", fromUnitLabel: "থেকে মুদ্রা", toUnitLabel: "এ মুদ্রা", resultPrefix: "রূপান্তরিত পরিমাণ: " },
-            ar: { header: "حاسبة الذكاء الاصطناعي", tagline: "حاسبات A إلى Z مدعومة بالذكاء الاصطناعي", calcTitle: "تحويل العملة بين الوحدات", valueLabel: "القيمة", fromUnitLabel: "من عملة", toUnitLabel: "إلى عملة", resultPrefix: "المبلغ المحول: " },
-            zh: { header: "人工智能计算器", tagline: "AI驱动的A到Z计算器", calcTitle: "在单位之间转换货币", valueLabel: "值", fromUnitLabel: "从货币", toUnitLabel: "到货币", resultPrefix: "转换后的金额: " },
-            fr: { header: "Calculateur IA", tagline: "Calculateurs A à Z alimentés par IA", calcTitle: "Convertir la devise entre unités", valueLabel: "Valeur", fromUnitLabel: "De la devise", toUnitLabel: "À la devise", resultPrefix: "Montant Convertie: " }
-        };
-        function toggleTheme() {
-            isDarkMode = !isDarkMode;
-            document.body.classList.toggle('light-mode', !isDarkMode);
-            document.getElementById('theme-text').textContent = isDarkMode ? 'Dark' : 'Light';
-        }
+
         function convertCurrency() {
-            document.getElementById("spinner").style.display = "inline";
-            setTimeout(() => {
-                let value = parseFloat(document.getElementById("value").value);
-                let fromUnit = document.getElementById("from-unit").value;
-                let toUnit = document.getElementById("to-unit").value;
-                let resultDiv = document.getElementById("currency-result");
-                if (!isNaN(value) && value >= 0) {
-                    let converted = value * (exchangeRates[fromUnit][toUnit] || 1 / exchangeRates[toUnit][fromUnit]);
-                    resultDiv.innerHTML = `${translations[lang].resultPrefix} ${converted.toFixed(2)} ${toUnit}`;
-                    speakResult(resultDiv.innerHTML);
-                } else {
-                    resultDiv.innerText = lang === 'en' ? "Please enter a valid value" : lang === 'hi' ? "कृपया वैध मान दर्ज करें" : lang === 'ta' ? "சரியான மதிப்பை உள்ளிடவும்" : lang === 'te' ? "దయచేసి సరైన విలువను నమోదు చేయండి" : lang === 'es' ? "Por favor, ingrese un valor válido" : lang === 'bn' ? "দয়া করে বৈধ মান লিখুন" : lang === 'ar' ? "يرجى إدخال قيمة صحيحة" : lang === 'zh' ? "请输入有效值" : "Veuillez entrer une valeur valide";
-                }
-                document.getElementById("spinner").style.display = "none";
-            }, 1000);
+            const amount = parseFloat(document.getElementById('amount').value);
+            const fromCurrency = document.getElementById('fromCurrency').value;
+            const toCurrency = document.getElementById('toCurrency').value;
+
+            if (isNaN(amount) || amount < 0) {
+                alert(isHindi ? 'कृपया एक मान्य राशि दर्ज करें।' : 'Please enter a valid amount.');
+                return;
+            }
+
+            // Convert to USD first, then to target currency
+            const usdAmount = amount / exchangeRates[fromCurrency];
+            const convertedAmount = usdAmount * exchangeRates[toCurrency];
+
+            document.getElementById('conversionResult').textContent = isHindi 
+                ? `${amount} ${fromCurrency} = ${convertedAmount.toFixed(2)} ${toCurrency}` 
+                : `${amount} ${fromCurrency} = ${convertedAmount.toFixed(2)} ${toCurrency}`;
+            document.getElementById('result').classList.remove('hidden');
         }
-        function showCategory(category) {
-            // No action needed here as navigation is handled by index.html
-        }
-        function speakResult(result) {
-            const utterance = new SpeechSynthesisUtterance(result);
-            utterance.lang = lang === 'zh' ? 'zh-CN' : lang === 'ar' ? 'ar-SA' : lang;
-            window.speechSynthesis.speak(utterance);
-        }
-        window.onload = () => {
-            document.getElementById('header-title').textContent = translations[lang].header;
-            document.getElementById('tagline').textContent = translations[lang].tagline;
-            document.getElementById('calc-title').textContent = translations[lang].calcTitle;
-            document.getElementById('value-label').textContent = translations[lang].valueLabel;
-            document.getElementById('from-unit-label').textContent = translations[lang].fromUnitLabel;
-            document.getElementById('to-unit-label').textContent = translations[lang].toUnitLabel;
-        };
+
+        document.getElementById('themeToggle').addEventListener('click', () => {
+            document.body.classList.toggle('dark-mode');
+            const icon = document.getElementById('themeToggle');
+            icon.src = document.body.classList.contains('dark-mode')
+                ? 'https://img.icons8.com/ios-filled/50/ffffff/sun.png'
+                : 'https://img.icons8.com/ios-filled/50/000000/moon-symbol.png';
+        });
+
+        document.getElementById('langToggle').addEventListener('click', () => {
+            isHindi = !isHindi;
+
+            document.getElementById('calcTitle').textContent = isHindi 
+                ? 'मुद्रा विनिमय कैलकुलेटर' 
+                : 'Currency Exchange Calculator';
+            document.getElementById('amountLabel').textContent = isHindi 
+                ? 'राशि' 
+                : 'Amount';
+            document.getElementById('fromCurrencyLabel').textContent = isHindi 
+                ? 'से मुद्रा' 
+                : 'From Currency';
+            document.getElementById('toCurrencyLabel').textContent = isHindi 
+                ? 'में मुद्रा' 
+                : 'To Currency';
+            document.getElementById('calcButton').textContent = isHindi 
+                ? 'परिवर्तन करें' 
+                : 'Convert';
+            document.getElementById('aboutTitle').textContent = isHindi 
+                ? 'मुद्रा विनिमय कैलकुलेटर के बारे में' 
+                : 'About the Currency Exchange Calculator';
+            document.getElementById('aboutText1').textContent = isHindi 
+                ? 'मुद्रा विनिमय कैलकुलेटर आपको USD, EUR, GBP, INR, और अन्य प्रमुख विश्व मुद्राओं के बीच परिवर्तन करने में मदद करता है। एक राशि दर्ज करें और मुद्राएँ चुनें ताकि प्रदर्शनात्मक विनिमय दरों के आधार पर परिवर्तित मूल्य देख सकें।'
+                : 'The Currency Exchange Calculator helps you convert between major world currencies, including USD, EUR, GBP, INR, and more. Enter an amount and select the currencies to see the converted value based on illustrative exchange rates.';
+            document.getElementById('aboutText2').textContent = isHindi 
+                ? 'यह उपकरण प्रदर्शन के लिए स्थिर विनिमय दरों का उपयोग करता है। वास्तविक समय की दरों के लिए, किसी वित्तीय सेवा प्रदाता से परामर्श करें। यह यात्रियों, व्यवसायों, या किसी भी व्यक्ति के लिए आदर्श है जिसे त्वरित मुद्रा परिवर्तन की आवश्यकता है। वित्तीय निर्णय लेने से पहले हमेशा दरों को सत्यापित करें।'
+                : 'This tool uses static exchange rates for demonstration purposes. For real-time rates, consult a financial service provider. It’s ideal for travelers, businesses, or anyone needing quick currency conversions. Always verify rates before making financial decisions.';
+        });
     </script>
+</body>
 </html>
