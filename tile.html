@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Construction & Home Calculators - Tile Calculator</title>
+  <meta name="description" content="Accurately estimate how many tiles you need for your space. Supports English, Hindi, Mandarin, French, and Arabic." />
+  <meta name="keywords" content="Tile calculator, construction tools, home improvement, flooring tiles estimate, area tile calculator, tiles needed, tile area estimator, room tile calculator, accurate tile estimator, tile measurement tool, tile cost calculator, interior design tiles, tiling work estimator, construction tile planning, tiles required calculator, floor tiling calculator, DIY tile estimator, tile planning tool, multilingual tile calculator, Arabic tile tool, French tile calculator, Hindi tile estimator, Mandarin home calculator" />
+  <meta name="author" content="AI Calculator Team" />
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f1f5f9;
+      color: #111;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background-color: #3b82f6;
+      color: #fff;
+      padding: 20px;
+      text-align: center;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 26px;
+    }
+
+    .subtitle {
+      margin-top: 5px;
+      font-size: 16px;
+      color: #e0f2fe;
+    }
+
+    .container {
+      max-width: 600px;
+      margin: 30px auto;
+      background: #fff;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 0 12px rgba(0, 0, 0, 0.1);
+    }
+
+    label {
+      display: block;
+      margin: 10px 0 5px;
+      font-weight: bold;
+    }
+
+    input {
+      width: 100%;
+      padding: 10px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      margin-bottom: 15px;
+    }
+
+    button {
+      background: #3b82f6;
+      color: #fff;
+      border: none;
+      padding: 12px 20px;
+      font-size: 16px;
+      border-radius: 6px;
+      cursor: pointer;
+      width: 100%;
+    }
+
+    .result {
+      margin-top: 20px;
+      background: #ecfdf5;
+      padding: 15px;
+      border-radius: 8px;
+      font-weight: bold;
+      color: #065f46;
+    }
+
+    select {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 15px;
+      border-radius: 6px;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <h1>Construction & Home Calculators</h1>
+    <div class="subtitle">Tile Calculator</div>
+  </header>
+
+  <div class="container">
+    <label for="language">Select Language:</label>
+    <select id="language" onchange="setLanguage()">
+      <option value="en">English</option>
+      <option value="hi">Hindi</option>
+      <option value="zh">Mandarin</option>
+      <option value="fr">French</option>
+      <option value="ar">Arabic</option>
+    </select>
+
+    <label id="roomLengthLabel">Room Length (in meters):</label>
+    <input type="number" id="roomLength" />
+
+    <label id="roomWidthLabel">Room Width (in meters):</label>
+    <input type="number" id="roomWidth" />
+
+    <label id="tileLengthLabel">Tile Length (in cm):</label>
+    <input type="number" id="tileLength" />
+
+    <label id="tileWidthLabel">Tile Width (in cm):</label>
+    <input type="number" id="tileWidth" />
+
+    <button onclick="calculateTiles()" id="calcBtn">Calculate Tiles Needed</button>
+    <div class="result" id="result"></div>
+  </div>
+
+  <script>
+    function calculateTiles() {
+      const roomLength = parseFloat(document.getElementById("roomLength").value);
+      const roomWidth = parseFloat(document.getElementById("roomWidth").value);
+      const tileLength = parseFloat(document.getElementById("tileLength").value) / 100;
+      const tileWidth = parseFloat(document.getElementById("tileWidth").value) / 100;
+
+      if (!roomLength || !roomWidth || !tileLength || !tileWidth) {
+        document.getElementById("result").innerText = "Please enter all values correctly.";
+        return;
+      }
+
+      const roomArea = roomLength * roomWidth;
+      const tileArea = tileLength * tileWidth;
+      const totalTiles = Math.ceil((roomArea / tileArea) * 1.1); // adding 10% for wastage
+
+      document.getElementById("result").innerText =
+        `You will need approximately ${totalTiles} tiles (including 10% extra for wastage).`;
+    }
+
+    const translations = {
+      hi: {
+        roomLengthLabel: "कमरे की लंबाई (मीटर में):",
+        roomWidthLabel: "कमरे की चौड़ाई (मीटर में):",
+        tileLengthLabel: "टाइल की लंबाई (सेमी में):",
+        tileWidthLabel: "टाइल की चौड़ाई (सेमी में):",
+        calcBtn: "टाइल की गणना करें"
+      },
+      zh: {
+        roomLengthLabel: "房间长度（米）:",
+        roomWidthLabel: "房间宽度（米）:",
+        tileLengthLabel: "瓷砖长度（厘米）:",
+        tileWidthLabel: "瓷砖宽度（厘米）:",
+        calcBtn: "计算所需瓷砖"
+      },
+      fr: {
+        roomLengthLabel: "Longueur de la pièce (en mètres):",
+        roomWidthLabel: "Largeur de la pièce (en mètres):",
+        tileLengthLabel: "Longueur du carreau (en cm):",
+        tileWidthLabel: "Largeur du carreau (en cm):",
+        calcBtn: "Calculer les carreaux nécessaires"
+      },
+      ar: {
+        roomLengthLabel: "طول الغرفة (بالمتر):",
+        roomWidthLabel: "عرض الغرفة (بالمتر):",
+        tileLengthLabel: "طول البلاط (سم):",
+        tileWidthLabel: "عرض البلاط (سم):",
+        calcBtn: "احسب عدد البلاط"
+      }
+    };
+
+    function setLanguage() {
+      const lang = document.getElementById("language").value;
+      const t = translations[lang];
+      if (!t) return;
+
+      document.getElementById("roomLengthLabel").innerText = t.roomLengthLabel;
+      document.getElementById("roomWidthLabel").innerText = t.roomWidthLabel;
+      document.getElementById("tileLengthLabel").innerText = t.tileLengthLabel;
+      document.getElementById("tileWidthLabel").innerText = t.tileWidthLabel;
+      document.getElementById("calcBtn").innerText = t.calcBtn;
+    }
+  </script>
+</body>
+
+</html>
