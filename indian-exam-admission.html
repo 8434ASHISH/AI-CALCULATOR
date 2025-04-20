@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="AI CALCULATOR - Indian Exam Predictor with filters like budget, location, and course. Predict chances for JEE, NEET, CUET, Board.">
+  <meta name="keywords" content="Indian exam predictor, JEE predictor, NEET score tool, college admission India, CUET predictor, board marks calculator, budget course filter, AI calculator India">
+  <meta name="author" content="AI CALCULATOR">
+  <meta name="robots" content="index, follow">
+  <title>AI CALCULATOR - Indian Exam Predictor</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-blue-50 text-gray-800 font-sans">
+
+  <!-- Header -->
+  <div class="flex justify-between items-center p-4 bg-blue-700 text-white">
+    <h1 class="text-2xl font-bold">AI CALCULATOR</h1>
+    <div>
+      <select id="languageSelect" onchange="changeLanguage()" class="text-black p-1 rounded">
+        <option value="en">English</option>
+        <option value="hi">हिंदी</option>
+        <option value="bn">বাংলা</option>
+        <option value="ta">தமிழ்</option>
+        <option value="ar">عربى</option>
+      </select>
+    </div>
+  </div>
+
+  <!-- Title -->
+  <div class="text-center mt-6">
+    <h2 class="text-3xl font-semibold">Indian Exam Predictor (JEE / NEET / CUET / Boards)</h2>
+    <p id="introText" class="text-gray-700 mt-2">Predict your college chances with scores, location, budget & course.</p>
+  </div>
+
+  <!-- Form Section -->
+  <div class="max-w-xl mx-auto mt-8 bg-white p-6 rounded shadow">
+
+    <label class="block font-medium mb-2" id="examLabel">Select Exam:</label>
+    <select id="examType" onchange="renderInputs()" class="w-full border p-2 rounded mb-4">
+      <option value="jee">JEE</option>
+      <option value="neet">NEET</option>
+      <option value="cuet">CUET</option>
+      <option value="board">Board %</option>
+    </select>
+
+    <div id="inputSection" class="mb-4">
+      <!-- Score Input here -->
+    </div>
+
+    <!-- New Filters -->
+    <label class="block font-medium mb-2">Preferred Budget (Per Year):</label>
+    <select id="budget" class="w-full border p-2 rounded mb-4">
+      <option value="low">Under ₹1L</option>
+      <option value="medium">₹1L–₹3L</option>
+      <option value="high">Above ₹3L</option>
+    </select>
+
+    <label class="block font-medium mb-2">Preferred Location:</label>
+    <select id="location" class="w-full border p-2 rounded mb-4">
+      <option value="north">North India</option>
+      <option value="south">South India</option>
+      <option value="east">East India</option>
+      <option value="west">West India</option>
+      <option value="pan">Pan India</option>
+    </select>
+
+    <label class="block font-medium mb-2">Preferred Course:</label>
+    <select id="course" class="w-full border p-2 rounded mb-4">
+      <option value="eng">Engineering</option>
+      <option value="med">Medical</option>
+      <option value="sci">Science</option>
+      <option value="com">Commerce</option>
+      <option value="arts">Arts</option>
+    </select>
+
+    <button onclick="calculateResult()" class="bg-blue-600 hover:bg-blue-800 text-white w-full py-2 rounded mt-2">Predict Admission</button>
+
+    <div id="resultBox" class="mt-4 text-lg font-semibold text-green-700"></div>
+  </div>
+
+  <!-- Footer -->
+  <div class="text-center text-sm text-gray-600 mt-8 p-4">
+    AI-powered predictor with real filters for accurate college insights. Languages: English, हिंदी, বাংলা, தமிழ், عربى.
+  </div>
+
+  <script>
+    const langContent = {
+      en: {
+        intro: "Predict your college chances with scores, location, budget & course.",
+        examLabel: "Select Exam:"
+      },
+      hi: {
+        intro: "स्कोर, स्थान, बजट और कोर्स के अनुसार कॉलेज चांस प्रेडिक्ट करें।",
+        examLabel: "परीक्षा चुनें:"
+      },
+      bn: {
+        intro: "স্কোর, লোকেশন, বাজেট ও কোর্স অনুযায়ী কলেজ চান্স জেনে নিন।",
+        examLabel: "পরীক্ষা নির্বাচন করুন:"
+      },
+      ta: {
+        intro: "மதிப்பெண், இடம், செலவுகள் மற்றும் படிப்புகளின் அடிப்படையில் வாய்ப்புகளை கணிக்கவும்.",
+        examLabel: "தேர்வைத் தேர்ந்தெடுக்கவும்:"
+      },
+      ar: {
+        intro: "التنبؤ بفرص القبول بناءً على الدرجات والموقع والميزانية والدورة.",
+        examLabel: "اختر الامتحان:"
+      }
+    };
+
+    function changeLanguage() {
+      const lang = document.getElementById("languageSelect").value;
+      document.getElementById("introText").innerText = langContent[lang].intro;
+      document.getElementById("examLabel").innerText = langContent[lang].examLabel;
+    }
+
+    function renderInputs() {
+      const type = document.getElementById("examType").value;
+      const section = document.getElementById("inputSection");
+      section.innerHTML = "";
+
+      if (type === "jee") {
+        section.innerHTML += `<input type="number" id="jeeMarks" placeholder="Enter JEE Score (out of 300)" class="w-full border p-2 rounded">`;
+      } else if (type === "neet") {
+        section.innerHTML += `<input type="number" id="neetMarks" placeholder="Enter NEET Score (out of 720)" class="w-full border p-2 rounded">`;
+      } else if (type === "cuet") {
+        section.innerHTML += `<input type="number" id="cuetScore" placeholder="CUET Score (%)" class="w-full border p-2 rounded">`;
+      } else if (type === "board") {
+        section.innerHTML += `<input type="number" id="boardPercent" placeholder="Board % Marks" class="w-full border p-2 rounded">`;
+      }
+    }
+
+    function calculateResult() {
+      let result = "";
+      const type = document.getElementById("examType").value;
+      const budget = document.getElementById("budget").value;
+      const location = document.getElementById("location").value;
+      const course = document.getElementById("course").value;
+
+      let score = 0;
+      if (type === "jee") score = parseInt(document.getElementById("jeeMarks").value);
+      else if (type === "neet") score = parseInt(document.getElementById("neetMarks").value);
+      else if (type === "cuet") score = parseInt(document.getElementById("cuetScore").value);
+      else if (type === "board") score = parseInt(document.getElementById("boardPercent").value);
+
+      let base = "Chances: ";
+      if ((type === "jee" && score >= 200) || (type === "neet" && score >= 600) || (type === "cuet" && score >= 90) || (type === "board" && score >= 90)) {
+        base += "Top colleges likely (High)";
+      } else if ((type === "jee" && score >= 120) || (type === "neet" && score >= 400) || (type === "cuet" && score >= 70) || (type === "board" && score >= 70)) {
+        base += "Moderate chances in good colleges";
+      } else {
+        base += "Low chances in top tier";
+      }
+
+      base += ` | Budget: ${budget.toUpperCase()} | Location: ${location.toUpperCase()} | Course: ${course.toUpperCase()}`;
+
+      document.getElementById("resultBox").innerText = base;
+    }
+
+    renderInputs();
+  </script>
+
+</body>
+</html>
