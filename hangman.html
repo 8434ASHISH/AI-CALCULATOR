@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>AI Calculator - Hangman Game | Word Guessing Challenge</title>
+
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="Play the advanced Hangman game with smart word rotation and non-repeating challenges. Part of the AI Calculator Game Series." />
+  <meta name="keywords" content="hangman, ai calculator, hangman game, word game, word guessing, hangman html, hangman js, vocabulary game, online hangman, SEO games" />
+  <meta name="author" content="AI Calculator Team" />
+  <meta name="robots" content="index, follow" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="AI Calculator - Hangman Game" />
+  <meta property="og:description" content="Challenge your brain with our non-repeating Hangman game built with style and smart scoring!" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://yourdomain.com/hangman" />
+  <meta property="og:image" content="https://yourdomain.com/hangman-og.jpg" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="AI Calculator - Hangman Game" />
+  <meta name="twitter:description" content="Guess the word in our smart Hangman game with auto word shuffling and a slick UI." />
+  <meta name="twitter:image" content="https://yourdomain.com/hangman-og.jpg" />
+
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #1e1e2f;
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 30px 20px;
+      margin: 0;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      color: #00ffd0;
+      margin-bottom: 0;
+    }
+
+    h2 {
+      font-size: 1.5rem;
+      color: #f0f0f0;
+      margin-top: 0;
+    }
+
+    .scoreboard {
+      margin: 10px 0 20px;
+      font-size: 1.1rem;
+    }
+
+    .word-display {
+      font-size: 2rem;
+      letter-spacing: 10px;
+      margin: 20px 0;
+    }
+
+    .letters {
+      display: flex;
+      flex-wrap: wrap;
+      max-width: 400px;
+      justify-content: center;
+      gap: 8px;
+    }
+
+    .letter-btn {
+      padding: 10px 15px;
+      font-size: 1rem;
+      background: #333;
+      color: #fff;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    .letter-btn:disabled {
+      background: #777;
+      cursor: not-allowed;
+    }
+
+    .status {
+      margin-top: 15px;
+      font-size: 1.1rem;
+      color: #ffd700;
+    }
+
+    .reset-btn {
+      margin-top: 20px;
+      padding: 10px 20px;
+      background: #00ffd0;
+      color: #000;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 1rem;
+    }
+
+    .reset-btn:hover {
+      background: #00c7a8;
+    }
+  </style>
+</head>
+<body>
+  <h1>AI CALCULATOR</h1>
+  <h2>Hangman</h2>
+
+  <div class="scoreboard">
+    Score: <span id="score">0</span>
+  </div>
+
+  <div class="word-display" id="wordDisplay">_ _ _ _ _</div>
+
+  <div class="letters" id="lettersContainer"></div>
+
+  <div class="status" id="statusMsg">Start guessing the word!</div>
+
+  <button class="reset-btn" onclick="startGame()">New Word</button>
+
+  <script>
+    const wordList = [
+      "elephant", "hangman", "javascript", "coding", "freedom", "weather", "holiday", "keyboard", "monitor",
+      "oxygen", "planet", "galaxy", "puzzle", "notebook", "library", "fantasy", "biology", "science", "history",
+      "universe", "adventure", "treasure", "volcano", "rainbow", "mountain", "strategy", "journey", "dolphin"
+    ];
+
+    let usedWords = [];
+    let currentWord = "";
+    let displayWord = [];
+    let score = 0;
+    let remainingGuesses = 6;
+
+    const wordDisplay = document.getElementById("wordDisplay");
+    const lettersContainer = document.getElementById("lettersContainer");
+    const statusMsg = document.getElementById("statusMsg");
+    const scoreEl = document.getElementById("score");
+
+    function startGame() {
+      if (usedWords.length === wordList.length) {
+        usedWords = [];
+      }
+
+      let availableWords = wordList.filter(word => !usedWords.includes(word));
+      currentWord = availableWords[Math.floor(Math.random() * availableWords.length)];
+      usedWords.push(currentWord);
+
+      displayWord = Array(currentWord.length).fill("_");
+      remainingGuesses = 6;
+
+      wordDisplay.textContent = displayWord.join(" ");
+      statusMsg.textContent = "Guess the word!";
+      generateLetterButtons();
+    }
+
+    function generateLetterButtons() {
+      lettersContainer.innerHTML = "";
+      for (let i = 65; i <= 90; i++) {
+        const btn = document.createElement("button");
+        btn.textContent = String.fromCharCode(i);
+        btn.className = "letter-btn";
+        btn.onclick = () => guessLetter(btn.textContent.toLowerCase(), btn);
+        lettersContainer.appendChild(btn);
+      }
+    }
+
+    function guessLetter(letter, btn) {
+      btn.disabled = true;
+
+      if (currentWord.includes(letter)) {
+        currentWord.split('').forEach((char, idx) => {
+          if (char === letter) {
+            displayWord[idx] = letter;
+          }
+        });
+        wordDisplay.textContent = displayWord.join(" ");
+        statusMsg.textContent = "Good guess!";
+
+        if (!displayWord.includes("_")) {
+          score++;
+          scoreEl.textContent = score;
+          statusMsg.textContent = `🎉 You guessed it! Word was "${currentWord}".`;
+          disableAllButtons();
+        }
+
+      } else {
+        remainingGuesses--;
+        statusMsg.textContent = `Wrong guess. ${remainingGuesses} attempts left.`;
+
+        if (remainingGuesses === 0) {
+          statusMsg.textContent = `❌ Game over! The word was "${currentWord}".`;
+          disableAllButtons();
+        }
+      }
+    }
+
+    function disableAllButtons() {
+      document.querySelectorAll(".letter-btn").forEach(btn => btn.disabled = true);
+    }
+
+    // Auto-start game
+    startGame();
+  </script>
+</body>
+</html>
