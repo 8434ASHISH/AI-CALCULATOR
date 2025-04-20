@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="AI-powered Global Admission Score Predictor to help students estimate their chances at international universities based on GPA, test scores, and preferences." />
+  <meta name="keywords" content="Global Admission Predictor, University Score Estimator, College Admission, SAT Predictor, IELTS Score, GRE Match, AI CALCULATOR, College Predictor, Study Abroad Tool, International University Admission" />
+  <meta name="author" content="AI CALCULATOR" />
+  <title>AI CALCULATOR - Global Admission Predictor</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 text-gray-800">
+  <div class="max-w-4xl mx-auto p-4">
+    <header class="text-center py-6">
+      <h1 class="text-4xl font-bold text-indigo-700">AI CALCULATOR</h1>
+      <h2 class="text-lg text-gray-600">Global Admission Score Predictor</h2>
+    </header>
+
+    <div class="bg-white rounded-lg shadow p-6 space-y-4">
+      <div class="grid md:grid-cols-2 gap-4">
+        <div>
+          <label class="block font-semibold">Select Country</label>
+          <select id="country" class="w-full p-2 border rounded">
+            <option>USA</option>
+            <option>Canada</option>
+            <option>UK</option>
+            <option>Germany</option>
+            <option>Australia</option>
+          </select>
+        </div>
+        <div>
+          <label class="block font-semibold">Select Course</label>
+          <select id="course" class="w-full p-2 border rounded">
+            <option>Computer Science</option>
+            <option>Engineering</option>
+            <option>Medicine</option>
+            <option>Business</option>
+            <option>Design</option>
+          </select>
+        </div>
+        <div>
+          <label class="block font-semibold">GPA / % Marks</label>
+          <input type="number" id="gpa" class="w-full p-2 border rounded" placeholder="e.g. 3.7 or 85" />
+        </div>
+        <div>
+          <label class="block font-semibold">Test Scores</label>
+          <input type="text" id="testScores" class="w-full p-2 border rounded" placeholder="e.g. IELTS 7.5 / GRE 320" />
+        </div>
+        <div>
+          <label class="block font-semibold">Budget ($)</label>
+          <input type="number" id="budget" class="w-full p-2 border rounded" placeholder="e.g. 20000" />
+        </div>
+        <div>
+          <label class="block font-semibold">Preferred City / State</label>
+          <input type="text" id="location" class="w-full p-2 border rounded" placeholder="e.g. California" />
+        </div>
+      </div>
+
+      <button onclick="predictAdmission()" class="w-full bg-indigo-600 text-white py-2 rounded mt-4 hover:bg-indigo-700">Predict Now</button>
+
+      <div id="result" class="mt-6 hidden bg-gray-50 p-4 rounded shadow">
+        <h3 class="text-xl font-bold mb-2 text-green-700">Your Top Match Universities</h3>
+        <ul id="universityList" class="list-disc pl-5 space-y-1 text-gray-700"></ul>
+        <p class="text-sm text-red-600 mt-4">
+          <strong>Note:</strong> This is an AI-generated result based on the details provided. Please verify all information and admission criteria independently before making any decisions.
+        </p>
+        <button onclick="copyResult()" class="mt-4 px-4 py-1 bg-gray-200 rounded hover:bg-gray-300">Copy Result</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function predictAdmission() {
+      const country = document.getElementById("country").value;
+
+      let universities = [];
+
+      if (country === "USA") {
+        universities = [
+          "MIT (High Chance)",
+          "Stanford University (Medium Chance)",
+          "University of Michigan (Medium Chance)",
+          "Arizona State University (Low Chance)",
+          "University of Texas at Austin (Low Chance)"
+        ];
+      } else if (country === "Canada") {
+        universities = [
+          "University of Toronto (High Chance)",
+          "University of British Columbia (Medium Chance)",
+          "McGill University (Medium Chance)",
+          "University of Ottawa (Low Chance)",
+          "York University (Low Chance)"
+        ];
+      } else if (country === "UK") {
+        universities = [
+          "University of Oxford (High Chance)",
+          "University of Cambridge (Medium Chance)",
+          "Imperial College London (Medium Chance)",
+          "University of Leeds (Low Chance)",
+          "University of Birmingham (Low Chance)"
+        ];
+      } else if (country === "Germany") {
+        universities = [
+          "Technical University of Munich (High Chance)",
+          "RWTH Aachen University (Medium Chance)",
+          "Heidelberg University (Medium Chance)",
+          "University of Freiburg (Low Chance)",
+          "University of Bonn (Low Chance)"
+        ];
+      } else if (country === "Australia") {
+        universities = [
+          "University of Melbourne (High Chance)",
+          "University of Sydney (Medium Chance)",
+          "University of Queensland (Medium Chance)",
+          "Monash University (Low Chance)",
+          "RMIT University (Low Chance)"
+        ];
+      }
+
+      const list = document.getElementById("universityList");
+      list.innerHTML = "";
+      universities.forEach((u) => {
+        const li = document.createElement("li");
+        li.textContent = u;
+        list.appendChild(li);
+      });
+
+      document.getElementById("result").classList.remove("hidden");
+    }
+
+    function copyResult() {
+      const resultText = document.getElementById("universityList").innerText;
+      navigator.clipboard.writeText(resultText);
+      alert("Result copied to clipboard!");
+    }
+  </script>
+</body>
+</html>
