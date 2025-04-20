@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI Calculator - Tic Tac Toe Game | Play vs Smart AI</title>
+
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="Play the advanced Tic Tac Toe game on AI Calculator. Challenge the smart AI opponent, track your wins, and enjoy a stylish interactive experience!" />
+  <meta name="keywords" content="tic tac toe, AI calculator, play tic tac toe, online tic tac toe, AI vs user, tic tac toe game, scoreboard, free games, HTML game" />
+  <meta name="author" content="AI Calculator Team" />
+  <meta name="robots" content="index, follow" />
+
+  <!-- Open Graph for Social Media -->
+  <meta property="og:title" content="AI Calculator - Tic Tac Toe Game" />
+  <meta property="og:description" content="Challenge yourself with this stylish AI-powered Tic Tac Toe game. Scoreboard included!" />
+  <meta property="og:image" content="https://yourdomain.com/og-image.jpg" /> <!-- Optional: Replace with your hosted image URL -->
+  <meta property="og:url" content="https://yourdomain.com/tic-tac-toe" />
+  <meta property="og:type" content="website" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="AI Calculator - Tic Tac Toe Game" />
+  <meta name="twitter:description" content="Play an advanced Tic Tac Toe game against smart AI with scoreboard tracking." />
+  <meta name="twitter:image" content="https://yourdomain.com/og-image.jpg" />
+
+  <!-- Favicon -->
+  <!-- <link rel="icon" href="favicon.ico" type="image/x-icon" /> -->
+
+  <!-- Styles and Script remain the same -->
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #1e1e2f;
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin: 0;
+      padding: 20px;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      color: #00ffd0;
+      margin-bottom: 0.2em;
+    }
+
+    h2 {
+      font-size: 1.5rem;
+      color: #f0f0f0;
+      margin-top: 0;
+    }
+
+    .scoreboard {
+      margin: 15px 0;
+      display: flex;
+      gap: 30px;
+      font-size: 1.2rem;
+    }
+
+    .board {
+      display: grid;
+      grid-template-columns: repeat(3, 100px);
+      grid-template-rows: repeat(3, 100px);
+      gap: 5px;
+      margin: 20px 0;
+    }
+
+    .cell {
+      background-color: #2e2e40;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2.5rem;
+      cursor: pointer;
+      border-radius: 10px;
+      transition: background 0.3s ease;
+    }
+
+    .cell:hover {
+      background-color: #44445a;
+    }
+
+    .status {
+      font-size: 1.2rem;
+      margin-top: 10px;
+      color: #ffd700;
+    }
+
+    .reset-btn {
+      margin-top: 15px;
+      padding: 10px 20px;
+      font-size: 1rem;
+      background: #00ffd0;
+      color: #000;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    .reset-btn:hover {
+      background: #00c7a8;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>AI CALCULATOR</h1>
+  <h2>Tic Tac Toe</h2>
+
+  <div class="scoreboard">
+    <div>User: <span id="userScore">0</span></div>
+    <div>AI: <span id="aiScore">0</span></div>
+  </div>
+
+  <div class="board" id="board"></div>
+  <div class="status" id="statusText">Your Turn (X)</div>
+  <button class="reset-btn" onclick="resetGame()">Reset Game</button>
+
+  <script>
+    const boardEl = document.getElementById("board");
+    const statusText = document.getElementById("statusText");
+    const userScoreEl = document.getElementById("userScore");
+    const aiScoreEl = document.getElementById("aiScore");
+
+    let board = ["", "", "", "", "", "", "", "", ""];
+    let userTurn = true;
+    let gameActive = true;
+    let userScore = 0;
+    let aiScore = 0;
+
+    const winConditions = [
+      [0,1,2], [3,4,5], [6,7,8],
+      [0,3,6], [1,4,7], [2,5,8],
+      [0,4,8], [2,4,6]
+    ];
+
+    function renderBoard() {
+      boardEl.innerHTML = "";
+      board.forEach((val, idx) => {
+        const cell = document.createElement("div");
+        cell.className = "cell";
+        cell.textContent = val;
+        cell.addEventListener("click", () => handleClick(idx));
+        boardEl.appendChild(cell);
+      });
+    }
+
+    function handleClick(index) {
+      if (!gameActive || board[index] !== "" || !userTurn) return;
+
+      board[index] = "X";
+      userTurn = false;
+      renderBoard();
+      checkGame();
+
+      if (gameActive) {
+        setTimeout(aiMove, 500);
+      }
+    }
+
+    function aiMove() {
+      let index = getBestMove();
+      if (index !== -1) {
+        board[index] = "O";
+        userTurn = true;
+        renderBoard();
+        checkGame();
+      }
+    }
+
+    function getBestMove() {
+      // Win if possible
+      for (let combo of winConditions) {
+        const [a,b,c] = combo;
+        if (board[a] === "O" && board[b] === "O" && board[c] === "") return c;
+        if (board[a] === "O" && board[c] === "O" && board[b] === "") return b;
+        if (board[b] === "O" && board[c] === "O" && board[a] === "") return a;
+      }
+
+      // Block user win
+      for (let combo of winConditions) {
+        const [a,b,c] = combo;
+        if (board[a] === "X" && board[b] === "X" && board[c] === "") return c;
+        if (board[a] === "X" && board[c] === "X" && board[b] === "") return b;
+        if (board[b] === "X" && board[c] === "X" && board[a] === "") return a;
+      }
+
+      // Take center if free
+      if (board[4] === "") return 4;
+
+      // Otherwise take first available
+      for (let i = 0; i < board.length; i++) {
+        if (board[i] === "") return i;
+      }
+
+      return -1;
+    }
+
+    function checkGame() {
+      for (let condition of winConditions) {
+        const [a,b,c] = condition;
+        if (board[a] && board[a] === board[b] && board[a] === board[c]) {
+          gameActive = false;
+          if (board[a] === "X") {
+            statusText.textContent = "You Win!";
+            userScore++;
+          } else {
+            statusText.textContent = "AI Wins!";
+            aiScore++;
+          }
+          updateScores();
+          return;
+        }
+      }
+
+      if (!board.includes("")) {
+        gameActive = false;
+        statusText.textContent = "It's a Draw!";
+      } else {
+        statusText.textContent = userTurn ? "Your Turn (X)" : "AI Thinking...";
+      }
+    }
+
+    function updateScores() {
+      userScoreEl.textContent = userScore;
+      aiScoreEl.textContent = aiScore;
+    }
+
+    function resetGame() {
+      board = ["", "", "", "", "", "", "", "", ""];
+      gameActive = true;
+      userTurn = true;
+      statusText.textContent = "Your Turn (X)";
+      renderBoard();
+    }
+
+    renderBoard();
+  </script>
+</body>
+</html>
