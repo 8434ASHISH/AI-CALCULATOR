@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="title" content="AI Household Item Calculator">
+    <meta name="description" content="Track and calculate household item costs with our AI-powered Household Item Calculator. Manually add item names, prices, and quantities, with voice input option.">
+    <meta name="keywords" content="household item calculator, expense calculator, budget calculator, AI calculator, household management, cost tracker">
+    <meta name="robots" content="index, follow">
+    <title>AI Household Item Calculator</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #ffffff;
+            color: #1a202c;
+        }
+        .calculator-title {
+            font-weight: bold;
+            text-align: center;
+            background-color: #f6e05e;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+        .input-field {
+            border: 2px solid #e2e8f0;
+            border-radius: 8px;
+            padding: 10px;
+            font-weight: bold;
+            width: 100%;
+            box-sizing: border-box;
+        }
+        .language-switcher {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            cursor: pointer;
+        }
+        .theme-switcher {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            cursor: pointer;
+        }
+        .calculate-btn, .voice-btn {
+            font-weight: bold;
+            padding: 12px;
+            border-radius: 8px;
+            width: 48%;
+        }
+        .calculate-btn {
+            background-color: #4299e1;
+            color: white;
+        }
+        .voice-btn {
+            background-color: #10b981;
+            color: white;
+        }
+        .result-box {
+            border: 2px solid #e2e8f0;
+            border-radius: 8px;
+            padding: 15px;
+            margin-top: 20px;
+            font-weight: bold;
+        }
+        .item-row {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+        .item-row input {
+            flex: 1;
+        }
+        .delete-btn {
+            background-color: #ef4444;
+            color: white;
+            padding: 8px;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+        footer a {
+            color: #4299e1;
+            text-decoration: none;
+        }
+        footer a:hover {
+            text-decoration: underline;
+        }
+        .share-icons img {
+            width: 30px;
+            margin: 0 10px;
+        }
+        .dark-mode {
+            background-color: #1a202c;
+            color: #e2e8f0;
+        }
+        .dark-mode .input-field {
+            border-color: #4a5568;
+            background-color: #2d3748;
+            color: #e2e8f0;
+        }
+        .dark-mode .result-box {
+            border-color: #4a5568;
+            background-color: #2d3748;
+        }
+        .dark-mode .calculator-title {
+            background-color: #b83280;
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col">
+    <header class="relative">
+        <h1 class="calculator-title text-3xl">AI CALCULATOR</h1>
+        <h2 class="text-center text-xl font-bold mb-4" id="calcTitle">Household Item Calculator</h2>
+        <div class="language-switcher">
+            <img src="https://img.icons8.com/ios-filled/50/000000/globe.png" alt="Language Switcher" id="langToggle" width="30">
+        </div>
+        <div class="theme-switcher">
+            <img src="https://img.icons8.com/ios-filled/50/000000/moon-symbol.png" alt="Theme Switcher" id="themeToggle" width="30">
+        </div>
+    </header>
+    <main class="flex-grow container mx-auto px-4 py-6">
+        <section class="max-w-md mx-auto">
+            <div id="itemList">
+                <div class="item-row">
+                    <input type="text" class="input-field item-name" placeholder="Item Name" required>
+                    <input type="number" class="input-field item-price" placeholder="Price" step="any" required>
+                    <input type="number" class="input-field item-quantity" placeholder="Quantity" step="1" required>
+                    <button class="delete-btn" onclick="deleteItem(this)">X</button>
+                </div>
+            </div>
+            <button class="calculate-btn" onclick="addItem()" style="margin-top: 10px; width: 100%;">Add Item</button>
+            <div class="flex gap-4 mt-4">
+                <button class="calculate-btn" onclick="calculateTotal()">Calculate</button>
+                <button class="voice-btn" onclick="startVoiceInput()">
+                    <img src="https://img.icons8.com/ios-filled/50/ffffff/microphone.png" alt="Voice Input" width="20" style="display: inline;">
+                </button>
+            </div>
+            <div id="result" class="result-box hidden">
+                <p id="totalCost"></p>
+            </div>
+        </section>
+        <section class="mt-8 max-w-2xl mx-auto">
+            <h3 class="text-xl font-bold mb-4" id="aboutTitle">About the Household Item Calculator</h3>
+            <p class="mb-4" id="aboutText1">
+                The Household Item Calculator helps you track and calculate the total cost of household items. Manually input item names, prices, and quantities, or use the voice input feature to add items quickly.
+            </p>
+            <p id="aboutText2">
+                This tool sums the cost of all items (price × quantity) to provide the total expense. It’s ideal for budgeting, shopping lists, or managing household expenses efficiently.
+            </p>
+        </section>
+    </main>
+    <footer class="bg-gray-100 py-6 mt-8">
+        <div class="container mx-auto px-4 text-center">
+            <div class="mb-4">
+                <a href="/privacy-policy" class="mx-2">Privacy Policy</a> |
+                <a href="/disclaimer" class="mx-2">Disclaimer</a> |
+                <a href="/how-to-use" class="mx-2">How to Use</a> |
+                <a href="/contact-us" class="mx-2">Contact Us</a>
+            </div>
+            <div class="share-icons mb-4 flex justify-center">
+                <a href="https://www.facebook.com/sharer/sharer.php?u=#" target="_blank">
+                    <img src="https://img.icons8.com/color/48/000000/facebook-new.png" alt="Facebook">
+                </a>
+                <a href="https://twitter.com/intent/tweet?url=#&text=Check out this AI Household Item Calculator!" target="_blank">
+                    <img src="https://img.icons8.com/color/48/000000/twitter.png" alt="X">
+                </a>
+                <a href="https://api.whatsapp.com/send?text=Check out this AI Household Item Calculator: #" target="_blank">
+                    <img src="https://img.icons8.com/color/48/000000/whatsapp.png" alt="WhatsApp">
+                </a>
+                <a href="https://www.instagram.com/" target="_blank">
+                    <img src="https://img.icons8.com/color/48/000000/instagram-new.png" alt="Instagram">
+                </a>
+            </div>
+            <p class="text-sm">© 2025 All Rights Reserved</p>
+        </div>
+    </footer>
+    <script>
+        let isHindi = false;
+
+        function addItem() {
+            const itemList = document.getElementById('itemList');
+            const newItem = document.createElement('div');
+            newItem.className = 'item-row';
+            newItem.innerHTML = `
+                <input type="text" class="input-field item-name" placeholder="Item Name" required>
+                <input type="number" class="input-field item-price" placeholder="Price" step="any" required>
+                <input type="number" class="input-field item-quantity" placeholder="Quantity" step="1" required>
+                <button class="delete-btn" onclick="deleteItem(this)">X</button>
+            `;
+            itemList.appendChild(newItem);
+        }
+
+        function deleteItem(button) {
+            button.parentElement.remove();
+        }
+
+        function calculateTotal() {
+            const items = document.querySelectorAll('.item-row');
+            let total = 0;
+
+            for (let item of items) {
+                const price = parseFloat(item.querySelector('.item-price').value);
+                const quantity = parseInt(item.querySelector('.item-quantity').value);
+                const name = item.querySelector('.item-name').value.trim();
+
+                if (!name || isNaN(price) || isNaN(quantity) || price < 0 || quantity < 0) {
+                    alert(isHindi ? 'कृपया सभी वस्तुओं के लिए मान्य नाम, मूल्य और मात्रा दर्ज करें।' : 'Please enter valid name, price, and quantity for all items.');
+                    return;
+                }
+
+                total += price * quantity;
+            }
+
+            document.getElementById('totalCost').textContent = isHindi 
+                ? `कुल लागत: ₹${total.toFixed(2)}` 
+                : `Total Cost: ₹${total.toFixed(2)}`;
+            document.getElementById('result').classList.remove('hidden');
+        }
+
+        function startVoiceInput() {
+            if (!('webkitSpeechRecognition' in window)) {
+                alert(isHindi ? 'आपका ब्राउज़र वॉयस इनपुट का समर्थन नहीं करता।' : 'Your browser does not support voice input.');
+                return;
+            }
+
+            const recognition = new webkitSpeechRecognition();
+            recognition.lang = isHindi ? 'hi-IN' : 'en-US';
+            recognition.interimResults = false;
+            recognition.maxAlternatives = 1;
+
+            recognition.onresult = (event) => {
+                const transcript = event.results[0][0].transcript;
+                parseVoiceInput(transcript);
+            };
+
+            recognition.onerror = (event) => {
+                alert(isHindi ? 'वॉयस इनपुट में त्रुटि: ' + event.error : 'Voice input error: ' + event.error);
+            };
+
+            recognition.start();
+        }
+
+        function parseVoiceInput(transcript) {
+            // Simple parsing: expect format like "Add rice 50 rupees 2 quantity"
+            const words = transcript.toLowerCase().split(' ');
+            let name = '', price = 0, quantity = 1;
+
+            // Extract name (words until a number is found)
+            let i = words.indexOf('add') + 1;
+            while (i < words.length && isNaN(parseFloat(words[i]))) {
+                name += words[i] + ' ';
+                i++;
+            }
+            name = name.trim();
+
+            // Extract price (first number found)
+            if (i < words.length) {
+                price = parseFloat(words[i]);
+                i++;
+            }
+
+            // Extract quantity (number after 'quantity' or next number)
+            while (i < words.length) {
+                if (words[i] === 'quantity' && i + 1 < words.length) {
+                    quantity = parseInt(words[i + 1]);
+                    break;
+                } else if (!isNaN(parseInt(words[i]))) {
+                    quantity = parseInt(words[i]);
+                    break;
+                }
+                i++;
+            }
+
+            if (name && !isNaN(price) && !isNaN(quantity)) {
+                const itemList = document.getElementById('itemList');
+                const newItem = document.createElement('div');
+                newItem.className = 'item-row';
+                newItem.innerHTML = `
+                    <input type="text" class="input-field item-name" value="${name}" required>
+                    <input type="number" class="input-field item-price" value="${price}" step="any" required>
+                    <input type="number" class="input-field item-quantity" value="${quantity}" step="1" required>
+                    <button class="delete-btn" onclick="deleteItem(this)">X</button>
+                `;
+                itemList.appendChild(newItem);
+            } else {
+                alert(isHindi ? 'वॉयस इनपुट को समझने में असमर्थ। कृपया "Add item price quantity" प्रारूप का उपयोग करें।' : 'Unable to parse voice input. Please use format "Add item price quantity".');
+            }
+        }
+
+        document.getElementById('themeToggle').addEventListener('click', () => {
+            document.body.classList.toggle('dark-mode');
+            const icon = document.getElementById('themeToggle');
+            icon.src = document.body.classList.contains('dark-mode')
+                ? 'https://img.icons8.com/ios-filled/50/ffffff/sun.png'
+                : 'https://img.icons8.com/ios-filled/50/000000/moon-symbol.png';
+        });
+
+        document.getElementById('langToggle').addEventListener('click', () => {
+            isHindi = !isHindi;
+
+            document.getElementById('calcTitle').textContent = isHindi 
+                ? 'घरेलू वस्तु कैलकुलेटर' 
+                : 'Household Item Calculator';
+            document.getElementById('calcButton').textContent = isHindi 
+                ? 'गणना करें' 
+                : 'Calculate';
+            document.getElementById('aboutTitle').textContent = isHindi 
+                ? 'घरेलू वस्तु कैलकुलेटर के बारे में' 
+                : 'About the Household Item Calculator';
+            document.getElementById('aboutText1').textContent = isHindi 
+                ? 'घरेलू वस्तु कैलकुलेटर आपको घरेलू वस्तुओं की कुल लागत को ट्रैक करने और गणना करने में मदद करता है। वस्तु के नाम, मूल्य, और मात्रा मैन्युअल रूप से दर्ज करें, या वस्तुओं को जल्दी जोड़ने के लिए वॉयस इनपुट सुविधा का उपयोग करें।'
+                : 'The Household Item Calculator helps you track and calculate the total cost of household items. Manually input item names, prices, and quantities, or use the voice input feature to add items quickly.';
+            document.getElementById('aboutText2').textContent = isHindi 
+                ? 'यह उपकरण सभी वस्तुओं की लागत (मूल्य × मात्रा) को जोड़कर कुल व्यय प्रदान करता है। यह बजट, खरीदारी सूची, या घरेलू खर्चों को कुशलतापूर्वक प्रबंधित करने के लिए आदर्श है।'
+                : 'This tool sums the cost of all items (price × quantity) to provide the total expense. It’s ideal for budgeting, shopping lists, or managing household expenses efficiently.';
+            
+            // Update placeholders dynamically
+            const itemRows = document.querySelectorAll('.item-row');
+            itemRows.forEach(row => {
+                row.querySelector('.item-name').placeholder = isHindi ? 'वस्तु का नाम' : 'Item Name';
+                row.querySelector('.item-price').placeholder = isHindi ? 'मूल्य' : 'Price';
+                row.querySelector('.item-quantity').placeholder = isHindi ? 'मात्रा' : 'Quantity';
+            });
+        });
+    </script>
+</body>
+</html>
