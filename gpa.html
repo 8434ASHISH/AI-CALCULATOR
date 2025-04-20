@@ -1,0 +1,122 @@
+<!-- Same structure as the Auto Loan and Car Loan Calculator -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Grade calculator to calculate your grade percentage and corresponding letter grade.">
+    <meta name="keywords" content="grade calculator, calculate grade percentage, letter grade">
+    <meta name="author" content="Your Name">
+    <title>Grade Calculator</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .hidden {
+            display: none;
+        }
+        .visible {
+            display: block;
+        }
+    </style>
+</head>
+<body class="bg-gray-200">
+    <div class="max-w-lg mx-auto p-6 bg-white rounded-lg shadow-lg">
+        <h1 class="text-center text-2xl font-semibold mb-6" id="calculator-name">Grade Calculator</h1>
+        <!-- Dark/Light Theme Toggle -->
+        <div class="flex justify-between items-center mb-4">
+            <button id="theme-toggle" class="text-xl p-2 bg-gray-300 rounded-full">🌙</button>
+            <div>
+                <button id="lang-en" class="mr-2">English</button>
+                <button id="lang-hi">Hindi</button>
+            </div>
+        </div>
+
+        <div id="grade-details">
+            <label for="marks-obtained" class="block mb-2">Marks Obtained</label>
+            <input type="number" id="marks-obtained" class="w-full mb-4 p-2 border" placeholder="Enter marks obtained">
+
+            <label for="total-marks" class="block mb-2">Total Marks</label>
+            <input type="number" id="total-marks" class="w-full mb-4 p-2 border" placeholder="Enter total marks">
+
+            <button id="calculate-btn" class="w-full bg-blue-500 text-white p-3 rounded-lg">Calculate</button>
+        </div>
+
+        <div id="result" class="hidden mt-4">
+            <p class="text-xl font-semibold" id="grade-result"></p>
+            <button id="copy-btn" class="mt-4 bg-green-500 text-white p-2 rounded-lg w-full">Copy Result</button>
+        </div>
+    </div>
+
+    <script>
+        let theme = 'light';
+        let language = 'en';
+
+        // Theme Toggle
+        document.getElementById('theme-toggle').addEventListener('click', () => {
+            if (theme === 'light') {
+                document.body.classList.add('bg-gray-800');
+                document.body.classList.remove('bg-gray-200');
+                theme = 'dark';
+                document.getElementById('theme-toggle').innerHTML = '☀️';
+            } else {
+                document.body.classList.remove('bg-gray-800');
+                document.body.classList.add('bg-gray-200');
+                theme = 'light';
+                document.getElementById('theme-toggle').innerHTML = '🌙';
+            }
+        });
+
+        // Language Switch
+        document.getElementById('lang-en').addEventListener('click', () => {
+            language = 'en';
+            document.getElementById('calculator-name').innerText = 'Grade Calculator';
+            document.querySelector('label[for="marks-obtained"]').innerText = 'Marks Obtained';
+            document.querySelector('label[for="total-marks"]').innerText = 'Total Marks';
+            document.getElementById('calculate-btn').innerText = 'Calculate';
+            document.getElementById('copy-btn').innerText = 'Copy Result';
+        });
+
+        document.getElementById('lang-hi').addEventListener('click', () => {
+            language = 'hi';
+            document.getElementById('calculator-name').innerText = 'ग्रेड कैलकुलेटर';
+            document.querySelector('label[for="marks-obtained"]').innerText = 'प्राप्त अंक';
+            document.querySelector('label[for="total-marks"]').innerText = 'कुल अंक';
+            document.getElementById('calculate-btn').innerText = 'गणना करें';
+            document.getElementById('copy-btn').innerText = 'परिणाम कॉपी करें';
+        });
+
+        // Calculate Grade
+        document.getElementById('calculate-btn').addEventListener('click', () => {
+            const marksObtained = parseFloat(document.getElementById('marks-obtained').value);
+            const totalMarks = parseFloat(document.getElementById('total-marks').value);
+
+            if (isNaN(marksObtained) || isNaN(totalMarks)) {
+                alert("Please enter valid values.");
+                return;
+            }
+
+            const percentage = (marksObtained / totalMarks) * 100;
+            let grade = '';
+
+            if (percentage >= 90) grade = 'A+';
+            else if (percentage >= 80) grade = 'A';
+            else if (percentage >= 70) grade = 'B+';
+            else if (percentage >= 60) grade = 'B';
+            else if (percentage >= 50) grade = 'C';
+            else grade = 'F';
+
+            document.getElementById('grade-result').innerText = `Grade: ${grade} (${percentage.toFixed(2)}%)`;
+            document.getElementById('result').classList.remove('hidden');
+        });
+
+        // Copy Button
+        document.getElementById('copy-btn').addEventListener('click', () => {
+            const resultText = document.getElementById('grade-result').innerText;
+            navigator.clipboard.writeText(resultText);
+            alert("Result copied to clipboard!");
+        });
+    </script>
+</body>
+</html>
