@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Construction & Home Calculators - Construction Material Estimator</title>
+  <meta name="description" content="Estimate the total material required for your construction project, including bricks, cement, sand, and aggregate. Available in Hindi, English, Mandarin, French, and Arabic." />
+  <meta name="keywords" content="Construction Material Estimator, Material Quantity Calculation, Cement Estimation, Sand Estimation, Aggregate Estimation, Brick Estimation, Multilingual Construction Estimator, Hindi Material Estimator, Arabic Construction Calculator, French Material Estimator" />
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f9;
+      color: #333;
+      padding: 20px;
+    }
+    .container {
+      max-width: 700px;
+      margin: auto;
+      background: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    h2 {
+      text-align: center;
+      color: #2c3e50;
+    }
+    label {
+      display: block;
+      margin-top: 15px;
+    }
+    input, select {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    button {
+      margin-top: 20px;
+      padding: 10px 15px;
+      background-color: #2980b9;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #1c5980;
+    }
+    #result {
+      margin-top: 20px;
+      font-weight: bold;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Construction & Home Calculators</h2>
+    <h3 style="text-align:center;">Construction Material Estimator</h3>
+
+    <label for="length">Length of Building (meters)</label>
+    <input type="number" id="length" placeholder="e.g. 10" />
+
+    <label for="width">Width of Building (meters)</label>
+    <input type="number" id="width" placeholder="e.g. 8" />
+
+    <label for="height">Height of Building (meters)</label>
+    <input type="number" id="height" placeholder="e.g. 3" />
+
+    <label for="thickness">Wall Thickness (meters)</label>
+    <input type="number" id="thickness" placeholder="e.g. 0.25" />
+
+    <label for="brickDensity">Density of Bricks (per cubic meter)</label>
+    <input type="number" id="brickDensity" placeholder="e.g. 550" />
+
+    <label for="cementRequired">Cement Required per cubic meter (kg)</label>
+    <input type="number" id="cementRequired" placeholder="e.g. 400" />
+
+    <label for="sandRequired">Sand Required per cubic meter (kg)</label>
+    <input type="number" id="sandRequired" placeholder="e.g. 1200" />
+
+    <label for="aggregateRequired">Aggregate Required per cubic meter (kg)</label>
+    <input type="number" id="aggregateRequired" placeholder="e.g. 1200" />
+
+    <button onclick="calculateMaterials()">Calculate Materials</button>
+
+    <div id="result"></div>
+  </div>
+
+  <script>
+    function calculateMaterials() {
+      const length = parseFloat(document.getElementById('length').value);
+      const width = parseFloat(document.getElementById('width').value);
+      const height = parseFloat(document.getElementById('height').value);
+      const thickness = parseFloat(document.getElementById('thickness').value);
+      const brickDensity = parseFloat(document.getElementById('brickDensity').value);
+      const cementRequired = parseFloat(document.getElementById('cementRequired').value);
+      const sandRequired = parseFloat(document.getElementById('sandRequired').value);
+      const aggregateRequired = parseFloat(document.getElementById('aggregateRequired').value);
+
+      if (isNaN(length) || isNaN(width) || isNaN(height) || isNaN(thickness) ||
+          isNaN(brickDensity) || isNaN(cementRequired) || isNaN(sandRequired) || isNaN(aggregateRequired)) {
+        document.getElementById('result').innerText = 'Please fill all fields correctly.';
+        return;
+      }
+
+      const volume = length * width * height;
+      const wallVolume = volume * thickness;
+
+      const totalBricks = wallVolume * brickDensity;
+      const totalCement = wallVolume * cementRequired;
+      const totalSand = wallVolume * sandRequired;
+      const totalAggregate = wallVolume * aggregateRequired;
+
+      document.getElementById('result').innerHTML = `
+        <p>Total Bricks Required: ${totalBricks.toFixed(2)} bricks</p>
+        <p>Total Cement Required: ${totalCement.toFixed(2)} kg</p>
+        <p>Total Sand Required: ${totalSand.toFixed(2)} kg</p>
+        <p>Total Aggregate Required: ${totalAggregate.toFixed(2)} kg</p>
+      `;
+    }
+  </script>
+</body>
+</html>
