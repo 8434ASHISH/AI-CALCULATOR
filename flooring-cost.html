@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Construction & Home Calculators - Flooring Cost Estimator</title>
+  <meta name="description" content="Estimate the total cost for your flooring project using our Flooring Cost Estimator. Available in Hindi, English, Mandarin, French, and Arabic." />
+  <meta name="keywords" content="Flooring Cost Estimator, Flooring Cost Calculator, Flooring Material Cost, Floor Area Estimation, Flooring Project Cost, Multilingual Flooring Calculator, Hindi Flooring Cost, Arabic Flooring Estimator, French Flooring Calculator, Mandarin Flooring Cost" />
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f9;
+      color: #333;
+      padding: 20px;
+    }
+    .container {
+      max-width: 600px;
+      margin: auto;
+      background: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    h2 {
+      text-align: center;
+      color: #2c3e50;
+    }
+    label {
+      display: block;
+      margin-top: 15px;
+    }
+    input, select {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    button {
+      margin-top: 20px;
+      padding: 10px 15px;
+      background-color: #2980b9;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #1c5980;
+    }
+    #result {
+      margin-top: 20px;
+      font-weight: bold;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Construction & Home Calculators</h2>
+    <h3 style="text-align:center;">Flooring Cost Estimator</h3>
+
+    <label for="length">Length of Floor (meters)</label>
+    <input type="number" id="length" placeholder="e.g. 5" />
+
+    <label for="width">Width of Floor (meters)</label>
+    <input type="number" id="width" placeholder="e.g. 4" />
+
+    <label for="materialCost">Cost of Flooring Material per Square Meter (₹)</label>
+    <input type="number" id="materialCost" placeholder="e.g. 300" />
+
+    <button onclick="calculateFlooringCost()">Calculate</button>
+
+    <div id="result"></div>
+  </div>
+
+  <script>
+    function calculateFlooringCost() {
+      const length = parseFloat(document.getElementById('length').value);
+      const width = parseFloat(document.getElementById('width').value);
+      const materialCost = parseFloat(document.getElementById('materialCost').value);
+
+      if (isNaN(length) || isNaN(width) || isNaN(materialCost)) {
+        document.getElementById('result').innerText = 'Please fill all fields correctly.';
+        return;
+      }
+
+      const area = length * width;
+      const totalCost = area * materialCost;
+
+      document.getElementById('result').innerText = `The estimated flooring cost is ₹${totalCost.toFixed(2)} for an area of ${area.toFixed(2)} square meters.`;
+    }
+  </script>
+</body>
+</html>
