@@ -2,198 +2,230 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>AI Calculator | Quiz Game</title>
-  <meta name="description" content="Play this smart quiz game powered by AI Calculator. Boost your brain with fun and tricky questions.">
-  <meta name="keywords" content="quiz game, AI calculator, trivia, gk, logic quiz, fun quiz, online quiz">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>AI Calculator | Word Guessing Game</title>
+  <meta name="description" content="Challenge yourself with this advanced word guessing game powered by AI Calculator. Fun & educational!">
+  <meta name="keywords" content="word guessing game, hangman, AI calculator, brain game, spelling game, vocabulary game">
   <meta name="author" content="AI Calculator Team">
   <style>
     body {
       font-family: 'Segoe UI', sans-serif;
-      margin: 0;
-      padding: 0;
-      background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+      background: #1f1f1f;
       color: white;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      min-height: 100vh;
       text-align: center;
+      padding: 20px;
     }
 
     h1 {
-      margin-top: 30px;
       font-size: 2.5rem;
+      color: #ffd700;
     }
 
     h2 {
-      margin-bottom: 20px;
-      color: #ffcc00;
+      margin-top: 0;
+      font-size: 1.5rem;
+      color: #00ffff;
     }
 
-    #quiz-container {
-      background: #1e2a38;
-      padding: 30px;
-      border-radius: 15px;
-      width: 90%;
-      max-width: 500px;
-      box-shadow: 0 0 20px #00000070;
-    }
-
-    #question {
-      font-size: 1.3rem;
-      margin-bottom: 20px;
-    }
-
-    .option {
-      background-color: #324b5f;
-      border: none;
-      border-radius: 10px;
-      padding: 10px;
-      margin: 8px 0;
-      font-size: 1rem;
-      cursor: pointer;
-      transition: 0.2s;
-      color: white;
-      width: 100%;
-    }
-
-    .option:hover {
-      background-color: #ffcc00;
-      color: black;
-    }
-
-    #timer, #score {
+    #hangman {
+      font-size: 2rem;
       margin: 10px;
-      font-weight: bold;
+      white-space: pre;
     }
 
-    #result {
+    #word {
+      font-size: 2rem;
+      letter-spacing: 10px;
+      margin: 20px 0;
+    }
+
+    #letters button {
+      font-size: 1rem;
+      padding: 10px 15px;
+      margin: 5px;
+      background: #333;
+      color: white;
+      border: 1px solid #666;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    #letters button:disabled {
+      background: #555;
+      color: #999;
+      cursor: not-allowed;
+    }
+
+    #status {
+      font-size: 1.2rem;
       margin-top: 15px;
+    }
+
+    #score {
+      margin-top: 10px;
       font-size: 1.1rem;
+      color: #a0ffa0;
     }
   </style>
 </head>
 <body>
 
   <h1>AI CALCULATOR</h1>
-  <h2>Quiz Game</h2>
+  <h2>Word Guessing Game</h2>
 
-  <div id="quiz-container">
-    <div id="score">Score: 0</div>
-    <div id="timer">Time Left: 15s</div>
-    <div id="question">Loading question...</div>
-    <div id="options"></div>
-    <div id="result"></div>
-  </div>
+  <div id="hangman">Loading...</div>
+  <div id="word">_ _ _ _</div>
+
+  <div id="letters"></div>
+  <div id="status"></div>
+  <div id="score">Score: 0</div>
 
   <script>
-    const questions = [
-      {
-        q: "What is the capital of France?",
-        options: ["Berlin", "Madrid", "Paris", "Rome"],
-        answer: "Paris"
-      },
-      {
-        q: "Which planet is known as the Red Planet?",
-        options: ["Earth", "Venus", "Mars", "Jupiter"],
-        answer: "Mars"
-      },
-      {
-        q: "5 + 7 × 2 = ?",
-        options: ["24", "19", "26", "17"],
-        answer: "19"
-      },
-      {
-        q: "Who invented the light bulb?",
-        options: ["Tesla", "Newton", "Edison", "Einstein"],
-        answer: "Edison"
-      },
-      {
-        q: "What is H2O commonly known as?",
-        options: ["Hydrogen", "Water", "Salt", "Oxygen"],
-        answer: "Water"
-      },
-      {
-        q: "Which is the largest organ in the human body?",
-        options: ["Liver", "Skin", "Heart", "Lungs"],
-        answer: "Skin"
-      },
-      {
-        q: "Ravi has ₹100. Buys a pen for ₹30. How much left?",
-        options: ["₹30", "₹70", "₹60", "₹50"],
-        answer: "₹70"
-      }
+    const words = [
+      "apple", "banana", "cherry", "elephant", "giraffe", "monkey", "zebra", "laptop", "python", "coding",
+      "keyboard", "internet", "science", "planet", "galaxy", "jungle", "adventure", "mystery", "detective", "rocket",
+      "space", "school", "unicorn", "guitar", "dancer", "rhythm", "freedom", "culture", "festival", "history",
+      "museum", "engine", "puzzle", "journey", "memory", "fantasy", "crystal", "whistle", "trophy", "diamond",
+      "mirror", "magnet", "pencil", "drawer", "bottle", "camera", "window", "curtain", "castle", "dragon",
+      "thunder", "weather", "glacier", "desert", "sunshine", "rainbow", "wizard", "pirate", "robot", "future"
     ];
 
+    let usedWords = [];
+    let currentWord = "";
+    let guessedLetters = [];
+    let wrongGuesses = 0;
     let score = 0;
-    let timer;
-    let timeLeft = 15;
-    let currentQuestionIndex = 0;
 
-    const questionEl = document.getElementById("question");
-    const optionsEl = document.getElementById("options");
-    const timerEl = document.getElementById("timer");
+    const hangmanStages = [
+      `
+      
+      
+      
+      
+      
+      
+      =========`,
+      `
+      
+      
+      
+      
+      
+      |
+      =========`,
+      `
+      |
+      |
+      |
+      |
+      |
+      =========`,
+      `
+      +---+
+      |   |
+      |
+      |
+      |
+      =========`,
+      `
+      +---+
+      |   |
+      O   |
+          |
+          |
+      =========`,
+      `
+      +---+
+      |   |
+      O   |
+      |   |
+          |
+      =========`,
+      `
+      +---+
+      |   |
+      O   |
+     /|\\  |
+          |
+      =========`,
+      `
+      +---+
+      |   |
+      O   |
+     /|\\  |
+     / \\  |
+      =========
+      💀 GAME OVER!`
+    ];
+
+    const hangman = document.getElementById("hangman");
+    const wordEl = document.getElementById("word");
+    const lettersEl = document.getElementById("letters");
+    const statusEl = document.getElementById("status");
     const scoreEl = document.getElementById("score");
-    const resultEl = document.getElementById("result");
 
-    function shuffle(array) {
-      return array.sort(() => Math.random() - 0.5);
-    }
-
-    const quizData = shuffle([...questions]);
-
-    function showQuestion() {
-      if (currentQuestionIndex >= quizData.length) {
-        questionEl.textContent = "🎉 Quiz Over!";
-        optionsEl.innerHTML = "";
-        resultEl.textContent = `Final Score: ${score}/${quizData.length}`;
-        clearInterval(timer);
+    function pickWord() {
+      if (usedWords.length === words.length) {
+        statusEl.innerText = "🎉 You've completed all words!";
         return;
       }
-
-      timeLeft = 15;
-      timerEl.textContent = `Time Left: ${timeLeft}s`;
-      clearInterval(timer);
-      timer = setInterval(() => {
-        timeLeft--;
-        timerEl.textContent = `Time Left: ${timeLeft}s`;
-        if (timeLeft === 0) {
-          clearInterval(timer);
-          resultEl.textContent = `⏱️ Time's up! Correct: ${quizData[currentQuestionIndex].answer}`;
-          currentQuestionIndex++;
-          setTimeout(showQuestion, 1500);
-        }
-      }, 1000);
-
-      const q = quizData[currentQuestionIndex];
-      questionEl.textContent = q.q;
-      optionsEl.innerHTML = "";
-      shuffle(q.options).forEach(option => {
-        const btn = document.createElement("button");
-        btn.classList.add("option");
-        btn.textContent = option;
-        btn.onclick = () => checkAnswer(option);
-        optionsEl.appendChild(btn);
-      });
-      resultEl.textContent = "";
+      do {
+        currentWord = words[Math.floor(Math.random() * words.length)];
+      } while (usedWords.includes(currentWord));
+      usedWords.push(currentWord);
+      guessedLetters = [];
+      wrongGuesses = 0;
+      updateDisplay();
     }
 
-    function checkAnswer(selected) {
-      clearInterval(timer);
-      const correct = quizData[currentQuestionIndex].answer;
-      if (selected === correct) {
+    function updateDisplay() {
+      hangman.textContent = hangmanStages[wrongGuesses];
+      let displayWord = "";
+      for (let letter of currentWord) {
+        displayWord += guessedLetters.includes(letter) ? letter + " " : "_ ";
+      }
+      wordEl.textContent = displayWord.trim();
+      drawKeyboard();
+      checkWinOrLose();
+    }
+
+    function drawKeyboard() {
+      lettersEl.innerHTML = "";
+      for (let i = 65; i <= 90; i++) {
+        const letter = String.fromCharCode(i).toLowerCase();
+        const btn = document.createElement("button");
+        btn.textContent = letter;
+        btn.disabled = guessedLetters.includes(letter);
+        btn.onclick = () => guess(letter);
+        lettersEl.appendChild(btn);
+      }
+    }
+
+    function guess(letter) {
+      if (guessedLetters.includes(letter)) return;
+      guessedLetters.push(letter);
+      if (!currentWord.includes(letter)) {
+        wrongGuesses++;
+      }
+      updateDisplay();
+    }
+
+    function checkWinOrLose() {
+      const wordGuessed = currentWord.split("").every(l => guessedLetters.includes(l));
+      if (wordGuessed) {
+        statusEl.textContent = "✅ Correct! Next word loading...";
         score++;
         scoreEl.textContent = `Score: ${score}`;
-        resultEl.textContent = "✅ Correct!";
+        setTimeout(pickWord, 2000);
+      } else if (wrongGuesses >= hangmanStages.length - 1) {
+        statusEl.textContent = `❌ You lost! Word was "${currentWord}". Next word coming...`;
+        setTimeout(pickWord, 3000);
       } else {
-        resultEl.textContent = `❌ Incorrect! Correct: ${correct}`;
+        statusEl.textContent = "";
       }
-      currentQuestionIndex++;
-      setTimeout(showQuestion, 1500);
     }
 
-    showQuestion();
+    pickWord();
   </script>
 
 </body>
