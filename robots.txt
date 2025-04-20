@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://8434ashish.github.io/AI-CALCULATOR/sitemap.xml
