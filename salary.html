@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Salary Calculator | AI CALCULATOR</title>
+  <meta name="description" content="Calculate your monthly and yearly salary with deductions. वेतन कैलकुलेटर से जानें आपकी आय।" />
+  <meta name="keywords" content="Salary Calculator, Monthly Salary, Yearly Income, AI Calculator, वेतन कैलकुलेटर" />
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 20px;
+      background: white;
+      color: #111;
+      transition: background 0.3s, color 0.3s;
+    }
+    .dark {
+      background: #121212;
+      color: #eee;
+    }
+    .container {
+      max-width: 600px;
+      margin: auto;
+    }
+    .highlight {
+      color: #E91E63;
+      font-weight: bold;
+    }
+    .title {
+      text-align: center;
+      font-size: 2em;
+    }
+    .subtitle {
+      text-align: center;
+      font-size: 1.2em;
+      margin-bottom: 30px;
+    }
+    label {
+      font-weight: bold;
+      margin-top: 10px;
+      display: block;
+    }
+    input {
+      width: 100%;
+      padding: 8px;
+      margin-top: 5px;
+      box-sizing: border-box;
+    }
+    #result {
+      margin-top: 20px;
+      padding: 10px;
+      font-size: 1.1em;
+      font-weight: bold;
+      border: 1px solid #ccc;
+    }
+    button {
+      margin-top: 20px;
+      padding: 10px 20px;
+      background: #E91E63;
+      color: white;
+      border: none;
+      cursor: pointer;
+      width: 100%;
+    }
+    .footer {
+      text-align: center;
+      font-size: 0.9em;
+      margin-top: 40px;
+    }
+    .footer a {
+      color: #E91E63;
+      margin: 0 10px;
+      text-decoration: none;
+    }
+    .toggle {
+      position: fixed;
+      top: 10px;
+      right: 15px;
+      cursor: pointer;
+      font-size: 20px;
+    }
+    select {
+      margin-bottom: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div class="toggle" onclick="toggleTheme()">🌓</div>
+  <div class="container">
+    <div class="title"><span class="highlight">AI CALCULATOR</span></div>
+    <div class="subtitle">Salary Calculator</div>
+
+    <select id="lang" onchange="switchLang(this.value)">
+      <option value="en">English</option>
+      <option value="hi">हिन्दी</option>
+    </select>
+
+    <label id="basicLbl">Basic Monthly Salary (₹)</label>
+    <input type="number" id="basic" value="30000" min="0">
+
+    <label id="hraLbl">HRA (₹)</label>
+    <input type="number" id="hra" value="10000" min="0">
+
+    <label id="bonusLbl">Other Allowances (₹)</label>
+    <input type="number" id="bonus" value="5000" min="0">
+
+    <label id="taxLbl">Tax Deductions (%)</label>
+    <input type="number" id="tax" value="10" min="0">
+
+    <button onclick="calculateSalary()">Calculate</button>
+    <div id="result">Your net salary will appear here.</div>
+
+    <p id="about">
+      This calculator helps you find your net monthly and annual salary after deductions. यह कैलकुलेटर आपकी कुल मासिक और वार्षिक वेतन जानने में मदद करता है।
+    </p>
+
+    <div class="footer">
+      <a href="#">Privacy Policy</a> |
+      <a href="#">Disclaimer</a> |
+      <a href="#">How to Use</a> |
+      <a href="#">Contact Us</a><br><br>
+      <span>Share:</span>
+      <a href="#">FB</a>
+      <a href="#">X</a>
+      <a href="#">Insta</a>
+      <a href="#">WhatsApp</a><br><br>
+      <span>© 2025 All rights reserved.</span>
+    </div>
+  </div>
+
+  <script>
+    function calculateSalary() {
+      const basic = parseFloat(document.getElementById("basic").value);
+      const hra = parseFloat(document.getElementById("hra").value);
+      const bonus = parseFloat(document.getElementById("bonus").value);
+      const tax = parseFloat(document.getElementById("tax").value);
+
+      const gross = basic + hra + bonus;
+      const netMonthly = gross - (gross * (tax / 100));
+      const netYearly = netMonthly * 12;
+
+      document.getElementById("result").innerText =
+        "Net Monthly Salary: ₹" + netMonthly.toFixed(2) +
+        "\nNet Yearly Salary: ₹" + netYearly.toFixed(2);
+    }
+
+    function toggleTheme() {
+      document.body.classList.toggle("dark");
+    }
+
+    function switchLang(lang) {
+      const en = {
+        basicLbl: "Basic Monthly Salary (₹)",
+        hraLbl: "HRA (₹)",
+        bonusLbl: "Other Allowances (₹)",
+        taxLbl: "Tax Deductions (%)",
+        about: "This calculator helps you find your net monthly and annual salary after deductions."
+      };
+      const hi = {
+        basicLbl: "मूल मासिक वेतन (₹)",
+        hraLbl: "एचआरए (₹)",
+        bonusLbl: "अन्य भत्ते (₹)",
+        taxLbl: "कर कटौती (%)",
+        about: "यह कैलकुलेटर आपकी कुल मासिक और वार्षिक वेतन जानने में मदद करता है।"
+      };
+      const txt = lang === "hi" ? hi : en;
+      document.getElementById("basicLbl").innerText = txt.basicLbl;
+      document.getElementById("hraLbl").innerText = txt.hraLbl;
+      document.getElementById("bonusLbl").innerText = txt.bonusLbl;
+      document.getElementById("taxLbl").innerText = txt.taxLbl;
+      document.getElementById("about").innerText = txt.about;
+    }
+  </script>
+</body>
+</html>
