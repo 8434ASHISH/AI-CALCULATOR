@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>AI Calculator | Rock Paper Scissors</title>
+  <meta name="description" content="Play Rock Paper Scissors with cool images! Battle against AI and see who wins.">
+  <meta name="keywords" content="rock paper scissors, game, AI, images, fun game, browser game">
+  <meta name="author" content="AI Calculator Team">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #2f2f2f;
+      color: white;
+      text-align: center;
+      padding: 30px;
+    }
+    
+    h1 {
+      color: #ffcc00;
+    }
+
+    h2 {
+      color: #ffffff;
+    }
+
+    .choices {
+      margin-top: 30px;
+    }
+
+    .choices img {
+      width: 100px;
+      cursor: pointer;
+      margin: 10px;
+      transition: transform 0.2s;
+    }
+
+    .choices img:hover {
+      transform: scale(1.1);
+    }
+
+    #result {
+      font-size: 1.5rem;
+      margin-top: 20px;
+    }
+
+    #scoreboard {
+      margin-top: 20px;
+      font-size: 1.2rem;
+    }
+
+    .score {
+      color: #ffcc00;
+      font-size: 1.5rem;
+    }
+
+    #computerChoice, #userChoice {
+      margin-top: 20px;
+      font-size: 1.2rem;
+    }
+
+    .game-container {
+      margin-top: 30px;
+    }
+    
+    .game-container img {
+      margin: 5px;
+      width: 150px;
+      border: 3px solid #ffcc00;
+      border-radius: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>AI Calculator</h1>
+  <h2>Rock Paper Scissors Game</h2>
+
+  <div class="choices">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/Rock_paper_scissors_hand_game.png/800px-Rock_paper_scissors_hand_game.png" alt="Rock" id="rock" onclick="playGame('rock')">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c9/Scissors_v3.svg/500px-Scissors_v3.svg.png" alt="Scissors" id="scissors" onclick="playGame('scissors')">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/64/Paper_hand_symbol.svg/800px-Paper_hand_symbol.svg.png" alt="Paper" id="paper" onclick="playGame('paper')">
+  </div>
+
+  <div id="result"></div>
+  <div id="scoreboard">
+    <div class="score">Wins: <span id="wins">0</span></div>
+    <div class="score">Losses: <span id="losses">0</span></div>
+    <div class="score">Ties: <span id="ties">0</span></div>
+  </div>
+
+  <div class="game-container">
+    <div id="userChoice">Your choice: <span></span></div>
+    <div id="computerChoice">Computer's choice: <span></span></div>
+  </div>
+
+  <script>
+    let wins = 0;
+    let losses = 0;
+    let ties = 0;
+
+    const winText = "You win!";
+    const loseText = "You lose!";
+    const tieText = "It's a tie!";
+    
+    const choices = ['rock', 'paper', 'scissors'];
+    const images = {
+      rock: 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/Rock_paper_scissors_hand_game.png/800px-Rock_paper_scissors_hand_game.png',
+      paper: 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/64/Paper_hand_symbol.svg/800px-Paper_hand_symbol.svg.png',
+      scissors: 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c9/Scissors_v3.svg/500px-Scissors_v3.svg.png'
+    };
+
+    function playGame(userChoice) {
+      const computerChoice = getComputerChoice();
+      const result = getResult(userChoice, computerChoice);
+      
+      updateScore(result);
+      updateGameDisplay(userChoice, computerChoice, result);
+    }
+
+    function getComputerChoice() {
+      const randomIndex = Math.floor(Math.random() * 3);
+      return choices[randomIndex];
+    }
+
+    function getResult(userChoice, computerChoice) {
+      if (userChoice === computerChoice) {
+        return 'tie';
+      }
+
+      if (
+        (userChoice === 'rock' && computerChoice === 'scissors') ||
+        (userChoice === 'scissors' && computerChoice === 'paper') ||
+        (userChoice === 'paper' && computerChoice === 'rock')
+      ) {
+        return 'win';
+      }
+
+      return 'lose';
+    }
+
+    function updateScore(result) {
+      if (result === 'win') {
+        wins++;
+      } else if (result === 'lose') {
+        losses++;
+      } else {
+        ties++;
+      }
+      
+      document.getElementById('wins').textContent = wins;
+      document.getElementById('losses').textContent = losses;
+      document.getElementById('ties').textContent = ties;
+    }
+
+    function updateGameDisplay(userChoice, computerChoice, result) {
+      document.getElementById('userChoice').innerHTML = `Your choice: <img src="${images[userChoice]}" width="50px">`;
+      document.getElementById('computerChoice').innerHTML = `Computer's choice: <img src="${images[computerChoice]}" width="50px">`;
+
+      let resultText = '';
+      if (result === 'win') {
+        resultText = winText;
+      } else if (result === 'lose') {
+        resultText = loseText;
+      } else {
+        resultText = tieText;
+      }
+      
+      document.getElementById('result').textContent = resultText;
+    }
+  </script>
+
+</body>
+</html>
