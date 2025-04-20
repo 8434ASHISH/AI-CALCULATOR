@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="FLAMES TEST GAME - A fun and romantic love game for couples and friends.">
+  <meta name="keywords" content="FLAMES, love calculator, compatibility game, friendship test, relationship game, AI Calculator">
+  <meta name="author" content="AI Calculator Team">
+  <title>FLAMES Test GAME | AI Calculator</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      background: linear-gradient(to bottom right, #ffdde1, #ee9ca7);
+      font-family: 'Arial', sans-serif;
+      color: #000;
+    }
+
+    .container {
+      max-width: 600px;
+      margin: 50px auto;
+      padding: 30px;
+      background-color: rgba(255, 255, 255, 0.9);
+      border-radius: 12px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+    }
+
+    .heading {
+      text-align: center;
+      font-size: 2.5rem;
+      font-weight: bold;
+      color: #c71585;
+    }
+
+    input {
+      background: #fff0f5;
+      color: black;
+      font-weight: bold;
+      padding: 12px;
+      width: 100%;
+      margin-top: 10px;
+      border: 2px solid #c71585;
+      border-radius: 8px;
+      font-size: 1.1rem;
+      text-align: center;
+    }
+
+    .button {
+      background-color: #c71585;
+      color: white;
+      padding: 12px;
+      border-radius: 8px;
+      width: 100%;
+      font-weight: bold;
+      margin-top: 15px;
+    }
+
+    .button:hover {
+      background-color: #a01370;
+    }
+
+    .result {
+      background: #fff;
+      padding: 15px;
+      border-radius: 8px;
+      text-align: center;
+      font-weight: bold;
+      color: black;
+      font-size: 1.2rem;
+      margin-top: 15px;
+      box-shadow: 0 0 10px #c71585;
+    }
+
+    .tips {
+      font-size: 0.95rem;
+      margin-top: 10px;
+      text-align: center;
+      color: #555;
+    }
+
+    .switch-btn {
+      background: #ff99cc;
+      color: black;
+      padding: 10px 20px;
+      border-radius: 8px;
+      margin: 10px;
+      font-weight: bold;
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 40px;
+      color: #fff;
+      background-color: #c71585;
+      padding: 15px;
+      border-radius: 12px;
+    }
+
+    footer a {
+      color: white;
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1 class="heading"> FLAMES TEST GAME </h1>
+
+    <div class="flex justify-center mt-4">
+      <button class="switch-btn" onclick="switchMode('flames')">FLAMES Game</button>
+      <button class="switch-btn" onclick="switchMode('calculator')">Compatibility</button>
+    </div>
+
+    <!-- FLAMES Section -->
+    <div id="flamesSection" class="mt-6">
+      <input type="text" id="name1" placeholder="Enter Your Name" />
+      <input type="text" id="name2" placeholder="Enter Their Name" />
+      <div class="tips">F - Friends, L - Love, A - Affection, M - Marriage, E - Enemies, S - Siblings</div>
+      <button class="button" onclick="calculateFLAMES()">Calculate FLAMES ❤ </button>
+      <div id="flamesResult" class="result hidden"></div>
+    </div>
+
+    <!-- Compatibility Section -->
+    <div id="calculatorSection" class="mt-6 hidden">
+      <input type="text" id="compName1" placeholder="Enter Your Name" />
+      <input type="text" id="compName2" placeholder="Enter Their Name" />
+      <div class="tips">Higher % = More compatibility ❤️</div>
+      <button class="button" onclick="calculateCompatibility()">Check Compatibility ❤</button>
+      <div id="compatibilityResult" class="result hidden"></div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    Made with ❤️ by AI Calculator Team | <a href="#">Contact</a>
+  </footer>
+
+  <script>
+    function switchMode(mode) {
+      document.getElementById('flamesSection').classList.add('hidden');
+      document.getElementById('calculatorSection').classList.add('hidden');
+      if (mode === 'flames') {
+        document.getElementById('flamesSection').classList.remove('hidden');
+      } else {
+        document.getElementById('calculatorSection').classList.remove('hidden');
+      }
+    }
+
+    function calculateFLAMES() {
+      const name1 = document.getElementById('name1').value.trim().toUpperCase();
+      const name2 = document.getElementById('name2').value.trim().toUpperCase();
+      const resultBox = document.getElementById('flamesResult');
+
+      if (!name1 || !name2) {
+        alert("Please enter both names!");
+        return;
+      }
+
+      let combined = name1 + name2;
+      let chars = combined.replace(/\s/g, '').split('');
+      let flames = ['F', 'L', 'A', 'M', 'E', 'S'];
+      let count = chars.length;
+
+      while (flames.length > 1) {
+        let index = count % flames.length - 1;
+        if (index >= 0) {
+          flames.splice(index, 1);
+        } else {
+          flames.splice(flames.length - 1, 1);
+        }
+      }
+
+      const meanings = {
+        F: "Friends ",
+        L: "Love ❤️",
+        A: "Affection ",
+        M: "Marriage ",
+        E: "Enemies ",
+        S: "Siblings "
+      };
+
+      resultBox.innerHTML = `Your Relationship is: <b>${meanings[flames[0]]}</b>`;
+      resultBox.classList.remove('hidden');
+    }
+
+    function calculateCompatibility() {
+      const name1 = document.getElementById('compName1').value.trim().toUpperCase();
+      const name2 = document.getElementById('compName2').value.trim().toUpperCase();
+      const resultBox = document.getElementById('compatibilityResult');
+
+      if (!name1 || !name2) {
+        alert("Please enter both names!");
+        return;
+      }
+
+      let matchScore = 0;
+      for (let char of name1) {
+        if (name2.includes(char)) {
+          matchScore += 7;
+        }
+      }
+
+      let percent = Math.min(100, matchScore);
+      resultBox.innerHTML = `Your Compatibility is: <b>${percent}% </b>`;
+      resultBox.classList.remove('hidden');
+    }
+  </script>
+</body>
+</html>
