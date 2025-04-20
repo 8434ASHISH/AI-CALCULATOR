@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="title" content="AI Pythagoras Theorem Calculator">
+    <meta name="description" content="Calculate the sides of a right triangle with our AI-powered Pythagoras Theorem Calculator. Input two sides to find the third and explore Pythagorean triplets.">
+    <meta name="keywords" content="Pythagoras theorem calculator, right triangle calculator, Pythagorean triplets, AI calculator, geometry tools, math calculator">
+    <meta name="robots" content="index, follow">
+    <title>AI Pythagoras Theorem Calculator</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #ffffff;
+            color: #1a202c;
+        }
+        .calculator-title {
+            font-weight: bold;
+            text-align: center;
+            background-color: #f6e05e;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+        .input-field {
+            border: 2px solid #e2e8f0;
+            border-radius: 8px;
+            padding: 10px;
+            font-weight: bold;
+            width: 100%;
+            box-sizing: border-box;
+        }
+        .language-switcher {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            cursor: pointer;
+        }
+        .theme-switcher {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            cursor: pointer;
+        }
+        .calculate-btn {
+            background-color: #4299e1;
+            color: white;
+            font-weight: bold;
+            padding: 12px;
+            border-radius: 8px;
+            width: 100%;
+        }
+        .result-box {
+            border: 2px solid #e2e8f0;
+            border-radius: 8px;
+            padding: 15px;
+            margin-top: 20px;
+            font-weight: bold;
+        }
+        footer a {
+            color: #4299e1;
+            text-decoration: none;
+        }
+        footer a:hover {
+            text-decoration: underline;
+        }
+        .share-icons img {
+            width: 30px;
+            margin: 0 10px;
+        }
+        .dark-mode {
+            background-color: #1a202c;
+            color: #e2e8f0;
+        }
+        .dark-mode .input-field {
+            border-color: #4a5568;
+            background-color: #2d3748;
+            color: #e2e8f0;
+        }
+        .dark-mode .result-box {
+            border-color: #4a5568;
+            background-color: #2d3748;
+        }
+        .dark-mode .calculator-title {
+            background-color: #b83280;
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col">
+    <header class="relative">
+        <h1 class="calculator-title text-3xl">AI CALCULATOR</h1>
+        <h2 class="text-center text-xl font-bold mb-4" id="calcTitle">Pythagoras Theorem Calculator</h2>
+        <div class="language-switcher">
+            <img src="https://img.icons8.com/ios-filled/50/000000/globe.png" alt="Language Switcher" id="langToggle" width="30">
+        </div>
+        <div class="theme-switcher">
+            <img src="https://img.icons8.com/ios-filled/50/000000/moon-symbol.png" alt="Theme Switcher" id="themeToggle" width="30">
+        </div>
+    </header>
+    <main class="flex-grow container mx-auto px-4 py-6">
+        <section class="max-w-md mx-auto">
+            <div class="mb-4">
+                <label for="sideA" class="block font-bold mb-2" id="sideALabel">Side A (Base)</label>
+                <input type="number" id="sideA" class="input-field" placeholder="e.g. 3" step="0.01" required>
+            </div>
+            <div class="mb-4">
+                <label for="sideB" class="block font-bold mb-2" id="sideBLabel">Side B (Perpendicular)</label>
+                <input type="number" id="sideB" class="input-field" placeholder="e.g. 4" step="0.01" required>
+            </div>
+            <div class="mb-4">
+                <label for="sideC" class="block font-bold mb-2" id="sideCLabel">Side C (Hypotenuse, leave blank to calculate)</label>
+                <input type="number" id="sideC" class="input-field" placeholder="e.g. 5" step="0.01">
+            </div>
+            <button class="calculate-btn" onclick="calculatePythagoras()" id="calcButton">Calculate</button>
+            <div id="result" class="result-box hidden">
+                <p id="calculatedSide"></p>
+                <p id="tripletSuggestion"></p>
+            </div>
+        </section>
+        <section class="mt-8 max-w-2xl mx-auto">
+            <h3 class="text-xl font-bold mb-4" id="aboutTitle">About the Pythagoras Theorem Calculator</h3>
+            <p class="mb-4" id="aboutText1">
+                The Pythagoras Theorem Calculator helps you solve for the sides of a right-angled triangle using the Pythagorean theorem. The formula is: <strong>a² + b² = c²</strong>, where <em>a</em> and <em>b</em> are the legs, and <em>c</em> is the hypotenuse. Enter any two sides to calculate the third.
+            </p>
+            <p class="mb-4" id="aboutText2">
+                This tool also suggests Pythagorean triplets (e.g., 3, 4, 5) if your inputs form or are close to a valid triplet. It’s perfect for students, engineers, or anyone working with geometry. Use this calculator to verify triangle sides or explore Pythagorean relationships.
+            </p>
+        </section>
+    </main>
+    <footer class="bg-gray-100 py-6 mt-8">
+        <div class="container mx-auto px-4 text-center">
+            <div class="mb-4">
+                <a href="/privacy-policy" class="mx-2">Privacy Policy</a> |
+                <a href="/disclaimer" class="mx-2">Disclaimer</a> |
+                <a href="/how-to-use" class="mx-2">How to Use</a> |
+                <a href="/contact-us" class="mx-2">Contact Us</a>
+            </div>
+            <div class="share-icons mb-4 flex justify-center">
+                <a href="https://www.facebook.com/sharer/sharer.php?u=#" target="_blank">
+                    <img src="https://img.icons8.com/color/48/000000/facebook-new.png" alt="Facebook">
+                </a>
+                <a href="https://twitter.com/intent/tweet?url=#&text=Check out this AI Pythagoras Theorem Calculator!" target="_blank">
+                    <img src="https://img.icons8.com/color/48/000000/twitter.png" alt="X">
+                </a>
+                <a href="https://api.whatsapp.com/send?text=Check out this AI Pythagoras Theorem Calculator: #" target="_blank">
+                    <img src="https://img.icons8.com/color/48/000000/whatsapp.png" alt="WhatsApp">
+                </a>
+                <a href="https://www.instagram.com/" target="_blank">
+                    <img src="https://img.icons8.com/color/48/000000/instagram-new.png" alt="Instagram">
+                </a>
+            </div>
+            <p class="text-sm">© 2025 All Rights Reserved</p>
+        </div>
+    </footer>
+    <script>
+        let isHindi = false;
+
+        function calculatePythagoras() {
+            const sideA = parseFloat(document.getElementById('sideA').value);
+            const sideB = parseFloat(document.getElementById('sideB').value);
+            const sideC = parseFloat(document.getElementById('sideC').value) || 0;
+
+            if (isNaN(sideA) || isNaN(sideB)) {
+                alert(isHindi ? 'कृपया Side A और Side B के लिए मान्य संख्याएँ दर्ज करें।' : 'Please enter valid numbers for Side A and Side B.');
+                return;
+            }
+
+            let result, tripletSuggestion = '';
+            const triplets = [[3, 4, 5], [5, 12, 13], [8, 15, 17], [7, 24, 25]];
+
+            if (sideC === 0) {
+                const hypotenuse = Math.sqrt(sideA ** 2 + sideB ** 2);
+                result = isHindi ? `हाइपोटेन्यूज़ (Side C): ${hypotenuse.toFixed(2)}` : `Hypotenuse (Side C): ${hypotenuse.toFixed(2)}`;
+                for (let triplet of triplets) {
+                    const [a, b, c] = triplet;
+                    if (Math.abs(sideA - a) < 0.1 && Math.abs(sideB - b) < 0.1 && Math.abs(hypotenuse - c) < 0.1) {
+                        tripletSuggestion = isHindi 
+                            ? `यह एक पाइथागोरियन ट्रिपलेट है: ${a}, ${b}, ${c}` 
+                            : `This is a Pythagorean triplet: ${a}, ${b}, ${c}`;
+                        break;
+                    }
+                }
+            } else {
+                const calculatedC = Math.sqrt(sideA ** 2 + sideB ** 2);
+                if (Math.abs(calculatedC - sideC) < 0.01) {
+                    result = isHindi ? `मान्य पाइथागोरियन त्रिकोण! a² + b² = c²` : `Valid Pythagorean triangle! a² + b² = c²`;
+                    for (let triplet of triplets) {
+                        const [a, b, c] = triplet;
+                        if (Math.abs(sideA - a) < 0.1 && Math.abs(sideB - b) < 0.1 && Math.abs(sideC - c) < 0.1) {
+                            tripletSuggestion = isHindi 
+                                ? `यह एक पाइथागोरियन ट्रिपलेट है: ${a}, ${b}, ${c}` 
+                                : `This is a Pythagorean triplet: ${a}, ${b}, ${c}`;
+                            break;
+                        }
+                    }
+                } else {
+                    result = isHindi ? `अमान्य त्रिकोण! a² + b² ≠ c²` : `Invalid triangle! a² + b² ≠ c²`;
+                }
+            }
+
+            document.getElementById('calculatedSide').textContent = result;
+            document.getElementById('tripletSuggestion').textContent = tripletSuggestion || (isHindi 
+                ? 'सुझावित पाइथागोरियन ट्रिपलेट: 3, 4, 5; 5, 12, 13; 8, 15, 17; 7, 24, 25' 
+                : 'Suggested Pythagorean triplets: 3, 4, 5; 5, 12, 13; 8, 15, 17; 7, 24, 25');
+            document.getElementById('result').classList.remove('hidden');
+        }
+
+        document.getElementById('themeToggle').addEventListener('click', () => {
+            document.body.classList.toggle('dark-mode');
+            const icon = document.getElementById('themeToggle');
+            icon.src = document.body.classList.contains('dark-mode')
+                ? 'https://img.icons8.com/ios-filled/50/ffffff/sun.png'
+                : 'https://img.icons8.com/ios-filled/50/000000/moon-symbol.png';
+        });
+
+        document.getElementById('langToggle').addEventListener('click', () => {
+            isHindi = !isHindi;
+            const langIcon = document.getElementById('langToggle');
+            langIcon.src = isHindi
+                ? 'https://img.icons8.com/ios-filled/50/000000/abc.png'
+                : 'https://img.icons8.com/ios-filled/50/000000/globe.png';
+
+            document.getElementById('calcTitle').textContent = isHindi 
+                ? 'पाइथागोरस प्रमेय कैलकुलेटर' 
+                : 'Pythagoras Theorem Calculator';
+            document.getElementById('sideALabel').textContent = isHindi 
+                ? 'भुजा A (आधार)' 
+                : 'Side A (Base)';
+            document.getElementById('sideBLabel').textContent = isHindi 
+                ? 'भुजा B (लंब)' 
+                : 'Side B (Perpendicular)';
+            document.getElementById('sideCLabel').textContent = isHindi 
+                ? 'भुजा C (हाइपोटेन्यूज़, गणना के लिए खाली छोड़ें)' 
+                : 'Side C (Hypotenuse, leave blank to calculate)';
+            document.getElementById('calcButton').textContent = isHindi 
+                ? 'गणना करें' 
+                : 'Calculate';
+            document.getElementById('aboutTitle').textContent = isHindi 
+                ? 'पाइथागोरस प्रमेय कैलकुलेटर के बारे में' 
+                : 'About the Pythagoras Theorem Calculator';
+            document.getElementById('aboutText1').textContent = isHindi 
+                ? 'पाइथागोरस प्रमेय कैलकुलेटर आपको पाइथागोरियन प्रमेय का उपयोग करके समकोण त्रिभुज की भुजाओं को हल करने में मदद करता है। सूत्र है: a² + b² = c², जहाँ a और b भुजाएँ हैं, और c हाइपोटेन्यूज़ है। किसी भी दो भुजाओं को दर्ज करें ताकि तीसरी की गणना हो सके।'
+                : 'The Pythagoras Theorem Calculator helps you solve for the sides of a right-angled triangle using the Pythagorean theorem. The formula is: a² + b² = c², where a and b are the legs, and c is the hypotenuse. Enter any two sides to calculate the third.';
+            document.getElementById('aboutText2').textContent = isHindi 
+                ? 'यह उपकरण आपके इनपुट के आधार पर पाइथागोरियन ट्रिपलेट (जैसे, 3, 4, 5) का सुझाव भी देता है, यदि वे मान्य ट्रिपलेट बनाते हैं या उसके करीब हैं। यह छात्रों, इंजीनियरों, या ज्यामिति के साथ काम करने वाले किसी भी व्यक्ति के लिए उत्तम है। इस कैलकुलेटर का उपयोग त्रिभुज की भुजाओं को सत्यापित करने या पाइथागोरियन संबंधों को समझने के लिए करें।'
+                : 'This tool also suggests Pythagorean triplets (e.g., 3, 4, 5) if your inputs form or are close to a valid triplet. It’s perfect for students, engineers, or anyone working with geometry. Use this calculator to verify triangle sides or explore Pythagorean relationships.';
+        });
+    </script>
+</body>
+</html>
