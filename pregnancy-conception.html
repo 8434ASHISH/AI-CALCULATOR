@@ -1,0 +1,161 @@
+
+        }
+        .dark-mode .result-box {
+            border-color: #4a5568;
+            background-color: #2d3748;
+        }
+        .dark-mode .calculator-title {
+            background-color: #b83280;
+        }
+        .note {
+            font-size: 0.9em;
+            color: #e53e3e;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col">
+    <header class="relative">
+        <h1 class="calculator-title text-3xl">AI CALCULATOR</h1>
+        <h2 class="text-center text-xl font-bold mb-4" id="calcTitle">Pregnancy Calculator</h2>
+        <div class="language-switcher">
+            <img src="https://img.icons8.com/ios-filled/50/000000/globe.png" alt="Language Switcher" id="langToggle" width="30">
+        </div>
+        <div class="theme-switcher">
+            <img src="https://img.icons8.com/ios-filled/50/000000/moon-symbol.png" alt="Theme Switcher" id="themeToggle" width="30">
+        </div>
+    </header>
+    <main class="flex-grow container mx-auto px-4 py-6">
+        <section class="max-w-md mx-auto">
+            <div class="mb-4">
+                <label for="lastPeriod" class="block font-bold mb-2" id="lastPeriodLabel">Last Menstrual Period Start Date</label>
+                <input type="date" id="lastPeriod" class="input-field" required>
+            </div>
+            <div class="mb-4">
+                <label for="cycleLength" class="block font-bold mb-2" id="cycleLengthLabel">Average Cycle Length (Days)</label>
+                <input type="number" id="cycleLength" class="input-field" placeholder="e.g. 28" required>
+            </div>
+            <button class="calculate-btn" onclick="calculatePregnancy()" id="calcButton">Calculate</button>
+            <div id="result" class="result-box hidden">
+                <p id="dueDate"></p>
+                <p id="conceptionDate"></p>
+                <p id="conceptionChances"></p>
+                <p class="note">Note: This is an AI-generated estimate. Please cross-check with a healthcare professional for accurate pregnancy details.</p>
+            </div>
+        </section>
+        <section class="mt-8 max-w-2xl mx-auto">
+            <h3 class="text-xl font-bold mb-4" id="aboutTitle">About the Pregnancy Calculator</h3>
+            <p class="mb-4" id="aboutText1">
+                The Pregnancy Calculator estimates your due date and conception details based on your last menstrual period (LMP) and average cycle length. It uses standard medical assumptions to calculate the expected delivery date (approximately 40 weeks from LMP) and likely conception date.
+            </p>
+            <p id="aboutText2">
+                The tool also provides a suggestion on conception chances based on typical ovulation windows (around 14 days before the next period). This is a general estimate and not a definitive diagnosis. Always consult a healthcare provider for accurate pregnancy confirmation and guidance.
+            </p>
+        </section>
+    </main>
+    <footer class="bg-gray-100 py-6 mt-8">
+        <div class="container mx-auto px-4 text-center">
+            <div class="mb-4">
+                <a href="/privacy-policy" class="mx-2">Privacy Policy</a> |
+                <a href="/disclaimer" class="mx-2">Disclaimer</a> |
+                <a href="/how-to-use" class="mx-2">How to Use</a> |
+                <a href="/contact-us" class="mx-2">Contact Us</a>
+            </div>
+            <div class="share-icons mb-4 flex justify-center">
+                <a href="https://www.facebook.com/sharer/sharer.php?u=#" target="_blank">
+                    <img src="https://img.icons8.com/color/48/000000/facebook-new.png" alt="Facebook">
+                </a>
+                <a href="https://twitter.com/intent/tweet?url=#&text=Check out this AI Pregnancy Calculator!" target="_blank">
+                    <img src="https://img.icons8.com/color/48/000000/twitter.png" alt="X">
+                </a>
+                <a href="https://api.whatsapp.com/send?text=Check out this AI Pregnancy Calculator: #" target="_blank">
+                    <img src="https://img.icons8.com/color/48/000000/whatsapp.png" alt="WhatsApp">
+                </a>
+                <a href="https://www.instagram.com/" target="_blank">
+                    <img src="https://img.icons8.com/color/48/000000/instagram-new.png" alt="Instagram">
+                </a>
+            </div>
+            <p class="text-sm">© 2025 All Rights Reserved</p>
+        </div>
+    </footer>
+    <script>
+        let isHindi = false;
+
+        function calculatePregnancy() {
+            const lastPeriod = new Date(document.getElementById('lastPeriod').value);
+            const cycleLength = parseInt(document.getElementById('cycleLength').value);
+            const today = new Date();
+
+            if (isNaN(lastPeriod.getTime()) || isNaN(cycleLength) || cycleLength <= 0) {
+                alert(isHindi ? 'कृपया मान्य तारीख और चक्र लंबाई दर्ज करें।' : 'Please enter a valid date and cycle length.');
+                return;
+            }
+
+            // Calculate due date (40 weeks from LMP)
+            const dueDate = new Date(lastPeriod);
+            dueDate.setDate(lastPeriod.getDate() + 280);
+
+            // Estimate conception date (ovulation typically 14 days before next period, adjusted for cycle length)
+            const ovulationDay = Math.max(10, cycleLength - 14); // Ensure ovulation day is reasonable
+            const conceptionDate = new Date(lastPeriod);
+            conceptionDate.setDate(lastPeriod.getDate() + ovulationDay);
+
+            // Conception chances suggestion
+            const daysSinceLMP = Math.floor((today - lastPeriod) / (1000 * 60 * 60 * 24));
+            let conceptionChances;
+            if (daysSinceLMP >= ovulationDay - 5 && daysSinceLMP <= ovulationDay + 5) {
+                conceptionChances = isHindi 
+                    ? 'गर्भाधान की संभावना अधिक है (ओव्यूलेशन विंडो के दौरान)। कृपया पुष्टि के लिए डॉक्टर से परामर्श करें।' 
+                    : 'High chance of conception (during ovulation window). Please consult a doctor for confirmation.';
+            } else {
+                conceptionChances = isHindi 
+                    ? 'गर्भाधान की संभावना कम है (ओव्यूलेशन विंडो के बाहर)। कृपया पुष्टि के लिए डॉक्टर से परामर्श करें।' 
+                    : 'Low chance of conception (outside ovulation window). Please consult a doctor for confirmation.';
+            }
+
+            document.getElementById('dueDate').textContent = isHindi 
+                ? `प्रसव की अपेक्षित तारीख: ${dueDate.toLocaleDateString('en-GB')}` 
+                : `Expected Due Date: ${dueDate.toLocaleDateString('en-GB')}`;
+            document.getElementById('conceptionDate').textContent = isHindi 
+                ? `अनुमानित गर्भाधान तारीख: ${conceptionDate.toLocaleDateString('en-GB')}` 
+                : `Estimated Conception Date: ${conceptionDate.toLocaleDateString('en-GB')}`;
+            document.getElementById('conceptionChances').textContent = conceptionChances;
+            document.getElementById('result').classList.remove('hidden');
+        }
+
+        document.getElementById('themeToggle').addEventListener('click', () => {
+            document.body.classList.toggle('dark-mode');
+            const icon = document.getElementById('themeToggle');
+            icon.src = document.body.classList.contains('dark-mode')
+                ? 'https://img.icons8.com/ios-filled/50/ffffff/sun.png'
+                : 'https://img.icons8.com/ios-filled/50/000000/moon-symbol.png';
+        });
+
+        document.getElementById('langToggle').addEventListener('click', () => {
+            isHindi = !isHindi;
+
+            document.getElementById('calcTitle').textContent = isHindi 
+                ? 'गर्भावस्था कैलकुलेटर' 
+                : 'Pregnancy Calculator';
+            document.getElementById('lastPeriodLabel').textContent = isHindi 
+                ? 'अंतिम मासिक चक्र शुरू होने की तारीख' 
+                : 'Last Menstrual Period Start Date';
+            document.getElementById('cycleLengthLabel').textContent = isHindi 
+                ? 'औसत चक्र लंबाई (दिन)' 
+                : 'Average Cycle Length (Days)';
+            document.getElementById('calcButton').textContent = isHindi 
+                ? 'गणना करें' 
+                : 'Calculate';
+            document.getElementById('aboutTitle').textContent = isHindi 
+                ? 'गर्भावस्था कैलकुलेटर के बारे में' 
+                : 'About the Pregnancy Calculator';
+            document.getElementById('aboutText1').textContent = isHindi 
+                ? 'गर्भावस्था कैलकुलेटर आपके अंतिम मासिक चक्र (LMP) और औसत चक्र लंबाई के आधार पर आपकी प्रसव तारीख और गर्भाधान विवरण का अनुमान लगाता है। यह मानक चिकित्सा मान्यताओं का उपयोग करके अपेक्षित प्रसव तारीख (LMP से लगभग 40 सप्ताह) और संभावित गर्भाधान तारीख की गणना करता है।'
+                : 'The Pregnancy Calculator estimates your due date and conception details based on your last menstrual period (LMP) and average cycle length. It uses standard medical assumptions to calculate the expected delivery date (approximately 40 weeks from LMP) and likely conception date.';
+            document.getElementById('aboutText2').textContent = isHindi 
+                ? 'यह उपकरण सामान्य ओव्यूलेशन विंडो (अगले मासिक चक्र से लगभग 14 दिन पहले) के आधार पर गर्भाधान की संभावनाओं का सुझाव भी देता है। यह एक सामान्य अनुमान है और निश्चित निदान नहीं है। सटीक गर्भावस्था पुष्टि और मार्गदर्शन के लिए हमेशा स्वास्थ्य सेवा प्रदाता से परामर्श करें।'
+                : 'The tool also provides a suggestion on conception chances based on typical ovulation windows (around 14 days before the next period). This is a general estimate and not a definitive diagnosis. Always consult a healthcare provider for accurate pregnancy confirmation and guidance.';
+        });
+    </script>
+</body>
+</html>
