@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Construction & Home Calculators - Wall Plaster Calculator</title>
+  <meta name="description" content="Estimate the quantity of plaster required for your wall plastering project. Available in Hindi, English, Mandarin, French, and Arabic." />
+  <meta name="keywords" content="Wall Plaster Calculator, Wall Plaster Quantity, Plastering Project Estimator, Plaster Quantity, Wall Area Calculation, Multilingual Plaster Calculator, Hindi Plaster Estimator, Arabic Plaster Calculator, French Wall Plaster" />
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f9;
+      color: #333;
+      padding: 20px;
+    }
+    .container {
+      max-width: 600px;
+      margin: auto;
+      background: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    h2 {
+      text-align: center;
+      color: #2c3e50;
+    }
+    label {
+      display: block;
+      margin-top: 15px;
+    }
+    input, select {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    button {
+      margin-top: 20px;
+      padding: 10px 15px;
+      background-color: #2980b9;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #1c5980;
+    }
+    #result {
+      margin-top: 20px;
+      font-weight: bold;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Construction & Home Calculators</h2>
+    <h3 style="text-align:center;">Wall Plaster Calculator</h3>
+
+    <label for="length">Length of Wall (meters)</label>
+    <input type="number" id="length" placeholder="e.g. 5" />
+
+    <label for="height">Height of Wall (meters)</label>
+    <input type="number" id="height" placeholder="e.g. 3" />
+
+    <label for="plasterThickness">Plaster Thickness (cm)</label>
+    <input type="number" id="plasterThickness" placeholder="e.g. 2" />
+
+    <label for="materialCoverage">Plaster Coverage per Cubic Meter (kg)</label>
+    <input type="number" id="materialCoverage" placeholder="e.g. 25" />
+
+    <button onclick="calculatePlaster()">Calculate</button>
+
+    <div id="result"></div>
+  </div>
+
+  <script>
+    function calculatePlaster() {
+      const length = parseFloat(document.getElementById('length').value);
+      const height = parseFloat(document.getElementById('height').value);
+      const plasterThickness = parseFloat(document.getElementById('plasterThickness').value) / 100;
+      const materialCoverage = parseFloat(document.getElementById('materialCoverage').value);
+
+      if (isNaN(length) || isNaN(height) || isNaN(plasterThickness) || isNaN(materialCoverage)) {
+        document.getElementById('result').innerText = 'Please fill all fields correctly.';
+        return;
+      }
+
+      const area = length * height;
+      const volume = area * plasterThickness;
+      const totalMaterialRequired = volume * materialCoverage;
+
+      document.getElementById('result').innerText = `Total plaster material required is ${totalMaterialRequired.toFixed(2)} kg for a wall area of ${area.toFixed(2)} square meters.`;
+    }
+  </script>
+</body>
+</html>
