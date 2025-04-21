@@ -4,8 +4,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>IQ Calculator | AI CALCULATOR</title>
-  <meta name="description" content="Calculate your IQ using Mental Age and Chronological Age with the standard formula. Learn how IQ is measured.">
-  <meta name="keywords" content="IQ calculator, mental age, chronological age, intelligence test, AI calculator">
+  <meta name="description" content="Calculate your IQ using Mental Age and Chronological Age. English Hindi IQ Calculator.">
+  <meta name="keywords" content="IQ calculator, mental age, chronological age, intelligence test, AI calculator, Hindi IQ Test">
   <meta name="author" content="AI CALCULATOR">
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
@@ -16,42 +16,93 @@
 </head>
 <body class="min-h-screen flex items-center justify-center p-4">
   <div class="bg-white shadow-xl rounded-xl p-8 max-w-2xl w-full">
-    <h1 class="text-3xl font-bold text-center text-purple-700 mb-4">AI CALCULATOR</h1>
-    <h2 class="text-xl text-center font-semibold text-gray-800 mb-6">🧠 IQ Calculator (Formula-Based)</h2>
+    <div class="flex justify-between items-center">
+      <h1 class="text-3xl font-bold text-purple-700">AI CALCULATOR</h1>
+      <button onclick="toggleLanguage()" class="text-sm px-4 py-1 bg-purple-600 text-white rounded hover:bg-purple-700">Switch Language</button>
+    </div>
+
+    <h2 id="title" class="text-xl text-center font-semibold text-gray-800 mt-4 mb-6">🧠 IQ Calculator (Formula-Based)</h2>
 
     <form id="iqForm" class="space-y-4">
       <div>
-        <label class="block font-semibold text-gray-700">Mental Age (in years):</label>
+        <label id="mentalLabel" class="block font-semibold text-gray-700">Mental Age (in years):</label>
         <input type="number" id="mentalAge" required class="w-full mt-1 px-4 py-2 border rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-purple-500" />
       </div>
       <div>
-        <label class="block font-semibold text-gray-700">Chronological Age (in years):</label>
+        <label id="chronLabel" class="block font-semibold text-gray-700">Chronological Age (in years):</label>
         <input type="number" id="chronAge" required class="w-full mt-1 px-4 py-2 border rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-purple-500" />
       </div>
-      <button type="submit" class="w-full bg-purple-700 text-white py-2 rounded hover:bg-purple-800">Calculate IQ</button>
+      <button type="submit" id="calcBtn" class="w-full bg-purple-700 text-white py-2 rounded hover:bg-purple-800">Calculate IQ</button>
     </form>
 
     <div id="result" class="mt-6 hidden text-center">
-      <h3 class="text-2xl font-bold text-green-600">Your IQ Score: <span id="iqScore"></span></h3>
+      <h3 class="text-2xl font-bold text-green-600" id="iqOutput">Your IQ Score: <span id="iqScore"></span></h3>
       <p id="iqRemark" class="mt-2 text-lg font-semibold text-gray-700"></p>
     </div>
 
     <hr class="my-6">
 
-    <div class="text-sm text-gray-800 leading-relaxed">
+    <div class="text-sm text-gray-800 leading-relaxed" id="info">
       <h3 class="text-lg font-bold text-purple-600 mb-2">📘 About IQ Formula</h3>
-      <p><strong>Mental Age</strong> is the level of intelligence a person shows, regardless of their actual age.</p>
-      <p><strong>Chronological Age</strong> is the actual age of the person in years.</p>
+      <p><strong>Mental Age:</strong> Intelligence level regardless of actual age. (मानसिक आयु: असली उम्र की परवाह किए बिना आपकी समझ)</p>
+      <p><strong>Chronological Age:</strong> Your real age in years. (कालानुक्रमिक आयु: आपकी असली उम्र वर्षों में)</p>
       <p class="mt-2"><strong>Formula:</strong> <code class="bg-gray-100 px-2 py-1 rounded">IQ = (Mental Age / Chronological Age) × 100</code></p>
 
-      <p class="mt-2"><strong>Example:</strong> If a 10-year-old child has the mental ability of a 12-year-old:</p>
+      <p class="mt-2"><strong>Example:</strong> A 10-year-old child with mental ability of 12 years:</p>
       <p class="ml-4 italic">IQ = (12 / 10) × 100 = 120</p>
 
-      <p class="mt-4 text-gray-600">This method is often used for children and young individuals.</p>
+      <p class="mt-4 text-gray-600">* Suitable for children & students (बच्चों और छात्रों के लिए उपयुक्त)</p>
     </div>
   </div>
 
   <script>
+    const labels = {
+      en: {
+        title: "🧠 IQ Calculator (Formula-Based)",
+        mental: "Mental Age (in years):",
+        chron: "Chronological Age (in years):",
+        btn: "Calculate IQ",
+        output: "Your IQ Score:",
+        infoHTML: `
+          <h3 class="text-lg font-bold text-purple-600 mb-2">📘 About IQ Formula</h3>
+          <p><strong>Mental Age:</strong> Intelligence level regardless of actual age. (मानसिक आयु: असली उम्र की परवाह किए बिना आपकी समझ)</p>
+          <p><strong>Chronological Age:</strong> Your real age in years. (कालानुक्रमिक आयु: आपकी असली उम्र वर्षों में)</p>
+          <p class="mt-2"><strong>Formula:</strong> <code class="bg-gray-100 px-2 py-1 rounded">IQ = (Mental Age / Chronological Age) × 100</code></p>
+          <p class="mt-2"><strong>Example:</strong> A 10-year-old child with mental ability of 12 years:</p>
+          <p class="ml-4 italic">IQ = (12 / 10) × 100 = 120</p>
+          <p class="mt-4 text-gray-600">* Suitable for children & students (बच्चों और छात्रों के लिए उपयुक्त)</p>
+        `
+      },
+      hi: {
+        title: "🧠 आईक्यू कैलकुलेटर (सूत्र आधारित)",
+        mental: "मानसिक आयु (वर्षों में):",
+        chron: "कालानुक्रमिक आयु (वर्षों में):",
+        btn: "आईक्यू निकालें",
+        output: "आपका IQ स्कोर:",
+        infoHTML: `
+          <h3 class="text-lg font-bold text-purple-600 mb-2">📘 IQ सूत्र के बारे में</h3>
+          <p><strong>मानसिक आयु:</strong> व्यक्ति की समझ की क्षमता (उम्र से अलग)</p>
+          <p><strong>कालानुक्रमिक आयु:</strong> आपकी वास्तविक उम्र वर्षों में</p>
+          <p class="mt-2"><strong>सूत्र:</strong> <code class="bg-gray-100 px-2 py-1 rounded">IQ = (मानसिक आयु / कालानुक्रमिक आयु) × 100</code></p>
+          <p class="mt-2"><strong>उदाहरण:</strong> 10 वर्षीय बच्चा जिसकी मानसिक क्षमता 12 वर्ष की है:</p>
+          <p class="ml-4 italic">IQ = (12 / 10) × 100 = 120</p>
+          <p class="mt-4 text-gray-600">* यह विधि बच्चों और छात्रों के लिए उपयोगी है।</p>
+        `
+      }
+    };
+
+    let currentLang = 'en';
+
+    function toggleLanguage() {
+      currentLang = currentLang === 'en' ? 'hi' : 'en';
+      document.getElementById("title").textContent = labels[currentLang].title;
+      document.getElementById("mentalLabel").textContent = labels[currentLang].mental;
+      document.getElementById("chronLabel").textContent = labels[currentLang].chron;
+      document.getElementById("calcBtn").textContent = labels[currentLang].btn;
+      document.getElementById("iqOutput").firstChild.textContent = labels[currentLang].output + " ";
+      document.getElementById("info").innerHTML = labels[currentLang].infoHTML;
+    }
+
     document.getElementById('iqForm').addEventListener('submit', function(e) {
       e.preventDefault();
       const mentalAge = parseFloat(document.getElementById('mentalAge').value);
