@@ -1204,14 +1204,25 @@
         function toggleLangList() {
             document.getElementById('lang-list').classList.toggle('active');
         }
-        
         function changeLanguage(langCode, langName) {
-            currentLang = langCode;
-            document.getElementById('lang-text').textContent = langName;
-             document.getElementById('tagline').textContent = translations[langCode].tagline;
-            // Update UI elements
-            document.querySelectorAll('.nav-tab').forEach(tab => {
-                const category = tab.getAttribute('href').substring(1);
+    currentLang = langCode;
+    document.getElementById('lang-text').textContent = langName;
+    document.getElementById('tagline').textContent = translations[langCode].tagline;
+    document.querySelectorAll('.nav-tab').forEach(tab => {
+        const category = tab.getAttribute('href').substring(1);
+        tab.textContent = translations[langCode].categories[category] || translations['en'].categories[category];
+    });
+    document.querySelector('.home-btn').innerHTML = `<i class="fas fa-home"></i> ${translations[langCode].buttons.home}`;
+    document.querySelector('.feedback-btn').innerHTML = `<i class="fas fa-comment-alt"></i> ${translations[langCode].buttons.feedback}`;
+    const activeTab = document.querySelector('.nav-tab.active');
+    if (activeTab) {
+        const category = activeTab.getAttribute('href').substring(1);
+        showCategory(category);
+    }
+    document.getElementById('lang-list').classList.remove('active'); // Auto closes dropdown
+    event.stopPropagation(); // Prevents further event bubbling
+        }ySelectorAll('.nav-tab').forEach(tab => {
+                 const category = tab.getAttribute('href').substring(1);
                 tab.textContent = translations[langCode].categories[category] || translations['en'].categories[category];
             });
             
