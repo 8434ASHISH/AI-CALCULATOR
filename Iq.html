@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>IQ Calculator | AI CALCULATOR</title>
+  <meta name="description" content="Calculate your IQ using Mental Age and Chronological Age with the standard formula. Learn how IQ is measured.">
+  <meta name="keywords" content="IQ calculator, mental age, chronological age, intelligence test, AI calculator">
+  <meta name="author" content="AI CALCULATOR">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      background: linear-gradient(to right, #fdfbfb, #ebedee);
+    }
+  </style>
+</head>
+<body class="min-h-screen flex items-center justify-center p-4">
+  <div class="bg-white shadow-xl rounded-xl p-8 max-w-2xl w-full">
+    <h1 class="text-3xl font-bold text-center text-purple-700 mb-4">AI CALCULATOR</h1>
+    <h2 class="text-xl text-center font-semibold text-gray-800 mb-6">🧠 IQ Calculator (Formula-Based)</h2>
+
+    <form id="iqForm" class="space-y-4">
+      <div>
+        <label class="block font-semibold text-gray-700">Mental Age (in years):</label>
+        <input type="number" id="mentalAge" required class="w-full mt-1 px-4 py-2 border rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-purple-500" />
+      </div>
+      <div>
+        <label class="block font-semibold text-gray-700">Chronological Age (in years):</label>
+        <input type="number" id="chronAge" required class="w-full mt-1 px-4 py-2 border rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-purple-500" />
+      </div>
+      <button type="submit" class="w-full bg-purple-700 text-white py-2 rounded hover:bg-purple-800">Calculate IQ</button>
+    </form>
+
+    <div id="result" class="mt-6 hidden text-center">
+      <h3 class="text-2xl font-bold text-green-600">Your IQ Score: <span id="iqScore"></span></h3>
+      <p id="iqRemark" class="mt-2 text-lg font-semibold text-gray-700"></p>
+    </div>
+
+    <hr class="my-6">
+
+    <div class="text-sm text-gray-800 leading-relaxed">
+      <h3 class="text-lg font-bold text-purple-600 mb-2">📘 About IQ Formula</h3>
+      <p><strong>Mental Age</strong> is the level of intelligence a person shows, regardless of their actual age.</p>
+      <p><strong>Chronological Age</strong> is the actual age of the person in years.</p>
+      <p class="mt-2"><strong>Formula:</strong> <code class="bg-gray-100 px-2 py-1 rounded">IQ = (Mental Age / Chronological Age) × 100</code></p>
+
+      <p class="mt-2"><strong>Example:</strong> If a 10-year-old child has the mental ability of a 12-year-old:</p>
+      <p class="ml-4 italic">IQ = (12 / 10) × 100 = 120</p>
+
+      <p class="mt-4 text-gray-600">This method is often used for children and young individuals.</p>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById('iqForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const mentalAge = parseFloat(document.getElementById('mentalAge').value);
+      const chronAge = parseFloat(document.getElementById('chronAge').value);
+      const iq = Math.round((mentalAge / chronAge) * 100);
+
+      let remark = '';
+      if (iq >= 140) remark = "🧠 Genius Level";
+      else if (iq >= 120) remark = "💡 Very Smart";
+      else if (iq >= 100) remark = "🙂 Average Intelligence";
+      else remark = "📘 Below Average — Practice can help improve!";
+
+      document.getElementById('iqScore').textContent = iq;
+      document.getElementById('iqRemark').textContent = remark;
+      document.getElementById('result').classList.remove('hidden');
+    });
+  </script>
+</body>
+</html>
