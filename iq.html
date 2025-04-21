@@ -58,13 +58,13 @@
   <script>
     const labels = {
       en: {
-        title: "🧠 IQ Calculator (Formula-Based)",
+        title: " IQ Calculator (Formula-Based)",
         mental: "Mental Age (in years):",
         chron: "Chronological Age (in years):",
         btn: "Calculate IQ",
         output: "Your IQ Score:",
         infoHTML: `
-          <h3 class="text-lg font-bold text-purple-600 mb-2">📘 About IQ Formula</h3>
+          <h3 class="text-lg font-bold text-purple-600 mb-2"> About IQ Formula</h3>
           <p><strong>Mental Age:</strong> Intelligence level regardless of actual age. (मानसिक आयु: असली उम्र की परवाह किए बिना आपकी समझ)</p>
           <p><strong>Chronological Age:</strong> Your real age in years. (कालानुक्रमिक आयु: आपकी असली उम्र वर्षों में)</p>
           <p class="mt-2"><strong>Formula:</strong> <code class="bg-gray-100 px-2 py-1 rounded">IQ = (Mental Age / Chronological Age) × 100</code></p>
@@ -110,9 +110,9 @@
       const iq = Math.round((mentalAge / chronAge) * 100);
 
       let remark = '';
-      if (iq >= 140) remark = "🧠 Genius Level";
-      else if (iq >= 120) remark = "💡 Very Smart";
-      else if (iq >= 100) remark = "🙂 Average Intelligence";
+      if (iq >= 140) remark = " Genius Level";
+      else if (iq >= 120) remark = " Very Smart";
+      else if (iq >= 100) remark = " Average Intelligence";
       else remark = "📘 Below Average — Practice can help improve!";
 
       document.getElementById('iqScore').textContent = iq;
