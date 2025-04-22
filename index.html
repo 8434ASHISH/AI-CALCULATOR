@@ -1230,8 +1230,8 @@
         }
 
         window.onclick = function(event) {
-            if (!event.target.matches('.lang-dropdown') && !event.target.matches('.lang-dropdown *')) {
-                document.getElementById('lang-list').classList.remove('active');
+      if (!event.target.closest('.lang-dropdown')) {
+        document.getElementById('lang-list').classList.remove('active');
             }
         };
         
