@@ -352,14 +352,19 @@
         // Initialize with default category
         document.addEventListener('DOMContentLoaded', () => showCategory('financial'));
 
-        // Close dropdown when clicking outside
-        document.addEventListener('click', function(event) {
-            const langDropdown = document.querySelector('.lang-dropdown');
-            const langList = document.getElementById('lang-list');
-            if (!langDropdown.contains(event.target)) {
-                langList.classList.remove('active');
-            }
-        });
-    </script>
+       <script>
+    function toggleLangList() {
+        const langList = document.getElementById('lang-list');
+        langList.classList.toggle('active');
+    }
+
+    function changeLanguage(lang, langName) {
+        currentLang = lang;
+        document.getElementById('tagline').textContent = translations[lang].tagline || translations['en'].tagline;
+        document.getElementById('lang-text').textContent = langName;
+        showCategory(document.querySelector('.nav-tab.active').getAttribute('href').substring(1));
+        document.getElementById('lang-list').classList.remove('active'); // Yeh rehne dena
+    }
+</script>
 </body>
 </html>
