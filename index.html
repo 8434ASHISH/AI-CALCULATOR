@@ -210,10 +210,11 @@
     <header class="header">
         <h1>SMART AI CALCULATOR</h1>
         <p id="tagline">A to Z Calculators Powered by AI</p>
-        <div class="lang-dropdown" onclick="toggleLangList()">
-            <i class="fas fa-globe" style="color: black; font-weight: bold; font-size: 1.2rem;"></i>
-            <span id="lang-text">English</span> <i class="fas fa-caret-down"></i>
-            <div class="lang-list" id="lang-list">
+    <div style="display: flex; justify-content: center;">
+      <div class="lang-dropdown" onclick="toggleLangList()">
+        <i class="fas fa-globe"></i>
+        <span id="lang-text">English</span> <i class="fas fa-caret-down"></i>
+        <div class="lang-list" id="lang-list">
                 <a href="#" class="lang-option" onclick="changeLanguage('en', 'English')">English</a>
                 <a href="#" class="lang-option" onclick="changeLanguage('hi', 'हिन्दी')">हिन्दी (Hindi)</a>
                 <a href="#" class="lang-option" onclick="changeLanguage('ta', 'தமிழ்')">தமிழ் (Tamil)</a>
@@ -1201,24 +1202,44 @@
             return colors[category] || 'blue';
         }
 
-    <script>
-    let currentLang = 'en';
+  function toggleLangList() {
+            document.getElementById('lang-list').classList.toggle('active');
+        }
+        
+        function changeLanguage(langCode, langName) {
+            currentLang = langCode;
+            document.getElementById('lang-text').textContent = langName;
+             document.getElementById('tagline').textContent = translations[langCode].tagline;
+            // Update UI elements
+            document.querySelectorAll('.nav-tab').forEach(tab => {
+                const category = tab.getAttribute('href').substring(1);
+                tab.textContent = translations[langCode].categories[category] || translations['en'].categories[category];
+            });
+            
+            // Update buttons
+            document.querySelector('.home-btn').innerHTML = `<i class="fas fa-home"></i> ${translations[langCode].buttons.home}`;
+            document.querySelector('.feedback-btn').innerHTML = `<i class="fas fa-comment-alt"></i> ${translations[langCode].buttons.feedback}`;
+            
+            // Refresh current category
+            const activeTab = document.querySelector('.nav-tab.active');
+            if (activeTab) {
+                const category = activeTab.getAttribute('href').substring(1);
+                showCategory(category);
+            }
+            
+            document.getElementById('lang-list').classList.remove('active');
+        }
 
-    function toggleLangList() {
-      document.getElementById('lang-list').classList.toggle('active');
-    }
-
-    function changeLanguage(event, langCode, langName) {
-      event.preventDefault();
-      event.stopPropagation();
-      currentLang = langCode;
-      document.getElementById('lang-text').textContent = langName;
-      document.getElementById('lang-list').classList.remove('active');
-    }
-
-    window.onclick = function(event) {
+        window.onclick = function(event) {
       if (!event.target.closest('.lang-dropdown')) {
         document.getElementById('lang-list').classList.remove('active');
+            }
+        };
+        
+        // Initialize
+        window.onload = () => {
+            showCategory('financial');
+ 
             }
         };
         
