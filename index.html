@@ -19,8 +19,9 @@
 <meta name="twitter:description" content="All-in-one AI-powered calculators for students, couples, professionals & more.">
 <meta name="twitter:image" content="https://8434ashish.github.io/AI-CALCULATOR/assets/og-image.png">
 <meta name="google-site-verification" content="CmtUpGTAjW0qFs-2cWvI2aI9uwV_M_ag3KDQSIpq2DA" />
- <meta charset="UTF-8">
- <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SMART AI Calculator - All-in-One Calculator Tools</title>
     <meta name="description" content="Explore our free AI-powered calculators including age, BMI, loan, and more. Available in multiple languages!">
     <meta name="keywords" content="ai calculator, age calculator, bmi calculator, loan calculator, free calculator">
@@ -211,19 +212,19 @@
     <header class="header">
         <h1>SMART AI CALCULATOR</h1>
         <p id="tagline">A to Z Calculators Powered by AI</p>
-        <div class="lang-dropdown" onclick="toggleLangList()">
+        <div class="lang-dropdown" id="lang-dropdown" onclick="toggleLangList(event)">
             <i class="fas fa-globe"></i>
             <span id="lang-text">English</span> <i class="fas fa-caret-down"></i>
             <div class="lang-list" id="lang-list">
-                <a href="#" class="lang-option" onclick="changeLanguage('en', 'English')">English</a>
-                <a href="#" class="lang-option" onclick="changeLanguage('hi', 'हिन्दी')">हिन्दी (Hindi)</a>
-                <a href="#" class="lang-option" onclick="changeLanguage('ta', 'தமிழ்')">தமிழ் (Tamil)</a>
-                <a href="#" class="lang-option" onclick="changeLanguage('te', 'తెలుగు')">తెలుగు (Telugu)</a>
-                <a href="#" class="lang-option" onclick="changeLanguage('es', 'Español')">Español (Spanish)</a>
-                <a href="#" class="lang-option" onclick="changeLanguage('bn', 'বাংলা')">বাংলা (Bengali)</a>
-                <a href="#" class="lang-option" onclick="changeLanguage('ar', 'العربية')">العربية (Arabic)</a>
-                <a href="#" class="lang-option" onclick="changeLanguage('zh', '中文')">中文 (Mandarin)</a>
-                <a href="#" class="lang-option" onclick="changeLanguage('fr', 'Français')">Français (French)</a>
+                <a href="#" class="lang-option" onclick="changeLanguage('en', 'English', event)">English</a>
+                <a href="#" class="lang-option" onclick="changeLanguage('hi', 'हिन्दी', event)">हिन्दी (Hindi)</a>
+                <a href="#" class="lang-option" onclick="changeLanguage('ta', 'தமிழ்', event)">தமிழ் (Tamil)</a>
+                <a href="#" class="lang-option" onclick="changeLanguage('te', 'తెలుగు', event)">తెలుగు (Telugu)</a>
+                <a href="#" class="lang-option" onclick="changeLanguage('es', 'Español', event)">Español (Spanish)</a>
+                <a href="#" class="lang-option" onclick="changeLanguage('bn', 'বাংলা', event)">বাংলা (Bengali)</a>
+                <a href="#" class="lang-option" onclick="changeLanguage('ar', 'العربية', event)">العربية (Arabic)</a>
+                <a href="#" class="lang-option" onclick="changeLanguage('zh', '中文', event)">中文 (Mandarin)</a>
+                <a href="#" class="lang-option" onclick="changeLanguage('fr', 'Français', event)">Français (French)</a>
             </div>
         </div>
     </header>
@@ -290,17 +291,22 @@
 
         let currentLang = 'en';
 
-        function toggleLangList() {
+        function toggleLangList(event) {
+            event.preventDefault();
+            event.stopPropagation();
             const langList = document.getElementById('lang-list');
             langList.classList.toggle('active');
         }
 
-        function changeLanguage(lang, langName) {
+        function changeLanguage(lang, langName, event) {
+            event.preventDefault();
+            event.stopPropagation(); // Ensure event doesn't bubble up
             currentLang = lang;
             document.getElementById('tagline').textContent = translations[lang].tagline || translations['en'].tagline;
             document.getElementById('lang-text').textContent = langName;
             showCategory(document.querySelector('.nav-tab.active').getAttribute('href').substring(1));
-            document.getElementById('lang-list').classList.remove('active'); // Auto-close dropdown
+            const langList = document.getElementById('lang-list');
+            langList.classList.remove('active'); // Forcefully close dropdown
         }
 
         function showCategory(category) {
@@ -350,30 +356,19 @@
         // Initialize with default category
         document.addEventListener('DOMContentLoaded', () => showCategory('financial'));
 
-    function toggleLangList() {
-        const langList = document.getElementById('lang-list');
-        langList.classList.toggle('active');
-    }
+        // Prevent dropdown from closing when clicking inside
+        document.getElementById('lang-dropdown').addEventListener('click', function(event) {
+            event.stopPropagation();
+        });
 
-    function changeLanguage(lang, langName) {
-        currentLang = lang;
-        document.getElementById('tagline').textContent = translations[lang].tagline || translations['en'].tagline;
-        document.getElementById('lang-text').textContent = langName;
-        showCategory(document.querySelector('.nav-tab.active').getAttribute('href').substring(1));
-        document.getElementById('lang-list').classList.remove('active'); // Auto-close on selection
-    }
-
-    // Add back outside click to close dropdown
-    document.addEventListener('click', function(event) {
-        const langDropdown = document.querySelector('.lang-dropdown');
-        const langList = document.getElementById('lang-list');
-        if (!langDropdown.contains(event.target)) {
-            langList.classList.remove('active');
-        }
-    });
-
-       
-   
-</script>
+        // Close dropdown when clicking outside
+        document.addEventListener('click', function(event) {
+            const langList = document.getElementById('lang-list');
+            const langDropdown = document.getElementById('lang-dropdown');
+            if (!langDropdown.contains(event.target)) {
+                langList.classList.remove('active');
+            }
+        });
+    </script>
 </body>
 </html>
