@@ -351,18 +351,7 @@
         document.addEventListener('DOMContentLoaded', () => showCategory('financial'));
 
        
-    function toggleLangList() {
-        const langList = document.getElementById('lang-list');
-        langList.classList.toggle('active');
-    }
-
-    function changeLanguage(lang, langName) {
-        currentLang = lang;
-        document.getElementById('tagline').textContent = translations[lang].tagline || translations['en'].tagline;
-        document.getElementById('lang-text').textContent = langName;
-        showCategory(document.querySelector('.nav-tab.active').getAttribute('href').substring(1));
-        document.getElementById('lang-list').classList.remove('active');
-    }
+   
 </script>
 </body>
 </html>
