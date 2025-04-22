@@ -20,194 +20,89 @@
 <meta name="twitter:image" content="https://8434ashish.github.io/AI-CALCULATOR/assets/og-image.png">
    
     <meta name="google-site-verification" content="CmtUpGTAjW0qFs-2cWvI2aI9uwV_M_ag3KDQSIpq2DA" />
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SMART AI Calculator - All-in-One Calculator Tools</title>
-    <meta name="description" content="Explore our free AI-powered calculators including age, BMI, loan, and more. Available in multiple languages!">
-    <meta name="keywords" content="ai calculator, age calculator, bmi calculator, loan calculator, free calculator">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
-    <style>
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #f8f9fa;
-            color: #333;
-            margin: 0;
-        }
-        .header {
-            background: linear-gradient(135deg, #4e54c8, #8f94fb);
-            padding: 25px 0;
-            text-align: center;
-            position: relative;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-        }
-        .header h1 {
-            color: white;
-            font-size: 2.5rem;
-            font-weight: 800;
-            text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
-            margin-bottom: 10px;
-        }
-        #tagline {
-            color: white;
-            font-size: 1.2rem;
-            font-weight: 500;
-            margin-bottom: 15px;
-        }
-        .lang-dropdown {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            background: rgba(255,255,255,0.2);
-            color: white;
-            padding: 8px 15px;
-            border-radius: 25px;
-            cursor: pointer;
-            font-weight: 600;
-            transition: all 0.3s;
-            border: 1px solid rgba(255,255,255,0.3);
-            display: flex;
-            align-items: center;
-            gap: 5px;
-        }
-        .lang-dropdown:hover {
-            background: rgba(255,255,255,0.3);
-        }
-        .lang-list {
-            display: none;
-            position: absolute;
-            top: 100%;
-            right: 0;
-            background: white;
-            border-radius: 8px;
-            min-width: 150px;
-            box-shadow: 0 8px 16px rgba(0,0,0,0.15);
-            z-index: 10;
-            overflow: hidden;
-        }
-        .lang-list.active {
-            display: block;
-        }
-        .lang-option {
-            padding: 10px 15px;
-            color: #333;
-            text-decoration: none;
-            display: block;
-            transition: all 0.2s;
-        }
-        .lang-option:hover {
-            background: #f0f0f0;
-            color: #4e54c8;
-        }
-        .nav-tabs {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            padding: 15px 0;
-            background: white;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-            flex-wrap: wrap;
-        }
-        .nav-tab {
-            color: #555;
-            text-decoration: none;
-            padding: 8px 20px;
-            transition: all 0.3s;
-            font-weight: 600;
-            border-radius: 25px;
-        }
-        .nav-tab:hover, .nav-tab.active {
-            background: #4e54c8;
-            color: white;
-        }
-        .calculator-content {
-            max-width: 1100px;
-            margin: 30px auto;
-            padding: 25px;
-            background: white;
-            border-radius: 12px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-        }
-        #category-title {
-            color: #4e54c8;
-            font-size: 1.8rem;
-            font-weight: 700;
-            margin-bottom: 25px;
-            text-align: center;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-        .action-buttons {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            margin-top: 25px;
-        }
-        .action-btn {
-            padding: 10px 25px;
-            border-radius: 25px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s;
-            text-decoration: none;
-            display: inline-block;
-        }
-        .home-btn {
-            background: #4e54c8;
-            color: white;
-            border: 2px solid #4e54c8;
-        }
-        .home-btn:hover {
-            background: #3a41b8;
-            border-color: #3a41b8;
-        }
-        .feedback-btn {
-            background: #ff6b6b;
-            color: white;
-            border: 2px solid #ff6b6b;
-        }
-        .feedback-btn:hover {
-            background: #ff5252;
-            border-color: #ff5252;
-        }
-        .social-icons {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            margin-top: 10px;
-        }
-        .social-icon {
-            color: #4e54c8;
-            font-size: 1.5rem;
-            transition: all 0.3s;
-        }
-        .social-icon:hover {
-            color: #3a41b8;
-            transform: translateY(-3px);
-        }
-        @media (max-width: 768px) {
-            .header h1 {
-                font-size: 2rem;
-            }
-            #tagline {
-                font-size: 1rem;
-            }
-            .nav-tabs {
-                gap: 10px;
-                padding: 10px;
-            }
-            .nav-tab {
-                padding: 6px 15px;
-                font-size: 0.9rem;
-            }
-            .calculator-content {
-                padding: 15px;
-            }
-        }
-    </style>
+    
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SMART AI Calculator - All-in-One Calculator Tools</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f8f9fa;
+      color: #333;
+      margin: 0;
+    }
+    .header {
+      background: linear-gradient(135deg, #4e54c8, #8f94fb);
+      padding: 25px 0 20px;
+      text-align: center;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+    .header h1 {
+      color: white;
+      font-size: 2.5rem;
+      font-weight: 800;
+      text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+      margin-bottom: 10px;
+    }
+    #tagline {
+      color: white;
+      font-size: 1.2rem;
+      font-weight: 500;
+    }
+    .lang-dropdown {
+      background-color: black;
+      color: white;
+      padding: 6px 14px;
+      border-radius: 20px;
+      cursor: pointer;
+      font-weight: 500;
+      font-size: 0.9rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      margin-top: 12px;
+      border: 1px solid #444;
+      position: relative;
+    }
+    .lang-list {
+      display: none;
+      position: absolute;
+      top: 115%;
+      left: 0;
+      background: white;
+      border-radius: 6px;
+      min-width: 160px;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+      z-index: 999;
+      overflow: hidden;
+    }
+    .lang-list.active {
+      display: block;
+    }
+    .lang-option {
+      padding: 10px 14px;
+      color: #333;
+      text-decoration: none;
+      display: block;
+    }
+    .lang-option:hover {
+      background: #f0f0f0;
+      color: #4e54c8;
+    }
+    @media (max-width: 768px) {
+      .header h1 {
+        font-size: 2rem;
+      }
+      #tagline {
+        font-size: 1rem;
+      }
+    }
+  </style>
 </head>
-<body>
-    <header class="header">
+<body>   
+ <header class="header">
         <h1>SMART AI CALCULATOR</h1>
         <p id="tagline">A to Z Calculators Powered by AI</p>
     <div style="display: flex; justify-content: center;">
