@@ -1,54 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
+  <!-- Homepage -->
   <url>
-    <loc>https://8434ashish.github.io/AI-CALCULATOR/</loc>
+    <loc>https://smartaicalculator.com/</loc>
     <priority>1.00</priority>
   </url>
 
-  <url>
-    <loc>https://8434ashish.github.io/AI-CALCULATOR/age.html</loc>
-    <priority>0.80</priority>
-  </url>
+  <!-- High Demand Calculators -->
+  <url><loc>https://smartaicalculator.com/marks-percentage.html</loc><priority>0.95</priority></url>
+  <url><loc>https://smartaicalculator.com/iq.html</loc><priority>0.95</priority></url>
+  <url><loc>https://smartaicalculator.com/bmi.html</loc><priority>0.90</priority></url>
+  <url><loc>https://smartaicalculator.com/age-calculator.html</loc><priority>0.90</priority></url>
+  <url><loc>https://smartaicalculator.com/date-difference.html</loc><priority>0.85</priority></url>
+  <url><loc>https://smartaicalculator.com/love-percentage.html</loc><priority>0.85</priority></url>
+  <url><loc>https://smartaicalculator.com/flames.html</loc><priority>0.85</priority></url>
+  <url><loc>https://smartaicalculator.com/simple-interest.html</loc><priority>0.80</priority></url>
+  <url><loc>https://smartaicalculator.com/compound-interest.html</loc><priority>0.80</priority></url>
+  <url><loc>https://smartaicalculator.com/sip-calculator.html</loc><priority>0.80</priority></url>
+  <url><loc>https://smartaicalculator.com/emi-calculator.html</loc><priority>0.80</priority></url>
 
-  <url>
-    <loc>https://8434ashish.github.io/AI-CALCULATOR/bmi.html</loc>
-    <priority>0.80</priority>
-  </url>
+  <!-- Unique/Student Tools -->
+  <url><loc>https://smartaicalculator.com/gpa-calculator.html</loc><priority>0.75</priority></url>
+  <url><loc>https://smartaicalculator.com/unit-converter.html</loc><priority>0.70</priority></url>
+  <url><loc>https://smartaicalculator.com/currency-converter.html</loc><priority>0.70</priority></url>
+  <url><loc>https://smartaicalculator.com/mental-math.html</loc><priority>0.70</priority></url>
+  <url><loc>https://smartaicalculator.com/time-converter.html</loc><priority>0.70</priority></url>
 
-  <url>
-    <loc>https://8434ashish.github.io/AI-CALCULATOR/gst.html</loc>
-    <priority>0.80</priority>
-  </url>
-
-  <url>
-    <loc>https://8434ashish.github.io/AI-CALCULATOR/length.html</loc>
-    <priority>0.80</priority>
-  </url>
-
-  <url>
-    <loc>https://8434ashish.github.io/AI-CALCULATOR/loan.html</loc>
-    <priority>0.80</priority>
-  </url>
-
-  <url>
-    <loc>https://8434ashish.github.io/AI-CALCULATOR/mortgage.html</loc>
-    <priority>0.80</priority>
-  </url>
-
-  <url>
-    <loc>https://8434ashish.github.io/AI-CALCULATOR/percentage.html</loc>
-    <priority>0.80</priority>
-  </url>
-
-  <url>
-    <loc>https://8434ashish.github.io/AI-CALCULATOR/roi.html</loc>
-    <priority>0.80</priority>
-  </url>
-
-  <url>
-    <loc>https://8434ashish.github.io/AI-CALCULATOR/savings.html</loc>
-    <priority>0.80</priority>
-  </url>
+  <!-- Extra Tools -->
+  <url><loc>https://smartaicalculator.com/word-counter.html</loc><priority>0.65</priority></url>
+  <url><loc>https://smartaicalculator.com/random-number.html</loc><priority>0.65</priority></url>
+  <url><loc>https://smartaicalculator.com/games.html</loc><priority>0.60</priority></url>
+  <url><loc>https://smartaicalculator.com/contact.html</loc><priority>0.40</priority></url>
+  <url><loc>https://smartaicalculator.com/disclaimer.html</loc><priority>0.30</priority></url>
 
 </urlset>
