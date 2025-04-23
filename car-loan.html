@@ -3,116 +3,226 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Car loan calculator to calculate monthly payments for car loans, including principal, interest, and total payment.">
-    <meta name="keywords" content="car loan calculator, auto loan, calculate monthly car payment, car loan interest, auto loan payments">
-    <meta name="author" content="Your Name">
-    <title>Car Loan Calculator</title>
+    <title>Smart AI Car Loan Calculator</title>
+    <meta name="description" content="Calculate your car loan EMI, total interest, and repayment amount with our free, user-friendly calculator. Get accurate results based on loan amount, interest rate, and tenure. Try now!">
+    <meta name="keywords" content="car loan calculator, emi calculator, loan repayment, auto finance">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://yourusername.github.io/ai-calculator/car-loan-calculator.html">
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <style>
         body {
             font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #1A202C, #2D3748);
+            color: #fff;
+            margin: 0;
         }
-        .hidden {
-            display: none;
+        .header { background: #2c3e50; padding: 20px 0; text-align: center; }
+        .nav-tabs { display: flex; justify-content: center; gap: 20px; padding: 10px 0; background: #34495e; }
+        .nav-tab { color: white; text-decoration: none; padding: 5px 15px; transition: background 0.3s; font-weight: bold; text-shadow: 0 0 5px rgba(255, 107, 107, 0.5); }
+        .nav-tab:hover, .nav-tab.active { background: #3498db; border-radius: 5px; }
+        .calculator-content { max-width: 600px; margin: 20px auto; padding: 20px; background: rgba(45, 55, 72, 0.9); border-radius: 10px; box-shadow: 0 0 15px rgba(0,0,0,0.5); }
+        .calculator-box { background: #e0e0e0; color: #333; padding: 20px; border-radius: 5px; text-align: center; }
+        .input-row { display: flex; justify-content: space-between; margin-bottom: 15px; }
+        .input-row label { font-weight: bold; }
+        input, select { border: 1px solid #ccc; padding: 5px; border-radius: 3px; width: 150px; }
+        input.invalid { border-color: #ff6b6b; }
+        button { 
+            background: linear-gradient(135deg, #ff6b6b, #e63946); 
+            color: white; 
+            padding: 12px 24px; 
+            border: none; 
+            border-radius: 5px; 
+            cursor: pointer; 
+            font-weight: bold; 
+            font-size: 1.1rem; 
+            box-shadow: 0 3px 6px rgba(0,0,0,0.4); 
+            transition: transform 0.2s, background 0.2s; 
+            text-transform: uppercase; 
         }
-        .visible {
-            display: block;
+        button:hover { 
+            background: linear-gradient(135deg, #e63946, #c0392b); 
+            transform: scale(1.05); 
+        }
+        .ads-section { margin-top: 10px; padding: 10px; background: #34495e; border-radius: 5px; text-align: center; }
+        .ads-section p { font-size: 1.2rem; font-weight: bold; color: #1e90ff; }
+        .ads-section a { color: #1e90ff; text-decoration: underline; }
+        .voice-icon { 
+            display: inline-block; 
+            padding: 10px; 
+            cursor: pointer; 
+            font-size: 2rem; 
+            color: #00cec9; 
+            transition: color 0.2s, transform 0.2s; 
+            visibility: visible; 
+        }
+        .voice-icon:hover { 
+            color: #00b7b3; 
+            transform: scale(1.1); 
+        }
+        .button-container { 
+            display: flex; 
+            justify-content: center; 
+            align-items: center; 
+            gap: 15px; 
+            margin: 20px 0; 
+        }
+        .suggestions { margin-top: 20px; padding: 15px; background: #f0f0f0; border-radius: 5px; text-align: left; display: none; }
+        .suggestions h3 { font-size: 1.2rem; font-weight: bold; margin-bottom: 10px; }
+        .suggestions ul { list-style-type: disc; padding-left: 20px; }
+        .suggestions li { margin-bottom: 8px; }
+        .result-table { width: 100%; margin-top: 20px; border-collapse: collapse; }
+        .result-table th, .result-table td { border: 1px solid #ccc; padding: 10px; text-align: left; }
+        .result-table th { background: #3498db; color: white; }
+        .result-table tr:nth-child(even) { background: #f0f0f0; }
+        @media (max-width: 600px) { 
+            .input-row { flex-direction: column; } 
+            input, select { width: 100%; margin-bottom: 10px; } 
+            .button-container { flex-direction: row; gap: 10px; } 
+            .voice-icon { display: inline-block; visibility: visible; } 
         }
     </style>
 </head>
-<body class="bg-gray-200">
-    <div class="max-w-lg mx-auto p-6 bg-white rounded-lg shadow-lg">
-        <h1 class="text-center text-2xl font-semibold mb-6" id="calculator-name">Car Loan Calculator</h1>
-        <!-- Dark/Light Theme Toggle -->
-        <div class="flex justify-between items-center mb-4">
-            <button id="theme-toggle" class="text-xl p-2 bg-gray-300 rounded-full">🌙</button>
-            <div>
-                <button id="lang-en" class="mr-2">English</button>
-                <button id="lang-hi">Hindi</button>
+<body>
+    <header class="header">
+        <h1>Smart AI Car Loan Calculator</h1>
+        <p>Calculate Your Car Loan EMI & Total Repayment</p>
+    </header>
+    <nav class="nav-tabs">
+        <a href="index.html#home" class="nav-tab">HOME</a>
+        <a href="index.html#financial" class="nav-tab active">FINANCIAL</a>
+    </nav>
+    <div class="calculator-content">
+        <div class="calculator-box">
+            <h2>Enter Car Loan Details</h2>
+            <div class="input-row">
+                <label>Loan Amount (₹)</label>
+                <input type="number" id="loan-amount" min="100000" max="5000000" step="1000" oninput="validateInput(this)">
+            </div>
+            <div class="input-row">
+                <label>Annual Interest Rate (%)</label>
+                <input type="number" id="interest-rate" min="5" max="20" step="0.1" oninput="validateInput(this)">
+            </div>
+            <div class="input-row">
+                <label>Loan Tenure (Years)</label>
+                <input type="number" id="tenure" min="1" max="7" step="1" oninput="validateInput(this)">
+            </div>
+            <div class="button-container">
+                <button onclick="calculateLoan()">Calculate <span id="spinner" style="display:none;">⏳</span></button>
+                <span class="voice-icon" onclick="toggleSpeech()" title="Toggle Speech"><i class="fas fa-volume-up"></i></span>
+            </div>
+            <div id="loan-result" class="mt-4 font-semibold"></div>
+            <table class="result-table" id="result-table" style="display: none;">
+                <thead>
+                    <tr>
+                        <th>Detail</th>
+                        <th>Value</th>
+                    </tr>
+                </thead>
+                <tbody id="result-table-body"></tbody>
+            </table>
+            <div class="suggestions" id="suggestions">
+                <h3>Suggestions for Car Loan</h3>
+                <ul>
+                    <li>Compare interest rates from multiple banks for the best deal.</li>
+                    <li>Consider prepaying part of the loan to reduce interest costs.</li>
+                    <li>Ensure EMI fits within 30-40% of your monthly income.</li>
+                    <li>Check for hidden charges like processing fees.</li>
+                </ul>
+            </div>
+            <div class="ads-section">
+                <p>Contact for Ads: <a href="mailto:first4bencher@gmail.com">first4bencher@gmail.com</a></p>
+            </div>
+            <div id="seo-content" class="mt-4 text-sm">
+                <h3>About Car Loan Calculator</h3>
+                <p>Our Smart AI Car Loan Calculator helps you estimate your monthly EMI, total interest, and repayment for car loans. Enter loan amount, interest rate, and tenure to get instant results. It’s user-friendly, responsive, and SEO-optimized with keywords like 'car loan calculator' and 'EMI calculator.' Perfect for planning your car purchase!</p>
             </div>
         </div>
-
-        <div id="loan-details">
-            <label for="loan-amount" class="block mb-2">Loan Amount</label>
-            <input type="number" id="loan-amount" class="w-full mb-4 p-2 border" placeholder="Enter loan amount">
-
-            <label for="interest-rate" class="block mb-2">Interest Rate (%)</label>
-            <input type="number" id="interest-rate" class="w-full mb-4 p-2 border" placeholder="Enter interest rate">
-
-            <label for="loan-term" class="block mb-2">Loan Term (in years)</label>
-            <input type="number" id="loan-term" class="w-full mb-4 p-2 border" placeholder="Enter loan term in years">
-
-            <button id="calculate-btn" class="w-full bg-blue-500 text-white p-3 rounded-lg">Calculate</button>
-        </div>
-
-        <div id="result" class="hidden mt-4">
-            <p class="text-xl font-semibold" id="monthly-payment"></p>
-            <button id="copy-btn" class="mt-4 bg-green-500 text-white p-2 rounded-lg w-full">Copy Result</button>
-        </div>
     </div>
-
+    <footer class="bg-gray-800 text-white text-center py-4 mt-8">
+        <p style="font-weight: bold;">2025 © Smart AI Calculator. All rights reserved.</p>
+        <a href="privacy.html" class="text-blue-400 ml-2">Privacy Policy</a> |
+        <a href="contactus.html" class="text-blue-400 ml-2">Contact Us</a> |
+        <a href="howto.html" class="text-blue-400 ml-2">How to Use</a>
+    </footer>
     <script>
-        let theme = 'light';
-        let language = 'en';
-
-        // Theme Toggle
-        document.getElementById('theme-toggle').addEventListener('click', () => {
-            if (theme === 'light') {
-                document.body.classList.add('bg-gray-800');
-                document.body.classList.remove('bg-gray-200');
-                theme = 'dark';
-                document.getElementById('theme-toggle').innerHTML = '☀️';
+        let isSpeaking = false;
+        let utterance = null;
+        function validateInput(input) {
+            let value = parseFloat(input.value);
+            let id = input.id;
+            if (id === "loan-amount" && (value < 100000 || value > 5000000)) {
+                input.classList.add("invalid");
+            } else if (id === "interest-rate" && (value < 5 || value > 20)) {
+                input.classList.add("invalid");
+            } else if (id === "tenure" && (value < 1 || value > 7)) {
+                input.classList.add("invalid");
             } else {
-                document.body.classList.remove('bg-gray-800');
-                document.body.classList.add('bg-gray-200');
-                theme = 'light';
-                document.getElementById('theme-toggle').innerHTML = '🌙';
+                input.classList.remove("invalid");
             }
-        });
-
-        // Language Switch
-        document.getElementById('lang-en').addEventListener('click', () => {
-            language = 'en';
-            document.getElementById('calculator-name').innerText = 'Car Loan Calculator';
-            document.querySelector('label[for="loan-amount"]').innerText = 'Loan Amount';
-            document.querySelector('label[for="interest-rate"]').innerText = 'Interest Rate (%)';
-            document.querySelector('label[for="loan-term"]').innerText = 'Loan Term (in years)';
-            document.getElementById('calculate-btn').innerText = 'Calculate';
-            document.getElementById('copy-btn').innerText = 'Copy Result';
-        });
-
-        document.getElementById('lang-hi').addEventListener('click', () => {
-            language = 'hi';
-            document.getElementById('calculator-name').innerText = 'कार ऋण कैलकुलेटर';
-            document.querySelector('label[for="loan-amount"]').innerText = 'ऋण राशि';
-            document.querySelector('label[for="interest-rate"]').innerText = 'ब्याज दर (%)';
-            document.querySelector('label[for="loan-term"]').innerText = 'ऋण अवधि (वर्षों में)';
-            document.getElementById('calculate-btn').innerText = 'गणना करें';
-            document.getElementById('copy-btn').innerText = 'परिणाम कॉपी करें';
-        });
-
-        // Calculate Monthly Payment
-        document.getElementById('calculate-btn').addEventListener('click', () => {
-            const loanAmount = parseFloat(document.getElementById('loan-amount').value);
-            const interestRate = parseFloat(document.getElementById('interest-rate').value) / 100 / 12;
-            const loanTerm = parseInt(document.getElementById('loan-term').value) * 12;
-
-            if (isNaN(loanAmount) || isNaN(interestRate) || isNaN(loanTerm)) {
-                alert("Please enter valid values.");
+        }
+        function calculateLoan() {
+            document.getElementById("spinner").style.display = "inline";
+            setTimeout(() => {
+                let loanAmount = parseFloat(document.getElementById("loan-amount").value);
+                let interestRate = parseFloat(document.getElementById("interest-rate").value);
+                let tenure = parseFloat(document.getElementById("tenure").value);
+                let resultDiv = document.getElementById("loan-result");
+                let tableBody = document.getElementById("result-table-body");
+                let suggestionsDiv = document.getElementById("suggestions");
+                let table = document.getElementById("result-table");
+                tableBody.innerHTML = "";
+                if (isNaN(loanAmount) || isNaN(interestRate) || isNaN(tenure) || 
+                    loanAmount < 100000 || loanAmount > 5000000 || 
+                    interestRate < 5 || interestRate > 20 || 
+                    tenure < 1 || tenure > 7) {
+                    resultDiv.innerText = "Invalid input. Please check your values.";
+                    table.style.display = "none";
+                    suggestionsDiv.style.display = "none";
+                    document.getElementById("spinner").style.display = "none";
+                    return;
+                }
+                let monthlyRate = interestRate / 12 / 100;
+                let months = tenure * 12;
+                let emi = (loanAmount * monthlyRate * Math.pow(1 + monthlyRate, months)) / 
+                          (Math.pow(1 + monthlyRate, months) - 1);
+                let totalPayment = emi * months;
+                let totalInterest = totalPayment - loanAmount;
+                resultDiv.innerText = `Monthly EMI: ₹${emi.toFixed(2)}`;
+                tableBody.innerHTML = `
+                    <tr><td>Monthly EMI</td><td>₹${emi.toFixed(2)}</td></tr>
+                    <tr><td>Total Interest</td><td>₹${totalInterest.toFixed(2)}</td></tr>
+                    <tr><td>Total Repayment</td><td>₹${totalPayment.toFixed(2)}</td></tr>
+                `;
+                table.style.display = "table";
+                suggestionsDiv.style.display = "block";
+                document.getElementById("spinner").style.display = "none";
+            }, 500);
+        }
+        function toggleSpeech() {
+            const result = document.getElementById("loan-result").innerText;
+            if (!result || result.includes("Invalid")) {
+                console.log("No valid result to speak");
                 return;
             }
-
-            const monthlyPayment = (loanAmount * interestRate) / (1 - Math.pow(1 + interestRate, -loanTerm));
-            document.getElementById('monthly-payment').innerText = `Monthly Payment: ₹${monthlyPayment.toFixed(2)}`;
-            document.getElementById('result').classList.remove('hidden');
-        });
-
-        // Copy Button
-        document.getElementById('copy-btn').addEventListener('click', () => {
-            const paymentText = document.getElementById('monthly-payment').innerText;
-            navigator.clipboard.writeText(paymentText);
-            alert("Result copied to clipboard!");
-        });
+            if (isSpeaking) {
+                window.speechSynthesis.cancel();
+                isSpeaking = false;
+            } else {
+                utterance = new SpeechSynthesisUtterance(result);
+                utterance.lang = "en";
+                utterance.onend = () => { isSpeaking = false; };
+                window.speechSynthesis.speak(utterance);
+                isSpeaking = true;
+            }
+        }
+        function stopSpeech() {
+            if (isSpeaking) {
+                window.speechSynthesis.cancel();
+                isSpeaking = false;
+            }
+        }
+        window.onpagehide = stopSpeech;
+        window.onbeforeunload = stopSpeech;
     </script>
-</body>
 </html>
