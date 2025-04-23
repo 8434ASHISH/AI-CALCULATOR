@@ -3,23 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI Algebra Calculator - Free Online Tool | SMART AI Calculator</title>
-    <meta name="description" content="Solve algebraic equations with our free AI-powered Algebra Calculator. Available in English, Hindi, Tamil, Telugu, Spanish, Bengali, Arabic, Mandarin, and French. Try now!">
-    <meta name="keywords" content="algebra calculator, ai algebra calculator, free algebra calculator, online algebra calculator">
+    <title>Smart AI Calculator - Algebra Calculator | Free Online Tool</title>
+    <meta name="description" content="Solve linear and quadratic equations with our free AI-powered Algebra Calculator. Available in English, Hindi, Tamil, Telugu, Spanish, Bengali, Arabic, Mandarin, and French. Try now!">
+    <meta name="keywords" content="algebra calculator, ai algebra calculator, free algebra calculator, online algebra calculator, equation solver">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://yourusername.github.io/ai-calculator/algebra.html">
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <style>
         body {
             font-family: Arial, sans-serif;
             background: linear-gradient(135deg, #1A202C, #2D3748);
             color: #fff;
             margin: 0;
-            transition: background 0.3s, color 0.3s;
-        }
-        .light-mode {
-            background: #f0f0f0;
-            color: #333;
         }
         .header { background: #2c3e50; padding: 20px 0; text-align: center; position: relative; }
         .nav-tabs { display: flex; justify-content: center; gap: 20px; padding: 10px 0; background: #34495e; }
@@ -29,19 +25,62 @@
         .calculator-box { background: #e0e0e0; color: #333; padding: 20px; border-radius: 5px; text-align: center; }
         .input-row { display: flex; justify-content: space-between; margin-bottom: 15px; }
         .input-row label { font-weight: bold; }
-        input { border: 1px solid #ccc; padding: 5px; border-radius: 3px; width: 200px; }
-        button { background-color: #28a745; color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer; }
-        button:hover { background-color: #218838; }
-        .theme-switch { background: #34495e; padding: 6px 12px; border-radius: 5px; cursor: pointer; color: white; position: absolute; top: 20px; right: 120px; }
-        .theme-switch:hover { background: #3498db; }
-        @media (max-width: 600px) { .input-row { flex-direction: column; } input { width: 100%; margin-bottom: 10px; } }
+        input, select { border: 1px solid #ccc; padding: 5px; border-radius: 3px; width: 100px; }
+        button { 
+            background: linear-gradient(135deg, #ff6b6b, #e63946); 
+            color: white; 
+            padding: 12px 24px; 
+            border: none; 
+            border-radius: 5px; 
+            cursor: pointer; 
+            font-weight: bold; 
+            font-size: 1.1rem; 
+            box-shadow: 0 3px 6px rgba(0,0,0,0.4); 
+            transition: transform 0.2s, background 0.2s; 
+            text-transform: uppercase; 
+        }
+        button:hover { 
+            background: linear-gradient(135deg, #e63946, #c0392b); 
+            transform: scale(1.05); 
+        }
+        .ads-section { margin-top: 10px; padding: 10px; background: #34495e; border-radius: 5px; text-align: center; box-shadow: 0 0 5px rgba(0,0,0,0.3); }
+        .ads-section p { font-size: 1.2rem; font-weight: bold; color: #1e90ff; }
+        .ads-section a { color: #1e90ff; text-decoration: underline; }
+        .voice-icon { 
+            display: inline-block; 
+            padding: 10px; 
+            cursor: pointer; 
+            font-size: 2rem; 
+            color: #00cec9; 
+            transition: color 0.2s, transform 0.2s; 
+            visibility: visible; 
+        }
+        .voice-icon:hover { 
+            color: #00b7b3; 
+            transform: scale(1.1); 
+        }
+        .button-container { 
+            display: flex; 
+            justify-content: center; 
+            align-items: center; 
+            gap: 15px; 
+            margin: 20px 0; 
+        }
+        @media (max-width: 600px) { 
+            .input-row { flex-direction: column; } 
+            input, select { width: 100%; margin-bottom: 10px; } 
+            .button-container { flex-direction: row; gap: 10px; } 
+            .voice-icon { display: inline-block; visibility: visible; } 
+        }
+        @media (min-width: 601px) { 
+            .voice-icon { display: inline-block; visibility: visible; } 
+        }
     </style>
 </head>
 <body>
     <header class="header">
-        <h1 id="header-title">SMART AI Calculator</h1>
-        <p id="tagline">A to Z Calculators Powered by AI</p>
-        <div class="theme-switch" onclick="toggleTheme()">Theme: <span id="theme-text">Dark</span></div>
+        <h1 id="header-title">Smart AI Calculator</h1>
+        <p id="tagline">Algebra Calculator</p>
     </header>
     <nav class="nav-tabs">
         <a href="index.html#financial" class="nav-tab" onclick="showCategory('financial')">Financial</a>
@@ -52,84 +91,181 @@
     </nav>
     <div class="calculator-content">
         <div class="calculator-box">
-            <h2 id="calc-title">Enter algebraic equation (e.g., 2x + 3 = 7)</h2>
+            <h2 id="calc-title">Select equation type and enter coefficients to solve</h2>
             <div class="input-row">
-                <label id="equation-label">Equation</label>
-                <input type="text" id="equation" value="2x + 3 = 7">
+                <label id="type-label">Equation Type</label>
+                <select id="equation-type" onchange="toggleInputs()">
+                    <option value="linear">Linear (ax + b = c)</option>
+                    <option value="quadratic">Quadratic (ax² + bx + c = 0)</option>
+                </select>
             </div>
-            <button onclick="solveEquation()">Solve <span id="spinner" style="display:none;">⏳</span></button>
+            <div id="linear-inputs">
+                <div class="input-row">
+                    <label id="a-label">Coefficient a</label>
+                    <input type="number" id="a-linear" value="2" step="any">
+                </div>
+                <div class="input-row">
+                    <label id="b-label">Coefficient b</label>
+                    <input type="number" id="b-linear" value="3" step="any">
+                </div>
+                <div class="input-row">
+                    <label id="c-label">Constant c</label>
+                    <input type="number" id="c-linear" value="7" step="any">
+                </div>
+            </div>
+            <div id="quadratic-inputs" style="display:none;">
+                <div class="input-row">
+                    <label id="a-quad-label">Coefficient a</label>
+                    <input type="number" id="a-quadratic" value="1" step="any">
+                </div>
+                <div class="input-row">
+                    <label id="b-quad-label">Coefficient b</label>
+                    <input type="number" id="b-quadratic" value="-5" step="any">
+                </div>
+                <div class="input-row">
+                    <label id="c-quad-label">Coefficient c</label>
+                    <input type="number" id="c-quadratic" value="6" step="any">
+                </div>
+            </div>
+            <div class="button-container">
+                <button onclick="calculateAlgebra()">Calculate <span id="spinner" style="display:none;">⏳</span></button>
+                <span class="voice-icon" onclick="toggleSpeech()" title="Toggle Speech"><i class="fas fa-volume-up"></i></span>
+            </div>
             <div id="algebra-result" class="mt-4 font-semibold"></div>
+            <div class="ads-section">
+                <p>Contact for Ads: <a href="mailto:first4bencher@gmail.com">first4bencher@gmail.com</a></p>
+            </div>
             <div id="seo-content" class="mt-4 text-sm">
                 <h3>About Algebra Calculator</h3>
-                <p>Welcome to the AI Algebra Calculator, a free online tool designed to solve algebraic equations with precision. This calculator uses advanced AI technology to provide instant solutions, ideal for students, educators, and professionals. Available in multiple languages including English, Hindi, Tamil, Telugu, Spanish, Bengali, Arabic, Mandarin, and French, it serves a diverse global audience. Enter your equation (e.g., 2x + 3 = 7), then click "Solve" to see the result.</p>
-                <p>Why choose our Algebra Calculator? It’s user-friendly, fast, and optimized for all devices, making it perfect for homework, exams, or quick problem-solving. The tool can handle linear equations and provides step-by-step solutions when possible. Our AI ensures accuracy and offers insights into algebraic methods. This calculator stands out with its multilingual support and modern design, setting it apart from traditional algebra tools.</p>
-                <p>SEO optimization is crucial for this tool to rank high on search engines like Google. We’ve included meta tags, a canonical URL, and keywords such as "algebra calculator online," "free algebra calculator," and "AI algebra tool" to boost visibility. To enhance rankings, consider backlinks from educational websites or math blogs, and submit the site to relevant directories. Regular updates and user feedback can further improve its performance. Perfect for algebraic problem-solving, this calculator is a must-have for math enthusiasts. Try it now!</p>
+                <p>Welcome to the AI Algebra Calculator, a free online tool designed to help you solve linear and quadratic equations with ease. Whether you’re a student or a math enthusiast, this calculator leverages advanced AI technology to provide accurate and instant results. Available in multiple languages including English, Hindi, Tamil, Telugu, Spanish, Bengali, Arabic, Mandarin, and French, it caters to a diverse global audience. Simply select the equation type, enter the coefficients, and click "Calculate" to get your solution.</p>
+                <p>Why choose our Algebra Calculator? It’s user-friendly, fast, and optimized for all devices, making it perfect for solving equations like ax + b = c or ax² + bx + c = 0. The tool uses standard algebraic methods, such as x = (c - b)/a for linear equations and the quadratic formula for quadratics. Our AI integration ensures precision and offers suggestions for equation solving. This calculator stands out due to its multilingual support and modern design, setting it apart from traditional algebra calculators.</p>
+                <p>SEO optimization is crucial for this tool to rank high on search engines like Google. We’ve included meta tags, a canonical URL, and keywords such as "algebra calculator online," "free algebra calculator," and "AI equation solver" to boost visibility. To enhance ranking, consider adding backlinks from educational or math blogs or submitting the site to directories. Regular updates and user feedback can further improve its performance. Ideal for math studies, this calculator is a must-try for anyone seeking clarity on algebra. Explore it today and take control of your equation calculations!</p>
             </div>
         </div>
     </div>
     <footer class="bg-gray-800 text-white text-center py-4 mt-8">
-        <p>© 2025 SMART AI Calculator. All rights reserved.</p>
+        <p style="font-weight: bold;">2025 © Smart AI Calculator. All rights reserved.</p>
         <a href="privacy.html" class="text-blue-400 ml-2">Privacy Policy</a> |
         <a href="contactus.html" class="text-blue-400 ml-2">Contact Us</a> |
         <a href="howto.html" class="text-blue-400 ml-2">How to Use</a>
     </footer>
     <script>
         let lang = 'en';
-        let isDarkMode = true;
+        let isSpeaking = false;
+        let utterance = null;
         const translations = {
-            en: { header: "AI Calculator", tagline: "A to Z Calculators Powered by AI", calcTitle: "Enter algebraic equation (e.g., 2x + 3 = 7)", equationLabel: "Equation", resultPrefix: "Solution: x = " },
-            hi: { header: "एआई कैलकुलेटर", tagline: "ए टू जेड कैलकुलेटर, AI द्वारा संचालित", calcTitle: "बीजगणितीय समीकरण दर्ज करें (उदा., 2x + 3 = 7)", equationLabel: "समीकरण", resultPrefix: "समाधान: x = " },
-            ta: { header: "AI கால்குலேட்டர்", tagline: "AI இயக்கிய A முதல் Z கால்குலேட்டர்கள்", calcTitle: "எழுத்து வடிவ சமன்பாட்டை உள்ளிடவும் (எ.கா., 2x + 3 = 7)", equationLabel: "சமன்பாடு", resultPrefix: "தீர்வு: x = " },
-            te: { header: "AI కాల్కులేటర్", tagline: "AI ద్వారా నడిపే A నుండి Z కాల్కులేటర్లు", calcTitle: "ఆల్జబ్రా సమీకరణాన్ని నమోదు చేయండి (ఉదా., 2x + 3 = 7)", equationLabel: "సమీకరణం", resultPrefix: "పరిష్కారం: x = " },
-            es: { header: "Calculadora de IA", tagline: "Calculadoras A-Z impulsadas por IA", calcTitle: "Ingrese una ecuación algebraica (e.g., 2x + 3 = 7)", equationLabel: "Ecuación", resultPrefix: "Solución: x = " },
-            bn: { header: "এআই ক্যালকুলেটর", tagline: "এআই দ্বারা চালিত এ থেকে জে ক্যালকুলেটর", calcTitle: "বীজগণিতের সমীকরণ লিখুন (যেমন, 2x + 3 = 7)", equationLabel: "সমীকরণ", resultPrefix: "সমাধান: x = " },
-            ar: { header: "حاسبة الذكاء الاصطناعي", tagline: "حاسبات A إلى Z مدعومة بالذكاء الاصطناعي", calcTitle: "أدخل معادلة جبرية (مثال: 2x + 3 = 7)", equationLabel: "المعادلة", resultPrefix: "الحل: x = " },
-            zh: { header: "人工智能计算器", tagline: "AI驱动的A到Z计算器", calcTitle: "输入代数方程 (例如, 2x + 3 = 7)", equationLabel: "方程", resultPrefix: "解: x = " },
-            fr: { header: "Calculateur IA", tagline: "Calculateurs A à Z alimentés par IA", calcTitle: "Entrez une équation algébrique (ex. 2x + 3 = 7)", equationLabel: "Équation", resultPrefix: "Solution: x = " }
+            en: { header: "Smart AI Calculator", tagline: "Algebra Calculator", calcTitle: "Select equation type and enter coefficients to solve", typeLabel: "Equation Type", aLabel: "Coefficient a", bLabel: "Coefficient b", cLabel: "Constant c", aQuadLabel: "Coefficient a", bQuadLabel: "Coefficient b", cQuadLabel: "Coefficient c", resultPrefix: "Solution: " },
+            hi: { header: "स्मार्ट एआई कैलकुलेटर", tagline: "बीजगणित कैलकुलेटर", calcTitle: "समीकरण प्रकार चुनें और गुणांक दर्ज करें", typeLabel: "समीकरण प्रकार", aLabel: "गुणांक a", bLabel: "गुणांक b", cLabel: "स्थिरांक c", aQuadLabel: "गुणांक a", bQuadLabel: "गुणांक b", cQuadLabel: "गुणांक c", resultPrefix: "समाधान: " },
+            ta: { header: "ஸ்மார்ட் AI கால்குலேட்டர்", tagline: "அல்ஜீப்ரா கால்குலேட்டர்", calcTitle: "சமன்பாடு வகையைத் தேர்ந்தெடுத்து குணகங்களை உள்ளிடவும்", typeLabel: "சமன்பாடு வகை", aLabel: "குணகம் a", bLabel: "குணகம் b", cLabel: "மாறிலி c", aQuadLabel: "குணகம் a", bQuadLabel: "குணகம் b", cQuadLabel: "குணகம் c", resultPrefix: "தீர்வு: " },
+            te: { header: "స్మార్ట్ AI కాల్కులేటర్", tagline: "అల్జీబ్రా కాల్కులేటర్", calcTitle: "సమీకరణ రకాన్ని ఎంచుకోండి మరియు కోఎఫిషియంట్లను నమోదు చేయండి", typeLabel: "సమీకరణ రకం", aLabel: "కోఎఫిషియంట్ a", bLabel: "కోఎఫిషియంట్ b", cLabel: "కాన్స్టాంట్ c", aQuadLabel: "కోఎఫిషియంట్ a", bQuadLabel: "కోఎఫిషియంట్ b", cQuadLabel: "కోఎఫిషియంట్ c", resultPrefix: "పరిష్కారం: " },
+            es: { header: "Calculadora de IA Inteligente", tagline: "Calculadora de Álgebra", calcTitle: "Seleccione el tipo de ecuación e ingrese los coeficientes", typeLabel: "Tipo de ecuación", aLabel: "Coeficiente a", bLabel: "Coeficiente b", cLabel: "Constante c", aQuadLabel: "Coeficiente a", bQuadLabel: "Coeficiente b", cQuadLabel: "Coeficiente c", resultPrefix: "Solución: " },
+            bn: { header: "স্মার্ট এআই ক্যালকুলেটর", tagline: "বীজগণিত ক্যালকুলেটর", calcTitle: "সমীকরণের ধরন নির্বাচন করুন এবং গুণাঙ্ক লিখুন", typeLabel: "সমীকরণের ধরন", aLabel: "গুণাঙ্ক a", bLabel: "গুণাঙ্ক b", cLabel: "ধ্রুবক c", aQuadLabel: "গুণাঙ্ক a", bQuadLabel: "গুণাঙ্ক b", cQuadLabel: "গুণাঙ্ক c", resultPrefix: "সমাধান: " },
+            ar: { header: "حاسبة الذكاء الاصطناعي الذكية", tagline: "حاسبة الجبر", calcTitle: "اختر نوع المعادلة وأدخل المعاملات", typeLabel: "نوع المعادلة", aLabel: "المعامل a", bLabel: "المعامل b", cLabel: "الثابت c", aQuadLabel: "المعامل a", bQuadLabel: "المعامل b", cQuadLabel: "المعامل c", resultPrefix: "الحل: " },
+            zh: { header: "智能人工智能计算器", tagline: "代数计算器", calcTitle: "选择方程类型并输入系数", typeLabel: "方程类型", aLabel: "系数 a", bLabel: "系数 b", cLabel: "常数 c", aQuadLabel: "系数 a", bQuadLabel: "系数 b", cQuadLabel: "系数 c", resultPrefix: "解决方案: " },
+            fr: { header: "Calculateur IA Intelligent", tagline: "Calculateur d'Algèbre", calcTitle: "Sélectionnez le type d'équation et entrez les coefficients", typeLabel: "Type d'équation", aLabel: "Coefficient a", bLabel: "Coefficient b", cLabel: "Constante c", aQuadLabel: "Coefficient a", bQuadLabel: "Coefficient b", cQuadLabel: "Coefficient c", resultPrefix: "Solution: " }
         };
-        function toggleTheme() {
-            isDarkMode = !isDarkMode;
-            document.body.classList.toggle('light-mode', !isDarkMode);
-            document.getElementById('theme-text').textContent = isDarkMode ? 'Dark' : 'Light';
+        function toggleInputs() {
+            const type = document.getElementById("equation-type").value;
+            document.getElementById("linear-inputs").style.display = type === "linear" ? "block" : "none";
+            document.getElementById("quadratic-inputs").style.display = type === "quadratic" ? "block" : "none";
         }
-        function solveEquation() {
+        function calculateAlgebra() {
             document.getElementById("spinner").style.display = "inline";
             setTimeout(() => {
-                let equation = document.getElementById("equation").value;
                 let resultDiv = document.getElementById("algebra-result");
-                try {
-                    let sides = equation.split('=');
-                    if (sides.length === 2) {
-                        let left = sides[0].trim();
-                        let right = sides[1].trim();
-                        let xMatch = left.match(/(\d*)x/);
-                        let xCoef = xMatch && xMatch[1] ? parseFloat(xMatch[1]) || 1 : 0;
-                        let constant = parseFloat(left.replace(/(\d*)x/, '').trim()) || 0;
-                        let result = (parseFloat(right) - constant) / xCoef;
-                        resultDiv.innerHTML = `${translations[lang].resultPrefix} ${result.toFixed(2)}`;
-                        speakResult(resultDiv.innerHTML);
+                const type = document.getElementById("equation-type").value;
+                if (type === "linear") {
+                    let a = parseFloat(document.getElementById("a-linear").value);
+                    let b = parseFloat(document.getElementById("b-linear").value);
+                    let c = parseFloat(document.getElementById("c-linear").value);
+                    if (!isNaN(a) && !isNaN(b) && !isNaN(c) && a !== 0) {
+                        let x = (c - b) / a;
+                        resultDiv.innerHTML = `${translations[lang].resultPrefix} x = ${x.toFixed(2)}`;
                     } else {
-                        resultDiv.innerText = lang === 'en' ? "Please enter a valid equation (e.g., ax + b = c)" : lang === 'hi' ? "कृपया वैध समीकरण दर्ज करें (उदा., ax + b = c)" : lang === 'ta' ? "சரியான சமன்பாட்டை உள்ளிடவும் (எ.கா., ax + b = c)" : lang === 'te' ? "దయచేసి సరైన సమీకరణాన్ని నమోదు చేయండి (ఉదా., ax + b = c)" : lang === 'es' ? "Por favor, ingrese una ecuación válida (e.g., ax + b = c)" : lang === 'bn' ? "দয়া করে বৈধ সমীকরণ লিখুন (যেমন, ax + b = c)" : lang === 'ar' ? "يرجى إدخال معادلة صالحة (مثال: ax + b = c)" : lang === 'zh' ? "请输入有效方程 (例如, ax + b = c)" : "Veuillez entrer une équation valide (ex. ax + b = c)";
+                        resultDiv.innerText = lang === 'en' ? "Please enter valid values (a ≠ 0)" : lang ===
+                        'hi' ? "कृपया वैध मान दर्ज करें (a ≠ 0)" : lang === 'ta' ? "சரியான மதிப்புகளை உள்ளிடவும் (a ≠ 0)" : lang ===
+                        'te' ? "దయచేసి సరైన విలువలను నమోదు చేయండి (a ≠ 0)" : lang === 'es' ? "Por favor, ingrese valores válidos (a ≠ 0)" : lang ===
+                        'bn' ? "দয়া করে বৈধ মান লিখুন (a ≠ 0)" : lang === 'ar' ? "يرجى إدخال قيم صحيحة (a ≠ 0)" : lang ===
+                        'zh' ? "请输入有效值 (a ≠ 0)" : "Veuillez entrer des valeurs valides (a ≠ 0)";
                     }
-                } catch (e) {
-                    resultDiv.innerText = lang === 'en' ? "Error: Invalid equation" : lang === 'hi' ? "त्रुटि: अमान्य समीकरण" : lang === 'ta' ? "பிழை: செல்லாத சமன்பாடு" : lang === 'te' ? "పొరుగు: చెల్లని సమీకరణం" : lang === 'es' ? "Error: Ecuación inválida" : lang === 'bn' ? "ত্রুটি: অবৈধ সমীকরণ" : lang === 'ar' ? "خطأ: معادلة غير صالحة" : lang === 'zh' ? "错误: 无效方程" : "Erreur: Équation invalide";
+                } else {
+                    let a = parseFloat(document.getElementById("a-quadratic").value);
+                    let b = parseFloat(document.getElementById("b-quadratic").value);
+                    let c = parseFloat(document.getElementById("c-quadratic").value);
+                    if (!isNaN(a) && !isNaN(b) && !isNaN(c) && a !== 0) {
+                        let discriminant = b * b - 4 * a * c;
+                        if (discriminant > 0) {
+                            let x1 = (-b + Math.sqrt(discriminant)) / (2 * a);
+                            let x2 = (-b - Math.sqrt(discriminant)) / (2 * a);
+                            resultDiv.innerHTML = `${translations[lang].resultPrefix} x₁ = ${x1.toFixed(2)}, x₂ = ${x2.toFixed(2)}`;
+                        } else if (discriminant === 0) {
+                            let x = -b / (2 * a);
+                            resultDiv.innerHTML = `${translations[lang].resultPrefix} x = ${x.toFixed(2)}`;
+                        } else {
+                            resultDiv.innerText = lang === 'en' ? "No real solutions" : lang ===
+                            'hi' ? "कोई वास्तविक समाधान नहीं" : lang === 'ta' ? "உண்மையான தீர்வுகள் இல்லை" : lang ===
+                            'te' ? "వాస్తవ పరిష్కారాలు లేవు" : lang === 'es' ? "No hay soluciones reales" : lang ===
+                            'bn' ? "কোনো বাস্তব সমাধান নেই" : lang === 'ar' ? "لا توجد حلول حقيقية" : lang ===
+                            'zh' ? "无实数解" : "Pas de solutions réelles";
+                        }
+                    } else {
+                        resultDiv.innerText = lang === 'en' ? "Please enter valid values (a ≠ 0)" : lang ===
+                        'hi' ? "कृपया वैध मान दर्ज करें (a ≠ 0)" : lang === 'ta' ? "சரியான மதிப்புகளை உள்ளிடவும் (a ≠ 0)" : lang ===
+                        'te' ? "దయచేసి సరైన విలువలను నమోదు చేయండి (a ≠ 0)" : lang === 'es' ? "Por favor, ingrese valores válidos (a ≠ 0)" : lang ===
+                        'bn' ? "দয়া করে বৈধ মান লিখুন (a ≠ 0)" : lang === 'ar' ? "يرجى إدخال قيم صحيحة (a ≠ 0)" : lang ===
+                        'zh' ? "请输入有效值 (a ≠ 0)" : "Veuillez entrer des valeurs valides (a ≠ 0)";
+                    }
                 }
                 document.getElementById("spinner").style.display = "none";
             }, 1000);
         }
+        function toggleSpeech() {
+            console.log("Toggling speech for result");
+            const result = document.getElementById("algebra-result").innerHTML;
+            if (!result) {
+                console.log("No result to speak");
+                return;
+            }
+            if (isSpeaking) {
+                window.speechSynthesis.cancel();
+                isSpeaking = false;
+                console.log("Speech stopped");
+            } else {
+                utterance = new SpeechSynthesisUtterance(result);
+                utterance.lang = lang === 'zh' ? 'zh-CN' : lang === 'ar' ? 'ar-SA' : lang;
+                utterance.onend = () => {
+                    isSpeaking = false;
+                    console.log("Speech ended");
+                };
+                window.speechSynthesis.speak(utterance);
+                isSpeaking = true;
+                console.log("Speech started");
+            }
+        }
+        function stopSpeech() {
+            if (isSpeaking) {
+                window.speechSynthesis.cancel();
+                isSpeaking = false;
+                console.log("Speech stopped on page exit");
+            }
+        }
         function showCategory(category) {
             // No action needed here as navigation is handled by index.html
-        }
-        function speakResult(result) {
-            const utterance = new SpeechSynthesisUtterance(result);
-            utterance.lang = lang === 'zh' ? 'zh-CN' : lang === 'ar' ? 'ar-SA' : lang;
-            window.speechSynthesis.speak(utterance);
         }
         window.onload = () => {
             document.getElementById('header-title').textContent = translations[lang].header;
             document.getElementById('tagline').textContent = translations[lang].tagline;
             document.getElementById('calc-title').textContent = translations[lang].calcTitle;
-            document.getElementById('equation-label').textContent = translations[lang].equationLabel;
+            document.getElementById('type-label').textContent = translations[lang].typeLabel;
+            document.getElementById('a-label').textContent = translations[lang].aLabel;
+            document.getElementById('b-label').textContent = translations[lang].bLabel;
+            document.getElementById('c-label').textContent = translations[lang].cLabel;
+            document.getElementById('a-quad-label').textContent = translations[lang].aQuadLabel;
+            document.getElementById('b-quad-label').textContent = translations[lang].bQuadLabel;
+            document.getElementById('c-quad-label').textContent = translations[lang].cQuadLabel;
+            console.log("Voice icon loaded");
         };
+        window.onpagehide = stopSpeech;
+        window.onbeforeunload = stopSpeech;
     </script>
-</html>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'934ab0e65a83454b',t:'MTc0NTM4MzMxMi4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></html>
