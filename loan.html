@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI Loan Calculator - Free Online Tool | AI Calculator</title>
+    <title>Smart AI Calculator - Loan Calculator | Free Online Tool</title>
     <meta name="description" content="Calculate your loan EMI, interest, and total payable amount with our free AI-powered Loan Calculator. Available in English, Hindi, Tamil, Telugu, Spanish, Bengali, Arabic, Mandarin, and French. Try now!">
     <meta name="keywords" content="loan calculator, ai loan calculator, free loan calculator, online loan calculator, loan emi calculator">
     <meta name="robots" content="index, follow">
@@ -15,11 +15,6 @@
             background: linear-gradient(135deg, #1A202C, #2D3748);
             color: #fff;
             margin: 0;
-            transition: background 0.3s, color 0.3s;
-        }
-        .light-mode {
-            background: #f0f0f0;
-            color: #333;
         }
         .header { background: #2c3e50; padding: 20px 0; text-align: center; position: relative; }
         .nav-tabs { display: flex; justify-content: center; gap: 20px; padding: 10px 0; background: #34495e; }
@@ -32,16 +27,16 @@
         input { border: 1px solid #ccc; padding: 5px; border-radius: 3px; width: 100px; }
         button { background-color: #28a745; color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer; }
         button:hover { background-color: #218838; }
-        .theme-switch { background: #34495e; padding: 6px 12px; border-radius: 5px; cursor: pointer; color: white; position: absolute; top: 20px; right: 120px; }
-        .theme-switch:hover { background: #3498db; }
+        .ads-section { margin-top: 20px; padding: 20px; background: #34495e; border-radius: 10px; text-align: center; box-shadow: 0 0 10px rgba(0,0,0,0.3); }
+        .ads-section p { font-size: 1.5rem; font-weight: bold; color: #1e90ff; }
+        .ads-section a { color: #1e90ff; text-decoration: underline; }
         @media (max-width: 600px) { .input-row { flex-direction: column; } input { width: 100%; margin-bottom: 10px; } }
     </style>
 </head>
 <body>
     <header class="header">
-        <h1 id="header-title">AI Calculator</h1>
-        <p id="tagline">A to Z Calculators Powered by AI</p>
-        <div class="theme-switch" onclick="toggleTheme()">Theme: <span id="theme-text">Dark</span></div>
+        <h1 id="header-title">Smart AI Calculator</h1>
+        <p id="tagline">Loan Calculator</p>
     </header>
     <nav class="nav-tabs">
         <a href="index.html#financial" class="nav-tab" onclick="showCategory('financial')">Financial</a>
@@ -66,6 +61,9 @@
                 <input type="number" id="tenure" min="1" value="5">
             </div>
             <button onclick="calculateLoan()">Calculate <span id="spinner" style="display:none;">⏳</span></button>
+            <div class="ads-section">
+                <p>Contact for Ads: <a href="mailto:first4bencher@gmail.com">first4bencher@gmail.com</a></p>
+            </div>
             <div id="loan-result" class="mt-4 font-semibold"></div>
             <div id="seo-content" class="mt-4 text-sm">
                 <h3>About Loan Calculator</h3>
@@ -76,30 +74,24 @@
         </div>
     </div>
     <footer class="bg-gray-800 text-white text-center py-4 mt-8">
-        <p>© 2025 AI Calculator. All rights reserved.</p>
+        <p style="font-weight: bold;">2025 © Smart AI Calculator. All rights reserved.</p>
         <a href="privacy.html" class="text-blue-400 ml-2">Privacy Policy</a> |
         <a href="contactus.html" class="text-blue-400 ml-2">Contact Us</a> |
         <a href="howto.html" class="text-blue-400 ml-2">How to Use</a>
     </footer>
     <script>
         let lang = 'en';
-        let isDarkMode = true;
         const translations = {
-            en: { header: "AI Calculator", tagline: "A to Z Calculators Powered by AI", calcTitle: "Enter loan amount, interest rate, and tenure to calculate EMI", amountLabel: "Loan Amount (₹)", rateLabel: "Interest Rate (%)", tenureLabel: "Tenure (Years)", resultPrefix: "EMI: " },
-            hi: { header: "एआई कैलकुलेटर", tagline: "ए टू जेड कैलकुलेटर, AI द्वारा संचालित", calcTitle: "ऋण राशि, ब्याज दर और अवधि दर्ज करें EMI की गणना के लिए", amountLabel: "ऋण राशि (₹)", rateLabel: "ब्याज दर (%)", tenureLabel: "अवधि (वर्ष)", resultPrefix: "EMI: " },
-            ta: { header: "AI கால்குலேட்டர்", tagline: "AI இயக்கிய A முதல் Z கால்குலேட்டர்கள்", calcTitle: "கடன் தொகை, வட்டி விகிதம் மற்றும் காலத்தை உள்ளிடவும் EMI கணக்கிட", amountLabel: "கடன் தொகை (₹)", rateLabel: "வட்டி விகிதம் (%)", tenureLabel: "காலம் (ஆண்டுகள்)", resultPrefix: "EMI: " },
-            te: { header: "AI కాల్కులేటర్", tagline: "AI ద్వారా నడిపే A నుండి Z కాల్కులేటర్లు", calcTitle: "లోన్ రాశి, ఆసక్తి రేటు మరియు కాలవద్దన్ని నమోదు చేయండి EMI కోసం", amountLabel: "లోన్ రాశి (₹)", rateLabel: "ఆసక్తి రేటు (%)", tenureLabel: "కాలం (సంవత్సరాలు)", resultPrefix: "EMI: " },
-            es: { header: "Calculadora de IA", tagline: "Calculadoras A-Z impulsadas por IA", calcTitle: "Ingrese el monto del préstamo, la tasa de interés y el plazo para calcular la EMI", amountLabel: "Monto del préstamo (₹)", rateLabel: "Tasa de interés (%)", tenureLabel: "Plazo (Años)", resultPrefix: "EMI: " },
-            bn: { header: "এআই ক্যালকুলেটর", tagline: "এআই দ্বারা চালিত এ থেকে জে ক্যালকুলেটর", calcTitle: "লোনের অংক, সুদের হার এবং মেয়াদ লিখুন EMI গণনার জন্য", amountLabel: "লোনের পরিমাণ (₹)", rateLabel: "সুদের হার (%)", tenureLabel: "মেয়াদ (বছর)", resultPrefix: "EMI: " },
-            ar: { header: "حاسبة الذكاء الاصطناعي", tagline: "حاسبات A إلى Z مدعومة بالذكاء الاصطناعي", calcTitle: "أدخل مبلغ القرض، ونسبة الفائدة، والمدة لحساب القسط الشهري", amountLabel: "مبلغ القرض (₹)", rateLabel: "نسبة الفائدة (%)", tenureLabel: "المدة (سنوات)", resultPrefix: "القسط الشهري: " },
-            zh: { header: "人工智能计算器", tagline: "AI驱动的A到Z计算器", calcTitle: "输入贷款金额、利率和期限以计算EMI", amountLabel: "贷款金额 (₹)", rateLabel: "利率 (%)", tenureLabel: "期限 (年)", resultPrefix: "EMI: " },
-            fr: { header: "Calculateur IA", tagline: "Calculateurs A à Z alimentés par IA", calcTitle: "Entrez le montant du prêt, le taux d'intérêt et la durée pour calculer l'EMI", amountLabel: "Montant du prêt (₹)", rateLabel: "Taux d'intérêt (%)", tenureLabel: "Durée (Années)", resultPrefix: "EMI: " }
+            en: { header: "Smart AI Calculator", tagline: "Loan Calculator", calcTitle: "Enter loan amount, interest rate, and tenure to calculate EMI", amountLabel: "Loan Amount (₹)", rateLabel: "Interest Rate (%)", tenureLabel: "Tenure (Years)", resultPrefix: "EMI: " },
+            hi: { header: "स्मार्ट एआई कैलकुलेटर", tagline: "लोन कैलकुलेटर", calcTitle: "ऋण राशि, ब्याज दर और अवधि दर्ज करें EMI की गणना के लिए", amountLabel: "ऋण राशि (₹)", rateLabel: "ब्याज दर (%)", tenureLabel: "अवधि (वर्ष)", resultPrefix: "EMI: " },
+            ta: { header: "ஸ்மார்ட் AI கால்குலேட்டர்", tagline: "கடன் கால்குலேட்டர்", calcTitle: "கடன் தொகை, வட்டி விகிதம் மற்றும் காலத்தை உள்ளிடவும் EMI கணக்கிட", amountLabel: "கடன் தொகை (₹)", rateLabel: "வட்டி விகிதம் (%)", tenureLabel: "காலம் (ஆண்டுகள்)", resultPrefix: "EMI: " },
+            te: { header: "స్మార్ట్ AI కాల్కులేటర్", tagline: "లోన్ కాల్కులేటర్", calcTitle: "లోన్ రాశి, ఆసక్తి రేటు మరియు కాలవద్దన్ని నమోదు చేయండి EMI కోసం", amountLabel: "లోన్ రాశి (₹)", rateLabel: "ఆసక్తి రేటు (%)", tenureLabel: "కాలం (సంవత్సరాలు)", resultPrefix: "EMI: " },
+            es: { header: "Calculadora de IA Inteligente", tagline: "Calculadora de Préstamos", calcTitle: "Ingrese el monto del préstamo, la tasa de interés y el plazo para calcular la EMI", amountLabel: "Monto del préstamo (₹)", rateLabel: "Tasa de interés (%)", tenureLabel: "Plazo (Años)", resultPrefix: "EMI: " },
+            bn: { header: "স্মার্ট এআই ক্যালকুলেটর", tagline: "লোন ক্যালকুলেটর", calcTitle: "লোনের অংক, সুদের হার এবং মেয়াদ লিখুন EMI গণনার জন্য", amountLabel: "লোনের পরিমাণ (₹)", rateLabel: "সুদের হার (%)", tenureLabel: "মেয়াদ (বছর)", resultPrefix: "EMI: " },
+            ar: { header: "حاسبة الذكاء الاصطناعي الذكية", tagline: "حاسبة القروض", calcTitle: "أدخل مبلغ القرض، ونسبة الفائدة، والمدة لحساب القسط الشهري", amountLabel: "مبلغ القرض (₹)", rateLabel: "نسبة الفائدة (%)", tenureLabel: "المدة (سنوات)", resultPrefix: "القسط الشهري: " },
+            zh: { header: "智能人工智能计算器", tagline: "贷款计算器", calcTitle: "输入贷款金额、利率和期限以计算EMI", amountLabel: "贷款金额 (₹)", rateLabel: "利率 (%)", tenureLabel: "期限 (年)", resultPrefix: "EMI: " },
+            fr: { header: "Calculateur IA Intelligent", tagline: "Calculateur de Prêt", calcTitle: "Entrez le montant du prêt, le taux d'intérêt et la durée pour calculer l'EMI", amountLabel: "Montant du prêt (₹)", rateLabel: "Taux d'intérêt (%)", tenureLabel: "Durée (Années)", resultPrefix: "EMI: " }
         };
-        function toggleTheme() {
-            isDarkMode = !isDarkMode;
-            document.body.classList.toggle('light-mode', !isDarkMode);
-            document.getElementById('theme-text').textContent = isDarkMode ? 'Dark' : 'Light';
-        }
         function calculateLoan() {
             document.getElementById("spinner").style.display = "inline";
             setTimeout(() => {
@@ -136,4 +128,4 @@
             document.getElementById('tenure-label').textContent = translations[lang].tenureLabel;
         };
     </script>
-</html>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'934ab0e65a83454b',t:'MTc0NTM4MzMxMi4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></html>
