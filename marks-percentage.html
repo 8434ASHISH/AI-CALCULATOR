@@ -3,208 +3,342 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="title" content="AI Marks Percentage Calculator">
-    <meta name="description" content="Calculate your marks percentage with our AI-powered Marks Percentage Calculator. Input obtained and total marks for instant results.">
-    <meta name="keywords" content="marks percentage calculator, grade calculator, percentage calculator, AI calculator, education tools, marks calculation">
+    <title>Smart AI Calculator - CGPA Calculator | Free Online Tool</title>
+    <meta name="description" content="Calculate your CGPA, grades, or marks with our free AI-powered CGPA Calculator. Includes CGPA to Percentage conversion (CBSE rule). Available in English, Hindi, Tamil, Telugu, Spanish, Bengali, Arabic, Mandarin, and French. Try now!">
+    <meta name="keywords" content="cgpa calculator, ai cgpa calculator, free cgpa calculator, cgpa to percentage, academic calculator">
     <meta name="robots" content="index, follow">
-    <title>AI Marks Percentage Calculator</title>
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="canonical" href="https://yourusername.github.io/ai-calculator/cgpa-calculator.html">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <style>
         body {
-            font-family: 'Arial', sans-serif;
-            background-color: #ffffff;
-            color: #1a202c;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #1A202C, #2D3748);
+            color: #fff;
+            margin: 0;
         }
-        .calculator-title {
-            font-weight: bold;
-            text-align: center;
-            background-color: #f6e05e;
-            padding: 10px;
-            margin-bottom: 10px;
+        .header { background: #2c3e50; padding: 20px 0; text-align: center; position: relative; }
+        .nav-tabs { display: flex; justify-content: center; gap: 20px; padding: 10px 0; background: #34495e; }
+        .nav-tab { color: white; text-decoration: none; padding: 5px 15px; transition: background 0.3s; font-weight: bold; text-shadow: 0 0 5px rgba(255, 107, 107, 0.5); }
+        .nav-tab:hover, .nav-tab.active { background: #3498db; border-radius: 5px; }
+        .calculator-content { max-width: 600px; margin: 20px auto; padding: 20px; background: rgba(45, 55, 72, 0.9); border-radius: 10px; box-shadow: 0 0 15px rgba(0,0,0,0.5); }
+        .calculator-box { background: #e0e0e0; color: #333; padding: 20px; border-radius: 5px; text-align: center; }
+        .input-row { display: flex; justify-content: space-between; margin-bottom: 15px; }
+        .input-row label { font-weight: bold; }
+        input, select { border: 1px solid #ccc; padding: 5px; border-radius: 3px; width: 100px; }
+        button { 
+            background: linear-gradient(135deg, #ff6b6b, #e63946); 
+            color: white; 
+            padding: 12px 24px; 
+            border: none; 
+            border-radius: 5px; 
+            cursor: pointer; 
+            font-weight: bold; 
+            font-size: 1.1rem; 
+            box-shadow: 0 3px 6px rgba(0,0,0,0.4); 
+            transition: transform 0.2s, background 0.2s; 
+            text-transform: uppercase; 
         }
-        .input-field {
-            border: 2px solid #e2e8f0;
-            border-radius: 8px;
-            padding: 10px;
-            font-weight: bold;
-            width: 100%;
-            box-sizing: border-box;
+        button:hover { 
+            background: linear-gradient(135deg, #e63946, #c0392b); 
+            transform: scale(1.05); 
         }
-        .language-switcher {
-            position: absolute;
-            top: 10px;
-            left: 10px;
-            cursor: pointer;
+        .add-subject-btn { 
+            background: linear-gradient(135deg, #00cec9, #00b7b3); 
+            padding: 8px 16px; 
+            font-size: 0.9rem; 
         }
-        .theme-switcher {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            cursor: pointer;
+        .add-subject-btn:hover { 
+            background: linear-gradient(135deg, #00b7b3, #009b9a); 
         }
-        .calculate-btn {
-            background-color: #4299e1;
-            color: white;
-            font-weight: bold;
-            padding: 12px;
-            border-radius: 8px;
-            width: 100%;
+        .ads-section { margin-top: 10px; padding: 10px; background: #34495e; border-radius: 5px; text-align: center; box-shadow: 0 0 5px rgba(0,0,0,0.3); }
+        .ads-section p { font-size: 1.2rem; font-weight: bold; color: #1e90ff; }
+        .ads-section a { color: #1e90ff; text-decoration: underline; }
+        .voice-icon { 
+            display: inline-block; 
+            padding: 10px; 
+            cursor: pointer; 
+            font-size: 2rem; 
+            color: #00cec9; 
+            transition: color 0.2s, transform 0.2s; 
+            visibility: visible; 
         }
-        .result-box {
-            border: 2px solid #e2e8f0;
-            border-radius: 8px;
-            padding: 15px;
-            margin-top: 20px;
-            font-weight: bold;
+        .voice-icon:hover { 
+            color: #00b7b3; 
+            transform: scale(1.1); 
         }
-        footer a {
-            color: #4299e1;
-            text-decoration: none;
+        .button-container { 
+            display: flex; 
+            justify-content: center; 
+            align-items: center; 
+            gap: 15px; 
+            margin: 20px 0; 
         }
-        footer a:hover {
-            text-decoration: underline;
+        .suggestions { margin-top: 20px; padding: 15px; background: #f0f0f0; border-radius: 5px; text-align: left; display: none; }
+        .suggestions h3 { font-size: 1.2rem; font-weight: bold; margin-bottom: 10px; }
+        .suggestions ul { list-style-type: disc; padding-left: 20px; }
+        .suggestions li { margin-bottom: 8px; }
+        .percentage-section { margin-top: 20px; padding: 15px; background: #e0e0e0; border-radius: 5px; text-align: center; border-top: 3px solid #3498db; }
+        .percentage-section h3 { font-size: 1.2rem; font-weight: bold; margin-bottom: 10px; }
+        .subject-input { display: flex; gap: 10px; margin-bottom: 10px; }
+        .subject-input input { width: 120px; }
+        @media (max-width: 600px) { 
+            .input-row { flex-direction: column; } 
+            input, select { width: 100%; margin-bottom: 10px; } 
+            .button-container { flex-direction: row; gap: 10px; } 
+            .voice-icon { display: inline-block; visibility: visible; } 
+            .subject-input { flex-direction: column; } 
+            .subject-input input { width: 100%; }
         }
-        .share-icons img {
-            width: 30px;
-            margin: 0 10px;
-        }
-        .dark-mode {
-            background-color: #1a202c;
-            color: #e2e8f0;
-        }
-        .dark-mode .input-field {
-            border-color: #4a5568;
-            background-color: #2d3748;
-            color: #e2e8f0;
-        }
-        .dark-mode .result-box {
-            border-color: #4a5568;
-            background-color: #2d3748;
-        }
-        .dark-mode .calculator-title {
-            background-color: #b83280;
+        @media (min-width: 601px) { 
+            .voice-icon { display: inline-block; visibility: visible; } 
         }
     </style>
 </head>
-<body class="min-h-screen flex flex-col">
-    <header class="relative">
-        <h1 class="calculator-title text-3xl">AI CALCULATOR</h1>
-        <h2 class="text-center text-xl font-bold mb-4" id="calcTitle">Marks Percentage Calculator</h2>
-        <div class="language-switcher">
-            <img src="https://img.icons8.com/ios-filled/50/000000/globe.png" alt="Language Switcher" id="langToggle" width="30">
-        </div>
-        <div class="theme-switcher">
-            <img src="https://img.icons8.com/ios-filled/50/000000/moon-symbol.png" alt="Theme Switcher" id="themeToggle" width="30">
-        </div>
+<body>
+    <header class="header">
+        <h1 id="header-title">Smart AI Calculator</h1>
+        <p id="tagline">CGPA Calculator</p>
     </header>
-    <main class="flex-grow container mx-auto px-4 py-6">
-        <section class="max-w-md mx-auto">
-            <div class="mb-4">
-                <label for="obtainedMarks" class="block font-bold mb-2" id="obtainedMarksLabel">Obtained Marks</label>
-                <input type="number" id="obtainedMarks" class="input-field" placeholder="e.g. 85" step="any" required>
+    <nav class="nav-tabs">
+        <a href="index.html#home" class="nav-tab" onclick="showCategory('home')">HOME</a>
+        <a href="index.html#academic-calculator" class="nav-tab active" onclick="showCategory('academic-calculator')">ACADEMIC CALCULATOR</a>
+    </nav>
+    <div class="calculator-content">
+        <div class="calculator-box">
+            <h2 id="calc-title">Enter details to calculate</h2>
+            <div class="input-row">
+                <label id="type-label">Calculation Type</label>
+                <select id="type" onchange="toggleInputs()">
+                    <option value="cgpa">CGPA</option>
+                    <option value="grade">Grade</option>
+                    <option value="marks">Marks</option>
+                </select>
             </div>
-            <div class="mb-4">
-                <label for="totalMarks" class="block font-bold mb-2" id="totalMarksLabel">Total Marks</label>
-                <input type="number" id="totalMarks" class="input-field" placeholder="e.g. 100" step="any" required>
+            <div id="cgpa-inputs">
+                <div id="cgpa-subjects"></div>
+                <button class="add-subject-btn" onclick="addSubject('cgpa')">Add More Subjects</button>
             </div>
-            <button class="calculate-btn" onclick="calculatePercentage()" id="calcButton">Calculate</button>
-            <div id="result" class="result-box hidden">
-                <p id="percentageResult"></p>
+            <div id="grade-inputs" style="display: none;">
+                <div id="grade-subjects"></div>
+                <button class="add-subject-btn" onclick="addSubject('grade')">Add More Subjects</button>
             </div>
-        </section>
-        <section class="mt-8 max-w-2xl mx-auto">
-            <h3 class="text-xl font-bold mb-4" id="aboutTitle">About the Marks Percentage Calculator</h3>
-            <p class="mb-4" id="aboutText1">
-                The Marks Percentage Calculator helps you determine the percentage of marks obtained in exams or assignments. Simply input the obtained marks and the total marks to get the percentage instantly.
-            </p>
-            <p id="aboutText2">
-                This tool uses the formula: (Obtained Marks / Total Marks) × 100. It’s perfect for students, teachers, or anyone needing to calculate academic performance quickly and accurately.
-            </p>
-        </section>
-    </main>
-    <footer class="bg-gray-100 py-6 mt-8">
-        <div class="container mx-auto px-4 text-center">
-            <div class="mb-4">
-                <a href="/privacy-policy" class="mx-2">Privacy Policy</a> |
-                <a href="/disclaimer" class="mx-2">Disclaimer</a> |
-                <a href="/how-to-use" class="mx-2">How to Use</a> |
-                <a href="/contact-us" class="mx-2">Contact Us</a>
+            <div id="marks-inputs" style="display: none;">
+                <div id="marks-subjects"></div>
+                <div class="input-row">
+                    <label id="full-marks-label">Total Marks per Subject</label>
+                    <input type="number" id="full-marks" min="0" step="any" value="100">
+                </div>
+                <button class="add-subject-btn" onclick="addSubject('marks')">Add More Subjects</button>
             </div>
-            <div class="share-icons mb-4 flex justify-center">
-                <a href="https://www.facebook.com/sharer/sharer.php?u=#" target="_blank">
-                    <img src="https://img.icons8.com/color/48/000000/facebook-new.png" alt="Facebook">
-                </a>
-                <a href="https://twitter.com/intent/tweet?url=#&text=Check out this AI Marks Percentage Calculator!" target="_blank">
-                    <img src="https://img.icons8.com/color/48/000000/twitter.png" alt="X">
-                </a>
-                <a href="https://api.whatsapp.com/send?text=Check out this AI Marks Percentage Calculator: #" target="_blank">
-                    <img src="https://img.icons8.com/color/48/000000/whatsapp.png" alt="WhatsApp">
-                </a>
-                <a href="https://www.instagram.com/" target="_blank">
-                    <img src="https://img.icons8.com/color/48/000000/instagram-new.png" alt="Instagram">
-                </a>
+            <div class="button-container">
+                <button onclick="calculateCGPA()">Calculate <span id="spinner" style="display:none;">⏳</span></button>
+                <span class="voice-icon" onclick="toggleSpeech('cgpa')" title="Toggle Speech"><i class="fas fa-volume-up"></i></span>
             </div>
-            <p class="text-sm">© 2025 All Rights Reserved</p>
+            <div id="cgpa-result" class="mt-4 font-semibold"></div>
+            <div class="suggestions" id="suggestions">
+                <h3>Suggestions for Academic Performance</h3>
+                <ul>
+                    <li>Verify your grades or marks with official records for accuracy.</li>
+                    <li>Focus on consistent study habits to improve your CGPA.</li>
+                    <li>Use past performance data to set realistic academic goals.</li>
+                    <li>Consult teachers for guidance on subjects with lower grades.</li>
+                </ul>
+            </div>
+            <div class="percentage-section">
+                <h3>CGPA to Percentage Calculator</h3>
+                <p>(As per CBSE rule: CGPA × 9.5)</p>
+                <div class="input-row">
+                    <label id="cgpa-percentage-label">Enter CGPA</label>
+                    <input type="number" id="cgpa-percentage" min="0" max="10" step="any" value="8">
+                </div>
+                <div class="button-container">
+                    <button onclick="calculatePercentage()">Calculate</button>
+                    <span class="voice-icon" onclick="toggleSpeech('percentage')" title="Toggle Speech"><i class="fas fa-volume-up"></i></span>
+                </div>
+                <div id="percentage-result" class="mt-4 font-semibold"></div>
+            </div>
+            <div class="ads-section">
+                <p>Contact for Ads: <a href="mailto:first4bencher@gmail.com">first4bencher@gmail.com</a></p>
+            </div>
+            <div id="seo-content" class="mt-4 text-sm">
+                <h3>About CGPA Calculator</h3>
+                <p>Welcome to the AI CGPA Calculator, a free online tool designed to help students calculate their CGPA, grades, or marks with ease. It also includes a CGPA to Percentage converter (CBSE rule: multiply by 9.5). Available in multiple languages including English, Hindi, Tamil, Telugu, Spanish, Bengali, Arabic, Mandarin, and French, it caters to a diverse global audience. Add as many subjects as needed with subject names, choose your calculation type, and click "Calculate" to get your result.</p>
+                <p>Why choose our CGPA Calculator? It’s user-friendly, fast, and optimized for all devices, making it perfect for quick calculations. The tool supports dynamic subject inputs with subject names for CGPA, grades, and marks with a flexible interface. Our AI integration ensures accuracy and offers professional suggestions for academic improvement. This calculator stands out due to its multilingual support and modern design, setting it apart from traditional tools.</p>
+                <p>SEO optimization is crucial for this tool to rank high on search engines like Google. We’ve included meta tags, a canonical URL, and keywords such as "cgpa calculator," "free cgpa calculator," and "cgpa to percentage" to boost visibility. To enhance ranking, consider adding backlinks from educational blogs or submitting the site to directories. Regular updates and user feedback can further improve its performance. Ideal for students and educators, this calculator is a must-try for anyone seeking clarity on academic performance. Explore it today and simplify your calculations!</p>
+            </div>
         </div>
+    </div>
+    <footer class="bg-gray-800 text-white text-center py-4 mt-8">
+        <p style="font-weight: bold;">2025 © Smart AI Calculator. All rights reserved.</p>
+        <a href="privacy.html" class="text-blue-400 ml-2">Privacy Policy</a> |
+        <a href="contactus.html" class="text-blue-400 ml-2">Contact Us</a> |
+        <a href="howto.html" class="text-blue-400 ml-2">How to Use</a>
     </footer>
     <script>
-        let isHindi = false;
-
-        function calculatePercentage() {
-            const obtainedMarks = parseFloat(document.getElementById('obtainedMarks').value);
-            const totalMarks = parseFloat(document.getElementById('totalMarks').value);
-
-            if (isNaN(obtainedMarks) || isNaN(totalMarks) || totalMarks <= 0 || obtainedMarks < 0) {
-                alert(isHindi ? 'कृपया मान्य अंक और कुल अंक दर्ज करें।' : 'Please enter valid obtained and total marks.');
-                return;
-            }
-
-            if (obtainedMarks > totalMarks) {
-                alert(isHindi ? 'प्राप्त अंक कुल अंकों से अधिक नहीं हो सकते।' : 'Obtained marks cannot exceed total marks.');
-                return;
-            }
-
-            const percentage = (obtainedMarks / totalMarks) * 100;
-
-            document.getElementById('percentageResult').textContent = isHindi 
-                ? `प्रतिशत: ${percentage.toFixed(2)}%` 
-                : `Percentage: ${percentage.toFixed(2)}%`;
-            document.getElementById('result').classList.remove('hidden');
+        let lang = 'en';
+        let isSpeaking = false;
+        let utterance = null;
+        const translations = {
+            en: { header: "Smart AI Calculator", tagline: "CGPA Calculator", calcTitle: "Enter details to calculate", typeLabel: "Calculation Type", subjectLabel: "Subject Name", cgpaLabel: "Obtained CGPA (0-10)", gradeLabel: "Obtained Grade (A1, A2, B1, etc.)", markLabel: "Obtained Marks", fullMarksLabel: "Total Marks per Subject", cgpaPercentageLabel: "Enter CGPA", resultPrefix: "Result: " },
+            hi: { header: "स्मार्ट एआई कैलकुलेटर", tagline: "सीजीपीए कैलकुलेटर", calcTitle: "गणना के लिए विवरण दर्ज करें", typeLabel: "गणना प्रकार", subjectLabel: "विषय का नाम", cgpaLabel: "प्राप्त सीजीपीए (0-10)", gradeLabel: "प्राप्त ग्रेड (A1, A2, B1, आदि)", markLabel: "प्राप्त अंक", fullMarksLabel: "प्रति विषय कुल अंक", cgpaPercentageLabel: "सीजीपीए दर्ज करें", resultPrefix: "परिणाम: " },
+            ta: { header: "ஸ்மார்ட் AI கால்குலேட்டர்", tagline: "CGPA கால்குலேட்டர்", calcTitle: "கணக்கீட்டிற்கு விவரங்களை உள்ளிடவும்", typeLabel: "கணக்கீட்டு வகை", subjectLabel: "பாடத்தின் பெயர்", cgpaLabel: "பெறப்பட்ட CGPA (0-10)", gradeLabel: "பெறப்பட்ட தரம் (A1, A2, B1, முதலியன)", markLabel: "பெறப்பட்ட மதிப்பெண்கள்", fullMarksLabel: "ஒரு பாடத்திற்கு மொத்த மதிப்பெண்கள்", cgpaPercentageLabel: "CGPA உள்ளிடவும்", resultPrefix: "முடிவு: " },
+            te: { header: "స్మార్ట్ AI కాల్కులేటర్", tagline: "CGPA కాల్కులేటర్", calcTitle: "లెక్కించడానికి వివరాలను నమోదు చేయండి", typeLabel: "లెక్కింపు రకం", subjectLabel: "సబ్జెక్ట్ పేరు", cgpaLabel: "సాధించిన CGPA (0-10)", gradeLabel: "సాధించిన గ్రేడ్ (A1, A2, B1, మొదలైనవి)", markLabel: "సాధించిన మార్కులు", fullMarksLabel: "సబ్జెక్టుకు మొత్తం మార్కులు", cgpaPercentageLabel: "CGPA నమోదు చేయండి", resultPrefix: "ఫలితం: " },
+            es: { header: "Calculadora de IA Inteligente", tagline: "Calculadora de CGPA", calcTitle: "Ingrese detalles para calcular", typeLabel: "Tipo de cálculo", subjectLabel: "Nombre de la asignatura", cgpaLabel: "CGPA obtenido (0-10)", gradeLabel: "Calificación obtenida (A1, A2, B1, etc.)", markLabel: "Marcas obtenidas", fullMarksLabel: "Marcas totales por asignatura", cgpaPercentageLabel: "Ingrese CGPA", resultPrefix: "Resultado: " },
+            bn: { header: "স্মার্ট এআই ক্যালকুলেটর", tagline: "CGPA ক্যালকুলেটর", calcTitle: "গণনার জন্য বিবরণ লিখুন", typeLabel: "গণনার ধরন", subjectLabel: "বিষয়ের নাম", cgpaLabel: "প্রাপ্ত CGPA (0-10)", gradeLabel: "প্রাপ্ত গ্রেড (A1, A2, B1, ইত্যাদি)", markLabel: "প্রাপ্ত মার্কস", fullMarksLabel: "প্রতি বিষয়ে মোট নম্বর", cgpaPercentageLabel: "CGPA লিখুন", resultPrefix: "ফলাফল: " },
+            ar: { header: "حاسبة الذكاء الاصطناعي الذكية", tagline: "حاسبة CGPA", calcTitle: "أدخل التفاصيل لحساب", typeLabel: "نوع الحساب", subjectLabel: "اسم المادة", cgpaLabel: "CGPA المحصل عليه (0-10)", gradeLabel: "الدرجة المحصل عليها (A1، A2، B1، إلخ)", markLabel: "العلامات المحصل عليها", fullMarksLabel: "إجمالي العلامات لكل مادة", cgpaPercentageLabel: "أدخل CGPA", resultPrefix: "النتيجة: " },
+            zh: { header: "智能人工智能计算器", tagline: "CGPA计算器", calcTitle: "输入详细信息以计算", typeLabel: "计算类型", subjectLabel: "科目名称", cgpaLabel: "获得CGPA (0-10)", gradeLabel: "获得等级 (A1, A2, B1等)", markLabel: "获得分数", fullMarksLabel: "每科总分", cgpaPercentageLabel: "输入CGPA", resultPrefix: "结果: " },
+            fr: { header: "Calculateur IA Intelligent", tagline: "Calculateur de CGPA", calcTitle: "Entrez les détails pour calculer", typeLabel: "Type de calcul", subjectLabel: "Nom de la matière", cgpaLabel: "CGPA obtenu (0-10)", gradeLabel: "Note obtenue (A1, A2, B1, etc.)", markLabel: "Marques obtenues", fullMarksLabel: "Total des notes par matière", cgpaPercentageLabel: "Entrez le CGPA", resultPrefix: "Résultat: " }
+        };
+        function toggleInputs() {
+            let type = document.getElementById("type").value;
+            document.getElementById("cgpa-inputs").style.display = type === "cgpa" ? "block" : "none";
+            document.getElementById("grade-inputs").style.display = type === "grade" ? "block" : "none";
+            document.getElementById("marks-inputs").style.display = type === "marks" ? "block" : "none";
+            document.getElementById("cgpa-subjects").innerHTML = '';
+            document.getElementById("grade-subjects").innerHTML = '';
+            document.getElementById("marks-subjects").innerHTML = '';
+            addSubject(type); // Add one subject by default
         }
-
-        document.getElementById('themeToggle').addEventListener('click', () => {
-            document.body.classList.toggle('dark-mode');
-            const icon = document.getElementById('themeToggle');
-            icon.src = document.body.classList.contains('dark-mode')
-                ? 'https://img.icons8.com/ios-filled/50/ffffff/sun.png'
-                : 'https://img.icons8.com/ios-filled/50/000000/moon-symbol.png';
-        });
-
-        document.getElementById('langToggle').addEventListener('click', () => {
-            isHindi = !isHindi;
-
-            document.getElementById('calcTitle').textContent = isHindi 
-                ? 'अंक प्रतिशत कैलकुलेटर' 
-                : 'Marks Percentage Calculator';
-            document.getElementById('obtainedMarksLabel').textContent = isHindi 
-                ? 'प्राप्त अंक' 
-                : 'Obtained Marks';
-            document.getElementById('totalMarksLabel').textContent = isHindi 
-                ? 'कुल अंक' 
-                : 'Total Marks';
-            document.getElementById('calcButton').textContent = isHindi 
-                ? 'गणना करें' 
-                : 'Calculate';
-            document.getElementById('aboutTitle').textContent = isHindi 
-                ? 'अंक प्रतिशत कैलकुलेटर के बारे में' 
-                : 'About the Marks Percentage Calculator';
-            document.getElementById('aboutText1').textContent = isHindi 
-                ? 'अंक प्रतिशत कैलकुलेटर आपको परीक्षा या असाइनमेंट में प्राप्त अंकों का प्रतिशत निर्धारित करने में मदद करता है। बस प्राप्त अंक और कुल अंक दर्ज करें ताकि प्रतिशत तुरंत प्राप्त हो।'
-                : 'The Marks Percentage Calculator helps you determine the percentage of marks obtained in exams or assignments. Simply input the obtained marks and the total marks to get the percentage instantly.';
-            document.getElementById('aboutText2').textContent = isHindi 
-                ? 'यह उपकरण सूत्र का उपयोग करता है: (प्राप्त अंक / कुल अंक) × 100। यह छात्रों, शिक्षकों, या किसी भी व्यक्ति के लिए आदर्श है जिसे शैक्षणिक प्रदर्शन की त्वरित और सटीक गणना करने की आवश्यकता है।'
-                : 'This tool uses the formula: (Obtained Marks / Total Marks) × 100. It’s perfect for students, teachers, or anyone needing to calculate academic performance quickly and accurately.';
-        });
+        function addSubject(type) {
+            let container = document.getElementById(`${type}-subjects`);
+            let div = document.createElement("div");
+            div.className = "subject-input";
+            if (type === "cgpa") {
+                div.innerHTML = `
+                    <input type="text" placeholder="${translations[lang].subjectLabel}">
+                    <input type="number" placeholder="${translations[lang].cgpaLabel}" min="0" max="10" step="any">
+                `;
+            } else if (type === "grade") {
+                div.innerHTML = `
+                    <input type="text" placeholder="${translations[lang].subjectLabel}">
+                    <input type="text" placeholder="${translations[lang].gradeLabel}">
+                `;
+            } else {
+                div.innerHTML = `
+                    <input type="text" placeholder="${translations[lang].subjectLabel}">
+                    <input type="number" placeholder="${translations[lang].markLabel}" min="0" step="any">
+                `;
+            }
+            container.appendChild(div);
+        }
+        function calculateCGPA() {
+            document.getElementById("spinner").style.display = "inline";
+            setTimeout(() => {
+                let resultDiv = document.getElementById("cgpa-result");
+                let suggestionsDiv = document.getElementById("suggestions");
+                let type = document.getElementById("type").value;
+                if (type === "cgpa") {
+                    let inputs = document.querySelectorAll("#cgpa-subjects .subject-input");
+                    let cgpas = Array.from(inputs).map(div => {
+                        let cgpa = parseFloat(div.querySelectorAll("input")[1].value);
+                        return isNaN(cgpa) ? null : cgpa;
+                    }).filter(val => val !== null);
+                    if (cgpas.length === 0 || cgpas.some(val => val < 0 || val > 10)) {
+                        resultDiv.innerText = lang === 'en' ? "Please enter valid CGPA values (0-10)" : lang === 'hi' ? "कृपया वैध सीजीपीए मान दर्ज करें (0-10)" : lang === 'ta' ? "சரியான CGPA மதிப்புகளை உள்ளிடவும் (0-10)" : lang === 'te' ? "దయచేసి సరైన CGPA విలువలను నమోదు చేయండి (0-10)" : lang === 'es' ? "Por favor, ingrese valores CGPA válidos (0-10)" : lang === 'bn' ? "দয়া করে বৈধ CGPA মান লিখুন (0-10)" : lang === 'ar' ? "يرجى إدخال قيم CGPA صالحة (0-10)" : lang === 'zh' ? "请输入有效的CGPA值 (0-10)" : "Veuillez entrer des valeurs CGPA valides (0-10)";
+                        suggestionsDiv.style.display = "none";
+                    } else {
+                        let cgpa = cgpas.reduce((sum, val) => sum + val, 0) / cgpas.length;
+                        resultDiv.innerHTML = `${translations[lang].resultPrefix} CGPA: ${cgpa.toFixed(2)}`;
+                        suggestionsDiv.style.display = "block";
+                    }
+                } else if (type === "grade") {
+                    let inputs = document.querySelectorAll("#grade-subjects .subject-input");
+                    let grades = Array.from(inputs).map(div => div.querySelectorAll("input")[1].value.trim().toUpperCase()).filter(g => g);
+                    let validGrades = ["A1", "A2", "B1", "B2", "C1", "C2", "D", "E1", "E2"];
+                    if (grades.length === 0 || grades.some(g => !validGrades.includes(g))) {
+                        resultDiv.innerText = lang === 'en' ? "Please enter valid grades (e.g., A1, A2, B1)" : lang === 'hi' ? "कृपया वैध ग्रेड दर्ज करें (उदाहरण: A1, A2, B1)" : lang === 'ta' ? "சரியான தரங்களை உள்ளிடவும் (எ.கா., A1, A2, B1)" : lang === 'te' ? "దయచేసి సరైన గ్రేడ్‌లను నమోదు చేయండి (ఉదా., A1, A2, B1)" : lang === 'es' ? "Por favor, ingrese calificaciones válidas (ej., A1, A2, B1)" : lang === 'bn' ? "দয়া করে বৈধ গ্রেড লিখুন (যেমন, A1, A2, B1)" : lang === 'ar' ? "يرجى إدخال درجات صالحة (مثل، A1, A2, B1)" : lang === 'zh' ? "请输入有效的等级 (例如，A1, A2, B1)" : "Veuillez entrer des notes valides (ex., A1, A2, B1)";
+                        suggestionsDiv.style.display = "none";
+                    } else {
+                        let gradePoints = { "A1": 10, "A2": 9, "B1": 8, "B2": 7, "C1": 6, "C2": 5, "D": 4, "E1": 0, "E2": 0 };
+                        let totalPoints = grades.reduce((sum, g) => sum + gradePoints[g], 0);
+                        let cgpa = totalPoints / grades.length;
+                        let overallGrade;
+                        if (cgpa >= 9.1) overallGrade = "A1";
+                        else if (cgpa >= 8.1) overallGrade = "A2";
+                        else if (cgpa >= 7.1) overallGrade = "B1";
+                        else if (cgpa >= 6.1) overallGrade = "B2";
+                        else if (cgpa >= 5.1) overallGrade = "C1";
+                        else if (cgpa >= 4.1) overallGrade = "C2";
+                        else if (cgpa >= 3.1) overallGrade = "D";
+                        else overallGrade = "E1";
+                        resultDiv.innerHTML = `${translations[lang].resultPrefix} Overall Grade: ${overallGrade}`;
+                        suggestionsDiv.style.display = "block";
+                    }
+                } else {
+                    let inputs = document.querySelectorAll("#marks-subjects .subject-input");
+                    let marks = Array.from(inputs).map(div => {
+                        let mark = parseFloat(div.querySelectorAll("input")[1].value);
+                        return isNaN(mark) ? null : mark;
+                    }).filter(val => val !== null);
+                    let fullMarks = parseFloat(document.getElementById("full-marks").value);
+                    if (marks.length === 0 || marks.some(m => m < 0 || m > fullMarks) || isNaN(fullMarks) || fullMarks <= 0) {
+                        resultDiv.innerText = lang === 'en' ? "Please enter valid marks and total marks" : lang === 'hi' ? "कृपया वैध अंक और कुल अंक दर्ज करें" : lang === 'ta' ? "சரியான மதிப்பெண்கள் மற்றும் மொத்த மதிப்பெண்களை உள்ளிடவும்" : lang === 'te' ? "దయచేసి సరైన మార్కులు మరియు మొత్తం మార్కులను నమోదు చేయండి" : lang === 'es' ? "Por favor, ingrese marcas válidas y marcas totales" : lang === 'bn' ? "দয়া করে বৈধ মার্কস এবং মোট নম্বর লিখুন" : lang === 'ar' ? "يرجى إدخال علامات صالحة وإجمالي العلامات" : lang === 'zh' ? "请输入有效的分数和总分" : "Veuillez entrer des marques valides et des marques totales";
+                        suggestionsDiv.style.display = "none";
+                    } else {
+                        let totalMarks = marks.reduce((sum, m) => sum + m, 0);
+                        let percentage = (totalMarks / (marks.length * fullMarks)) * 100;
+                        resultDiv.innerHTML = `${translations[lang].resultPrefix} Percentage: ${percentage.toFixed(2)}%`;
+                        suggestionsDiv.style.display = "block";
+                    }
+                }
+                document.getElementById("spinner").style.display = "none";
+            }, 1000);
+        }
+        function calculatePercentage() {
+            let cgpa = parseFloat(document.getElementById("cgpa-percentage").value);
+            let resultDiv = document.getElementById("percentage-result");
+            if (!isNaN(cgpa) && cgpa >= 0 && cgpa <= 10) {
+                let percentage = cgpa * 9.5;
+                resultDiv.innerHTML = `${translations[lang].resultPrefix} ${percentage.toFixed(2)}%`;
+            } else {
+                resultDiv.innerText = lang === 'en' ? "Please enter valid CGPA (0-10)" : lang === 'hi' ? "कृपया वैध सीजीपीए दर्ज करें (0-10)" : lang === 'ta' ? "சரியான CGPA உள்ளிடவும் (0-10)" : lang === 'te' ? "దయచేసి సరైన CGPA నమోదు చేయండి (0-10)" : lang === 'es' ? "Por favor, ingrese un CGPA válido (0-10)" : lang === 'bn' ? "দয়া করে বৈধ CGPA লিখুন (0-10)" : lang === 'ar' ? "يرجى إدخال CGPA صالح (0-10)" : lang === 'zh' ? "请输入有效的CGPA (0-10)" : "Veuillez entrer un CGPA valide (0-10)";
+            }
+        }
+        function toggleSpeech(section) {
+            console.log(`Toggling speech for ${section} result`);
+            const result = section === 'cgpa' ? document.getElementById("cgpa-result").innerHTML : document.getElementById("percentage-result").innerHTML;
+            if (!result) {
+                console.log("No result to speak");
+                return;
+            }
+            if (isSpeaking) {
+                window.speechSynthesis.cancel();
+                isSpeaking = false;
+                console.log("Speech stopped");
+            } else {
+                utterance = new SpeechSynthesisUtterance(result);
+                utterance.lang = lang === 'zh' ? 'zh-CN' : lang === 'ar' ? 'ar-SA' : lang;
+                utterance.onend = () => {
+                    isSpeaking = false;
+                    console.log("Speech ended");
+                };
+                window.speechSynthesis.speak(utterance);
+                isSpeaking = true;
+                console.log("Speech started");
+            }
+        }
+        function stopSpeech() {
+            if (isSpeaking) {
+                window.speechSynthesis.cancel();
+                isSpeaking = false;
+                console.log("Speech stopped on page exit");
+            }
+        }
+        function showCategory(category) {
+            // No action needed here as navigation is handled by index.html
+        }
+        window.onload = () => {
+            document.getElementById('header-title').textContent = translations[lang].header;
+            document.getElementById('tagline').textContent = translations[lang].tagline;
+            document.getElementById('calc-title').textContent = translations[lang].calcTitle;
+            document.getElementById('type-label').textContent = translations[lang].typeLabel;
+            document.getElementById('full-marks-label').textContent = translations[lang].fullMarksLabel;
+            document.getElementById('cgpa-percentage-label').textContent = translations[lang].cgpaPercentageLabel;
+            addSubject('cgpa'); // Add one CGPA subject by default
+            console.log("Voice icon loaded");
+        };
+        window.onpagehide = stopSpeech;
+        window.onbeforeunload = stopSpeech;
     </script>
-</body>
 </html>
