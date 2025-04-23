@@ -3,23 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI Investment Calculator - Free Online Tool | AI Calculator</title>
-    <meta name="description" content="Calculate your investment returns with our free AI-powered Investment Calculator. Available in English, Hindi, Tamil, Telugu, Spanish, Bengali, Arabic, Mandarin, and French. Try now!">
-    <meta name="keywords" content="investment calculator, ai investment calculator, free investment calculator, online investment calculator, investment return calculator">
+    <title>Smart AI Calculator - Investment Calculator | Free Online Tool</title>
+    <meta name="description" content="Calculate your investment growth with our free AI-powered Investment Calculator. Available in English, Hindi, Tamil, Telugu, Spanish, Bengali, Arabic, Mandarin, and French. Try now!">
+    <meta name="keywords" content="investment calculator, ai investment calculator, free investment calculator, online investment calculator, compound interest calculator">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://yourusername.github.io/ai-calculator/investment.html">
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <style>
         body {
             font-family: Arial, sans-serif;
             background: linear-gradient(135deg, #1A202C, #2D3748);
             color: #fff;
             margin: 0;
-            transition: background 0.3s, color 0.3s;
-        }
-        .light-mode {
-            background: #f0f0f0;
-            color: #333;
         }
         .header { background: #2c3e50; padding: 20px 0; text-align: center; position: relative; }
         .nav-tabs { display: flex; justify-content: center; gap: 20px; padding: 10px 0; background: #34495e; }
@@ -30,18 +26,61 @@
         .input-row { display: flex; justify-content: space-between; margin-bottom: 15px; }
         .input-row label { font-weight: bold; }
         input { border: 1px solid #ccc; padding: 5px; border-radius: 3px; width: 100px; }
-        button { background-color: #28a745; color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer; }
-        button:hover { background-color: #218838; }
-        .theme-switch { background: #34495e; padding: 6px 12px; border-radius: 5px; cursor: pointer; color: white; position: absolute; top: 20px; right: 120px; }
-        .theme-switch:hover { background: #3498db; }
-        @media (max-width: 600px) { .input-row { flex-direction: column; } input { width: 100%; margin-bottom: 10px; } }
+        button { 
+            background: linear-gradient(135deg, #ff6b6b, #e63946); 
+            color: white; 
+            padding: 12px 24px; 
+            border: none; 
+            border-radius: 5px; 
+            cursor: pointer; 
+            font-weight: bold; 
+            font-size: 1.1rem; 
+            box-shadow: 0 3px 6px rgba(0,0,0,0.4); 
+            transition: transform 0.2s, background 0.2s; 
+            text-transform: uppercase; 
+        }
+        button:hover { 
+            background: linear-gradient(135deg, #e63946, #c0392b); 
+            transform: scale(1.05); 
+        }
+        .ads-section { margin-top: 20px; padding: 20px; background: #34495e; border-radius: 10px; text-align: center; box-shadow: 0 0 10px rgba(0,0,0,0.3); }
+        .ads-section p { font-size: 1.5rem; font-weight: bold; color: #1e90ff; }
+        .ads-section a { color: #1e90ff; text-decoration: underline; }
+        .voice-icon { 
+            display: inline-block; 
+            padding: 10px; 
+            cursor: pointer; 
+            font-size: 2rem; 
+            color: #00cec9; 
+            transition: color 0.2s, transform 0.2s; 
+            visibility: visible; 
+        }
+        .voice-icon:hover { 
+            color: #00b7b3; 
+            transform: scale(1.1); 
+        }
+        .button-container { 
+            display: flex; 
+            justify-content: center; 
+            align-items: center; 
+            gap: 15px; 
+            margin: 20px 0; 
+        }
+        @media (max-width: 600px) { 
+            .input-row { flex-direction: column; } 
+            input { width: 100%; margin-bottom: 10px; } 
+            .button-container { flex-direction: row; gap: 10px; } 
+            .voice-icon { display: inline-block; visibility: visible; } 
+        }
+        @media (min-width: 601px) { 
+            .voice-icon { display: inline-block; visibility: visible; } 
+        }
     </style>
 </head>
 <body>
     <header class="header">
-        <h1 id="header-title">AI Calculator</h1>
-        <p id="tagline">A to Z Calculators Powered by AI</p>
-        <div class="theme-switch" onclick="toggleTheme()">Theme: <span id="theme-text">Dark</span></div>
+        <h1 id="header-title">Smart AI Calculator</h1>
+        <p id="tagline">Investment Calculator</p>
     </header>
     <nav class="nav-tabs">
         <a href="index.html#financial" class="nav-tab" onclick="showCategory('financial')">Financial</a>
@@ -52,87 +91,116 @@
     </nav>
     <div class="calculator-content">
         <div class="calculator-box">
-            <h2 id="calc-title">Enter investment amount, rate, and time to calculate returns</h2>
+            <h2 id="calc-title">Enter investment amount, return rate, and time to calculate future value</h2>
             <div class="input-row">
-                <label id="investment-label">Investment Amount (₹)</label>
-                <input type="number" id="investment-amount" min="0" value="10000">
+                <label id="amount-label">Investment Amount (₹)</label>
+                <input type="number" id="investment-amount" min="0" value="100000">
             </div>
             <div class="input-row">
-                <label id="rate-label">Annual Rate (%)</label>
-                <input type="number" id="rate" min="0" step="0.1" value="5">
+                <label id="rate-label">Annual Return Rate (%)</label>
+                <input type="number" id="return-rate" min="0" step="0.1" value="7">
             </div>
             <div class="input-row">
                 <label id="time-label">Time (Years)</label>
                 <input type="number" id="time" min="1" value="5">
             </div>
-            <button onclick="calculateInvestment()">Calculate <span id="spinner" style="display:none;">⏳</span></button>
+            <div class="button-container">
+                <button onclick="calculateInvestment()">Calculate <span id="spinner" style="display:none;">⏳</span></button>
+                <span class="voice-icon" onclick="toggleSpeech()" title="Toggle Speech"><i class="fas fa-volume-up"></i></span>
+            </div>
+            <div class="ads-section">
+                <p>Contact for Ads: <a href="mailto:first4bencher@gmail.com">first4bencher@gmail.com</a></p>
+            </div>
             <div id="investment-result" class="mt-4 font-semibold"></div>
             <div id="seo-content" class="mt-4 text-sm">
                 <h3>About Investment Calculator</h3>
-                <p>Welcome to the AI Investment Calculator, a free online tool designed to help you calculate potential returns on your investments with precision. Whether you’re investing in stocks, mutual funds, or fixed deposits, this calculator uses advanced AI technology to provide instant projections. Available in multiple languages including English, Hindi, Tamil, Telugu, Spanish, Bengali, Arabic, Mandarin, and French, it caters to a diverse global audience. Enter the investment amount, annual rate of return, and time period, then click "Calculate" to see your total returns.</p>
-                <p>Why choose our Investment Calculator? It’s user-friendly, fast, and optimized for all devices, making it ideal for investors, financial advisors, and beginners. The tool uses the compound interest formula: A = P(1 + r)^t, where A is the final amount, P is the principal, r is the annual rate, and t is the time in years (compounded annually). Our AI enhances accuracy and offers insights, such as the effect of different rates or timeframes. This calculator stands out with its multilingual support and modern interface, distinguishing it from traditional investment tools.</p>
-                <p>SEO optimization is essential for this tool to rank well on search engines like Google. We’ve included meta tags, a canonical URL, and keywords such as "investment calculator online," "free investment calculator," and "AI investment tool" to boost visibility. To improve rankings, consider backlinks from financial blogs or investment platforms, and submit the site to relevant directories. Regular updates and user engagement can further enhance its performance. Perfect for investment planning, this calculator is a valuable resource for anyone looking to grow their wealth. Try it now!</p>
+                <p>Welcome to the AI Investment Calculator, a free online tool designed to help you calculate your investment growth with ease. Whether you’re planning for retirement, wealth creation, or financial goals, this calculator leverages advanced AI technology to provide accurate and instant results. Available in multiple languages including English, Hindi, Tamil, Telugu, Spanish, Bengali, Arabic, Mandarin, and French, it caters to a diverse global audience. Simply enter your investment amount, annual return rate, and time period, and click "Calculate" to get your investment growth breakdown.</p>
+                <p>Why choose our Investment Calculator? It’s user-friendly, fast, and optimized for all devices, making it perfect for investors, financial planners, and individuals. The tool uses a standard compound interest formula: FV = P × (1 + r/n)^(n×t), where P is the investment amount, r is the annual return rate, n is the number of times interest is compounded per year (assumed monthly), and t is the time in years. Our AI integration ensures precision and offers suggestions for optimizing investments. This calculator stands out due to its multilingual support and modern design, setting it apart from traditional investment calculators.</p>
+                <p>SEO optimization is crucial for this tool to rank high on search engines like Google. We’ve included meta tags, a canonical URL, and keywords such as "investment calculator online," "free investment calculator," and "AI investment tool" to boost visibility. To enhance ranking, consider adding backlinks from financial or investment blogs or submitting the site to directories. Regular updates and user feedback can further improve its performance. Ideal for investment planning, this calculator is a must-try for anyone seeking financial clarity. Explore it today and take control of your investment goals!</p>
             </div>
         </div>
     </div>
     <footer class="bg-gray-800 text-white text-center py-4 mt-8">
-        <p>© 2025 AI Calculator. All rights reserved.</p>
+        <p style="font-weight: bold;">2025 © Smart AI Calculator. All rights reserved.</p>
         <a href="privacy.html" class="text-blue-400 ml-2">Privacy Policy</a> |
         <a href="contactus.html" class="text-blue-400 ml-2">Contact Us</a> |
         <a href="howto.html" class="text-blue-400 ml-2">How to Use</a>
     </footer>
     <script>
         let lang = 'en';
-        let isDarkMode = true;
+        let isSpeaking = false;
+        let utterance = null;
         const translations = {
-            en: { header: "AI Calculator", tagline: "A to Z Calculators Powered by AI", calcTitle: "Enter investment amount, rate, and time to calculate returns", investmentLabel: "Investment Amount (₹)", rateLabel: "Annual Rate (%)", timeLabel: "Time (Years)", resultPrefix: "Total Returns: " },
-            hi: { header: "एआई कैलकुलेटर", tagline: "ए टू जेड कैलकुलेटर, AI द्वारा संचालित", calcTitle: "निवेश राशि, दर और समय दर्ज करें रिटर्न की गणना के लिए", investmentLabel: "निवेश राशि (₹)", rateLabel: "वार्षिक दर (%)", timeLabel: "समय (वर्ष)", resultPrefix: "कुल रिटर्न: " },
-            ta: { header: "AI கால்குலேட்டர்", tagline: "AI இயக்கிய A முதல் Z கால்குலேட்டர்கள்", calcTitle: "முதலீட்டு தொகை, விகிதம் மற்றும் நேரத்தை உள்ளிடவும் வருமானம் கணக்கிட", investmentLabel: "முதலீட்டு தொகை (₹)", rateLabel: "ஆண்டு விகிதம் (%)", timeLabel: "நேரம் (ஆண்டுகள்)", resultPrefix: "மொத்த வருமானம்: " },
-            te: { header: "AI కాల్కులేటర్", tagline: "AI ద్వారా నడిపే A నుండి Z కాల్కులేటర్లు", calcTitle: "నిర్వహణ రాశి, రేట్ మరియు సమయాన్ని నమోదు చేయండి రిటర్న్స్ కోసం", investmentLabel: "నిర్వహణ రాశి (₹)", rateLabel: "వార్షిక రేటు (%)", timeLabel: "సమయం (సంవత్సరాలు)", resultPrefix: "మొత్తం రిటర్న్స్: " },
-            es: { header: "Calculadora de IA", tagline: "Calculadoras A-Z impulsadas por IA", calcTitle: "Ingrese el monto de la inversión, la tasa y el tiempo para calcular los rendimientos", investmentLabel: "Monto de la inversión (₹)", rateLabel: "Tasa anual (%)", timeLabel: "Tiempo (Años)", resultPrefix: "Retorno total: " },
-            bn: { header: "এআই ক্যালকুলেটর", tagline: "এআই দ্বারা চালিত এ থেকে জে ক্যালকুলেটর", calcTitle: "বিনিয়োগের অংক, হার এবং সময় লিখুন রিটার্ন গণনার জন্য", investmentLabel: "বিনিয়োগের পরিমাণ (₹)", rateLabel: "বার্ষিক হার (%)", timeLabel: "সময় (বছর)", resultPrefix: "মোট রিটার্ন: " },
-            ar: { header: "حاسبة الذكاء الاصطناعي", tagline: "حاسبات A إلى Z مدعومة بالذكاء الاصطناعي", calcTitle: "أدخل مبلغ الاستثمار، والمعدل، والوقت لحساب العوائد", investmentLabel: "مبلغ الاستثمار (₹)", rateLabel: "المعدل السنوي (%)", timeLabel: "الوقت (سنوات)", resultPrefix: "إجمالي العوائد: " },
-            zh: { header: "人工智能计算器", tagline: "AI驱动的A到Z计算器", calcTitle: "输入投资金额、利率和时间以计算回报", investmentLabel: "投资金额 (₹)", rateLabel: "年利率 (%)", timeLabel: "时间 (年)", resultPrefix: "总回报: " },
-            fr: { header: "Calculateur IA", tagline: "Calculateurs A à Z alimentés par IA", calcTitle: "Entrez le montant de l'investissement, le taux et le temps pour calculer les rendements", investmentLabel: "Montant de l'investissement (₹)", rateLabel: "Taux annuel (%)", timeLabel: "Temps (Années)", resultPrefix: "Rendement total: " }
+            en: { header: "Smart AI Calculator", tagline: "Investment Calculator", calcTitle: "Enter investment amount, return rate, and time to calculate future value", amountLabel: "Investment Amount (₹)", rateLabel: "Annual Return Rate (%)", timeLabel: "Time (Years)", resultPrefix: "Future Value: " },
+            hi: { header: "स्मार्ट एआई कैलकुलेटर", tagline: "निवेश कैलकुलेटर", calcTitle: "निवेश राशि, रिटर्न दर और समय दर्ज करें भविष्य के मूल्य की गणना के लिए", amountLabel: "निवेश राशि (₹)", rateLabel: "वार्षिक रिटर्न दर (%)", timeLabel: "समय (वर्ष)", resultPrefix: "भविष्य का मूल्य: " },
+            ta: { header: "ஸ்மார்ட் AI கால்குலேட்டர்", tagline: "முதலீட்டு கால்குலேட்டர்", calcTitle: "முதலீட்டு தொகை, வருவாய் விகிதம் மற்றும் காலத்தை உள்ளிடவும் எதிர்கால மதிப்பு கணக்கிட", amountLabel: "முதலீட்டு தொகை (₹)", rateLabel: "ஆண்டு வருவாய் விகிதம் (%)", timeLabel: "காலம் (ஆண்டுகள்)", resultPrefix: "எதிர்கால மதிப்பு: " },
+            te: { header: "స్మార్ట్ AI కాల్కులేటర్", tagline: "ఇన్వెస్ట్మెంట్ కాల్కులేటర్", calcTitle: "పెట్టుబడి రాశి, రిటర్న్ రేటు మరియు సమయాన్ని నమోదు చేయండి భవిష్యత్తు విలువ కోసం", amountLabel: "పెట్టుబడి రాశి (₹)", rateLabel: "వార్షిక రిటర్న్ రేటు (%)", timeLabel: "సమయం (సంవత్సరాలు)", resultPrefix: "భవిష్యత్తు విలువ: " },
+            es: { header: "Calculadora de IA Inteligente", tagline: "Calculadora de Inversión", calcTitle: "Ingrese el monto de la inversión, la tasa de retorno y el tiempo para calcular el valor futuro", amountLabel: "Monto de la inversión (₹)", rateLabel: "Tasa de retorno anual (%)", timeLabel: "Tiempo (Años)", resultPrefix: "Valor futuro: " },
+            bn: { header: "স্মার্ট এআই ক্যালকুলেটর", tagline: "বিনিয়োগ ক্যালকুলেটর", calcTitle: "বিনিয়োগের পরিমাণ, রিটার্ন হার এবং সময় লিখুন ভবিষ্যত মূল্য গণনার জন্য", amountLabel: "বিনিয়োগের পরিমাণ (₹)", rateLabel: "বার্ষিক রিটার্ন হার (%)", timeLabel: "সময় (বছর)", resultPrefix: "ভবিষ্যত মূল্য: " },
+            ar: { header: "حاسبة الذكاء الاصطناعي الذكية", tagline: "حاسبة الاستثمار", calcTitle: "أدخل مبلغ الاستثمار، ونسبة العائد، والوقت لحساب القيمة المستقبلية", amountLabel: "مبلغ الاستثمار (₹)", rateLabel: "نسبة العائد السنوي (%)", timeLabel: "الوقت (سنوات)", resultPrefix: "القيمة المستقبلية: " },
+            zh: { header: "智能人工智能计算器", tagline: "投资计算器", calcTitle: "输入投资金额、回报率和时间以计算未来价值", amountLabel: "投资金额 (₹)", rateLabel: "年回报率 (%)", timeLabel: "时间 (年)", resultPrefix: "未来价值: " },
+            fr: { header: "Calculateur IA Intelligent", tagline: "Calculateur d'Investissement", calcTitle: "Entrez le montant de l'investissement, le taux de rendement et le temps pour calculer la valeur future", amountLabel: "Montant de l'investissement (₹)", rateLabel: "Taux de rendement annuel (%)", timeLabel: "Durée (Années)", resultPrefix: "Valeur future: " }
         };
-        function toggleTheme() {
-            isDarkMode = !isDarkMode;
-            document.body.classList.toggle('light-mode', !isDarkMode);
-            document.getElementById('theme-text').textContent = isDarkMode ? 'Dark' : 'Light';
-        }
         function calculateInvestment() {
             document.getElementById("spinner").style.display = "inline";
             setTimeout(() => {
-                let principal = parseFloat(document.getElementById("investment-amount").value);
-                let rate = parseFloat(document.getElementById("rate").value) / 100;
+                let investmentAmount = parseFloat(document.getElementById("investment-amount").value);
+                let rate = parseFloat(document.getElementById("return-rate").value) / 100;
                 let time = parseFloat(document.getElementById("time").value);
                 let resultDiv = document.getElementById("investment-result");
-                if (principal > 0 && rate >= 0 && time > 0) {
-                    let amount = principal * Math.pow(1 + rate, time);
-                    let returns = amount - principal;
-                    resultDiv.innerHTML = `${translations[lang].resultPrefix} ${amount.toFixed(2)} ₹<br>Profit: ${returns.toFixed(2)} ₹`;
-                    speakResult(resultDiv.innerHTML);
+                if (investmentAmount > 0 && rate >= 0 && time > 0) {
+                    let futureValue = investmentAmount * Math.pow(1 + rate / 12, 12 * time);
+                    let profit = futureValue - investmentAmount;
+                    resultDiv.innerHTML = `${translations[lang].resultPrefix} ${futureValue.toFixed(2)} ₹<br>Profit: ${profit.toFixed(2)} ₹<br>Investment Amount: ${investmentAmount.toFixed(2)} ₹`;
                 } else {
                     resultDiv.innerText = lang === 'en' ? "Please enter valid values" : lang === 'hi' ? "कृपया वैध मान दर्ज करें" : lang === 'ta' ? "சரியான மதிப்புகளை உள்ளிடவும்" : lang === 'te' ? "దయచేసి సరైన విలువలను నమోదు చేయండి" : lang === 'es' ? "Por favor, ingrese valores válidos" : lang === 'bn' ? "দয়া করে বৈধ মান লিখুন" : lang === 'ar' ? "يرجى إدخال قيم صحيحة" : lang === 'zh' ? "请输入有效值" : "Veuillez entrer des valeurs valides";
                 }
                 document.getElementById("spinner").style.display = "none";
             }, 1000);
         }
+        function toggleSpeech() {
+            console.log("Toggling speech for result");
+            const result = document.getElementById("investment-result").innerHTML;
+            if (!result) {
+                console.log("No result to speak");
+                return;
+            }
+            if (isSpeaking) {
+                window.speechSynthesis.cancel();
+                isSpeaking = false;
+                console.log("Speech stopped");
+            } else {
+                utterance = new SpeechSynthesisUtterance(result);
+                utterance.lang = lang === 'zh' ? 'zh-CN' : lang === 'ar' ? 'ar-SA' : lang;
+                utterance.onend = () => {
+                    isSpeaking = false;
+                    console.log("Speech ended");
+                };
+                window.speechSynthesis.speak(utterance);
+                isSpeaking = true;
+                console.log("Speech started");
+            }
+        }
+        function stopSpeech() {
+            if (isSpeaking) {
+                window.speechSynthesis.cancel();
+                isSpeaking = false;
+                console.log("Speech stopped on page exit");
+            }
+        }
         function showCategory(category) {
             // No action needed here as navigation is handled by index.html
-        }
-        function speakResult(result) {
-            const utterance = new SpeechSynthesisUtterance(result);
-            utterance.lang = lang === 'zh' ? 'zh-CN' : lang === 'ar' ? 'ar-SA' : lang;
-            window.speechSynthesis.speak(utterance);
         }
         window.onload = () => {
             document.getElementById('header-title').textContent = translations[lang].header;
             document.getElementById('tagline').textContent = translations[lang].tagline;
             document.getElementById('calc-title').textContent = translations[lang].calcTitle;
-            document.getElementById('investment-label').textContent = translations[lang].investmentLabel;
+            document.getElementById('amount-label').textContent = translations[lang].amountLabel;
             document.getElementById('rate-label').textContent = translations[lang].rateLabel;
             document.getElementById('time-label').textContent = translations[lang].timeLabel;
+            console.log("Voice icon loaded");
         };
+        window.onpagehide = stopSpeech;
+        window.onbeforeunload = stopSpeech;
     </script>
-</html>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'934ab0e65a83454b',t:'MTc0NTM4MzMxMi4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></html>
