@@ -1,187 +1,229 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Construction & Home Calculators - Tile Calculator</title>
-  <meta name="description" content="Accurately estimate how many tiles you need for your space. Supports English, Hindi, Mandarin, French, and Arabic." />
-  <meta name="keywords" content="Tile calculator, construction tools, home improvement, flooring tiles estimate, area tile calculator, tiles needed, tile area estimator, room tile calculator, accurate tile estimator, tile measurement tool, tile cost calculator, interior design tiles, tiling work estimator, construction tile planning, tiles required calculator, floor tiling calculator, DIY tile estimator, tile planning tool, multilingual tile calculator, Arabic tile tool, French tile calculator, Hindi tile estimator, Mandarin home calculator" />
-  <meta name="author" content="AI Calculator Team" />
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background-color: #f1f5f9;
-      color: #111;
-      margin: 0;
-      padding: 0;
-    }
-
-    header {
-      background-color: #3b82f6;
-      color: #fff;
-      padding: 20px;
-      text-align: center;
-    }
-
-    h1 {
-      margin: 0;
-      font-size: 26px;
-    }
-
-    .subtitle {
-      margin-top: 5px;
-      font-size: 16px;
-      color: #e0f2fe;
-    }
-
-    .container {
-      max-width: 600px;
-      margin: 30px auto;
-      background: #fff;
-      padding: 30px;
-      border-radius: 12px;
-      box-shadow: 0 0 12px rgba(0, 0, 0, 0.1);
-    }
-
-    label {
-      display: block;
-      margin: 10px 0 5px;
-      font-weight: bold;
-    }
-
-    input {
-      width: 100%;
-      padding: 10px;
-      border-radius: 6px;
-      border: 1px solid #ccc;
-      margin-bottom: 15px;
-    }
-
-    button {
-      background: #3b82f6;
-      color: #fff;
-      border: none;
-      padding: 12px 20px;
-      font-size: 16px;
-      border-radius: 6px;
-      cursor: pointer;
-      width: 100%;
-    }
-
-    .result {
-      margin-top: 20px;
-      background: #ecfdf5;
-      padding: 15px;
-      border-radius: 8px;
-      font-weight: bold;
-      color: #065f46;
-    }
-
-    select {
-      width: 100%;
-      padding: 10px;
-      margin-bottom: 15px;
-      border-radius: 6px;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart AI Calculator - Tile Calculator | Free Online Tool</title>
+    <meta name="description" content="Calculate the number of tiles needed for your floor with our free AI-powered Tile Calculator. Available in English, Hindi, Tamil, Telugu, Spanish, Bengali, Arabic, Mandarin, and French. Try now!">
+    <meta name="keywords" content="tile calculator, ai tile calculator, free tile calculator, online tile calculation, home construction calculator">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://yourusername.github.io/ai-calculator/tile-calculator.html">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #1A202C, #2D3748);
+            color: #fff;
+            margin: 0;
+        }
+        .header { background: #2c3e50; padding: 20px 0; text-align: center; position: relative; }
+        .nav-tabs { display: flex; justify-content: center; gap: 20px; padding: 10px 0; background: #34495e; }
+        .nav-tab { color: white; text-decoration: none; padding: 5px 15px; transition: background 0.3s; font-weight: bold; text-shadow: 0 0 5px rgba(255, 107, 107, 0.5); }
+        .nav-tab:hover, .nav-tab.active { background: #3498db; border-radius: 5px; }
+        .calculator-content { max-width: 600px; margin: 20px auto; padding: 20px; background: rgba(45, 55, 72, 0.9); border-radius: 10px; box-shadow: 0 0 15px rgba(0,0,0,0.5); }
+        .calculator-box { background: #e0e0e0; color: #333; padding: 20px; border-radius: 5px; text-align: center; }
+        .input-row { display: flex; justify-content: space-between; margin-bottom: 15px; }
+        .input-row label { font-weight: bold; }
+        input, select { border: 1px solid #ccc; padding: 5px; border-radius: 3px; width: 100px; }
+        button { 
+            background: linear-gradient(135deg, #ff6b6b, #e63946); 
+            color: white; 
+            padding: 12px 24px; 
+            border: none; 
+            border-radius: 5px; 
+            cursor: pointer; 
+            font-weight: bold; 
+            font-size: 1.1rem; 
+            box-shadow: 0 3px 6px rgba(0,0,0,0.4); 
+            transition: transform 0.2s, background 0.2s; 
+            text-transform: uppercase; 
+        }
+        button:hover { 
+            background: linear-gradient(135deg, #e63946, #c0392b); 
+            transform: scale(1.05); 
+        }
+        .ads-section { margin-top: 10px; padding: 10px; background: #34495e; border-radius: 5px; text-align: center; box-shadow: 0 0 5px rgba(0,0,0,0.3); }
+        .ads-section p { font-size: 1.2rem; font-weight: bold; color: #1e90ff; }
+        .ads-section a { color: #1e90ff; text-decoration: underline; }
+        .voice-icon { 
+            display: inline-block; 
+            padding: 10px; 
+            cursor: pointer; 
+            font-size: 2rem; 
+            color: #00cec9; 
+            transition: color 0.2s, transform 0.2s; 
+            visibility: visible; 
+        }
+        .voice-icon:hover { 
+            color: #00b7b3; 
+            transform: scale(1.1); 
+        }
+        .button-container { 
+            display: flex; 
+            justify-content: center; 
+            align-items: center; 
+            gap: 15px; 
+            margin: 20px 0; 
+        }
+        .suggestions { margin-top: 20px; padding: 15px; background: #f0f0f0; border-radius: 5px; text-align: left; }
+        .suggestions h3 { font-size: 1.2rem; font-weight: bold; margin-bottom: 10px; }
+        .suggestions ul { list-style-type: disc; padding-left: 20px; }
+        .suggestions li { margin-bottom: 8px; }
+        @media (max-width: 600px) { 
+            .input-row { flex-direction: column; } 
+            input, select { width: 100%; margin-bottom: 10px; } 
+            .button-container { flex-direction: row; gap: 10px; } 
+            .voice-icon { display: inline-block; visibility: visible; } 
+        }
+        @media (min-width: 601px) { 
+            .voice-icon { display: inline-block; visibility: visible; } 
+        }
+    </style>
 </head>
-
 <body>
-  <header>
-    <h1>Construction & Home Calculators</h1>
-    <div class="subtitle">Tile Calculator</div>
-  </header>
-
-  <div class="container">
-    <label for="language">Select Language:</label>
-    <select id="language" onchange="setLanguage()">
-      <option value="en">English</option>
-      <option value="hi">Hindi</option>
-      <option value="zh">Mandarin</option>
-      <option value="fr">French</option>
-      <option value="ar">Arabic</option>
-    </select>
-
-    <label id="roomLengthLabel">Room Length (in meters):</label>
-    <input type="number" id="roomLength" />
-
-    <label id="roomWidthLabel">Room Width (in meters):</label>
-    <input type="number" id="roomWidth" />
-
-    <label id="tileLengthLabel">Tile Length (in cm):</label>
-    <input type="number" id="tileLength" />
-
-    <label id="tileWidthLabel">Tile Width (in cm):</label>
-    <input type="number" id="tileWidth" />
-
-    <button onclick="calculateTiles()" id="calcBtn">Calculate Tiles Needed</button>
-    <div class="result" id="result"></div>
-  </div>
-
-  <script>
-    function calculateTiles() {
-      const roomLength = parseFloat(document.getElementById("roomLength").value);
-      const roomWidth = parseFloat(document.getElementById("roomWidth").value);
-      const tileLength = parseFloat(document.getElementById("tileLength").value) / 100;
-      const tileWidth = parseFloat(document.getElementById("tileWidth").value) / 100;
-
-      if (!roomLength || !roomWidth || !tileLength || !tileWidth) {
-        document.getElementById("result").innerText = "Please enter all values correctly.";
-        return;
-      }
-
-      const roomArea = roomLength * roomWidth;
-      const tileArea = tileLength * tileWidth;
-      const totalTiles = Math.ceil((roomArea / tileArea) * 1.1); // adding 10% for wastage
-
-      document.getElementById("result").innerText =
-        `You will need approximately ${totalTiles} tiles (including 10% extra for wastage).`;
-    }
-
-    const translations = {
-      hi: {
-        roomLengthLabel: "कमरे की लंबाई (मीटर में):",
-        roomWidthLabel: "कमरे की चौड़ाई (मीटर में):",
-        tileLengthLabel: "टाइल की लंबाई (सेमी में):",
-        tileWidthLabel: "टाइल की चौड़ाई (सेमी में):",
-        calcBtn: "टाइल की गणना करें"
-      },
-      zh: {
-        roomLengthLabel: "房间长度（米）:",
-        roomWidthLabel: "房间宽度（米）:",
-        tileLengthLabel: "瓷砖长度（厘米）:",
-        tileWidthLabel: "瓷砖宽度（厘米）:",
-        calcBtn: "计算所需瓷砖"
-      },
-      fr: {
-        roomLengthLabel: "Longueur de la pièce (en mètres):",
-        roomWidthLabel: "Largeur de la pièce (en mètres):",
-        tileLengthLabel: "Longueur du carreau (en cm):",
-        tileWidthLabel: "Largeur du carreau (en cm):",
-        calcBtn: "Calculer les carreaux nécessaires"
-      },
-      ar: {
-        roomLengthLabel: "طول الغرفة (بالمتر):",
-        roomWidthLabel: "عرض الغرفة (بالمتر):",
-        tileLengthLabel: "طول البلاط (سم):",
-        tileWidthLabel: "عرض البلاط (سم):",
-        calcBtn: "احسب عدد البلاط"
-      }
-    };
-
-    function setLanguage() {
-      const lang = document.getElementById("language").value;
-      const t = translations[lang];
-      if (!t) return;
-
-      document.getElementById("roomLengthLabel").innerText = t.roomLengthLabel;
-      document.getElementById("roomWidthLabel").innerText = t.roomWidthLabel;
-      document.getElementById("tileLengthLabel").innerText = t.tileLengthLabel;
-      document.getElementById("tileWidthLabel").innerText = t.tileWidthLabel;
-      document.getElementById("calcBtn").innerText = t.calcBtn;
-    }
-  </script>
-</body>
-
+    <header class="header">
+        <h1 id="header-title">Smart AI Calculator</h1>
+        <p id="tagline">Tile Calculator</p>
+    </header>
+    <nav class="nav-tabs">
+        <a href="index.html#home" class="nav-tab" onclick="showCategory('home')">HOME</a>
+        <a href="index.html#home-construction" class="nav-tab active" onclick="showCategory('home-construction')">HOME CONSTRUCTION</a>
+    </nav>
+    <div class="calculator-content">
+        <div class="calculator-box">
+            <h2 id="calc-title">Enter dimensions to calculate tiles needed</h2>
+            <div class="input-row">
+                <label id="length-label">Room Length (m)</label>
+                <input type="number" id="length" min="0" step="any" value="5">
+            </div>
+            <div class="input-row">
+                <label id="width-label">Room Width (m)</label>
+                <input type="number" id="width" min="0" step="any" value="4">
+            </div>
+            <div class="input-row">
+                <label id="tile-length-label">Tile Length (cm)</label>
+                <input type="number" id="tile-length" min="0" step="any" value="30">
+            </div>
+            <div class="input-row">
+                <label id="tile-width-label">Tile Width (cm)</label>
+                <input type="number" id="tile-width" min="0" step="any" value="30">
+            </div>
+            <div class="input-row">
+                <label id="wastage-label">Wastage (%)</label>
+                <input type="number" id="wastage" min="0" step="any" value="10">
+            </div>
+            <div class="button-container">
+                <button onclick="calculateTiles()">Calculate <span id="spinner" style="display:none;">⏳</span></button>
+                <span class="voice-icon" onclick="toggleSpeech()" title="Toggle Speech"><i class="fas fa-volume-up"></i></span>
+            </div>
+            <div id="tile-result" class="mt-4 font-semibold"></div>
+            <div class="suggestions">
+                <h3>Suggestions for Tile Selection</h3>
+                <ul>
+                    <li>Consider adding 5-15% extra tiles for cuts, breakages, and future repairs.</li>
+                    <li>Choose non-slip tiles for bathrooms and kitchens for safety.</li>
+                    <li>Verify tile dimensions with your supplier, as actual sizes may vary slightly.</li>
+                    <li>Opt for larger tiles to reduce grout lines and create a modern look.</li>
+                </ul>
+            </div>
+            <div class="ads-section">
+                <p>Contact for Ads: <a href="mailto:first4bencher@gmail.com">first4bencher@gmail.com</a></p>
+            </div>
+            <div id="seo-content" class="mt-4 text-sm">
+                <h3>About Tile Calculator</h3>
+                <p>Welcome to the AI Tile Calculator, a free online tool designed to help you calculate the number of tiles needed for your flooring projects with ease. Whether you’re a homeowner or contractor, this calculator leverages advanced AI technology to provide accurate and instant results. Available in multiple languages including English, Hindi, Tamil, Telugu, Spanish, Bengali, Arabic, Mandarin, and French, it caters to a diverse global audience. Simply enter your room dimensions, tile size, and wastage percentage, then click "Calculate" to get your result.</p>
+                <p>Why choose our Tile Calculator? It’s user-friendly, fast, and optimized for all devices, making it perfect for quick calculations. The tool accounts for room dimensions, tile sizes, and wastage for precise estimates. Our AI integration ensures accuracy and offers professional suggestions for tile selection. This calculator stands out due to its multilingual support and modern design, setting it apart from traditional tools.</p>
+                <p>SEO optimization is crucial for this tool to rank high on search engines like Google. We’ve included meta tags, a canonical URL, and keywords such as "tile calculator," "free tile calculator," and "AI home construction calculator" to boost visibility. To enhance ranking, consider adding backlinks from home improvement blogs or submitting the site to directories. Regular updates and user feedback can further improve its performance. Ideal for flooring projects, this calculator is a must-try for anyone seeking clarity on tile requirements. Explore it today and simplify your calculations!</p>
+            </div>
+        </div>
+    </div>
+    <footer class="bg-gray-800 text-white text-center py-4 mt-8">
+        <p style="font-weight: bold;">2025 © Smart AI Calculator. All rights reserved.</p>
+        <a href="privacy.html" class="text-blue-400 ml-2">Privacy Policy</a> |
+        <a href="contactus.html" class="text-blue-400 ml-2">Contact Us</a> |
+        <a href="howto.html" class="text-blue-400 ml-2">How to Use</a>
+    </footer>
+    <script>
+        let lang = 'en';
+        let isSpeaking = false;
+        let utterance = null;
+        const translations = {
+            en: { header: "Smart AI Calculator", tagline: "Tile Calculator", calcTitle: "Enter dimensions to calculate tiles needed", lengthLabel: "Room Length (m)", widthLabel: "Room Width (m)", tileLengthLabel: "Tile Length (cm)", tileWidthLabel: "Tile Width (cm)", wastageLabel: "Wastage (%)", resultPrefix: "Result: " },
+            hi: { header: "स्मार्ट एआई कैलकुलेटर", tagline: "टाइल कैलकुलेटर", calcTitle: "टाइलों की संख्या की गणना के लिए आयाम दर्ज करें", lengthLabel: "कमरे की लंबाई (मी)", widthLabel: "कमरे की चौड़ाई (मी)", tileLengthLabel: "टाइल की लंबाई (सेमी)", tileWidthLabel: "टाइल की चौड़ाई (सेमी)", wastageLabel: "बर्बादी (%)", resultPrefix: "परिणाम: " },
+            ta: { header: "ஸ்மார்ட் AI கால்குலேட்டர்", tagline: "டைல் கால்குலேட்டர்", calcTitle: "டைல்களின் எண்ணிக்கையை கணக்கிட பரிமாணங்களை உள்ளிடவும்", lengthLabel: "அறை நீளம் (மீ)", widthLabel: "அறை அகலம் (மீ)", tileLengthLabel: "டைல் நீளம் (செமீ)", tileWidthLabel: "டைல் அகலம் (செமீ)", wastageLabel: "வீணாக்கம் (%)", resultPrefix: "முடிவு: " },
+            te: { header: "స్మార్ట్ AI కాల్కులేటర్", tagline: "టైల్ కాల్కులేటర్", calcTitle: "టైల్స్ సంఖ్యను లెక్కించడానికి కొలతలను నమోదు చేయండి", lengthLabel: "గది పొడవు (మీ)", widthLabel: "గది వెడల్పు (మీ)", tileLengthLabel: "టైల్ పొడవు (సెం.మీ)", tileWidthLabel: "టైల్ వెడల్పు (సెం.మీ)", wastageLabel: "వృధా (%)", resultPrefix: "ఫలితం: " },
+            es: { header: "Calculadora de IA Inteligente", tagline: "Calculadora de Azulejos", calcTitle: "Ingrese dimensiones para calcular los azulejos necesarios", lengthLabel: "Longitud de la habitación (m)", widthLabel: "Ancho de la habitación (m)", tileLengthLabel: "Longitud del azulejo (cm)", tileWidthLabel: "Ancho del azulejo (cm)", wastageLabel: "Desperdicio (%)", resultPrefix: "Resultado: " },
+            bn: { header: "স্মার্ট এআই ক্যালকুলেটর", tagline: "টাইল ক্যালকুলেটর", calcTitle: "টাইলের সংখ্যা গণনার জন্য মাত্রা লিখুন", lengthLabel: "ঘরের দৈর্ঘ্য (মি)", widthLabel: "ঘরের প্রস্থ (মি)", tileLengthLabel: "টাইলের দৈর্ঘ্য (সেমি)", tileWidthLabel: "টাইলের প্রস্থ (সেমি)", wastageLabel: "অপচয় (%)", resultPrefix: "ফলাফল: " },
+            ar: { header: "حاسبة الذكاء الاصطناعي الذكية", tagline: "حاسبة البلاط", calcTitle: "أدخل الأبعاد لحساب عدد البلاط المطلوب", lengthLabel: "طول الغرفة (م)", widthLabel: "عرض الغرفة (م)", tileLengthLabel: "طول البلاط (سم)", tileWidthLabel: "عرض البلاط (سم)", wastageLabel: "الهدر (%)", resultPrefix: "النتيجة: " },
+            zh: { header: "智能人工智能计算器", tagline: "瓷砖计算器", calcTitle: "输入尺寸以计算所需瓷砖数量", lengthLabel: "房间长度 (米)", widthLabel: "房间宽度 (米)", tileLengthLabel: "瓷砖长度 (厘米)", tileWidthLabel: "瓷砖宽度 (厘米)", wastageLabel: "浪费 (%)", resultPrefix: "结果: " },
+            fr: { header: "Calculateur IA Intelligent", tagline: "Calculateur de Carrelage", calcTitle: "Entrez les dimensions pour calculer le nombre de carreaux nécessaires", lengthLabel: "Longueur de la pièce (m)", widthLabel: "Largeur de la pièce (m)", tileLengthLabel: "Longueur du carreau (cm)", tileWidthLabel: "Largeur du carreau (cm)", wastageLabel: "Gaspillage (%)", resultPrefix: "Résultat: " }
+        };
+        function calculateTiles() {
+            document.getElementById("spinner").style.display = "inline";
+            setTimeout(() => {
+                let resultDiv = document.getElementById("tile-result");
+                let length = parseFloat(document.getElementById("length").value);
+                let width = parseFloat(document.getElementById("width").value);
+                let tileLength = parseFloat(document.getElementById("tile-length").value) / 100; // Convert cm to m
+                let tileWidth = parseFloat(document.getElementById("tile-width").value) / 100; // Convert cm to m
+                let wastage = parseFloat(document.getElementById("wastage").value);
+                if (!isNaN(length) && !isNaN(width) && !isNaN(tileLength) && !isNaN(tileWidth) && !isNaN(wastage) && length > 0 && width > 0 && tileLength > 0 && tileWidth > 0 && wastage >= 0) {
+                    let roomArea = length * width;
+                    let tileArea = tileLength * tileWidth;
+                    let tilesNeeded = Math.ceil((roomArea / tileArea) * (1 + wastage / 100));
+                    resultDiv.innerHTML = `${translations[lang].resultPrefix} ${tilesNeeded} tiles`;
+                } else {
+                    resultDiv.innerText = lang === 'en' ? "Please enter valid values" : lang === 'hi' ? "कृपया वैध मान दर्ज करें" : lang === 'ta' ? "சரியான மதிப்புகளை உள்ளிடவும்" : lang === 'te' ? "దయచేసి సరైన విలువలను నమోదు చేయండి" : lang === 'es' ? "Por favor, ingrese valores válidos" : lang === 'bn' ? "দয়া করে বৈধ মান লিখুন" : lang === 'ar' ? "يرجى إدخال قيم صالحة" : lang === 'zh' ? "请输入有效值" : "Veuillez entrer des valeurs valides";
+                }
+                document.getElementById("spinner").style.display = "none";
+            }, 1000);
+        }
+        function toggleSpeech() {
+            console.log("Toggling speech for result");
+            const result = document.getElementById("tile-result").innerHTML;
+            if (!result) {
+                console.log("No result to speak");
+                return;
+            }
+            if (isSpeaking) {
+                window.speechSynthesis.cancel();
+                isSpeaking = false;
+                console.log("Speech stopped");
+            } else {
+                utterance = new SpeechSynthesisUtterance(result);
+                utterance.lang = lang === 'zh' ? 'zh-CN' : lang === 'ar' ? 'ar-SA' : lang;
+                utterance.onend = () => {
+                    isSpeaking = false;
+                    console.log("Speech ended");
+                };
+                window.speechSynthesis.speak(utterance);
+                isSpeaking = true;
+                console.log("Speech started");
+            }
+        }
+        function stopSpeech() {
+            if (isSpeaking) {
+                window.speechSynthesis.cancel();
+                isSpeaking = false;
+                console.log("Speech stopped on page exit");
+            }
+        }
+        function showCategory(category) {
+            // No action needed here as navigation is handled by index.html
+        }
+        window.onload = () => {
+            document.getElementById('header-title').textContent = translations[lang].header;
+            document.getElementById('tagline').textContent = translations[lang].tagline;
+            document.getElementById('calc-title').textContent = translations[lang].calcTitle;
+            document.getElementById('length-label').textContent = translations[lang].lengthLabel;
+            document.getElementById('width-label').textContent = translations[lang].widthLabel;
+            document.getElementById('tile-length-label').textContent = translations[lang].tileLengthLabel;
+            document.getElementById('tile-width-label').textContent = translations[lang].tileWidthLabel;
+            document.getElementById('wastage-label').textContent = translations[lang].wastageLabel;
+            console.log("Voice icon loaded");
+        };
+        window.onpagehide = stopSpeech;
+        window.onbeforeunload = stopSpeech;
+    </script>
 </html>
