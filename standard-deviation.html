@@ -3,210 +3,207 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="title" content="AI Standard Deviation Calculator">
-    <meta name="description" content="Calculate the standard deviation of your data set with our AI-powered Standard Deviation Calculator. Input your numbers to get instant results.">
-    <meta name="keywords" content="standard deviation calculator, statistics calculator, data analysis, AI calculator, variance calculator, statistical tools">
+    <title>Smart AI Calculator | Standard Deviation Calculator</title>
+    <meta name="description" content="Calculate standard deviation and variance for your data set with our free, user-friendly calculator. Enter numbers to get instant results. Try now!">
+    <meta name="keywords" content="standard deviation calculator, variance calculator, statistics calculator">
     <meta name="robots" content="index, follow">
-    <title>AI Standard Deviation Calculator</title>
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="canonical" href="https://yourusername.github.io/ai-calculator/standard-deviation-calculator.html">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <style>
         body {
-            font-family: 'Arial', sans-serif;
-            background-color: #ffffff;
-            color: #1a202c;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #1A202C, #2D3748);
+            color: #fff;
+            margin: 0;
         }
-        .calculator-title {
-            font-weight: bold;
-            text-align: center;
-            background-color: #f6e05e;
-            padding: 10px;
-            margin-bottom: 10px;
+        .header { background: #2c3e50; padding: 20px 0; text-align: center; }
+        .nav-tabs { display: flex; justify-content: center; gap: 20px; padding: 10px 0; background: #34495e; }
+        .nav-tab { color: white; text-decoration: none; padding: 5px 15px; transition: background 0.3s; font-weight: bold; text-shadow: 0 0 5px rgba(255, 107, 107, 0.5); }
+        .nav-tab:hover, .nav-tab.active { background: #3498db; border-radius: 5px; }
+        .calculator-content { max-width: 600px; margin: 20px auto; padding: 20px; background: rgba(45, 55, 72, 0.9); border-radius: 10px; box-shadow: 0 0 15px rgba(0,0,0,0.5); }
+        .calculator-box { background: #e0e0e0; color: #333; padding: 20px; border-radius: 5px; text-align: center; }
+        .input-row { display: flex; justify-content: space-between; margin-bottom: 15px; }
+        .input-row label { font-weight: bold; }
+        input, textarea { border: 1px solid #ccc; padding: 5px; border-radius: 3px; width: 100%; }
+        input.invalid, textarea.invalid { border-color: #ff6b6b; }
+        button { 
+            background: linear-gradient(135deg, #ff6b6b, #e63946); 
+            color: white; 
+            padding: 12px 24px; 
+            border: none; 
+            border-radius: 5px; 
+            cursor: pointer; 
+            font-weight: bold; 
+            font-size: 1.1rem; 
+            box-shadow: 0 3px 6px rgba(0,0,0,0.4); 
+            transition: transform 0.2s, background 0.2s; 
+            text-transform: uppercase; 
         }
-        .input-field {
-            border: 2px solid #e2e8f0;
-            border-radius: 8px;
-            padding: 10px;
-            font-weight: bold;
-            width: 100%;
-            box-sizing: border-box;
+        button:hover { 
+            background: linear-gradient(135deg, #e63946, #c0392b); 
+            transform: scale(1.05); 
         }
-        .language-switcher {
-            position: absolute;
-            top: 10px;
-            left: 10px;
-            cursor: pointer;
+        .ads-section { margin-top: 10px; padding: 10px; background: #34495e; border-radius: 5px; text-align: center; }
+        .ads-section p { font-size: 1.2rem; font-weight: bold; color: #1e90ff; }
+        .ads-section a { color: #1e90ff; text-decoration: underline; }
+        .voice-icon { 
+            display: inline-block; 
+            padding: 10px; 
+            cursor: pointer; 
+            font-size: 2rem; 
+            color: #00cec9; 
+            transition: color 0.2s, transform 0.2s; 
+            visibility: visible; 
         }
-        .theme-switcher {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            cursor: pointer;
+        .voice-icon:hover { 
+            color: #00b7b3; 
+            transform: scale(1.1); 
         }
-        .calculate-btn {
-            background-color: #4299e1;
-            color: white;
-            font-weight: bold;
-            padding: 12px;
-            border-radius: 8px;
-            width: 100%;
+        .button-container { 
+            display: flex; 
+            justify-content: center; 
+            align-items: center; 
+            gap: 15px; 
+            margin: 20px 0; 
         }
-        .result-box {
-            border: 2px solid #e2e8f0;
-            border-radius: 8px;
-            padding: 15px;
-            margin-top: 20px;
-            font-weight: bold;
-        }
-        footer a {
-            color: #4299e1;
-            text-decoration: none;
-        }
-        footer a:hover {
-            text-decoration: underline;
-        }
-        .share-icons img {
-            width: 30px;
-            margin: 0 10px;
-        }
-        .dark-mode {
-            background-color: #1a202c;
-            color: #e2e8f0;
-        }
-        .dark-mode .input-field {
-            border-color: #4a5568;
-            background-color: #2d3748;
-            color: #e2e8f0;
-        }
-        .dark-mode .result-box {
-            border-color: #4a5568;
-            background-color: #2d3748;
-        }
-        .dark-mode .calculator-title {
-            background-color: #b83280;
+        .suggestions { margin-top: 20px; padding: 15px; background: #f0f0f0; border-radius: 5px; text-align: left; display: none; }
+        .suggestions h3 { font-size: 1.2rem; font-weight: bold; margin-bottom: 10px; }
+        .suggestions ul { list-style-type: disc; padding-left: 20px; }
+        .suggestions li { margin-bottom: 8px; }
+        .result-table { width: 100%; margin-top: 20px; border-collapse: collapse; }
+        .result-table th, .result-table td { border: 1px solid #ccc; padding: 10px; text-align: left; }
+        .result-table th { background: #3498db; color: white; }
+        .result-table tr:nth-child(even) { background: #f0f0f0; }
+        @media (max-width: 600px) { 
+            .input-row { flex-direction: column; } 
+            input, textarea { width: 100%; margin-bottom: 10px; } 
+            .button-container { flex-direction: row; gap: 10px; } 
+            .voice-icon { display: inline-block; visibility: visible; } 
         }
     </style>
 </head>
-<body class="min-h-screen flex flex-col">
-    <header class="relative">
-        <h1 class="calculator-title text-3xl">AI CALCULATOR</h1>
-        <h2 class="text-center text-xl font-bold mb-4" id="calcTitle">Standard Deviation Calculator</h2>
-        <div class="language-switcher">
-            <img src="https://img.icons8.com/ios-filled/50/000000/globe.png" alt="Language Switcher" id="langToggle" width="30">
-        </div>
-        <div class="theme-switcher">
-            <img src="https://img.icons8.com/ios-filled/50/000000/moon-symbol.png" alt="Theme Switcher" id="themeToggle" width="30">
-        </div>
+<body>
+    <header class="header">
+        <h1>Smart AI Calculator</h1>
+        <h2>Standard Deviation Calculator</h2>
     </header>
-    <main class="flex-grow container mx-auto px-4 py-6">
-        <section class="max-w-md mx-auto">
-            <div class="mb-4">
-                <label for="dataInput" class="block font-bold mb-2" id="dataInputLabel">Enter Numbers (comma-separated)</label>
-                <input type="text" id="dataInput" class="input-field" placeholder="e.g. 10, 20, 30, 40" required>
+    <nav class="nav-tabs">
+        <a href="index.html#home" class="nav-tab">HOME</a>
+        <a href="index.html#academic-calculator" class="nav-tab active">ACADEMIC CALCULATOR</a>
+    </nav>
+    <div class="calculator-content">
+        <div class="calculator-box">
+            <h2>Enter Data Set</h2>
+            <div class="input-row">
+                <label>Numbers (comma-separated)</label>
+                <textarea id="data" rows="4" placeholder="e.g., 10,20,30,40" oninput="validateInput(this)"></textarea>
             </div>
-            <button class="calculate-btn" onclick="calculateStandardDeviation()" id="calcButton">Calculate</button>
-            <div id="result" class="result-box hidden">
-                <p id="mean"></p>
-                <p id="variance"></p>
-                <p id="standardDeviation"></p>
+            <div class="button-container">
+                <button onclick="calculateSD()">Calculate <span id="spinner" style="display:none;">⏳</span></button>
+                <span class="voice-icon" onclick="toggleSpeech()" title="Toggle Speech"><i class="fas fa-volume-up"></i></span>
             </div>
-        </section>
-        <section class="mt-8 max-w-2xl mx-auto">
-            <h3 class="text-xl font-bold mb-4" id="aboutTitle">About the Standard Deviation Calculator</h3>
-            <p class="mb-4" id="aboutText1">
-                The Standard Deviation Calculator helps you analyze the spread of a data set. By entering a series of numbers (comma-separated), you can calculate the mean, variance, and standard deviation. This tool is ideal for students, researchers, or anyone working with statistical data.
-            </p>
-            <p id="aboutText2">
-                The calculator computes the mean by averaging the numbers, the variance by measuring the average squared deviation from the mean, and the standard deviation as the square root of the variance. Use this tool to understand data variability and make informed statistical decisions.
-            </p>
-        </section>
-    </main>
-    <footer class="bg-gray-100 py-6 mt-8">
-        <div class="container mx-auto px-4 text-center">
-            <div class="mb-4">
-                <a href="/privacy-policy" class="mx-2">Privacy Policy</a> |
-                <a href="/disclaimer" class="mx-2">Disclaimer</a> |
-                <a href="/how-to-use" class="mx-2">How to Use</a> |
-                <a href="/contact-us" class="mx-2">Contact Us</a>
+            <div id="sd-result" class="mt-4 font-semibold"></div>
+            <table class="result-table" id="result-table" style="display: none;">
+                <thead>
+                    <tr>
+                        <th>Detail</th>
+                        <th>Value</th>
+                    </tr>
+                </thead>
+                <tbody id="result-table-body"></tbody>
+            </table>
+            <div class="suggestions" id="suggestions">
+                <h3>Suggestions for Statistics</h3>
+                <ul>
+                    <li>Ensure all numbers are valid and correctly formatted.</li>
+                    <li>Use larger data sets for more reliable results.</li>
+                    <li>Understand variance to assess data spread.</li>
+                    <li>Cross-check with statistical software for critical analysis.</li>
+                </ul>
             </div>
-            <div class="share-icons mb-4 flex justify-center">
-                <a href="https://www.facebook.com/sharer/sharer.php?u=#" target="_blank">
-                    <img src="https://img.icons8.com/color/48/000000/facebook-new.png" alt="Facebook">
-                </a>
-                <a href="https://twitter.com/intent/tweet?url=#&text=Check out this AI Standard Deviation Calculator!" target="_blank">
-                    <img src="https://img.icons8.com/color/48/000000/twitter.png" alt="X">
-                </a>
-                <a href="https://api.whatsapp.com/send?text=Check out this AI Standard Deviation Calculator: #" target="_blank">
-                    <img src="https://img.icons8.com/color/48/000000/whatsapp.png" alt="WhatsApp">
-                </a>
-                <a href="https://www.instagram.com/" target="_blank">
-                    <img src="https://img.icons8.com/color/48/000000/instagram-new.png" alt="Instagram">
-                </a>
+            <div class="ads-section">
+                <p>Contact for Ads: <a href="mailto:first4bencher@gmail.com">first4bencher@gmail.com</a></p>
             </div>
-            <p class="text-sm">© 2025 All Rights Reserved</p>
+            <div id="seo-content" class="mt-4 text-sm">
+                <h3>About Standard Deviation Calculator</h3>
+                <p>Our Smart AI Standard Deviation Calculator computes standard deviation and variance for your data set. Enter comma-separated numbers to get instant results. It’s user-friendly, responsive, and SEO-optimized with keywords like 'standard deviation calculator' and 'statistics calculator.' Perfect for students and researchers!</p>
+            </div>
         </div>
+    </div>
+    <footer class="bg-gray-800 text-white text-center py-4 mt-8">
+        <p style="font-weight: bold;">2025 © Smart AI Calculator. All rights reserved.</p>
+        <a href="privacy.html" class="text-blue-400 ml-2">Privacy Policy</a> |
+        <a href="contactus.html" class="text-blue-400 ml-2">Contact Us</a> |
+        <a href="howto.html" class="text-blue-400 ml-2">How to Use</a>
     </footer>
     <script>
-        let isHindi = false;
-
-        function calculateStandardDeviation() {
-            const dataInput = document.getElementById('dataInput').value;
-            const numbers = dataInput.split(',').map(num => parseFloat(num.trim())).filter(num => !isNaN(num));
-
-            if (numbers.length === 0) {
-                alert(isHindi ? 'कृपया मान्य संख्याएँ दर्ज करें।' : 'Please enter valid numbers.');
+        let isSpeaking = false;
+        let utterance = null;
+        function validateInput(input) {
+            let value = input.value.trim();
+            if (value === "" || !/^-?\d+(\.\d+)?(\s*,\s*-?\d+(\.\d+)?)*$/.test(value)) {
+                input.classList.add("invalid");
+            } else {
+                input.classList.remove("invalid");
+            }
+        }
+        function calculateSD() {
+            document.getElementById("spinner").style.display = "inline";
+            setTimeout(() => {
+                let dataInput = document.getElementById("data").value.trim();
+                let resultDiv = document.getElementById("sd-result");
+                let tableBody = document.getElementById("result-table-body");
+                let suggestionsDiv = document.getElementById("suggestions");
+                let table = document.getElementById("result-table");
+                tableBody.innerHTML = "";
+                if (!dataInput || !/^-?\d+(\.\d+)?(\s*,\s*-?\d+(\.\d+)?)*$/.test(dataInput)) {
+                    resultDiv.innerText = "Invalid input. Enter comma-separated numbers.";
+                    table.style.display = "none";
+                    suggestionsDiv.style.display = "none";
+                    document.getElementById("spinner").style.display = "none";
+                    return;
+                }
+                let numbers = dataInput.split(",").map(num => parseFloat(num.trim()));
+                let n = numbers.length;
+                let mean = numbers.reduce((sum, num) => sum + num, 0) / n;
+                let variance = numbers.reduce((sum, num) => sum + Math.pow(num - mean, 2), 0) / n;
+                let stdDev = Math.sqrt(variance);
+                resultDiv.innerText = `Standard Deviation: ${stdDev.toFixed(2)}`;
+                tableBody.innerHTML = `
+                    <tr><td>Mean</td><td>${mean.toFixed(2)}</td></tr>
+                    <tr><td>Variance</td><td>${variance.toFixed(2)}</td></tr>
+                    <tr><td>Standard Deviation</td><td>${stdDev.toFixed(2)}</td></tr>
+                `;
+                table.style.display = "table";
+                suggestionsDiv.style.display = "block";
+                document.getElementById("spinner").style.display = "none";
+            }, 500);
+        }
+        function toggleSpeech() {
+            const result = document.getElementById("sd-result").innerText;
+            if (!result || result.includes("Invalid")) {
+                console.log("No valid result to speak");
                 return;
             }
-
-            const mean = numbers.reduce((sum, num) => sum + num, 0) / numbers.length;
-            const variance = numbers.reduce((sum, num) => sum + Math.pow(num - mean, 2), 0) / numbers.length;
-            const standardDeviation = Math.sqrt(variance);
-
-            document.getElementById('mean').textContent = isHindi 
-                ? `औसत: ${mean.toFixed(2)}` 
-                : `Mean: ${mean.toFixed(2)}`;
-            document.getElementById('variance').textContent = isHindi 
-                ? `प्रसरण: ${variance.toFixed(2)}` 
-                : `Variance: ${variance.toFixed(2)}`;
-            document.getElementById('standardDeviation').textContent = isHindi 
-                ? `मानक विचलन: ${standardDeviation.toFixed(2)}` 
-                : `Standard Deviation: ${standardDeviation.toFixed(2)}`;
-            document.getElementById('result').classList.remove('hidden');
+            if (isSpeaking) {
+                window.speechSynthesis.cancel();
+                isSpeaking = false;
+            } else {
+                utterance = new SpeechSynthesisUtterance(result);
+                utterance.lang = "en";
+                utterance.onend = () => { isSpeaking = false; };
+                window.speechSynthesis.speak(utterance);
+                isSpeaking = true;
+            }
         }
-
-        document.getElementById('themeToggle').addEventListener('click', () => {
-            document.body.classList.toggle('dark-mode');
-            const icon = document.getElementById('themeToggle');
-            icon.src = document.body.classList.contains('dark-mode')
-                ? 'https://img.icons8.com/ios-filled/50/ffffff/sun.png'
-                : 'https://img.icons8.com/ios-filled/50/000000/moon-symbol.png';
-        });
-
-        document.getElementById('langToggle').addEventListener('click', () => {
-            isHindi = !isHindi;
-            const langIcon = document.getElementById('langToggle');
-            langIcon.src = isHindi
-                ? 'https://img.icons8.com/ios-filled/50/000000/abc.png'
-                : 'https://img.icons8.com/ios-filled/50/000000/globe.png';
-
-            document.getElementById('calcTitle').textContent = isHindi 
-                ? 'मानक विचलन कैलकुलेटर' 
-                : 'Standard Deviation Calculator';
-            document.getElementById('dataInputLabel').textContent = isHindi 
-                ? 'संख्याएँ दर्ज करें (अल्पविराम से अलग)' 
-                : 'Enter Numbers (comma-separated)';
-            document.getElementById('calcButton').textContent = isHindi 
-                ? 'गणना करें' 
-                : 'Calculate';
-            document.getElementById('aboutTitle').textContent = isHindi 
-                ? 'मानक विचलन कैलकुलेटर के बारे में' 
-                : 'About the Standard Deviation Calculator';
-            document.getElementById('aboutText1').textContent = isHindi 
-                ? 'मानक विचलन कैलकुलेटर आपके डेटा सेट के फैलाव का विश्लेषण करने में मदद करता है। संख्याओं की एक श्रृंखला (अल्पविराम से अलग) दर्ज करके, आप औसत, प्रसरण, और मानक विचलन की गणना कर सकते हैं। यह उपकरण छात्रों, शोधकर्ताओं, या सांख्यिकीय डेटा के साथ काम करने वाले किसी भी व्यक्ति के लिए आदर्श है।'
-                : 'The Standard Deviation Calculator helps you analyze the spread of a data set. By entering a series of numbers (comma-separated), you can calculate the mean, variance, and standard deviation. This tool is ideal for students, researchers, or anyone working with statistical data.';
-            document.getElementById('aboutText2').textContent = isHindi 
-                ? 'कैलकुलेटर संख्याओं का औसत निकालकर औसत की गणना करता है, औसज्ञ से औसत वर्ग विचलन को मापकर प्रसरण की गणना करता है, और प्रसरण का वर्गमूल लेकर मानक विचलन की गणना करता है। इस उपकरण का उपयोग डेटा परिवर्तनशीलता को समझने और सूचित सांख्यिकीय निर्णय लेने के लिए करें।'
-                : 'The calculator computes the mean by averaging the numbers, the variance by measuring the average squared deviation from the mean, and the standard deviation as the square root of the variance. Use this tool to understand data variability and make informed statistical decisions.';
-        });
+        function stopSpeech() {
+            if (isSpeaking) {
+                window.speechSynthesis.cancel();
+                isSpeaking = false;
+            }
+        }
+        window.onpagehide = stopSpeech;
+        window.onbeforeunload = stopSpeech;
     </script>
-</body>
 </html>
