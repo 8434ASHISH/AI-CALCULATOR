@@ -3,23 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI Geometry Calculator - Free Online Tool | AI Calculator</title>
-    <meta name="description" content="Calculate geometric properties with our free AI-powered Geometry Calculator. Available in English, Hindi, Tamil, Telugu, Spanish, Bengali, Arabic, Mandarin, and French. Try now!">
-    <meta name="keywords" content="geometry calculator, ai geometry calculator, free geometry calculator, online geometry calculator">
+    <title>Smart AI Calculator - Geometry Calculator (2D/3D) | Free Online Tool</title>
+    <meta name="description" content="Calculate area, perimeter, volume, and surface area for 2D and 3D shapes with our free AI-powered Geometry Calculator. Available in English, Hindi, Tamil, Telugu, Spanish, Bengali, Arabic, Mandarin, and French. Try now!">
+    <meta name="keywords" content="geometry calculator, 2d 3d geometry calculator, ai geometry calculator, free geometry calculator, online geometry calculator">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://yourusername.github.io/ai-calculator/geometry.html">
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <style>
         body {
             font-family: Arial, sans-serif;
             background: linear-gradient(135deg, #1A202C, #2D3748);
             color: #fff;
             margin: 0;
-            transition: background 0.3s, color 0.3s;
-        }
-        .light-mode {
-            background: #f0f0f0;
-            color: #333;
         }
         .header { background: #2c3e50; padding: 20px 0; text-align: center; position: relative; }
         .nav-tabs { display: flex; justify-content: center; gap: 20px; padding: 10px 0; background: #34495e; }
@@ -29,20 +25,62 @@
         .calculator-box { background: #e0e0e0; color: #333; padding: 20px; border-radius: 5px; text-align: center; }
         .input-row { display: flex; justify-content: space-between; margin-bottom: 15px; }
         .input-row label { font-weight: bold; }
-        input { border: 1px solid #ccc; padding: 5px; border-radius: 3px; width: 100px; }
-        select { border: 1px solid #ccc; padding: 5px; border-radius: 3px; width: 110px; }
-        button { background-color: #28a745; color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer; }
-        button:hover { background-color: #218838; }
-        .theme-switch { background: #34495e; padding: 6px 12px; border-radius: 5px; cursor: pointer; color: white; position: absolute; top: 20px; right: 120px; }
-        .theme-switch:hover { background: #3498db; }
-        @media (max-width: 600px) { .input-row { flex-direction: column; } input, select { width: 100%; margin-bottom: 10px; } }
+        input, select { border: 1px solid #ccc; padding: 5px; border-radius: 3px; width: 100px; }
+        button { 
+            background: linear-gradient(135deg, #ff6b6b, #e63946); 
+            color: white; 
+            padding: 12px 24px; 
+            border: none; 
+            border-radius: 5px; 
+            cursor: pointer; 
+            font-weight: bold; 
+            font-size: 1.1rem; 
+            box-shadow: 0 3px 6px rgba(0,0,0,0.4); 
+            transition: transform 0.2s, background 0.2s; 
+            text-transform: uppercase; 
+        }
+        button:hover { 
+            background: linear-gradient(135deg, #e63946, #c0392b); 
+            transform: scale(1.05); 
+        }
+        .ads-section { margin-top: 10px; padding: 10px; background: #34495e; border-radius: 5px; text-align: center; box-shadow: 0 0 5px rgba(0,0,0,0.3); }
+        .ads-section p { font-size: 1.2rem; font-weight: bold; color: #1e90ff; }
+        .ads-section a { color: #1e90ff; text-decoration: underline; }
+        .voice-icon { 
+            display: inline-block; 
+            padding: 10px; 
+            cursor: pointer; 
+            font-size: 2rem; 
+            color: #00cec9; 
+            transition: color 0.2s, transform 0.2s; 
+            visibility: visible; 
+        }
+        .voice-icon:hover { 
+            color: #00b7b3; 
+            transform: scale(1.1); 
+        }
+        .button-container { 
+            display: flex; 
+            justify-content: center; 
+            align-items: center; 
+            gap: 15px; 
+            margin: 20px 0; 
+        }
+        @media (max-width: 600px) { 
+            .input-row { flex-direction: column; } 
+            input, select { width: 100%; margin-bottom: 10px; } 
+            .button-container { flex-direction: row; gap: 10px; } 
+            .voice-icon { display: inline-block; visibility: visible; } 
+        }
+        @media (min-width: 601px) { 
+            .voice-icon { display: inline-block; visibility: visible; } 
+        }
     </style>
 </head>
 <body>
     <header class="header">
-        <h1 id="header-title">AI Calculator</h1>
-        <p id="tagline">A to Z Calculators Powered by AI</p>
-        <div class="theme-switch" onclick="toggleTheme()">Theme: <span id="theme-text">Dark</span></div>
+        <h1 id="header-title">Smart AI Calculator</h1>
+        <p id="tagline">Geometry Calculator (2D/3D)</p>
     </header>
     <nav class="nav-tabs">
         <a href="index.html#financial" class="nav-tab" onclick="showCategory('financial')">Financial</a>
@@ -53,113 +91,242 @@
     </nav>
     <div class="calculator-content">
         <div class="calculator-box">
-            <h2 id="calc-title">Calculate geometry properties</h2>
+            <h2 id="calc-title">Select shape and enter dimensions to calculate</h2>
             <div class="input-row">
                 <label id="shape-label">Shape</label>
-                <select id="shape">
-                    <option value="rectangle">Rectangle</option>
-                    <option value="circle">Circle</option>
-                    <option value="triangle">Triangle</option>
+                <select id="shape" onchange="toggleInputs()">
+                    <option value="circle">Circle (2D)</option>
+                    <option value="rectangle">Rectangle (2D)</option>
+                    <option value="triangle">Triangle (2D)</option>
+                    <option value="sphere">Sphere (3D)</option>
+                    <option value="cube">Cube (3D)</option>
+                    <option value="cylinder">Cylinder (3D)</option>
                 </select>
             </div>
-            <div class="input-row" id="input1-row">
-                <label id="length-label">Length</label>
-                <input type="number" id="length" min="0" step="0.1" value="5">
+            <div id="circle-inputs">
+                <div class="input-row">
+                    <label id="radius-label">Radius</label>
+                    <input type="number" id="radius-circle" min="0" step="any" value="5">
+                </div>
             </div>
-            <div class="input-row" id="input2-row">
-                <label id="width-label">Width</label>
-                <input type="number" id="width" min="0" step="0.1" value="3">
+            <div id="rectangle-inputs" style="display:none;">
+                <div class="input-row">
+                    <label id="length-label">Length</label>
+                    <input type="number" id="length-rectangle" min="0" step="any" value="10">
+                </div>
+                <div class="input-row">
+                    <label id="width-label">Width</label>
+                    <input type="number" id="width-rectangle" min="0" step="any" value="5">
+                </div>
             </div>
-            <div class="input-row" id="input3-row" style="display:none;">
-                <label id="height-label">Height</label>
-                <input type="number" id="height" min="0" step="0.1" value="4">
+            <div id="triangle-inputs" style="display:none;">
+                <div class="input-row">
+                    <label id="base-label">Base</label>
+                    <input type="number" id="base-triangle" min="0" step="any" value="6">
+                </div>
+                <div class="input-row">
+                    <label id="height-label">Height</label>
+                    <input type="number" id="height-triangle" min="0" step="any" value="8">
+                </div>
+                <div class="input-row">
+                    <label id="side1-label">Side 1</label>
+                    <input type="number" id="side1-triangle" min="0" step="any" value="5">
+                </div>
+                <div class="input-row">
+                    <label id="side2-label">Side 2</label>
+                    <input type="number" id="side2-triangle" min="0" step="any" value="5">
+                </div>
             </div>
-            <button onclick="calculateGeometry()">Calculate <span id="spinner" style="display:none;">⏳</span></button>
+            <div id="sphere-inputs" style="display:none;">
+                <div class="input-row">
+                    <label id="radius-sphere-label">Radius</label>
+                    <input type="number" id="radius-sphere" min="0" step="any" value="5">
+                </div>
+            </div>
+            <div id="cube-inputs" style="display:none;">
+                <div class="input-row">
+                    <label id="side-cube-label">Side</label>
+                    <input type="number" id="side-cube" min="0" step="any" value="4">
+                </div>
+            </div>
+            <div id="cylinder-inputs" style="display:none;">
+                <div class="input-row">
+                    <label id="radius-cylinder-label">Radius</label>
+                    <input type="number" id="radius-cylinder" min="0" step="any" value="3">
+                </div>
+                <div class="input-row">
+                    <label id="height-cylinder-label">Height</label>
+                    <input type="number" id="height-cylinder" min="0" step="any" value="7">
+                </div>
+            </div>
+            <div class="button-container">
+                <button onclick="calculateGeometry()">Calculate <span id="spinner" style="display:none;">⏳</span></button>
+                <span class="voice-icon" onclick="toggleSpeech()" title="Toggle Speech"><i class="fas fa-volume-up"></i></span>
+            </div>
             <div id="geometry-result" class="mt-4 font-semibold"></div>
+            <div class="ads-section">
+                <p>Contact for Ads: <a href="mailto:first4bencher@gmail.com">first4bencher@gmail.com</a></p>
+            </div>
             <div id="seo-content" class="mt-4 text-sm">
-                <h3>About Geometry Calculator</h3>
-                <p>Welcome to the AI Geometry Calculator, a free online tool designed to compute geometric properties such as area and perimeter with precision. This calculator uses advanced AI technology to provide instant results for various shapes, ideal for students, educators, and professionals. Available in multiple languages including English, Hindi, Tamil, Telugu, Spanish, Bengali, Arabic, Mandarin, and French, it serves a diverse global audience. Select a shape and enter the required dimensions, then click "Calculate" to see the results.</p>
-                <p>Why choose our Geometry Calculator? It’s user-friendly, fast, and optimized for all devices, making it perfect for geometry homework or quick calculations. The tool supports shapes like rectangles, circles, and triangles, calculating area and perimeter based on input dimensions. Our AI ensures accuracy and offers insights into geometric formulas. This calculator stands out with its multilingual support and modern design, setting it apart from traditional geometry tools.</p>
-                <p>SEO optimization is essential for this tool to rank high on search engines like Google. We’ve included meta tags, a canonical URL, and keywords such as "geometry calculator online," "free geometry calculator," and "AI geometry tool" to boost visibility. To enhance rankings, consider backlinks from educational websites or math blogs, and submit the site to relevant directories. Regular updates and user feedback can further improve its performance. Perfect for geometry enthusiasts, this calculator is a must-have for quick calculations. Try it now!</p>
+                <h3>About Geometry Calculator (2D/3D)</h3>
+                <p>Welcome to the AI Geometry Calculator, a free online tool designed to help you calculate area, perimeter, volume, and surface area for 2D and 3D shapes with ease. Whether you’re a student or a professional, this calculator leverages advanced AI technology to provide accurate and instant results. Available in multiple languages including English, Hindi, Tamil, Telugu, Spanish, Bengali, Arabic, Mandarin, and French, it caters to a diverse global audience. Simply select the shape, enter the dimensions, and click "Calculate" to get your results.</p>
+                <p>Why choose our Geometry Calculator? It’s user-friendly, fast, and optimized for all devices, making it perfect for geometry studies or practical applications. The tool supports 2D shapes like circles, rectangles, and triangles, and 3D shapes like spheres, cubes, and cylinders, using standard geometric formulas. Our AI integration ensures precision and offers suggestions for geometric calculations. This calculator stands out due to its multilingual support and modern design, setting it apart from traditional geometry calculators.</p>
+                <p>SEO optimization is crucial for this tool to rank high on search engines like Google. We’ve included meta tags, a canonical URL, and keywords such as "geometry calculator online," "free 2d 3d calculator," and "AI geometry tool" to boost visibility. To enhance ranking, consider adding backlinks from educational or math blogs or submitting the site to directories. Regular updates and user feedback can further improve its performance. Ideal for geometry calculations, this calculator is a must-try for anyone seeking clarity on shapes. Explore it today and take control of your geometry tasks!</p>
             </div>
         </div>
     </div>
     <footer class="bg-gray-800 text-white text-center py-4 mt-8">
-        <p>© 2025 AI Calculator. All rights reserved.</p>
+        <p style="font-weight: bold;">2025 © Smart AI Calculator. All rights reserved.</p>
         <a href="privacy.html" class="text-blue-400 ml-2">Privacy Policy</a> |
         <a href="contactus.html" class="text-blue-400 ml-2">Contact Us</a> |
         <a href="howto.html" class="text-blue-400 ml-2">How to Use</a>
     </footer>
     <script>
         let lang = 'en';
-        let isDarkMode = true;
+        let isSpeaking = false;
+        let utterance = null;
         const translations = {
-            en: { header: "AI Calculator", tagline: "A to Z Calculators Powered by AI", calcTitle: "Calculate geometry properties", shapeLabel: "Shape", lengthLabel: "Length", widthLabel: "Width", heightLabel: "Height", resultArea: "Area: ", resultPerimeter: "Perimeter: " },
-            hi: { header: "एआई कैलकुलेटर", tagline: "ए टू जेड कैलकुलेटर, AI द्वारा संचालित", calcTitle: "ज्यामितीय गुणों की गणना करें", shapeLabel: "आकृति", lengthLabel: "लंबाई", widthLabel: "चौड़ाई", heightLabel: "ऊंचाई", resultArea: "क्षेत्रफल: ", resultPerimeter: "परिमाप: " },
-            ta: { header: "AI கால்குலேட்டர்", tagline: "AI இயக்கிய A முதல் Z கால்குலேட்டர்கள்", calcTitle: "ஜியமெட்ரி பண்புகளை கணக்கிடவும்", shapeLabel: "வடிவம்", lengthLabel: "நீளம்", widthLabel: "அகலம்", heightLabel: "உயரம்", resultArea: "பரப்பளவு: ", resultPerimeter: "சுற்றளவு: " },
-            te: { header: "AI కాల్కులేటర్", tagline: "AI ద్వారా నడిపే A నుండి Z కాల్కులేటర్లు", calcTitle: "జియోమెట్రీ లక్షణాలను లెక్కించండి", shapeLabel: "ఆకృతి", lengthLabel: "నీడి", widthLabel: "వెడల్పు", heightLabel: "ఎత్తు", resultArea: "ప్రాంతం: ", resultPerimeter: "సరిహద్దు: " },
-            es: { header: "Calculadora de IA", tagline: "Calculadoras A-Z impulsadas por IA", calcTitle: "Calcular propiedades geométricas", shapeLabel: "Forma", lengthLabel: "Longitud", widthLabel: "Ancho", heightLabel: "Altura", resultArea: "Área: ", resultPerimeter: "Perímetro: " },
-            bn: { header: "এআই ক্যালকুলেটর", tagline: "এআই দ্বারা চালিত এ থেকে জে ক্যালকুলেটর", calcTitle: "জ্যামিতিক বৈশিষ্ট্য গণনা করুন", shapeLabel: "আকৃতি", lengthLabel: "দৈর্ঘ্য", widthLabel: "প্রস্থ", heightLabel: "উচ্চতা", resultArea: "আয়তন: ", resultPerimeter: "প্রদক্ষিণ: " },
-            ar: { header: "حاسبة الذكاء الاصطناعي", tagline: "حاسبات A إلى Z مدعومة بالذكاء الاصطناعي", calcTitle: "حساب الخصائص الهندسية", shapeLabel: "الشكل", lengthLabel: "الطول", widthLabel: "العرض", heightLabel: "الارتفاع", resultArea: "المساحة: ", resultPerimeter: "المحيط: " },
-            zh: { header: "人工智能计算器", tagline: "AI驱动的A到Z计算器", calcTitle: "计算几何属性", shapeLabel: "形状", lengthLabel: "长度", widthLabel: "宽度", heightLabel: "高度", resultArea: "面积: ", resultPerimeter: "周长: " },
-            fr: { header: "Calculateur IA", tagline: "Calculateurs A à Z alimentés par IA", calcTitle: "Calculer les propriétés géométriques", shapeLabel: "Forme", lengthLabel: "Longueur", widthLabel: "Largeur", heightLabel: "Hauteur", resultArea: "Aire: ", resultPerimeter: "Périmètre: " }
+            en: { header: "Smart AI Calculator", tagline: "Geometry Calculator (2D/3D)", calcTitle: "Select shape and enter dimensions to calculate", shapeLabel: "Shape", radiusLabel: "Radius", lengthLabel: "Length", widthLabel: "Width", baseLabel: "Base", heightLabel: "Height", side1Label: "Side 1", side2Label: "Side 2", radiusSphereLabel: "Radius", sideCubeLabel: "Side", radiusCylinderLabel: "Radius", heightCylinderLabel: "Height", resultPrefix: "Results: " },
+            hi: { header: "स्मार्ट एआई कैलकुलेटर", tagline: "ज्यामिति कैलकुलेटर (2D/3D)", calcTitle: "आकार चुनें और आयाम दर्ज करें", shapeLabel: "आकार", radiusLabel: "त्रिज्या", lengthLabel: "लंबाई", widthLabel: "चौड़ाई", baseLabel: "आधार", heightLabel: "ऊंचाई", side1Label: "भुजा 1", side2Label: "भुजा 2", radiusSphereLabel: "त्रिज्या", sideCubeLabel: "भुजा", radiusCylinderLabel: "त्रिज्या", heightCylinderLabel: "ऊंचाई", resultPrefix: "परिणाम: " },
+            ta: { header: "ஸ்மார்ட் AI கால்குலேட்டர்", tagline: "வடிவியல் கால்குலேட்டர் (2D/3D)", calcTitle: "வடிவத்தைத் தேர்ந்தெடுத்து பரிமாணங்களை உள்ளிடவும்", shapeLabel: "வடிவம்", radiusLabel: "ஆரம்", lengthLabel: "நீளம்", widthLabel: "அகலம்", baseLabel: "அடிப்பகுதி", heightLabel: "உயரம்", side1Label: "பக்கம் 1", side2Label: "பக்கம் 2", radiusSphereLabel: "ஆரம்", sideCubeLabel: "பக்கம்", radiusCylinderLabel: "ஆரம்", heightCylinderLabel: "உயரம்", resultPrefix: "முடிவுகள்: " },
+            te: { header: "స్మార్ట్ AI కాల్కులేటర్", tagline: "జ్యామితి కాల్కులేటర్ (2D/3D)", calcTitle: "ఆకారాన్ని ఎంచుకోండి మరియు కొలతలను నమోదు చేయండి", shapeLabel: "ఆకారం", radiusLabel: "వ్యాసార్థం", lengthLabel: "పొడవు", widthLabel: "వెడల్పు", baseLabel: "ఆధారం", heightLabel: "ఎత్తు", side1Label: "వైపు 1", side2Label: "వైపు 2", radiusSphereLabel: "వ్యాసార్థం", sideCubeLabel: "వైపు", radiusCylinderLabel: "వ్యాసార్థం", heightCylinderLabel: "ఎత్తు", resultPrefix: "ఫలితాలు: " },
+            es: { header: "Calculadora de IA Inteligente", tagline: "Calculadora de Geometría (2D/3D)", calcTitle: "Seleccione la forma e ingrese las dimensiones", shapeLabel: "Forma", radiusLabel: "Radio", lengthLabel: "Longitud", widthLabel: "Ancho", baseLabel: "Base", heightLabel: "Altura", side1Label: "Lado 1", side2Label: "Lado 2", radiusSphereLabel: "Radio", sideCubeLabel: "Lado", radiusCylinderLabel: "Radio", heightCylinderLabel: "Altura", resultPrefix: "Resultados: " },
+            bn: { header: "স্মার্ট এআই ক্যালকুলেটর", tagline: "জ্যামিতি ক্যালকুলেটর (2D/3D)", calcTitle: "আকৃতি নির্বাচন করুন এবং মাত্রা লিখুন", shapeLabel: "আকৃতি", radiusLabel: "ব্যাসার্ধ", lengthLabel: "দৈর্ঘ্য", widthLabel: "প্রস্থ", baseLabel: "ভিত্তি", heightLabel: "উচ্চতা", side1Label: "পাশ 1", side2Label: "পাশ 2", radiusSphereLabel: "ব্যাসার্ধ", sideCubeLabel: "পাশ", radiusCylinderLabel: "ব্যাসার্ধ", heightCylinderLabel: "উচ্চতা", resultPrefix: "ফলাফল: " },
+            ar: { header: "حاسبة الذكاء الاصطناعي الذكية", tagline: "حاسبة الهندسة (2D/3D)", calcTitle: "اختر الشكل وأدخل الأبعاد", shapeLabel: "الشكل", radiusLabel: "نصف القطر", lengthLabel: "الطول", widthLabel: "العرض", baseLabel: "القاعدة", heightLabel: "الارتفاع", side1Label: "الجانب 1", side2Label: "الجانب 2", radiusSphereLabel: "نصف القطر", sideCubeLabel: "الجانب", radiusCylinderLabel: "نصف القطر", heightCylinderLabel: "الارتفاع", resultPrefix: "النتائج: " },
+            zh: { header: "智能人工智能计算器", tagline: "几何计算器 (2D/3D)", calcTitle: "选择形状并输入尺寸", shapeLabel: "形状", radiusLabel: "半径", lengthLabel: "长度", widthLabel: "宽度", baseLabel: "底", heightLabel: "高度", side1Label: "边 1", side2Label: "边 2", radiusSphereLabel: "半径", sideCubeLabel: "边", radiusCylinderLabel: "半径", heightCylinderLabel: "高度", resultPrefix: "结果: " },
+            fr: { header: "Calculateur IA Intelligent", tagline: "Calculateur de Géométrie (2D/3D)", calcTitle: "Sélectionnez la forme et entrez les dimensions", shapeLabel: "Forme", radiusLabel: "Rayon", lengthLabel: "Longueur", widthLabel: "Largeur", baseLabel: "Base", heightLabel: "Hauteur", side1Label: "Côté 1", side2Label: "Côté 2", radiusSphereLabel: "Rayon", sideCubeLabel: "Côté", radiusCylinderLabel: "Rayon", heightCylinderLabel: "Hauteur", resultPrefix: "Résultats: " }
         };
-        function toggleTheme() {
-            isDarkMode = !isDarkMode;
-            document.body.classList.toggle('light-mode', !isDarkMode);
-            document.getElementById('theme-text').textContent = isDarkMode ? 'Dark' : 'Light';
+        function toggleInputs() {
+            const shape = document.getElementById("shape").value;
+            document.getElementById("circle-inputs").style.display = shape === "circle" ? "block" : "none";
+            document.getElementById("rectangle-inputs").style.display = shape === "rectangle" ? "block" : "none";
+            document.getElementById("triangle-inputs").style.display = shape === "triangle" ? "block" : "none";
+            document.getElementById("sphere-inputs").style.display = shape === "sphere" ? "block" : "none";
+            document.getElementById("cube-inputs").style.display = shape === "cube" ? "block" : "none";
+            document.getElementById("cylinder-inputs").style.display = shape === "cylinder" ? "block" : "none";
         }
         function calculateGeometry() {
             document.getElementById("spinner").style.display = "inline";
             setTimeout(() => {
-                let shape = document.getElementById("shape").value;
-                let length = parseFloat(document.getElementById("length").value);
-                let width = parseFloat(document.getElementById("width").value);
-                let height = parseFloat(document.getElementById("height").value);
                 let resultDiv = document.getElementById("geometry-result");
-                if (length > 0 && (shape !== "triangle" || height > 0) && (shape !== "rectangle" || width > 0)) {
-                    let area, perimeter;
-                    if (shape === "rectangle") {
-                        area = length * width;
-                        perimeter = 2 * (length + width);
-                        resultDiv.innerHTML = `${translations[lang].resultArea} ${area.toFixed(2)}<br>${translations[lang].resultPerimeter} ${perimeter.toFixed(2)}`;
-                    } else if (shape === "circle") {
-                        let radius = length / 2;
-                        area = Math.PI * radius * radius;
-                        perimeter = 2 * Math.PI * radius;
-                        resultDiv.innerHTML = `${translations[lang].resultArea} ${area.toFixed(2)}<br>${translations[lang].resultPerimeter} ${perimeter.toFixed(2)}`;
-                    } else if (shape === "triangle") {
-                        area = 0.5 * length * height;
-                        perimeter = length + width + height; // Assuming width is base2 and height is base3 for simplicity
-                        resultDiv.innerHTML = `${translations[lang].resultArea} ${area.toFixed(2)}<br>${translations[lang].resultPerimeter} ${perimeter.toFixed(2)}`;
+                const shape = document.getElementById("shape").value;
+                let result = "";
+                if (shape === "circle") {
+                    let radius = parseFloat(document.getElementById("radius-circle").value);
+                    if (!isNaN(radius) && radius > 0) {
+                        let area = Math.PI * radius * radius;
+                        let perimeter = 2 * Math.PI * radius;
+                        result = `${translations[lang].resultPrefix}<br>Area: ${area.toFixed(2)}<br>Perimeter: ${perimeter.toFixed(2)}`;
+                    } else {
+                        result = lang === 'en' ? "Please enter a valid radius" : lang === 'hi' ? "कृपया एक वैध त्रिज्या दर्ज करें" : lang === 'ta' ? "சரியான ஆரத்தை உள்ளிடவும்" : lang === 'te' ? "దయచేసి సరైన వ్యాసార్థాన్ని నమోదు చేయండి" : lang === 'es' ? "Por favor, ingrese un radio válido" : lang === 'bn' ? "দয়া করে একটি বৈধ ব্যাসার্ধ লিখুন" : lang === 'ar' ? "يرجى إدخال نصف قطر صالح" : lang === 'zh' ? "请输入有效的半径" : "Veuillez entrer un rayon valide";
                     }
-                    speakResult(resultDiv.innerHTML);
-                } else {
-                    resultDiv.innerText = lang === 'en' ? "Please enter valid dimensions" : lang === 'hi' ? "कृपया वैध आयाम दर्ज करें" : lang === 'ta' ? "சரியான பரிமாணங்களை உள்ளிடவும்" : lang === 'te' ? "దయచేసి సరైన ఆయామాలను నమోదు చేయండి" : lang === 'es' ? "Por favor, ingrese dimensiones válidas" : lang === 'bn' ? "দয়া করে বৈধ মাত্রা লিখুন" : lang === 'ar' ? "يرجى إدخال أبعاد صحيحة" : lang === 'zh' ? "请输入有效尺寸" : "Veuillez entrer des dimensions valides";
+                } else if (shape === "rectangle") {
+                    let length = parseFloat(document.getElementById("length-rectangle").value);
+                    let width = parseFloat(document.getElementById("width-rectangle").value);
+                    if (!isNaN(length) && !isNaN(width) && length > 0 && width > 0) {
+                        let area = length * width;
+                        let perimeter = 2 * (length + width);
+                        result = `${translations[lang].resultPrefix}<br>Area: ${area.toFixed(2)}<br>Perimeter: ${perimeter.toFixed(2)}`;
+                    } else {
+                        result = lang === 'en' ? "Please enter valid length and width" : lang === 'hi' ? "कृपया वैध लंबाई और चौड़ाई दर्ज करें" : lang === 'ta' ? "சரியான நீளம் மற்றும் அகலத்தை உள்ளிடவும்" : lang === 'te' ? "దయచేసి సరైన పొడవు మరియు వెడల్పును నమోదు చేయండి" : lang === 'es' ? "Por favor, ingrese una longitud y ancho válidos" : lang === 'bn' ? "দয়া করে বৈধ দৈর্ঘ্য এবং প্রস্থ লিখুন" : lang === 'ar' ? "يرجى إدخال طول وعرض صالحين" : lang === 'zh' ? "请输入有效的长度和宽度" : "Veuillez entrer une longueur et une largeur valides";
+                    }
+                } else if (shape === "triangle") {
+                    let base = parseFloat(document.getElementById("base-triangle").value);
+                    let height = parseFloat(document.getElementById("height-triangle").value);
+                    let side1 = parseFloat(document.getElementById("side1-triangle").value);
+                    let side2 = parseFloat(document.getElementById("side2-triangle").value);
+                    if (!isNaN(base) && !isNaN(height) && !isNaN(side1) && !isNaN(side2) && base > 0 && height > 0 && side1 > 0 && side2 > 0) {
+                        let area = 0.5 * base * height;
+                        let perimeter = base + side1 + side2;
+                        result = `${translations[lang].resultPrefix}<br>Area: ${area.toFixed(2)}<br>Perimeter: ${perimeter.toFixed(2)}`;
+                    } else {
+                        result = lang === 'en' ? "Please enter valid base, height, and sides" : lang === 'hi' ? "कृपया वैध आधार, ऊंचाई और भुजाएँ दर्ज करें" : lang === 'ta' ? "சரியான அடிப்பகுதி, உயரம் மற்றும் பக்கங்களை உள்ளிடவும்" : lang === 'te' ? "దయచేసి సరైన ఆధారం, ఎత్తు మరియు వైపులను నమోదు చేయండి" : lang === 'es' ? "Por favor, ingrese una base, altura y lados válidos" : lang === 'bn' ? "দয়া করে বৈধ ভিত্তি, উচ্চতা এবং পাশ লিখুন" : lang === 'ar' ? "يرجى إدخال قاعدة وارتفاع وجوانب صالحة" : lang === 'zh' ? "请输入有效的底、高和边" : "Veuillez entrer une base, une hauteur et des côtés valides";
+                    }
+                } else if (shape === "sphere") {
+                    let radius = parseFloat(document.getElementById("radius-sphere").value);
+                    if (!isNaN(radius) && radius > 0) {
+                        let volume = (4/3) * Math.PI * Math.pow(radius, 3);
+                        let surfaceArea = 4 * Math.PI * radius * radius;
+                        result = `${translations[lang].resultPrefix}<br>Volume: ${volume.toFixed(2)}<br>Surface Area: ${surfaceArea.toFixed(2)}`;
+                    } else {
+                        result = lang === 'en' ? "Please enter a valid radius" : lang === 'hi' ? "कृपया एक वैध त्रिज्या दर्ज करें" : lang === 'ta' ? "சரியான ஆரத்தை உள்ளிடவும்" : lang === 'te' ? "దయచేసి సరైన వ్యాసార్థాన్ని నమోదు చేయండి" : lang === 'es' ? "Por favor, ingrese un radio válido" : lang === 'bn' ? "দয়া করে একটি বৈধ ব্যাসার্ধ লিখুন" : lang === 'ar' ? "يرجى إدخال نصف قطر صالح" : lang === 'zh' ? "请输入有效的半径" : "Veuillez entrer un rayon valide";
+                    }
+                } else if (shape === "cube") {
+                    let side = parseFloat(document.getElementById("side-cube").value);
+                    if (!isNaN(side) && side > 0) {
+                        let volume = Math.pow(side, 3);
+                        let surfaceArea = 6 * side * side;
+                        result = `${translations[lang].resultPrefix}<br>Volume: ${volume.toFixed(2)}<br>Surface Area: ${surfaceArea.toFixed(2)}`;
+                    } else {
+                        result = lang === 'en' ? "Please enter a valid side" : lang === 'hi' ? "कृपया एक वैध भुजा दर्ज करें" : lang === 'ta' ? "சரியான பக்கத்தை உள்ளிடவும்" : lang === 'te' ? "దయచేసి సరైన వైపును నమోదు చేయండి" : lang === 'es' ? "Por favor, ingrese un lado válido" : lang === 'bn' ? "দয়া করে একটি বৈধ পাশ লিখুন" : lang === 'ar' ? "يرجى إدخال جانب صالح" : lang === 'zh' ? "请输入有效的边" : "Veuillez entrer un côté valide";
+                    }
+                } else if (shape === "cylinder") {
+                    let radius = parseFloat(document.getElementById("radius-cylinder").value);
+                    let height = parseFloat(document.getElementById("height-cylinder").value);
+                    if (!isNaN(radius) && !isNaN(height) && radius > 0 && height > 0) {
+                        let volume = Math.PI * radius * radius * height;
+                        let surfaceArea = 2 * Math.PI * radius * (radius + height);
+                        result = `${translations[lang].resultPrefix}<br>Volume: ${volume.toFixed(2)}<br>Surface Area: ${surfaceArea.toFixed(2)}`;
+                    } else {
+                        result = lang === 'en' ? "Please enter valid radius and height" : lang === 'hi' ? "कृपया वैध त्रिज्या और ऊंचाई दर्ज करें" : lang === 'ta' ? "சரியான ஆரம் மற்றும் உயரத்தை உள்ளிடவும்" : lang === 'te' ? "దయచేసి సరైన వ్యాసార్థం మరియు ఎత్తును నమోదు చేయండి" : lang === 'es' ? "Por favor, ingrese un radio y altura válidos" : lang === 'bn' ? "দয়া করে বৈধ ব্যাসার্ধ এবং উচ্চতা লিখুন" : lang === 'ar' ? "يرجى إدخال نصف قطر وارتفاع صالحين" : lang === 'zh' ? "请输入有效的半径和高度" : "Veuillez entrer un rayon et une hauteur valides";
+                    }
                 }
-                document.getElementById("input3-row").style.display = shape === "triangle" ? "flex" : "none";
-                document.getElementById("input2-row").querySelector("label").textContent = shape === "circle" ? translations[lang].lengthLabel : shape === "rectangle" ? translations[lang].widthLabel : translations[lang].widthLabel;
-                document.getElementById("input3-row").style.display = shape === "triangle" ? "flex" : "none";
+                resultDiv.innerHTML = result;
                 document.getElementById("spinner").style.display = "none";
             }, 1000);
         }
+        function toggleSpeech() {
+            console.log("Toggling speech for result");
+            const result = document.getElementById("geometry-result").innerHTML;
+            if (!result) {
+                console.log("No result to speak");
+                return;
+            }
+            if (isSpeaking) {
+                window.speechSynthesis.cancel();
+                isSpeaking = false;
+                console.log("Speech stopped");
+            } else {
+                utterance = new SpeechSynthesisUtterance(result);
+                utterance.lang = lang === 'zh' ? 'zh-CN' : lang === 'ar' ? 'ar-SA' : lang;
+                utterance.onend = () => {
+                    isSpeaking = false;
+                    console.log("Speech ended");
+                };
+                window.speechSynthesis.speak(utterance);
+                isSpeaking = true;
+                console.log("Speech started");
+            }
+        }
+        function stopSpeech() {
+            if (isSpeaking) {
+                window.speechSynthesis.cancel();
+                isSpeaking = false;
+                console.log("Speech stopped on page exit");
+            }
+        }
         function showCategory(category) {
             // No action needed here as navigation is handled by index.html
-        }
-        function speakResult(result) {
-            const utterance = new SpeechSynthesisUtterance(result);
-            utterance.lang = lang === 'zh' ? 'zh-CN' : lang === 'ar' ? 'ar-SA' : lang;
-            window.speechSynthesis.speak(utterance);
         }
         window.onload = () => {
             document.getElementById('header-title').textContent = translations[lang].header;
             document.getElementById('tagline').textContent = translations[lang].tagline;
             document.getElementById('calc-title').textContent = translations[lang].calcTitle;
             document.getElementById('shape-label').textContent = translations[lang].shapeLabel;
+            document.getElementById('radius-label').textContent = translations[lang].radiusLabel;
             document.getElementById('length-label').textContent = translations[lang].lengthLabel;
             document.getElementById('width-label').textContent = translations[lang].widthLabel;
+            document.getElementById('base-label').textContent = translations[lang].baseLabel;
             document.getElementById('height-label').textContent = translations[lang].heightLabel;
-            document.getElementById('shape').addEventListener('change', calculateGeometry);
+            document.getElementById('side1-label').textContent = translations[lang].side1Label;
+            document.getElementById('side2-label').textContent = translations[lang].side2Label;
+            document.getElementById('radius-sphere-label').textContent = translations[lang].radiusSphereLabel;
+            document.getElementById('side-cube-label').textContent = translations[lang].sideCubeLabel;
+            document.getElementById('radius-cylinder-label').textContent = translations[lang].radiusCylinderLabel;
+            document.getElementById('height-cylinder-label').textContent = translations[lang].heightCylinderLabel;
+            console.log("Voice icon loaded");
         };
+        window.onpagehide = stopSpeech;
+        window.onbeforeunload = stopSpeech;
     </script>
-</html>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'934ab0e65a83454b',t:'MTc0NTM4MzMxMi4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></html>
