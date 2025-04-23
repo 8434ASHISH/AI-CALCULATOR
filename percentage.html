@@ -3,23 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI Percentage Calculator - Free Online Tool | AI Calculator</title>
-    <meta name="description" content="Calculate percentages with our free AI-powered Percentage Calculator. Available in English, Hindi, Tamil, Telugu, Spanish, Bengali, Arabic, Mandarin, and French. Try now!">
-    <meta name="keywords" content="percentage calculator, ai percentage calculator, free percentage calculator, online percentage calculator">
+    <title>Smart AI Calculator - Percentage Calculator | Free Online Tool</title>
+    <meta name="description" content="Calculate percentages, percentage increase, or decrease with our free AI-powered Percentage Calculator. Available in English, Hindi, Tamil, Telugu, Spanish, Bengali, Arabic, Mandarin, and French. Try now!">
+    <meta name="keywords" content="percentage calculator, ai percentage calculator, free percentage calculator, online percentage calculator, percent calculator">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://yourusername.github.io/ai-calculator/percentage.html">
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <style>
         body {
             font-family: Arial, sans-serif;
             background: linear-gradient(135deg, #1A202C, #2D3748);
             color: #fff;
             margin: 0;
-            transition: background 0.3s, color 0.3s;
-        }
-        .light-mode {
-            background: #f0f0f0;
-            color: #333;
         }
         .header { background: #2c3e50; padding: 20px 0; text-align: center; position: relative; }
         .nav-tabs { display: flex; justify-content: center; gap: 20px; padding: 10px 0; background: #34495e; }
@@ -29,19 +25,62 @@
         .calculator-box { background: #e0e0e0; color: #333; padding: 20px; border-radius: 5px; text-align: center; }
         .input-row { display: flex; justify-content: space-between; margin-bottom: 15px; }
         .input-row label { font-weight: bold; }
-        input { border: 1px solid #ccc; padding: 5px; border-radius: 3px; width: 100px; }
-        button { background-color: #28a745; color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer; }
-        button:hover { background-color: #218838; }
-        .theme-switch { background: #34495e; padding: 6px 12px; border-radius: 5px; cursor: pointer; color: white; position: absolute; top: 20px; right: 120px; }
-        .theme-switch:hover { background: #3498db; }
-        @media (max-width: 600px) { .input-row { flex-direction: column; } input { width: 100%; margin-bottom: 10px; } }
+        input, select { border: 1px solid #ccc; padding: 5px; border-radius: 3px; width: 100px; }
+        button { 
+            background: linear-gradient(135deg, #ff6b6b, #e63946); 
+            color: white; 
+            padding: 12px 24px; 
+            border: none; 
+            border-radius: 5px; 
+            cursor: pointer; 
+            font-weight: bold; 
+            font-size: 1.1rem; 
+            box-shadow: 0 3px 6px rgba(0,0,0,0.4); 
+            transition: transform 0.2s, background 0.2s; 
+            text-transform: uppercase; 
+        }
+        button:hover { 
+            background: linear-gradient(135deg, #e63946, #c0392b); 
+            transform: scale(1.05); 
+        }
+        .ads-section { margin-top: 10px; padding: 10px; background: #34495e; border-radius: 5px; text-align: center; box-shadow: 0 0 5px rgba(0,0,0,0.3); }
+        .ads-section p { font-size: 1.2rem; font-weight: bold; color: #1e90ff; }
+        .ads-section a { color: #1e90ff; text-decoration: underline; }
+        .voice-icon { 
+            display: inline-block; 
+            padding: 10px; 
+            cursor: pointer; 
+            font-size: 2rem; 
+            color: #00cec9; 
+            transition: color 0.2s, transform 0.2s; 
+            visibility: visible; 
+        }
+        .voice-icon:hover { 
+            color: #00b7b3; 
+            transform: scale(1.1); 
+        }
+        .button-container { 
+            display: flex; 
+            justify-content: center; 
+            align-items: center; 
+            gap: 15px; 
+            margin: 20px 0; 
+        }
+        @media (max-width: 600px) { 
+            .input-row { flex-direction: column; } 
+            input, select { width: 100%; margin-bottom: 10px; } 
+            .button-container { flex-direction: row; gap: 10px; } 
+            .voice-icon { display: inline-block; visibility: visible; } 
+        }
+        @media (min-width: 601px) { 
+            .voice-icon { display: inline-block; visibility: visible; } 
+        }
     </style>
 </head>
 <body>
     <header class="header">
-        <h1 id="header-title">AI Calculator</h1>
-        <p id="tagline">A to Z Calculators Powered by AI</p>
-        <div class="theme-switch" onclick="toggleTheme()">Theme: <span id="theme-text">Dark</span></div>
+        <h1 id="header-title">Smart AI Calculator</h1>
+        <p id="tagline">Percentage Calculator</p>
     </header>
     <nav class="nav-tabs">
         <a href="index.html#financial" class="nav-tab" onclick="showCategory('financial')">Financial</a>
@@ -52,80 +91,128 @@
     </nav>
     <div class="calculator-content">
         <div class="calculator-box">
-            <h2 id="calc-title">Enter value and percentage to calculate result</h2>
+            <h2 id="calc-title">Enter amount and percentage to calculate</h2>
             <div class="input-row">
-                <label id="value-label">Value</label>
-                <input type="number" id="value" min="0" value="1000">
+                <label id="amount-label">Amount (₹)</label>
+                <input type="number" id="amount" min="0" value="1000">
             </div>
             <div class="input-row">
-                <label id="percentage-label">Percentage (%)</label>
-                <input type="number" id="percentage" min="0" max="100" value="10">
+                <label id="percent-label">Percentage (%)</label>
+                <input type="number" id="percentage" min="0" step="0.1" value="10">
             </div>
-            <button onclick="calculatePercentage()">Calculate <span id="spinner" style="display:none;">⏳</span></button>
+            <div class="input-row">
+                <label id="type-label">Calculation Type</label>
+                <select id="calc-type">
+                    <option value="value">Percentage Value</option>
+                    <option value="increase">Percentage Increase</option>
+                    <option value="decrease">Percentage Decrease</option>
+                </select>
+            </div>
+            <div class="button-container">
+                <button onclick="calculatePercentage()">Calculate <span id="spinner" style="display:none;">⏳</span></button>
+                <span class="voice-icon" onclick="toggleSpeech()" title="Toggle Speech"><i class="fas fa-volume-up"></i></span>
+            </div>
             <div id="percentage-result" class="mt-4 font-semibold"></div>
+            <div class="ads-section">
+                <p>Contact for Ads: <a href="mailto:first4bencher@gmail.com">first4bencher@gmail.com</a></p>
+            </div>
             <div id="seo-content" class="mt-4 text-sm">
                 <h3>About Percentage Calculator</h3>
-                <p>Welcome to the AI Percentage Calculator, a free online tool designed to help you calculate percentages quickly and accurately. Whether you’re determining discounts, tips, or proportions, this calculator uses advanced AI technology to deliver instant results. Available in multiple languages including English, Hindi, Tamil, Telugu, Spanish, Bengali, Arabic, Mandarin, and French, it serves a diverse global audience. Enter the value and percentage, then click "Calculate" to see the result.</p>
-                <p>Why choose our Percentage Calculator? It’s user-friendly, fast, and optimized for all devices, making it ideal for students, shoppers, and professionals. The tool uses the formula: Result = Value × (Percentage / 100), providing the exact amount or percentage of the given value. Our AI ensures precision and offers practical applications, such as calculating tax or profit margins. This calculator stands out with its multilingual support and modern design, setting it apart from traditional percentage tools.</p>
-                <p>SEO optimization is vital for this tool to rank well on search engines like Google. We’ve included meta tags, a canonical URL, and keywords such as "percentage calculator online," "free percentage calculator," and "AI percentage tool" to boost visibility. To enhance rankings, consider backlinks from educational websites or shopping blogs, and submit the site to relevant directories. Regular updates and user feedback can further improve its performance. Perfect for everyday calculations, this calculator is a must-have for anyone working with percentages. Try it now!</p>
+                <p>Welcome to the AI Percentage Calculator, a free online tool designed to help you calculate percentages, percentage increases, or decreases with ease. Whether you’re calculating discounts, tax amounts, or financial growth, this calculator leverages advanced AI technology to provide accurate and instant results. Available in multiple languages including English, Hindi, Tamil, Telugu, Spanish, Bengali, Arabic, Mandarin, and French, it caters to a diverse global audience. Simply enter your amount, percentage, and select the calculation type, then click "Calculate" to get your result.</p>
+                <p>Why choose our Percentage Calculator? It’s user-friendly, fast, and optimized for all devices, making it perfect for students, businesses, and individuals. The tool supports three calculations: Percentage Value (X × Y%), Percentage Increase (X + X × Y%), and Percentage Decrease (X - X × Y%). Our AI integration ensures precision and offers suggestions for percentage-related calculations. This calculator stands out due to its multilingual support and modern design, setting it apart from traditional percentage calculators.</p>
+                <p>SEO optimization is crucial for this tool to rank high on search engines like Google. We’ve included meta tags, a canonical URL, and keywords such as "percentage calculator online," "free percentage calculator," and "AI percentage tool" to boost visibility. To enhance ranking, consider adding backlinks from educational or financial blogs or submitting the site to directories. Regular updates and user feedback can further improve its performance. Ideal for quick calculations, this calculator is a must-try for anyone seeking clarity on percentages. Explore it today and take control of your percentage calculations!</p>
             </div>
         </div>
     </div>
     <footer class="bg-gray-800 text-white text-center py-4 mt-8">
-        <p>© 2025 AI Calculator. All rights reserved.</p>
+        <p style="font-weight: bold;">2025 © Smart AI Calculator. All rights reserved.</p>
         <a href="privacy.html" class="text-blue-400 ml-2">Privacy Policy</a> |
         <a href="contactus.html" class="text-blue-400 ml-2">Contact Us</a> |
         <a href="howto.html" class="text-blue-400 ml-2">How to Use</a>
     </footer>
     <script>
         let lang = 'en';
-        let isDarkMode = true;
+        let isSpeaking = false;
+        let utterance = null;
         const translations = {
-            en: { header: "AI Calculator", tagline: "A to Z Calculators Powered by AI", calcTitle: "Enter value and percentage to calculate result", valueLabel: "Value", percentageLabel: "Percentage (%)", resultPrefix: "Result: " },
-            hi: { header: "एआई कैलकुलेटर", tagline: "ए टू जेड कैलकुलेटर, AI द्वारा संचालित", calcTitle: "मान और प्रतिशत दर्ज करें परिणाम की गणना के लिए", valueLabel: "मान", percentageLabel: "प्रतिशत (%)", resultPrefix: "परिणाम: " },
-            ta: { header: "AI கால்குலேட்டர்", tagline: "AI இயக்கிய A முதல் Z கால்குலேட்டர்கள்", calcTitle: "மதிப்பு மற்றும் சதவீதத்தை உள்ளிடவும் முடிவை கணக்கிட", valueLabel: "மதிப்பு", percentageLabel: "சதவீதம் (%)", resultPrefix: "முடிவு: " },
-            te: { header: "AI కాల్కులేటర్", tagline: "AI ద్వారా నడిపే A నుండి Z కాల్కులేటర్లు", calcTitle: "విలువ మరియు శాతాన్ని నమోదు చేయండి ఫలితాన్ని కోసం", valueLabel: "విలువ", percentageLabel: "శాతం (%)", resultPrefix: "ఫలితం: " },
-            es: { header: "Calculadora de IA", tagline: "Calculadoras A-Z impulsadas por IA", calcTitle: "Ingrese el valor y el porcentaje para calcular el resultado", valueLabel: "Valor", percentageLabel: "Porcentaje (%)", resultPrefix: "Resultado: " },
-            bn: { header: "এআই ক্যালকুলেটর", tagline: "এআই দ্বারা চালিত এ থেকে জে ক্যালকুলেটর", calcTitle: "মান এবং শতাংশ লিখুন ফলাফল গণনার জন্য", valueLabel: "মান", percentageLabel: "শতাংশ (%)", resultPrefix: "ফলাফল: " },
-            ar: { header: "حاسبة الذكاء الاصطناعي", tagline: "حاسبات A إلى Z مدعومة بالذكاء الاصطناعي", calcTitle: "أدخل القيمة والنسبة المئوية لحساب النتيجة", valueLabel: "القيمة", percentageLabel: "النسبة المئوية (%)", resultPrefix: "النتيجة: " },
-            zh: { header: "人工智能计算器", tagline: "AI驱动的A到Z计算器", calcTitle: "输入数值和百分比以计算结果", valueLabel: "数值", percentageLabel: "百分比 (%)", resultPrefix: "结果: " },
-            fr: { header: "Calculateur IA", tagline: "Calculateurs A à Z alimentés par IA", calcTitle: "Entrez la valeur et le pourcentage pour calculer le résultat", valueLabel: "Valeur", percentageLabel: "Pourcentage (%)", resultPrefix: "Résultat: " }
+            en: { header: "Smart AI Calculator", tagline: "Percentage Calculator", calcTitle: "Enter amount and percentage to calculate", amountLabel: "Amount (₹)", percentLabel: "Percentage (%)", typeLabel: "Calculation Type", resultPrefix: "Result: " },
+            hi: { header: "स्मार्ट एआई कैलकुलेटर", tagline: "प्रतिशत कैलकुलेटर", calcTitle: "गणना के लिए राशि और प्रतिशत दर्ज करें", amountLabel: "राशि (₹)", percentLabel: "प्रतिशत (%)", typeLabel: "गणना का प्रकार", resultPrefix: "परिणाम: " },
+            ta: { header: "ஸ்மார்ட் AI கால்குலேட்டர்", tagline: "விழுக்காடு கால்குலேட்டர்", calcTitle: "கணக்கீட்டிற்கு தொகை மற்றும் விழுக்காட்டை உள்ளிடவும்", amountLabel: "தொகை (₹)", percentLabel: "விழுக்காடு (%)", typeLabel: "கணக்கீட்டு வகை", resultPrefix: "முடிவு: " },
+            te: { header: "స్మార్ట్ AI కాల్కులేటర్", tagline: "శాతం కాల్కులేటర్", calcTitle: "లెక్కింపు కోసం రాశి మరియు శాతాన్ని నమోదు చేయండి", amountLabel: "రాశి (₹)", percentLabel: "శాతం (%)", typeLabel: "లెక్కింపు రకం", resultPrefix: "ఫలితం: " },
+            es: { header: "Calculadora de IA Inteligente", tagline: "Calculadora de Porcentajes", calcTitle: "Ingrese el monto y el porcentaje para calcular", amountLabel: "Monto (₹)", percentLabel: "Porcentaje (%)", typeLabel: "Tipo de cálculo", resultPrefix: "Resultado: " },
+            bn: { header: "স্মার্ট এআই ক্যালকুলেটর", tagline: "শতাংশ ক্যালকুলেটর", calcTitle: "গণনার জন্য পরিমাণ এবং শতাংশ লিখুন", amountLabel: "পরিমাণ (₹)", percentLabel: "শতাংশ (%)", typeLabel: "গণনার ধরন", resultPrefix: "ফলাফল: " },
+            ar: { header: "حاسبة الذكاء الاصطناعي الذكية", tagline: "حاسبة النسبة المئوية", calcTitle: "أدخل المبلغ والنسبة المئوية للحساب", amountLabel: "المبلغ (₹)", percentLabel: "النسبة المئوية (%)", typeLabel: "نوع الحساب", resultPrefix: "النتيجة: " },
+            zh: { header: "智能人工智能计算器", tagline: "百分比计算器", calcTitle: "输入金额和百分比进行计算", amountLabel: "金额 (₹)", percentLabel: "百分比 (%)", typeLabel: "计算类型", resultPrefix: "结果: " },
+            fr: { header: "Calculateur IA Intelligent", tagline: "Calculateur de Pourcentage", calcTitle: "Entrez le montant et le pourcentage pour calculer", amountLabel: "Montant (₹)", percentLabel: "Pourcentage (%)", typeLabel: "Type de calcul", resultPrefix: "Résultat: " }
         };
-        function toggleTheme() {
-            isDarkMode = !isDarkMode;
-            document.body.classList.toggle('light-mode', !isDarkMode);
-            document.getElementById('theme-text').textContent = isDarkMode ? 'Dark' : 'Light';
-        }
         function calculatePercentage() {
             document.getElementById("spinner").style.display = "inline";
             setTimeout(() => {
-                let value = parseFloat(document.getElementById("value").value);
+                let amount = parseFloat(document.getElementById("amount").value);
                 let percentage = parseFloat(document.getElementById("percentage").value);
+                let calcType = document.getElementById("calc-type").value;
                 let resultDiv = document.getElementById("percentage-result");
-                if (value >= 0 && percentage >= 0 && percentage <= 100) {
-                    let result = (value * percentage) / 100;
-                    resultDiv.innerHTML = `${translations[lang].resultPrefix} ${result.toFixed(2)}`;
-                    speakResult(resultDiv.innerHTML);
+                if (amount >= 0 && percentage >= 0) {
+                    let result;
+                    if (calcType === "value") {
+                        result = (amount * percentage) / 100;
+                        resultDiv.innerHTML = `${translations[lang].resultPrefix} ${result.toFixed(2)} ₹`;
+                    } else if (calcType === "increase") {
+                        result = amount + (amount * percentage) / 100;
+                        resultDiv.innerHTML = `${translations[lang].resultPrefix} ${result.toFixed(2)} ₹<br>Original Amount: ${amount.toFixed(2)} ₹`;
+                    } else {
+                        result = amount - (amount * percentage) / 100;
+                        resultDiv.innerHTML = `${translations[lang].resultPrefix} ${result.toFixed(2)} ₹<br>Original Amount: ${amount.toFixed(2)} ₹`;
+                    }
                 } else {
                     resultDiv.innerText = lang === 'en' ? "Please enter valid values" : lang === 'hi' ? "कृपया वैध मान दर्ज करें" : lang === 'ta' ? "சரியான மதிப்புகளை உள்ளிடவும்" : lang === 'te' ? "దయచేసి సరైన విలువలను నమోదు చేయండి" : lang === 'es' ? "Por favor, ingrese valores válidos" : lang === 'bn' ? "দয়া করে বৈধ মান লিখুন" : lang === 'ar' ? "يرجى إدخال قيم صحيحة" : lang === 'zh' ? "请输入有效值" : "Veuillez entrer des valeurs valides";
                 }
                 document.getElementById("spinner").style.display = "none";
             }, 1000);
         }
+        function toggleSpeech() {
+            console.log("Toggling speech for result");
+            const result = document.getElementById("percentage-result").innerHTML;
+            if (!result) {
+                console.log("No result to speak");
+                return;
+            }
+            if (isSpeaking) {
+                window.speechSynthesis.cancel();
+                isSpeaking = false;
+                console.log("Speech stopped");
+            } else {
+                utterance = new SpeechSynthesisUtterance(result);
+                utterance.lang = lang === 'zh' ? 'zh-CN' : lang === 'ar' ? 'ar-SA' : lang;
+                utterance.onend = () => {
+                    isSpeaking = false;
+                    console.log("Speech ended");
+                };
+                window.speechSynthesis.speak(utterance);
+                isSpeaking = true;
+                console.log("Speech started");
+            }
+        }
+        function stopSpeech() {
+            if (isSpeaking) {
+                window.speechSynthesis.cancel();
+                isSpeaking = false;
+                console.log("Speech stopped on page exit");
+            }
+        }
         function showCategory(category) {
             // No action needed here as navigation is handled by index.html
-        }
-        function speakResult(result) {
-            const utterance = new SpeechSynthesisUtterance(result);
-            utterance.lang = lang === 'zh' ? 'zh-CN' : lang === 'ar' ? 'ar-SA' : lang;
-            window.speechSynthesis.speak(utterance);
         }
         window.onload = () => {
             document.getElementById('header-title').textContent = translations[lang].header;
             document.getElementById('tagline').textContent = translations[lang].tagline;
             document.getElementById('calc-title').textContent = translations[lang].calcTitle;
-            document.getElementById('value-label').textContent = translations[lang].valueLabel;
-            document.getElementById('percentage-label').textContent = translations[lang].percentageLabel;
+            document.getElementById('amount-label').textContent = translations[lang].amountLabel;
+            document.getElementById('percent-label').textContent = translations[lang].percentLabel;
+            document.getElementById('type-label').textContent = translations[lang].typeLabel;
+            console.log("Voice icon loaded");
         };
+        window.onpagehide = stopSpeech;
+        window.onbeforeunload = stopSpeech;
     </script>
-</html>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'934ab0e65a83454b',t:'MTc0NTM4MzMxMi4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></html>
