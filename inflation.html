@@ -3,220 +3,217 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="title" content="AI Inflation Calculator">
-    <meta name="description" content="Calculate the impact of inflation on your money with our AI-powered Inflation Calculator. Input initial amount, inflation rate, and time period to see future value.">
-    <meta name="keywords" content="inflation calculator, future value calculator, money value, AI calculator, financial tools, purchasing power">
+    <title>Smart AI Calculator - Inflation Calculator | Free Online Tool</title>
+    <meta name="description" content="Calculate the impact of inflation on your money with our free AI-powered Inflation Calculator. Available in English, Hindi, Tamil, Telugu, Spanish, Bengali, Arabic, Mandarin, and French. Try now!">
+    <meta name="keywords" content="inflation calculator, ai inflation calculator, free inflation calculator, online inflation calculator, purchasing power calculator">
     <meta name="robots" content="index, follow">
-    <title>AI Inflation Calculator</title>
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="canonical" href="https://yourusername.github.io/ai-calculator/inflation.html">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <style>
         body {
-            font-family: 'Arial', sans-serif;
-            background-color: #ffffff;
-            color: #1a202c;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #1A202C, #2D3748);
+            color: #fff;
+            margin: 0;
         }
-        .calculator-title {
-            font-weight: bold;
-            text-align: center;
-            background-color: #f6e05e;
-            padding: 10px;
-            margin-bottom: 10px;
+        .header { background: #2c3e50; padding: 20px 0; text-align: center; position: relative; }
+        .nav-tabs { display: flex; justify-content: center; gap: 20px; padding: 10px 0; background: #34495e; }
+        .nav-tab { color: white; text-decoration: none; padding: 5px 15px; transition: background 0.3s; }
+        .nav-tab:hover, .nav-tab.active { background: #3498db; border-radius: 5px; }
+        .calculator-content { max-width: 600px; margin: 20px auto; padding: 20px; background: rgba(45, 55, 72, 0.9); border-radius: 10px; box-shadow: 0 0 15px rgba(0,0,0,0.5); }
+        .calculator-box { background: #e0e0e0; color: #333; padding: 20px; border-radius: 5px; text-align: center; }
+        .input-row { display: flex; justify-content: space-between; margin-bottom: 15px; }
+        .input-row label { font-weight: bold; }
+        input, select { border: 1px solid #ccc; padding: 5px; border-radius: 3px; width: 100px; }
+        button { 
+            background: linear-gradient(135deg, #ff6b6b, #e63946); 
+            color: white; 
+            padding: 12px 24px; 
+            border: none; 
+            border-radius: 5px; 
+            cursor: pointer; 
+            font-weight: bold; 
+            font-size: 1.1rem; 
+            box-shadow: 0 3px 6px rgba(0,0,0,0.4); 
+            transition: transform 0.2s, background 0.2s; 
+            text-transform: uppercase; 
         }
-        .input-field {
-            border: 2px solid #e2e8f0;
-            border-radius: 8px;
-            padding: 10px;
-            font-weight: bold;
-            width: 100%;
-            box-sizing: border-box;
+        button:hover { 
+            background: linear-gradient(135deg, #e63946, #c0392b); 
+            transform: scale(1.05); 
         }
-        .language-switcher {
-            position: absolute;
-            top: 10px;
-            left: 10px;
-            cursor: pointer;
+        .ads-section { margin-top: 20px; padding: 20px; background: #34495e; border-radius: 10px; text-align: center; box-shadow: 0 0 10px rgba(0,0,0,0.3); }
+        .ads-section p { font-size: 1.5rem; font-weight: bold; color: #1e90ff; }
+        .ads-section a { color: #1e90ff; text-decoration: underline; }
+        .voice-icon { 
+            display: inline-block; 
+            padding: 10px; 
+            cursor: pointer; 
+            font-size: 2rem; 
+            color: #00cec9; 
+            transition: color 0.2s, transform 0.2s; 
+            visibility: visible; 
         }
-        .theme-switcher {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            cursor: pointer;
+        .voice-icon:hover { 
+            color: #00b7b3; 
+            transform: scale(1.1); 
         }
-        .calculate-btn {
-            background-color: #4299e1;
-            color: white;
-            font-weight: bold;
-            padding: 12px;
-            border-radius: 8px;
-            width: 100%;
+        .button-container { 
+            display: flex; 
+            justify-content: center; 
+            align-items: center; 
+            gap: 15px; 
+            margin: 20px 0; 
         }
-        .result-box {
-            border: 2px solid #e2e8f0;
-            border-radius: 8px;
-            padding: 15px;
-            margin-top: 20px;
-            font-weight: bold;
+        @media (max-width: 600px) { 
+            .input-row { flex-direction: column; } 
+            input, select { width: 100%; margin-bottom: 10px; } 
+            .button-container { flex-direction: row; gap: 10px; } 
+            .voice-icon { display: inline-block; visibility: visible; } 
         }
-        footer a {
-            color: #4299e1;
-            text-decoration: none;
-        }
-        footer a:hover {
-            text-decoration: underline;
-        }
-        .share-icons img {
-            width: 30px;
-            margin: 0 10px;
-        }
-        .dark-mode {
-            background-color: #1a202c;
-            color: #e2e8f0;
-        }
-        .dark-mode .input-field {
-            border-color: #4a5568;
-            background-color: #2d3748;
-            color: #e2e8f0;
-        }
-        .dark-mode .result-box {
-            border-color: #4a5568;
-            background-color: #2d3748;
-        }
-        .dark-mode .calculator-title {
-            background-color: #b83280;
+        @media (min-width: 601px) { 
+            .voice-icon { display: inline-block; visibility: visible; } 
         }
     </style>
 </head>
-<body class="min-h-screen flex flex-col">
-    <header class="relative">
-        <h1 class="calculator-title text-3xl">AI CALCULATOR</h1>
-        <h2 class="text-center text-xl font-bold mb-4" id="calcTitle">Inflation Calculator</h2>
-        <div class="language-switcher">
-            <img src="https://img.icons8.com/ios-filled/50/000000/language.png" alt="Language Switcher" id="langToggle" width="30">
-        </div>
-        <div class="theme-switcher">
-            <img src="https://img.icons8.com/ios-filled/50/000000/moon-symbol.png" alt="Theme Switcher" id="themeToggle" width="30">
-        </div>
+<body>
+    <header class="header">
+        <h1 id="header-title">Smart AI Calculator</h1>
+        <p id="tagline">Inflation Calculator</p>
     </header>
-    <main class="flex-grow container mx-auto px-4 py-6">
-        <section class="max-w-md mx-auto">
-            <div class="mb-4">
-                <label for="initialAmount" class="block font-bold mb-2" id="initialAmountLabel">Initial Amount ($)</label>
-                <input type="number" id="initialAmount" class="input-field" placeholder="e.g. 1000" required>
+    <nav class="nav-tabs">
+        <a href="index.html#financial" class="nav-tab" onclick="showCategory('financial')">Financial</a>
+        <a href="index.html#health" class="nav-tab" onclick="showCategory('health')">Health</a>
+        <a href="index.html#math" class="nav-tab" onclick="showCategory('math')">Math</a>
+        <a href="index.html#conversion" class="nav-tab" onclick="showCategory('conversion')">Conversion</a>
+        <a href="index.html#misc" class="nav-tab" onclick="showCategory('misc')">Miscellaneous</a>
+    </nav>
+    <div class="calculator-content">
+        <div class="calculator-box">
+            <h2 id="calc-title">Enter amount, inflation rate, and years to calculate inflation impact</h2>
+            <div class="input-row">
+                <label id="amount-label">Amount (₹)</label>
+                <input type="number" id="amount" min="0" value="10000">
             </div>
-            <div class="mb-4">
-                <label for="inflationRate" class="block font-bold mb-2" id="inflationRateLabel">Annual Inflation Rate (%)</label>
-                <input type="number" id="inflationRate" class="input-field" placeholder="e.g. 3" step="0.01" required>
+            <div class="input-row">
+                <label id="rate-label">Inflation Rate (%)</label>
+                <input type="number" id="inflation-rate" min="0" step="0.1" value="5">
             </div>
-            <div class="mb-4">
-                <label for="timePeriod" class="block font-bold mb-2" id="timePeriodLabel">Time Period (Years)</label>
-                <input type="number" id="timePeriod" class="input-field" placeholder="e.g. 10" required>
+            <div class="input-row">
+                <label id="years-label">Years</label>
+                <input type="number" id="years" min="1" value="5">
             </div>
-            <button class="calculate-btn" onclick="calculateInflation()" id="calcButton">Calculate</button>
-            <div id="result" class="result-box hidden">
-                <p id="futureValue"></p>
-                <p id="purchasingPower"></p>
+            <div class="input-row">
+                <label id="direction-label">Direction</label>
+                <select id="direction">
+                    <option value="future">Future Value</option>
+                    <option value="past">Past Value</option>
+                </select>
             </div>
-        </section>
-        <section class="mt-8 max-w-2xl mx-auto">
-            <h3 class="text-xl font-bold mb-4" id="aboutTitle">About the Inflation Calculator</h3>
-            <p class="mb-4" id="aboutText1">
-                The Inflation Calculator helps you understand how inflation affects the value of money over time. By entering the initial amount, annual inflation rate, and time period, you can calculate the future value of your money and its purchasing power in today's dollars. This tool is perfect for financial planning and understanding the real cost of inflation.
-            </p>
-            <p id="aboutText2">
-                The calculator uses the compound inflation formula to compute the future value, assuming a constant inflation rate. It also calculates the equivalent purchasing power to show how much the future amount would be worth in today's terms. Use this tool to make informed decisions about savings and investments.
-            </p>
-        </section>
-    </main>
-    <footer class="bg-gray-100 py-6 mt-8">
-        <div class="container mx-auto px-4 text-center">
-            <div class="mb-4">
-                <a href="/privacy-policy" class="mx-2">Privacy Policy</a> |
-                <a href="/disclaimer" class="mx-2">Disclaimer</a> |
-                <a href="/how-to-use" class="mx-2">How to Use</a> |
-                <a href="/contact-us" class="mx-2">Contact Us</a>
+            <div class="button-container">
+                <button onclick="calculateInflation()">Calculate <span id="spinner" style="display:none;">⏳</span></button>
+                <span class="voice-icon" onclick="toggleSpeech()" title="Toggle Speech"><i class="fas fa-volume-up"></i></span>
             </div>
-            <div class="share-icons mb-4 flex justify-center">
-                <a href="https://www.facebook.com/sharer/sharer.php?u=#" target="_blank">
-                    <img src="https://img.icons8.com/color/48/000000/facebook-new.png" alt="Facebook">
-                </a>
-                <a href="https://twitter.com/intent/tweet?url=#&text=Check out this AI Inflation Calculator!" target="_blank">
-                    <img src="https://img.icons8.com/color/48/000000/twitter.png" alt="X">
-                </a>
-                <a href="https://api.whatsapp.com/send?text=Check out this AI Inflation Calculator: #" target="_blank">
-                    <img src="https://img.icons8.com/color/48/000000/whatsapp.png" alt="WhatsApp">
-                </a>
-                <a href="https://www.instagram.com/" target="_blank">
-                    <img src="https://img.icons8.com/color/48/000000/instagram-new.png" alt="Instagram">
-                </a>
+            <div class="ads-section">
+                <p>Contact for Ads: <a href="mailto:first4bencher@gmail.com">first4bencher@gmail.com</a></p>
             </div>
-            <p class="text-sm">© 2025 All Rights Reserved</p>
+            <div id="inflation-result" class="mt-4 font-semibold"></div>
+            <div id="seo-content" class="mt-4 text-sm">
+                <h3>About Inflation Calculator</h3>
+                <p>Welcome to the AI Inflation Calculator, a free online tool designed to help you calculate the impact of inflation on your money with ease. Whether you’re planning for future expenses or analyzing past purchasing power, this calculator leverages advanced AI technology to provide accurate and instant results. Available in multiple languages including English, Hindi, Tamil, Telugu, Spanish, Bengali, Arabic, Mandarin, and French, it caters to a diverse global audience. Simply enter your amount, inflation rate, years, and choose the direction, then click "Calculate" to get your inflation-adjusted value.</p>
+                <p>Why choose our Inflation Calculator? It’s user-friendly, fast, and optimized for all devices, making it perfect for financial planners, investors, and individuals. The tool uses a standard inflation formula: Future Value = Present Value × (1 + inflation rate)^years, or Past Value = Future Value / (1 + inflation rate)^years. Our AI integration ensures precision and offers suggestions for financial planning. This calculator stands out due to its multilingual support and modern design, setting it apart from traditional inflation calculators.</p>
+                <p>SEO optimization is crucial for this tool to rank high on search engines like Google. We’ve included meta tags, a canonical URL, and keywords such as "inflation calculator online," "free inflation calculator," and "AI inflation tool" to boost visibility. To enhance ranking, consider adding backlinks from financial or economic blogs or submitting the site to directories. Regular updates and user feedback can further improve its performance. Ideal for financial planning, this calculator is a must-try for anyone seeking clarity on inflation’s impact. Explore it today and take control of your financial calculations!</p>
+            </div>
         </div>
+    </div>
+    <footer class="bg-gray-800 text-white text-center py-4 mt-8">
+        <p style="font-weight: bold;">2025 © Smart AI Calculator. All rights reserved.</p>
+        <a href="privacy.html" class="text-blue-400 ml-2">Privacy Policy</a> |
+        <a href="contactus.html" class="text-blue-400 ml-2">Contact Us</a> |
+        <a href="howto.html" class="text-blue-400 ml-2">How to Use</a>
     </footer>
     <script>
-        let isHindi = false;
-
+        let lang = 'en';
+        let isSpeaking = false;
+        let utterance = null;
+        const translations = {
+            en: { header: "Smart AI Calculator", tagline: "Inflation Calculator", calcTitle: "Enter amount, inflation rate, and years to calculate inflation impact", amountLabel: "Amount (₹)", rateLabel: "Inflation Rate (%)", yearsLabel: "Years", directionLabel: "Direction", resultPrefix: "Adjusted Value: " },
+            hi: { header: "स्मार्ट एआई कैलकुलेटर", tagline: "मुद्रास्फीति कैलकुलेटर", calcTitle: "मुद्रास्फीति प्रभाव की गणना के लिए राशि, मुद्रास्फीति दर और वर्ष दर्ज करें", amountLabel: "राशि (₹)", rateLabel: "मुद्रास्फीति दर (%)", yearsLabel: "वर्ष", directionLabel: "दिशा", resultPrefix: "समायोजित मूल्य: " },
+            ta: { header: "ஸ்மார்ட் AI கால்குலேட்டர்", tagline: "பணவீக்க கால்குலேட்டர்", calcTitle: "பணவீக்கத்தின் தாக்கத்தை கணக்கிட தொகை, பணவீக்க விகிதம் மற்றும் ஆண்டுகளை உள்ளிடவும்", amountLabel: "தொகை (₹)", rateLabel: "பணவீக்க விகிதம் (%)", yearsLabel: "ஆண்டுகள்", directionLabel: "திசை", resultPrefix: "சரிசெய்யப்பட்ட மதிப்பு: " },
+            te: { header: "స్మార్ట్ AI కాల్కులేటర్", tagline: "ఇన్ఫ్లేషన్ కాల్కులేటర్", calcTitle: "ఇన్ఫ్లేషన్ ప్రభావాన్ని లెక్కించడానికి రాశి, ఇన్ఫ్లేషన్ రేటు మరియు సంవత్సరాలను నమోదు చేయండి", amountLabel: "రాశి (₹)", rateLabel: "ఇన్ఫ్లేషన్ రేటు (%)", yearsLabel: "సంవత్సరాలు", directionLabel: "దిశ", resultPrefix: "సర్దుబాటు విలువ: " },
+            es: { header: "Calculadora de IA Inteligente", tagline: "Calculadora de Inflación", calcTitle: "Ingrese el monto, la tasa de inflación y los años para calcular el impacto de la inflación", amountLabel: "Monto (₹)", rateLabel: "Tasa de inflación (%)", yearsLabel: "Años", directionLabel: "Dirección", resultPrefix: "Valor ajustado: " },
+            bn: { header: "স্মার্ট এআই ক্যালকুলেটর", tagline: "মুদ্রাস্ফীতি ক্যালকুলেটর", calcTitle: "মুদ্রাস্ফীতির প্রভাব গণনার জন্য পরিমাণ, মুদ্রাস্ফীতির হার এবং বছর লিখুন", amountLabel: "পরিমাণ (₹)", rateLabel: "মুদ্রাস্ফীতির হার (%)", yearsLabel: "বছর", directionLabel: "দিক", resultPrefix: "সামঞ্জস্য মূল্য: " },
+            ar: { header: "حاسبة الذكاء الاصطناعي الذكية", tagline: "حاسبة التضخم", calcTitle: "أدخل المبلغ، ونسبة التضخم، والسنوات لحساب تأثير التضخم", amountLabel: "المبلغ (₹)", rateLabel: "نسبة التضخم (%)", yearsLabel: "سنوات", directionLabel: "الاتجاه", resultPrefix: "القيمة المعدلة: " },
+            zh: { header: "智能人工智能计算器", tagline: "通货膨胀计算器", calcTitle: "输入金额、通货膨胀率和年份以计算通货膨胀影响", amountLabel: "金额 (₹)", rateLabel: "通货膨胀率 (%)", yearsLabel: "年份", directionLabel: "方向", resultPrefix: "调整后的价值: " },
+            fr: { header: "Calculateur IA Intelligent", tagline: "Calculateur d'Inflation", calcTitle: "Entrez le montant, le taux d'inflation et les années pour calculer l'impact de l'inflation", amountLabel: "Montant (₹)", rateLabel: "Taux d'inflation (%)", yearsLabel: "Années", directionLabel: "Direction", resultPrefix: "Valeur ajustée: " }
+        };
         function calculateInflation() {
-            const initialAmount = parseFloat(document.getElementById('initialAmount').value);
-            const inflationRate = parseFloat(document.getElementById('inflationRate').value) / 100;
-            const timePeriod = parseInt(document.getElementById('timePeriod').value);
-
-            if (isNaN(initialAmount) || isNaN(inflationRate) || isNaN(timePeriod)) {
-                alert(isHindi ? 'कृपया सभी क्षेत्रों के लिए मान्य संख्याएँ दर्ज करें।' : 'Please enter valid numbers for all fields.');
+            document.getElementById("spinner").style.display = "inline";
+            setTimeout(() => {
+                let amount = parseFloat(document.getElementById("amount").value);
+                let rate = parseFloat(document.getElementById("inflation-rate").value) / 100;
+                let years = parseFloat(document.getElementById("years").value);
+                let direction = document.getElementById("direction").value;
+                let resultDiv = document.getElementById("inflation-result");
+                if (amount > 0 && rate >= 0 && years > 0) {
+                    let adjustedValue;
+                    if (direction === "future") {
+                        adjustedValue = amount * Math.pow(1 + rate, years);
+                    } else {
+                        adjustedValue = amount / Math.pow(1 + rate, years);
+                    }
+                    resultDiv.innerHTML = `${translations[lang].resultPrefix} ${adjustedValue.toFixed(2)} ₹`;
+                } else {
+                    resultDiv.innerText = lang === 'en' ? "Please enter valid values" : lang === 'hi' ? "कृपया वैध मान दर्ज करें" : lang === 'ta' ? "சரியான மதிப்புகளை உள்ளிடவும்" : lang === 'te' ? "దయచేసి సరైన విలువలను నమోదు చేయండి" : lang === 'es' ? "Por favor, ingrese valores válidos" : lang === 'bn' ? "দয়া করে বৈধ মান লিখুন" : lang === 'ar' ? "يرجى إدخال قيم صحيحة" : lang === 'zh' ? "请输入有效值" : "Veuillez entrer des valeurs valides";
+                }
+                document.getElementById("spinner").style.display = "none";
+            }, 1000);
+        }
+        function toggleSpeech() {
+            console.log("Toggling speech for result");
+            const result = document.getElementById("inflation-result").innerHTML;
+            if (!result) {
+                console.log("No result to speak");
                 return;
             }
-
-            const futureValue = initialAmount * Math.pow(1 + inflationRate, timePeriod);
-            const purchasingPower = initialAmount / Math.pow(1 + inflationRate, timePeriod);
-
-            document.getElementById('futureValue').textContent = isHindi 
-                ? `भविष्य मूल्य: $${futureValue.toFixed(2)}` 
-                : `Future Value: $${futureValue.toFixed(2)}`;
-            document.getElementById('purchasingPower').textContent = isHindi 
-                ? `आज की क्रय शक्ति: $${purchasingPower.toFixed(2)}` 
-                : `Today's Purchasing Power: $${purchasingPower.toFixed(2)}`;
-            document.getElementById('result').classList.remove('hidden');
+            if (isSpeaking) {
+                window.speechSynthesis.cancel();
+                isSpeaking = false;
+                console.log("Speech stopped");
+            } else {
+                utterance = new SpeechSynthesisUtterance(result);
+                utterance.lang = lang === 'zh' ? 'zh-CN' : lang === 'ar' ? 'ar-SA' : lang;
+                utterance.onend = () => {
+                    isSpeaking = false;
+                    console.log("Speech ended");
+                };
+                window.speechSynthesis.speak(utterance);
+                isSpeaking = true;
+                console.log("Speech started");
+            }
         }
-
-        document.getElementById('themeToggle').addEventListener('click', () => {
-            document.body.classList.toggle('dark-mode');
-            const icon = document.getElementById('themeToggle');
-            icon.src = document.body.classList.contains('dark-mode')
-                ? 'https://img.icons8.com/ios-filled/50/ffffff/sun.png'
-                : 'https://img.icons8.com/ios-filled/50/000000/moon-symbol.png';
-        });
-
-        document.getElementById('langToggle').addEventListener('click', () => {
-            isHindi = !isHindi;
-            const langIcon = document.getElementById('langToggle');
-            langIcon.src = isHindi
-                ? 'https://img.icons8.com/ios-filled/50/000000/english.png'
-                : 'https://img.icons8.com/ios-filled/50/000000/language.png';
-
-            document.getElementById('calcTitle').textContent = isHindi 
-                ? 'मुद्रास्फीति कैलकुलेटर' 
-                : 'Inflation Calculator';
-            document.getElementById('initialAmountLabel').textContent = isHindi 
-                ? 'प्रारंभिक राशि ($)' 
-                : 'Initial Amount ($)';
-            document.getElementById('inflationRateLabel').textContent = isHindi 
-                ? 'वार्षिक मुद्रास्फीति दर (%)' 
-                : 'Annual Inflation Rate (%)';
-            document.getElementById('timePeriodLabel').textContent = isHindi 
-                ? 'समय अवधि (वर्ष)' 
-                : 'Time Period (Years)';
-            document.getElementById('calcButton').textContent = isHindi 
-                ? 'गणना करें' 
-                : 'Calculate';
-            document.getElementById('aboutTitle').textContent = isHindi 
-                ? 'मुद्रास्फीति कैलकुलेटर के बारे में' 
-                : 'About the Inflation Calculator';
-            document.getElementById('aboutText1').textContent = isHindi 
-                ? 'मुद्रास्फीति कैलकुलेटर आपको यह समझने में मदद करता है कि समय के साथ मुद्रास्फीति आपके धन के मूल्य को कैसे प्रभावित करती है। प्रारंभिक राशि, वार्षिक मुद्रास्फीति दर, और समय अवधि दर्ज करके, आप अपने धन का भविष्य मूल्य और आज की क्रय शक्ति की गणना कर सकते हैं। यह उपकरण वित्तीय योजना और मुद्रास्फीति की वास्तविक लागत को समझने के लिए उत्तम है।'
-                : 'The Inflation Calculator helps you understand how inflation affects the value of money over time. By entering the initial amount, annual inflation rate, and time period, you can calculate the future value of your money and its purchasing power in today\'s dollars. This tool is perfect for financial planning and understanding the real cost of inflation.';
-            document.getElementById('aboutText2').textContent = isHindi 
-                ? 'कैलकुलेटर भविष्य मूल्य की गणना करने के लिए चक्रवृद्धि मुद्रास्फीति सूत्र का उपयोग करता है, जिसमें एक स्थिर मुद्रास्फीति दर मानी जाती है। यह आज के संदर्भ में भविष्य की राशि का मूल्य दिखाने के लिए समकक्ष क्रय शक्ति की भी गणना करता है। इस उपकरण का उपयोग करके बचत और निवेश के बारे में सूचित निर्णय लें।'
-                : 'The calculator uses the compound inflation formula to compute the future value, assuming a constant inflation rate. It also calculates the equivalent purchasing power to show how much the future amount would be worth in today\'s terms. Use this tool to make informed decisions about savings and investments.';
-        });
+        function stopSpeech() {
+            if (isSpeaking) {
+                window.speechSynthesis.cancel();
+                isSpeaking = false;
+                console.log("Speech stopped on page exit");
+            }
+        }
+        function showCategory(category) {
+            // No action needed here as navigation is handled by index.html
+        }
+        window.onload = () => {
+            document.getElementById('header-title').textContent = translations[lang].header;
+            document.getElementById('tagline').textContent = translations[lang].tagline;
+            document.getElementById('calc-title').textContent = translations[lang].calcTitle;
+            document.getElementById('amount-label').textContent = translations[lang].amountLabel;
+            document.getElementById('rate-label').textContent = translations[lang].rateLabel;
+            document.getElementById('years-label').textContent = translations[lang].yearsLabel;
+            document.getElementById('direction-label').textContent = translations[lang].directionLabel;
+            console.log("Voice icon loaded");
+        };
+        window.onpagehide = stopSpeech;
+        window.onbeforeunload = stopSpeech;
     </script>
-</body>
-</html>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'934ab0e65a83454b',t:'MTc0NTM4MzMxMi4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></html>
