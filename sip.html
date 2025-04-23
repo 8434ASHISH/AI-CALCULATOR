@@ -1,165 +1,227 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Advanced AI SIP Calculator with theme toggle, multi-language support, PDF export & more.">
-  <meta name="keywords" content="AI SIP calculator, mutual fund calculator, SIP investment, SIP calculator Hindi, SIP calculator Tamil, SIP PDF download, advanced SIP planner, SIP projection tool, monthly SIP returns, SIP investment tracking, SIP forecast, online SIP tool, AI SIP assistant, SIP planning AI, financial calculator SIP, SIP maturity calculator, SIP growth chart, best SIP calculator, SIP calculator 2025, AI finance calculator, calculator for SIP returns, multilingual SIP calculator, SIP EMI calculator, SIP monthly saving, SIP AI tool, SIP tool with theme, SIP in Arabic, SIP Spanish calculator, SIP tool Chinese, SIP calculator dark mode, finance calculator AI, SIP download result, copy SIP data, SIP tailwind UI, SIP calculator app, SIP web tool, SIP dashboard, modern SIP planner, SIP analyzer, best SIP estimator, SIP data visualization, SIP ROI calculator, SIP investment AI, SIP wealth growth, SIP planning tool AI, SIP CAGR calculator, SIP expected return, SIP goal calculator, SIP AI powered tool, SIP estimate PDF, SIP projection AI, SIP light/dark switch, SIP language switcher, SIP multilingual tool, SIP online free calculator">
-  <title>AI Calculator - SIP Planner</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
-  <style>
-    body.dark { background-color: #111827; color: white; }
-    body.light { background-color: #f9fafb; color: black; }
-    input, select { background-color: white; color: black; }
-    body.dark input, body.dark select { background-color: #1f2937; color: white; }
-    .highlight { font-weight: bold; font-size: 1.5rem; }
-    .toggle-icon { cursor: pointer; font-size: 1.5rem; }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart AI SIP Calculator</title>
+    <meta name="description" content="Calculate the future value of your Systematic Investment Plan (SIP) with our free calculator. Estimate maturity amount and wealth gained based on monthly investment, return rate, and period. Try now!">
+    <meta name="keywords" content="sip calculator, mutual fund calculator, investment calculator, wealth planner">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://yourusername.github.io/ai-calculator/sip-calculator.html">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #1A202C, #2D3748);
+            color: #fff;
+            margin: 0;
+        }
+        .header { background: #2c3e50; padding: 20px 0; text-align: center; }
+        .nav-tabs { display: flex; justify-content: center; gap: 20px; padding: 10px 0; background: #34495e; }
+        .nav-tab { color: white; text-decoration: none; padding: 5px 15px; transition: background 0.3s; font-weight: bold; text-shadow: 0 0 5px rgba(255, 107, 107, 0.5); }
+        .nav-tab:hover, .nav-tab.active { background: #3498db; border-radius: 5px; }
+        .calculator-content { max-width: 600px; margin: 20px auto; padding: 20px; background: rgba(45, 55, 72, 0.9); border-radius: 10px; box-shadow: 0 0 15px rgba(0,0,0,0.5); }
+        .calculator-box { background: #e0e0e0; color: #333; padding: 20px; border-radius: 5px; text-align: center; }
+        .input-row { display: flex; justify-content: space-between; margin-bottom: 15px; }
+        .input-row label { font-weight: bold; }
+        input, select { border: 1px solid #ccc; padding: 5px; border-radius: 3px; width: 150px; }
+        input.invalid { border-color: #ff6b6b; }
+        button { 
+            background: linear-gradient(135deg, #ff6b6b, #e63946); 
+            color: white; 
+            padding: 12px 24px; 
+            border: none; 
+            border-radius: 5px; 
+            cursor: pointer; 
+            font-weight: bold; 
+            font-size: 1.1rem; 
+            box-shadow: 0 3px 6px rgba(0,0,0,0.4); 
+            transition: transform 0.2s, background 0.2s; 
+            text-transform: uppercase; 
+        }
+        button:hover { 
+            background: linear-gradient(135deg, #e63946, #c0392b); 
+            transform: scale(1.05); 
+        }
+        .ads-section { margin-top: 10px; padding: 10px; background: #34495e; border-radius: 5px; text-align: center; }
+        .ads-section p { font-size: 1.2rem; font-weight: bold; color: #1e90ff; }
+        .ads-section a { color: #1e90ff; text-decoration: underline; }
+        .voice-icon { 
+            display: inline-block; 
+            padding: 10px; 
+            cursor: pointer; 
+            font-size: 2rem; 
+            color: #00cec9; 
+            transition: color 0.2s, transform 0.2s; 
+            visibility: visible; 
+        }
+        .voice-icon:hover { 
+            color: #00b7b3; 
+            transform: scale(1.1); 
+        }
+        .button-container { 
+            display: flex; 
+            justify-content: center; 
+            align-items: center; 
+            gap: 15px; 
+            margin: 20px 0; 
+        }
+        .suggestions { margin-top: 20px; padding: 15px; background: #f0f0f0; border-radius: 5px; text-align: left; display: none; }
+        .suggestions h3 { font-size: 1.2rem; font-weight: bold; margin-bottom: 10px; }
+        .suggestions ul { list-style-type: disc; padding-left: 20px; }
+        .suggestions li { margin-bottom: 8px; }
+        .result-table { width: 100%; margin-top: 20px; border-collapse: collapse; }
+        .result-table th, .result-table td { border: 1px solid #ccc; padding: 10px; text-align: left; }
+        .result-table th { background: #3498db; color: white; }
+        .result-table tr:nth-child(even) { background: #f0f0f0; }
+        @media (max-width: 600px) { 
+            .input-row { flex-direction: column; } 
+            input, select { width: 100%; margin-bottom: 10px; } 
+            .button-container { flex-direction: row; gap: 10px; } 
+            .voice-icon { display: inline-block; visibility: visible; } 
+        }
+    </style>
 </head>
-<body class="light transition-all duration-300">
-  <div class="flex justify-between items-center p-4 bg-gradient-to-r from-indigo-500 to-purple-500 text-white">
-    <div class="toggle-icon" onclick="toggleTheme()">🌗</div>
-    <div class="highlight">AI CALCULATOR</div>
-    <select id="language" class="text-black px-2 py-1 rounded" onchange="translatePage(this.value)">
-      <option value="en">English</option>
-      <option value="hi">हिंदी</option>
-      <option value="ta">தமிழ்</option>
-      <option value="te">తెలుగు</option>
-      <option value="bn">বাংলা</option>
-      <option value="zh">中文</option>
-      <option value="fr">Français</option>
-      <option value="es">Español</option>
-      <option value="ar">العربية</option>
-    </select>
-  </div>
-
-  <div class="max-w-md mx-auto p-4">
-    <label class="block mt-4" data-text="monthly">Monthly Investment (₹)</label>
-    <input type="number" id="monthly" class="w-full p-2 border rounded" />
-
-    <label class="block mt-4" data-text="years">Investment Duration (Years)</label>
-    <input type="number" id="years" class="w-full p-2 border rounded" />
-
-    <label class="block mt-4" data-text="rate">Expected Annual Return (%)</label>
-    <input type="number" id="rate" class="w-full p-2 border rounded" />
-
-    <button onclick="calculateSIP()" class="mt-4 w-full bg-blue-600 text-white py-2 rounded" data-text="calculate">Calculate</button>
-
-    <div id="result" class="mt-4 whitespace-pre-wrap"></div>
-    <div class="flex gap-4 mt-4">
-      <button onclick="copyResult()" class="bg-green-600 text-white px-3 py-1 rounded" data-text="copy">Copy</button>
-      <button onclick="downloadPDF()" class="bg-red-600 text-white px-3 py-1 rounded" data-text="download">Download PDF</button>
+<body>
+    <header class="header">
+        <h1>Smart AI SIP Calculator</h1>
+        <p>Calculate Your SIP Investment Returns</p>
+    </header>
+    <nav class="nav-tabs">
+        <a href="index.html#home" class="nav-tab">HOME</a>
+        <a href="index.html#academic-calculator" class="nav-tab active">ACADEMIC CALCULATOR</a>
+    </nav>
+    <div class="calculator-content">
+        <div class="calculator-box">
+            <h2>Enter SIP Details</h2>
+            <div class="input-row">
+                <label>Monthly Investment (₹)</label>
+                <input type="number" id="investment" min="500" max="100000" step="100" oninput="validateInput(this)">
+            </div>
+            <div class="input-row">
+                <label>Annual Expected Return (%)</label>
+                <input type="number" id="return-rate" min="5" max="20" step="0.1" oninput="validateInput(this)">
+            </div>
+            <div class="input-row">
+                <label>Investment Period (Years)</label>
+                <input type="number" id="period" min="1" max="30" step="1" oninput="validateInput(this)">
+            </div>
+            <div class="button-container">
+                <button onclick="calculateSIP()">Calculate <span id="spinner" style="display:none;">⏳</span></button>
+                <span class="voice-icon" onclick="toggleSpeech()" title="Toggle Speech"><i class="fas fa-volume-up"></i></span>
+            </div>
+            <div id="sip-result" class="mt-4 font-semibold"></div>
+            <table class="result-table" id="result-table" style="display: none;">
+                <thead>
+                    <tr>
+                        <th>Detail</th>
+                        <th>Value</th>
+                    </tr>
+                </thead>
+                <tbody id="result-table-body"></tbody>
+            </table>
+            <div class="suggestions" id="suggestions">
+                <h3>Suggestions for SIP</h3>
+                <ul>
+                    <li>Start SIP early to maximize compounding benefits.</li>
+                    <li>Consider increasing SIP amount annually (step-up SIP).</li>
+                    <li>Choose funds with consistent performance and low expense ratios.</li>
+                    <li>Review your portfolio periodically to stay aligned with goals.</li>
+                </ul>
+            </div>
+            <div class="ads-section">
+                <p>Contact for Ads: <a href="mailto:first4bencher@gmail.com">first4bencher@gmail.com</a></p>
+            </div>
+            <div id="seo-content" class="mt-4 text-sm">
+                <h3>About SIP Calculator</h3>
+                <p>Our Smart AI SIP Calculator helps you estimate the future value of your Systematic Investment Plan (SIP). Enter monthly investment, expected return, and period to see maturity amount and wealth gained. It’s user-friendly, responsive, and SEO-optimized with keywords like 'SIP calculator' and 'investment calculator.' Perfect for wealth planning!</p>
+            </div>
+        </div>
     </div>
-  </div>
-
-  <script>
-    const translations = {
-      hi: {
-        monthly: "मासिक निवेश (₹)",
-        years: "निवेश अवधि (वर्ष)",
-        rate: "अपेक्षित वार्षिक रिटर्न (%)",
-        calculate: "गणना करें",
-        copy: "कॉपी करें",
-        download: "पीडीएफ डाउनलोड करें"
-      },
-      ta: {
-        monthly: "மாதாந்திர முதலீடு (₹)",
-        years: "முதலீட்டு காலம் (ஆண்டுகள்)",
-        rate: "எதிர்பார்க்கும் ஆண்டு வருமானம் (%)",
-        calculate: "கணக்கிடு",
-        copy: "நகலெடு",
-        download: "PDF பதிவிறக்கவும்"
-      },
-      te: {
-        monthly: "నెలసరి పెట్టుబడి (₹)",
-        years: "పెట్టుబడి వ్యవధి (సంవత్సరాలు)",
-        rate: "అంచనా వార్షిక రాబడి (%)",
-        calculate: "గణించు",
-        copy: "కాపీ చేయండి",
-        download: "PDF డౌన్లోడ్"
-      },
-      bn: {
-        monthly: "মাসিক বিনিয়োগ (₹)",
-        years: "বিনিয়োগের সময়কাল (বছর)",
-        rate: "প্রত্যাশিত বার্ষিক রিটার্ন (%)",
-        calculate: "গণনা করুন",
-        copy: "অনুলিপি করুন",
-        download: "PDF ডাউনলোড করুন"
-      },
-      zh: {
-        monthly: "每月投资 (₹)",
-        years: "投资年限",
-        rate: "预期年收益率 (%)",
-        calculate: "计算",
-        copy: "复制",
-        download: "下载 PDF"
-      },
-      fr: {
-        monthly: "Investissement Mensuel (₹)",
-        years: "Durée de l'investissement (années)",
-        rate: "Rendement Annuel Attendu (%)",
-        calculate: "Calculer",
-        copy: "Copier",
-        download: "Télécharger PDF"
-      },
-      es: {
-        monthly: "Inversión Mensual (₹)",
-        years: "Duración de la Inversión (años)",
-        rate: "Retorno Anual Esperado (%)",
-        calculate: "Calcular",
-        copy: "Copiar",
-        download: "Descargar PDF"
-      },
-      ar: {
-        monthly: "الاستثمار الشهري (₹)",
-        years: "مدة الاستثمار (سنوات)",
-        rate: "العائد السنوي المتوقع (%)",
-        calculate: "احسب",
-        copy: "نسخ",
-        download: "تحميل PDF"
-      }
-    };
-
-    function translatePage(lang) {
-      const labels = document.querySelectorAll('[data-text]');
-      labels.forEach(el => {
-        const key = el.getAttribute('data-text');
-        el.textContent = translations[lang]?.[key] || el.textContent;
-      });
-    }
-
-    function toggleTheme() {
-      document.body.classList.toggle("dark");
-      document.body.classList.toggle("light");
-    }
-
-    function calculateSIP() {
-      const monthly = parseFloat(document.getElementById('monthly').value);
-      const years = parseFloat(document.getElementById('years').value);
-      const rate = parseFloat(document.getElementById('rate').value) / 100 / 12;
-      const n = years * 12;
-      const amount = monthly * ((Math.pow(1 + rate, n) - 1) / rate) * (1 + rate);
-      const invested = monthly * n;
-      const gain = amount - invested;
-      document.getElementById("result").innerText = 
-        `Total Invested: ₹${invested.toFixed(2)}\nEstimated Returns: ₹${gain.toFixed(2)}\nTotal Value: ₹${amount.toFixed(2)}`;
-    }
-
-    function copyResult() {
-      const text = document.getElementById("result").innerText;
-      navigator.clipboard.writeText(text).then(() => {
-        alert("Result copied!");
-      });
-    }
-
-    async function downloadPDF() {
-      const { jsPDF } = window.jspdf;
-      const doc = new jsPDF();
-      const result = document.getElementById("result").innerText;
-      doc.text(result, 10, 10);
-      doc.save("sip-calculation.pdf");
-    }
-  </script>
-</body>
+    <footer class="bg-gray-800 text-white text-center py-4 mt-8">
+        <p style="font-weight: bold;">2025 © Smart AI Calculator. All rights reserved.</p>
+        <a href="privacy.html" class="text-blue-400 ml-2">Privacy Policy</a> |
+        <a href="contactus.html" class="text-blue-400 ml-2">Contact Us</a> |
+        <a href="howto.html" class="text-blue-400 ml-2">How to Use</a>
+    </footer>
+    <script>
+        let isSpeaking = false;
+        let utterance = null;
+        function validateInput(input) {
+            let value = parseFloat(input.value);
+            let id = input.id;
+            if (id === "investment" && (value < 500 || value > 100000)) {
+                input.classList.add("invalid");
+            } else if (id === "return-rate" && (value < 5 || value > 20)) {
+                input.classList.add("invalid");
+            } else if (id === "period" && (value < 1 || value > 30)) {
+                input.classList.add("invalid");
+            } else {
+                input.classList.remove("invalid");
+            }
+        }
+        function calculateSIP() {
+            document.getElementById("spinner").style.display = "inline";
+            setTimeout(() => {
+                let investment = parseFloat(document.getElementById("investment").value);
+                let returnRate = parseFloat(document.getElementById("return-rate").value);
+                let period = parseFloat(document.getElementById("period").value);
+                let resultDiv = document.getElementById("sip-result");
+                let tableBody = document.getElementById("result-table-body");
+                let suggestionsDiv = document.getElementById("suggestions");
+                let table = document.getElementById("result-table");
+                tableBody.innerHTML = "";
+                if (isNaN(investment) || isNaN(returnRate) || isNaN(period) || 
+                    investment < 500 || investment > 100000 || 
+                    returnRate < 5 || returnRate > 20 || 
+                    period < 1 || period > 30) {
+                    resultDiv.innerText = "Invalid input. Please check your values.";
+                    table.style.display = "none";
+                    suggestionsDiv.style.display = "none";
+                    document.getElementById("spinner").style.display = "none";
+                    return;
+                }
+                let monthlyRate = returnRate / 12 / 100;
+                let months = period * 12;
+                let futureValue = investment * (((Math.pow(1 + monthlyRate, months) - 1) / monthlyRate) * (1 + monthlyRate));
+                let investedAmount = investment * months;
+                let wealthGained = futureValue - investedAmount;
+                resultDiv.innerText = `Maturity Amount: ₹${futureValue.toFixed(2)}`;
+                tableBody.innerHTML = `
+                    <tr><td>Invested Amount</td><td>₹${investedAmount.toFixed(2)}</td></tr>
+                    <tr><td>Wealth Gained</td><td>₹${wealthGained.toFixed(2)}</td></tr>
+                    <tr><td>Maturity Amount</td><td>₹${futureValue.toFixed(2)}</td></tr>
+                `;
+                table.style.display = "table";
+                suggestionsDiv.style.display = "block";
+                document.getElementById("spinner").style.display = "none";
+            }, 500);
+        }
+        function toggleSpeech() {
+            const result = document.getElementById("sip-result").innerText;
+            if (!result || result.includes("Invalid")) {
+                console.log("No valid result to speak");
+                return;
+            }
+            if (isSpeaking) {
+                window.speechSynthesis.cancel();
+                isSpeaking = false;
+            } else {
+                utterance = new SpeechSynthesisUtterance(result);
+                utterance.lang = "en";
+                utterance.onend = () => { isSpeaking = false; };
+                window.speechSynthesis.speak(utterance);
+                isSpeaking = true;
+            }
+        }
+        function stopSpeech() {
+            if (isSpeaking) {
+                window.speechSynthesis.cancel();
+                isSpeaking = false;
+            }
+        }
+        window.onpagehide = stopSpeech;
+        window.onbeforeunload = stopSpeech;
+    </script>
 </html>
