@@ -1,100 +1,232 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Construction & Home Calculators - Labor Cost Estimator</title>
-  <meta name="description" content="Estimate the total labor cost for your construction project based on hourly wage, number of workers, and total working hours. Available in Hindi, English, Mandarin, French, and Arabic." />
-  <meta name="keywords" content="Labor Cost Estimator, Labor Calculation, Construction Labor, Wage Calculation, Worker Hours Estimator, Multilingual Labor Cost Estimator, Hindi Labor Estimator, Arabic Construction Labor Calculator, French Labor Estimator" />
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background-color: #f4f4f9;
-      color: #333;
-      padding: 20px;
-    }
-    .container {
-      max-width: 700px;
-      margin: auto;
-      background: #fff;
-      padding: 20px;
-      border-radius: 8px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    }
-    h2 {
-      text-align: center;
-      color: #2c3e50;
-    }
-    label {
-      display: block;
-      margin-top: 15px;
-    }
-    input, select {
-      width: 100%;
-      padding: 10px;
-      margin-top: 5px;
-      border: 1px solid #ccc;
-      border-radius: 4px;
-    }
-    button {
-      margin-top: 20px;
-      padding: 10px 15px;
-      background-color: #2980b9;
-      color: white;
-      border: none;
-      border-radius: 4px;
-      cursor: pointer;
-    }
-    button:hover {
-      background-color: #1c5980;
-    }
-    #result {
-      margin-top: 20px;
-      font-weight: bold;
-      text-align: center;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart AI Calculator - Labour Cost Calculator | Free Online Tool</title>
+    <meta name="description" content="Estimate the labour cost for your construction project with our free AI-powered Labour Cost Calculator. Available in English, Hindi, Tamil, Telugu, Spanish, Bengali, Arabic, Mandarin, and French. Try now!">
+    <meta name="keywords" content="labour cost calculator, ai labour calculator, free labour calculator, online labour cost calculation, home construction calculator">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://yourusername.github.io/ai-calculator/labour-cost-calculator.html">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #1A202C, #2D3748);
+            color: #fff;
+            margin: 0;
+        }
+        .header { background: #2c3e50; padding: 20px 0; text-align: center; position: relative; }
+        .nav-tabs { display: flex; justify-content: center; gap: 20px; padding: 10px 0; background: #34495e; }
+        .nav-tab { color: white; text-decoration: none; padding: 5px 15px; transition: background 0.3s; font-weight: bold; text-shadow: 0 0 5px rgba(255, 107, 107, 0.5); }
+        .nav-tab:hover, .nav-tab.active { background: #3498db; border-radius: 5px; }
+        .calculator-content { max-width: 600px; margin: 20px auto; padding: 20px; background: rgba(45, 55, 72, 0.9); border-radius: 10px; box-shadow: 0 0 15px rgba(0,0,0,0.5); }
+        .calculator-box { background: #e0e0e0; color: #333; padding: 20px; border-radius: 5px; text-align: center; }
+        .input-row { display: flex; justify-content: space-between; margin-bottom: 15px; }
+        .input-row label { font-weight: bold; }
+        input, select { border: 1px solid #ccc; padding: 5px; border-radius: 3px; width: 100px; }
+        button { 
+            background: linear-gradient(135deg, #ff6b6b, #e63946); 
+            color: white; 
+            padding: 12px 24px; 
+            border: none; 
+            border-radius: 5px; 
+            cursor: pointer; 
+            font-weight: bold; 
+            font-size: 1.1rem; 
+            box-shadow: 0 3px 6px rgba(0,0,0,0.4); 
+            transition: transform 0.2s, background 0.2s; 
+            text-transform: uppercase; 
+        }
+        button:hover { 
+            background: linear-gradient(135deg, #e63946, #c0392b); 
+            transform: scale(1.05); 
+        }
+        .ads-section { margin-top: 10px; padding: 10px; background: #34495e; border-radius: 5px; text-align: center; box-shadow: 0 0 5px rgba(0,0,0,0.3); }
+        .ads-section p { font-size: 1.2rem; font-weight: bold; color: #1e90ff; }
+        .ads-section a { color: #1e90ff; text-decoration: underline; }
+        .voice-icon { 
+            display: inline-block; 
+            padding: 10px; 
+            cursor: pointer; 
+            font-size: 2rem; 
+            color: #00cec9; 
+            transition: color 0.2s, transform 0.2s; 
+            visibility: visible; 
+        }
+        .voice-icon:hover { 
+            color: #00b7b3; 
+            transform: scale(1.1); 
+        }
+        .button-container { 
+            display: flex; 
+            justify-content: center; 
+            align-items: center; 
+            gap: 15px; 
+            margin: 20px 0; 
+        }
+        .suggestions { margin-top: 20px; padding: 15px; background: #f0f0f0; border-radius: 5px; text-align: left; display: none; }
+        .suggestions h3 { font-size: 1.2rem; font-weight: bold; margin-bottom: 10px; }
+        .suggestions ul { list-style-type: disc; padding-left: 20px; }
+        .suggestions li { margin-bottom: 8px; }
+        @media (max-width: 600px) { 
+            .input-row { flex-direction: column; } 
+            input, select { width: 100%; margin-bottom: 10px; } 
+            .button-container { flex-direction: row; gap: 10px; } 
+            .voice-icon { display: inline-block; visibility: visible; } 
+        }
+        @media (min-width: 601px) { 
+            .voice-icon { display: inline-block; visibility: visible; } 
+        }
+    </style>
 </head>
 <body>
-  <div class="container">
-    <h2>Construction & Home Calculators</h2>
-    <h3 style="text-align:center;">Labor Cost Estimator</h3>
-
-    <label for="hourlyWage">Hourly Wage per Worker (in your currency)</label>
-    <input type="number" id="hourlyWage" placeholder="e.g. 10" />
-
-    <label for="numWorkers">Number of Workers</label>
-    <input type="number" id="numWorkers" placeholder="e.g. 5" />
-
-    <label for="workingHours">Working Hours per Day</label>
-    <input type="number" id="workingHours" placeholder="e.g. 8" />
-
-    <label for="days">Number of Working Days</label>
-    <input type="number" id="days" placeholder="e.g. 20" />
-
-    <button onclick="calculateLaborCost()">Calculate Labor Cost</button>
-
-    <div id="result"></div>
-  </div>
-
-  <script>
-    function calculateLaborCost() {
-      const hourlyWage = parseFloat(document.getElementById('hourlyWage').value);
-      const numWorkers = parseFloat(document.getElementById('numWorkers').value);
-      const workingHours = parseFloat(document.getElementById('workingHours').value);
-      const days = parseFloat(document.getElementById('days').value);
-
-      if (isNaN(hourlyWage) || isNaN(numWorkers) || isNaN(workingHours) || isNaN(days)) {
-        document.getElementById('result').innerText = 'Please fill all fields correctly.';
-        return;
-      }
-
-      const totalLaborCost = hourlyWage * numWorkers * workingHours * days;
-
-      document.getElementById('result').innerHTML = `
-        <p>Total Labor Cost for the Project: ${totalLaborCost.toFixed(2)} (in your currency)</p>
-      `;
-    }
-  </script>
-</body>
+    <header class="header">
+        <h1 id="header-title">Smart AI Calculator</h1>
+        <p id="tagline">Labour Cost Calculator</p>
+    </header>
+    <nav class="nav-tabs">
+        <a href="index.html#home" class="nav-tab" onclick="showCategory('home')">HOME</a>
+        <a href="index.html#home-construction" class="nav-tab active" onclick="showCategory('home-construction')">HOME CONSTRUCTION</a>
+    </nav>
+    <div class="calculator-content">
+        <div class="calculator-box">
+            <h2 id="calc-title">Enter details to estimate labour cost</h2>
+            <div class="input-row">
+                <label id="area-label">Construction Area (m²)</label>
+                <input type="number" id="area" min="0" step="any" value="100">
+            </div>
+            <div class="input-row">
+                <label id="worker-type-label">Worker Type</label>
+                <select id="worker-type">
+                    <option value="unskilled">Unskilled (₹300/day)</option>
+                    <option value="skilled">Skilled (₹600/day)</option>
+                    <option value="supervisor">Supervisor (₹1000/day)</option>
+                </select>
+            </div>
+            <div class="input-row">
+                <label id="workers-label">Number of Workers</label>
+                <input type="number" id="workers" min="0" step="1" value="5">
+            </div>
+            <div class="input-row">
+                <label id="days-label">Number of Days</label>
+                <input type="number" id="days" min="0" step="1" value="10">
+            </div>
+            <div class="button-container">
+                <button onclick="calculateLabourCost()">Calculate <span id="spinner" style="display:none;">⏳</span></button>
+                <span class="voice-icon" onclick="toggleSpeech()" title="Toggle Speech"><i class="fas fa-volume-up"></i></span>
+            </div>
+            <div id="labour-result" class="mt-4 font-semibold"></div>
+            <div class="suggestions" id="suggestions">
+                <h3>Suggestions for Labour Management</h3>
+                <ul>
+                    <li>Hire a mix of skilled and unskilled workers to optimize costs.</li>
+                    <li>Plan work schedules to avoid overtime charges.</li>
+                    <li>Ensure clear communication with supervisors for efficient task allocation.</li>
+                    <li>Check local labour rates to adjust cost estimates accurately.</li>
+                </ul>
+            </div>
+            <div class="ads-section">
+                <p>Contact for Ads: <a href="mailto:first4bencher@gmail.com">first4bencher@gmail.com</a></p>
+            </div>
+            <div id="seo-content" class="mt-4 text-sm">
+                <h3>About Labour Cost Calculator</h3>
+                <p>Welcome to the AI Labour Cost Calculator, a free online tool designed to help you estimate the labour cost for your construction projects with ease. Whether you’re a homeowner or contractor, this calculator leverages advanced AI technology to provide accurate and instant results. Available in multiple languages including English, Hindi, Tamil, Telugu, Spanish, Bengali, Arabic, Mandarin, and French, it caters to a diverse global audience. Simply enter your construction area, worker type, number of workers, and days, then click "Calculate" to get your result.</p>
+                <p>Why choose our Labour Cost Calculator? It’s user-friendly, fast, and optimized for all devices, making it perfect for quick calculations. The tool considers worker types, numbers, and duration for precise estimates. Our AI integration ensures accuracy and offers professional suggestions for labour management. This calculator stands out due to its multilingual support and modern design, setting it apart from traditional tools.</p>
+                <p>SEO optimization is crucial for this tool to rank high on search engines like Google. We’ve included meta tags, a canonical URL, and keywords such as "labour cost calculator," "free labour calculator," and "AI home construction calculator" to boost visibility. To enhance ranking, consider adding backlinks from construction blogs or submitting the site to directories. Regular updates and user feedback can further improve its performance. Ideal for construction projects, this calculator is a must-try for anyone seeking clarity on labour costs. Explore it today and simplify your calculations!</p>
+            </div>
+        </div>
+    </div>
+    <footer class="bg-gray-800 text-white text-center py-4 mt-8">
+        <p style="font-weight: bold;">2025 © Smart AI Calculator. All rights reserved.</p>
+        <a href="privacy.html" class="text-blue-400 ml-2">Privacy Policy</a> |
+        <a href="contactus.html" class="text-blue-400 ml-2">Contact Us</a> |
+        <a href="howto.html" class="text-blue-400 ml-2">How to Use</a>
+    </footer>
+    <script>
+        let lang = 'en';
+        let isSpeaking = false;
+        let utterance = null;
+        const translations = {
+            en: { header: "Smart AI Calculator", tagline: "Labour Cost Calculator", calcTitle: "Enter details to estimate labour cost", areaLabel: "Construction Area (m²)", workerTypeLabel: "Worker Type", workersLabel: "Number of Workers", daysLabel: "Number of Days", resultPrefix: "Result: " },
+            hi: { header: "स्मार्ट एआई कैलकुलेटर", tagline: "श्रम लागत कैलकुलेटर", calcTitle: "श्रम लागत अनुमान के लिए विवरण दर्ज करें", areaLabel: "निर्माण क्षेत्र (वर्ग मी)", workerTypeLabel: "श्रमिक प्रकार", workersLabel: "श्रमिकों की संख्या", daysLabel: "दिनों की संख्या", resultPrefix: "परिणाम: " },
+            ta: { header: "ஸ்மார்ட் AI கால்குலேட்டர்", tagline: "தொழிலாளர் செலவு கால்குலேட்டர்", calcTitle: "தொழிலாளர் செலவை மதிப்பிட விவரங்களை உள்ளிடவும்", areaLabel: "கட்டுமான பரப்பளவு (சதுர மீ)", workerTypeLabel: "தொழிலாளர் வகை", workersLabel: "தொழிலாளர்களின் எண்ணிக்கை", daysLabel: "நாட்களின் எண்ணிக்கை", resultPrefix: "முடிவு: " },
+            te: { header: "స్మార్ట్ AI కాల్కులేటర్", tagline: "లేబర్ కాస్ట్ కాల్కులేటర్", calcTitle: "లేబర్ కాస్ట్ అంచనా వేయడానికి వివరాలను నమోదు చేయండి", areaLabel: "నిర్మాణ విస్తీర్ణం (చదరపు మీ)", workerTypeLabel: "వర్కర్ రకం", workersLabel: "వర్కర్ల సంఖ్య", daysLabel: "రోజుల సంఖ్య", resultPrefix: "ఫలితం: " },
+            es: { header: "Calculadora de IA Inteligente", tagline: "Calculadora de Costo de Mano de Obra", calcTitle: "Ingrese detalles para estimar el costo de mano de obra", areaLabel: "Área de construcción (m²)", workerTypeLabel: "Tipo de trabajador", workersLabel: "Número de trabajadores", daysLabel: "Número de días", resultPrefix: "Resultado: " },
+            bn: { header: "স্মার্ট এআই ক্যালকুলেটর", tagline: "শ্রম খরচ ক্যালকুলেটর", calcTitle: "শ্রম খরচ অনুমানের জন্য বিবরণ লিখুন", areaLabel: "নির্মাণ এলাকা (বর্গ মি)", workerTypeLabel: "শ্রমিকের ধরন", workersLabel: "শ্রমিকের সংখ্যা", daysLabel: "দিনের সংখ্যা", resultPrefix: "ফলাফল: " },
+            ar: { header: "حاسبة الذكاء الاصطناعي الذكية", tagline: "حاسبة تكلفة العمالة", calcTitle: "أدخل التفاصيل لتقدير تكلفة العمالة", areaLabel: "مساحة البناء (م²)", workerTypeLabel: "نوع العامل", workersLabel: "عدد العمال", daysLabel: "عدد الأيام", resultPrefix: "النتيجة: " },
+            zh: { header: "智能人工智能计算器", tagline: "劳动力成本计算器", calcTitle: "输入详细信息以估算劳动力成本", areaLabel: "建筑面积 (平方米)", workerTypeLabel: "工人类型", workersLabel: "工人数量", daysLabel: "天数", resultPrefix: "结果: " },
+            fr: { header: "Calculateur IA Intelligent", tagline: "Calculateur de Coût de Main-d'œuvre", calcTitle: "Entrez les détails pour estimer le coût de la main-d'œuvre", areaLabel: "Surface de construction (m²)", workerTypeLabel: "Type de travailleur", workersLabel: "Nombre de travailleurs", daysLabel: "Nombre de jours", resultPrefix: "Résultat: " }
+        };
+        function calculateLabourCost() {
+            document.getElementById("spinner").style.display = "inline";
+            setTimeout(() => {
+                let resultDiv = document.getElementById("labour-result");
+                let suggestionsDiv = document.getElementById("suggestions");
+                let area = parseFloat(document.getElementById("area").value);
+                let workerType = document.getElementById("worker-type").value;
+                let workers = parseInt(document.getElementById("workers").value);
+                let days = parseInt(document.getElementById("days").value);
+                if (!isNaN(area) && !isNaN(workers) && !isNaN(days) && area > 0 && workers > 0 && days > 0) {
+                    let dailyRate;
+                    if (workerType === "unskilled") dailyRate = 300;
+                    else if (workerType === "skilled") dailyRate = 600;
+                    else dailyRate = 1000;
+                    let totalCost = workers * dailyRate * days;
+                    resultDiv.innerHTML = `${translations[lang].resultPrefix} ₹${totalCost.toFixed(2)}`;
+                    suggestionsDiv.style.display = "block"; // Show suggestions after calculation
+                } else {
+                    resultDiv.innerText = lang === 'en' ? "Please enter valid values" : lang === 'hi' ? "कृपया वैध मान दर्ज करें" : lang === 'ta' ? "சரியான மதிப்புகளை உள்ளிடவும்" : lang === 'te' ? "దయచేసి సరైన విలువలను నమోదు చేయండి" : lang === 'es' ? "Por favor, ingrese valores válidos" : lang === 'bn' ? "দয়া করে বৈধ মান লিখুন" : lang === 'ar' ? "يرجى إدخال قيم صالحة" : lang === 'zh' ? "请输入有效值" : "Veuillez entrer des valeurs valides";
+                    suggestionsDiv.style.display = "none"; // Hide suggestions if input is invalid
+                }
+                document.getElementById("spinner").style.display = "none";
+            }, 1000);
+        }
+        function toggleSpeech() {
+            console.log("Toggling speech for result");
+            const result = document.getElementById("labour-result").innerHTML;
+            if (!result) {
+                console.log("No result to speak");
+                return;
+            }
+            if (isSpeaking) {
+                window.speechSynthesis.cancel();
+                isSpeaking = false;
+                console.log("Speech stopped");
+            } else {
+                utterance = new SpeechSynthesisUtterance(result);
+                utterance.lang = lang === 'zh' ? 'zh-CN' : lang === 'ar' ? 'ar-SA' : lang;
+                utterance.onend = () => {
+                    isSpeaking = false;
+                    console.log("Speech ended");
+                };
+                window.speechSynthesis.speak(utterance);
+                isSpeaking = true;
+                console.log("Speech started");
+            }
+        }
+        function stopSpeech() {
+            if (isSpeaking) {
+                window.speechSynthesis.cancel();
+                isSpeaking = false;
+                console.log("Speech stopped on page exit");
+            }
+        }
+        function showCategory(category) {
+            // No action needed here as navigation is handled by index.html
+        }
+        window.onload = () => {
+            document.getElementById('header-title').textContent = translations[lang].header;
+            document.getElementById('tagline').textContent = translations[lang].tagline;
+            document.getElementById('calc-title').textContent = translations[lang].calcTitle;
+            document.getElementById('area-label').textContent = translations[lang].areaLabel;
+            document.getElementById('worker-type-label').textContent = translations[lang].workerTypeLabel;
+            document.getElementById('workers-label').textContent = translations[lang].workersLabel;
+            document.getElementById('days-label').textContent = translations[lang].daysLabel;
+            console.log("Voice icon loaded");
+        };
+        window.onpagehide = stopSpeech;
+        window.onbeforeunload = stopSpeech;
+    </script>
 </html>
