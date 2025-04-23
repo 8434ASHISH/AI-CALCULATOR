@@ -3,23 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI Mean, Mode, Median Calculator - Free Online Tool | AI Calculator</title>
-    <meta name="description" content="Calculate mean, mode, and median with our free AI-powered Mean, Mode, Median Calculator. Available in English, Hindi, Tamil, Telugu, Spanish, Bengali, Arabic, Mandarin, and French. Try now!">
-    <meta name="keywords" content="mean calculator, mode calculator, median calculator, ai mean mode median calculator, free mean mode median calculator, online mean mode median calculator">
+    <title>Smart AI Calculator - Mean Mode Median Calculator | Free Online Tool</title>
+    <meta name="description" content="Calculate mean, mode, and median with our free AI-powered Mean Mode Median Calculator. Available in English, Hindi, Tamil, Telugu, Spanish, Bengali, Arabic, Mandarin, and French. Try now!">
+    <meta name="keywords" content="mean mode median calculator, ai mean mode median calculator, free mean mode median calculator, online mean mode median calculator, statistics calculator">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://yourusername.github.io/ai-calculator/meanmodemedian.html">
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <style>
         body {
             font-family: Arial, sans-serif;
             background: linear-gradient(135deg, #1A202C, #2D3748);
             color: #fff;
             margin: 0;
-            transition: background 0.3s, color 0.3s;
-        }
-        .light-mode {
-            background: #f0f0f0;
-            color: #333;
         }
         .header { background: #2c3e50; padding: 20px 0; text-align: center; position: relative; }
         .nav-tabs { display: flex; justify-content: center; gap: 20px; padding: 10px 0; background: #34495e; }
@@ -29,19 +25,62 @@
         .calculator-box { background: #e0e0e0; color: #333; padding: 20px; border-radius: 5px; text-align: center; }
         .input-row { display: flex; justify-content: space-between; margin-bottom: 15px; }
         .input-row label { font-weight: bold; }
-        input { border: 1px solid #ccc; padding: 5px; border-radius: 3px; width: 300px; }
-        button { background-color: #28a745; color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer; }
-        button:hover { background-color: #218838; }
-        .theme-switch { background: #34495e; padding: 6px 12px; border-radius: 5px; cursor: pointer; color: white; position: absolute; top: 20px; right: 120px; }
-        .theme-switch:hover { background: #3498db; }
-        @media (max-width: 600px) { .input-row { flex-direction: column; } input { width: 100%; margin-bottom: 10px; } }
+        input, select { border: 1px solid #ccc; padding: 5px; border-radius: 3px; width: 100%; }
+        button { 
+            background: linear-gradient(135deg, #ff6b6b, #e63946); 
+            color: white; 
+            padding: 12px 24px; 
+            border: none; 
+            border-radius: 5px; 
+            cursor: pointer; 
+            font-weight: bold; 
+            font-size: 1.1rem; 
+            box-shadow: 0 3px 6px rgba(0,0,0,0.4); 
+            transition: transform 0.2s, background 0.2s; 
+            text-transform: uppercase; 
+        }
+        button:hover { 
+            background: linear-gradient(135deg, #e63946, #c0392b); 
+            transform: scale(1.05); 
+        }
+        .ads-section { margin-top: 10px; padding: 10px; background: #34495e; border-radius: 5px; text-align: center; box-shadow: 0 0 5px rgba(0,0,0,0.3); }
+        .ads-section p { font-size: 1.2rem; font-weight: bold; color: #1e90ff; }
+        .ads-section a { color: #1e90ff; text-decoration: underline; }
+        .voice-icon { 
+            display: inline-block; 
+            padding: 10px; 
+            cursor: pointer; 
+            font-size: 2rem; 
+            color: #00cec9; 
+            transition: color 0.2s, transform 0.2s; 
+            visibility: visible; 
+        }
+        .voice-icon:hover { 
+            color: #00b7b3; 
+            transform: scale(1.1); 
+        }
+        .button-container { 
+            display: flex; 
+            justify-content: center; 
+            align-items: center; 
+            gap: 15px; 
+            margin: 20px 0; 
+        }
+        @media (max-width: 600px) { 
+            .input-row { flex-direction: column; } 
+            input, select { width: 100%; margin-bottom: 10px; } 
+            .button-container { flex-direction: row; gap: 10px; } 
+            .voice-icon { display: inline-block; visibility: visible; } 
+        }
+        @media (min-width: 601px) { 
+            .voice-icon { display: inline-block; visibility: visible; } 
+        }
     </style>
 </head>
 <body>
     <header class="header">
-        <h1 id="header-title">AI Calculator</h1>
-        <p id="tagline">A to Z Calculators Powered by AI</p>
-        <div class="theme-switch" onclick="toggleTheme()">Theme: <span id="theme-text">Dark</span></div>
+        <h1 id="header-title">Smart AI Calculator</h1>
+        <p id="tagline">Mean Mode Median Calculator</p>
     </header>
     <nav class="nav-tabs">
         <a href="index.html#financial" class="nav-tab" onclick="showCategory('financial')">Financial</a>
@@ -52,78 +91,125 @@
     </nav>
     <div class="calculator-content">
         <div class="calculator-box">
-            <h2 id="calc-title">Enter numbers separated by commas to calculate mean, mode, and median</h2>
+            <h2 id="calc-title">Enter numbers (comma-separated) to calculate mean, mode, median</h2>
             <div class="input-row">
                 <label id="numbers-label">Numbers</label>
-                <input type="text" id="numbers" value="1, 2, 2, 3, 4, 5">
+                <input type="text" id="numbers" placeholder="e.g., 1,2,3,4,5">
             </div>
-            <button onclick="calculateStatistics()">Calculate <span id="spinner" style="display:none;">⏳</span></button>
-            <div id="statistics-result" class="mt-4 font-semibold"></div>
+            <div class="button-container">
+                <button onclick="calculateStats()">Calculate <span id="spinner" style="display:none;">⏳</span></button>
+                <span class="voice-icon" onclick="toggleSpeech()" title="Toggle Speech"><i class="fas fa-volume-up"></i></span>
+            </div>
+            <div id="stats-result" class="mt-4 font-semibold"></div>
+            <div class="ads-section">
+                <p>Contact for Ads: <a href="mailto:first4bencher@gmail.com">first4bencher@gmail.com</a></p>
+            </div>
             <div id="seo-content" class="mt-4 text-sm">
-                <h3>About Mean, Mode, Median Calculator</h3>
-                <p>Welcome to the AI Mean, Mode, Median Calculator, a free online tool designed to compute the mean, mode, and median of a dataset with precision. This calculator uses advanced AI technology to provide instant statistical results, perfect for students, researchers, and professionals. Available in multiple languages including English, Hindi, Tamil, Telugu, Spanish, Bengali, Arabic, Mandarin, and French, it serves a diverse global audience. Enter your numbers separated by commas, then click "Calculate" to see the results.</p>
-                <p>Why choose our Mean, Mode, Median Calculator? It’s user-friendly, fast, and optimized for all devices, making it ideal for educational purposes or data analysis. The tool calculates: Mean (average), Mode (most frequent value), and Median (middle value) of the dataset. Our AI ensures accuracy and offers insights into data distribution. This calculator stands out with its multilingual support and modern design, setting it apart from traditional statistical tools.</p>
-                <p>SEO optimization is essential for this tool to rank high on search engines like Google. We’ve included meta tags, a canonical URL, and keywords such as "mean mode median calculator online," "free mean mode median calculator," and "AI mean mode median tool" to boost visibility. To enhance rankings, consider backlinks from educational websites or data analysis blogs, and submit the site to relevant directories. Regular updates and user feedback can further improve its performance. Perfect for statistical analysis, this calculator is a must-have for anyone working with numbers. Try it now!</p>
+                <h3>About Mean Mode Median Calculator</h3>
+                <p>Welcome to the AI Mean Mode Median Calculator, a free online tool designed to help you calculate mean, mode, and median with ease. Whether you’re a student or a data analyst, this calculator leverages advanced AI technology to provide accurate and instant results. Available in multiple languages including English, Hindi, Tamil, Telugu, Spanish, Bengali, Arabic, Mandarin, and French, it caters to a diverse global audience. Simply enter your numbers (comma-separated) and click "Calculate" to get your results.</p>
+                <p>Why choose our Mean Mode Median Calculator? It’s user-friendly, fast, and optimized for all devices, making it perfect for statistics and data analysis. The tool calculates mean (average), mode (most frequent value), and median (middle value) using standard statistical methods. Our AI integration ensures precision and offers suggestions for statistical analysis. This calculator stands out due to its multilingual support and modern design, setting it apart from traditional statistics calculators.</p>
+                <p>SEO optimization is crucial for this tool to rank high on search engines like Google. We’ve included meta tags, a canonical URL, and keywords such as "mean mode median calculator online," "free statistics calculator," and "AI statistics tool" to boost visibility. To enhance ranking, consider adding backlinks from educational or data analysis blogs or submitting the site to directories. Regular updates and user feedback can further improve its performance. Ideal for statistical calculations, this calculator is a must-try for anyone seeking clarity on data analysis. Explore it today and take control of your statistics tasks!</p>
             </div>
         </div>
     </div>
     <footer class="bg-gray-800 text-white text-center py-4 mt-8">
-        <p>© 2025 AI Calculator. All rights reserved.</p>
+        <p style="font-weight: bold;">2025 © Smart AI Calculator. All rights reserved.</p>
         <a href="privacy.html" class="text-blue-400 ml-2">Privacy Policy</a> |
         <a href="contactus.html" class="text-blue-400 ml-2">Contact Us</a> |
         <a href="howto.html" class="text-blue-400 ml-2">How to Use</a>
     </footer>
     <script>
         let lang = 'en';
-        let isDarkMode = true;
+        let isSpeaking = false;
+        let utterance = null;
         const translations = {
-            en: { header: "AI Calculator", tagline: "A to Z Calculators Powered by AI", calcTitle: "Enter numbers separated by commas to calculate mean, mode, and median", numbersLabel: "Numbers", resultPrefix: "Mean: ", modePrefix: "Mode: ", medianPrefix: "Median: " },
-            hi: { header: "एआई कैलकुलेटर", tagline: "ए टू जेड कैलकुलेटर, AI द्वारा संचालित", calcTitle: "अंकों को अल्पविराम से अलग करके दर्ज करें औसत, मोड और मध्यमान की गणना के लिए", numbersLabel: "संख्या", resultPrefix: "औसत: ", modePrefix: "मोड: ", medianPrefix: "मध्यमान: " },
-            ta: { header: "AI கால்குலேட்டர்", tagline: "AI இயக்கிய A முதல் Z கால்குலேட்டர்கள்", calcTitle: "கம்மாக்கள் மூலம் பிரிக்கப்பட்ட எண்களை உள்ளிடவும் சராசரி, மோடு மற்றும் நடுநிலை மதிப்பை கணக்கிட", numbersLabel: "எண்கள்", resultPrefix: "சராசரி: ", modePrefix: "மோடு: ", medianPrefix: "நடுநிலை: " },
-            te: { header: "AI కాల్కులేటర్", tagline: "AI ద్వారా నడిపే A నుండి Z కాల్కులేటర్లు", calcTitle: "కామాలతో వేరు చేసిన సంఖ్యలను నమోదు చేయండి మీన్, మోడ్ మరియు మీడియన్ కోసం", numbersLabel: "సంఖ్యలు", resultPrefix: "మీన్: ", modePrefix: "మోడ్: ", medianPrefix: "మీడియన్: " },
-            es: { header: "Calculadora de IA", tagline: "Calculadoras A-Z impulsadas por IA", calcTitle: "Ingrese los números separados por comas para calcular la media, la moda y la mediana", numbersLabel: "Números", resultPrefix: "Media: ", modePrefix: "Moda: ", medianPrefix: "Mediana: " },
-            bn: { header: "এআই ক্যালকুলেটর", tagline: "এআই দ্বারা চালিত এ থেকে জে ক্যালকুলেটর", calcTitle: "কমা দিয়ে পৃথক সংখ্যা লিখুন গড়, মোড এবং মধ্যক গণনার জন্য", numbersLabel: "সংখ্যা", resultPrefix: "গড়: ", modePrefix: "মোড: ", medianPrefix: "মধ্যক: " },
-            ar: { header: "حاسبة الذكاء الاصطناعي", tagline: "حاسبات A إلى Z مدعومة بالذكاء الاصطناعي", calcTitle: "أدخل الأرقام مفصولة بفواصل لحساب المتوسط، المنوال والوسيط", numbersLabel: "أرقام", resultPrefix: "المتوسط: ", modePrefix: "المنوال: ", medianPrefix: "الوسيط: " },
-            zh: { header: "人工智能计算器", tagline: "AI驱动的A到Z计算器", calcTitle: "输入用逗号分隔的数字以计算均值、众数和中位数", numbersLabel: "数字", resultPrefix: "均值: ", modePrefix: "众数: ", medianPrefix: "中位数: " },
-            fr: { header: "Calculateur IA", tagline: "Calculateurs A à Z alimentés par IA", calcTitle: "Entrez les nombres séparés par des virgules pour calculer la moyenne, le mode et la médiane", numbersLabel: "Nombres", resultPrefix: "Moyenne: ", modePrefix: "Mode: ", medianPrefix: "Médiane: " }
+            en: { header: "Smart AI Calculator", tagline: "Mean Mode Median Calculator", calcTitle: "Enter numbers (comma-separated) to calculate mean, mode, median", numbersLabel: "Numbers", resultPrefix: "Results: " },
+            hi: { header: "स्मार्ट एआई कैलकुलेटर", tagline: "माध्य मोड मध्यिका कैलकुलेटर", calcTitle: "माध्य, मोड, मध्यिका की गणना के लिए संख्याएँ (अल्पविराम से अलग) दर्ज करें", numbersLabel: "संख्याएँ", resultPrefix: "परिणाम: " },
+            ta: { header: "ஸ்மார்ட் AI கால்குலேட்டர்", tagline: "மீன் மோட் மீடியன் கால்குலேட்டர்", calcTitle: "மீன், மோட், மீடியனைக் கணக்கிட எண்களை (கமாவால் பிரிக்கப்பட்டவை) உள்ளிடவும்", numbersLabel: "எண்கள்", resultPrefix: "முடிவுகள்: " },
+            te: { header: "స్మార్ట్ AI కాల్కులేటర్", tagline: "మీన్ మోడ్ మీడియన్ కాల్కులేటర్", calcTitle: "మీన్, మోడ్, మీడియన్‌ను లెక్కించడానికి సంఖ్యలను (కామాతో వేరు చేయబడినవి) నమోదు చేయండి", numbersLabel: "సంఖ్యలు", resultPrefix: "ఫలితాలు: " },
+            es: { header: "Calculadora de IA Inteligente", tagline: "Calculadora de Media Moda Mediana", calcTitle: "Ingrese números (separados por comas) para calcular media, moda, mediana", numbersLabel: "Números", resultPrefix: "Resultados: " },
+            bn: { header: "স্মার্ট এআই ক্যালকুলেটর", tagline: "মাঝারি মোড মিডিয়ান ক্যালকুলেটর", calcTitle: "মাঝারি, মোড, মিডিয়ান গণনার জন্য সংখ্যা (কমা দিয়ে পৃথক) লিখুন", numbersLabel: "সংখ্যা", resultPrefix: "ফলাফল: " },
+            ar: { header: "حاسبة الذكاء الاصطناعي الذكية", tagline: "حاسبة المتوسط والمنوال والوسيط", calcTitle: "أدخل الأرقام (مفصولة بفواصل) لحساب المتوسط والمنوال والوسيط", numbersLabel: "الأرقام", resultPrefix: "النتائج: " },
+            zh: { header: "智能人工智能计算器", tagline: "均值众数中位数计算器", calcTitle: "输入数字（以逗号分隔）以计算均值、众数、中位数", numbersLabel: "数字", resultPrefix: "结果: " },
+            fr: { header: "Calculateur IA Intelligent", tagline: "Calculateur de Moyenne Mode Médiane", calcTitle: "Entrez les nombres (séparés par des virgules) pour calculer la moyenne, le mode, la médiane", numbersLabel: "Nombres", resultPrefix: "Résultats: " }
         };
-        function toggleTheme() {
-            isDarkMode = !isDarkMode;
-            document.body.classList.toggle('light-mode', !isDarkMode);
-            document.getElementById('theme-text').textContent = isDarkMode ? 'Dark' : 'Light';
-        }
-        function calculateStatistics() {
+        function calculateStats() {
             document.getElementById("spinner").style.display = "inline";
             setTimeout(() => {
-                let numbersInput = document.getElementById("numbers").value;
-                let numbers = numbersInput.split(',').map(num => parseFloat(num.trim())).filter(num => !isNaN(num));
-                let resultDiv = document.getElementById("statistics-result");
+                let resultDiv = document.getElementById("stats-result");
+                let input = document.getElementById("numbers").value;
+                let numbers = input.split(",").map(num => parseFloat(num.trim())).filter(num => !isNaN(num));
                 if (numbers.length > 0) {
-                    let mean = numbers.reduce((a, b) => a + b, 0) / numbers.length;
-                    let mode = [...numbers].sort((a, b) => numbers.filter(x => x === a).length - numbers.filter(x => x === b).length).pop();
-                    numbers.sort((a, b) => a - b);
-                    let median = numbers.length % 2 === 0 ? (numbers[numbers.length / 2 - 1] + numbers[numbers.length / 2]) / 2 : numbers[Math.floor(numbers.length / 2)];
-                    resultDiv.innerHTML = `${translations[lang].resultPrefix} ${mean.toFixed(2)}<br>${translations[lang].modePrefix} ${mode}<br>${translations[lang].medianPrefix} ${median.toFixed(2)}`;
-                    speakResult(resultDiv.innerHTML);
+                    // Mean
+                    let sum = numbers.reduce((a, b) => a + b, 0);
+                    let mean = sum / numbers.length;
+                    // Median
+                    let sorted = [...numbers].sort((a, b) => a - b);
+                    let median = sorted.length % 2 === 0 ? 
+                        (sorted[sorted.length / 2 - 1] + sorted[sorted.length / 2]) / 2 : 
+                        sorted[Math.floor(sorted.length / 2)];
+                    // Mode
+                    let frequency = {};
+                    let maxFreq = 0;
+                    let mode = [];
+                    numbers.forEach(num => {
+                        frequency[num] = (frequency[num] || 0) + 1;
+                        if (frequency[num] > maxFreq) {
+                            maxFreq = frequency[num];
+                            mode = [num];
+                        } else if (frequency[num] === maxFreq) {
+                            mode.push(num);
+                        }
+                    });
+                    let modeText = maxFreq > 1 ? mode.join(", ") : "No mode";
+                    resultDiv.innerHTML = `${translations[lang].resultPrefix}<br>Mean: ${mean.toFixed(2)}<br>Median: ${median.toFixed(2)}<br>Mode: ${modeText}`;
                 } else {
-                    resultDiv.innerText = lang === 'en' ? "Please enter valid numbers" : lang === 'hi' ? "कृपया वैध संख्या दर्ज करें" : lang === 'ta' ? "சரியான எண்களை உள்ளிடவும்" : lang === 'te' ? "దయచేసి సరైన సంఖ్యలను నమోదు చేయండి" : lang === 'es' ? "Por favor, ingrese números válidos" : lang === 'bn' ? "দয়া করে বৈধ সংখ্যা লিখুন" : lang === 'ar' ? "يرجى إدخال أرقام صحيحة" : lang === 'zh' ? "请输入有效数字" : "Veuillez entrer des nombres valides";
+                    resultDiv.innerText = lang === 'en' ? "Please enter valid numbers" : lang === 'hi' ? "कृपया वैध संख्याएँ दर्ज करें" : lang === 'ta' ? "சரியான எண்களை உள்ளிடவும்" : lang === 'te' ? "దయచేసి సరైన సంఖ్యలను నమోదు చేయండి" : lang === 'es' ? "Por favor, ingrese números válidos" : lang === 'bn' ? "দয়া করে বৈধ সংখ্যা লিখুন" : lang === 'ar' ? "يرجى إدخال أرقام صحيحة" : lang === 'zh' ? "请输入有效数字" : "Veuillez entrer des nombres valides";
                 }
                 document.getElementById("spinner").style.display = "none";
             }, 1000);
         }
+        function toggleSpeech() {
+            console.log("Toggling speech for result");
+            const result = document.getElementById("stats-result").innerHTML;
+            if (!result) {
+                console.log("No result to speak");
+                return;
+            }
+            if (isSpeaking) {
+                window.speechSynthesis.cancel();
+                isSpeaking = false;
+                console.log("Speech stopped");
+            } else {
+                utterance = new SpeechSynthesisUtterance(result);
+                utterance.lang = lang === 'zh' ? 'zh-CN' : lang === 'ar' ? 'ar-SA' : lang;
+                utterance.onend = () => {
+                    isSpeaking = false;
+                    console.log("Speech ended");
+                };
+                window.speechSynthesis.speak(utterance);
+                isSpeaking = true;
+                console.log("Speech started");
+            }
+        }
+        function stopSpeech() {
+            if (isSpeaking) {
+                window.speechSynthesis.cancel();
+                isSpeaking = false;
+                console.log("Speech stopped on page exit");
+            }
+        }
         function showCategory(category) {
             // No action needed here as navigation is handled by index.html
-        }
-        function speakResult(result) {
-            const utterance = new SpeechSynthesisUtterance(result);
-            utterance.lang = lang === 'zh' ? 'zh-CN' : lang === 'ar' ? 'ar-SA' : lang;
-            window.speechSynthesis.speak(utterance);
         }
         window.onload = () => {
             document.getElementById('header-title').textContent = translations[lang].header;
             document.getElementById('tagline').textContent = translations[lang].tagline;
             document.getElementById('calc-title').textContent = translations[lang].calcTitle;
             document.getElementById('numbers-label').textContent = translations[lang].numbersLabel;
+            console.log("Voice icon loaded");
         };
+        window.onpagehide = stopSpeech;
+        window.onbeforeunload = stopSpeech;
     </script>
-</html>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'934ab0e65a83454b',t:'MTc0NTM4MzMxMi4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></html>
