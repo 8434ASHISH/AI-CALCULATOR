@@ -1,138 +1,369 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="AI-powered Global Admission Score Predictor to help students estimate their chances at international universities based on GPA, test scores, and preferences." />
-  <meta name="keywords" content="Global Admission Predictor, University Score Estimator, College Admission, SAT Predictor, IELTS Score, GRE Match, AI CALCULATOR, College Predictor, Study Abroad Tool, International University Admission" />
-  <meta name="author" content="AI CALCULATOR" />
-  <title>AI CALCULATOR - Global Admission Predictor</title>
-  <script src="https://cdn.tailwindcss.com"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart AI Global Admission Predictor | SAT, ACT, IELTS & More</title>
+    <meta name="description" content="Predict your admission chances in top global universities like Harvard, Oxford, and Stanford based on SAT, ACT, IELTS, TOEFL, or GRE scores. View category-wise cutoffs and country-wise chances. Free, budget-friendly predictions. Try now!">
+    <meta name="keywords" content="global admission predictor, sat predictor, ielts predictor, university admission, study abroad">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://yourusername.github.io/ai-calculator/global-admission-predictor.html">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #1A202C, #2D3748);
+            color: #fff;
+            margin: 0;
+        }
+        .header { background: #2c3e50; padding: 20px 0; text-align: center; position: relative; }
+        .nav-tabs { display: flex; justify-content: center; gap: 20px; padding: 10px 0; background: #34495e; }
+        .nav-tab { color: white; text-decoration: none; padding: 5px 15px; transition: background 0.3s; font-weight: bold; text-shadow: 0 0 5px rgba(255, 107, 107, 0.5); }
+        .nav-tab:hover, .nav-tab.active { background: #3498db; border-radius: 5px; }
+        .calculator-content { max-width: 900px; margin: 20px auto; padding: 20px; background: rgba(45, 55, 72, 0.9); border-radius: 10px; box-shadow: 0 0 15px rgba(0,0,0,0.5); }
+        .calculator-box { background: #e0e0e0; color: #333; padding: 20px; border-radius: 5px; text-align: center; }
+        .input-row { display: flex; justify-content: space-between; margin-bottom: 15px; }
+        .input-row label { font-weight: bold; }
+        input, select { border: 1px solid #ccc; padding: 5px; border-radius: 3px; width: 150px; }
+        input.invalid { border-color: #ff6b6b; }
+        button { 
+            background: linear-gradient(135deg, #ff6b6b, #e63946); 
+            color: white; 
+            padding: 12px 24px; 
+            border: none; 
+            border-radius: 5px; 
+            cursor: pointer; 
+            font-weight: bold; 
+            font-size: 1.1rem; 
+            box-shadow: 0 3px 6px rgba(0,0,0,0.4); 
+            transition: transform 0.2s, background 0.2s; 
+            text-transform: uppercase; 
+        }
+        button:hover { 
+            background: linear-gradient(135deg, #e63946, #c0392b); 
+            transform: scale(1.05); 
+        }
+        .ads-section { margin-top: 10px; padding: 10px; background: #34495e; border-radius: 5px; text-align: center; box-shadow: 0 0 5px rgba(0,0,0,0.3); }
+        .ads-section p { font-size: 1.2rem; font-weight: bold; color: #1e90ff; }
+        .ads-section a { color: #1e90ff; text-decoration: underline; }
+        .voice-icon { 
+            display: inline-block; 
+            padding: 10px; 
+            cursor: pointer; 
+            font-size: 2rem; 
+            color: #00cec9; 
+            transition: color 0.2s, transform 0.2s; 
+            visibility: visible; 
+        }
+        .voice-icon:hover { 
+            color: #00b7b3; 
+            transform: scale(1.1); 
+        }
+        .button-container { 
+            display: flex; 
+            justify-content: center; 
+            align-items: center; 
+            gap: 15px; 
+            margin: 20px 0; 
+        }
+        .suggestions { margin-top: 20px; padding: 15px; background: #f0f0f0; border-radius: 5px; text-align: left; display: none; }
+        .suggestions h3 { font-size: 1.2rem; font-weight: bold; margin-bottom: 10px; }
+        .suggestions ul { list-style-type: disc; padding-left: 20px; }
+        .suggestions li { margin-bottom: 8px; }
+        .result-table, .cutoff-table { width: 100%; margin-top: 20px; border-collapse: collapse; }
+        .result-table th, .result-table td, .cutoff-table th, .cutoff-table td { border: 1px solid #ccc; padding: 10px; text-align: left; }
+        .result-table th, .cutoff-table th { background: #3498db; color: white; }
+        .result-table tr:nth-child(even), .cutoff-table tr:nth-child(even) { background: #f0f0f0; }
+        .collapsible { cursor: pointer; background: #3498db; color: white; padding: 10px; border-radius: 5px; margin-top: 20px; }
+        .collapsible:hover { background: #2980b9; }
+        .cutoff-content { display: none; padding: 10px; }
+        @media (max-width: 600px) { 
+            .input-row { flex-direction: column; } 
+            input, select { width: 100%; margin-bottom: 10px; } 
+            .button-container { flex-direction: row; gap: 10px; } 
+            .voice-icon { display: inline-block; visibility: visible; } 
+            .result-table, .cutoff-table { font-size: 0.9rem; }
+        }
+        @media (min-width: 601px) { 
+            .voice-icon { display: inline-block; visibility: visible; } 
+        }
+    </style>
 </head>
-<body class="bg-gray-100 text-gray-800">
-  <div class="max-w-4xl mx-auto p-4">
-    <header class="text-center py-6">
-      <h1 class="text-4xl font-bold text-indigo-700">AI CALCULATOR</h1>
-      <h2 class="text-lg text-gray-600">Global Admission Score Predictor</h2>
+<body>
+    <header class="header">
+        <h1>Smart AI Global Admission Predictor</h1>
+        <p>Predict Universities for SAT, ACT, IELTS & More</p>
     </header>
-
-    <div class="bg-white rounded-lg shadow p-6 space-y-4">
-      <div class="grid md:grid-cols-2 gap-4">
-        <div>
-          <label class="block font-semibold">Select Country</label>
-          <select id="country" class="w-full p-2 border rounded">
-            <option>USA</option>
-            <option>Canada</option>
-            <option>UK</option>
-            <option>Germany</option>
-            <option>Australia</option>
-          </select>
+    <nav class="nav-tabs">
+        <a href="index.html#home" class="nav-tab" onclick="showCategory('home')">HOME</a>
+        <a href="index.html#academic-calculator" class="nav-tab active" onclick="showCategory('academic-calculator')">ACADEMIC CALCULATOR</a>
+    </nav>
+    <div class="calculator-content">
+        <div class="calculator-box">
+            <h2>Enter details to predict universities</h2>
+            <div class="input-row">
+                <label>Select Exam</label>
+                <select id="exam" onchange="updateInputFields()">
+                    <option value="sat">SAT</option>
+                    <option value="act">ACT</option>
+                    <option value="ielts">IELTS</option>
+                    <option value="toefl">TOEFL</option>
+                    <option value="gre">GRE</option>
+                </select>
+            </div>
+            <div class="input-row">
+                <label id="score-label">Enter Score</label>
+                <input type="number" id="score" min="0" step="any" oninput="validateInput(this)">
+            </div>
+            <div class="input-row">
+                <label>Category</label>
+                <select id="category">
+                    <option value="international">International</option>
+                    <option value="domestic">Domestic</option>
+                </select>
+            </div>
+            <div class="input-row">
+                <label>Country Preference</label>
+                <input type="text" id="country" placeholder="e.g., USA">
+            </div>
+            <div class="input-row">
+                <label>Budget (per year, USD)</label>
+                <select id="budget">
+                    <option value="low">Low (<20K)</option>
+                    <option value="medium">Medium (20-50K)</option>
+                    <option value="high">High (>50K)</option>
+                </select>
+            </div>
+            <div class="button-container">
+                <button onclick="predictUniversities()">Predict <span id="spinner" style="display:none;">⏳</span></button>
+                <span class="voice-icon" onclick="toggleSpeech()" title="Toggle Speech"><i class="fas fa-volume-up"></i></span>
+            </div>
+            <div id="prediction-result" class="mt-4 font-semibold"></div>
+            <table class="result-table" id="university-table" style="display: none;">
+                <thead>
+                    <tr>
+                        <th>University</th>
+                        <th>Program</th>
+                        <th>Home Country Chance</th>
+                        <th>Other Country Chance</th>
+                        <th>Est. Fees (USD/year)</th>
+                    </tr>
+                </thead>
+                <tbody id="university-table-body"></tbody>
+            </table>
+            <div class="collapsible" onclick="toggleCutoff()">Previous Year Cutoffs (Category-wise)</div>
+            <div class="cutoff-content" id="cutoff-content">
+                <table class="cutoff-table" id="cutoff-table">
+                    <thead>
+                        <tr>
+                            <th>University</th>
+                            <th>Program</th>
+                            <th>International</th>
+                            <th>Domestic</th>
+                        </tr>
+                    </thead>
+                    <tbody id="cutoff-table-body"></tbody>
+                </table>
+            </div>
+            <div class="suggestions" id="suggestions">
+                <h3>Suggestions for Admission</h3>
+                <ul>
+                    <li>Verify your scores with official results for accurate predictions.</li>
+                    <li>Apply to universities with 'High' and 'Moderate' chances during applications.</li>
+                    <li>Leverage domestic quotas for better chances in your home country.</li>
+                    <li>Explore scholarships to manage fees at private universities.</li>
+                </ul>
+            </div>
+            <div class="ads-section">
+                <p>Contact for Ads: <a href="mailto:first4bencher@gmail.com">first4bencher@gmail.com</a></p>
+            </div>
+            <div id="seo-content" class="mt-4 text-sm">
+                <h3>About Global Admission Predictor</h3>
+                <p>Welcome to the AI Global Admission Predictor, a free tool to predict your chances in top universities like Harvard, Oxford, and Stanford based on SAT, ACT, IELTS, TOEFL, or GRE scores. View category-wise cutoffs and country-wise admission chances. It’s user-friendly, responsive, and optimized for SEO with keywords like 'global admission predictor,' 'SAT predictor,' and 'IELTS predictor.' Ideal for students aiming to study abroad!</p>
+            </div>
         </div>
-        <div>
-          <label class="block font-semibold">Select Course</label>
-          <select id="course" class="w-full p-2 border rounded">
-            <option>Computer Science</option>
-            <option>Engineering</option>
-            <option>Medicine</option>
-            <option>Business</option>
-            <option>Design</option>
-          </select>
-        </div>
-        <div>
-          <label class="block font-semibold">GPA / % Marks</label>
-          <input type="number" id="gpa" class="w-full p-2 border rounded" placeholder="e.g. 3.7 or 85" />
-        </div>
-        <div>
-          <label class="block font-semibold">Test Scores</label>
-          <input type="text" id="testScores" class="w-full p-2 border rounded" placeholder="e.g. IELTS 7.5 / GRE 320" />
-        </div>
-        <div>
-          <label class="block font-semibold">Budget ($)</label>
-          <input type="number" id="budget" class="w-full p-2 border rounded" placeholder="e.g. 20000" />
-        </div>
-        <div>
-          <label class="block font-semibold">Preferred City / State</label>
-          <input type="text" id="location" class="w-full p-2 border rounded" placeholder="e.g. California" />
-        </div>
-      </div>
-
-      <button onclick="predictAdmission()" class="w-full bg-indigo-600 text-white py-2 rounded mt-4 hover:bg-indigo-700">Predict Now</button>
-
-      <div id="result" class="mt-6 hidden bg-gray-50 p-4 rounded shadow">
-        <h3 class="text-xl font-bold mb-2 text-green-700">Your Top Match Universities</h3>
-        <ul id="universityList" class="list-disc pl-5 space-y-1 text-gray-700"></ul>
-        <p class="text-sm text-red-600 mt-4">
-          <strong>Note:</strong> This is an AI-generated result based on the details provided. Please verify all information and admission criteria independently before making any decisions.
-        </p>
-        <button onclick="copyResult()" class="mt-4 px-4 py-1 bg-gray-200 rounded hover:bg-gray-300">Copy Result</button>
-      </div>
     </div>
-  </div>
-
-  <script>
-    function predictAdmission() {
-      const country = document.getElementById("country").value;
-
-      let universities = [];
-
-      if (country === "USA") {
-        universities = [
-          "MIT (High Chance)",
-          "Stanford University (Medium Chance)",
-          "University of Michigan (Medium Chance)",
-          "Arizona State University (Low Chance)",
-          "University of Texas at Austin (Low Chance)"
-        ];
-      } else if (country === "Canada") {
-        universities = [
-          "University of Toronto (High Chance)",
-          "University of British Columbia (Medium Chance)",
-          "McGill University (Medium Chance)",
-          "University of Ottawa (Low Chance)",
-          "York University (Low Chance)"
-        ];
-      } else if (country === "UK") {
-        universities = [
-          "University of Oxford (High Chance)",
-          "University of Cambridge (Medium Chance)",
-          "Imperial College London (Medium Chance)",
-          "University of Leeds (Low Chance)",
-          "University of Birmingham (Low Chance)"
-        ];
-      } else if (country === "Germany") {
-        universities = [
-          "Technical University of Munich (High Chance)",
-          "RWTH Aachen University (Medium Chance)",
-          "Heidelberg University (Medium Chance)",
-          "University of Freiburg (Low Chance)",
-          "University of Bonn (Low Chance)"
-        ];
-      } else if (country === "Australia") {
-        universities = [
-          "University of Melbourne (High Chance)",
-          "University of Sydney (Medium Chance)",
-          "University of Queensland (Medium Chance)",
-          "Monash University (Low Chance)",
-          "RMIT University (Low Chance)"
-        ];
-      }
-
-      const list = document.getElementById("universityList");
-      list.innerHTML = "";
-      universities.forEach((u) => {
-        const li = document.createElement("li");
-        li.textContent = u;
-        list.appendChild(li);
-      });
-
-      document.getElementById("result").classList.remove("hidden");
-    }
-
-    function copyResult() {
-      const resultText = document.getElementById("universityList").innerText;
-      navigator.clipboard.writeText(resultText);
-      alert("Result copied to clipboard!");
-    }
-  </script>
-</body>
+    <footer class="bg-gray-800 text-white text-center py-4 mt-8">
+        <p style="font-weight: bold;">2025 © Smart AI Calculator. All rights reserved.</p>
+        <a href="privacy.html" class="text-blue-400 ml-2">Privacy Policy</a> |
+        <a href="contactus.html" class="text-blue-400 ml-2">Contact Us</a> |
+        <a href="howto.html" class="text-blue-400 ml-2">How to Use</a>
+    </footer>
+    <script>
+        let isSpeaking = false;
+        let utterance = null;
+        const universityData = {
+            "sat": [
+                { name: "Harvard University", program: "Undergraduate", cutoffs: { international: 1500, domestic: 1450 }, fees: 60, type: "private", country: "USA" },
+                { name: "Stanford University", program: "Undergraduate", cutoffs: { international: 1480, domestic: 1430 }, fees: 58, type: "private", country: "USA" },
+                { name: "University of California, Berkeley", program: "Undergraduate", cutoffs: { international: 1400, domestic: 1350 }, fees: 20, type: "public", country: "USA" }
+            ],
+            "act": [
+                { name: "MIT", program: "Undergraduate", cutoffs: { international: 34, domestic: 33 }, fees: 57, type: "private", country: "USA" },
+                { name: "University of Chicago", program: "Undergraduate", cutoffs: { international: 33, domestic: 32 }, fees: 59, type: "private", country: "USA" }
+            ],
+            "ielts": [
+                { name: "University of Oxford", program: "Undergraduate", cutoffs: { international: 7.5, domestic: 7.0 }, fees: 40, type: "public", country: "UK" },
+                { name: "University of Melbourne", program: "Undergraduate", cutoffs: { international: 7.0, domestic: 6.5 }, fees: 30, type: "public", country: "Australia" }
+            ],
+            "toefl": [
+                { name: "University of Cambridge", program: "Undergraduate", cutoffs: { international: 110, domestic: 100 }, fees: 42, type: "public", country: "UK" },
+                { name: "University of British Columbia", program: "Undergraduate", cutoffs: { international: 100, domestic: 90 }, fees: 25, type: "public", country: "Canada" }
+            ],
+            "gre": [
+                { name: "Stanford University", program: "Graduate (MS)", cutoffs: { international: 330, domestic: 325 }, fees: 50, type: "private", country: "USA" },
+                { name: "ETH Zurich", program: "Graduate (MS)", cutoffs: { international: 320, domestic: 315 }, fees: 15, type: "public", country: "Switzerland" }
+            ]
+        };
+        function updateInputFields() {
+            let exam = document.getElementById("exam").value;
+            let scoreLabel = document.getElementById("score-label");
+            if (exam === "sat") {
+                scoreLabel.textContent = "Enter Score (400-1600)";
+            } else if (exam === "act") {
+                scoreLabel.textContent = "Enter Score (1-36)";
+            } else if (exam === "ielts") {
+                scoreLabel.textContent = "Enter Score (0-9)";
+            } else if (exam === "toefl") {
+                scoreLabel.textContent = "Enter Score (0-120)";
+            } else if (exam === "gre") {
+                scoreLabel.textContent = "Enter Score (260-340)";
+            }
+            document.getElementById("score").value = "";
+            document.getElementById("score").classList.remove("invalid");
+        }
+        function validateInput(input) {
+            let exam = document.getElementById("exam").value;
+            let value = parseFloat(input.value);
+            if (exam === "sat" && (value < 400 || value > 1600)) {
+                input.classList.add("invalid");
+            } else if (exam === "act" && (value < 1 || value > 36)) {
+                input.classList.add("invalid");
+            } else if (exam === "ielts" && (value < 0 || value > 9)) {
+                input.classList.add("invalid");
+            } else if (exam === "toefl" && (value < 0 || value > 120)) {
+                input.classList.add("invalid");
+            } else if (exam === "gre" && (value < 260 || value > 340)) {
+                input.classList.add("invalid");
+            } else {
+                input.classList.remove("invalid");
+            }
+        }
+        function toggleCutoff() {
+            let content = document.getElementById("cutoff-content");
+            content.style.display = content.style.display === "block" ? "none" : "block";
+        }
+        function predictUniversities() {
+            document.getElementById("spinner").style.display = "inline";
+            setTimeout(() => {
+                let exam = document.getElementById("exam").value;
+                let score = parseFloat(document.getElementById("score").value);
+                let category = document.getElementById("category").value;
+                let country = document.getElementById("country").value.trim().toLowerCase();
+                let budget = document.getElementById("budget").value;
+                let resultDiv = document.getElementById("prediction-result");
+                let tableBody = document.getElementById("university-table-body");
+                let cutoffTableBody = document.getElementById("cutoff-table-body");
+                let suggestionsDiv = document.getElementById("suggestions");
+                let table = document.getElementById("university-table");
+                tableBody.innerHTML = "";
+                cutoffTableBody.innerHTML = "";
+                if (isNaN(score) || score < 0) {
+                    resultDiv.innerText = "Predicted Universities: Invalid input";
+                    table.style.display = "none";
+                    suggestionsDiv.style.display = "none";
+                    document.getElementById("spinner").style.display = "none";
+                    return;
+                }
+                let filteredUniversities = universityData[exam].filter(university => {
+                    let feeLimit = budget === "low" ? 20 : budget === "medium" ? 50 : 100;
+                    return university.fees <= feeLimit;
+                });
+                let results = [];
+                filteredUniversities.forEach(university => {
+                    let cutoff = university.cutoffs[category] || university.cutoffs.international;
+                    let homeCutoff = cutoff * 0.9; // 10% lower for domestic
+                    let homeChance = score >= homeCutoff * 1.2 ? "High" : score >= homeCutoff * 0.8 ? "Moderate" : "Low";
+                    let otherChance = score >= cutoff * 1.2 ? "High" : score >= cutoff * 0.8 ? "Moderate" : "Low";
+                    if (country && university.country.toLowerCase() === country) {
+                        results.push({ ...university, homeChance, otherChance });
+                    } else {
+                        results.push({ ...university, homeChance: otherChance, otherChance });
+                    }
+                });
+                results.sort((a, b) => b.cutoffs[category] - a.cutoffs[category]);
+                if (results.length === 0) {
+                    resultDiv.innerText = "Predicted Universities: No universities match your criteria";
+                    table.style.display = "none";
+                    suggestionsDiv.style.display = "none";
+                } else {
+                    resultDiv.innerHTML = "Predicted Universities:";
+                    results.forEach(university => {
+                        let row = document.createElement("tr");
+                        row.innerHTML = `
+                            <td>${university.name}</td>
+                            <td>${university.program}</td>
+                            <td>${university.homeChance}</td>
+                            <td>${university.otherChance}</td>
+                            <td>${university.fees}K</td>
+                        `;
+                        tableBody.appendChild(row);
+                    });
+                    table.style.display = "table";
+                    suggestionsDiv.style.display = "block";
+                }
+                filteredUniversities.forEach(university => {
+                    let row = document.createElement("tr");
+                    row.innerHTML = `
+                        <td>${university.name}</td>
+                        <td>${university.program}</td>
+                        <td>${university.cutoffs.international || "-"}</td>
+                        <td>${university.cutoffs.domestic || "-"}</td>
+                    `;
+                    cutoffTableBody.appendChild(row);
+                });
+                document.getElementById("spinner").style.display = "none";
+            }, 1000);
+        }
+        function toggleSpeech() {
+            console.log("Toggling speech for prediction result");
+            const result = document.getElementById("prediction-result").innerText;
+            if (!result || result.includes("Invalid") || result.includes("No universities")) {
+                console.log("No valid result to speak");
+                return;
+            }
+            if (isSpeaking) {
+                window.speechSynthesis.cancel();
+                isSpeaking = false;
+                console.log("Speech stopped");
+            } else {
+                utterance = new SpeechSynthesisUtterance(result);
+                utterance.lang = "en";
+                utterance.onend = () => {
+                    isSpeaking = false;
+                    console.log("Speech ended");
+                };
+                window.speechSynthesis.speak(utterance);
+                isSpeaking = true;
+                console.log("Speech started");
+            }
+        }
+        function stopSpeech() {
+            if (isSpeaking) {
+                window.speechSynthesis.cancel();
+                isSpeaking = false;
+                console.log("Speech stopped on page exit");
+            }
+        }
+        function showCategory(category) {
+            // No action needed as navigation is handled by index.html
+        }
+        window.onload = () => {
+            updateInputFields();
+            console.log("Voice icon loaded");
+        };
+        window.onpagehide = stopSpeech;
+        window.onbeforeunload = stopSpeech;
+    </script>
 </html>
