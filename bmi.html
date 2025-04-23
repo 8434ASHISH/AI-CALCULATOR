@@ -3,23 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI BMI Calculator - Free Online Tool |SMART AI Calculator</title>
+    <title>Smart AI Calculator - BMI Calculator | Free Online Tool</title>
     <meta name="description" content="Calculate your Body Mass Index (BMI) with our free AI-powered BMI Calculator. Available in English, Hindi, Tamil, Telugu, Spanish, Bengali, Arabic, Mandarin, and French. Try now!">
     <meta name="keywords" content="bmi calculator, ai bmi calculator, free bmi calculator, online bmi calculator, body mass index calculator">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://yourusername.github.io/ai-calculator/bmi.html">
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <style>
         body {
             font-family: Arial, sans-serif;
             background: linear-gradient(135deg, #1A202C, #2D3748);
             color: #fff;
             margin: 0;
-            transition: background 0.3s, color 0.3s;
-        }
-        .light-mode {
-            background: #f0f0f0;
-            color: #333;
         }
         .header { background: #2c3e50; padding: 20px 0; text-align: center; position: relative; }
         .nav-tabs { display: flex; justify-content: center; gap: 20px; padding: 10px 0; background: #34495e; }
@@ -29,19 +25,62 @@
         .calculator-box { background: #e0e0e0; color: #333; padding: 20px; border-radius: 5px; text-align: center; }
         .input-row { display: flex; justify-content: space-between; margin-bottom: 15px; }
         .input-row label { font-weight: bold; }
-        input { border: 1px solid #ccc; padding: 5px; border-radius: 3px; width: 100px; }
-        button { background-color: #28a745; color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer; }
-        button:hover { background-color: #218838; }
-        .theme-switch { background: #34495e; padding: 6px 12px; border-radius: 5px; cursor: pointer; color: white; position: absolute; top: 20px; right: 120px; }
-        .theme-switch:hover { background: #3498db; }
-        @media (max-width: 600px) { .input-row { flex-direction: column; } input { width: 100%; margin-bottom: 10px; } }
+        input, select { border: 1px solid #ccc; padding: 5px; border-radius: 3px; width: 100px; }
+        button { 
+            background: linear-gradient(135deg, #ff6b6b, #e63946); 
+            color: white; 
+            padding: 12px 24px; 
+            border: none; 
+            border-radius: 5px; 
+            cursor: pointer; 
+            font-weight: bold; 
+            font-size: 1.1rem; 
+            box-shadow: 0 3px 6px rgba(0,0,0,0.4); 
+            transition: transform 0.2s, background 0.2s; 
+            text-transform: uppercase; 
+        }
+        button:hover { 
+            background: linear-gradient(135deg, #e63946, #c0392b); 
+            transform: scale(1.05); 
+        }
+        .ads-section { margin-top: 10px; padding: 10px; background: #34495e; border-radius: 5px; text-align: center; box-shadow: 0 0 5px rgba(0,0,0,0.3); }
+        .ads-section p { font-size: 1.2rem; font-weight: bold; color: #1e90ff; }
+        .ads-section a { color: #1e90ff; text-decoration: underline; }
+        .voice-icon { 
+            display: inline-block; 
+            padding: 10px; 
+            cursor: pointer; 
+            font-size: 2rem; 
+            color: #00cec9; 
+            transition: color 0.2s, transform 0.2s; 
+            visibility: visible; 
+        }
+        .voice-icon:hover { 
+            color: #00b7b3; 
+            transform: scale(1.1); 
+        }
+        .button-container { 
+            display: flex; 
+            justify-content: center; 
+            align-items: center; 
+            gap: 15px; 
+            margin: 20px 0; 
+        }
+        @media (max-width: 600px) { 
+            .input-row { flex-direction: column; } 
+            input, select { width: 100%; margin-bottom: 10px; } 
+            .button-container { flex-direction: row; gap: 10px; } 
+            .voice-icon { display: inline-block; visibility: visible; } 
+        }
+        @media (min-width: 601px) { 
+            .voice-icon { display: inline-block; visibility: visible; } 
+        }
     </style>
 </head>
 <body>
     <header class="header">
-        <h1 id="header-title">SMART AI Calculator</h1>
-        <p id="tagline">A to Z Calculators Powered by AI</p>
-        <div class="theme-switch" onclick="toggleTheme()">Theme: <span id="theme-text">Dark</span></div>
+        <h1 id="header-title">Smart AI Calculator</h1>
+        <p id="tagline">BMI Calculator</p>
     </header>
     <nav class="nav-tabs">
         <a href="index.html#financial" class="nav-tab" onclick="showCategory('financial')">Financial</a>
@@ -55,71 +94,106 @@
             <h2 id="calc-title">Enter weight and height to calculate BMI</h2>
             <div class="input-row">
                 <label id="weight-label">Weight (kg)</label>
-                <input type="number" id="weight" min="0" step="0.1" value="70">
+                <input type="number" id="weight" min="0" step="any" value="70">
             </div>
             <div class="input-row">
                 <label id="height-label">Height (m)</label>
-                <input type="number" id="height" min="0" step="0.01" value="1.75">
+                <input type="number" id="height" min="0" step="any" value="1.75">
             </div>
-            <button onclick="calculateBMI()">Calculate <span id="spinner" style="display:none;">⏳</span></button>
+            <div class="button-container">
+                <button onclick="calculateBMI()">Calculate <span id="spinner" style="display:none;">⏳</span></button>
+                <span class="voice-icon" onclick="toggleSpeech()" title="Toggle Speech"><i class="fas fa-volume-up"></i></span>
+            </div>
             <div id="bmi-result" class="mt-4 font-semibold"></div>
+            <div class="ads-section">
+                <p>Contact for Ads: <a href="mailto:first4bencher@gmail.com">first4bencher@gmail.com</a></p>
+            </div>
             <div id="seo-content" class="mt-4 text-sm">
                 <h3>About BMI Calculator</h3>
-                <p>Welcome to the AI BMI Calculator, a free online tool designed to help you calculate your Body Mass Index (BMI) accurately. Whether you’re monitoring your health or setting fitness goals, this calculator uses advanced AI technology to provide instant BMI results. Available in multiple languages including English, Hindi, Tamil, Telugu, Spanish, Bengali, Arabic, Mandarin, and French, it serves a diverse global audience. Enter your weight in kilograms and height in meters, then click "Calculate" to see your BMI and category.</p>
-                <p>Why choose our BMI Calculator? It’s user-friendly, fast, and optimized for all devices, making it ideal for individuals, fitness enthusiasts, and healthcare professionals. The tool uses the BMI formula: BMI = Weight (kg) / (Height (m) × Height (m)), categorizing results as underweight (<18.5), normal (18.5-24.9), overweight (25-29.9), or obese (≥30). Our AI ensures precision and offers health tips based on your BMI. This calculator stands out with its multilingual support and modern design, setting it apart from traditional BMI tools.</p>
-                <p>SEO optimization is key to ensuring this tool ranks high on search engines like Google. We’ve included meta tags, a canonical URL, and keywords such as "bmi calculator online," "free bmi calculator," and "AI bmi tool" to boost visibility. To enhance rankings, consider backlinks from health websites or fitness blogs, and submit the site to relevant directories. Regular updates and user feedback can further improve its performance. Perfect for health tracking, this calculator is a must-have for anyone focused on wellness. Try it now!</p>
+                <p>Welcome to the AI BMI Calculator, a free online tool designed to help you calculate your Body Mass Index (BMI) with ease. Whether you’re monitoring your health or planning a fitness journey, this calculator leverages advanced AI technology to provide accurate and instant results. Available in multiple languages including English, Hindi, Tamil, Telugu, Spanish, Bengali, Arabic, Mandarin, and French, it caters to a diverse global audience. Simply enter your weight (kg) and height (m), then click "Calculate" to get your BMI and category.</p>
+                <p>Why choose our BMI Calculator? It’s user-friendly, fast, and optimized for all devices, making it perfect for health assessments. The tool calculates BMI using the formula weight / (height * height) and categorizes results as Underweight, Normal, Overweight, or Obese. Our AI integration ensures precision and offers suggestions for health tracking. This calculator stands out due to its multilingual support and modern design, setting it apart from traditional BMI calculators.</p>
+                <p>SEO optimization is crucial for this tool to rank high on search engines like Google. We’ve included meta tags, a canonical URL, and keywords such as "BMI calculator online," "free BMI calculator," and "AI health tool" to boost visibility. To enhance ranking, consider adding backlinks from health or fitness blogs or submitting the site to directories. Regular updates and user feedback can further improve its performance. Ideal for health calculations, this calculator is a must-try for anyone seeking clarity on their BMI. Explore it today and take control of your health!</p>
             </div>
         </div>
     </div>
     <footer class="bg-gray-800 text-white text-center py-4 mt-8">
-        <p>© 2025 SMART AI Calculator. All rights reserved.</p>
+        <p style="font-weight: bold;">2025 © Smart AI Calculator. All rights reserved.</p>
         <a href="privacy.html" class="text-blue-400 ml-2">Privacy Policy</a> |
         <a href="contactus.html" class="text-blue-400 ml-2">Contact Us</a> |
         <a href="howto.html" class="text-blue-400 ml-2">How to Use</a>
     </footer>
     <script>
         let lang = 'en';
-        let isDarkMode = true;
+        let isSpeaking = false;
+        let utterance = null;
         const translations = {
-            en: { header: "AI Calculator", tagline: "A to Z Calculators Powered by AI", calcTitle: "Enter weight and height to calculate BMI", weightLabel: "Weight (kg)", heightLabel: "Height (m)", resultPrefix: "BMI: " },
-            hi: { header: "एआई कैलकुलेटर", tagline: "ए टू जेड कैलकुलेटर, AI द्वारा संचालित", calcTitle: "वजन और ऊंचाई दर्ज करें बीएमआई की गणना के लिए", weightLabel: "वजन (किग्रा)", heightLabel: "ऊंचाई (मीटर)", resultPrefix: "बीएमआई: " },
-            ta: { header: "AI கால்குலேட்டர்", tagline: "AI இயக்கிய A முதல் Z கால்குலேட்டர்கள்", calcTitle: "எடை மற்றும் உயரத்தை உள்ளிடவும் BMI கணக்கிட", weightLabel: "எடை (கிலோ)", heightLabel: "உயரம் (மீ)", resultPrefix: "BMI: " },
-            te: { header: "AI కాల్కులేటర్", tagline: "AI ద్వారా నడిపే A నుండి Z కాల్కులేటర్లు", calcTitle: "బరువు మరియు ఎత్తును నమోదు చేయండి BMI కోసం", weightLabel: "బరువు (కిలో)", heightLabel: "ఎత్తు (మీ)", resultPrefix: "BMI: " },
-            es: { header: "Calculadora de IA", tagline: "Calculadoras A-Z impulsadas por IA", calcTitle: "Ingrese el peso y la altura para calcular el IMC", weightLabel: "Peso (kg)", heightLabel: "Altura (m)", resultPrefix: "IMC: " },
-            bn: { header: "এআই ক্যালকুলেটর", tagline: "এআই দ্বারা চালিত এ থেকে জে ক্যালকুলেটর", calcTitle: "ওজন এবং উচ্চতা লিখুন বিএমআই গণনার জন্য", weightLabel: "ওজন (কেজি)", heightLabel: "উচ্চতা (মিটার)", resultPrefix: "বিএমআই: " },
-            ar: { header: "حاسبة الذكاء الاصطناعي", tagline: "حاسبات A إلى Z مدعومة بالذكاء الاصطناعي", calcTitle: "أدخل الوزن والطول لحساب مؤشر كتلة الجسم", weightLabel: "الوزن (كغ)", heightLabel: "الطول (م)", resultPrefix: "مؤشر كتلة الجسم: " },
-            zh: { header: "人工智能计算器", tagline: "AI驱动的A到Z计算器", calcTitle: "输入体重和身高以计算BMI", weightLabel: "体重 (公斤)", heightLabel: "身高 (米)", resultPrefix: "BMI: " },
-            fr: { header: "Calculateur IA", tagline: "Calculateurs A à Z alimentés par IA", calcTitle: "Entrez le poids et la taille pour calculer l'IMC", weightLabel: "Poids (kg)", heightLabel: "Taille (m)", resultPrefix: "IMC: " }
+            en: { header: "Smart AI Calculator", tagline: "BMI Calculator", calcTitle: "Enter weight and height to calculate BMI", weightLabel: "Weight (kg)", heightLabel: "Height (m)", resultPrefix: "BMI: " },
+            hi: { header: "स्मार्ट एआई कैलकुलेटर", tagline: "बीएमआई कैलकुलेटर", calcTitle: "बीएमआई की गणना के लिए वजन और ऊंचाई दर्ज करें", weightLabel: "वजन (किग्रा)", heightLabel: "ऊंचाई (मी)", resultPrefix: "बीएमआई: " },
+            ta: { header: "ஸ்மார்ட் AI கால்குலேட்டர்", tagline: "பிஎம்ஐ கால்குலேட்டர்", calcTitle: "பிஎம்ஐ கணக்கிட எடை மற்றும் உயரத்தை உள்ளிடவும்", weightLabel: "எடை (கிலோ)", heightLabel: "உயரம் (மீ)", resultPrefix: "பிஎம்ஐ: " },
+            te: { header: "స్మార్ట్ AI కాల్కులేటర్", tagline: "బిఎమ్ఐ కాల్కులేటర్", calcTitle: "బిఎమ్ఐని లెక్కించడానికి బరువు మరియు ఎత్తును నమోదు చేయండి", weightLabel: "బరువు (కిలోలు)", heightLabel: "ఎత్తు (మీ)", resultPrefix: "బిఎమ్ఐ: " },
+            es: { header: "Calculadora de IA Inteligente", tagline: "Calculadora de IMC", calcTitle: "Ingrese peso y altura para calcular el IMC", weightLabel: "Peso (kg)", heightLabel: "Altura (m)", resultPrefix: "IMC: " },
+            bn: { header: "স্মার্ট এআই ক্যালকুলেটর", tagline: "বিএমআই ক্যালকুলেটর", calcTitle: "বিএমআই গণনার জন্য ওজন এবং উচ্চতা লিখুন", weightLabel: "ওজন (কেজি)", heightLabel: "উচ্চতা (মি)", resultPrefix: "বিএমআই: " },
+            ar: { header: "حاسبة الذكاء الاصطناعي الذكية", tagline: "حاسبة مؤشر كتلة الجسم", calcTitle: "أدخل الوزن والطول لحساب مؤشر كتلة الجسم", weightLabel: "الوزن (كجم)", heightLabel: "الطول (م)", resultPrefix: "مؤشر كتلة الجسم: " },
+            zh: { header: "智能人工智能计算器", tagline: "BMI计算器", calcTitle: "输入体重和身高以计算BMI", weightLabel: "体重 (公斤)", heightLabel: "身高 (米)", resultPrefix: "BMI: " },
+            fr: { header: "Calculateur IA Intelligent", tagline: "Calculateur d'IMC", calcTitle: "Entrez le poids et la taille pour calculer l'IMC", weightLabel: "Poids (kg)", heightLabel: "Taille (m)", resultPrefix: "IMC: " }
         };
-        function toggleTheme() {
-            isDarkMode = !isDarkMode;
-            document.body.classList.toggle('light-mode', !isDarkMode);
-            document.getElementById('theme-text').textContent = isDarkMode ? 'Dark' : 'Light';
-        }
         function calculateBMI() {
             document.getElementById("spinner").style.display = "inline";
             setTimeout(() => {
+                let resultDiv = document.getElementById("bmi-result");
                 let weight = parseFloat(document.getElementById("weight").value);
                 let height = parseFloat(document.getElementById("height").value);
-                let resultDiv = document.getElementById("bmi-result");
-                if (weight > 0 && height > 0) {
+                if (!isNaN(weight) && !isNaN(height) && weight > 0 && height > 0) {
                     let bmi = weight / (height * height);
-                    let category = bmi < 18.5 ? "Underweight" : bmi < 25 ? "Normal" : bmi < 30 ? "Overweight" : "Obese";
-                    resultDiv.innerHTML = `${translations[lang].resultPrefix} ${bmi.toFixed(2)}<br>Category: ${category}`;
-                    speakResult(resultDiv.innerHTML);
+                    let category = "";
+                    if (bmi < 18.5) {
+                        category = lang === 'en' ? "Underweight" : lang === 'hi' ? "कम वजन" : lang === 'ta' ? "எடை குறைவு" : lang === 'te' ? "తక్కువ బరువు" : lang === 'es' ? "Bajo peso" : lang === 'bn' ? "কম ওজন" : lang === 'ar' ? "نقص الوزن" : lang === 'zh' ? "体重不足" : "Insuffisance pondérale";
+                    } else if (bmi >= 18.5 && bmi < 25) {
+                        category = lang === 'en' ? "Normal" : lang === 'hi' ? "सामान्य" : lang === 'ta' ? "சாதாரணம்" : lang === 'te' ? "సాధారణం" : lang === 'es' ? "Normal" : lang === 'bn' ? "স্বাভাবিক" : lang === 'ar' ? "طبيعي" : lang === 'zh' ? "正常" : "Normal";
+                    } else if (bmi >= 25 && bmi < 30) {
+                        category = lang === 'en' ? "Overweight" : lang === 'hi' ? "अधिक वजन" : lang === 'ta' ? "அதிக எடை" : lang === 'te' ? "అధిక బరువు" : lang === 'es' ? "Sobrepeso" : lang === 'bn' ? "অতিরিক্ত ওজন" : lang === 'ar' ? "زيادة الوزن" : lang === 'zh' ? "超重" : "Surpoids";
+                    } else {
+                        category = lang === 'en' ? "Obese" : lang === 'hi' ? "मोटापा" : lang === 'ta' ? "பருமன்" : lang === 'te' ? "స్థూలకాయం" : lang === 'es' ? "Obeso" : lang === 'bn' ? "স্থূলতা" : lang === 'ar' ? "السمنة" : lang === 'zh' ? "肥胖" : "Obésité";
+                    }
+                    resultDiv.innerHTML = `${translations[lang].resultPrefix} ${bmi.toFixed(2)} (${category})`;
                 } else {
-                    resultDiv.innerText = lang === 'en' ? "Please enter valid values" : lang === 'hi' ? "कृपया वैध मान दर्ज करें" : lang === 'ta' ? "சரியான மதிப்புகளை உள்ளிடவும்" : lang === 'te' ? "దయచేసి సరైన విలువలను నమోదు చేయండి" : lang === 'es' ? "Por favor, ingrese valores válidos" : lang === 'bn' ? "দয়া করে বৈধ মান লিখুন" : lang === 'ar' ? "يرجى إدخال قيم صحيحة" : lang === 'zh' ? "请输入有效值" : "Veuillez entrer des valeurs valides";
+                    resultDiv.innerText = lang === 'en' ? "Please enter valid weight and height" : lang === 'hi' ? "कृपया वैध वजन और ऊंचाई दर्ज करें" : lang === 'ta' ? "சரியான எடை மற்றும் உயரத்தை உள்ளிடவும்" : lang === 'te' ? "దయచేసి సరైన బరువు మరియు ఎత్తును నమోదు చేయండి" : lang === 'es' ? "Por favor, ingrese un peso y altura válidos" : lang === 'bn' ? "দয়া করে বৈধ ওজন এবং উচ্চতা লিখুন" : lang === 'ar' ? "يرجى إدخال وزن وطول صالحين" : lang === 'zh' ? "请输入有效的体重和身高" : "Veuillez entrer un poids et une taille valides";
                 }
                 document.getElementById("spinner").style.display = "none";
             }, 1000);
         }
+        function toggleSpeech() {
+            console.log("Toggling speech for result");
+            const result = document.getElementById("bmi-result").innerHTML;
+            if (!result) {
+                console.log("No result to speak");
+                return;
+            }
+            if (isSpeaking) {
+                window.speechSynthesis.cancel();
+                isSpeaking = false;
+                console.log("Speech stopped");
+            } else {
+                utterance = new SpeechSynthesisUtterance(result);
+                utterance.lang = lang === 'zh' ? 'zh-CN' : lang === 'ar' ? 'ar-SA' : lang;
+                utterance.onend = () => {
+                    isSpeaking = false;
+                    console.log("Speech ended");
+                };
+                window.speechSynthesis.speak(utterance);
+                isSpeaking = true;
+                console.log("Speech started");
+            }
+        }
+        function stopSpeech() {
+            if (isSpeaking) {
+                window.speechSynthesis.cancel();
+                isSpeaking = false;
+                console.log("Speech stopped on page exit");
+            }
+        }
         function showCategory(category) {
             // No action needed here as navigation is handled by index.html
-        }
-        function speakResult(result) {
-            const utterance = new SpeechSynthesisUtterance(result);
-            utterance.lang = lang === 'zh' ? 'zh-CN' : lang === 'ar' ? 'ar-SA' : lang;
-            window.speechSynthesis.speak(utterance);
         }
         window.onload = () => {
             document.getElementById('header-title').textContent = translations[lang].header;
@@ -127,6 +201,9 @@
             document.getElementById('calc-title').textContent = translations[lang].calcTitle;
             document.getElementById('weight-label').textContent = translations[lang].weightLabel;
             document.getElementById('height-label').textContent = translations[lang].heightLabel;
+            console.log("Voice icon loaded");
         };
+        window.onpagehide = stopSpeech;
+        window.onbeforeunload = stopSpeech;
     </script>
-</html>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'934ab0e65a83454b',t:'MTc0NTM4MzMxMi4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></html>
