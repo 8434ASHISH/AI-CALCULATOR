@@ -3,59 +3,95 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI Temperature Converter - Free Online Tool | AI Calculator</title>
-    <meta name="description" content="Convert temperatures between units with our free AI-powered Temperature Converter. Available in English, Hindi, Tamil, Telugu, Spanish, Bengali, Arabic, Mandarin, and French. Try now!">
-    <meta name="keywords" content="temperature converter, ai temperature converter, free temperature converter, online temperature converter">
+    <title>Smart AI Calculator - Temperature Conversion Calculator | Free Online Tool</title>
+    <meta name="description" content="Convert temperatures between Celsius, Fahrenheit, Kelvin, Rankine, and Réaumur with our free AI-powered Temperature Conversion Calculator. Available in English, Hindi, Tamil, Telugu, Spanish, Bengali, Arabic, Mandarin, and French. Try now!">
+    <meta name="keywords" content="temperature conversion calculator, ai temperature calculator, free temperature converter, online temperature conversion, unit converter">
     <meta name="robots" content="index, follow">
-    <link rel="canonical" href="https://yourusername.github.io/ai-calculator/temperatureconverter.html">
+    <link rel="canonical" href="https://yourusername.github.io/ai-calculator/temperature.html">
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <style>
         body {
             font-family: Arial, sans-serif;
             background: linear-gradient(135deg, #1A202C, #2D3748);
             color: #fff;
             margin: 0;
-            transition: background 0.3s, color 0.3s;
-        }
-        .light-mode {
-            background: #f0f0f0;
-            color: #333;
         }
         .header { background: #2c3e50; padding: 20px 0; text-align: center; position: relative; }
         .nav-tabs { display: flex; justify-content: center; gap: 20px; padding: 10px 0; background: #34495e; }
-        .nav-tab { color: white; text-decoration: none; padding: 5px 15px; transition: background 0.3s; }
+        .nav-tab { color: white; text-decoration: none; padding: 5px 15px; transition: background 0.3s; font-weight: bold; text-shadow: 0 0 5px rgba(255, 107, 107, 0.5); }
         .nav-tab:hover, .nav-tab.active { background: #3498db; border-radius: 5px; }
         .calculator-content { max-width: 600px; margin: 20px auto; padding: 20px; background: rgba(45, 55, 72, 0.9); border-radius: 10px; box-shadow: 0 0 15px rgba(0,0,0,0.5); }
         .calculator-box { background: #e0e0e0; color: #333; padding: 20px; border-radius: 5px; text-align: center; }
         .input-row { display: flex; justify-content: space-between; margin-bottom: 15px; }
         .input-row label { font-weight: bold; }
-        input { border: 1px solid #ccc; padding: 5px; border-radius: 3px; width: 100px; }
-        select { border: 1px solid #ccc; padding: 5px; border-radius: 3px; width: 110px; }
-        button { background-color: #28a745; color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer; }
-        button:hover { background-color: #218838; }
-        .theme-switch { background: #34495e; padding: 6px 12px; border-radius: 5px; cursor: pointer; color: white; position: absolute; top: 20px; right: 120px; }
-        .theme-switch:hover { background: #3498db; }
-        @media (max-width: 600px) { .input-row { flex-direction: column; } input, select { width: 100%; margin-bottom: 10px; } }
+        input, select { border: 1px solid #ccc; padding: 5px; border-radius: 3px; width: 100px; }
+        button { 
+            background: linear-gradient(135deg, #ff6b6b, #e63946); 
+            color: white; 
+            padding: 12px 24px; 
+            border: none; 
+            border-radius: 5px; 
+            cursor: pointer; 
+            font-weight: bold; 
+            font-size: 1.1rem; 
+            box-shadow: 0 3px 6px rgba(0,0,0,0.4); 
+            transition: transform 0.2s, background 0.2s; 
+            text-transform: uppercase; 
+        }
+        button:hover { 
+            background: linear-gradient(135deg, #e63946, #c0392b); 
+            transform: scale(1.05); 
+        }
+        .ads-section { margin-top: 10px; padding: 10px; background: #34495e; border-radius: 5px; text-align: center; box-shadow: 0 0 5px rgba(0,0,0,0.3); }
+        .ads-section p { font-size: 1.2rem; font-weight: bold; color: #1e90ff; }
+        .ads-section a { color: #1e90ff; text-decoration: underline; }
+        .voice-icon { 
+            display: inline-block; 
+            padding: 10px; 
+            cursor: pointer; 
+            font-size: 2rem; 
+            color: #00cec9; 
+            transition: color 0.2s, transform 0.2s; 
+            visibility: visible; 
+        }
+        .voice-icon:hover { 
+            color: #00b7b3; 
+            transform: scale(1.1); 
+        }
+        .button-container { 
+            display: flex; 
+            justify-content: center; 
+            align-items: center; 
+            gap: 15px; 
+            margin: 20px 0; 
+        }
+        @media (max-width: 600px) { 
+            .input-row { flex-direction: column; } 
+            input, select { width: 100%; margin-bottom: 10px; } 
+            .button-container { flex-direction: row; gap: 10px; } 
+            .voice-icon { display: inline-block; visibility: visible; } 
+        }
+        @media (min-width: 601px) { 
+            .voice-icon { display: inline-block; visibility: visible; } 
+        }
     </style>
 </head>
 <body>
     <header class="header">
-        <h1 id="header-title">AI Calculator</h1>
-        <p id="tagline">A to Z Calculators Powered by AI</p>
-        <div class="theme-switch" onclick="toggleTheme()">Theme: <span id="theme-text">Dark</span></div>
+        <h1 id="header-title">Smart AI Calculator</h1>
+        <p id="tagline">Temperature Conversion Calculator</p>
     </header>
     <nav class="nav-tabs">
-       
-        <a href="index.html#math" class="nav-tab" onclick="showCategory('home')">HOME</a>
-        <a href="index.html#conversion" class="nav-tab" onclick="showCategory('unit convertor')">UNIT CONVERTOR</a>
-        
+        <a href="index.html#home" class="nav-tab" onclick="showCategory('home')">HOME</a>
+        <a href="index.html#unit-converter" class="nav-tab active" onclick="showCategory('unit-converter')">UNIT CONVERTER</a>
     </nav>
     <div class="calculator-content">
         <div class="calculator-box">
-            <h2 id="calc-title">Convert temperature between units</h2>
+            <h2 id="calc-title">Enter value and units to convert temperature</h2>
             <div class="input-row">
                 <label id="value-label">Value</label>
-                <input type="number" id="value" step="0.01" value="25">
+                <input type="number" id="value" step="any" value="0">
             </div>
             <div class="input-row">
                 <label id="from-unit-label">From Unit</label>
@@ -63,6 +99,8 @@
                     <option value="celsius">Celsius (°C)</option>
                     <option value="fahrenheit">Fahrenheit (°F)</option>
                     <option value="kelvin">Kelvin (K)</option>
+                    <option value="rankine">Rankine (°R)</option>
+                    <option value="reaumur">Réaumur (°Ré)</option>
                 </select>
             </div>
             <div class="input-row">
@@ -71,82 +109,107 @@
                     <option value="celsius">Celsius (°C)</option>
                     <option value="fahrenheit">Fahrenheit (°F)</option>
                     <option value="kelvin">Kelvin (K)</option>
+                    <option value="rankine">Rankine (°R)</option>
+                    <option value="reaumur">Réaumur (°Ré)</option>
                 </select>
             </div>
-            <button onclick="convertTemperature()">Convert <span id="spinner" style="display:none;">⏳</span></button>
+            <div class="button-container">
+                <button onclick="convertTemperature()">Convert <span id="spinner" style="display:none;">⏳</span></button>
+                <span class="voice-icon" onclick="toggleSpeech()" title="Toggle Speech"><i class="fas fa-volume-up"></i></span>
+            </div>
             <div id="temperature-result" class="mt-4 font-semibold"></div>
+            <div class="ads-section">
+                <p>Contact for Ads: <a href="mailto:first4bencher@gmail.com">first4bencher@gmail.com</a></p>
+            </div>
             <div id="seo-content" class="mt-4 text-sm">
-                <h3>About Temperature Converter</h3>
-                <p>Welcome to the AI Temperature Converter, a free online tool designed to convert temperatures between Celsius, Fahrenheit, and Kelvin with precision. This calculator uses advanced AI technology to provide instant conversions, ideal for students, scientists, and everyday use. Available in multiple languages including English, Hindi, Tamil, Telugu, Spanish, Bengali, Arabic, Mandarin, and French, it serves a diverse global audience. Enter a value and select the units to convert, then click "Convert" to see the result.</p>
-                <p>Why choose our Temperature Converter? It’s user-friendly, fast, and optimized for all devices, making it perfect for quick conversions in education, weather analysis, or cooking. The tool applies standard conversion formulas, and our AI ensures accuracy. This calculator stands out with its multilingual support and modern design, setting it apart from traditional conversion tools.</p>
-                <p>SEO optimization is key to ensuring this tool ranks high on search engines like Google. We’ve included meta tags, a canonical URL, and keywords such as "temperature converter online," "free temperature converter," and "AI temperature conversion tool" to boost visibility. To enhance rankings, consider backlinks from educational or weather websites, and submit the site to relevant directories. Regular updates and user feedback can further improve its performance. Perfect for temperature conversions, this calculator is a must-have for anyone needing accurate readings. Try it now!</p>
+                <h3>About Temperature Conversion Calculator</h3>
+                <p>Welcome to the AI Temperature Conversion Calculator, a free online tool designed to help you convert temperatures between units like Celsius, Fahrenheit, Kelvin, Rankine, and Réaumur with ease. Whether you’re a student, scientist, or traveler, this calculator leverages advanced AI technology to provide accurate and instant results. Available in multiple languages including English, Hindi, Tamil, Telugu, Spanish, Bengali, Arabic, Mandarin, and French, it caters to a diverse global audience. Simply enter your value and select units, then click "Convert" to get your result.</p>
+                <p>Why choose our Temperature Conversion Calculator? It’s user-friendly, fast, and optimized for all devices, making it perfect for quick conversions. The tool supports all major temperature units with precise conversion formulas. Our AI integration ensures accuracy and offers suggestions for temperature conversions. This calculator stands out due to its multilingual support and modern design, setting it apart from traditional converters.</p>
+                <p>SEO optimization is crucial for this tool to rank high on search engines like Google. We’ve included meta tags, a canonical URL, and keywords such as "temperature conversion calculator," "free temperature converter," and "AI unit converter" to boost visibility. To enhance ranking, consider adding backlinks from educational or scientific blogs or submitting the site to directories. Regular updates and user feedback can further improve its performance. Ideal for temperature conversions, this calculator is a must-try for anyone seeking clarity on unit conversions. Explore it today and simplify your calculations!</p>
             </div>
         </div>
     </div>
     <footer class="bg-gray-800 text-white text-center py-4 mt-8">
-        <p>© 2025 AI Calculator. All rights reserved.</p>
+        <p style="font-weight: bold;">2025 © Smart AI Calculator. All rights reserved.</p>
         <a href="privacy.html" class="text-blue-400 ml-2">Privacy Policy</a> |
         <a href="contactus.html" class="text-blue-400 ml-2">Contact Us</a> |
         <a href="howto.html" class="text-blue-400 ml-2">How to Use</a>
     </footer>
     <script>
         let lang = 'en';
-        let isDarkMode = true;
+        let isSpeaking = false;
+        let utterance = null;
         const translations = {
-            en: { header: "AI Calculator", tagline: "A to Z Calculators Powered by AI", calcTitle: "Convert temperature between units", valueLabel: "Value", fromUnitLabel: "From Unit", toUnitLabel: "To Unit", resultPrefix: "Converted Temperature: " },
-            hi: { header: "एआई कैलकुलेटर", tagline: "ए टू जेड कैलकुलेटर, AI द्वारा संचालित", calcTitle: "इकाइयों के बीच तापमान को परिवर्तित करें", valueLabel: "मान", fromUnitLabel: "से इकाई", toUnitLabel: "में इकाई", resultPrefix: "परिवर्तित तापमान: " },
-            ta: { header: "AI கால்குலேட்டர்", tagline: "AI இயக்கிய A முதல் Z கால்குலேட்டர்கள்", calcTitle: "அலகுகளுக்கு இடையே வெப்பநிலையை மாற்றவும்", valueLabel: "மதிப்பு", fromUnitLabel: "இருந்து அலகு", toUnitLabel: "ஆக அலகு", resultPrefix: "மாற்றப்பட்ட வெப்பநிலை: " },
-            te: { header: "AI కాల్కులేటర్", tagline: "AI ద్వారా నడిపే A నుండి Z కాల్కులేటర్లు", calcTitle: "అంకెల మధ్య ఉష్ణోగ్రతను మార్చండి", valueLabel: "విలువ", fromUnitLabel: "నుండి యూనిట్", toUnitLabel: "కు యూనిట్", resultPrefix: "మార్చబడిన ఉష్ణోగ్రత: " },
-            es: { header: "Calculadora de IA", tagline: "Calculadoras A-Z impulsadas por IA", calcTitle: "Convertir temperatura entre unidades", valueLabel: "Valor", fromUnitLabel: "De Unidad", toUnitLabel: "A Unidad", resultPrefix: "Temperatura Convertida: " },
-            bn: { header: "এআই ক্যালকুলেটর", tagline: "এআই দ্বারা চালিত এ থেকে জে ক্যালকুলেটর", calcTitle: "ইউনিটের মধ্যে তাপমাত্রা রূপান্তর করুন", valueLabel: "মান", fromUnitLabel: "থেকে ইউনিট", toUnitLabel: "এ ইউনিট", resultPrefix: "রূপান্তরিত তাপমাত্রা: " },
-            ar: { header: "حاسبة الذكاء الاصطناعي", tagline: "حاسبات A إلى Z مدعومة بالذكاء الاصطناعي", calcTitle: "تحويل درجة الحرارة بين الوحدات", valueLabel: "القيمة", fromUnitLabel: "من وحدة", toUnitLabel: "إلى وحدة", resultPrefix: "درجة الحرارة المحولة: " },
-            zh: { header: "人工智能计算器", tagline: "AI驱动的A到Z计算器", calcTitle: "在单位之间转换温度", valueLabel: "值", fromUnitLabel: "从单位", toUnitLabel: "到单位", resultPrefix: "转换后的温度: " },
-            fr: { header: "Calculateur IA", tagline: "Calculateurs A à Z alimentés par IA", calcTitle: "Convertir la température entre unités", valueLabel: "Valeur", fromUnitLabel: "De l'unité", toUnitLabel: "À l'unité", resultPrefix: "Température Convertie: " }
+            en: { header: "Smart AI Calculator", tagline: "Temperature Conversion Calculator", calcTitle: "Enter value and units to convert temperature", valueLabel: "Value", fromUnitLabel: "From Unit", toUnitLabel: "To Unit", resultPrefix: "Result: " },
+            hi: { header: "स्मार्ट एआई कैलकुलेटर", tagline: "तापमान रूपांतरण कैलकुलेटर", calcTitle: "तापमान रूपांतरण के लिए मान और इकाइयाँ दर्ज करें", valueLabel: "मान", fromUnitLabel: "से इकाई", toUnitLabel: "में इकाई", resultPrefix: "परिणाम: " },
+            ta: { header: "ஸ்மார்ட் AI கால்குலேட்டர்", tagline: "வெப்பநிலை மாற்ற கால்குலேட்டர்", calcTitle: "வெப்பநிலையை மாற்ற மதிப்பு மற்றும் அலகுகளை உள்ளிடவும்", valueLabel: "மதிப்பு", fromUnitLabel: "இருந்து அலகு", toUnitLabel: "க்கு அலகு", resultPrefix: "முடிவு: " },
+            te: { header: "స్మార్ట్ AI కాల్కులేటర్", tagline: "టెంపరేచర్ కన్వర్షన్ కాల్కులేటర్", calcTitle: "టెంపరేచర్ మార్పిడి కోసం విలువ మరియు యూనిట్లను నమోదు చేయండి", valueLabel: "విలువ", fromUnitLabel: "నుండి యూనిట్", toUnitLabel: "కు యూనిట్", resultPrefix: "ఫలితం: " },
+            es: { header: "Calculadora de IA Inteligente", tagline: "Calculadora de Conversión de Temperatura", calcTitle: "Ingrese el valor y las unidades para convertir temperatura", valueLabel: "Valor", fromUnitLabel: "De Unidad", toUnitLabel: "A Unidad", resultPrefix: "Resultado: " },
+            bn: { header: "স্মার্ট এআই ক্যালকুলেটর", tagline: "তাপমাত্রা রূপান্তর ক্যালকুলেটর", calcTitle: "তাপমাত্রা রূপান্তরের জন্য মান এবং ইউনিট লিখুন", valueLabel: "মান", fromUnitLabel: "থেকে ইউনিট", toUnitLabel: "এ ইউনিট", resultPrefix: "ফলাফল: " },
+            ar: { header: "حاسبة الذكاء الاصطناعي الذكية", tagline: "حاسبة تحويل درجة الحرارة", calcTitle: "أدخل القيمة والوحدات لتحويل درجة الحرارة", valueLabel: "القيمة", fromUnitLabel: "من وحدة", toUnitLabel: "إلى وحدة", resultPrefix: "النتيجة: " },
+            zh: { header: "智能人工智能计算器", tagline: "温度转换计算器", calcTitle: "输入数值和单位以转换温度", valueLabel: "数值", fromUnitLabel: "从单位", toUnitLabel: "到单位", resultPrefix: "结果: " },
+            fr: { header: "Calculateur IA Intelligent", tagline: "Calculateur de Conversion de Température", calcTitle: "Entrez la valeur et les unités pour convertir la température", valueLabel: "Valeur", fromUnitLabel: "De l'Unité", toUnitLabel: "À l'Unité", resultPrefix: "Résultat: " }
         };
-        function toggleTheme() {
-            isDarkMode = !isDarkMode;
-            document.body.classList.toggle('light-mode', !isDarkMode);
-            document.getElementById('theme-text').textContent = isDarkMode ? 'Dark' : 'Light';
-        }
         function convertTemperature() {
             document.getElementById("spinner").style.display = "inline";
             setTimeout(() => {
+                let resultDiv = document.getElementById("temperature-result");
                 let value = parseFloat(document.getElementById("value").value);
                 let fromUnit = document.getElementById("from-unit").value;
                 let toUnit = document.getElementById("to-unit").value;
-                let resultDiv = document.getElementById("temperature-result");
-                if (!isNaN(value)) {
-                    let celsius;
-                    if (fromUnit === "celsius") {
-                        celsius = value;
-                    } else if (fromUnit === "fahrenheit") {
-                        celsius = (value - 32) * 5 / 9;
-                    } else if (fromUnit === "kelvin") {
-                        celsius = value - 273.15;
-                    }
-                    let converted;
-                    if (toUnit === "celsius") {
-                        converted = celsius;
-                    } else if (toUnit === "fahrenheit") {
-                        converted = (celsius * 9 / 5) + 32;
-                    } else if (toUnit === "kelvin") {
-                        converted = celsius + 273.15;
-                    }
-                    resultDiv.innerHTML = `${translations[lang].resultPrefix} ${converted.toFixed(2)} ${toUnit === "celsius" ? "°C" : toUnit === "fahrenheit" ? "°F" : "K"}`;
-                    speakResult(resultDiv.innerHTML);
-                } else {
-                    resultDiv.innerText = lang === 'en' ? "Please enter a valid value" : lang === 'hi' ? "कृपया वैध मान दर्ज करें" : lang === 'ta' ? "சரியான மதிப்பை உள்ளிடவும்" : lang === 'te' ? "దయచేసి సరైన విలువను నమోదు చేయండి" : lang === 'es' ? "Por favor, ingrese un valor válido" : lang === 'bn' ? "দয়া করে বৈধ মান লিখুন" : lang === 'ar' ? "يرجى إدخال قيمة صحيحة" : lang === 'zh' ? "请输入有效值" : "Veuillez entrer une valeur valide";
+                if (isNaN(value)) {
+                    resultDiv.innerText = lang === 'en' ? "Please enter a valid value" : lang === 'hi' ? "कृपया वैध मान दर्ज करें" : lang === 'ta' ? "சரியான மதிப்பை உள்ளிடவும்" : lang === 'te' ? "దయచేసి సరైన విలువను నమోదు చేయండి" : lang === 'es' ? "Por favor, ingrese un valor válido" : lang === 'bn' ? "দয়া করে বৈধ মান লিখুন" : lang === 'ar' ? "يرجى إدخال قيمة صالحة" : lang === 'zh' ? "请输入有效值" : "Veuillez entrer une valeur valide";
+                    document.getElementById("spinner").style.display = "none";
+                    return;
                 }
+                let celsius;
+                if (fromUnit === "celsius") celsius = value;
+                else if (fromUnit === "fahrenheit") celsius = (value - 32) * 5 / 9;
+                else if (fromUnit === "kelvin") celsius = value - 273.15;
+                else if (fromUnit === "rankine") celsius = (value - 491.67) * 5 / 9;
+                else if (fromUnit === "reaumur") celsius = value * 5 / 4;
+                let result;
+                if (toUnit === "celsius") result = celsius;
+                else if (toUnit === "fahrenheit") result = celsius * 9 / 5 + 32;
+                else if (toUnit === "kelvin") result = celsius + 273.15;
+                else if (toUnit === "rankine") result = (celsius + 273.15) * 9 / 5;
+                else if (toUnit === "reaumur") result = celsius * 4 / 5;
+                resultDiv.innerHTML = `${translations[lang].resultPrefix} ${result.toFixed(2)} ${toUnit.charAt(0).toUpperCase() + toUnit.slice(1)}`;
                 document.getElementById("spinner").style.display = "none";
             }, 1000);
         }
+        function toggleSpeech() {
+            console.log("Toggling speech for result");
+            const result = document.getElementById("temperature-result").innerHTML;
+            if (!result) {
+                console.log("No result to speak");
+                return;
+            }
+            if (isSpeaking) {
+                window.speechSynthesis.cancel();
+                isSpeaking = false;
+                console.log("Speech stopped");
+            } else {
+                utterance = new SpeechSynthesisUtterance(result);
+                utterance.lang = lang === 'zh' ? 'zh-CN' : lang === 'ar' ? 'ar-SA' : lang;
+                utterance.onend = () => {
+                    isSpeaking = false;
+                    console.log("Speech ended");
+                };
+                window.speechSynthesis.speak(utterance);
+                isSpeaking = true;
+                console.log("Speech started");
+            }
+        }
+        function stopSpeech() {
+            if (isSpeaking) {
+                window.speechSynthesis.cancel();
+                isSpeaking = false;
+                console.log("Speech stopped on page exit");
+            }
+        }
         function showCategory(category) {
             // No action needed here as navigation is handled by index.html
-        }
-        function speakResult(result) {
-            const utterance = new SpeechSynthesisUtterance(result);
-            utterance.lang = lang === 'zh' ? 'zh-CN' : lang === 'ar' ? 'ar-SA' : lang;
-            window.speechSynthesis.speak(utterance);
         }
         window.onload = () => {
             document.getElementById('header-title').textContent = translations[lang].header;
@@ -155,6 +218,9 @@
             document.getElementById('value-label').textContent = translations[lang].valueLabel;
             document.getElementById('from-unit-label').textContent = translations[lang].fromUnitLabel;
             document.getElementById('to-unit-label').textContent = translations[lang].toUnitLabel;
+            console.log("Voice icon loaded");
         };
+        window.onpagehide = stopSpeech;
+        window.onbeforeunload = stopSpeech;
     </script>
-</html>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'934ab0e65a83454b',t:'MTc0NTM4MzMxMi4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></html>
