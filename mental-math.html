@@ -1,201 +1,317 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>AI Calculator - Mental Math Game | Train Your Brain</title>
-
-  <!-- SEO Meta Tags -->
-  <meta name="description" content="Play the Mental Math Game to boost your brain power! Solve random math questions with a timer and track your score live." />
-  <meta name="keywords" content="mental math game, brain game, ai calculator game, iq test, math quiz, timer game, math training, arithmetic game" />
-  <meta name="author" content="AI Calculator Team" />
-  <meta name="robots" content="index, follow" />
-
-  <!-- Open Graph -->
-  <meta property="og:title" content="AI Calculator - Mental Math Game" />
-  <meta property="og:description" content="Solve random math challenges with a countdown timer. Sharpen your brain!" />
-  <meta property="og:type" content="website" />
-  <meta property="og:image" content="https://yourdomain.com/mental-math-og.jpg" />
-
-  <!-- Twitter -->
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="AI Calculator - Mental Math Game" />
-  <meta name="twitter:description" content="Train your mind with our interactive mental math game with score tracking and countdown timer." />
-  <meta name="twitter:image" content="https://yourdomain.com/mental-math-og.jpg" />
-
-  <style>
-    body {
-      font-family: 'Segoe UI', sans-serif;
-      background-color: #141428;
-      color: #ffffff;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: flex-start;
-      min-height: 100vh;
-      padding: 30px 20px;
-      margin: 0;
-    }
-
-    h1 {
-      font-size: 2.5rem;
-      color: #00ffd0;
-      margin-bottom: 0;
-    }
-
-    h2 {
-      font-size: 1.5rem;
-      margin-top: 5px;
-      color: #f8f8f8;
-    }
-
-    .score-timer {
-      margin: 20px 0;
-      font-size: 1.2rem;
-    }
-
-    .question {
-      font-size: 2rem;
-      margin: 20px 0;
-    }
-
-    input[type="number"] {
-      padding: 10px;
-      font-size: 1.2rem;
-      width: 120px;
-      text-align: center;
-      border: none;
-      border-radius: 6px;
-    }
-
-    .btn {
-      margin-top: 15px;
-      padding: 10px 20px;
-      font-size: 1rem;
-      background: #00ffd0;
-      color: #000;
-      border: none;
-      border-radius: 6px;
-      cursor: pointer;
-    }
-
-    .btn:hover {
-      background: #00c7a8;
-    }
-
-    .status {
-      margin-top: 15px;
-      font-size: 1.1rem;
-      color: #ffd700;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart AI Calculator | Mental Math Game</title>
+    <meta name="description" content="Test your brain with our Mental Math Game! Solve easy simplifications, mixed math, tricky questions, and word problems. Difficulty increases after 20 questions. Use the keyboard, skip, or exit with a scoreboard. Try now!">
+    <meta name="keywords" content="mental math game, math quiz, fun tools">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://yourusername.github.io/ai-calculator/mental-math-game.html">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        body { font-family: Arial, sans-serif; background: linear-gradient(135deg, #1A202C, #2D3748); color: #fff; margin: 0; }
+        .header { background: #2c3e50; padding: 20px 0; text-align: center; }
+        .nav-tabs { display: flex; justify-content: center; gap: 20px; padding: 10px 0; background: #34495e; }
+        .nav-tab { color: white; text-decoration: none; padding: 5px 15px; transition: background 0.3s; font-weight: bold; text-shadow: 0 0 5px rgba(255, 107, 107, 0.5); }
+        .nav-tab:hover, .nav-tab.active { background: #3498db; border-radius: 5px; }
+        .game-content { max-width: 600px; margin: 20px auto; padding: 20px; background: rgba(45, 55, 72, 0.9); border-radius: 10px; box-shadow: 0 0 15px rgba(0,0,0,0.5); }
+        .game-box { background: #e0e0e0; color: #333; padding: 20px; border-radius: 5px; text-align: center; }
+        .question { font-size: 1.2rem; margin-bottom: 20px; }
+        input { border: 1px solid #ccc; padding: 5px; border-radius: 3px; width: 150px; margin-bottom: 10px; }
+        input.invalid { border-color: #ff6b6b; }
+        button { background: linear-gradient(135deg, #ff6b6b, #e63946); color: white; padding: 12px 24px; border: none; border-radius: 5px; cursor: pointer; font-weight: bold; font-size: 1.1rem; box-shadow: 0 3px 6px rgba(0,0,0,0.4); transition: transform 0.2s, background 0.2s; text-transform: uppercase; }
+        button:hover { background: linear-gradient(135deg, #e63946, #c0392b); transform: scale(1.05); }
+        .keyboard { display: grid; grid-template-columns: repeat(5, 1fr); gap: 5px; margin: 20px auto; max-width: 300px; }
+        .key { background: #3498db; color: white; padding: 10px; text-align: center; border-radius: 5px; cursor: pointer; font-weight: bold; }
+        .key:hover { background: #2980b9; }
+        .key.disabled { background: #ccc; cursor: not-allowed; }
+        .ads-section { margin-top: 10px; padding: 10px; background: #34495e; border-radius: 5px; text-align: center; }
+        .ads-section p { font-size: 1.2rem; font-weight: bold; color: #1e90ff; }
+        .ads-section a { color: #1e90ff; text-decoration: underline; }
+        .voice-icon { display: inline-block; padding: 10px; cursor: pointer; font-size: 2rem; color: #00cec9; transition: color 0.2s, transform 0.2s; visibility: visible; }
+        .voice-icon:hover { color: #00b7b3; transform: scale(1.1); }
+        .button-container { display: flex; justify-content: center; align-items: center; gap: 15px; margin: 20px 0; }
+        .scoreboard { font-size: 1.2rem; margin-bottom: 20px; }
+        #game-result { font-size: 1.5rem; margin: 20px 0; }
+        .share-container { margin-top: 10px; display: none; }
+        .share-container.active { display: block; }
+        .share-icon { cursor: pointer; font-size: 1.5rem; color: #3498db; }
+        .share-icon:hover { color: #2980b9; }
+        .share-options { display: none; flex-wrap: wrap; justify-content: center; gap: 10px; margin-top: 10px; }
+        .share-options.active { display: flex; }
+        .share-options a { background: #3498db; color: white; padding: 8px 16px; border-radius: 5px; text-decoration: none; font-weight: bold; }
+        .share-options a:hover { background: #2980b9; }
+        @media (max-width: 600px) { 
+            input { width: 100%; }
+            .keyboard { grid-template-columns: repeat(4, 1fr); }
+            .button-container { flex-direction: row; gap: 10px; }
+        }
+    </style>
 </head>
 <body>
-  <h1>AI CALCULATOR</h1>
-  <h2>Mental Math Game</h2>
-
-  <div class="score-timer">
-    Score: <span id="score">0</span> | Timer: <span id="timer">10</span>s
-  </div>
-
-  <div class="question" id="question">What is 3 + 4?</div>
-
-  <input type="number" id="answerInput" placeholder="Answer" />
-  <button class="btn" onclick="submitAnswer()">Submit</button>
-
-  <div class="status" id="statusMsg">⏳ Solve it fast!</div>
-<script>
-  let score = 0;
-  let timeLeft = 15;
-  let correctAnswer = 0;
-  let timer;
-
-  const questionEl = document.getElementById("question");
-  const timerEl = document.getElementById("timer");
-  const scoreEl = document.getElementById("score");
-  const input = document.getElementById("answerInput");
-  const statusMsg = document.getElementById("statusMsg");
-
-  const wordProblems = [
-    { q: "Ravi had 7 pens. He gave 3 to his friend. How many left?", a: 4 },
-    { q: "A box has 6 apples. You buy 2 more. Total apples?", a: 8 },
-    { q: "If 1 pencil costs ₹5, what is cost of 4 pencils?", a: 20 },
-    { q: "You walk 2 km in morning, 3 km in evening. Total?", a: 5 },
-    { q: "If a train travels 60km/hr for 2 hours, distance?", a: 120 },
-  ];
-
-  function generateQuestion() {
-    const type = Math.floor(Math.random() * 4); // 0: easy, 1: mid, 2: complex, 3: word
-
-    let a, b, operator, q, ans;
-
-    switch (type) {
-      case 0: // Easy
-        a = Math.floor(Math.random() * 10);
-        b = Math.floor(Math.random() * 10);
-        operator = Math.random() < 0.5 ? "+" : "-";
-        correctAnswer = operator === "+" ? a + b : a - b;
-        questionEl.textContent = `What is ${a} ${operator} ${b}?`;
-        break;
-
-      case 1: // Medium
-        a = Math.floor(Math.random() * 15) + 5;
-        b = Math.floor(Math.random() * 10) + 1;
-        operator = Math.random() < 0.5 ? "*" : "/";
-        correctAnswer = operator === "*" ? a * b : Math.floor(a / b);
-        a = operator === "/" ? correctAnswer * b : a; // Clean division
-        questionEl.textContent = `What is ${a} ${operator} ${b}?`;
-        break;
-
-      case 2: // Complex expressions
-        const x = Math.floor(Math.random() * 5) + 2;
-        const y = Math.floor(Math.random() * 5) + 3;
-        const z = Math.floor(Math.random() * 4) + 1;
-        q = `(${x} + ${y} × ${z})`;
-        correctAnswer = x + y * z;
-        questionEl.textContent = `Solve: ${q}`;
-        break;
-
-      case 3: // Word problems
-        const wp = wordProblems[Math.floor(Math.random() * wordProblems.length)];
-        questionEl.textContent = wp.q;
-        correctAnswer = wp.a;
-        break;
-    }
-
-    statusMsg.textContent = "⏳ Think & solve!";
-    input.value = "";
-    input.focus();
-    resetTimer();
-  }
-
-  function resetTimer() {
-    clearInterval(timer);
-    timeLeft = 15;
-    timerEl.textContent = timeLeft;
-    timer = setInterval(() => {
-      timeLeft--;
-      timerEl.textContent = timeLeft;
-      if (timeLeft === 0) {
-        clearInterval(timer);
-        statusMsg.textContent = `⏱️ Time's up! Answer: ${correctAnswer}`;
-        setTimeout(generateQuestion, 2000);
-      }
-    }, 1000);
-  }
-
-  function submitAnswer() {
-    clearInterval(timer);
-    const userAnswer = parseInt(input.value);
-    if (userAnswer === correctAnswer) {
-      score++;
-      scoreEl.textContent = score;
-      statusMsg.textContent = "✅ Correct!";
-    } else {
-      statusMsg.textContent = `❌ Incorrect! Answer was ${correctAnswer}`;
-    }
-    setTimeout(generateQuestion, 1500);
-  }
-
-  generateQuestion();
-</script>
+    <header class="header">
+        <h1>Smart AI Calculator</h1>
+        <h2>Mental Math Game</h2>
+    </header>
+    <nav class="nav-tabs">
+        <a href="index.html#home" class="nav-tab">HOME</a>
+        <a href="index.html#fun-tools" class="nav-tab active">FUN TOOLS</a>
+    </nav>
+    <div class="game-content">
+        <div class="game-box">
+            <h2>Mental Math Challenge</h2>
+            <div class="scoreboard" id="scoreboard">Score: 0</div>
+            <div class="question" id="question"></div>
+            <input type="text" id="math-input" oninput="validateInput(this)">
+            <div class="keyboard" id="keyboard"></div>
+            <div class="button-container">
+                <button onclick="submitAnswer()">Submit</button>
+                <button onclick="skipQuestion()">Skip</button>
+                <button onclick="exitGame()">Exit</button>
+                <span class="voice-icon" onclick="toggleSpeech()" title="Toggle Speech"><i class="fas fa-volume-up"></i></span>
+            </div>
+            <div id="game-result" class="font-semibold"></div>
+            <div class="share-container" id="share-container">
+                <i class="fas fa-share-alt share-icon" onclick="toggleShareOptions()"></i>
+                <div class="share-options" id="share-options">
+                    <a href="#" onclick="share('facebook')">Facebook</a>
+                    <a href="#" onclick="share('instagram')">Instagram</a>
+                    <a href="#" onclick="share('whatsapp')">WhatsApp</a>
+                    <a href="#" onclick="share('x')">X</a>
+                </div>
+            </div>
+            <div class="ads-section">
+                <p>Contact for Ads: <a href="mailto:first4bencher@gmail.com">first4bencher@gmail.com</a></p>
+            </div>
+            <div id="seo-content" class="mt-4 text-sm">
+                <h3>About Mental Math Game</h3>
+                <p>Test your math skills with our Mental Math Game! Solve easy simplifications, mixed math, tricky questions, and word problems. Difficulty ramps up after 20 questions. Use the on-screen keyboard, skip, or exit with a scoreboard. It’s fun, responsive, and SEO-optimized with keywords like 'mental math game' and 'math quiz.' Perfect for math lovers!</p>
+            </div>
+        </div>
+    </div>
+    <footer class="bg-gray-800 text-white text-center py-4 mt-8">
+        <p style="font-weight: bold;">2025 © Smart AI Calculator. All rights reserved.</p>
+        <a href="privacy.html" class="text-blue-400 ml-2">Privacy Policy</a> |
+        <a href="contactus.html" class="text-blue-400 ml-2">Contact Us</a> |
+        <a href="howto.html" class="text-blue-400 ml-2">How to Use</a>
+    </footer>
+    <script>
+        let isSpeaking = false;
+        let utterance = null;
+        let score = 0;
+        let attempted = 0;
+        let currentQuestionIndex = 0;
+        let typedAnswer = "";
+        let usedQuestions = [];
+        const allQuestions = [
+            // Easy Simplifications
+            { question: "Simplify: 2 + 3", answer: "5", category: "Simplification", difficulty: "Easy" },
+            { question: "Simplify: 10 - 4", answer: "6", category: "Simplification", difficulty: "Easy" },
+            { question: "Simplify: 5 × 2", answer: "10", category: "Simplification", difficulty: "Easy" },
+            // Basic Math
+            { question: "What is 15 + 7?", answer: "22", category: "Basic Math", difficulty: "Easy" },
+            { question: "What is 20 ÷ 4?", answer: "5", category: "Basic Math", difficulty: "Easy" },
+            { question: "What is 9 × 3?", answer: "27", category: "Basic Math", difficulty: "Easy" },
+            { question: "What is 100 - 25?", answer: "75", category: "Basic Math", difficulty: "Easy" },
+            { question: "What is 6 + 8?", answer: "14", category: "Basic Math", difficulty: "Easy" },
+            { question: "What is 12 × 2?", answer: "24", category: "Basic Math", difficulty: "Easy" },
+            { question: "What is 50 ÷ 10?", answer: "5", category: "Basic Math", difficulty: "Easy" },
+            // Tricky Questions
+            { question: "What is 15% of 200?", answer: "30", category: "Tricky", difficulty: "Medium" },
+            { question: "If x + 5 = 12, what is x?", answer: "7", category: "Tricky", difficulty: "Medium" },
+            { question: "What is 2^3?", answer: "8", category: "Tricky", difficulty: "Medium" },
+            { question: "What is the square root of 16?", answer: "4", category: "Tricky", difficulty: "Medium" },
+            { question: "What is 1/4 of 80?", answer: "20", category: "Tricky", difficulty: "Medium" },
+            { question: "What is 7 × 8 - 6?", answer: "50", category: "Tricky", difficulty: "Medium" },
+            { question: "What is 100 ÷ 25 × 2?", answer: "8", category: "Tricky", difficulty: "Medium" },
+            // One-Word Problem
+            { question: "A car travels 60 miles in 2 hours. What is its speed (mph)?", answer: "30", category: "Word Problem", difficulty: "Medium" },
+            { question: "If 3 apples cost $6, what is the cost of 1 apple?", answer: "2", category: "Word Problem", difficulty: "Medium" },
+            { question: "A rectangle’s length is 10 and width is 5. What is its area?", answer: "50", category: "Word Problem", difficulty: "Medium" },
+            { question: "If you save $5 daily, how much in 10 days?", answer: "50", category: "Word Problem", difficulty: "Medium" },
+            { question: "A train travels 120 km in 3 hours. What is its speed (km/h)?", answer: "40", category: "Word Problem", difficulty: "Medium" },
+            // Difficult Questions (after 20+ questions)
+            { question: "What is 18% of 250?", answer: "45", category: "Tricky", difficulty: "Hard" },
+            { question: "Solve: 2x + 3 = 11. What is x?", answer: "4", category: "Tricky", difficulty: "Hard" },
+            { question: "What is 3^4?", answer: "81", category: "Tricky", difficulty: "Hard" },
+            { question: "What is the square root of 144?", answer: "12", category: "Tricky", difficulty: "Hard" },
+            { question: "What is 5/8 of 64?", answer: "40", category: "Tricky", difficulty: "Hard" },
+            { question: "What is 15 × 4 - 10 ÷ 2?", answer: "55", category: "Tricky", difficulty: "Hard" },
+            { question: "What is 200 ÷ 5 × 3?", answer: "120", category: "Tricky", difficulty: "Hard" },
+            { question: "A shop offers 20% off a $50 item. What is the sale price?", answer: "40", category: "Word Problem", difficulty: "Hard" },
+            { question: "If 5 books cost $75, what is the cost of 2 books?", answer: "30", category: "Word Problem", difficulty: "Hard" },
+            { question: "A circle’s radius is 7. What is its area (use π ≈ 3.14)?", answer: "153.86", category: "Word Problem", difficulty: "Hard" },
+            { question: "If you earn $12 per hour, how much in 25 hours?", answer: "300", category: "Word Problem", difficulty: "Hard" },
+            { question: "A train covers 180 km in 2 hours. What is its speed (km/h)?", answer: "90", category: "Word Problem", difficulty: "Hard" },
+            { question: "What is the LCM of 6 and 8?", answer: "24", category: "Tricky", difficulty: "Hard" },
+            { question: "What is 2/3 of 90?", answer: "60", category: "Tricky", difficulty: "Hard" },
+            { question: "Solve: 3x - 7 = 14. What is x?", answer: "7", category: "Tricky", difficulty: "Hard" },
+            { question: "What is 4^3?", answer: "64", category: "Tricky", difficulty: "Hard" },
+            { question: "What is the square root of 81?", answer: "9", category: "Tricky", difficulty: "Hard" },
+            { question: "What is 12 × 5 - 15 ÷ 3?", answer: "55", category: "Tricky", difficulty: "Hard" },
+            { question: "What is 150 ÷ 5 × 2?", answer: "60", category: "Tricky", difficulty: "Hard" },
+            { question: "A store gives 25% off a $80 item. What is the sale price?", answer: "60", category: "Word Problem", difficulty: "Hard" },
+            { question: "If 4 pens cost $12, what is the cost of 3 pens?", answer: "9", category: "Word Problem", difficulty: "Hard" },
+            { question: "A triangle’s base is 6 and height is 4. What is its area?", answer: "12", category: "Word Problem", difficulty: "Hard" },
+            { question: "If you save $8 daily, how much in 15 days?", answer: "120", category: "Word Problem", difficulty: "Hard" }
+        ];
+        function shuffleArray(array) {
+            for (let i = array.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [array[i], array[j]] = [array[j], array[i]];
+            }
+            return array;
+        }
+        function startGame() {
+            score = 0;
+            attempted = 0;
+            currentQuestionIndex = 0;
+            usedQuestions = [];
+            typedAnswer = "";
+            document.getElementById("scoreboard").innerText = `Score: ${score}`;
+            document.getElementById("game-result").innerText = "";
+            document.getElementById("share-container").classList.remove("active");
+            // Start with 2 simplifications
+            let simplificationQuestions = allQuestions.filter(q => q.category === "Simplification").slice(0, 2);
+            let otherQuestions = allQuestions.filter(q => q.category !== "Simplification");
+            usedQuestions = [...simplificationQuestions, ...shuffleArray(otherQuestions)];
+            loadQuestion();
+        }
+        function loadQuestion() {
+            const q = usedQuestions[currentQuestionIndex];
+            document.getElementById("question").innerText = `${q.category}: ${q.question}`;
+            document.getElementById("math-input").value = "";
+            typedAnswer = "";
+            setupKeyboard();
+        }
+        function setupKeyboard() {
+            const keyboard = document.getElementById("keyboard");
+            keyboard.innerHTML = "";
+            const keys = "0123456789.".split("");
+            keys.forEach(key => {
+                const keyDiv = document.createElement("div");
+                keyDiv.className = "key";
+                keyDiv.innerText = key;
+                keyDiv.onclick = () => handleKeyClick(key);
+                keyboard.appendChild(keyDiv);
+            });
+        }
+        function handleKeyClick(key) {
+            const input = document.getElementById("math-input");
+            typedAnswer += key;
+            input.value = typedAnswer;
+            validateInput(input);
+        }
+        function validateInput(input) {
+            let value = input.value;
+            if (!value.match(/^[0-9.]*$/)) {
+                input.classList.add("invalid");
+            } else {
+                input.classList.remove("invalid");
+            }
+        }
+        function submitAnswer() {
+            const input = document.getElementById("math-input");
+            let guess = input.value.trim();
+            const q = usedQuestions[currentQuestionIndex];
+            if (!guess.match(/^[0-9.]+$/)) {
+                input.classList.add("invalid");
+                document.getElementById("game-result").innerText = "Invalid input! Use numbers only.";
+                return;
+            }
+            attempted++;
+            let correct = parseFloat(guess) === parseFloat(q.answer);
+            if (correct) {
+                score++;
+                document.getElementById("scoreboard").innerText = `Score: ${score}`;
+                document.getElementById("game-result").innerText = "Correct! 🎉";
+            } else {
+                document.getElementById("game-result").innerText = `Incorrect! Correct Answer: ${q.answer}`;
+            }
+            document.getElementById("share-container").classList.add("active");
+            setTimeout(nextQuestion, 2000);
+        }
+        function skipQuestion() {
+            attempted++;
+            document.getElementById("game-result").innerText = `Skipped! Correct Answer: ${usedQuestions[currentQuestionIndex].answer}`;
+            document.getElementById("share-container").classList.add("active");
+            setTimeout(nextQuestion, 1000);
+        }
+        function nextQuestion() {
+            currentQuestionIndex++;
+            if (currentQuestionIndex >= usedQuestions.length) {
+                let remainingQuestions = allQuestions.filter(q => !usedQuestions.includes(q));
+                if (remainingQuestions.length === 0) {
+                    remainingQuestions = shuffleArray([...allQuestions]);
+                }
+                usedQuestions = shuffleArray(remainingQuestions);
+                currentQuestionIndex = 0;
+            }
+            // Increase difficulty after 20 questions
+            if (attempted >= 20) {
+                usedQuestions = usedQuestions.filter(q => q.difficulty === "Hard");
+                if (usedQuestions.length === 0) {
+                    usedQuestions = shuffleArray(allQuestions.filter(q => q.difficulty === "Hard"));
+                }
+            }
+            typedAnswer = "";
+            document.getElementById("math-input").value = "";
+            document.getElementById("game-result").innerText = "";
+            loadQuestion();
+        }
+        function exitGame() {
+            document.getElementById("game-result").innerText = `Game Exited! Score: ${score}/${attempted}`;
+            document.getElementById("share-container").classList.add("active");
+            setTimeout(() => {
+                window.location.href = "index.html#home";
+            }, 2000);
+        }
+        function toggleShareOptions() {
+            const options = document.getElementById("share-options");
+            options.classList.toggle("active");
+        }
+        function share(platform) {
+            let text = `I scored ${score} in the Mental Math Game after ${attempted} attempts! Try it out!`;
+            let url;
+            if (platform === "facebook") {
+                url = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(window.location.href)}"e=${encodeURIComponent(text)}`;
+            } else if (platform === "instagram") {
+                alert("Instagram sharing requires manual posting. Copy this: " + text);
+                return;
+            } else if (platform === "whatsapp") {
+                url = `https://api.whatsapp.com/send?text=${encodeURIComponent(text)}`;
+            } else if (platform === "x") {
+                url = `https://x.com/intent/tweet?text=${encodeURIComponent(text)}`;
+            }
+            window.open(url, "_blank");
+        }
+        function toggleSpeech() {
+            const result = document.getElementById("game-result").innerText || `Score: ${score}, Question: ${usedQuestions[currentQuestionIndex]?.question || "Start the game!"}`;
+            if (!result) {
+                console.log("No valid result to speak");
+                return;
+            }
+            if (isSpeaking) {
+                window.speechSynthesis.cancel();
+                isSpeaking = false;
+            } else {
+                utterance = new SpeechSynthesisUtterance(result);
+                utterance.lang = "en";
+                utterance.onend = () => { isSpeaking = false; };
+                window.speechSynthesis.speak(utterance);
+                isSpeaking = true;
+            }
+        }
+        function stopSpeech() {
+            if (isSpeaking) {
+                window.speechSynthesis.cancel();
+                isSpeaking = false;
+            }
+        }
+        window.onload = startGame;
+        window.onpagehide = stopSpeech;
+        window.onbeforeunload = stopSpeech;
+    </script>
+</html>
