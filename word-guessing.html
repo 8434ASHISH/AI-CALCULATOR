@@ -1,232 +1,350 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>AI Calculator | Word Guessing Game</title>
-  <meta name="description" content="Challenge yourself with this advanced word guessing game powered by AI Calculator. Fun & educational!">
-  <meta name="keywords" content="word guessing game, hangman, AI calculator, brain game, spelling game, vocabulary game">
-  <meta name="author" content="AI Calculator Team">
-  <style>
-    body {
-      font-family: 'Segoe UI', sans-serif;
-      background: #1f1f1f;
-      color: white;
-      text-align: center;
-      padding: 20px;
-    }
-
-    h1 {
-      font-size: 2.5rem;
-      color: #ffd700;
-    }
-
-    h2 {
-      margin-top: 0;
-      font-size: 1.5rem;
-      color: #00ffff;
-    }
-
-    #hangman {
-      font-size: 2rem;
-      margin: 10px;
-      white-space: pre;
-    }
-
-    #word {
-      font-size: 2rem;
-      letter-spacing: 10px;
-      margin: 20px 0;
-    }
-
-    #letters button {
-      font-size: 1rem;
-      padding: 10px 15px;
-      margin: 5px;
-      background: #333;
-      color: white;
-      border: 1px solid #666;
-      border-radius: 5px;
-      cursor: pointer;
-    }
-
-    #letters button:disabled {
-      background: #555;
-      color: #999;
-      cursor: not-allowed;
-    }
-
-    #status {
-      font-size: 1.2rem;
-      margin-top: 15px;
-    }
-
-    #score {
-      margin-top: 10px;
-      font-size: 1.1rem;
-      color: #a0ffa0;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart AI Calculator | Word Guessing Game</title>
+    <meta name="description" content="Play our unique Word Guessing Game! Answer questions from English, GK, GS, Computer, and word puzzles with varying letter lengths. Use the keyboard, skip, or exit with a scoreboard. Try now!">
+    <meta name="keywords" content="word guessing game, quiz game, fun tools">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://yourusername.github.io/ai-calculator/word-guessing-game.html">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        body { font-family: Arial, sans-serif; background: linear-gradient(135deg, #1A202C, #2D3748); color: #fff; margin: 0; }
+        .header { background: #2c3e50; padding: 20px 0; text-align: center; }
+        .nav-tabs { display: flex; justify-content: center; gap: 20px; padding: 10px 0; background: #34495e; }
+        .nav-tab { color: white; text-decoration: none; padding: 5px 15px; transition: background 0.3s; font-weight: bold; text-shadow: 0 0 5px rgba(255, 107, 107, 0.5); }
+        .nav-tab:hover, .nav-tab.active { background: #3498db; border-radius: 5px; }
+        .game-content { max-width: 600px; margin: 20px auto; padding: 20px; background: rgba(45, 55, 72, 0.9); border-radius: 10px; box-shadow: 0 0 15px rgba(0,0,0,0.5); }
+        .game-box { background: #e0e0e0; color: #333; padding: 20px; border-radius: 5px; text-align: center; }
+        .question { font-size: 1.2rem; margin-bottom: 20px; }
+        .answer-spaces { display: flex; justify-content: center; gap: 5px; margin-bottom: 20px; }
+        .letter { width: 40px; height: 40px; line-height: 40px; text-align: center; border: 1px solid #ccc; border-radius: 5px; font-weight: bold; text-transform: uppercase; background: #fff; }
+        .correct { background: #2ecc71; color: white; }
+        .incorrect { background: #e63946; color: white; }
+        input { border: 1px solid #ccc; padding: 5px; border-radius: 3px; width: 150px; text-transform: uppercase; margin-bottom: 10px; }
+        input.invalid { border-color: #ff6b6b; }
+        button { background: linear-gradient(135deg, #ff6b6b, #e63946); color: white; padding: 12px 24px; border: none; border-radius: 5px; cursor: pointer; font-weight: bold; font-size: 1.1rem; box-shadow: 0 3px 6px rgba(0,0,0,0.4); transition: transform 0.2s, background 0.2s; text-transform: uppercase; }
+        button:hover { background: linear-gradient(135deg, #e63946, #c0392b); transform: scale(1.05); }
+        .keyboard { display: grid; grid-template-columns: repeat(7, 1fr); gap: 5px; margin: 20px auto; max-width: 400px; }
+        .key { background: #3498db; color: white; padding: 10px; text-align: center; border-radius: 5px; cursor: pointer; font-weight: bold; }
+        .key:hover { background: #2980b9; }
+        .key.disabled { background: #ccc; cursor: not-allowed; }
+        .ads-section { margin-top: 10px; padding: 10px; background: #34495e; border-radius: 5px; text-align: center; }
+        .ads-section p { font-size: 1.2rem; font-weight: bold; color: #1e90ff; }
+        .ads-section a { color: #1e90ff; text-decoration: underline; }
+        .voice-icon { display: inline-block; padding: 10px; cursor: pointer; font-size: 2rem; color: #00cec9; transition: color 0.2s, transform 0.2s; visibility: visible; }
+        .voice-icon:hover { color: #00b7b3; transform: scale(1.1); }
+        .button-container { display: flex; justify-content: center; align-items: center; gap: 15px; margin: 20px 0; }
+        .scoreboard { font-size: 1.2rem; margin-bottom: 20px; }
+        #game-result { font-size: 1.5rem; margin: 20px 0; }
+        .share-container { margin-top: 10px; display: none; }
+        .share-container.active { display: block; }
+        .share-icon { cursor: pointer; font-size: 1.5rem; color: #3498db; }
+        .share-icon:hover { color: #2980b9; }
+        .share-options { display: none; flex-wrap: wrap; justify-content: center; gap: 10px; margin-top: 10px; }
+        .share-options.active { display: flex; }
+        .share-options a { background: #3498db; color: white; padding: 8px 16px; border-radius: 5px; text-decoration: none; font-weight: bold; }
+        .share-options a:hover { background: #2980b9; }
+        @media (max-width: 600px) { 
+            .answer-spaces { gap: 3px; }
+            .letter { width: 30px; height: 30px; line-height: 30px; }
+            input { width: 100%; }
+            .keyboard { grid-template-columns: repeat(5, 1fr); }
+            .button-container { flex-direction: row; gap: 10px; }
+        }
+    </style>
 </head>
 <body>
-
-  <h1>AI CALCULATOR</h1>
-  <h2>Word Guessing Game</h2>
-
-  <div id="hangman">Loading...</div>
-  <div id="word">_ _ _ _</div>
-
-  <div id="letters"></div>
-  <div id="status"></div>
-  <div id="score">Score: 0</div>
-
-  <script>
-    const words = [
-      "apple", "banana", "cherry", "elephant", "giraffe", "monkey", "zebra", "laptop", "python", "coding",
-      "keyboard", "internet", "science", "planet", "galaxy", "jungle", "adventure", "mystery", "detective", "rocket",
-      "space", "school", "unicorn", "guitar", "dancer", "rhythm", "freedom", "culture", "festival", "history",
-      "museum", "engine", "puzzle", "journey", "memory", "fantasy", "crystal", "whistle", "trophy", "diamond",
-      "mirror", "magnet", "pencil", "drawer", "bottle", "camera", "window", "curtain", "castle", "dragon",
-      "thunder", "weather", "glacier", "desert", "sunshine", "rainbow", "wizard", "pirate", "robot", "future"
-    ];
-
-    let usedWords = [];
-    let currentWord = "";
-    let guessedLetters = [];
-    let wrongGuesses = 0;
-    let score = 0;
-
-    const hangmanStages = [
-      `
-      
-      
-      
-      
-      
-      
-      =========`,
-      `
-      
-      
-      
-      
-      
-      |
-      =========`,
-      `
-      |
-      |
-      |
-      |
-      |
-      =========`,
-      `
-      +---+
-      |   |
-      |
-      |
-      |
-      =========`,
-      `
-      +---+
-      |   |
-      O   |
-          |
-          |
-      =========`,
-      `
-      +---+
-      |   |
-      O   |
-      |   |
-          |
-      =========`,
-      `
-      +---+
-      |   |
-      O   |
-     /|\\  |
-          |
-      =========`,
-      `
-      +---+
-      |   |
-      O   |
-     /|\\  |
-     / \\  |
-      =========
-      💀 GAME OVER!`
-    ];
-
-    const hangman = document.getElementById("hangman");
-    const wordEl = document.getElementById("word");
-    const lettersEl = document.getElementById("letters");
-    const statusEl = document.getElementById("status");
-    const scoreEl = document.getElementById("score");
-
-    function pickWord() {
-      if (usedWords.length === words.length) {
-        statusEl.innerText = "🎉 You've completed all words!";
-        return;
-      }
-      do {
-        currentWord = words[Math.floor(Math.random() * words.length)];
-      } while (usedWords.includes(currentWord));
-      usedWords.push(currentWord);
-      guessedLetters = [];
-      wrongGuesses = 0;
-      updateDisplay();
-    }
-
-    function updateDisplay() {
-      hangman.textContent = hangmanStages[wrongGuesses];
-      let displayWord = "";
-      for (let letter of currentWord) {
-        displayWord += guessedLetters.includes(letter) ? letter + " " : "_ ";
-      }
-      wordEl.textContent = displayWord.trim();
-      drawKeyboard();
-      checkWinOrLose();
-    }
-
-    function drawKeyboard() {
-      lettersEl.innerHTML = "";
-      for (let i = 65; i <= 90; i++) {
-        const letter = String.fromCharCode(i).toLowerCase();
-        const btn = document.createElement("button");
-        btn.textContent = letter;
-        btn.disabled = guessedLetters.includes(letter);
-        btn.onclick = () => guess(letter);
-        lettersEl.appendChild(btn);
-      }
-    }
-
-    function guess(letter) {
-      if (guessedLetters.includes(letter)) return;
-      guessedLetters.push(letter);
-      if (!currentWord.includes(letter)) {
-        wrongGuesses++;
-      }
-      updateDisplay();
-    }
-
-    function checkWinOrLose() {
-      const wordGuessed = currentWord.split("").every(l => guessedLetters.includes(l));
-      if (wordGuessed) {
-        statusEl.textContent = "✅ Correct! Next word loading...";
-        score++;
-        scoreEl.textContent = `Score: ${score}`;
-        setTimeout(pickWord, 2000);
-      } else if (wrongGuesses >= hangmanStages.length - 1) {
-        statusEl.textContent = `❌ You lost! Word was "${currentWord}". Next word coming...`;
-        setTimeout(pickWord, 3000);
-      } else {
-        statusEl.textContent = "";
-      }
-    }
-
-    pickWord();
-  </script>
-
-</body>
+    <header class="header">
+        <h1>Smart AI Calculator</h1>
+        <h2>Word Guessing Game</h2>
+    </header>
+    <nav class="nav-tabs">
+        <a href="index.html#home" class="nav-tab">HOME</a>
+        <a href="index.html#fun-tools" class="nav-tab active">FUN TOOLS</a>
+    </nav>
+    <div class="game-content">
+        <div class="game-box">
+            <h2>Word Guessing Challenge</h2>
+            <div class="scoreboard" id="scoreboard">Score: 0</div>
+            <div class="question" id="question"></div>
+            <div class="answer-spaces" id="answer-spaces"></div>
+            <input type="text" id="word-input" oninput="handleInput(this)">
+            <div class="keyboard" id="keyboard"></div>
+            <div class="button-container">
+                <button onclick="submitGuess()">Submit</button>
+                <button onclick="skipQuestion()">Skip</button>
+                <button onclick="exitGame()">Exit</button>
+                <span class="voice-icon" onclick="toggleSpeech()" title="Toggle Speech"><i class="fas fa-volume-up"></i></span>
+            </div>
+            <div id="game-result" class="font-semibold"></div>
+            <div class="share-container" id="share-container">
+                <i class="fas fa-share-alt share-icon" onclick="toggleShareOptions()"></i>
+                <div class="share-options" id="share-options">
+                    <a href="#" onclick="share('facebook')">Facebook</a>
+                    <a href="#" onclick="share('instagram')">Instagram</a>
+                    <a href="#" onclick="share('whatsapp')">WhatsApp</a>
+                    <a href="#" onclick="share('x')">X</a>
+                </div>
+            </div>
+            <div class="ads-section">
+                <p>Contact for Ads: <a href="mailto:first4bencher@gmail.com">first4bencher@gmail.com</a></p>
+            </div>
+            <div id="seo-content" class="mt-4 text-sm">
+                <h3>About Word Guessing Game</h3>
+                <p>Challenge your brain with our unique Word Guessing Game! Answer questions from English, GK, GS, Computer, and word puzzles. Use the on-screen keyboard, skip, or exit with a scoreboard. It’s fun, responsive, and SEO-optimized with keywords like 'word guessing game' and 'quiz game.' Perfect for knowledge seekers!</p>
+            </div>
+        </div>
+    </div>
+    <footer class="bg-gray-800 text-white text-center py-4 mt-8">
+        <p style="font-weight: bold;">2025 © Smart AI Calculator. All rights reserved.</p>
+        <a href="privacy.html" class="text-blue-400 ml-2">Privacy Policy</a> |
+        <a href="contactus.html" class="text-blue-400 ml-2">Contact Us</a> |
+        <a href="howto.html" class="text-blue-400 ml-2">How to Use</a>
+    </footer>
+    <script>
+        let isSpeaking = false;
+        let utterance = null;
+        let score = 0;
+        let attempted = 0;
+        let currentQuestionIndex = 0;
+        let typedWord = "";
+        let usedQuestions = [];
+        const allQuestions = [
+            // English (Antonyms)
+            { question: "Antonym of 'Big'?", answer: "SMALL", category: "English (Antonym)" },
+            { question: "Antonym of 'Fast'?", answer: "SLOW", category: "English (Antonym)" },
+            { question: "Antonym of 'Bright'?", answer: "DARK", category: "English (Antonym)" },
+            { question: "Antonym of 'Happy'?", answer: "SAD", category: "English (Antonym)" },
+            { question: "Antonym of 'Hard'?", answer: "SOFT", category: "English (Antonym)" },
+            // English (Synonyms)
+            { question: "Synonym of 'Happy'?", answer: "JOYFUL", category: "English (Synonym)" },
+            { question: "Synonym of 'Begin'?", answer: "START", category: "English (Synonym)" },
+            { question: "Synonym of 'Big'?", answer: "LARGE", category: "English (Synonym)" },
+            { question: "Synonym of 'Fast'?", answer: "QUICK", category: "English (Synonym)" },
+            { question: "Synonym of 'Smart'?", answer: "CLEVER", category: "English (Synonym)" },
+            // English (One-Word Substitution)
+            { question: "One who studies stars?", answer: "ASTRONOMER", category: "English (One-Word)" },
+            { question: "Fear of heights?", answer: "ACROPHOBIA", category: "English (One-Word)" },
+            { question: "One who loves books?", answer: "BIBLIOPHILE", category: "English (One-Word)" },
+            { question: "Study of birds?", answer: "ORNITHOLOGY", category: "English (One-Word)" },
+            { question: "One who cannot speak?", answer: "MUTE", category: "English (One-Word)" },
+            // General Knowledge (GK)
+            { question: "Capital of France?", answer: "PARIS", category: "GK" },
+            { question: "Who painted the Mona Lisa?", answer: "DAVINCI", category: "GK" },
+            { question: "Largest planet in our solar system?", answer: "JUPITER", category: "GK" },
+            { question: "Currency of Japan?", answer: "YEN", category: "GK" },
+            { question: "First man on the moon?", answer: "ARMSTRONG", category: "GK" },
+            { question: "Longest river in the world?", answer: "NILE", category: "GK" },
+            { question: "Which country has the most deserts?", answer: "ANTARCTICA", category: "GK" },
+            { question: "Who wrote 'Romeo and Juliet'?", answer: "SHAKESPEARE", category: "GK" },
+            { question: "Capital of Brazil?", answer: "BRASILIA", category: "GK" },
+            { question: "Largest ocean on Earth?", answer: "PACIFIC", category: "GK" },
+            // General Science (GS)
+            { question: "What gas do plants absorb?", answer: "CARBONDIOXIDE", category: "GS" },
+            { question: "Primary source of Earth's energy?", answer: "SUN", category: "GS" },
+            { question: "Element with highest melting point?", answer: "TUNGSTEN", category: "GS" },
+            { question: "Chemical symbol for Gold?", answer: "AU", category: "GS" },
+            { question: "What is H2O commonly known as?", answer: "WATER", category: "GS" },
+            { question: "Planet closest to the Sun?", answer: "MERCURY", category: "GS" },
+            { question: "What gas causes balloons to float?", answer: "HELIUM", category: "GS" },
+            { question: "Bone in the human ear?", answer: "STAPES", category: "GS" },
+            { question: "Unit of electric current?", answer: "AMPERE", category: "GS" },
+            { question: "What is the powerhouse of the cell?", answer: "MITOCHONDRION", category: "GS" },
+            // Computer
+            { question: "What does CPU stand for (first word)?", answer: "CENTRAL", category: "Computer" },
+            { question: "Language for web development?", answer: "HTML", category: "Computer" },
+            { question: "What does RAM stand for (first word)?", answer: "RANDOM", category: "Computer" },
+            { question: "Founder of Microsoft (last name)?", answer: "GATES", category: "Computer" },
+            { question: "What is the full form of URL (first word)?", answer: "UNIFORM", category: "Computer" },
+            { question: "First widely used web browser?", answer: "NETSCAPE", category: "Computer" },
+            { question: "What does OS stand for (first word)?", answer: "OPERATING", category: "Computer" },
+            { question: "Unit of data storage (4 letters)?", answer: "BYTE", category: "Computer" },
+            { question: "What does WWW stand for (first word)?", answer: "WORLD", category: "Computer" },
+            { question: "Inventor of the World Wide Web (last name)?", answer: "BERNERSLEE", category: "Computer" },
+            // English Word Puzzle
+            { question: "Unscramble: PPLEA (fruit)", answer: "APPLE", category: "Word Puzzle" },
+            { question: "Unscramble: OHLOS (place)", answer: "SCHOOL", category: "Word Puzzle" },
+            { question: "Unscramble: OKBO (reading material)", answer: "BOOK", category: "Word Puzzle" },
+            { question: "Unscramble: OTOMR (vehicle part)", answer: "MOTOR", category: "Word Puzzle" },
+            { question: "Unscramble: ERTWA (liquid)", answer: "WATER", category: "Word Puzzle" },
+            { question: "Unscramble: ARTS (celestial body)", answer: "STAR", category: "Word Puzzle" },
+            { question: "Unscramble: EOTN (musical sound)", answer: "NOTE", category: "Word Puzzle" },
+            { question: "Unscramble: EETR (plant)", answer: "TREE", category: "Word Puzzle" },
+            { question: "Unscramble: OOMR (space)", answer: "ROOM", category: "Word Puzzle" },
+            { question: "Unscramble: AFOT (on water)", answer: "FLOAT", category: "Word Puzzle" }
+        ];
+        function shuffleArray(array) {
+            for (let i = array.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [array[i], array[j]] = [array[j], array[i]];
+            }
+            return array;
+        }
+        function startGame() {
+            score = 0;
+            attempted = 0;
+            currentQuestionIndex = 0;
+            usedQuestions = [];
+            typedWord = "";
+            document.getElementById("scoreboard").innerText = `Score: ${score}`;
+            document.getElementById("game-result").innerText = "";
+            document.getElementById("share-container").classList.remove("active");
+            // Start with 2-3 English questions
+            let englishQuestions = allQuestions.filter(q => q.category.includes("English")).slice(0, 3);
+            let otherQuestions = shuffleArray(allQuestions.filter(q => !q.category.includes("English")));
+            usedQuestions = [...englishQuestions, ...otherQuestions];
+            loadQuestion();
+        }
+        function loadQuestion() {
+            const q = usedQuestions[currentQuestionIndex];
+            document.getElementById("question").innerText = `${q.category}: ${q.question}`;
+            const spacesDiv = document.getElementById("answer-spaces");
+            spacesDiv.innerHTML = "";
+            for (let i = 0; i < q.answer.length; i++) {
+                const letterDiv = document.createElement("div");
+                letterDiv.className = "letter";
+                spacesDiv.appendChild(letterDiv);
+            }
+            document.getElementById("word-input").value = "";
+            document.getElementById("word-input").setAttribute("maxlength", q.answer.length);
+            typedWord = "";
+            setupKeyboard();
+        }
+        function setupKeyboard() {
+            const keyboard = document.getElementById("keyboard");
+            keyboard.innerHTML = "";
+            const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
+            letters.forEach(letter => {
+                const key = document.createElement("div");
+                key.className = "key";
+                key.innerText = letter;
+                key.onclick = () => handleKeyClick(letter);
+                keyboard.appendChild(key);
+            });
+        }
+        function handleKeyClick(letter) {
+            const input = document.getElementById("word-input");
+            if (typedWord.length < usedQuestions[currentQuestionIndex].answer.length) {
+                typedWord += letter;
+                input.value = typedWord;
+                handleInput(input);
+            }
+        }
+        function handleInput(input) {
+            let value = input.value.toUpperCase();
+            typedWord = value;
+            const spaces = document.querySelectorAll(".letter");
+            for (let i = 0; i < spaces.length; i++) {
+                spaces[i].innerText = i < value.length ? value[i] : "";
+            }
+            if (!value.match(/^[A-Z]*$/)) {
+                input.classList.add("invalid");
+            } else {
+                input.classList.remove("invalid");
+            }
+        }
+        function submitGuess() {
+            const input = document.getElementById("word-input");
+            let guess = input.value.toUpperCase();
+            const q = usedQuestions[currentQuestionIndex];
+            if (!guess.match(/^[A-Z]+$/) || guess.length !== q.answer.length) {
+                input.classList.add("invalid");
+                document.getElementById("game-result").innerText = "Invalid input! Use letters only and match the answer length.";
+                return;
+            }
+            attempted++;
+            const spaces = document.querySelectorAll(".letter");
+            let correct = guess === q.answer;
+            for (let i = 0; i < guess.length; i++) {
+                spaces[i].innerText = guess[i];
+                spaces[i].classList.add(correct ? "correct" : "incorrect");
+            }
+            if (correct) {
+                score++;
+                document.getElementById("scoreboard").innerText = `Score: ${score}`;
+                document.getElementById("game-result").innerText = "Correct! 🎉";
+            } else {
+                document.getElementById("game-result").innerText = `Incorrect! Correct Answer: ${q.answer}`;
+            }
+            document.getElementById("share-container").classList.add("active");
+            setTimeout(nextQuestion, 2000);
+        }
+        function skipQuestion() {
+            attempted++;
+            document.getElementById("game-result").innerText = `Skipped! Correct Answer: ${usedQuestions[currentQuestionIndex].answer}`;
+            document.getElementById("share-container").classList.add("active");
+            setTimeout(nextQuestion, 1000);
+        }
+        function nextQuestion() {
+            currentQuestionIndex++;
+            if (currentQuestionIndex >= usedQuestions.length) {
+                // Reshuffle remaining questions if needed
+                let remainingQuestions = allQuestions.filter(q => !usedQuestions.includes(q));
+                if (remainingQuestions.length === 0) {
+                    remainingQuestions = shuffleArray([...allQuestions]);
+                }
+                usedQuestions = shuffleArray(remainingQuestions);
+                currentQuestionIndex = 0;
+            }
+            typedWord = "";
+            document.getElementById("word-input").value = "";
+            document.getElementById("game-result").innerText = "";
+            loadQuestion();
+        }
+        function exitGame() {
+            document.getElementById("game-result").innerText = `Game Exited! Score: ${score}/${attempted}`;
+            document.getElementById("share-container").classList.add("active");
+            setTimeout(() => {
+                window.location.href = "index.html#home";
+            }, 2000);
+        }
+        function toggleShareOptions() {
+            const options = document.getElementById("share-options");
+            options.classList.toggle("active");
+        }
+        function share(platform) {
+            let text = `I scored ${score} in the Word Guessing Game after ${attempted} attempts! Try it out!`;
+            let url;
+            if (platform === "facebook") {
+                url = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(window.location.href)}&quote=${encodeURIComponent(text)}`;
+            } else if (platform === "instagram") {
+                alert("Instagram sharing requires manual posting. Copy this: " + text);
+                return;
+            } else if (platform === "whatsapp") {
+                url = `https://api.whatsapp.com/send?text=${encodeURIComponent(text)}`;
+            } else if (platform === "x") {
+                url = `https://x.com/intent/tweet?text=${encodeURIComponent(text)}`;
+            }
+            window.open(url, "_blank");
+        }
+        function toggleSpeech() {
+            const result = document.getElementById("game-result").innerText || `Score: ${score}, Question: ${usedQuestions[currentQuestionIndex]?.question || "Start the game!"}`;
+            if (!result) {
+                console.log("No valid result to speak");
+                return;
+            }
+            if (isSpeaking) {
+                window.speechSynthesis.cancel();
+                isSpeaking = false;
+            } else {
+                utterance = new SpeechSynthesisUtterance(result);
+                utterance.lang = "en";
+                utterance.onend = () => { isSpeaking = false; };
+                window.speechSynthesis.speak(utterance);
+                isSpeaking = true;
+            }
+        }
+        function stopSpeech() {
+            if (isSpeaking) {
+                window.speechSynthesis.cancel();
+                isSpeaking = false;
+            }
+        }
+        window.onload = startGame;
+        window.onpagehide = stopSpeech;
+        window.onbeforeunload = stopSpeech;
+    </script>
 </html>
