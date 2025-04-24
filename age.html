@@ -3,156 +3,188 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI Age Calculator - Free Online Tool | AI Calculator</title>
-    <meta name="description" content="Calculate your age accurately with our free AI-powered Age Calculator. Available in English, Hindi, Tamil, Telugu, Spanish, Bengali, Arabic, Mandarin, and French. Try now!">
-    <meta name="keywords" content="age calculator, ai age calculator, free age calculator, online age calculator, age calculation tool">
+    <title>Smart AI Calculator | Age Calculator</title>
+    <meta name="description" content="Calculate your age in years, months, and days with our free age calculator. Select your date of birth and adjust present date using interactive calendars. Try now!">
+    <meta name="keywords" content="age calculator, date of birth calculator, age in years">
     <meta name="robots" content="index, follow">
-    <link rel="canonical" href="https://yourusername.github.io/ai-calculator/age.html">
+    <link rel="canonical" href="https://yourusername.github.io/ai-calculator/age-calculator.html">
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            background: linear-gradient(135deg, #1A202C, #2D3748);
-            color: #fff;
-            margin: 0;
-            transition: background 0.3s, color 0.3s;
-        }
-        .light-mode {
-            background: #f0f0f0;
-            color: #333;
-        }
+        body { font-family: Arial, sans-serif; background: linear-gradient(135deg, #1A202C, #2D3748); color: #fff; margin: 0; }
         .header { background: #2c3e50; padding: 20px 0; text-align: center; }
         .nav-tabs { display: flex; justify-content: center; gap: 20px; padding: 10px 0; background: #34495e; }
-        .nav-tab { color: white; text-decoration: none; padding: 5px 15px; transition: background 0.3s; }
+        .nav-tab { color: white; text-decoration: none; padding: 5px 15px; transition: background 0.3s; font-weight: bold; text-shadow: 0 0 5px rgba(255, 107, 107, 0.5); }
         .nav-tab:hover, .nav-tab.active { background: #3498db; border-radius: 5px; }
         .calculator-content { max-width: 600px; margin: 20px auto; padding: 20px; background: rgba(45, 55, 72, 0.9); border-radius: 10px; box-shadow: 0 0 15px rgba(0,0,0,0.5); }
         .calculator-box { background: #e0e0e0; color: #333; padding: 20px; border-radius: 5px; text-align: center; }
-        .date-row { display: flex; justify-content: space-between; margin-bottom: 15px; }
-        .date-row label { font-weight: bold; }
-        select, input { border: 1px solid #ccc; padding: 5px; border-radius: 3px; width: 80px; }
-        button { background-color: #28a745; color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer; }
-        button:hover { background-color: #218838; }
-        .theme-switch { background: #34495e; padding: 6px 12px; border-radius: 5px; cursor: pointer; color: white; margin-left: 10px; display: inline-block; position: absolute; top: 20px; right: 120px; }
-        .theme-switch:hover { background: #3498db; }
-        @media (max-width: 600px) { .date-row { flex-direction: column; } input, select { width: 100%; margin-bottom: 10px; } }
+        .input-row { display: flex; justify-content: space-between; margin-bottom: 15px; }
+        .input-row label { font-weight: bold; }
+        input { border: 1px solid #ccc; padding: 5px; border-radius: 3px; width: 150px; }
+        input.invalid { border-color: #ff6b6b; }
+        button { background: linear-gradient(135deg, #ff6b6b, #e63946); color: white; padding: 12px 24px; border: none; border-radius: 5px; cursor: pointer; font-weight: bold; font-size: 1.1rem; box-shadow: 0 3px 6px rgba(0,0,0,0.4); transition: transform 0.2s, background 0.2s; text-transform: uppercase; }
+        button:hover { background: linear-gradient(135deg, #e63946, #c0392b); transform: scale(1.05); }
+        .ads-section { margin-top: 10px; padding: 10px; background: #34495e; border-radius: 5px; text-align: center; }
+        .ads-section p { font-size: 1.2rem; font-weight: bold; color: #1e90ff; }
+        .ads-section a { color: #1e90ff; text-decoration: underline; }
+        .voice-icon { display: inline-block; padding: 10px; cursor: pointer; font-size: 2rem; color: #00cec9; transition: color 0.2s, transform 0.2s; visibility: visible; }
+        .voice-icon:hover { color: #00b7b3; transform: scale(1.1); }
+        .button-container { display: flex; justify-content: center; align-items: center; gap: 15px; margin: 20px 0; }
+        .suggestions { margin-top: 20px; padding: 15px; background: #f0f0f0; border-radius: 5px; text-align: left; display: none; }
+        .suggestions h3 { font-size: 1.2rem; font-weight: bold; margin-bottom: 10px; }
+        .suggestions ul { list-style-type: disc; padding-left: 20px; }
+        .suggestions li { margin-bottom: 8px; }
+        .result-table { width: 100%; margin-top: 20px; border-collapse: collapse; }
+        .result-table th, .result-table td { border: 1px solid #ccc; padding: 10px; text-align: left; }
+        .result-table th { background: #3498db; color: white; }
+        .result-table tr:nth-child(even) { background: #f0f0f0; }
+        @media (max-width: 600px) { 
+            .input-row { flex-direction: column; } 
+            input { width: 100%; margin-bottom: 10px; } 
+            .button-container { flex-direction: row; gap: 10px; } 
+            .voice-icon { display: inline-block; visibility: visible; } 
+        }
     </style>
 </head>
 <body>
     <header class="header">
-        <h1 id="header-title">SMART AI Calculator</h1>
-        <p id="tagline">A to Z Calculators Powered by AI</p>
-        <div class="theme-switch" onclick="toggleTheme()">Theme: <span id="theme-text">Dark</span></div>
+        <h1>Smart AI Calculator</h1>
+        <h2>Age Calculator</h2>
     </header>
     <nav class="nav-tabs">
-        <a href="index.html#financial" class="nav-tab" onclick="showCategory('financial')">Financial</a>
-        <a href="index.html#health" class="nav-tab" onclick="showCategory('health')">Health</a>
-        <a href="index.html#math" class="nav-tab" onclick="showCategory('math')">Math</a>
-        <a href="index.html#conversion" class="nav-tab" onclick="showCategory('conversion')">Conversion</a>
-        <a href="index.html#misc" class="nav-tab" onclick="showCategory('misc')">Miscellaneous</a>
+        <a href="index.html#home" class="nav-tab">HOME</a>
+        <a href="index.html#miscellaneous" class="nav-tab active">MISCELLANEOUS</a>
     </nav>
     <div class="calculator-content">
         <div class="calculator-box">
-            <h2 id="calc-title">Modify values and click Calculate to use</h2>
-            <div class="date-row">
-                <label id="dob-label">Date of Birth</label>
-                <select id="dob-month">
-                    <option value="Jan">Jan</option><option value="Feb">Feb</option><option value="Mar">Mar</option><option value="Apr">Apr</option>
-                    <option value="May">May</option><option value="Jun">Jun</option><option value="Jul">Jul</option><option value="Aug">Aug</option>
-                    <option value="Sep">Sep</option><option value="Oct">Oct</option><option value="Nov">Nov</option><option value="Dec">Dec</option>
-                </select>
-                <input type="number" id="dob-day" min="1" max="31" value="17">
-                <input type="number" id="dob-year" min="1900" max="2025" value="2025">
+            <h2>Enter Dates</h2>
+            <div class="input-row">
+                <label>Date of Birth</label>
+                <input type="date" id="dob" oninput="validateInput(this)">
             </div>
-            <div class="date-row">
-                <label id="age-label">Age at the Date of</label>
-                <select id="age-month">
-                    <option value="Jan">Jan</option><option value="Feb">Feb</option><option value="Mar">Mar</option><option value="Apr">Apr</option>
-                    <option value="May">May</option><option value="Jun">Jun</option><option value="Jul">Jul</option><option value="Aug">Aug</option>
-                    <option value="Sep">Sep</option><option value="Oct">Oct</option><option value="Nov">Nov</option><option value="Dec">Dec</option>
-                </select>
-                <input type="number" id="age-day" min="1" max="31" value="17">
-                <input type="number" id="age-year" min="1900" max="2025" value="2025">
+            <div class="input-row">
+                <label>Present Date</label>
+                <input type="date" id="present-date" oninput="validateInput(this)">
             </div>
-            <button onclick="calculateAge()">Calculate <span id="spinner" style="display:none;">⏳</span></button>
+            <div class="button-container">
+                <button onclick="calculateAge()">Calculate <span id="spinner" style="display:none;">⏳</span></button>
+                <span class="voice-icon" onclick="toggleSpeech()" title="Toggle Speech"><i class="fas fa-volume-up"></i></span>
+            </div>
             <div id="age-result" class="mt-4 font-semibold"></div>
+            <table class="result-table" id="result-table" style="display: none;">
+                <thead>
+                    <tr>
+                        <th>Detail</th>
+                        <th>Value</th>
+                    </tr>
+                </thead>
+                <tbody id="result-table-body"></tbody>
+            </table>
+            <div class="suggestions" id="suggestions">
+                <h3>Suggestions for Age Calculation</h3>
+                <ul>
+                    <li>Ensure the date of birth is earlier than the present date.</li>
+                    <li>Verify dates for accuracy in official calculations.</li>
+                    <li>Use the present date calendar to adjust to today’s date.</li>
+                </ul>
+            </div>
+            <div class="ads-section">
+                <p>Contact for Ads: <a href="mailto:first4bencher@gmail.com">first4bencher@gmail.com</a></p>
+            </div>
             <div id="seo-content" class="mt-4 text-sm">
                 <h3>About Age Calculator</h3>
-                <p>Welcome to the AI Age Calculator, a free online tool designed to help you calculate your age with precision. Whether you need to determine your age in years, months, and days based on your date of birth and a specific date, this calculator is your go-to solution. Our AI-powered technology ensures accurate results, making it ideal for personal use, legal documentation, or planning purposes. Available in multiple languages including English, Hindi, Tamil, Telugu, Spanish, Bengali, Arabic, Mandarin, and French, this tool caters to a global audience.</p>
-                <p>Why choose our Age Calculator? It’s user-friendly, fast, and optimized for all devices. Simply input your date of birth and the date you want to calculate your age for, then click "Calculate." The tool also provides suggestions based on your age, enhancing your experience. This calculator stands out due to its AI integration, offering a modern approach compared to traditional calculators. Keywords like "age calculator online," "free age calculator," and "AI age tool" make it easily discoverable on search engines.</p>
-                <p>SEO optimization is key to ensuring this tool ranks high on Google. We’ve included meta tags, a canonical URL, and relevant keywords to boost visibility. Regular updates and backlinks from educational or health-related websites can further improve its ranking. With a focus on user experience, this calculator is perfect for students, professionals, and anyone needing quick age calculations. Try it today and explore the future of online calculators!</p>
+                <p>Our Smart AI Age Calculator computes your age in years, months, and days. Select your date of birth and present date using interactive calendars. It’s user-friendly, responsive, and SEO-optimized with keywords like 'age calculator' and 'date of birth calculator.' Perfect for quick age calculations!</p>
             </div>
         </div>
     </div>
     <footer class="bg-gray-800 text-white text-center py-4 mt-8">
-        <p>© 2025 SMART AI Calculator. All rights reserved.</p>
+        <p style="font-weight: bold;">2025 © Smart AI Calculator. All rights reserved.</p>
         <a href="privacy.html" class="text-blue-400 ml-2">Privacy Policy</a> |
         <a href="contactus.html" class="text-blue-400 ml-2">Contact Us</a> |
         <a href="howto.html" class="text-blue-400 ml-2">How to Use</a>
     </footer>
     <script>
-        let lang = 'en';
-        let isDarkMode = true;
-        const translations = {
-            en: { header: "AI Calculator", tagline: "A to Z Calculators Powered by AI", calcTitle: "Modify values and click Calculate to use", dobLabel: "Date of Birth", ageLabel: "Age at the Date of", resultPrefix: "Age as of" },
-            hi: { header: "एआई कैलकुलेटर", tagline: "ए टू जेड कैलकुलेटर, AI द्वारा संचालित", calcTitle: "मानों को संशोधित करें और कैलकुलेट पर क्लिक करें", dobLabel: "जन्म तिथि", ageLabel: "उम्र की तिथि", resultPrefix: "उम्र" },
-            ta: { header: "AI கால்குலேட்டர்", tagline: "AI இயக்கிய A முதல் Z கால்குலேட்டர்கள்", calcTitle: "மதிப்புகளை மாற்றி கால்குலேட் என்பதை கிளிக் செய்யவும்", dobLabel: "பிறந்த தேதி", ageLabel: "வயது தேதி", resultPrefix: "வயது" },
-            te: { header: "AI కాల్కులేటర్", tagline: "AI ద్వారా నడిపే A నుండి Z కాల్కులేటర్లు", calcTitle: "విలువలను మార్చి కాల్క్యులేట్ మీద క్లిక్ చేయండి", dobLabel: "పుట్టిన తేదీ", ageLabel: "వయసు తేదీ", resultPrefix: "వయసు" },
-            es: { header: "Calculadora de IA", tagline: "Calculadoras A-Z impulsadas por IA", calcTitle: "Modifique los valores y haga clic en Calcular", dobLabel: "Fecha de nacimiento", ageLabel: "Edad al día", resultPrefix: "Edad al" },
-            bn: { header: "এআই ক্যালকুলেটর", tagline: "এআই দ্বারা চালিত এ থেকে জে ক্যালকুলেটর", calcTitle: "মানগুলো পরিবর্তন করুন এবং ক্যালকুলেটে ক্লিক করুন", dobLabel: "জন্ম তারিখ", ageLabel: "বয়সের তারিখ", resultPrefix: "বয়স" },
-            ar: { header: "حاسبة الذكاء الاصطناعي", tagline: "حاسبات A إلى Z مدعومة بالذكاء الاصطناعي", calcTitle: "قم بتعديل القيم والنقر فوق احسب", dobLabel: "تاريخ الميلاد", ageLabel: "العمر في التاريخ", resultPrefix: "العمر في" },
-            zh: { header: "人工智能计算器", tagline: "AI驱动的A到Z计算器", calcTitle: "修改值并点击计算", dobLabel: "出生日期", ageLabel: "年龄日期", resultPrefix: "年龄至" },
-            fr: { header: "Calculateur IA", tagline: "Calculateurs A à Z alimentés par IA", calcTitle: "Modifiez les valeurs et cliquez sur Calculer", dobLabel: "Date de naissance", ageLabel: "Âge à la date de", resultPrefix: "Âge au" }
-        };
-        function toggleTheme() {
-            isDarkMode = !isDarkMode;
-            document.body.classList.toggle('light-mode', !isDarkMode);
-            document.getElementById('theme-text').textContent = isDarkMode ? 'Dark' : 'Light';
+        let isSpeaking = false;
+        let utterance = null;
+        function validateInput(input) {
+            let value = input.value;
+            if (!value) {
+                input.classList.add("invalid");
+            } else {
+                input.classList.remove("invalid");
+            }
         }
+        window.onload = () => {
+            let today = new Date();
+            let presentDateInput = document.getElementById("present-date");
+            presentDateInput.value = today.toISOString().split("T")[0];
+            presentDateInput.max = today.toISOString().split("T")[0];
+        };
         function calculateAge() {
             document.getElementById("spinner").style.display = "inline";
             setTimeout(() => {
-                let dobMonth = document.getElementById("dob-month").value;
-                let dobDay = parseInt(document.getElementById("dob-day").value);
-                let dobYear = parseInt(document.getElementById("dob-year").value);
-                let ageMonth = document.getElementById("age-month").value;
-                let ageDay = parseInt(document.getElementById("age-day").value);
-                let ageYear = parseInt(document.getElementById("age-year").value);
+                let dob = document.getElementById("dob").value;
+                let presentDate = document.getElementById("present-date").value;
                 let resultDiv = document.getElementById("age-result");
-                const months = { Jan: 0, Feb: 1, Mar: 2, Apr: 3, May: 4, Jun: 5, Jul: 6, Aug: 7, Sep: 8, Oct: 9, Nov: 10, Dec: 11 };
-                let dob = new Date(dobYear, months[dobMonth], dobDay);
-                let ageDate = new Date(ageYear, months[ageMonth], ageDay);
-                let today = new Date();
-                if (dob && ageDate && !isNaN(dob) && !isNaN(ageDate) && dob <= ageDate && ageDate <= today) {
-                    let diffMs = ageDate - dob;
-                    let ageDateMs = today - dob;
-                    let years = Math.floor(diffMs / (1000 * 60 * 60 * 24 * 365.25));
-                    let remainingMs = diffMs % (1000 * 60 * 60 * 24 * 365.25);
-                    let months = Math.floor(remainingMs / (1000 * 60 * 60 * 24 * 30.44));
-                    let days = Math.floor((remainingMs % (1000 * 60 * 60 * 24 * 30.44)) / (1000 * 60 * 60 * 24));
-                    let totalYears = Math.floor(ageDateMs / (1000 * 60 * 60 * 24 * 365.25));
-                    resultDiv.innerHTML = `${translations[lang].resultPrefix} ${ageMonth} ${ageDay}, ${ageYear}: ${years} ${lang === 'en' ? 'years' : lang === 'hi' ? 'वर्ष' : lang === 'ta' ? 'வயது' : lang === 'te' ? 'సంవత్సరాలు' : lang === 'es' ? 'años' : lang === 'bn' ? 'বছর' : lang === 'ar' ? 'سنوات' : lang === 'zh' ? '年' : 'ans'}, ${months} ${lang === 'en' ? 'months' : lang === 'hi' ? 'महीने' : lang === 'ta' ? 'மாதங்கள்' : lang === 'te' ? 'నెలలు' : lang === 'es' ? 'meses' : lang === 'bn' ? 'মাস' : lang === 'ar' ? 'أشهر' : lang === 'zh' ? '个月' : 'mois'}, ${days} ${lang === 'en' ? 'days' : lang === 'hi' ? 'दिन' : lang === 'ta' ? 'நாட்கள்' : lang === 'te' ? 'రోజులు' : lang === 'es' ? 'días' : lang === 'bn' ? 'দিন' : lang === 'ar' ? 'أيام' : lang === 'zh' ? '天' : 'jours'}<br>Total ${lang === 'en' ? 'Age' : lang === 'hi' ? 'उम्र' : lang === 'ta' ? 'வயது' : lang === 'te' ? 'వయసు' : lang === 'es' ? 'Edad' : lang === 'bn' ? 'বয়স' : lang === 'ar' ? 'العمر' : lang === 'zh' ? '年龄' : 'Âge'}: ${totalYears} ${lang === 'en' ? 'years' : lang === 'hi' ? 'वर्ष' : lang === 'ta' ? 'வயது' : lang === 'te' ? 'సంవత్సరాలు' : lang === 'es' ? 'años' : lang === 'bn' ? 'বছর' : lang === 'ar' ? 'سنوات' : lang === 'zh' ? '年' : 'ans'}`;
-                    speakResult(resultDiv.innerHTML);
-                } else {
-                    resultDiv.innerText = lang === 'en' ? "Please enter valid dates (DOB <= Age Date <= Today)" : lang === 'hi' ? "कृपया वैध तारीखें दर्ज करें (जन्म तिथि <= उम्र की तिथि <= आज)" : lang === 'ta' ? "சரியான தேதிகளை உள்ளிடவும் (பிறந்த தேதி <= வயது தேதி <= இன்று)" : lang === 'te' ? "దయచేసి సరైన తేదీలను నమోదు చేయండి (పుట్టిన తేదీ <= వయసు తేదీ <= ఈ రోజు)" : lang === 'es' ? "Por favor, ingrese fechas válidas (Fecha de nacimiento <= Fecha de edad <= Hoy)" : lang === 'bn' ? "দয়া করে বৈধ তারিখ লিখুন (জন্ম তারিখ <= বয়সের তারিখ <= আজ)" : lang === 'ar' ? "يرجى إدخال تواريخ صالحة (تاريخ الميلاد <= تاريخ العمر <= اليوم)" : lang === 'zh' ? "请输入有效日期 (出生日期 <= 年龄日期 <= 今天)" : "Veuillez entrer des dates valides (Date de naissance <= Date d'âge <= Aujourd'hui)";
+                let tableBody = document.getElementById("result-table-body");
+                let suggestionsDiv = document.getElementById("suggestions");
+                let table = document.getElementById("result-table");
+                tableBody.innerHTML = "";
+                if (!dob || !presentDate || new Date(dob) > new Date(presentDate)) {
+                    resultDiv.innerText = "Invalid input. DOB must be earlier than present date.";
+                    table.style.display = "none";
+                    suggestionsDiv.style.display = "none";
+                    document.getElementById("spinner").style.display = "none";
+                    return;
                 }
+                let dobDate = new Date(dob);
+                let present = new Date(presentDate);
+                let years = present.getFullYear() - dobDate.getFullYear();
+                let months = present.getMonth() - dobDate.getMonth();
+                let days = present.getDate() - dobDate.getDate();
+                if (days < 0) {
+                    months--;
+                    days += new Date(present.getFullYear(), present.getMonth(), 0).getDate();
+                }
+                if (months < 0) {
+                    years--;
+                    months += 12;
+                }
+                resultDiv.innerText = `Age: ${years} Years, ${months} Months, ${days} Days`;
+                tableBody.innerHTML = `
+                    <tr><td>Years</td><td>${years}</td></tr>
+                    <tr><td>Months</td><td>${months}</td></tr>
+                    <tr><td>Days</td><td>${days}</td></tr>
+                `;
+                table.style.display = "table";
+                suggestionsDiv.style.display = "block";
                 document.getElementById("spinner").style.display = "none";
-            }, 1000);
+            }, 500);
         }
-        function showCategory(category) {
-            // No action needed here as navigation is handled by index.html
+        function toggleSpeech() {
+            const result = document.getElementById("age-result").innerText;
+            if (!result || result.includes("Invalid")) {
+                console.log("No valid result to speak");
+                return;
+            }
+            if (isSpeaking) {
+                window.speechSynthesis.cancel();
+                isSpeaking = false;
+            } else {
+                utterance = new SpeechSynthesisUtterance(result);
+                utterance.lang = "en";
+                utterance.onend = () => { isSpeaking = false; };
+                window.speechSynthesis.speak(utterance);
+                isSpeaking = true;
+            }
         }
-        function speakResult(result) {
-            const utterance = new SpeechSynthesisUtterance(result);
-            utterance.lang = lang === 'zh' ? 'zh-CN' : lang === 'ar' ? 'ar-SA' : lang;
-            window.speechSynthesis.speak(utterance);
+        function stopSpeech() {
+            if (isSpeaking) {
+                window.speechSynthesis.cancel();
+                isSpeaking = false;
+            }
         }
-        // Initial language and theme load
-        window.onload = () => {
-            document.getElementById('header-title').textContent = translations[lang].header;
-            document.getElementById('tagline').textContent = translations[lang].tagline;
-            document.getElementById('calc-title').textContent = translations[lang].calcTitle;
-            document.getElementById('dob-label').textContent = translations[lang].dobLabel;
-            document.getElementById('age-label').textContent = translations[lang].ageLabel;
-        };
+        window.onpagehide = stopSpeech;
+        window.onbeforeunload = stopSpeech;
     </script>
 </html>
