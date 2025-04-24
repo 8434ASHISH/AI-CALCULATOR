@@ -1,207 +1,209 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>AI Calculator - Hangman Game | Word Guessing Challenge</title>
-
-  <!-- SEO Meta Tags -->
-  <meta name="description" content="Play the advanced Hangman game with smart word rotation and non-repeating challenges. Part of the AI Calculator Game Series." />
-  <meta name="keywords" content="hangman, ai calculator, hangman game, word game, word guessing, hangman html, hangman js, vocabulary game, online hangman, SEO games" />
-  <meta name="author" content="AI Calculator Team" />
-  <meta name="robots" content="index, follow" />
-
-  <!-- Open Graph -->
-  <meta property="og:title" content="AI Calculator - Hangman Game" />
-  <meta property="og:description" content="Challenge your brain with our non-repeating Hangman game built with style and smart scoring!" />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://yourdomain.com/hangman" />
-  <meta property="og:image" content="https://yourdomain.com/hangman-og.jpg" />
-
-  <!-- Twitter -->
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="AI Calculator - Hangman Game" />
-  <meta name="twitter:description" content="Guess the word in our smart Hangman game with auto word shuffling and a slick UI." />
-  <meta name="twitter:image" content="https://yourdomain.com/hangman-og.jpg" />
-
-  <style>
-    body {
-      font-family: 'Segoe UI', sans-serif;
-      background-color: #1e1e2f;
-      color: #fff;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      padding: 30px 20px;
-      margin: 0;
-    }
-
-    h1 {
-      font-size: 2.5rem;
-      color: #00ffd0;
-      margin-bottom: 0;
-    }
-
-    h2 {
-      font-size: 1.5rem;
-      color: #f0f0f0;
-      margin-top: 0;
-    }
-
-    .scoreboard {
-      margin: 10px 0 20px;
-      font-size: 1.1rem;
-    }
-
-    .word-display {
-      font-size: 2rem;
-      letter-spacing: 10px;
-      margin: 20px 0;
-    }
-
-    .letters {
-      display: flex;
-      flex-wrap: wrap;
-      max-width: 400px;
-      justify-content: center;
-      gap: 8px;
-    }
-
-    .letter-btn {
-      padding: 10px 15px;
-      font-size: 1rem;
-      background: #333;
-      color: #fff;
-      border: none;
-      border-radius: 6px;
-      cursor: pointer;
-    }
-
-    .letter-btn:disabled {
-      background: #777;
-      cursor: not-allowed;
-    }
-
-    .status {
-      margin-top: 15px;
-      font-size: 1.1rem;
-      color: #ffd700;
-    }
-
-    .reset-btn {
-      margin-top: 20px;
-      padding: 10px 20px;
-      background: #00ffd0;
-      color: #000;
-      border: none;
-      border-radius: 6px;
-      cursor: pointer;
-      font-size: 1rem;
-    }
-
-    .reset-btn:hover {
-      background: #00c7a8;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart AI Calculator | Hangman</title>
+    <meta name="description" content="Play Hangman with an on-screen keyboard! Guess letters to reveal the word before attempts run out. Over 25 words included. Try now!">
+    <meta name="keywords" content="hangman game, word guessing game, fun tools">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://yourusername.github.io/ai-calculator/hangman.html">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        body { font-family: Arial, sans-serif; background: linear-gradient(135deg, #1A202C, #2D3748); color: #fff; margin: 0; }
+        .header { background: #2c3e50; padding: 20px 0; text-align: center; }
+        .nav-tabs { display: flex; justify-content: center; gap: 20px; padding: 10px 0; background: #34495e; }
+        .nav-tab { color: white; text-decoration: none; padding: 5px 15px; transition: background 0.3s; font-weight: bold; text-shadow: 0 0 5px rgba(255, 107, 107, 0.5); }
+        .nav-tab:hover, .nav-tab.active { background: #3498db; border-radius: 5px; }
+        .game-content { max-width: 600px; margin: 20px auto; padding: 20px; background: rgba(45, 55, 72, 0.9); border-radius: 10px; box-shadow: 0 0 15px rgba(0,0,0,0.5); }
+        .game-box { background: #e0e0e0; color: #333; padding: 20px; border-radius: 5px; text-align: center; }
+        .input-row { display: flex; justify-content: center; margin-bottom: 15px; }
+        input { border: 1px solid #ccc; padding: 5px; border-radius: 3px; width: 50px; text-transform: uppercase; }
+        input.invalid { border-color: #ff6b6b; }
+        button { background: linear-gradient(135deg, #ff6b6b, #e63946); color: white; padding: 12px 24px; border: none; border-radius: 5px; cursor: pointer; font-weight: bold; font-size: 1.1rem; box-shadow: 0 3px 6px rgba(0,0,0,0.4); transition: transform 0.2s, background 0.2s; text-transform: uppercase; }
+        button:hover { background: linear-gradient(135deg, #e63946, #c0392b); transform: scale(1.05); }
+        .ads-section { margin-top: 10px; padding: 10px; background: #34495e; border-radius: 5px; text-align: center; }
+        .ads-section p { font-size: 1.2rem; font-weight: bold; color: #1e90ff; }
+        .ads-section a { color: #1e90ff; text-decoration: underline; }
+        .voice-icon { display: inline-block; padding: 10px; cursor: pointer; font-size: 2rem; color: #00cec9; transition: color 0.2s, transform 0.2s; visibility: visible; }
+        .voice-icon:hover { color: #00b7b3; transform: scale(1.1); }
+        .button-container { display: flex; justify-content: center; align-items: center; gap: 15px; margin: 20px 0; }
+        .word-display { font-size: 2rem; letter-spacing: 5px; margin: 20px 0; }
+        .attempts { font-size: 1.2rem; margin-bottom: 20px; }
+        .guessed-letters { font-size: 1rem; margin-bottom: 20px; }
+        .keyboard { display: grid; grid-template-columns: repeat(7, 1fr); gap: 5px; margin: 20px auto; max-width: 400px; }
+        .key { background: #3498db; color: white; padding: 10px; text-align: center; border-radius: 5px; cursor: pointer; font-weight: bold; }
+        .key:hover { background: #2980b9; }
+        .key.disabled { background: #ccc; cursor: not-allowed; }
+        @media (max-width: 600px) { 
+            .input-row { flex-direction: column; } 
+            input { width: 100%; margin-bottom: 10px; } 
+            .button-container { flex-direction: row; gap: 10px; } 
+            .keyboard { grid-template-columns: repeat(5, 1fr); } 
+        }
+    </style>
 </head>
 <body>
-  <h1>AI CALCULATOR</h1>
-  <h2>Hangman</h2>
-
-  <div class="scoreboard">
-    Score: <span id="score">0</span>
-  </div>
-
-  <div class="word-display" id="wordDisplay">_ _ _ _ _</div>
-
-  <div class="letters" id="lettersContainer"></div>
-
-  <div class="status" id="statusMsg">Start guessing the word!</div>
-
-  <button class="reset-btn" onclick="startGame()">New Word</button>
-
-  <script>
-    const wordList = [
-      "elephant", "hangman", "javascript", "coding", "freedom", "weather", "holiday", "keyboard", "monitor",
-      "oxygen", "planet", "galaxy", "puzzle", "notebook", "library", "fantasy", "biology", "science", "history",
-      "universe", "adventure", "treasure", "volcano", "rainbow", "mountain", "strategy", "journey", "dolphin"
-    ];
-
-    let usedWords = [];
-    let currentWord = "";
-    let displayWord = [];
-    let score = 0;
-    let remainingGuesses = 6;
-
-    const wordDisplay = document.getElementById("wordDisplay");
-    const lettersContainer = document.getElementById("lettersContainer");
-    const statusMsg = document.getElementById("statusMsg");
-    const scoreEl = document.getElementById("score");
-
-    function startGame() {
-      if (usedWords.length === wordList.length) {
-        usedWords = [];
-      }
-
-      let availableWords = wordList.filter(word => !usedWords.includes(word));
-      currentWord = availableWords[Math.floor(Math.random() * availableWords.length)];
-      usedWords.push(currentWord);
-
-      displayWord = Array(currentWord.length).fill("_");
-      remainingGuesses = 6;
-
-      wordDisplay.textContent = displayWord.join(" ");
-      statusMsg.textContent = "Guess the word!";
-      generateLetterButtons();
-    }
-
-    function generateLetterButtons() {
-      lettersContainer.innerHTML = "";
-      for (let i = 65; i <= 90; i++) {
-        const btn = document.createElement("button");
-        btn.textContent = String.fromCharCode(i);
-        btn.className = "letter-btn";
-        btn.onclick = () => guessLetter(btn.textContent.toLowerCase(), btn);
-        lettersContainer.appendChild(btn);
-      }
-    }
-
-    function guessLetter(letter, btn) {
-      btn.disabled = true;
-
-      if (currentWord.includes(letter)) {
-        currentWord.split('').forEach((char, idx) => {
-          if (char === letter) {
-            displayWord[idx] = letter;
-          }
-        });
-        wordDisplay.textContent = displayWord.join(" ");
-        statusMsg.textContent = "Good guess!";
-
-        if (!displayWord.includes("_")) {
-          score++;
-          scoreEl.textContent = score;
-          statusMsg.textContent = `🎉 You guessed it! Word was "${currentWord}".`;
-          disableAllButtons();
+    <header class="header">
+        <h1>Smart AI Calculator</h1>
+        <h2>Hangman</h2>
+    </header>
+    <nav class="nav-tabs">
+        <a href="index.html#home" class="nav-tab">HOME</a>
+        <a href="index.html#fun-tools" class="nav-tab active">FUN TOOLS</a>
+    </nav>
+    <div class="game-content">
+        <div class="game-box">
+            <h2>Guess the Word</h2>
+            <div class="word-display" id="word-display"></div>
+            <div class="attempts" id="attempts">Attempts Left: 6</div>
+            <div class="guessed-letters" id="guessed-letters">Guessed Letters: None</div>
+            <div class="input-row">
+                <input type="text" id="letter-input" maxlength="1" oninput="validateInput(this)">
+                <button onclick="guessLetter()">Guess</button>
+            </div>
+            <div class="keyboard" id="keyboard"></div>
+            <div class="button-container">
+                <button onclick="resetGame()">New Game <span id="spinner" style="display:none;">⏳</span></button>
+                <span class="voice-icon" onclick="toggleSpeech()" title="Toggle Speech"><i class="fas fa-volume-up"></i></span>
+            </div>
+            <div id="game-result" class="mt-4 font-semibold"></div>
+            <div class="ads-section">
+                <p>Contact for Ads: <a href="mailto:first4bencher@gmail.com">first4bencher@gmail.com</a></p>
+            </div>
+            <div id="seo-content" class="mt-4 text-sm">
+                <h3>About Hangman</h3>
+                <p>Play Hangman with an on-screen keyboard and over 25 words! Guess letters via keyboard or mouse to reveal the word. It’s fun, responsive, and SEO-optimized with keywords like 'hangman game' and 'word guessing game.' Perfect for a quick brain teaser!</p>
+            </div>
+        </div>
+    </div>
+    <footer class="bg-gray-800 text-white text-center py-4 mt-8">
+        <p style="font-weight: bold;">2025 © Smart AI Calculator. All rights reserved.</p>
+        <a href="privacy.html" class="text-blue-400 ml-2">Privacy Policy</a> |
+        <a href="contactus.html" class="text-blue-400 ml-2">Contact Us</a> |
+        <a href="howto.html" class="text-blue-400 ml-2">How to Use</a>
+    </footer>
+    <script>
+        let isSpeaking = false;
+        let utterance = null;
+        const words = [
+            "APPLE", "BANANA", "COMPUTER", "JAVASCRIPT", "SUNSHINE", "MOUNTAIN", "RIVER", "PIZZA", "GUITAR", "ROCKET",
+            "OCEAN", "FOREST", "DESERT", "CANYON", "VALLEY", "CLOUD", "THUNDER", "LIGHTNING", "TORNADO", "HURRICANE",
+            "GALAXY", "PLANET", "STARSHIP", "ASTRONAUT", "METEOR", "COMET", "VOLCANO", "EARTHQUAKE", "TSUNAMI"
+        ];
+        let currentWord = "";
+        let displayedWord = [];
+        let guessedLetters = [];
+        let attemptsLeft = 6;
+        function startGame() {
+            currentWord = words[Math.floor(Math.random() * words.length)];
+            displayedWord = Array(currentWord.length).fill("_");
+            guessedLetters = [];
+            attemptsLeft = 6;
+            updateDisplay();
+            setupKeyboard();
         }
-
-      } else {
-        remainingGuesses--;
-        statusMsg.textContent = `Wrong guess. ${remainingGuesses} attempts left.`;
-
-        if (remainingGuesses === 0) {
-          statusMsg.textContent = `❌ Game over! The word was "${currentWord}".`;
-          disableAllButtons();
+        function updateDisplay() {
+            document.getElementById("word-display").innerText = displayedWord.join(" ");
+            document.getElementById("attempts").innerText = `Attempts Left: ${attemptsLeft}`;
+            document.getElementById("guessed-letters").innerText = `Guessed Letters: ${guessedLetters.length ? guessedLetters.join(", ") : "None"}`;
+            document.getElementById("game-result").innerText = "";
+            document.getElementById("letter-input").value = "";
         }
-      }
-    }
-
-    function disableAllButtons() {
-      document.querySelectorAll(".letter-btn").forEach(btn => btn.disabled = true);
-    }
-
-    // Auto-start game
-    startGame();
-  </script>
-</body>
+        function setupKeyboard() {
+            const keyboard = document.getElementById("keyboard");
+            keyboard.innerHTML = "";
+            "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("").forEach(letter => {
+                const key = document.createElement("div");
+                key.className = "key";
+                key.innerText = letter;
+                key.onclick = () => guessLetter(letter);
+                if (guessedLetters.includes(letter)) {
+                    key.classList.add("disabled");
+                }
+                keyboard.appendChild(key);
+            });
+        }
+        function validateInput(input) {
+            let value = input.value.toUpperCase();
+            if (!value.match(/[A-Z]/)) {
+                input.classList.add("invalid");
+            } else {
+                input.classList.remove("invalid");
+            }
+        }
+        function guessLetter(letter) {
+            if (typeof letter !== "string") {
+                let input = document.getElementById("letter-input");
+                letter = input.value.toUpperCase();
+                if (!letter.match(/[A-Z]/) || guessedLetters.includes(letter)) {
+                    input.classList.add("invalid");
+                    return;
+                }
+            } else {
+                letter = letter.toUpperCase();
+                if (guessedLetters.includes(letter)) return;
+            }
+            guessedLetters.push(letter);
+            if (currentWord.includes(letter)) {
+                for (let i = 0; i < currentWord.length; i++) {
+                    if (currentWord[i] === letter) {
+                        displayedWord[i] = letter;
+                    }
+                }
+            } else {
+                attemptsLeft--;
+            }
+            updateDisplay();
+            setupKeyboard();
+            checkGameStatus();
+        }
+        function checkGameStatus() {
+            let resultDiv = document.getElementById("game-result");
+            if (displayedWord.join("") === currentWord) {
+                resultDiv.innerText = "You Win! 🎉";
+                document.getElementById("letter-input").disabled = true;
+                document.querySelectorAll(".key").forEach(key => key.classList.add("disabled"));
+            } else if (attemptsLeft <= 0) {
+                resultDiv.innerText = `You Lose! The word was ${currentWord}. 😔`;
+                document.getElementById("letter-input").disabled = true;
+                document.querySelectorAll(".key").forEach(key => key.classList.add("disabled"));
+            }
+        }
+        function resetGame() {
+            document.getElementById("spinner").style.display = "inline";
+            setTimeout(() => {
+                document.getElementById("letter-input").disabled = false;
+                startGame();
+                document.getElementById("spinner").style.display = "none";
+            }, 500);
+        }
+        function toggleSpeech() {
+            const result = document.getElementById("game-result").innerText || `Word: ${displayedWord.join(" ")}, Attempts Left: ${attemptsLeft}`;
+            if (!result) {
+                console.log("No valid result to speak");
+                return;
+            }
+            if (isSpeaking) {
+                window.speechSynthesis.cancel();
+                isSpeaking = false;
+            } else {
+                utterance = new SpeechSynthesisUtterance(result);
+                utterance.lang = "en";
+                utterance.onend = () => { isSpeaking = false; };
+                window.speechSynthesis.speak(utterance);
+                isSpeaking = true;
+            }
+        }
+        function stopSpeech() {
+            if (isSpeaking) {
+                window.speechSynthesis.cancel();
+                isSpeaking = false;
+            }
+        }
+        window.onload = startGame;
+        window.onpagehide = stopSpeech;
+        window.onbeforeunload = stopSpeech;
+    </script>
 </html>
