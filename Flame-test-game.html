@@ -1,208 +1,660 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <meta name="description" content="FLAMES TEST GAME - A fun and romantic love game for couples and friends.">
-  <meta name="keywords" content="FLAMES, love calculator, compatibility game, friendship test, relationship game, AI Calculator">
-  <meta name="author" content="AI Calculator Team">
-  <title>FLAMES Test GAME | AI Calculator</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <style>
-    body {
-      background: linear-gradient(to bottom right, #ffdde1, #ee9ca7);
-      font-family: 'Arial', sans-serif;
-      color: #000;
-    }
-
-    .container {
-      max-width: 600px;
-      margin: 50px auto;
-      padding: 30px;
-      background-color: rgba(255, 255, 255, 0.9);
-      border-radius: 12px;
-      box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
-    }
-
-    .heading {
-      text-align: center;
-      font-size: 2.5rem;
-      font-weight: bold;
-      color: #c71585;
-    }
-
-    input {
-      background: #fff0f5;
-      color: black;
-      font-weight: bold;
-      padding: 12px;
-      width: 100%;
-      margin-top: 10px;
-      border: 2px solid #c71585;
-      border-radius: 8px;
-      font-size: 1.1rem;
-      text-align: center;
-    }
-
-    .button {
-      background-color: #c71585;
-      color: white;
-      padding: 12px;
-      border-radius: 8px;
-      width: 100%;
-      font-weight: bold;
-      margin-top: 15px;
-    }
-
-    .button:hover {
-      background-color: #a01370;
-    }
-
-    .result {
-      background: #fff;
-      padding: 15px;
-      border-radius: 8px;
-      text-align: center;
-      font-weight: bold;
-      color: black;
-      font-size: 1.2rem;
-      margin-top: 15px;
-      box-shadow: 0 0 10px #c71585;
-    }
-
-    .tips {
-      font-size: 0.95rem;
-      margin-top: 10px;
-      text-align: center;
-      color: #555;
-    }
-
-    .switch-btn {
-      background: #ff99cc;
-      color: black;
-      padding: 10px 20px;
-      border-radius: 8px;
-      margin: 10px;
-      font-weight: bold;
-    }
-
-    footer {
-      text-align: center;
-      margin-top: 40px;
-      color: #fff;
-      background-color: #c71585;
-      padding: 15px;
-      border-radius: 12px;
-    }
-
-    footer a {
-      color: white;
-      text-decoration: underline;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart AI Calculator | Flame Test & Astro Couple</title>
+    <meta name="description" content="Play the FLAME Test Game to find your relationship status or try the Astro Couple Calculator to check love compatibility with photos and birth dates. Fun, pink-themed, and emoji-packed. Try now!">
+    <meta name="keywords" content="flame test game, astro couple calculator, relationship calculator, fun tools">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://yourusername.github.io/ai-calculator/flame-test-game.html">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        body { 
+            font-family: Arial, sans-serif; 
+            background: linear-gradient(135deg, #ff99cc, #ff66b2); 
+            color: #fff; 
+            margin: 0; 
+        }
+        .header { 
+            background: #cc0066; 
+            padding: 20px 0; 
+            text-align: center; 
+        }
+        .nav-tabs { 
+            display: flex; 
+            justify-content: center; 
+            gap: 20px; 
+            padding: 10px 0; 
+            background: #e60073; 
+        }
+        .nav-tab { 
+            color: white; 
+            text-decoration: none; 
+            padding: 5px 15px; 
+            transition: background 0.3s; 
+            font-weight: bold; 
+            text-shadow: 0 0 5px rgba(255, 107, 107, 0.5); 
+        }
+        .nav-tab:hover, .nav-tab.active { 
+            background: #ff3399; 
+            border-radius: 5px; 
+        }
+        .game-content { 
+            max-width: 600px; 
+            margin: 20px auto; 
+            padding: 20px; 
+            background: rgba(45, 55, 72, 0.9); 
+            border-radius: 10px; 
+            box-shadow: 0 0 15px rgba(0,0,0,0.5); 
+        }
+        .game-box, .astro-box { 
+            background: #fff; 
+            color: #333; 
+            padding: 20px; 
+            border-radius: 5px; 
+            text-align: center; 
+            margin-bottom: 20px; 
+        }
+        .input-row { 
+            display: flex; 
+            justify-content: space-between; 
+            margin-bottom: 15px; 
+        }
+        input[type="text"], input[type="date"] { 
+            border: 1px solid #ccc; 
+            padding: 5px; 
+            border-radius: 3px; 
+            width: 200px; 
+            font-weight: bold; 
+            color: #000; 
+            background: #fff; 
+        }
+        input[type="file"] { 
+            width: 200px; 
+            color: #000; 
+        }
+        input.invalid { 
+            border-color: #ff6b6b; 
+        }
+        button { 
+            background: linear-gradient(135deg, #ff3399, #cc0066); 
+            color: white; 
+            padding: 12px 24px; 
+            border: none; 
+            border-radius: 5px; 
+            cursor: pointer; 
+            font-weight: bold; 
+            font-size: 1.1rem; 
+            box-shadow: 0 3px 6px rgba(0,0,0,0.4); 
+            transition: transform 0.2s, background 0.2s; 
+            text-transform: uppercase; 
+        }
+        button:hover { 
+            background: linear-gradient(135deg, #cc0066, #99004d); 
+            transform: scale(1.05); 
+        }
+        .ads-section { 
+            margin-top: 10px; 
+            padding: 10px; 
+            background: #e60073; 
+            border-radius: 5px; 
+            text-align: center; 
+        }
+        .ads-section p { 
+            font-size: 1.2rem; 
+            font-weight: bold; 
+            color: #fff; 
+        }
+        .ads-section a { 
+            color: #fff; 
+            text-decoration: underline; 
+        }
+        .voice-icon { 
+            display: inline-block; 
+            padding: 10px; 
+            cursor: pointer; 
+            font-size: 2rem; 
+            color: #ffccff; 
+            transition: color 0.2s, transform 0.2s; 
+            visibility: visible; 
+        }
+        .voice-icon:hover { 
+            color: #ffb3ff; 
+            transform: scale(1.1); 
+        }
+        .button-container { 
+            display: flex; 
+            justify-content: center; 
+            align-items: center; 
+            gap: 15px; 
+            margin: 20px 0; 
+        }
+        .notes { 
+            margin-top: 20px; 
+            font-size: 0.9rem; 
+            text-align: left; 
+            display: none; 
+        }
+        .notes.active { 
+            display: block; 
+        }
+        .notes ul { 
+            list-style: none; 
+            padding: 0; 
+        }
+        .notes li { 
+            margin-bottom: 5px; 
+        }
+        .divider { 
+            border-top: 3px solid #cc0066; 
+            margin: 30px 0; 
+        }
+        .astro-title { 
+            font-size: 1.8rem; 
+            font-weight: bold; 
+            color: #ff3399; 
+            text-shadow: 0 0 5px rgba(255, 51, 153, 0.5); 
+        }
+        .astro-tagline { 
+            font-size: 1rem; 
+            color: #333; 
+            margin-bottom: 20px; 
+        }
+        .photo-preview { 
+            display: flex; 
+            justify-content: center; 
+            gap: 20px; 
+            margin: 20px 0; 
+        }
+        .photo-preview img { 
+            width: 100px; 
+            height: 100px; 
+            object-fit: cover; 
+            border-radius: 10px; 
+            border: 2px solid #cc0066; 
+        }
+        #flame-result, #astro-result { 
+            font-size: 1.5rem; 
+            margin: 20px 0; 
+            font-weight: bold; 
+        }
+        .number-line { 
+            position: relative; 
+            width: 80%; 
+            height: 8px; 
+            background: #ccc; 
+            border-radius: 5px; 
+            margin: 10px auto; 
+        }
+        .number-line .fill { 
+            height: 100%; 
+            background: linear-gradient(90deg, #ff3399, #cc0066); 
+            border-radius: 5px; 
+            position: relative; 
+            transition: width 1s ease; 
+        }
+        .number-line .sparkle { 
+            position: absolute; 
+            top: -10px; 
+            right: -5px; 
+            font-size: 0.9rem; 
+            animation: sparkle 1s infinite; 
+        }
+        @keyframes sparkle { 
+            0% { transform: scale(1); opacity: 1; } 
+            50% { transform: scale(1.2); opacity: 0.8; } 
+            100% { transform: scale(1); opacity: 1; } 
+        }
+        .names { 
+            font-size: 1.2rem; 
+            font-weight: bold; 
+            font-family: 'Courier New', Courier, monospace; 
+            color: #cc0066; 
+            text-shadow: 0 0 3px rgba(255, 51, 153, 0.5); 
+            margin: 10px 0; 
+        }
+        .catchy-message { 
+            font-size: 1.1rem; 
+            font-weight: bold; 
+            color: #000; 
+            margin-bottom: 20px; 
+        }
+        .share-container { 
+            margin-top: 10px; 
+            display: none; 
+        }
+        .share-container.active { 
+            display: block; 
+        }
+        .share-icon { 
+            cursor: pointer; 
+            font-size: 1.5rem; 
+            color: #cc0066; 
+        }
+        .share-icon:hover { 
+            color: #ff3399; 
+        }
+        .share-options { 
+            display: none; 
+            flex-wrap: wrap; 
+            justify-content: center; 
+            gap: 10px; 
+            margin-top: 10px; 
+        }
+        .share-options.active { 
+            display: flex; 
+        }
+        .share-options a, .share-options button { 
+            background: #e60073; 
+            color: white; 
+            padding: 8px 16px; 
+            border-radius: 5px; 
+            text-decoration: none; 
+            font-weight: bold; 
+        }
+        .share-options a:hover, .share-options button:hover { 
+            background: #cc0066; 
+        }
+        .privacy-note { 
+            font-size: 0.6rem; 
+            color: #666; 
+            margin-top: 20px; 
+        }
+        .disclaimer { 
+            font-size: 0.6rem; 
+            color: #666; 
+            margin-top: 10px; 
+        }
+        @media (max-width: 600px) { 
+            .input-row { 
+                flex-direction: column; 
+                gap: 10px; 
+            } 
+            input[type="text"], input[type="date"], input[type="file"] { 
+                width: 100%; 
+            } 
+            .button-container { 
+                flex-direction: row; 
+                gap: 10px; 
+            } 
+            .photo-preview { 
+                flex-direction: column; 
+                align-items: center; 
+            } 
+            .photo-preview img { 
+                width: 80px; 
+                height: 80px; 
+            } 
+            .number-line { 
+                width: 90%; 
+            } 
+        }
+    </style>
 </head>
 <body>
-  <div class="container">
-    <h1 class="heading"> FLAMES TEST GAME </h1>
-
-    <div class="flex justify-center mt-4">
-      <button class="switch-btn" onclick="switchMode('flames')">FLAMES Game</button>
-      <button class="switch-btn" onclick="switchMode('calculator')">Compatibility</button>
+    <header class="header">
+        <h1>Smart AI Calculator</h1>
+        <h2>Flame Test & Astro Couple</h2>
+    </header>
+    <nav class="nav-tabs">
+        <a href="index.html#home" class="nav-tab">HOME</a>
+        <a href="index.html#fun-tools" class="nav-tab active">FUN TOOLS</a>
+    </nav>
+    <div class="game-content">
+        <div class="game-box">
+            <h2>FLAME Test Game</h2>
+            <p>Find out your relationship vibe with your crush! 😍</p>
+            <div class="input-row">
+                <input type="text" id="name1" placeholder="Your Name" oninput="validateInput(this)">
+                <input type="text" id="name2" placeholder="Partner's Name" oninput="validateInput(this)">
+            </div>
+            <div class="button-container">
+                <button onclick="calculateFlame()"><span style="font-weight: bold;">START FLAME 🔥</span> <span id="flame-spinner" style="display:none;">⏳</span></button>
+                <span class="voice-icon" onclick="toggleFlameSpeech()" title="Toggle Speech"><i class="fas fa-volume-up"></i></span>
+            </div>
+            <div id="flame-result" class="mt-4"></div>
+            <div class="share-container" id="flame-share">
+                <i class="fas fa-share-alt share-icon" onclick="toggleShareOptions('flame')"></i>
+                <div class="share-options" id="flame-share-options">
+                    <a href="#" onclick="share('facebook', 'flame')">Facebook</a>
+                    <a href="#" onclick="share('instagram', 'flame')">Instagram</a>
+                    <a href="#" onclick="share('whatsapp', 'flame')">WhatsApp</a>
+                    <a href="#" onclick="share('x', 'flame')">X</a>
+                </div>
+            </div>
+            <div class="notes" id="flame-notes">
+                <h3>FLAMES Explained:</h3>
+                <ul>
+                    <li>F: Friend 👋 - Besties forever!</li>
+                    <li>L: Love ❤️ - Sparks are flying!</li>
+                    <li>A: Affection 😊 - Sweet and caring bond!</li>
+                    <li>M: Marriage 💍 - Wedding bells soon?</li>
+                    <li>E: Enemy 😈 - Uh-oh, watch out!</li>
+                    <li>S: Sibling 👯 - Like family!</li>
+                </ul>
+            </div>
+        </div>
+        <div class="divider"></div>
+        <div class="astro-box">
+            <h2 class="astro-title">Astro Couple Calculator</h2>
+            <p class="astro-tagline">Check your love compatibility in one click!</p>
+            <div class="input-row">
+                <input type="text" id="astro-name1" placeholder="Your Name" oninput="validateInput(this)">
+                <input type="text" id="astro-name2" placeholder="Partner's Name" oninput="validateInput(this)">
+            </div>
+            <div class="input-row">
+                <input type="date" id="astro-dob1" oninput="validateInput(this)">
+                <input type="date" id="astro-dob2" oninput="validateInput(this)">
+            </div>
+            <div class="input-row">
+                <input type="file" id="astro-photo1" accept="image/*" onchange="previewPhoto(this, 'photo-preview1')">
+                <input type="file" id="astro-photo2" accept="image/*" onchange="previewPhoto(this, 'photo-preview2')">
+            </div>
+            <div class="photo-preview" id="photo-preview">
+                <img id="photo-preview1" src="" alt="Your Photo" style="display: none;">
+                <img id="photo-preview2" src="" alt="Partner's Photo" style="display: none;">
+            </div>
+            <div class="button-container">
+                <button onclick="calculateAstro()"><span style="font-weight: bold;">CALCULATE LOVE</span> <span id="astro-spinner" style="display:none;">⏳</span></button>
+                <span class="voice-icon" onclick="toggleAstroSpeech()" title="Toggle Speech"><i class="fas fa-volume-up"></i></span>
+            </div>
+            <div id="astro-result"></div>
+            <div class="share-container" id="astro-share">
+                <i class="fas fa-share-alt share-icon" onclick="toggleShareOptions('astro')"></i>
+                <div class="share-options" id="astro-share-options">
+                    <a href="#" onclick="share('facebook', 'astro')">Facebook</a>
+                    <a href="#" onclick="share('instagram', 'astro')">Instagram</a>
+                    <a href="#" onclick="share('whatsapp', 'astro')">WhatsApp</a>
+                    <a href="#" onclick="share('x', 'astro')">X</a>
+                    <button onclick="saveResult()">Save</button>
+                </div>
+            </div>
+            <div class="privacy-note">Note: We do not collect or store your data. Photos are used locally and reset on refresh.</div>
+            <div class="disclaimer">Share or save options include photos but are not stored on our servers.</div>
+        </div>
+        <div class="ads-section">
+            <p>Contact for Ads: <a href="mailto:first4bencher@gmail.com">first4bencher@gmail.com</a></p>
+        </div>
+        <div id="seo-content" class="mt-4 text-sm">
+            <h3>About Flame Test & Astro Couple</h3>
+            <p>Have fun with our FLAME Test Game to discover your relationship status or try the Astro Couple Calculator to check love compatibility with photos and birth dates! Both are pink-themed, emoji-packed, and SEO-optimized with keywords like 'flame test game' and 'relationship calculator.' Perfect for lovebirds!</p>
+        </div>
     </div>
-
-    <!-- FLAMES Section -->
-    <div id="flamesSection" class="mt-6">
-      <input type="text" id="name1" placeholder="Enter Your Name" />
-      <input type="text" id="name2" placeholder="Enter Their Name" />
-      <div class="tips">F - Friends, L - Love, A - Affection, M - Marriage, E - Enemies, S - Siblings</div>
-      <button class="button" onclick="calculateFLAMES()">Calculate FLAMES ❤ </button>
-      <div id="flamesResult" class="result hidden"></div>
-    </div>
-
-    <!-- Compatibility Section -->
-    <div id="calculatorSection" class="mt-6 hidden">
-      <input type="text" id="compName1" placeholder="Enter Your Name" />
-      <input type="text" id="compName2" placeholder="Enter Their Name" />
-      <div class="tips">Higher % = More compatibility ❤️</div>
-      <button class="button" onclick="calculateCompatibility()">Check Compatibility ❤</button>
-      <div id="compatibilityResult" class="result hidden"></div>
-    </div>
-  </div>
-
-  <!-- Footer -->
-  <footer>
-    Made with ❤️ by AI Calculator Team | <a href="#">Contact</a>
-  </footer>
-
-  <script>
-    function switchMode(mode) {
-      document.getElementById('flamesSection').classList.add('hidden');
-      document.getElementById('calculatorSection').classList.add('hidden');
-      if (mode === 'flames') {
-        document.getElementById('flamesSection').classList.remove('hidden');
-      } else {
-        document.getElementById('calculatorSection').classList.remove('hidden');
-      }
-    }
-
-    function calculateFLAMES() {
-      const name1 = document.getElementById('name1').value.trim().toUpperCase();
-      const name2 = document.getElementById('name2').value.trim().toUpperCase();
-      const resultBox = document.getElementById('flamesResult');
-
-      if (!name1 || !name2) {
-        alert("Please enter both names!");
-        return;
-      }
-
-      let combined = name1 + name2;
-      let chars = combined.replace(/\s/g, '').split('');
-      let flames = ['F', 'L', 'A', 'M', 'E', 'S'];
-      let count = chars.length;
-
-      while (flames.length > 1) {
-        let index = count % flames.length - 1;
-        if (index >= 0) {
-          flames.splice(index, 1);
-        } else {
-          flames.splice(flames.length - 1, 1);
+    <footer class="bg-gray-800 text-white text-center py-4 mt-8">
+        <p style="font-weight: bold;">2025 © Smart AI Calculator. All rights reserved.</p>
+        <a href="privacy.html" class="text-blue-400 ml-2">Privacy Policy</a> |
+        <a href="contactus.html" class="text-blue-400 ml-2">Contact Us</a> |
+        <a href="howto.html" class="text-blue-400 ml-2">How to Use</a>
+    </footer>
+    <script>
+        let isSpeaking = false;
+        let utterance = null;
+        function validateInput(input) {
+            if (input.type === "text" && !input.value.trim()) {
+                input.classList.add("invalid");
+            } else if (input.type === "date" && !input.value) {
+                input.classList.add("invalid");
+            } else {
+                input.classList.remove("invalid");
+            }
         }
-      }
-
-      const meanings = {
-        F: "Friends ",
-        L: "Love ❤️",
-        A: "Affection ",
-        M: "Marriage ",
-        E: "Enemies ",
-        S: "Siblings "
-      };
-
-      resultBox.innerHTML = `Your Relationship is: <b>${meanings[flames[0]]}</b>`;
-      resultBox.classList.remove('hidden');
-    }
-
-    function calculateCompatibility() {
-      const name1 = document.getElementById('compName1').value.trim().toUpperCase();
-      const name2 = document.getElementById('compName2').value.trim().toUpperCase();
-      const resultBox = document.getElementById('compatibilityResult');
-
-      if (!name1 || !name2) {
-        alert("Please enter both names!");
-        return;
-      }
-
-      let matchScore = 0;
-      for (let char of name1) {
-        if (name2.includes(char)) {
-          matchScore += 7;
+        function calculateFlame() {
+            document.getElementById("flame-spinner").style.display = "inline";
+            setTimeout(() => {
+                let name1 = document.getElementById("name1").value.trim().toLowerCase();
+                let name2 = document.getElementById("name2").value.trim().toLowerCase();
+                let resultDiv = document.getElementById("flame-result");
+                let notes = document.getElementById("flame-notes");
+                let shareContainer = document.getElementById("flame-share");
+                if (!name1 || !name2) {
+                    resultDiv.innerText = "Please enter both names!";
+                    notes.classList.remove("active");
+                    shareContainer.classList.remove("active");
+                    document.getElementById("flame-spinner").style.display = "none";
+                    return;
+                }
+                let flames = ["Friend 👋", "Love ❤️", "Affection 😊", "Marriage 💍", "Enemy 😈", "Sibling 👯"];
+                let count = 0;
+                for (let char of name1) {
+                    if (name2.includes(char)) {
+                        name2 = name2.replace(char, "");
+                    } else {
+                        count++;
+                    }
+                }
+                count += name2.length;
+                let index = (count % 6 === 0) ? 5 : (count % 6) - 1;
+                let result = flames[index];
+                let messages = {
+                    "Friend 👋": "Besties forever! Time for some fun adventures! 😎",
+                    "Love ❤️": "Sparks are flying! You two are totally smitten! 😘",
+                    "Affection 😊": "So sweet! Your bond is warm and cuddly! 🥰",
+                    "Marriage 💍": "Wedding bells soon? You’re a match made in heaven! 💒",
+                    "Enemy 😈": "Uh-oh! Keep your guard up, it’s a spicy rivalry! 😜",
+                    "Sibling 👯": "Like family! Always there for each other! 👫"
+                };
+                resultDiv.innerHTML = `Result: <strong>${result}</strong><br>${messages[result]}`;
+                notes.classList.add("active");
+                shareContainer.classList.add("active");
+                document.getElementById("flame-spinner").style.display = "none";
+            }, 500);
         }
-      }
-
-      let percent = Math.min(100, matchScore);
-      resultBox.innerHTML = `Your Compatibility is: <b>${percent}% </b>`;
-      resultBox.classList.remove('hidden');
-    }
-  </script>
-</body>
+        function previewPhoto(input, previewId) {
+            const file = input.files[0];
+            const preview = document.getElementById(previewId);
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    preview.src = e.target.result;
+                    preview.style.display = "block";
+                };
+                reader.readAsDataURL(file);
+            } else {
+                preview.src = "";
+                preview.style.display = "none";
+            }
+        }
+        function calculateAstro() {
+            document.getElementById("astro-spinner").style.display = "inline";
+            setTimeout(() => {
+                let name1 = document.getElementById("astro-name1").value.trim();
+                let name2 = document.getElementById("astro-name2").value.trim();
+                let dob1 = document.getElementById("astro-dob1").value;
+                let dob2 = document.getElementById("astro-dob2").value;
+                let photo1 = document.getElementById("astro-photo1").files[0];
+                let photo2 = document.getElementById("astro-photo2").files[0];
+                let resultDiv = document.getElementById("astro-result");
+                let shareContainer = document.getElementById("astro-share");
+                if (!name1 || !name2 || !dob1 || !dob2 || !photo1 || !photo2) {
+                    resultDiv.innerText = "Please fill all fields and upload both photos!";
+                    shareContainer.classList.remove("active");
+                    document.getElementById("astro-spinner").style.display = "none";
+                    return;
+                }
+                let compatibility = Math.floor(Math.random() * (100 - 50 + 1)) + 50;
+                let messages = [
+                    "Perfect Partner! You’re a cosmic match! 🌟",
+                    "Wow, Made for Each Other! Stars align for you! 💫",
+                    "Soulmates Alert! Your hearts beat as one! 💖",
+                    "Love in the Stars! A magical connection! ✨",
+                    "Destined Duo! Your love is written in the cosmos! 🌌",
+                    "Epic Love Story! You’re unstoppable together! 🔥",
+                    "Heavenly Match! Your vibes are out of this world! 🚀",
+                    "Cosmic Chemistry! Sparks fly when you’re together! ⚡️",
+                    "Stellar Romance! Your love lights up the galaxy! 🌠",
+                    "Infinite Love! Your bond transcends time! ⏳",
+                    "Galactic Sweethearts! You’re a universe of love! 🪐",
+                    "Heart Sync! Your souls dance in harmony! 💃",
+                    "Moonlit Magic! Your love glows in the dark! 🌙",
+                    "Star-Crossed Lovers! Fate brought you together! 💞",
+                    "Celestial Sparks! Your connection is electric! ⚡",
+                    "Love Orbit! You revolve around each other! 🪐",
+                    "Cosmic Cuties! Your charm is out of this world! 😍",
+                    "Astral Amour! Your love defies gravity! 🌌",
+                    "Twinkling Two! You shine brighter together! ✨",
+                    "Lunar Love! Your bond is soft and dreamy! 🌜",
+                    "Supernova Sweeties! Your love explodes with passion! 💥",
+                    "Orbiting Hearts! You’re always in sync! 💞",
+                    "Starry-Eyed Duo! Your love is pure magic! 🌟",
+                    "Galactic Glow! You light up each other’s worlds! 🌍",
+                    "Cosmic Crush! Your vibes are totally irresistible! 😘",
+                    "Nebula Nuptials! Your love is a masterpiece! 🎨",
+                    "Meteor Match! Your connection is blazing hot! 🔥",
+                    "Planetary Passion! You’re drawn to each other! 🪐",
+                    "Astro Admirers! Your love is truly timeless! ⏰",
+                    "Zodiac Zest! Your spark is written in the stars! 🌟",
+                    "Interstellar Intimates! Your bond is unbreakable! 💪",
+                    "Cosmic Companions! You’re each other’s home! 🏡",
+                    "Starlit Sweethearts! Your love is a fairy tale! 📖",
+                    "Galactic Glitter! You sparkle together! ✨",
+                    "Lunar Lovers! Your romance is pure poetry! 📜",
+                    "Solar Smitten! Your warmth melts hearts! ☀️",
+                    "Astral Affair! Your love is a cosmic dance! 💃",
+                    "Stellar Soulmates! You’re forever entwined! 💞",
+                    "Nebula Nomads! Your love knows no bounds! 🌌",
+                    "Cosmic Cuties! You’re the universe’s favorite pair! 😍",
+                    "Starshine Sweeties! Your glow is unmatched! 🌟",
+                    "Meteor Mates! Your love is a fiery adventure! 🔥",
+                    "Orbiting Ones! You’re always circling back! 🪐",
+                    "Astro Angels! Your love is pure and divine! 😇",
+                    "Galactic Giggles! You make each other laugh! 😂",
+                    "Lunar Light! Your love is soft and serene! 🌙",
+                    "Stellar Sparks! Your chemistry is explosive! ⚡️",
+                    "Cosmic Connection! You’re tied by fate! 💞",
+                    "Starlit Smiles! Your joy lights up the night! 😊",
+                    "Astral Adventure! Your love is a wild ride! 🎢",
+                    "Celestial Cuties! You’re the stars’ favorite duo! 🌟"
+                ];
+                let message = messages[Math.floor(Math.random() * messages.length)];
+                resultDiv.innerHTML = `
+                    <div class="photo-preview">
+                        <img src="${document.getElementById('photo-preview1').src}" alt="Your Photo">
+                        <img src="${document.getElementById('photo-preview2').src}" alt="Partner's Photo">
+                    </div>
+                    <div class="names">${name1} & ${name2}</div>
+                    <div>Love Compatibility: ${compatibility}%</div>
+                    <div class="number-line">
+                        <div class="fill" style="width: ${compatibility}%"></div>
+                        <span class="sparkle">${compatibility}% ✨</span>
+                    </div>
+                    <div class="catchy-message">${message}</div>
+                `;
+                shareContainer.classList.add("active");
+                document.getElementById("astro-spinner").style.display = "none";
+            }, 500);
+        }
+        function toggleShareOptions(type) {
+            const options = document.getElementById(`${type}-share-options`);
+            options.classList.toggle("active");
+        }
+        function share(platform, type) {
+            let text;
+            if (type === "flame") {
+                let name1 = document.getElementById("name1").value.trim();
+                let name2 = document.getElementById("name2").value.trim();
+                let result = document.getElementById("flame-result").innerText.split("\n")[0].replace("Result: ", "");
+                text = `${name1} & ${name2}: ${result} - Check our FLAME Test!`;
+            } else {
+                let name1 = document.getElementById("astro-name1").value.trim();
+                let name2 = document.getElementById("astro-name2").value.trim();
+                let compatibility = document.querySelector(".sparkle").innerText;
+                let message = document.querySelector(".catchy-message").innerText;
+                text = `${name1} & ${name2}: ${compatibility} - ${message}`;
+            }
+            let url;
+            if (platform === "facebook") {
+                url = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(window.location.href)}&quote=${encodeURIComponent(text)}`;
+            } else if (platform === "instagram") {
+                alert("Instagram sharing requires manual posting. Copy this: " + text);
+                return;
+            } else if (platform === "whatsapp") {
+                url = `https://api.whatsapp.com/send?text=${encodeURIComponent(text)}`;
+            } else if (platform === "x") {
+                url = `https://x.com/intent/tweet?text=${encodeURIComponent(text)}`;
+            }
+            window.open(url, "_blank");
+        }
+        function saveResult() {
+            const canvas = document.createElement("canvas");
+            canvas.width = 600;
+            canvas.height = 600;
+            const ctx = canvas.getContext("2d");
+            ctx.fillStyle = "#fff";
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+            ctx.fillStyle = "#cc0066";
+            ctx.font = "bold 24px Arial";
+            ctx.textAlign = "center";
+            ctx.fillText("Astro Couple Calculator", 300, 50);
+            const photo1 = document.getElementById("photo-preview1");
+            const photo2 = document.getElementById("photo-preview2");
+            const img1 = new Image();
+            const img2 = new Image();
+            img1.src = photo1.src;
+            img2.src = photo2.src;
+            img1.crossOrigin = "Anonymous";
+            img2.crossOrigin = "Anonymous";
+            img1.onload = () => {
+                ctx.drawImage(img1, 150, 100, 100, 100);
+                img2.onload = () => {
+                    ctx.drawImage(img2, 350, 100, 100, 100);
+                    ctx.fillStyle = "#333";
+                    ctx.font = "bold 20px Arial";
+                    ctx.fillText(document.querySelector(".names").innerText, 300, 240);
+                    ctx.fillText(`Love Compatibility: ${document.querySelector(".sparkle").innerText}`, 300, 280);
+                    ctx.fillStyle = "#000";
+                    ctx.fillText(document.querySelector(".catchy-message").innerText, 300, 320, 500);
+                    ctx.font = "12px Arial";
+                    ctx.fillText("Generated by Smart AI Calculator", 300, 360);
+                    const link = document.createElement("a");
+                    link.href = canvas.toDataURL("image/png");
+                    link.download = "astro-couple-result.png";
+                    link.click();
+                };
+            };
+        }
+        function toggleFlameSpeech() {
+            const result = document.getElementById("flame-result").innerText || "Enter names to calculate FLAME!";
+            if (!result) {
+                console.log("No valid result to speak");
+                return;
+            }
+            if (isSpeaking) {
+                window.speechSynthesis.cancel();
+                isSpeaking = false;
+            } else {
+                utterance = new SpeechSynthesisUtterance(result);
+                utterance.lang = "en";
+                utterance.onend = () => { isSpeaking = false; };
+                window.speechSynthesis.speak(utterance);
+                isSpeaking = true;
+            }
+        }
+        function toggleAstroSpeech() {
+            const result = document.getElementById("astro-result").innerText || "Enter details to calculate love compatibility!";
+            if (!result) {
+                console.log("No valid result to speak");
+                return;
+            }
+            if (isSpeaking) {
+                window.speechSynthesis.cancel();
+                isSpeaking = false;
+            } else {
+                utterance = new SpeechSynthesisUtterance(result);
+                utterance.lang = "en";
+                utterance.onend = () => { isSpeaking = false; };
+                window.speechSynthesis.speak(utterance);
+                isSpeaking = true;
+            }
+        }
+        function stopSpeech() {
+            if (isSpeaking) {
+                window.speechSynthesis.cancel();
+                isSpeaking = false;
+            }
+        }
+        window.onpagehide = stopSpeech;
+        window.onbeforeunload = stopSpeech;
+    </script>
 </html>
