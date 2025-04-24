@@ -1,200 +1,216 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>AI Calculator | Quiz Game</title>
-  <meta name="description" content="Play this smart quiz game powered by AI Calculator. Boost your brain with fun and tricky questions.">
-  <meta name="keywords" content="quiz game, AI calculator, trivia, gk, logic quiz, fun quiz, online quiz">
-  <meta name="author" content="AI Calculator Team">
-  <style>
-    body {
-      font-family: 'Segoe UI', sans-serif;
-      margin: 0;
-      padding: 0;
-      background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
-      color: white;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      min-height: 100vh;
-      text-align: center;
-    }
-
-    h1 {
-      margin-top: 30px;
-      font-size: 2.5rem;
-    }
-
-    h2 {
-      margin-bottom: 20px;
-      color: #ffcc00;
-    }
-
-    #quiz-container {
-      background: #1e2a38;
-      padding: 30px;
-      border-radius: 15px;
-      width: 90%;
-      max-width: 500px;
-      box-shadow: 0 0 20px #00000070;
-    }
-
-    #question {
-      font-size: 1.3rem;
-      margin-bottom: 20px;
-    }
-
-    .option {
-      background-color: #324b5f;
-      border: none;
-      border-radius: 10px;
-      padding: 10px;
-      margin: 8px 0;
-      font-size: 1rem;
-      cursor: pointer;
-      transition: 0.2s;
-      color: white;
-      width: 100%;
-    }
-
-    .option:hover {
-      background-color: #ffcc00;
-      color: black;
-    }
-
-    #timer, #score {
-      margin: 10px;
-      font-weight: bold;
-    }
-
-    #result {
-      margin-top: 15px;
-      font-size: 1.1rem;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart AI Calculator | Quiz Game</title>
+    <meta name="description" content="Test your knowledge with our Quiz Game! Answer questions on GK, GS, Computer, Maths, Logical Reasoning, and more with a 15-second timer. Track your score. Try now!">
+    <meta name="keywords" content="quiz game, general knowledge, maths quiz, fun tools">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://yourusername.github.io/ai-calculator/quiz-game.html">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        body { font-family: Arial, sans-serif; background: linear-gradient(135deg, #1A202C, #2D3748); color: #fff; margin: 0; }
+        .header { background: #2c3e50; padding: 20px 0; text-align: center; }
+        .nav-tabs { display: flex; justify-content: center; gap: 20px; padding: 10px 0; background: #34495e; }
+        .nav-tab { color: white; text-decoration: none; padding: 5px 15px; transition: background 0.3s; font-weight: bold; text-shadow: 0 0 5px rgba(255, 107, 107, 0.5); }
+        .nav-tab:hover, .nav-tab.active { background: #3498db; border-radius: 5px; }
+        .game-content { max-width: 600px; margin: 20px auto; padding: 20px; background: rgba(45, 55, 72, 0.9); border-radius: 10px; box-shadow: 0 0 15px rgba(0,0,0,0.5); }
+        .game-box { background: #e0e0e0; color: #333; padding: 20px; border-radius: 5px; text-align: center; }
+        .question { font-size: 1.2rem; margin-bottom: 20px; }
+        .options { display: flex; flex-direction: column; gap: 10px; margin-bottom: 20px; }
+        .option { background: #fff; padding: 10px; border: 1px solid #ccc; border-radius: 5px; cursor: pointer; }
+        .option:hover { background: #f0f0f0; }
+        .option.correct { background: #2ecc71; color: white; }
+        .option.incorrect { background: #e63946; color: white; }
+        .option.disabled { cursor: not-allowed; opacity: 0.6; }
+        button { background: linear-gradient(135deg, #ff6b6b, #e63946); color: white; padding: 12px 24px; border: none; border-radius: 5px; cursor: pointer; font-weight: bold; font-size: 1.1rem; box-shadow: 0 3px 6px rgba(0,0,0,0.4); transition: transform 0.2s, background 0.2s; text-transform: uppercase; }
+        button:hover { background: linear-gradient(135deg, #e63946, #c0392b); transform: scale(1.05); }
+        .ads-section { margin-top: 10px; padding: 10px; background: #34495e; border-radius: 5px; text-align: center; }
+        .ads-section p { font-size: 1.2rem; font-weight: bold; color: #1e90ff; }
+        .ads-section a { color: #1e90ff; text-decoration: underline; }
+        .voice-icon { display: inline-block; padding: 10px; cursor: pointer; font-size: 2rem; color: #00cec9; transition: color 0.2s, transform 0.2s; visibility: visible; }
+        .voice-icon:hover { color: #00b7b3; transform: scale(1.1); }
+        .button-container { display: flex; justify-content: center; align-items: center; gap: 15px; margin: 20px 0; }
+        .scoreboard { font-size: 1.2rem; margin-bottom: 20px; }
+        .timer { font-size: 1.2rem; margin-bottom: 20px; }
+        #game-result { font-size: 1.5rem; margin: 20px 0; }
+        @media (max-width: 600px) { 
+            .options { gap: 5px; }
+            .option { padding: 8px; font-size: 0.9rem; }
+            .button-container { flex-direction: row; gap: 10px; }
+        }
+    </style>
 </head>
 <body>
-
-  <h1>AI CALCULATOR</h1>
-  <h2>Quiz Game</h2>
-
-  <div id="quiz-container">
-    <div id="score">Score: 0</div>
-    <div id="timer">Time Left: 15s</div>
-    <div id="question">Loading question...</div>
-    <div id="options"></div>
-    <div id="result"></div>
-  </div>
-
-  <script>
-    const questions = [
-      {
-        q: "What is the capital of France?",
-        options: ["Berlin", "Madrid", "Paris", "Rome"],
-        answer: "Paris"
-      },
-      {
-        q: "Which planet is known as the Red Planet?",
-        options: ["Earth", "Venus", "Mars", "Jupiter"],
-        answer: "Mars"
-      },
-      {
-        q: "5 + 7 × 2 = ?",
-        options: ["24", "19", "26", "17"],
-        answer: "19"
-      },
-      {
-        q: "Who invented the light bulb?",
-        options: ["Tesla", "Newton", "Edison", "Einstein"],
-        answer: "Edison"
-      },
-      {
-        q: "What is H2O commonly known as?",
-        options: ["Hydrogen", "Water", "Salt", "Oxygen"],
-        answer: "Water"
-      },
-      {
-        q: "Which is the largest organ in the human body?",
-        options: ["Liver", "Skin", "Heart", "Lungs"],
-        answer: "Skin"
-      },
-      {
-        q: "Ravi has ₹100. Buys a pen for ₹30. How much left?",
-        options: ["₹30", "₹70", "₹60", "₹50"],
-        answer: "₹70"
-      }
-    ];
-
-    let score = 0;
-    let timer;
-    let timeLeft = 15;
-    let currentQuestionIndex = 0;
-
-    const questionEl = document.getElementById("question");
-    const optionsEl = document.getElementById("options");
-    const timerEl = document.getElementById("timer");
-    const scoreEl = document.getElementById("score");
-    const resultEl = document.getElementById("result");
-
-    function shuffle(array) {
-      return array.sort(() => Math.random() - 0.5);
-    }
-
-    const quizData = shuffle([...questions]);
-
-    function showQuestion() {
-      if (currentQuestionIndex >= quizData.length) {
-        questionEl.textContent = "🎉 Quiz Over!";
-        optionsEl.innerHTML = "";
-        resultEl.textContent = `Final Score: ${score}/${quizData.length}`;
-        clearInterval(timer);
-        return;
-      }
-
-      timeLeft = 15;
-      timerEl.textContent = `Time Left: ${timeLeft}s`;
-      clearInterval(timer);
-      timer = setInterval(() => {
-        timeLeft--;
-        timerEl.textContent = `Time Left: ${timeLeft}s`;
-        if (timeLeft === 0) {
-          clearInterval(timer);
-          resultEl.textContent = `⏱️ Time's up! Correct: ${quizData[currentQuestionIndex].answer}`;
-          currentQuestionIndex++;
-          setTimeout(showQuestion, 1500);
+    <header class="header">
+        <h1>Smart AI Calculator</h1>
+        <h2>Quiz Game</h2>
+    </header>
+    <nav class="nav-tabs">
+        <a href="index.html#home" class="nav-tab">HOME</a>
+        <a href="index.html#fun-tools" class="nav-tab active">FUN TOOLS</a>
+    </nav>
+    <div class="game-content">
+        <div class="game-box">
+            <h2>Test Your Knowledge</h2>
+            <div class="scoreboard" id="scoreboard">Score: 0</div>
+            <div class="timer" id="timer">Time Left: 15s</div>
+            <div class="question" id="question"></div>
+            <div class="options" id="options"></div>
+            <div id="game-result" class="font-semibold"></div>
+            <div class="button-container">
+                <button onclick="resetGame()">New Quiz <span id="spinner" style="display:none;">⏳</span></button>
+                <span class="voice-icon" onclick="toggleSpeech()" title="Toggle Speech"><i class="fas fa-volume-up"></i></span>
+            </div>
+            <div class="ads-section">
+                <p>Contact for Ads: <a href="mailto:first4bencher@gmail.com">first4bencher@gmail.com</a></p>
+            </div>
+            <div id="seo-content" class="mt-4 text-sm">
+                <h3>About Quiz Game</h3>
+                <p>Challenge yourself with our Quiz Game! Answer questions on GK, GS, Computer, Maths, Logical Reasoning, and more with a 15-second timer. Track your score. It’s fun, responsive, and SEO-optimized with keywords like 'quiz game' and 'general knowledge.' Perfect for brainiacs!</p>
+            </div>
+        </div>
+    </div>
+    <footer class="bg-gray-800 text-white text-center py-4 mt-8">
+        <p style="font-weight: bold;">2025 © Smart AI Calculator. All rights reserved.</p>
+        <a href="privacy.html" class="text-blue-400 ml-2">Privacy Policy</a> |
+        <a href="contactus.html" class="text-blue-400 ml-2">Contact Us</a> |
+        <a href="howto.html" class="text-blue-400 ml-2">How to Use</a>
+    </footer>
+    <script>
+        let isSpeaking = false;
+        let utterance = null;
+        let score = 0;
+        let currentQuestionIndex = 0;
+        let timerInterval;
+        let timeLeft = 15;
+        const questions = [
+            // General Knowledge (GK)
+            { question: "What is the capital of France?", options: ["Paris", "London", "Berlin", "Madrid"], answer: "Paris", difficulty: "basic" },
+            { question: "Who painted the Mona Lisa?", options: ["Van Gogh", "Da Vinci", "Picasso", "Monet"], answer: "Da Vinci", difficulty: "intermediate" },
+            { question: "Which country has the most deserts?", options: ["Australia", "Antarctica", "Africa", "Asia"], answer: "Antarctica", difficulty: "advanced" },
+            // General Science (GS)
+            { question: "What gas do plants absorb from the air?", options: ["Oxygen", "Nitrogen", "Carbon Dioxide", "Helium"], answer: "Carbon Dioxide", difficulty: "basic" },
+            { question: "What is the primary source of Earth's energy?", options: ["Moon", "Sun", "Wind", "Geothermal"], answer: "Sun", difficulty: "intermediate" },
+            { question: "Which element has the highest melting point?", options: ["Iron", "Tungsten", "Gold", "Platinum"], answer: "Tungsten", difficulty: "advanced" },
+            // Computer
+            { question: "What does CPU stand for?", options: ["Central Processing Unit", "Computer Personal Unit", "Control Processing Unit", "Core Processing Unit"], answer: "Central Processing Unit", difficulty: "basic" },
+            { question: "Which language is used for web development?", options: ["Python", "Java", "HTML", "C++"], answer: "HTML", difficulty: "intermediate" },
+            { question: "What is the time complexity of binary search?", options: ["O(n)", "O(log n)", "O(n^2)", "O(1)"], answer: "O(log n)", difficulty: "advanced" },
+            // Maths (Word Problems)
+            { question: "If 2 apples cost $1, how much for 6 apples?", options: ["$2", "$3", "$4", "$1.50"], answer: "$3", difficulty: "basic" },
+            { question: "A car travels 60 km in 1 hour. How far in 2.5 hours?", options: ["120 km", "150 km", "180 km", "100 km"], answer: "150 km", difficulty: "intermediate" },
+            { question: "If x^2 - 5x + 6 = 0, what are the roots?", options: ["2, 3", "1, 6", "-2, -3", "0, 5"], answer: "2, 3", difficulty: "advanced" },
+            // Logical Reasoning
+            { question: "If A is B's brother and C is B's sister, who is C to A?", options: ["Brother", "Sister", "Mother", "Father"], answer: "Sister", difficulty: "basic" },
+            { question: "If all roses are flowers and some flowers are red, are some roses red?", options: ["Yes", "No", "Maybe", "Cannot determine"], answer: "Cannot determine", difficulty: "intermediate" },
+            { question: "In a code, if 'CAT' is 'BDW', what is 'DOG'?", options: ["EPH", "CQH", "FQI", "DPI"], answer: "EPH", difficulty: "advanced" }
+        ];
+        function startGame() {
+            score = 0;
+            currentQuestionIndex = 0;
+            document.getElementById("scoreboard").innerText = `Score: ${score}`;
+            document.getElementById("game-result").innerText = "";
+            loadQuestion();
         }
-      }, 1000);
-
-      const q = quizData[currentQuestionIndex];
-      questionEl.textContent = q.q;
-      optionsEl.innerHTML = "";
-      shuffle(q.options).forEach(option => {
-        const btn = document.createElement("button");
-        btn.classList.add("option");
-        btn.textContent = option;
-        btn.onclick = () => checkAnswer(option);
-        optionsEl.appendChild(btn);
-      });
-      resultEl.textContent = "";
-    }
-
-    function checkAnswer(selected) {
-      clearInterval(timer);
-      const correct = quizData[currentQuestionIndex].answer;
-      if (selected === correct) {
-        score++;
-        scoreEl.textContent = `Score: ${score}`;
-        resultEl.textContent = "✅ Correct!";
-      } else {
-        resultEl.textContent = `❌ Incorrect! Correct: ${correct}`;
-      }
-      currentQuestionIndex++;
-      setTimeout(showQuestion, 1500);
-    }
-
-    showQuestion();
-  </script>
-
-</body>
+        function loadQuestion() {
+            if (currentQuestionIndex >= questions.length) {
+                document.getElementById("game-result").innerText = `Quiz Over! Final Score: ${score}/${questions.length} 🎉`;
+                document.getElementById("question").innerText = "";
+                document.getElementById("options").innerHTML = "";
+                clearInterval(timerInterval);
+                document.getElementById("timer").innerText = "";
+                return;
+            }
+            timeLeft = 15;
+            document.getElementById("timer").innerText = `Time Left: ${timeLeft}s`;
+            clearInterval(timerInterval);
+            timerInterval = setInterval(updateTimer, 1000);
+            const q = questions[currentQuestionIndex];
+            document.getElementById("question").innerText = q.question;
+            const optionsDiv = document.getElementById("options");
+            optionsDiv.innerHTML = "";
+            q.options.forEach(option => {
+                const optionDiv = document.createElement("div");
+                optionDiv.className = "option";
+                optionDiv.innerText = option;
+                optionDiv.onclick = () => selectOption(option, q.answer);
+                optionsDiv.appendChild(optionDiv);
+            });
+        }
+        function updateTimer() {
+            timeLeft--;
+            document.getElementById("timer").innerText = `Time Left: ${timeLeft}s`;
+            if (timeLeft <= 0) {
+                clearInterval(timerInterval);
+                document.getElementById("game-result").innerText = `Time's Up! Correct Answer: ${questions[currentQuestionIndex].answer}`;
+                disableOptions();
+                setTimeout(nextQuestion, 2000);
+            }
+        }
+        function selectOption(selected, correct) {
+            clearInterval(timerInterval);
+            const options = document.querySelectorAll(".option");
+            options.forEach(option => {
+                option.classList.add("disabled");
+                if (option.innerText === correct) {
+                    option.classList.add("correct");
+                }
+                if (option.innerText === selected && selected !== correct) {
+                    option.classList.add("incorrect");
+                }
+            });
+            if (selected === correct) {
+                score++;
+                document.getElementById("scoreboard").innerText = `Score: ${score}`;
+                document.getElementById("game-result").innerText = "Correct! 🎉";
+            } else {
+                document.getElementById("game-result").innerText = `Incorrect! Correct Answer: ${correct}`;
+            }
+            setTimeout(nextQuestion, 2000);
+        }
+        function disableOptions() {
+            document.querySelectorAll(".option").forEach(option => option.classList.add("disabled"));
+        }
+        function nextQuestion() {
+            currentQuestionIndex++;
+            loadQuestion();
+        }
+        function resetGame() {
+            document.getElementById("spinner").style.display = "inline";
+            setTimeout(() => {
+                clearInterval(timerInterval);
+                startGame();
+                document.getElementById("spinner").style.display = "none";
+            }, 500);
+        }
+        function toggleSpeech() {
+            const result = document.getElementById("game-result").innerText || `Score: ${score}, Time Left: ${timeLeft} seconds`;
+            if (!result) {
+                console.log("No valid result to speak");
+                return;
+            }
+            if (isSpeaking) {
+                window.speechSynthesis.cancel();
+                isSpeaking = false;
+            } else {
+                utterance = new SpeechSynthesisUtterance(result);
+                utterance.lang = "en";
+                utterance.onend = () => { isSpeaking = false; };
+                window.speechSynthesis.speak(utterance);
+                isSpeaking = true;
+            }
+        }
+        function stopSpeech() {
+            if (isSpeaking) {
+                window.speechSynthesis.cancel();
+                isSpeaking = false;
+            }
+        }
+        window.onload = startGame;
+        window.onpagehide = stopSpeech;
+        window.onbeforeunload = stopSpeech;
+    </script>
 </html>
