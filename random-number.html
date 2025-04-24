@@ -3,129 +3,173 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI Random Calculator - Free Online Tool | AI Calculator</title>
-    <meta name="description" content="Generate random numbers with our free AI-powered Random Calculator. Available in English, Hindi, Tamil, Telugu, Spanish, Bengali, Arabic, Mandarin, and French. Try now!">
-    <meta name="keywords" content="random calculator, ai random calculator, free random calculator, online random calculator">
+    <title>Smart AI Calculator | Random Number Generator</title>
+    <meta name="description" content="Generate a random number within your specified range with our free random number generator. Enter minimum and maximum values. Try now!">
+    <meta name="keywords" content="random number generator, number generator, randomizer">
     <meta name="robots" content="index, follow">
-    <link rel="canonical" href="https://yourusername.github.io/ai-calculator/randomcalculator.html">
+    <link rel="canonical" href="https://yourusername.github.io/ai-calculator/random-number-generator.html">
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            background: linear-gradient(135deg, #1A202C, #2D3748);
-            color: #fff;
-            margin: 0;
-            transition: background 0.3s, color 0.3s;
-        }
-        .light-mode {
-            background: #f0f0f0;
-            color: #333;
-        }
-        .header { background: #2c3e50; padding: 20px 0; text-align: center; position: relative; }
+        body { font-family: Arial, sans-serif; background: linear-gradient(135deg, #1A202C, #2D3748); color: #fff; margin: 0; }
+        .header { background: #2c3e50; padding: 20px 0; text-align: center; }
         .nav-tabs { display: flex; justify-content: center; gap: 20px; padding: 10px 0; background: #34495e; }
-        .nav-tab { color: white; text-decoration: none; padding: 5px 15px; transition: background 0.3s; }
+        .nav-tab { color: white; text-decoration: none; padding: 5px 15px; transition: background 0.3s; font-weight: bold; text-shadow: 0 0 5px rgba(255, 107, 107, 0.5); }
         .nav-tab:hover, .nav-tab.active { background: #3498db; border-radius: 5px; }
         .calculator-content { max-width: 600px; margin: 20px auto; padding: 20px; background: rgba(45, 55, 72, 0.9); border-radius: 10px; box-shadow: 0 0 15px rgba(0,0,0,0.5); }
         .calculator-box { background: #e0e0e0; color: #333; padding: 20px; border-radius: 5px; text-align: center; }
         .input-row { display: flex; justify-content: space-between; margin-bottom: 15px; }
         .input-row label { font-weight: bold; }
-        input { border: 1px solid #ccc; padding: 5px; border-radius: 3px; width: 100px; }
-        button { background-color: #28a745; color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer; }
-        button:hover { background-color: #218838; }
-        .theme-switch { background: #34495e; padding: 6px 12px; border-radius: 5px; cursor: pointer; color: white; position: absolute; top: 20px; right: 120px; }
-        .theme-switch:hover { background: #3498db; }
-        @media (max-width: 600px) { .input-row { flex-direction: column; } input { width: 100%; margin-bottom: 10px; } }
+        input { border: 1px solid #ccc; padding: 5px; border-radius: 3px; width: 150px; }
+        input.invalid { border-color: #ff6b6b; }
+        button { background: linear-gradient(135deg, #ff6b6b, #e63946); color: white; padding: 12px 24px; border: none; border-radius: 5px; cursor: pointer; font-weight: bold; font-size: 1.1rem; box-shadow: 0 3px 6px rgba(0,0,0,0.4); transition: transform 0.2s, background 0.2s; text-transform: uppercase; }
+        button:hover { background: linear-gradient(135deg, #e63946, #c0392b); transform: scale(1.05); }
+        .ads-section { margin-top: 10px; padding: 10px; background: #34495e; border-radius: 5px; text-align: center; }
+        .ads-section p { font-size: 1.2rem; font-weight: bold; color: #1e90ff; }
+        .ads-section a { color: #1e90ff; text-decoration: underline; }
+        .voice-icon { display: inline-block; padding: 10px; cursor: pointer; font-size: 2rem; color: #00cec9; transition: color 0.2s, transform 0.2s; visibility: visible; }
+        .voice-icon:hover { color: #00b7b3; transform: scale(1.1); }
+        .button-container { display: flex; justify-content: center; align-items: center; gap: 15px; margin: 20px 0; }
+        .suggestions { margin-top: 20px; padding: 15px; background: #f0f0f0; border-radius: 5px; text-align: left; display: none; }
+        .suggestions h3 { font-size: 1.2rem; font-weight: bold; margin-bottom: 10px; }
+        .suggestions ul { list-style-type: disc; padding-left: 20px; }
+        .suggestions li { margin-bottom: 8px; }
+        .result-table { width: 100%; margin-top: 20px; border-collapse: collapse; }
+        .result-table th, .result-table td { border: 1px solid #ccc; padding: 10px; text-align: left; }
+        .result-table th { background: #3498db; color: white; }
+        .result-table tr:nth-child(even) { background: #f0f0f0; }
+        @media (max-width: 600px) { 
+            .input-row { flex-direction: column; } 
+            input { width: 100%; margin-bottom: 10px; } 
+            .button-container { flex-direction: row; gap: 10px; } 
+            .voice-icon { display: inline-block; visibility: visible; } 
+        }
     </style>
 </head>
 <body>
     <header class="header">
-        <h1 id="header-title">AI Calculator</h1>
-        <p id="tagline">A to Z Calculators Powered by AI</p>
-        <div class="theme-switch" onclick="toggleTheme()">Theme: <span id="theme-text">Dark</span></div>
+        <h1>Smart AI Calculator</h1>
+        <h2>Random Number Generator</h2>
     </header>
     <nav class="nav-tabs">
-        <a href="index.html#financial" class="nav-tab" onclick="showCategory('financial')">Financial</a>
-        <a href="index.html#health" class="nav-tab" onclick="showCategory('health')">Health</a>
-        <a href="index.html#math" class="nav-tab" onclick="showCategory('math')">Math</a>
-        <a href="index.html#conversion" class="nav-tab" onclick="showCategory('conversion')">Conversion</a>
-        <a href="index.html#misc" class="nav-tab" onclick="showCategory('misc')">Miscellaneous</a>
+        <a href="index.html#home" class="nav-tab">HOME</a>
+        <a href="index.html#miscellaneous" class="nav-tab active">MISCELLANEOUS</a>
     </nav>
     <div class="calculator-content">
         <div class="calculator-box">
-            <h2 id="calc-title">Generate random number</h2>
+            <h2>Enter Range</h2>
             <div class="input-row">
-                <label id="min-label">Minimum</label>
-                <input type="number" id="min" min="0" value="1">
+                <label>Minimum Value</label>
+                <input type="number" id="min-value" oninput="validateInput(this)">
             </div>
             <div class="input-row">
-                <label id="max-label">Maximum</label>
-                <input type="number" id="max" min="1" value="100">
+                <label>Maximum Value</label>
+                <input type="number" id="max-value" oninput="validateInput(this)">
             </div>
-            <button onclick="generateRandom()">Generate <span id="spinner" style="display:none;">⏳</span></button>
+            <div class="button-container">
+                <button onclick="generateRandomNumber()">Generate <span id="spinner" style="display:none;">⏳</span></button>
+                <span class="voice-icon" onclick="toggleSpeech()" title="Toggle Speech"><i class="fas fa-volume-up"></i></span>
+            </div>
             <div id="random-result" class="mt-4 font-semibold"></div>
+            <table class="result-table" id="result-table" style="display: none;">
+                <thead>
+                    <tr>
+                        <th>Detail</th>
+                        <th>Value</th>
+                    </tr>
+                </thead>
+                <tbody id="result-table-body"></tbody>
+            </table>
+            <div class="suggestions" id="suggestions">
+                <h3>Suggestions for Random Number Generation</h3>
+                <ul>
+                    <li>Ensure minimum value is less than maximum value.</li>
+                    <li>Use for games, raffles, or simulations.</li>
+                    <li>Generate multiple numbers for varied results.</li>
+                </ul>
+            </div>
+            <div class="ads-section">
+                <p>Contact for Ads: <a href="mailto:first4bencher@gmail.com">first4bencher@gmail.com</a></p>
+            </div>
             <div id="seo-content" class="mt-4 text-sm">
-                <h3>About Random Calculator</h3>
-                <p>Welcome to the AI Random Calculator, a free online tool designed to generate random numbers within a specified range with precision. This calculator uses advanced AI technology to provide instant results, ideal for games, simulations, or educational purposes. Available in multiple languages including English, Hindi, Tamil, Telugu, Spanish, Bengali, Arabic, Mandarin, and French, it serves a diverse global audience. Enter the minimum and maximum values, then click "Generate" to see a random number.</p>
-                <p>Why choose our Random Calculator? It’s user-friendly, fast, and optimized for all devices, making it perfect for quick random number generation. The tool uses a robust random number algorithm, and our AI ensures unpredictability and fairness. This calculator stands out with its multilingual support and modern design, setting it apart from traditional random number generators.</p>
-                <p>SEO optimization is key to ensuring this tool ranks high on search engines like Google. We’ve included meta tags, a canonical URL, and keywords such as "random calculator online," "free random calculator," and "AI random number tool" to boost visibility. To enhance rankings, consider backlinks from gaming or educational websites, and submit the site to relevant directories. Regular updates and user feedback can further improve its performance. Perfect for random number needs, this calculator is a must-have for anyone requiring unpredictable values. Try it now!</p>
+                <h3>About Random Number Generator</h3>
+                <p>Our Smart AI Random Number Generator creates a random number within your specified range. Enter minimum and maximum values for instant results. It’s user-friendly, responsive, and SEO-optimized with keywords like 'random number generator' and 'randomizer.' Perfect for games and simulations!</p>
             </div>
         </div>
     </div>
     <footer class="bg-gray-800 text-white text-center py-4 mt-8">
-        <p>© 2025 AI Calculator. All rights reserved.</p>
+        <p style="font-weight: bold;">2025 © Smart AI Calculator. All rights reserved.</p>
         <a href="privacy.html" class="text-blue-400 ml-2">Privacy Policy</a> |
         <a href="contactus.html" class="text-blue-400 ml-2">Contact Us</a> |
         <a href="howto.html" class="text-blue-400 ml-2">How to Use</a>
     </footer>
     <script>
-        let lang = 'en';
-        let isDarkMode = true;
-        const translations = {
-            en: { header: "AI Calculator", tagline: "A to Z Calculators Powered by AI", calcTitle: "Generate random number", minLabel: "Minimum", maxLabel: "Maximum", resultPrefix: "Random Number: " },
-            hi: { header: "एआई कैलकुलेटर", tagline: "ए टू जेड कैलकुलेटर, AI द्वारा संचालित", calcTitle: "यादृच्छिक संख्या उत्पन्न करें", minLabel: "न्यूनतम", maxLabel: "अधिकतम", resultPrefix: "यादृच्छिक संख्या: " },
-            ta: { header: "AI கால்குலேட்டர்", tagline: "AI இயக்கிய A முதல் Z கால்குலேட்டர்கள்", calcTitle: "ஏதேனும் எண்ணை உருவாக்கவும்", minLabel: "குறைந்தபட்சம்", maxLabel: "அதிகபட்சம்", resultPrefix: "ஏதேனும் எண்: " },
-            te: { header: "AI కాల్కులేటర్", tagline: "AI ద్వారా నడిపే A నుండి Z కాల్కులేటర్లు", calcTitle: "అనిశ్చిత సంఖ్యను రూపొందించండి", minLabel: "కనిష్ఠం", maxLabel: "గరిష్ఠం", resultPrefix: "అనిశ్చిత సంఖ్య: " },
-            es: { header: "Calculadora de IA", tagline: "Calculadoras A-Z impulsadas por IA", calcTitle: "Generar número aleatorio", minLabel: "Mínimo", maxLabel: "Máximo", resultPrefix: "Número Aleatorio: " },
-            bn: { header: "এআই ক্যালকুলেটর", tagline: "এআই দ্বারা চালিত এ থেকে জে ক্যালকুলেটর", calcTitle: "এলোমেলো সংখ্যা তৈরি করুন", minLabel: "ন্যূনতম", maxLabel: "সর্বোচ্চ", resultPrefix: "এলোমেলো সংখ্যা: " },
-            ar: { header: "حاسبة الذكاء الاصطناعي", tagline: "حاسبات A إلى Z مدعومة بالذكاء الاصطناعي", calcTitle: "إنشاء عدد عشوائي", minLabel: "الحد الأدنى", maxLabel: "الحد الأقصى", resultPrefix: "العدد العشوائي: " },
-            zh: { header: "人工智能计算器", tagline: "AI驱动的A到Z计算器", calcTitle: "生成随机数", minLabel: "最小值", maxLabel: "最大值", resultPrefix: "随机数: " },
-            fr: { header: "Calculateur IA", tagline: "Calculateurs A à Z alimentés par IA", calcTitle: "Générer un nombre aléatoire", minLabel: "Minimum", maxLabel: "Maximum", resultPrefix: "Nombre Aléatoire: " }
-        };
-        function toggleTheme() {
-            isDarkMode = !isDarkMode;
-            document.body.classList.toggle('light-mode', !isDarkMode);
-            document.getElementById('theme-text').textContent = isDarkMode ? 'Dark' : 'Light';
+        let isSpeaking = false;
+        let utterance = null;
+        function validateInput(input) {
+            let min = parseFloat(document.getElementById("min-value").value);
+            let max = parseFloat(document.getElementById("max-value").value);
+            if (input.id === "min-value" && !isNaN(max) && min > max) {
+                input.classList.add("invalid");
+            } else if (input.id === "max-value" && !isNaN(min) && max < min) {
+                input.classList.add("invalid");
+            } else {
+                input.classList.remove("invalid");
+            }
         }
-        function generateRandom() {
+        function generateRandomNumber() {
             document.getElementById("spinner").style.display = "inline";
             setTimeout(() => {
-                let min = parseInt(document.getElementById("min").value);
-                let max = parseInt(document.getElementById("max").value);
+                let minValue = parseFloat(document.getElementById("min-value").value);
+                let maxValue = parseFloat(document.getElementById("max-value").value);
                 let resultDiv = document.getElementById("random-result");
-                if (!isNaN(min) && !isNaN(max) && min < max) {
-                    let randomNum = Math.floor(Math.random() * (max - min + 1)) + min;
-                    resultDiv.innerHTML = `${translations[lang].resultPrefix} ${randomNum}`;
-                    speakResult(resultDiv.innerHTML);
-                } else {
-                    resultDiv.innerText = lang === 'en' ? "Please enter valid minimum and maximum values (min must be less than max)" : lang === 'hi' ? "कृपया वैध न्यूनतम और अधिकतम मान दर्ज करें (न्यूनतम अधिकतम से कम होना चाहिए)" : lang === 'ta' ? "சரியான குறைந்தபட்ச மற்றும் அதிகபட்ச மதிப்புகளை உள்ளிடவும் (குறைந்தபட்சம் அதிகபட்சத்தை விட குறைவாக இருக்க வேண்டும்)" : lang === 'te' ? "దయచేసి సరైన కనిష్ఠ మరియు గరిష్ఠ విలువలను నమోదు చేయండి (కనిష్ఠం గరిష్ఠం కంటే తక్కువగా ఉండాలి)" : lang === 'es' ? "Por favor, ingrese valores mínimos y máximos válidos (el mínimo debe ser menor que el máximo)" : lang === 'bn' ? "দয়া করে বৈধ ন্যূনতম এবং সর্বোচ্চ মান লিখুন (ন্যূনতম সর্বোচ্চের চেয়ে কম হতে হবে)" : lang === 'ar' ? "يرجى إدخال قيم الحد الأدنى والحد الأقصى الصالحة (يجب أن يكون الحد الأدنى أقل من الحد الأقصى)" : lang === 'zh' ? "请输入有效的最小值和最大值（最小值必须小于最大值）" : "Veuillez entrer des valeurs minimale et maximale valides (le minimum doit être inférieur au maximum)";
+                let tableBody = document.getElementById("result-table-body");
+                let suggestionsDiv = document.getElementById("suggestions");
+                let table = document.getElementById("result-table");
+                tableBody.innerHTML = "";
+                if (isNaN(minValue) || isNaN(maxValue) || minValue > maxValue) {
+                    resultDiv.innerText = "Invalid input. Min must be less than max.";
+                    table.style.display = "none";
+                    suggestionsDiv.style.display = "none";
+                    document.getElementById("spinner").style.display = "none";
+                    return;
                 }
+                let randomNumber = Math.floor(Math.random() * (maxValue - minValue + 1)) + minValue;
+                resultDiv.innerText = `Random Number: ${randomNumber}`;
+                tableBody.innerHTML = `
+                    <tr><td>Random Number</td><td>${randomNumber}</td></tr>
+                    <tr><td>Minimum Value</td><td>${minValue}</td></tr>
+                    <tr><td>Maximum Value</td><td>${maxValue}</td></tr>
+                `;
+                table.style.display = "table";
+                suggestionsDiv.style.display = "block";
                 document.getElementById("spinner").style.display = "none";
-            }, 1000);
+            }, 500);
         }
-        function showCategory(category) {
-            // No action needed here as navigation is handled by index.html
+        function toggleSpeech() {
+            const result = document.getElementById("random-result").innerText;
+            if (!result || result.includes("Invalid")) {
+                console.log("No valid result to speak");
+                return;
+            }
+            if (isSpeaking) {
+                window.speechSynthesis.cancel();
+                isSpeaking = false;
+            } else {
+                utterance = new SpeechSynthesisUtterance(result);
+                utterance.lang = "en";
+                utterance.onend = () => { isSpeaking = false; };
+                window.speechSynthesis.speak(utterance);
+                isSpeaking = true;
+            }
         }
-        function speakResult(result) {
-            const utterance = new SpeechSynthesisUtterance(result);
-            utterance.lang = lang === 'zh' ? 'zh-CN' : lang === 'ar' ? 'ar-SA' : lang;
-            window.speechSynthesis.speak(utterance);
+        function stopSpeech() {
+            if (isSpeaking) {
+                window.speechSynthesis.cancel();
+                isSpeaking = false;
+            }
         }
-        window.onload = () => {
-            document.getElementById('header-title').textContent = translations[lang].header;
-            document.getElementById('tagline').textContent = translations[lang].tagline;
-            document.getElementById('calc-title').textContent = translations[lang].calcTitle;
-            document.getElementById('min-label').textContent = translations[lang].minLabel;
-            document.getElementById('max-label').textContent = translations[lang].maxLabel;
-        };
+        window.onpagehide = stopSpeech;
+        window.onbeforeunload = stopSpeech;
     </script>
 </html>
