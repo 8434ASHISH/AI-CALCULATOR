@@ -251,6 +251,65 @@
     </nav>
     <div class="calculator-content">
         <h2 id="category-title" class="text-2xl font-semibold mb-4 text-center">FINANCIAL CALCULATORS</h2>
+     <!-- ✨ COMPACT Glittering Trending Box -->
+<style>
+.glitter-box {
+  margin: 25px auto;
+  padding: 16px 20px;
+  max-width: 520px;
+  border-radius: 10px;
+  background: radial-gradient(circle, #fde68a, #fca5a5, #f0abfc);
+  box-shadow: 0 0 12px #f472b6, 0 0 18px #c084fc;
+  text-align: center;
+  font-family: 'Segoe UI', sans-serif;
+  animation: glitterAnim 4s ease-in-out infinite;
+  position: relative;
+  z-index: 1;
+}
+
+.glitter-box h2 {
+  font-size: 20px;
+  color: #1e1b4b;
+  text-shadow: 0 0 6px #fcd34d;
+  margin-bottom: 12px;
+  animation: glowText 1.8s ease-in-out infinite alternate;
+}
+
+.glitter-box a {
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: 600;
+  color: #fff;
+  background: linear-gradient(to right, #f43f5e, #8b5cf6);
+  padding: 10px 18px;
+  border-radius: 6px;
+  box-shadow: 0 0 6px rgba(251, 113, 133, 0.5);
+  transition: all 0.3s ease;
+}
+
+.glitter-box a:hover {
+  transform: scale(1.07);
+  box-shadow: 0 0 12px rgba(168, 85, 247, 0.8);
+}
+
+@keyframes glitterAnim {
+  0% { box-shadow: 0 0 10px #fcd34d, 0 0 18px #f472b6; }
+  50% { box-shadow: 0 0 18px #f9a8d4, 0 0 24px #c084fc; }
+  100% { box-shadow: 0 0 10px #fcd34d, 0 0 18px #f472b6; }
+}
+
+@keyframes glowText {
+  0% { text-shadow: 0 0 4px #facc15; }
+  100% { text-shadow: 0 0 10px #facc15, 0 0 18px #f472b6; }
+}
+</style>
+
+<!-- 💫 Compact Block -->
+<div class="glitter-box">
+  <h2>🔥 Love Calculator – Over 4K Users Already Tried!</h2>
+  <a href="Flame-test-game.html">🔥 Try Now</a>
+</div>
+
         <div id="calculators-list" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
             <!-- Calculators will be dynamically loaded here -->
         </div>
