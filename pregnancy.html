@@ -3,237 +3,253 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="title" content="AI Pregnancy Calculator">
-    <meta name="description" content="Estimate your due date and pregnancy details with our AI-powered Pregnancy Calculator. Input your last menstrual period to predict your due date and conception chances.">
-    <meta name="keywords" content="pregnancy calculator, due date calculator, conception calculator, AI calculator, health tools, pregnancy tracking">
+    <title>Smart AI Calculator | Pregnancy Calculator</title>
+    <meta name="description" content="Accurately predict your pregnancy due date, trimesters, and milestones with our advanced calculator. Includes charts and health suggestions!">
+    <meta name="keywords" content="pregnancy calculator, due date calculator, trimester calculator, pregnancy tracker">
     <meta name="robots" content="index, follow">
-    <link rel="canonical" href="https://smartaicalculator.com/pregnancy.html">
-    <title>AI Pregnancy Calculator</title>
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+      <link rel="canonical" href="https://smartaicalculator.com/pregnancy.html">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/chartist@0.11.4/dist/chartist.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chartist@0.11.4/dist/chartist.min.js"></script>
     <style>
-        body {
-            font-family: 'Arial', sans-serif;
-            background-color: #ffffff;
-            color: #1a202c;
-        }
-        .calculator-title {
-            font-weight: bold;
-            text-align: center;
-            background-color: #f6e05e;
-            padding: 10px;
-            margin-bottom: 10px;
-        }
-        .input-field {
-            border: 2px solid #e2e8f0;
-            border-radius: 8px;
-            padding: 10px;
-            font-weight: bold;
-            width: 100%;
-            box-sizing: border-box;
-        }
-        .language-switcher {
-            position: absolute;
-            top: 10px;
-            left: 10px;
-            cursor: pointer;
-        }
-        .theme-switcher {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            cursor: pointer;
-        }
-        .calculate-btn {
-            background-color: #4299e1;
-            color: white;
-            font-weight: bold;
-            padding: 12px;
-            border-radius: 8px;
-            width: 100%;
-        }
-        .result-box {
-            border: 2px solid #e2e8f0;
-            border-radius: 8px;
-            padding: 15px;
-            margin-top: 20px;
-            font-weight: bold;
-        }
-        footer a {
-            color: #4299e1;
-            text-decoration: none;
-        }
-        footer a:hover {
-            text-decoration: underline;
-        }
-        .share-icons img {
-            width: 30px;
-            margin: 0 10px;
-        }
-        .dark-mode {
-            background-color: #1a202c;
-            color: #e2e8f0;
-        }
-        .dark-mode .input-field {
-            border-color: #4a5568;
-            background-color: #2d3748;
-            color: #e2e8f0;
-        }
-        .dark-mode .result-box {
-            border-color: #4a5568;
-            background-color: #2d3748;
-        }
-        .dark-mode .calculator-title {
-            background-color: #b83280;
-        }
-        .note {
-            font-size: 0.9em;
-            color: #e53e3e;
-            margin-top: 10px;
+        body { font-family: Arial, sans-serif; background: linear-gradient(135deg, #1A202C, #2D3748); color: #fff; margin: 0; }
+        .header { background: #2c3e50; padding: 20px 0; text-align: center; }
+        .nav-tabs { display: flex; justify-content: center; gap: 20px; padding: 10px 0; background: #34495e; }
+        .nav-tab { color: white; text-decoration: none; padding: 5px 15px; transition: background 0.3s; font-weight: bold; text-shadow: 0 0 5px rgba(255, 107, 107, 0.5); }
+        .nav-tab:hover, .nav-tab.active { background: #3498db; border-radius: 5px; }
+        .calculator-content { max-width: 600px; margin: 20px auto; padding: 20px; background: rgba(45, 55, 72, 0.9); border-radius: 10px; box-shadow: 0 0 15px rgba(0,0,0,0.5); }
+        .calculator-box { background: #e0e0e0; color: #333; padding: 20px; border-radius: 5px; text-align: center; }
+        .input-row { display: flex; justify-content: space-between; margin-bottom: 15px; align-items: center; }
+        .input-row label { font-weight: bold; }
+        input { border: 1px solid #ccc; padding: 5px; border-radius: 3px; width: 200px; }
+        input.invalid { border-color: #ff6b6b; }
+        button.calculate-btn { background: linear-gradient(135deg, #ff6b6b, #e63946); color: white; padding: 12px 24px; border: none; border-radius: 5px; cursor: pointer; font-weight: bold; font-size: 1.1rem; box-shadow: 0 3px 6px rgba(0,0,0,0.4); transition: transform 0.2s, background 0.2s; text-transform: uppercase; }
+        button.calculate-btn:hover { background: linear-gradient(135deg, #e63946, #c0392b); transform: scale(1.05); }
+        .ads-section { margin-top: 10px; padding: 10px; background: #34495e; border-radius: 5px; text-align: center; }
+        .ads-section p { font-size: 1.2rem; font-weight: bold; color: #1e90ff; }
+        .ads-section a { color: #1e90ff; text-decoration: underline; }
+        .voice-icon { display: inline-block; padding: 10px; cursor: pointer; font-size: 2rem; color: #00cec9; transition: color 0.2s, transform 0.2s; visibility: visible; }
+        .voice-icon:hover { color: #00b7b3; transform: scale(1.1); }
+        .button-container { display: flex; justify-content: center; align-items: center; gap: 15px; margin: 20px 0; }
+        .result-table { width: 100%; margin-top: 20px; border-collapse: collapse; }
+        .result-table th, .result-table td { border: 1px solid #ccc; padding: 10px; text-align: left; }
+        .result-table th { background: #3498db; color: white; }
+        .result-table tr:nth-child(even) { background: #f0f0f0; }
+        #chart-container { margin-top: 20px; }
+        .ct-chart { height: 200px; }
+        @media (max-width: 600px) { 
+            .input-row { flex-direction: column; align-items: flex-start; } 
+            input { width: 100%; margin-bottom: 10px; } 
+            .button-container { flex-direction: row; gap: 10px; } 
+            .voice-icon { display: inline-block; visibility: visible; } 
         }
     </style>
 </head>
-<body class="min-h-screen flex flex-col">
-    <header class="relative">
-        <h1 class="calculator-title text-3xl">AI CALCULATOR</h1>
-        <h2 class="text-center text-xl font-bold mb-4" id="calcTitle">Pregnancy Calculator</h2>
-        <div class="language-switcher">
-            <img src="https://img.icons8.com/ios-filled/50/000000/globe.png" alt="Language Switcher" id="langToggle" width="30">
-        </div>
-        <div class="theme-switcher">
-            <img src="https://img.icons8.com/ios-filled/50/000000/moon-symbol.png" alt="Theme Switcher" id="themeToggle" width="30">
-        </div>
+<body>
+    <header class="header">
+        <h1>Smart AI Calculator</h1>
+        <h2>Pregnancy Calculator</h2>
     </header>
-    <main class="flex-grow container mx-auto px-4 py-6">
-        <section class="max-w-md mx-auto">
-            <div class="mb-4">
-                <label for="lastPeriod" class="block font-bold mb-2" id="lastPeriodLabel">Last Menstrual Period Start Date</label>
-                <input type="date" id="lastPeriod" class="input-field" required>
+    <nav class="nav-tabs">
+        <a href="index.html#home" class="nav-tab">HOME</a>
+        <a href="index.html#miscellaneous" class="nav-tab active">MISCELLANEOUS</a>
+    </nav>
+    <div class="calculator-content">
+        <div class="calculator-box">
+            <h2>Pregnancy Details</h2>
+            <div class="input-row">
+                <label>Last Menstrual Period (LMP):</label>
+                <input type="date" id="lmp-date" oninput="validateInput(this)">
             </div>
-            <div class="mb-4">
-                <label for="cycleLength" class="block font-bold mb-2" id="cycleLengthLabel">Average Cycle Length (Days)</label>
-                <input type="number" id="cycleLength" class="input-field" placeholder="e.g. 28" required>
+            <div class="input-row">
+                <label>Average Cycle Length (days, optional):</label>
+                <input type="number" id="cycle-length" min="20" max="45" value="28" step="1" oninput="validateInput(this)">
             </div>
-            <button class="calculate-btn" onclick="calculatePregnancy()" id="calcButton">Calculate</button>
-            <div id="result" class="result-box hidden">
-                <p id="dueDate"></p>
-                <p id="conceptionDate"></p>
-                <p id="conceptionChances"></p>
-                <p class="note">Note: This is an AI-generated estimate. Please cross-check with a healthcare professional for accurate pregnancy details.</p>
+            <div class="button-container">
+                <button class="calculate-btn" onclick="calculatePregnancy()">Calculate <span id="spinner" style="display:none;">⏳</span></button>
+                <span class="voice-icon" onclick="toggleSpeech()" title="Toggle Speech"><i class="fas fa-volume-up"></i></span>
             </div>
-        </section>
-        <section class="mt-8 max-w-2xl mx-auto">
-            <h3 class="text-xl font-bold mb-4" id="aboutTitle">About the Pregnancy Calculator</h3>
-            <p class="mb-4" id="aboutText1">
-                The Pregnancy Calculator estimates your due date and conception details based on your last menstrual period (LMP) and average cycle length. It uses standard medical assumptions to calculate the expected delivery date (approximately 40 weeks from LMP) and likely conception date.
-            </p>
-            <p id="aboutText2">
-                The tool also provides a suggestion on conception chances based on typical ovulation windows (around 14 days before the next period). This is a general estimate and not a definitive diagnosis. Always consult a healthcare provider for accurate pregnancy confirmation and guidance.
-            </p>
-        </section>
-    </main>
-    <footer class="bg-gray-100 py-6 mt-8">
-        <div class="container mx-auto px-4 text-center">
-            <div class="mb-4">
-                <a href="/privacy-policy" class="mx-2">Privacy Policy</a> |
-                <a href="/disclaimer" class="mx-2">Disclaimer</a> |
-                <a href="/how-to-use" class="mx-2">How to Use</a> |
-                <a href="/contact-us" class="mx-2">Contact Us</a>
+            <div id="pregnancy-result" class="mt-4 font-semibold"></div>
+            <table class="result-table" id="result-table" style="display: none;">
+                <thead>
+                    <tr>
+                        <th>Detail</th>
+                        <th>Value</th>
+                    </tr>
+                </thead>
+                <tbody id="result-table-body"></tbody>
+            </table>
+            <div id="suggestions" style="margin-top: 15px;"></div>
+            <div id="chart-container" style="display: none;">
+                <div id="pregnancy-chart" class="ct-chart"></div>
             </div>
-            <div class="share-icons mb-4 flex justify-center">
-                <a href="https://www.facebook.com/sharer/sharer.php?u=#" target="_blank">
-                    <img src="https://img.icons8.com/color/48/000000/facebook-new.png" alt="Facebook">
-                </a>
-                <a href="https://twitter.com/intent/tweet?url=#&text=Check out this AI Pregnancy Calculator!" target="_blank">
-                    <img src="https://img.icons8.com/color/48/000000/twitter.png" alt="X">
-                </a>
-                <a href="https://api.whatsapp.com/send?text=Check out this AI Pregnancy Calculator: #" target="_blank">
-                    <img src="https://img.icons8.com/color/48/000000/whatsapp.png" alt="WhatsApp">
-                </a>
-                <a href="https://www.instagram.com/" target="_blank">
-                    <img src="https://img.icons8.com/color/48/000000/instagram-new.png" alt="Instagram">
-                </a>
+            <div class="ads-section">
+                <p>Contact for Ads: <a href="/cdn-cgi/l/email-protection#17313e25242363353239343f322517303a363e3b7934383a"><span class="__cf_email__" data-cfemail="4d2b243f3e39792f28232e25283f0d2a202c2421632e2220">[email protected]</span></a></p>
             </div>
-            <p class="text-sm">© 2025 All Rights Reserved</p>
+            <div id="seo-content" class="mt-4 text-sm">
+                <h3>About Pregnancy Calculator</h3>
+                <p>Our Smart AI Pregnancy Calculator uses advanced methods to predict your due date, trimesters, and pregnancy milestones with high accuracy. Includes charts and personalized health suggestions!</p>
+            </div>
         </div>
+    </div>
+    <footer class="bg-gray-800 text-white text-center py-4 mt-8">
+        <p style="font-weight: bold;">2025 © Smart AI Calculator. All rights reserved.</p>
+        <a href="privacy.html" class="text-blue-400 ml-2">Privacy Policy</a> |
+        <a href="contactus.html" class="text-blue-400 ml-2">Contact Us</a> |
+        <a href="howto.html" class="text-blue-400 ml-2">How to Use</a>
     </footer>
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
     <script>
-        let isHindi = false;
+        let isSpeaking = false;
+        let utterance = null;
+        let pregnancyDetails = {};
 
-        function calculatePregnancy() {
-            const lastPeriod = new Date(document.getElementById('lastPeriod').value);
-            const cycleLength = parseInt(document.getElementById('cycleLength').value);
-            const today = new Date();
-
-            if (isNaN(lastPeriod.getTime()) || isNaN(cycleLength) || cycleLength <= 0) {
-                alert(isHindi ? 'कृपया मान्य तारीख और चक्र लंबाई दर्ज करें।' : 'Please enter a valid date and cycle length.');
-                return;
-            }
-
-            // Calculate due date (40 weeks from LMP)
-            const dueDate = new Date(lastPeriod);
-            dueDate.setDate(lastPeriod.getDate() + 280);
-
-            // Estimate conception date (ovulation typically 14 days before next period, adjusted for cycle length)
-            const ovulationDay = Math.max(10, cycleLength - 14); // Ensure ovulation day is reasonable
-            const conceptionDate = new Date(lastPeriod);
-            conceptionDate.setDate(lastPeriod.getDate() + ovulationDay);
-
-            // Conception chances suggestion
-            const daysSinceLMP = Math.floor((today - lastPeriod) / (1000 * 60 * 60 * 24));
-            let conceptionChances;
-            if (daysSinceLMP >= ovulationDay - 5 && daysSinceLMP <= ovulationDay + 5) {
-                conceptionChances = isHindi 
-                    ? 'गर्भाधान की संभावना अधिक है (ओव्यूलेशन विंडो के दौरान)। कृपया पुष्टि के लिए डॉक्टर से परामर्श करें।' 
-                    : 'High chance of conception (during ovulation window). Please consult a doctor for confirmation.';
-            } else {
-                conceptionChances = isHindi 
-                    ? 'गर्भाधान की संभावना कम है (ओव्यूलेशन विंडो के बाहर)। कृपया पुष्टि के लिए डॉक्टर से परामर्श करें।' 
-                    : 'Low chance of conception (outside ovulation window). Please consult a doctor for confirmation.';
-            }
-
-            document.getElementById('dueDate').textContent = isHindi 
-                ? `प्रसव की अपेक्षित तारीख: ${dueDate.toLocaleDateString('en-GB')}` 
-                : `Expected Due Date: ${dueDate.toLocaleDateString('en-GB')}`;
-            document.getElementById('conceptionDate').textContent = isHindi 
-                ? `अनुमानित गर्भाधान तारीख: ${conceptionDate.toLocaleDateString('en-GB')}` 
-                : `Estimated Conception Date: ${conceptionDate.toLocaleDateString('en-GB')}`;
-            document.getElementById('conceptionChances').textContent = conceptionChances;
-            document.getElementById('result').classList.remove('hidden');
+        // Custom date formatter for dd/mm/yyyy
+        function formatDate(date) {
+            const day = String(date.getDate()).padStart(2, '0');
+            const month = String(date.getMonth() + 1).padStart(2, '0');
+            const year = date.getFullYear();
+            return `${day}/${month}/${year}`;
         }
 
-        document.getElementById('themeToggle').addEventListener('click', () => {
-            document.body.classList.toggle('dark-mode');
-            const icon = document.getElementById('themeToggle');
-            icon.src = document.body.classList.contains('dark-mode')
-                ? 'https://img.icons8.com/ios-filled/50/ffffff/sun.png'
-                : 'https://img.icons8.com/ios-filled/50/000000/moon-symbol.png';
-        });
+        function validateInput(input) {
+            console.log("validateInput");
+            try {
+                if (input.id === "lmp-date") {
+                    input.classList.toggle("invalid", !input.value);
+                } else if (input.id === "cycle-length") {
+                    let value = parseInt(input.value);
+                    input.classList.toggle("invalid", input.value && (value < 20 || value > 45 || isNaN(value)));
+                }
+            } catch (e) {
+                console.error("Validation failed:", e.message);
+            }
+        }
 
-        document.getElementById('langToggle').addEventListener('click', () => {
-            isHindi = !isHindi;
+        function calculatePregnancy() {
+            console.log("calculatePregnancy");
+            document.getElementById("spinner").style.display = "inline";
+            setTimeout(() => {
+                try {
+                    if (typeof Chartist === 'undefined') {
+                        throw new Error("Chartist.js not loaded. Check CDN or use local server.");
+                    }
+                    const lmpDate = document.getElementById("lmp-date").value;
+                    const cycleLength = parseInt(document.getElementById("cycle-length").value) || 28;
+                    const resultDiv = document.getElementById("pregnancy-result");
+                    const tableBody = document.getElementById("result-table-body");
+                    const table = document.getElementById("result-table");
+                    const chartContainer = document.getElementById("chart-container");
+                    const suggestionsDiv = document.getElementById("suggestions");
+                    tableBody.innerHTML = "";
+                    pregnancyDetails = {};
 
-            document.getElementById('calcTitle').textContent = isHindi 
-                ? 'गर्भावस्था कैलकुलेटर' 
-                : 'Pregnancy Calculator';
-            document.getElementById('lastPeriodLabel').textContent = isHindi 
-                ? 'अंतिम मासिक चक्र शुरू होने की तारीख' 
-                : 'Last Menstrual Period Start Date';
-            document.getElementById('cycleLengthLabel').textContent = isHindi 
-                ? 'औसत चक्र लंबाई (दिन)' 
-                : 'Average Cycle Length (Days)';
-            document.getElementById('calcButton').textContent = isHindi 
-                ? 'गणना करें' 
-                : 'Calculate';
-            document.getElementById('aboutTitle').textContent = isHindi 
-                ? 'गर्भावस्था कैलकुलेटर के बारे में' 
-                : 'About the Pregnancy Calculator';
-            document.getElementById('aboutText1').textContent = isHindi 
-                ? 'गर्भावस्था कैलकुलेटर आपके अंतिम मासिक चक्र (LMP) और औसत चक्र लंबाई के आधार पर आपकी प्रसव तारीख और गर्भाधान विवरण का अनुमान लगाता है। यह मानक चिकित्सा मान्यताओं का उपयोग करके अपेक्षित प्रसव तारीख (LMP से लगभग 40 सप्ताह) और संभावित गर्भाधान तारीख की गणना करता है।'
-                : 'The Pregnancy Calculator estimates your due date and conception details based on your last menstrual period (LMP) and average cycle length. It uses standard medical assumptions to calculate the expected delivery date (approximately 40 weeks from LMP) and likely conception date.';
-            document.getElementById('aboutText2').textContent = isHindi 
-                ? 'यह उपकरण सामान्य ओव्यूलेशन विंडो (अगले मासिक चक्र से लगभग 14 दिन पहले) के आधार पर गर्भाधान की संभावनाओं का सुझाव भी देता है। यह एक सामान्य अनुमान है और निश्चित निदान नहीं है। सटीक गर्भावस्था पुष्टि और मार्गदर्शन के लिए हमेशा स्वास्थ्य सेवा प्रदाता से परामर्श करें।'
-                : 'The tool also provides a suggestion on conception chances based on typical ovulation windows (around 14 days before the next period). This is a general estimate and not a definitive diagnosis. Always consult a healthcare provider for accurate pregnancy confirmation and guidance.';
-        });
+                    if (!lmpDate || cycleLength < 20 || cycleLength > 45) {
+                        resultDiv.innerText = "Invalid input. Check LMP and cycle length.";
+                        table.style.display = "none";
+                        chartContainer.style.display = "none";
+                        suggestionsDiv.innerHTML = "";
+                        document.getElementById("spinner").style.display = "none";
+                        console.log("Invalid input");
+                        return;
+                    }
+
+                    // Pregnancy calculations
+                    const lmp = new Date(lmpDate);
+                    const dueDate = new Date(lmp.getTime() + 280 * 24 * 60 * 60 * 1000); // 40 weeks
+                    const today = new Date();
+                    const weeksPregnant = Math.floor((today - lmp) / (7 * 24 * 60 * 60 * 1000));
+                    const trimester1End = new Date(lmp.getTime() + 12 * 7 * 24 * 60 * 60 * 1000);
+                    const trimester2End = new Date(lmp.getTime() + 27 * 7 * 24 * 60 * 60 * 1000);
+                    const trimester = weeksPregnant <= 12 ? "1st Trimester" : weeksPregnant <= 27 ? "2nd Trimester" : "3rd Trimester";
+
+                    pregnancyDetails = {
+                        lmp: formatDate(lmp),
+                        cycleLength,
+                        dueDate: formatDate(dueDate),
+                        weeksPregnant,
+                        trimester,
+                        trimester1End: formatDate(trimester1End),
+                        trimester2End: formatDate(trimester2End),
+                        suggestions: [
+                            "Schedule regular prenatal checkups with your doctor.",
+                            "Maintain a balanced diet rich in folic acid and iron.",
+                            "Stay hydrated and engage in light exercise as advised.",
+                            "Consult a healthcare provider for personalized guidance."
+                        ]
+                    };
+
+                    resultDiv.innerText = `Due Date: ${pregnancyDetails.dueDate}`;
+                    tableBody.innerHTML = `
+                        <tr><td>Last Menstrual Period</td><td>${pregnancyDetails.lmp}</td></tr>
+                        <tr><td>Cycle Length</td><td>${pregnancyDetails.cycleLength} days</td></tr>
+                        <tr><td>Due Date</td><td>${pregnancyDetails.dueDate}</td></tr>
+                        <tr><td>Weeks Pregnant</td><td>${pregnancyDetails.weeksPregnant} weeks</td></tr>
+                        <tr><td>Trimester</td><td>${pregnancyDetails.trimester}</td></tr>
+                    `;
+                    suggestionsDiv.innerHTML = `<strong>Suggestions:</strong><ul>${pregnancyDetails.suggestions.map(s => `<li>${s}</li>`).join("")}</ul>`;
+                    table.style.display = "table";
+
+                    // Chart
+                    chartContainer.style.display = "block";
+                    const chartElement = document.getElementById("pregnancy-chart");
+                    chartElement.innerHTML = ""; // Clear previous chart
+                    new Chartist.Line('#pregnancy-chart', {
+                        labels: [
+                            pregnancyDetails.lmp,
+                            pregnancyDetails.trimester1End,
+                            pregnancyDetails.trimester2End,
+                            pregnancyDetails.dueDate
+                        ],
+                        series: [[0, 1, 2, 3]]
+                    }, {
+                        fullWidth: true,
+                        chartPadding: { top: 20, right: 0, bottom: 20, left: 0 },
+                        axisY: { showGrid: false, showLabel: false },
+                        axisX: { labelInterpolationFnc: value => value }
+                    });
+
+                    document.getElementById("spinner").style.display = "none";
+                    console.log("Calculation done");
+                } catch (e) {
+                    console.error("Calculation failed:", e.message);
+                    alert("Error: " + e.message + ". Use a local server (e.g., Live Server) and check internet.");
+                    document.getElementById("spinner").style.display = "none";
+                }
+            }, 500);
+        }
+
+        function toggleSpeech() {
+            console.log("toggleSpeech");
+            try {
+                const result = document.getElementById("pregnancy-result").innerText;
+                if (!result || result.includes("Invalid")) return;
+                if (isSpeaking) {
+                    window.speechSynthesis.cancel();
+                    isSpeaking = false;
+                } else {
+                    utterance = new SpeechSynthesisUtterance(result);
+                    utterance.lang = "en";
+                    utterance.onend = () => { isSpeaking = false; };
+                    window.speechSynthesis.speak(utterance);
+                    isSpeaking = true;
+                }
+            } catch (e) {
+                console.error("Speech failed:", e.message);
+                alert("Speech failed: " + e.message);
+            }
+        }
+
+        function stopSpeech() {
+            if (isSpeaking) {
+                window.speechSynthesis.cancel();
+                isSpeaking = false;
+            }
+        }
+
+        window.onpagehide = stopSpeech;
+        window.onbeforeunload = stopSpeech;
     </script>
 </body>
 </html>
