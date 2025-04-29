@@ -1,125 +1,300 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>IQ Test Online Free – Intelligence Score Calculator | AI CALCULATOR</title>
-  <meta name="description" content="Test your IQ score instantly using SmartAI IQ calculator. Free online smart intelligence quiz for students and adults">
-  <meta name="keywords" content="IQ calculator, IQ test online, Free IQ Calculator Test, IQ Score Calculator, AI calculator, How Does an IQ Test with Results Work, Hindi IQ Test">
-<link rel="canonical" href="https://smartaicalculator.com/iq.html">
-  <meta name="author" content="AI CALCULATOR">
-  <script src="https://cdn.tailwindcss.com"></script>
-  <style>
-    body {
-      background: linear-gradient(to right, #fdfbfb, #ebedee);
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart AI Calculator | IQ Calculator</title>
+    <meta name="description" content="Calculate your IQ score for kids and adults using our advanced formula. Includes charts, percentile ranking, and personalized suggestions!">
+   <meta name="keywords" content="IQ calculator, IQ test online, Free IQ Calculator Test, IQ Score Calculator, AI calculator, How Does an IQ Test with Results Work, Hindi IQ Test">
+
+    <meta name="robots" content="index, follow">
+   <link rel="canonical" href="https://smartaicalculator.com/iq.html">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.9.1/dist/chart.min.js"></script>
+    <style>
+        body { font-family: Arial, sans-serif; background: linear-gradient(135deg, #1A202C, #2D3748); color: #fff; margin: 0; }
+        .header { background: #2c3e50; padding: 20px 0; text-align: center; }
+        .nav-tabs { display: flex; justify-content: center; gap: 20px; padding: 10px 0; background: #34495e; }
+        .nav-tab { color: white; text-decoration: none; padding: 5px 15px; transition: background 0.3s; font-weight: bold; text-shadow: 0 0 5px rgba(255, 107, 107, 0.5); }
+        .nav-tab:hover, .nav-tab.active { background: #3498db; border-radius: 5px; }
+        .calculator-content { max-width: 600px; margin: 20px auto; padding: 20px; background: rgba(45, 55, 72, 0.9); border-radius: 10px; box-shadow: 0 0 15px rgba(0,0,0,0.5); }
+        .calculator-box { background: #e0e0e0; color: #333; padding: 20px; border-radius: 5px; text-align: center; }
+        .input-row { display: flex; justify-content: space-between; margin-bottom: 15px; align-items: center; }
+        .input-row label { font-weight: bold; }
+        input { border: 1px solid #ccc; padding: 5px; border-radius: 3px; width: 200px; }
+        input.invalid { border-color: #ff6b6b; }
+        button.calculate-btn { background: linear-gradient(135deg, #ff6b6b, #e63946); color: white; padding: 12px 24px; border: none; border-radius: 5px; cursor: pointer; font-weight: bold; font-size: 1.1rem; box-shadow: 0 3px 6px rgba(0,0,0,0.4); transition: transform 0.2s, background 0.2s; text-transform: uppercase; }
+        button.calculate-btn:hover { background: linear-gradient(135deg, #e63946, #c0392b); transform: scale(1.05); }
+        .ads-section { margin-top: 10px; padding: 10px; background: #34495e; border-radius: 5px; text-align: center; }
+        .ads-section p { font-size: 1.2rem; font-weight: bold; color: #1e90ff; }
+        .ads-section a { color: #1e90ff; text-decoration: underline; }
+        .voice-icon { display: inline-block; padding: 10px; cursor: pointer; font-size: 2rem; color: #00cec9; transition: color 0.2s, transform 0.2s; visibility: visible; }
+        .voice-icon:hover { color: #00b7b3; transform: scale(1.1); }
+        .button-container { display: flex; justify-content: center; align-items: center; gap: 15px; margin: 20px 0; }
+        .result-table { width: 100%; margin-top: 20px; border-collapse: collapse; }
+        .result-table th, .result-table td { border: 1px solid #ccc; padding: 10px; text-align: left; }
+        .result-table th { background: #3498db; color: white; }
+        .result-table tr:nth-child(even) { background: #f0f0f0; }
+        #chart-container { margin-top: 20px; }
+        .note { font-size: 0.75rem; font-style: italic; color: #555; margin-top: 10px; text-align: center; }
+        @media (max-width: 600px) { 
+            .input-row { flex-direction: column; align-items: flex-start; } 
+            input { width: 100%; margin-bottom: 10px; } 
+            .button-container { flex-direction: row; gap: 10px; } 
+            .voice-icon { display: inline-block; visibility: visible; } 
+        }
+    </style>
 </head>
-<body class="min-h-screen flex items-center justify-center p-4">
-  <div class="bg-white shadow-xl rounded-xl p-8 max-w-2xl w-full">
-    <div class="flex justify-between items-center">
-      <h1 class="text-3xl font-bold text-purple-700">AI CALCULATOR</h1>
-      <button onclick="toggleLanguage()" class="text-sm px-4 py-1 bg-purple-600 text-white rounded hover:bg-purple-700">Switch Language</button>
+<body>
+    <header class="header">
+        <h1>Smart AI Calculator</h1>
+        <h2>IQ Calculator</h2>
+    </header>
+    <nav class="nav-tabs">
+        <a href="index.html#home" class="nav-tab">HOME</a>
+        <a href="index.html#miscellaneous" class="nav-tab active">MISCELLANEOUS</a>
+    </nav>
+    <div class="calculator-content">
+        <div class="calculator-box">
+            <h2>IQ Calculation Details</h2>
+            <div class="input-row">
+                <label>Chronological Age (years):</label>
+                <input type="number" id="age" min="6" max="100" step="1" oninput="validateInput(this)">
+            </div>
+            <div class="input-row">
+                <label>Mental Age (years):</label>
+                <input type="number" id="mental-age" min="1" max="100" step="0.1" oninput="validateInput(this)">
+            </div>
+            <div class="input-row">
+                <label>Standard Deviation (optional):</label>
+                <input type="number" id="sd" min="10" max="20" step="1" oninput="validateInput(this)">
+            </div>
+            <div class="button-container">
+                <button class="calculate-btn" onclick="calculateIQ()">Calculate <span id="spinner" style="display:none;">⏳</span></button>
+                <span class="voice-icon" onclick="toggleSpeech()" title="Toggle Speech"><i class="fas fa-volume-up"></i></span>
+            </div>
+            <div class="note">Note: Chronological Age is your actual age in years. Mental Age is your cognitive ability level, often estimated from IQ tests or performance compared to age norms.</div>
+            <div id="iq-result" class="mt-4 font-semibold"></div>
+            <table class="result-table" id="result-table" style="display: none;">
+                <thead>
+                    <tr>
+                        <th>Detail</th>
+                        <th>Value</th>
+                    </tr>
+                </thead>
+                <tbody id="result-table-body"></tbody>
+            </table>
+            <div id="suggestions" style="margin-top: 15px;"></div>
+            <div id="chart-container" style="display: none;">
+                <canvas id="iq-chart"></canvas>
+            </div>
+            <div class="ads-section">
+                <p>Contact for Ads: <a href="/cdn-cgi/l/email-protection#17313e25242363353239343f322517303a363e3b7934383a"><span class="__cf_email__" data-cfemail="4d2b243f3e39792f28232e25283f0d2a202c2421632e2220">[email protected]</span></a></p>
+            </div>
+            <div id="seo-content" class="mt-4 text-sm">
+                <h3>About IQ Calculator</h3>
+                <p>Our Smart AI IQ Calculator uses advanced formulas tailored for kids and adults to estimate your intelligence quotient. Includes percentile ranking, charts, and cognitive suggestions!</p>
+            </div>
+        </div>
     </div>
+    <footer class="bg-gray-800 text-white text-center py-4 mt-8">
+        <p style="font-weight: bold;">2025 © Smart AI Calculator. All rights reserved.</p>
+        <a href="privacy.html" class="text-blue-400 ml-2">Privacy Policy</a> |
+        <a href="contactus.html" class="text-blue-400 ml-2">Contact Us</a> |
+        <a href="howto.html" class="text-blue-400 ml-2">How to Use</a>
+    </footer>
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+    <script>
+        let isSpeaking = false;
+        let utterance = null;
+        let iqDetails = {};
 
-    <h2 id="title" class="text-xl text-center font-semibold text-gray-800 mt-4 mb-6">🧠 IQ Calculator (Formula-Based)</h2>
+        function validateInput(input) {
+            console.log("validateInput");
+            try {
+                if (input.id === "age") {
+                    let value = parseInt(input.value);
+                    input.classList.toggle("invalid", value < 6 || value > 100 || isNaN(value));
+                } else if (input.id === "mental-age") {
+                    let value = parseFloat(input.value);
+                    input.classList.toggle("invalid", value < 1 || value > 100 || isNaN(value));
+                } else if (input.id === "sd") {
+                    let value = parseInt(input.value);
+                    input.classList.toggle("invalid", input.value && (value < 10 || value > 20 || isNaN(value)));
+                }
+            } catch (e) {
+                console.error("Validation failed:", e.message);
+            }
+        }
 
-    <form id="iqForm" class="space-y-4">
-      <div>
-        <label id="mentalLabel" class="block font-semibold text-gray-700">Mental Age (in years):</label>
-        <input type="number" id="mentalAge" required class="w-full mt-1 px-4 py-2 border rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-purple-500" />
-      </div>
-      <div>
-        <label id="chronLabel" class="block font-semibold text-gray-700">Chronological Age (in years):</label>
-        <input type="number" id="chronAge" required class="w-full mt-1 px-4 py-2 border rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-purple-500" />
-      </div>
-      <button type="submit" id="calcBtn" class="w-full bg-purple-700 text-white py-2 rounded hover:bg-purple-800">Calculate IQ</button>
-    </form>
+        function calculateIQ() {
+            console.log("calculateIQ");
+            document.getElementById("spinner").style.display = "inline";
+            setTimeout(() => {
+                try {
+                    if (!window.Chart) {
+                        throw new Error("Chart.js not loaded. Check CDN or use local server.");
+                    }
+                    const age = parseInt(document.getElementById("age").value);
+                    const mentalAge = parseFloat(document.getElementById("mental-age").value);
+                    const sdInput = parseInt(document.getElementById("sd").value);
+                    const resultDiv = document.getElementById("iq-result");
+                    const tableBody = document.getElementById("result-table-body");
+                    const table = document.getElementById("result-table");
+                    const chartContainer = document.getElementById("chart-container");
+                    const suggestionsDiv = document.getElementById("suggestions");
+                    tableBody.innerHTML = "";
+                    iqDetails = {};
 
-    <div id="result" class="mt-6 hidden text-center">
-      <h3 class="text-2xl font-bold text-green-600" id="iqOutput">Your IQ Score: <span id="iqScore"></span></h3>
-      <p id="iqRemark" class="mt-2 text-lg font-semibold text-gray-700"></p>
-    </div>
+                    if (!age || age < 6 || age > 100 || !mentalAge || mentalAge < 1 || mentalAge > 100) {
+                        resultDiv.innerText = "Invalid input. Check age and mental age.";
+                        table.style.display = "none";
+                        chartContainer.style.display = "none";
+                        suggestionsDiv.innerHTML = "";
+                        document.getElementById("spinner").style.display = "none";
+                        console.log("Invalid input");
+                        return;
+                    }
 
-    <hr class="my-6">
+                    // Advanced IQ calculation
+                    const isKid = age < 18;
+                    const sd = sdInput && sdInput >= 10 && sdInput <= 20 ? sdInput : (isKid ? 16 : 15);
+                    let iq = (mentalAge / age) * 100;
+                    iq = Math.round(iq);
+                    if (iq < 0 || iq > 200) {
+                        resultDiv.innerText = "IQ out of realistic range. Check inputs.";
+                        table.style.display = "none";
+                        chartContainer.style.display = "none";
+                        suggestionsDiv.innerHTML = "";
+                        document.getElementById("spinner").style.display = "none";
+                        console.log("Invalid IQ");
+                        return;
+                    }
 
-    <div class="text-sm text-gray-800 leading-relaxed" id="info">
-      <h3 class="text-lg font-bold text-purple-600 mb-2">📘 About IQ Formula</h3>
-      <p><strong>Mental Age:</strong> Intelligence level regardless of actual age. (मानसिक आयु: असली उम्र की परवाह किए बिना आपकी समझ)</p>
-      <p><strong>Chronological Age:</strong> Your real age in years. (कालानुक्रमिक आयु: आपकी असली उम्र वर्षों में)</p>
-      <p class="mt-2"><strong>Formula:</strong> <code class="bg-gray-100 px-2 py-1 rounded">IQ = (Mental Age / Chronological Age) × 100</code></p>
+                    // Percentile (z-score)
+                    const mean = 100;
+                    const zScore = (iq - mean) / sd;
+                    const percentile = Math.round((0.5 * (1 + erf(zScore / Math.sqrt(2))) * 100) * 100) / 100;
 
-      <p class="mt-2"><strong>Example:</strong> A 10-year-old child with mental ability of 12 years:</p>
-      <p class="ml-4 italic">IQ = (12 / 10) × 100 = 120</p>
+                    // IQ Category
+                    let category = "";
+                    if (iq < 70) category = "Low";
+                    else if (iq < 85) category = "Below Average";
+                    else if (iq < 115) category = "Average";
+                    else if (iq < 130) category = "Above Average";
+                    else category = "Gifted";
 
-      <p class="mt-4 text-gray-600">* Suitable for children & students (बच्चों और छात्रों के लिए उपयुक्त)</p>
-    </div>
-  </div>
+                    iqDetails = {
+                        age,
+                        mentalAge: mentalAge.toFixed(1),
+                        iq,
+                        percentile,
+                        category,
+                        suggestions: [
+                            iq < 85 ? "Consider consulting a cognitive specialist for support." : "Engage in cognitive exercises like puzzles or reading.",
+                            "Maintain a healthy lifestyle to support brain function.",
+                            iq >= 115 ? "Explore advanced learning opportunities." : "Practice regular mental stimulation.",
+                            "Consult a professional for an official IQ test."
+                        ]
+                    };
 
-  <script>
-    const labels = {
-      en: {
-        title: " IQ Calculator (Formula-Based)",
-        mental: "Mental Age (in years):",
-        chron: "Chronological Age (in years):",
-        btn: "Calculate IQ",
-        output: "Your IQ Score:",
-        infoHTML: `
-          <h3 class="text-lg font-bold text-purple-600 mb-2"> About IQ Formula</h3>
-          <p><strong>Mental Age:</strong> Intelligence level regardless of actual age. (मानसिक आयु: असली उम्र की परवाह किए बिना आपकी समझ)</p>
-          <p><strong>Chronological Age:</strong> Your real age in years. (कालानुक्रमिक आयु: आपकी असली उम्र वर्षों में)</p>
-          <p class="mt-2"><strong>Formula:</strong> <code class="bg-gray-100 px-2 py-1 rounded">IQ = (Mental Age / Chronological Age) × 100</code></p>
-          <p class="mt-2"><strong>Example:</strong> A 10-year-old child with mental ability of 12 years:</p>
-          <p class="ml-4 italic">IQ = (12 / 10) × 100 = 120</p>
-          <p class="mt-4 text-gray-600">* Suitable for children & students (बच्चों और छात्रों के लिए उपयुक्त)</p>
-        `
-      },
-      hi: {
-        title: "🧠 आईक्यू कैलकुलेटर (सूत्र आधारित)",
-        mental: "मानसिक आयु (वर्षों में):",
-        chron: "कालानुक्रमिक आयु (वर्षों में):",
-        btn: "आईक्यू निकालें",
-        output: "आपका IQ स्कोर:",
-        infoHTML: `
-          <h3 class="text-lg font-bold text-purple-600 mb-2">📘 IQ सूत्र के बारे में</h3>
-          <p><strong>मानसिक आयु:</strong> व्यक्ति की समझ की क्षमता (उम्र से अलग)</p>
-          <p><strong>कालानुक्रमिक आयु:</strong> आपकी वास्तविक उम्र वर्षों में</p>
-          <p class="mt-2"><strong>सूत्र:</strong> <code class="bg-gray-100 px-2 py-1 rounded">IQ = (मानसिक आयु / कालानुक्रमिक आयु) × 100</code></p>
-          <p class="mt-2"><strong>उदाहरण:</strong> 10 वर्षीय बच्चा जिसकी मानसिक क्षमता 12 वर्ष की है:</p>
-          <p class="ml-4 italic">IQ = (12 / 10) × 100 = 120</p>
-          <p class="mt-4 text-gray-600">* यह विधि बच्चों और छात्रों के लिए उपयोगी है।</p>
-        `
-      }
-    };
+                    resultDiv.innerText = `Your IQ: ${iqDetails.iq}`;
+                    tableBody.innerHTML = `
+                        <tr><td>Chronological Age</td><td>${iqDetails.age} years</td></tr>
+                        <tr><td>Mental Age</td><td>${iqDetails.mentalAge} years</td></tr>
+                        <tr><td>IQ Score</td><td>${iqDetails.iq}</td></tr>
+                        <tr><td>Percentile</td><td>${iqDetails.percentile}%</td></tr>
+                        <tr><td>Category</td><td>${iqDetails.category}</td></tr>
+                    `;
+                    suggestionsDiv.innerHTML = `<strong>Suggestions:</strong><ul>${iqDetails.suggestions.map(s => `<li>${s}</li>`).join("")}</ul>`;
+                    table.style.display = "table";
 
-    let currentLang = 'en';
+                    // Chart (IQ Distribution)
+                    chartContainer.style.display = "block";
+                    const ctx = document.getElementById("iq-chart").getContext("2d");
+                    const iqRange = Array.from({length: 81}, (_, i) => 60 + i);
+                    const gaussian = iqRange.map(x => (1 / (sd * Math.sqrt(2 * Math.PI))) * Math.exp(-((x - mean) ** 2) / (2 * sd ** 2)));
+                    new Chart(ctx, {
+                        type: "line",
+                        data: {
+                            labels: iqRange,
+                            datasets: [
+                                {
+                                    label: "IQ Distribution",
+                                    data: gaussian,
+                                    borderColor: "#3498db",
+                                    fill: false
+                                },
+                                {
+                                    label: "Your IQ",
+                                    data: iqRange.map(x => x === iqDetails.iq ? gaussian[iqRange.indexOf(iqDetails.iq)] : null),
+                                    borderColor: "#ff6b6b",
+                                    pointRadius: 5,
+                                    pointBackgroundColor: "#ff6b6b",
+                                    showLine: false
+                                }
+                            ]
+                        },
+                        options: {
+                            scales: {
+                                x: { title: { display: true, text: "IQ Score" } },
+                                y: { display: false }
+                            }
+                        }
+                    });
 
-    function toggleLanguage() {
-      currentLang = currentLang === 'en' ? 'hi' : 'en';
-      document.getElementById("title").textContent = labels[currentLang].title;
-      document.getElementById("mentalLabel").textContent = labels[currentLang].mental;
-      document.getElementById("chronLabel").textContent = labels[currentLang].chron;
-      document.getElementById("calcBtn").textContent = labels[currentLang].btn;
-      document.getElementById("iqOutput").firstChild.textContent = labels[currentLang].output + " ";
-      document.getElementById("info").innerHTML = labels[currentLang].infoHTML;
-    }
+                    document.getElementById("spinner").style.display = "none";
+                    console.log("Calculation done");
+                } catch (e) {
+                    console.error("Calculation failed:", e.message);
+                    alert("Error: " + e.message + ". Use a local server (e.g., Live Server) and check internet.");
+                    document.getElementById("spinner").style.display = "none";
+                }
+            }, 500);
+        }
 
-    document.getElementById('iqForm').addEventListener('submit', function(e) {
-      e.preventDefault();
-      const mentalAge = parseFloat(document.getElementById('mentalAge').value);
-      const chronAge = parseFloat(document.getElementById('chronAge').value);
-      const iq = Math.round((mentalAge / chronAge) * 100);
+        // Error function for percentile
+        function erf(x) {
+            const a1 = 0.254829592, a2 = -0.284496736, a3 = 1.421413741, a4 = -1.453152027, a5 = 1.061405429;
+            const p = 0.3275911;
+            const sign = x >= 0 ? 1 : -1;
+            x = Math.abs(x);
+            const t = 1.0 / (1.0 + p * x);
+            const y = 1.0 - (((((a5 * t + a4) * t) + a3) * t + a2) * t + a1) * t * Math.exp(-x * x);
+            return sign * y;
+        }
 
-      let remark = '';
-      if (iq >= 140) remark = " Genius Level";
-      else if (iq >= 120) remark = " Very Smart";
-      else if (iq >= 100) remark = " Average Intelligence";
-      else remark = "📘 Below Average — Practice can help improve!";
+        function toggleSpeech() {
+            console.log("toggleSpeech");
+            try {
+                const result = document.getElementById("iq-result").innerText;
+                if (!result || result.includes("Invalid")) return;
+                if (isSpeaking) {
+                    window.speechSynthesis.cancel();
+                    isSpeaking = false;
+                } else {
+                    utterance = new SpeechSynthesisUtterance(result);
+                    utterance.lang = "en";
+                    utterance.onend = () => { isSpeaking = false; };
+                    window.speechSynthesis.speak(utterance);
+                    isSpeaking = true;
+                }
+            } catch (e) {
+                console.error("Speech failed:", e.message);
+                alert("Speech failed: " + e.message);
+            }
+        }
 
-      document.getElementById('iqScore').textContent = iq;
-      document.getElementById('iqRemark').textContent = remark;
-      document.getElementById('result').classList.remove('hidden');
-    });
-  </script>
+        function stopSpeech() {
+            if (isSpeaking) {
+                window.speechSynthesis.cancel();
+                isSpeaking = false;
+            }
+        }
+
+        window.onpagehide = stopSpeech;
+        window.onbeforeunload = stopSpeech;
+    </script>
 </body>
 </html>
