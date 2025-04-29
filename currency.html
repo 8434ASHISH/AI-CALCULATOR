@@ -3,256 +3,319 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="title" content="AI Currency Exchange Calculator">
-    <meta name="description" content="Convert currencies with our AI-powered Currency Exchange Calculator. Input an amount and select currencies for real-time exchange rates.">
-    <link rel="canonical" href="https://smartaicalculator.com/currency.html">
-    <meta name="keywords" content="currency exchange calculator, forex converter, money converter, AI calculator, financial tools, exchange rates">
+    <title>Smart AI Calculator | Currency Converter</title>
+    <meta name="description" content="Convert between 35+ major currencies with our advanced currency calculator. Get instant exchange rates and suggestions!">
+    <meta name="keywords" content="currency converter, exchange rate calculator, money converter, global currencies">
     <meta name="robots" content="index, follow">
-    <title>AI Currency Exchange Calculator</title>
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="canonical" href="https://smartaicalculator.com/currency.html">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <style>
-        body {
-            font-family: 'Arial', sans-serif;
-            background-color: #ffffff;
-            color: #1a202c;
-        }
-        .calculator-title {
-            font-weight: bold;
-            text-align: center;
-            background-color: #f6e05e;
-            padding: 10px;
-            margin-bottom: 10px;
-        }
-        .input-field, .select-field {
-            border: 2px solid #e2e8f0;
-            border-radius: 8px;
-            padding: 10px;
-            font-weight: bold;
-            width: 100%;
-            box-sizing: border-box;
-        }
-        .language-switcher {
-            position: absolute;
-            top: 10px;
-            left: 10px;
-            cursor: pointer;
-        }
-        .theme-switcher {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            cursor: pointer;
-        }
-        .calculate-btn {
-            background-color: #4299e1;
-            color: white;
-            font-weight: bold;
-            padding: 12px;
-            border-radius: 8px;
-            width: 100%;
-        }
-        .result-box {
-            border: 2px solid #e2e8f0;
-            border-radius: 8px;
-            padding: 15px;
-            margin-top: 20px;
-            font-weight: bold;
-        }
-        footer a {
-            color: #4299e1;
-            text-decoration: none;
-        }
-        footer a:hover {
-            text-decoration: underline;
-        }
-        .share-icons img {
-            width: 30px;
-            margin: 0 10px;
-        }
-        .dark-mode {
-            background-color: #1a202c;
-            color: #e2e8f0;
-        }
-        .dark-mode .input-field, .dark-mode .select-field {
-            border-color: #4a5568;
-            background-color: #2d3748;
-            color: #e2e8f0;
-        }
-        .dark-mode .result-box {
-            border-color: #4a5568;
-            background-color: #2d3748;
-        }
-        .dark-mode .calculator-title {
-            background-color: #b83280;
-        }
-        .note {
-            font-size: 0.9em;
-            color: #e53e3e;
-            margin-top: 10px;
+        body { font-family: Arial, sans-serif; background: linear-gradient(135deg, #1A202C, #2D3748); color: #fff; margin: 0; }
+        .header { background: #2c3e50; padding: 20px 0; text-align: center; }
+        .nav-tabs { display: flex; justify-content: center; gap: 20px; padding: 10px 0; background: #34495e; }
+        .nav-tab { color: white; text-decoration: none; padding: 5px 15px; transition: background 0.3s; font-weight: bold; text-shadow: 0 0 5px rgba(255, 107, 107, 0.5); }
+        .nav-tab:hover, .nav-tab.active { background: #3498db; border-radius: 5px; }
+        .calculator-content { max-width: 600px; margin: 20px auto; padding: 20px; background: rgba(45, 55, 72, 0.9); border-radius: 10px; box-shadow: 0 0 15px rgba(0,0,0,0.5); }
+        .calculator-box { background: #e0e0e0; color: #333; padding: 20px; border-radius: 5px; text-align: center; }
+        .input-row { display: flex; justify-content: space-between; margin-bottom: 15px; align-items: center; }
+        .input-row label { font-weight: bold; }
+        input, select { border: 1px solid #ccc; padding: 5px; border-radius: 3px; width: 200px; }
+        input.invalid, select.invalid { border-color: #ff6b6b; }
+        button.calculate-btn { background: linear-gradient(135deg, #ff6b6b, #e63946); color: white; padding: 12px 24px; border: none; border-radius: 5px; cursor: pointer; font-weight: bold; font-size: 1.1rem; box-shadow: 0 3px 6px rgba(0,0,0,0.4); transition: transform 0.2s, background 0.2s; text-transform: uppercase; }
+        button.calculate-btn:hover { background: linear-gradient(135deg, #e63946, #c0392b); transform: scale(1.05); }
+        .ads-section { margin-top: 10px; padding: 10px; background: #34495e; border-radius: 5px; text-align: center; }
+        .ads-section p { font-size: 1.2rem; font-weight: bold; color: #1e90ff; }
+        .ads-section a { color: #1e90ff; text-decoration: underline; }
+        .voice-icon { display: inline-block; padding: 10px; cursor: pointer; font-size: 2rem; color: #00cec9; transition: color 0.2s, transform 0.2s; visibility: visible; }
+        .voice-icon:hover { color: #00b7b3; transform: scale(1.1); }
+        .button-container { display: flex; justify-content: center; align-items: center; gap: 15px; margin: 20px 0; }
+        .result-table { width: 100%; margin-top: 20px; border-collapse: collapse; }
+        .result-table th, .result-table td { border: 1px solid #ccc; padding: 10px; text-align: left; }
+        .result-table th { background: #3498db; color: white; }
+        .result-table tr:nth-child(even) { background: #f0f0f0; }
+        @media (max-width: 600px) { 
+            .input-row { flex-direction: column; align-items: flex-start; } 
+            input, select { width: 100%; margin-bottom: 10px; } 
+            .button-container { flex-direction: row; gap: 10px; } 
+            .voice-icon { display: inline-block; visibility: visible; } 
         }
     </style>
 </head>
-<body class="min-h-screen flex flex-col">
-    <header class="relative">
-        <h1 class="calculator-title text-3xl">AI CALCULATOR</h1>
-        <h2 class="text-center text-xl font-bold mb-4" id="calcTitle">Currency Exchange Calculator</h2>
-        <div class="language-switcher">
-            <img src="https://img.icons8.com/ios-filled/50/000000/globe.png" alt="Language Switcher" id="langToggle" width="30">
-        </div>
-        <div class="theme-switcher">
-            <img src="https://img.icons8.com/ios-filled/50/000000/moon-symbol.png" alt="Theme Switcher" id="themeToggle" width="30">
-        </div>
+<body>
+    <header class="header">
+        <h1>Smart AI Calculator</h1>
+        <h2>Currency Converter</h2>
     </header>
-    <main class="flex-grow container mx-auto px-4 py-6">
-        <section class="max-w-md mx-auto">
-            <div class="mb-4">
-                <label for="amount" class="block font-bold mb-2" id="amountLabel">Amount</label>
-                <input type="number" id="amount" class="input-field" placeholder="e.g. 100" step="any" required>
+    <nav class="nav-tabs">
+        <a href="index.html#home" class="nav-tab">HOME</a>
+        <a href="index.html#miscellaneous" class="nav-tab active">MISCELLANEOUS</a>
+    </nav>
+    <div class="calculator-content">
+        <div class="calculator-box">
+            <h2>Currency Conversion Details</h2>
+            <div class="input-row">
+                <label>Amount:</label>
+                <input type="number" id="amount" min="0" step="0.01" oninput="validateInput(this)">
             </div>
-            <div class="mb-4">
-                <label for="fromCurrency" class="block font-bold mb-2" id="fromCurrencyLabel">From Currency</label>
-                <select id="fromCurrency" class="select-field" required>
+            <div class="input-row">
+                <label>From Currency:</label>
+                <select id="from-currency" oninput="validateInput(this)">
                     <option value="USD">USD - US Dollar</option>
+                    <option value="INR">INR - Indian Rupee</option>
                     <option value="EUR">EUR - Euro</option>
                     <option value="GBP">GBP - British Pound</option>
-                    <option value="INR">INR - Indian Rupee</option>
                     <option value="JPY">JPY - Japanese Yen</option>
                     <option value="AUD">AUD - Australian Dollar</option>
                     <option value="CAD">CAD - Canadian Dollar</option>
                     <option value="CHF">CHF - Swiss Franc</option>
                     <option value="CNY">CNY - Chinese Yuan</option>
+                    <option value="SGD">SGD - Singapore Dollar</option>
+                    <option value="NZD">NZD - New Zealand Dollar</option>
+                    <option value="MXN">MXN - Mexican Peso</option>
                     <option value="BRL">BRL - Brazilian Real</option>
+                    <option value="ZAR">ZAR - South African Rand</option>
+                    <option value="RUB">RUB - Russian Ruble</option>
+                    <option value="KRW">KRW - South Korean Won</option>
+                    <option value="HKD">HKD - Hong Kong Dollar</option>
+                    <option value="NOK">NOK - Norwegian Krone</option>
+                    <option value="SEK">SEK - Swedish Krona</option>
+                    <option value="DKK">DKK - Danish Krone</option>
+                    <option value="TRY">TRY - Turkish Lira</option>
+                    <option value="AED">AED - UAE Dirham</option>
+                    <option value="SAR">SAR - Saudi Riyal</option>
+                    <option value="THB">THB - Thai Baht</option>
+                    <option value="MYR">MYR - Malaysian Ringgit</option>
+                    <option value="PHP">PHP - Philippine Peso</option>
+                    <option value="IDR">IDR - Indonesian Rupiah</option>
+                    <option value="VND">VND - Vietnamese Dong</option>
+                    <option value="COP">COP - Colombian Peso</option>
+                    <option value="ARS">ARS - Argentine Peso</option>
+                    <option value="CLP">CLP - Chilean Peso</option>
+                    <option value="EGP">EGP - Egyptian Pound</option>
+                    <option value="ILS">ILS - Israeli Shekel</option>
+                    <option value="KWD">KWD - Kuwaiti Dinar</option>
+                    <option value="QAR">QAR - Qatari Riyal</option>
                 </select>
             </div>
-            <div class="mb-4">
-                <label for="toCurrency" class="block font-bold mb-2" id="toCurrencyLabel">To Currency</label>
-                <select id="toCurrency" class="select-field" required>
+            <div class="input-row">
+                <label>To Currency:</label>
+                <select id="to-currency" oninput="validateInput(this)">
                     <option value="USD">USD - US Dollar</option>
+                    <option value="INR">INR - Indian Rupee</option>
                     <option value="EUR">EUR - Euro</option>
                     <option value="GBP">GBP - British Pound</option>
-                    <option value="INR">INR - Indian Rupee</option>
                     <option value="JPY">JPY - Japanese Yen</option>
                     <option value="AUD">AUD - Australian Dollar</option>
                     <option value="CAD">CAD - Canadian Dollar</option>
                     <option value="CHF">CHF - Swiss Franc</option>
                     <option value="CNY">CNY - Chinese Yuan</option>
+                    <option value="SGD">SGD - Singapore Dollar</option>
+                    <option value="NZD">NZD - New Zealand Dollar</option>
+                    <option value="MXN">MXN - Mexican Peso</option>
                     <option value="BRL">BRL - Brazilian Real</option>
+                    <option value="ZAR">ZAR - South African Rand</option>
+                    <option value="RUB">RUB - Russian Ruble</option>
+                    <option value="KRW">KRW - South Korean Won</option>
+                    <option value="HKD">HKD - Hong Kong Dollar</option>
+                    <option value="NOK">NOK - Norwegian Krone</option>
+                    <option value="SEK">SEK - Swedish Krona</option>
+                    <option value="DKK">DKK - Danish Krone</option>
+                    <option value="TRY">TRY - Turkish Lira</option>
+                    <option value="AED">AED - UAE Dirham</option>
+                    <option value="SAR">SAR - Saudi Riyal</option>
+                    <option value="THB">THB - Thai Baht</option>
+                    <option value="MYR">MYR - Malaysian Ringgit</option>
+                    <option value="PHP">PHP - Philippine Peso</option>
+                    <option value="IDR">IDR - Indonesian Rupiah</option>
+                    <option value="VND">VND - Vietnamese Dong</option>
+                    <option value="COP">COP - Colombian Peso</option>
+                    <option value="ARS">ARS - Argentine Peso</option>
+                    <option value="CLP">CLP - Chilean Peso</option>
+                    <option value="EGP">EGP - Egyptian Pound</option>
+                    <option value="ILS">ILS - Israeli Shekel</option>
+                    <option value="KWD">KWD - Kuwaiti Dinar</option>
+                    <option value="QAR">QAR - Qatari Riyal</option>
                 </select>
             </div>
-            <button class="calculate-btn" onclick="convertCurrency()" id="calcButton">Convert</button>
-            <div id="result" class="result-box hidden">
-                <p id="conversionResult"></p>
-                <p class="note">Note: Exchange rates are illustrative and may not reflect real-time rates. For accurate rates, check with a financial service provider.</p>
+            <div class="button-container">
+                <button class="calculate-btn" onclick="calculateCurrency()">Calculate <span id="spinner" style="display:none;">⏳</span></button>
+                <span class="voice-icon" onclick="toggleSpeech()" title="Toggle Speech"><i class="fas fa-volume-up"></i></span>
             </div>
-        </section>
-        <section class="mt-8 max-w-2xl mx-auto">
-            <h3 class="text-xl font-bold mb-4" id="aboutTitle">About the Currency Exchange Calculator</h3>
-            <p class="mb-4" id="aboutText1">
-                The Currency Exchange Calculator helps you convert between major world currencies, including USD, EUR, GBP, INR, and more. Enter an amount and select the currencies to see the converted value based on illustrative exchange rates.
-            </p>
-            <p id="aboutText2">
-                This tool uses static exchange rates for demonstration purposes. For real-time rates, consult a financial service provider. It’s ideal for travelers, businesses, or anyone needing quick currency conversions. Always verify rates before making financial decisions.
-            </p>
-        </section>
-    </main>
-    <footer class="bg-gray-100 py-6 mt-8">
-        <div class="container mx-auto px-4 text-center">
-            <div class="mb-4">
-                <a href="/privacy-policy" class="mx-2">Privacy Policy</a> |
-                <a href="/disclaimer" class="mx-2">Disclaimer</a> |
-                <a href="/how-to-use" class="mx-2">How to Use</a> |
-                <a href="/contact-us" class="mx-2">Contact Us</a>
+            <div id="currency-result" class="mt-4 font-semibold"></div>
+            <table class="result-table" id="result-table" style="display: none;">
+                <thead>
+                    <tr>
+                        <th>Detail</th>
+                        <th>Value</th>
+                    </tr>
+                </thead>
+                <tbody id="result-table-body"></tbody>
+            </table>
+            <div id="suggestions" style="margin-top: 15px;"></div>
+            <div class="ads-section">
+                <p>Contact for Ads: <a href="/cdn-cgi/l/email-protection#17313e25242363353239343f322517303a363e3b7934383a"><span class="__cf_email__" data-cfemail="4d2b243f3e39792f28232e25283f0d2a202c2421632e2220">[email protected]</span></a></p>
             </div>
-            <div class="share-icons mb-4 flex justify-center">
-                <a href="https://www.facebook.com/sharer/sharer.php?u=#" target="_blank">
-                    <img src="https://img.icons8.com/color/48/000000/facebook-new.png" alt="Facebook">
-                </a>
-                <a href="https://twitter.com/intent/tweet?url=#&text=Check out this AI Currency Exchange Calculator!" target="_blank">
-                    <img src="https://img.icons8.com/color/48/000000/twitter.png" alt="X">
-                </a>
-                <a href="https://api.whatsapp.com/send?text=Check out this AI Currency Exchange Calculator: #" target="_blank">
-                    <img src="https://img.icons8.com/color/48/000000/whatsapp.png" alt="WhatsApp">
-                </a>
-                <a href="https://www.instagram.com/" target="_blank">
-                    <img src="https://img.icons8.com/color/48/000000/instagram-new.png" alt="Instagram">
-                </a>
+            <div id="seo-content" class="mt-4 text-sm">
+                <h3>About Currency Converter</h3>
+                <p>Our Smart AI Currency Converter instantly converts between 35+ major currencies with approximate exchange rates. Includes detailed results and practical suggestions!</p>
             </div>
-            <p class="text-sm">© 2025 All Rights Reserved</p>
         </div>
+    </div>
+    <footer class="bg-gray-800 text-white text-center py-4 mt-8">
+        <p style="font-weight: bold;">2025 © Smart AI Calculator. All rights reserved.</p>
+        <a href="privacy.html" class="text-blue-400 ml-2">Privacy Policy</a> |
+        <a href="contactus.html" class="text-blue-400 ml-2">Contact Us</a> |
+        <a href="howto.html" class="text-blue-400 ml-2">How to Use</a>
     </footer>
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
     <script>
-        let isHindi = false;
+        let isSpeaking = false;
+        let utterance = null;
+        let conversionDetails = {};
 
-        // Static exchange rates for demonstration (relative to USD)
         const exchangeRates = {
-            USD: 1,
-            EUR: 0.92,
-            GBP: 0.79,
-            INR: 83.50,
-            JPY: 149.20,
-            AUD: 1.50,
-            CAD: 1.38,
-            CHF: 0.87,
-            CNY: 7.10,
-            BRL: 5.60
+            USD: { INR: 83.5, EUR: 0.93, GBP: 0.79, JPY: 151.0, AUD: 1.52, CAD: 1.36, CHF: 0.89, CNY: 7.25, SGD: 1.33, NZD: 1.66, MXN: 19.8, BRL: 5.65, ZAR: 17.8, RUB: 96.5, KRW: 1380, HKD: 7.82, NOK: 10.9, SEK: 10.5, DKK: 6.93, TRY: 34.2, AED: 3.67, SAR: 3.75, THB: 33.7, MYR: 4.36, PHP: 58.0, IDR: 15700, VND: 25300, COP: 4200, ARS: 980, CLP: 950, EGP: 48.5, ILS: 3.73, KWD: 0.31, QAR: 3.64 },
+            INR: { USD: 0.012, EUR: 0.011, GBP: 0.0095, JPY: 1.81, AUD: 0.018, CAD: 0.016, CHF: 0.011, CNY: 0.087, SGD: 0.016, NZD: 0.020, MXN: 0.24, BRL: 0.068, ZAR: 0.21, RUB: 1.16, KRW: 16.5, HKD: 0.094, NOK: 0.13, SEK: 0.13, DKK: 0.083, TRY: 0.41, AED: 0.044, SAR: 0.045, THB: 0.40, MYR: 0.052, PHP: 0.69, IDR: 188, VND: 303, COP: 50.3, ARS: 11.7, CLP: 11.4, EGP: 0.58, ILS: 0.045, KWD: 0.0037, QAR: 0.044 },
+            EUR: { USD: 1.08, INR: 90.0, GBP: 0.85, JPY: 162.0, AUD: 1.64, CAD: 1.47, CHF: 0.96, CNY: 7.80, SGD: 1.43, NZD: 1.79, MXN: 21.3, BRL: 6.09, ZAR: 19.2, RUB: 104, KRW: 1490, HKD: 8.43, NOK: 11.7, SEK: 11.3, DKK: 7.46, TRY: 36.8, AED: 3.96, SAR: 4.05, THB: 36.3, MYR: 4.70, PHP: 62.5, IDR: 16900, VND: 27300, COP: 4520, ARS: 1060, CLP: 1020, EGP: 52.3, ILS: 4.02, KWD: 0.33, QAR: 3.92 },
+            GBP: { USD: 1.27, INR: 106.0, EUR: 1.18, JPY: 191.0, AUD: 1.93, CAD: 1.73, CHF: 1.13, CNY: 9.20, SGD: 1.69, NZD: 2.11, MXN: 25.1, BRL: 7.18, ZAR: 22.6, RUB: 122, KRW: 1750, HKD: 9.93, NOK: 13.8, SEK: 13.3, DKK: 8.80, TRY: 43.4, AED: 4.66, SAR: 4.77, THB: 42.8, MYR: 5.54, PHP: 73.6, IDR: 19900, VND: 32100, COP: 5330, ARS: 1250, CLP: 1210, EGP: 61.6, ILS: 4.73, KWD: 0.39, QAR: 4.62 },
+            JPY: { USD: 0.0066, INR: 0.55, EUR: 0.0062, GBP: 0.0052, AUD: 0.010, CAD: 0.009, CHF: 0.0059, CNY: 0.048, SGD: 0.0088, NZD: 0.011, MXN: 0.13, BRL: 0.037, ZAR: 0.12, RUB: 0.64, KRW: 9.13, HKD: 0.052, NOK: 0.072, SEK: 0.069, DKK: 0.046, TRY: 0.23, AED: 0.024, SAR: 0.025, THB: 0.22, MYR: 0.029, PHP: 0.38, IDR: 104, VND: 167, COP: 27.8, ARS: 6.49, CLP: 6.29, EGP: 0.32, ILS: 0.025, KWD: 0.0020, QAR: 0.024 },
+            AUD: { USD: 0.66, INR: 55.0, EUR: 0.61, GBP: 0.52, JPY: 99.0, CAD: 0.90, CHF: 0.59, CNY: 4.80, SGD: 0.88, NZD: 1.09, MXN: 13.0, BRL: 3.72, ZAR: 11.7, RUB: 63.5, KRW: 908, HKD: 5.14, NOK: 7.16, SEK: 6.91, DKK: 4.56, TRY: 22.5, AED: 2.42, SAR: 2.47, THB: 22.2, MYR: 2.87, PHP: 38.2, IDR: 10300, VND: 16700, COP: 2760, ARS: 645, CLP: 625, EGP: 31.9, ILS: 2.45, KWD: 0.20, QAR: 2.39 },
+            CAD: { USD: 0.74, INR: 61.5, EUR: 0.68, GBP: 0.58, JPY: 111.0, AUD: 1.11, CHF: 0.66, CNY: 5.35, SGD: 0.98, NZD: 1.22, MXN: 14.6, BRL: 4.16, ZAR: 13.1, RUB: 71.0, KRW: 1010, HKD: 5.74, NOK: 8.00, SEK: 7.72, DKK: 5.10, TRY: 25.2, AED: 2.70, SAR: 2.76, THB: 24.8, MYR: 3.21, PHP: 42.7, IDR: 11500, VND: 18600, COP: 3080, ARS: 721, CLP: 698, EGP: 35.7, ILS: 2.74, KWD: 0.23, QAR: 2.67 },
+            CHF: { USD: 1.12, INR: 93.5, EUR: 1.04, GBP: 0.88, JPY: 169.0, AUD: 1.70, CAD: 1.52, CNY: 8.15, SGD: 1.49, NZD: 1.86, MXN: 22.2, BRL: 6.34, ZAR: 20.0, RUB: 108, KRW: 1550, HKD: 8.74, NOK: 12.2, SEK: 11.7, DKK: 7.74, TRY: 38.2, AED: 4.11, SAR: 4.21, THB: 37.7, MYR: 4.88, PHP: 64.9, IDR: 17600, VND: 28300, COP: 4700, ARS: 1100, CLP: 1060, EGP: 54.3, ILS: 4.17, KWD: 0.35, QAR: 4.07 },
+            CNY: { USD: 0.14, INR: 11.5, EUR: 0.13, GBP: 0.11, JPY: 20.8, AUD: 0.21, CAD: 0.19, CHF: 0.12, SGD: 0.18, NZD: 0.23, MXN: 2.73, BRL: 0.78, ZAR: 2.46, RUB: 13.3, KRW: 190, HKD: 1.08, NOK: 1.50, SEK: 1.44, DKK: 0.95, TRY: 4.71, AED: 0.51, SAR: 0.52, THB: 4.65, MYR: 0.60, PHP: 8.00, IDR: 2160, VND: 3490, COP: 579, ARS: 135, CLP: 131, EGP: 6.69, ILS: 0.51, KWD: 0.043, QAR: 0.50 },
+            SGD: { USD: 0.75, INR: 62.8, EUR: 0.70, GBP: 0.59, JPY: 113.0, AUD: 1.14, CAD: 1.02, CHF: 0.67, CNY: 5.45, NZD: 1.25, MXN: 14.9, BRL: 4.25, ZAR: 13.4, RUB: 72.5, KRW: 1040, HKD: 5.87, NOK: 8.18, SEK: 7.89, DKK: 5.21, TRY: 25.7, AED: 2.76, SAR: 2.83, THB: 25.3, MYR: 3.27, PHP: 43.5, IDR: 11800, VND: 19000, COP: 3150, ARS: 737, CLP: 714, EGP: 36.5, ILS: 2.80, KWD: 0.23, QAR: 2.73 },
+            NZD: { USD: 0.60, INR: 50.3, EUR: 0.56, GBP: 0.47, JPY: 90.9, AUD: 0.92, CAD: 0.82, CHF: 0.54, CNY: 4.37, SGD: 0.80, MXN: 11.9, BRL: 3.41, ZAR: 10.7, RUB: 58.2, KRW: 832, HKD: 4.71, NOK: 6.56, SEK: 6.33, DKK: 4.18, TRY: 20.6, AED: 2.22, SAR: 2.27, THB: 20.3, MYR: 2.62, PHP: 34.9, IDR: 9460, VND: 15300, COP: 2530, ARS: 591, CLP: 572, EGP: 29.3, ILS: 2.25, KWD: 0.19, QAR: 2.19 },
+            MXN: { USD: 0.050, INR: 4.21, EUR: 0.047, GBP: 0.040, JPY: 7.63, AUD: 0.077, CAD: 0.069, CHF: 0.045, CNY: 0.37, SGD: 0.067, NZD: 0.084, BRL: 0.29, ZAR: 0.90, RUB: 4.88, KRW: 69.7, HKD: 0.39, NOK: 0.55, SEK: 0.53, DKK: 0.35, TRY: 1.73, AED: 0.19, SAR: 0.19, THB: 1.70, MYR: 0.22, PHP: 2.93, IDR: 793, VND: 1280, COP: 212, ARS: 49.5, CLP: 47.9, EGP: 2.45, ILS: 0.19, KWD: 0.016, QAR: 0.18 },
+            BRL: { USD: 0.18, INR: 14.7, EUR: 0.16, GBP: 0.14, JPY: 26.6, AUD: 0.27, CAD: 0.24, CHF: 0.16, CNY: 1.28, SGD: 0.24, NZD: 0.29, MXN: 3.50, ZAR: 3.15, RUB: 17.1, KRW: 244, HKD: 1.38, NOK: 1.93, SEK: 1.86, DKK: 1.23, TRY: 6.06, AED: 0.65, SAR: 0.66, THB: 5.96, MYR: 0.77, PHP: 10.3, IDR: 2780, VND: 4480, COP: 743, ARS: 174, CLP: 168, EGP: 8.58, ILS: 0.66, KWD: 0.055, QAR: 0.64 },
+            ZAR: { USD: 0.056, INR: 4.71, EUR: 0.052, GBP: 0.044, JPY: 8.47, AUD: 0.085, CAD: 0.076, CHF: 0.050, CNY: 0.41, SGD: 0.075, NZD: 0.093, MXN: 1.11, BRL: 0.32, RUB: 5.42, KRW: 77.5, HKD: 0.44, NOK: 0.61, SEK: 0.59, DKK: 0.39, TRY: 1.92, AED: 0.21, SAR: 0.21, THB: 1.89, MYR: 0.24, PHP: 3.26, IDR: 881, VND: 1420, COP: 236, ARS: 55.1, CLP: 53.3, EGP: 2.73, ILS: 0.21, KWD: 0.017, QAR: 0.20 },
+            RUB: { USD: 0.010, INR: 0.87, EUR: 0.0096, GBP: 0.0082, JPY: 1.56, AUD: 0.016, CAD: 0.014, CHF: 0.0093, CNY: 0.075, SGD: 0.014, NZD: 0.017, MXN: 0.20, BRL: 0.059, ZAR: 0.18, KRW: 14.3, HKD: 0.081, NOK: 0.11, SEK: 0.11, DKK: 0.072, TRY: 0.35, AED: 0.038, SAR: 0.039, THB: 0.35, MYR: 0.045, PHP: 0.60, IDR: 162, VND: 262, COP: 43.5, ARS: 10.2, CLP: 9.83, EGP: 0.50, ILS: 0.039, KWD: 0.0032, QAR: 0.038 },
+            KRW: { USD: 0.00072, INR: 0.060, EUR: 0.00067, GBP: 0.00057, JPY: 0.11, AUD: 0.0011, CAD: 0.00099, CHF: 0.00065, CNY: 0.0053, SGD: 0.00096, NZD: 0.0012, MXN: 0.014, BRL: 0.0041, ZAR: 0.013, RUB: 0.070, HKD: 0.0057, NOK: 0.0079, SEK: 0.0076, DKK: 0.0050, TRY: 0.025, AED: 0.0027, SAR: 0.0027, THB: 0.024, MYR: 0.0032, PHP: 0.042, IDR: 11.4, VND: 18.3, COP: 3.04, ARS: 0.71, CLP: 0.69, EGP: 0.035, ILS: 0.0027, KWD: 0.00022, QAR: 0.0026 },
+            HKD: { USD: 0.13, INR: 10.7, EUR: 0.12, GBP: 0.10, JPY: 19.3, AUD: 0.19, CAD: 0.17, CHF: 0.11, CNY: 0.93, SGD: 0.17, NZD: 0.21, MXN: 2.53, BRL: 0.72, ZAR: 2.28, RUB: 12.3, KRW: 176, NOK: 1.39, SEK: 1.34, DKK: 0.89, TRY: 4.37, AED: 0.47, SAR: 0.48, THB: 4.31, MYR: 0.56, PHP: 7.42, IDR: 2010, VND: 3240, COP: 537, ARS: 125, CLP: 121, EGP: 6.20, ILS: 0.48, KWD: 0.040, QAR: 0.47 },
+            NOK: { USD: 0.092, INR: 7.67, EUR: 0.085, GBP: 0.072, JPY: 13.8, AUD: 0.14, CAD: 0.13, CHF: 0.082, CNY: 0.67, SGD: 0.12, NZD: 0.15, MXN: 1.82, BRL: 0.52, ZAR: 1.64, RUB: 8.87, KRW: 127, HKD: 0.72, SEK: 0.96, DKK: 0.64, TRY: 3.14, AED: 0.34, SAR: 0.34, THB: 3.09, MYR: 0.40, PHP: 5.32, IDR: 1440, VND: 2320, COP: 385, ARS: 90.0, CLP: 87.1, EGP: 4.46, ILS: 0.34, KWD: 0.028, QAR: 0.33 },
+            SEK: { USD: 0.095, INR: 7.94, EUR: 0.088, GBP: 0.075, JPY: 14.3, AUD: 0.14, CAD: 0.13, CHF: 0.085, CNY: 0.69, SGD: 0.13, NZD: 0.16, MXN: 1.88, BRL: 0.54, ZAR: 1.70, RUB: 9.19, KRW: 131, HKD: 0.75, NOK: 1.04, DKK: 0.66, TRY: 3.26, AED: 0.35, SAR: 0.36, THB: 3.20, MYR: 0.41, PHP: 5.51, IDR: 1490, VND: 2410, COP: 399, ARS: 93.3, CLP: 90.4, EGP: 4.62, ILS: 0.36, KWD: 0.029, QAR: 0.34 },
+            DKK: { USD: 0.14, INR: 12.0, EUR: 0.13, GBP: 0.11, JPY: 21.7, AUD: 0.22, CAD: 0.20, CHF: 0.13, CNY: 1.05, SGD: 0.19, NZD: 0.24, MXN: 2.86, BRL: 0.81, ZAR: 2.57, RUB: 13.9, KRW: 199, HKD: 1.13, NOK: 1.58, SEK: 1.52, TRY: 4.94, AED: 0.53, SAR: 0.54, THB: 4.85, MYR: 0.63, PHP: 8.34, IDR: 2260, VND: 3650, COP: 604, ARS: 141, CLP: 137, EGP: 7.00, ILS: 0.54, KWD: 0.044, QAR: 0.52 },
+            TRY: { USD: 0.029, INR: 2.44, EUR: 0.027, GBP: 0.023, JPY: 4.37, AUD: 0.044, CAD: 0.040, CHF: 0.026, CNY: 0.21, SGD: 0.039, NZD: 0.048, MXN: 0.58, BRL: 0.16, ZAR: 0.52, RUB: 2.82, KRW: 40.3, HKD: 0.23, NOK: 0.32, SEK: 0.31, DKK: 0.20, AED: 0.11, SAR: 0.11, THB: 0.98, MYR: 0.13, PHP: 1.69, IDR: 458, VND: 739, COP: 122, ARS: 28.6, CLP: 27.7, EGP: 1.42, ILS: 0.11, KWD: 0.0090, QAR: 0.11 },
+            AED: { USD: 0.27, INR: 22.7, EUR: 0.25, GBP: 0.21, JPY: 41.1, AUD: 0.41, CAD: 0.37, CHF: 0.24, CNY: 1.97, SGD: 0.36, NZD: 0.45, MXN: 5.39, BRL: 1.54, ZAR: 4.86, RUB: 26.3, KRW: 376, HKD: 2.13, NOK: 2.97, SEK: 2.86, DKK: 1.89, TRY: 9.33, SAR: 1.02, THB: 9.18, MYR: 1.19, PHP: 15.8, IDR: 4270, VND: 6900, COP: 1140, ARS: 267, CLP: 259, EGP: 13.2, ILS: 1.02, KWD: 0.084, QAR: 0.99 },
+            SAR: { USD: 0.27, INR: 22.2, EUR: 0.25, GBP: 0.21, JPY: 40.2, AUD: 0.40, CAD: 0.36, CHF: 0.24, CNY: 1.93, SGD: 0.35, NZD: 0.44, MXN: 5.27, BRL: 1.50, ZAR: 4.75, RUB: 25.7, KRW: 368, HKD: 2.08, NOK: 2.90, SEK: 2.80, DKK: 1.85, TRY: 9.12, AED: 0.98, THB: 8.97, MYR: 1.16, PHP: 15.4, IDR: 4180, VND: 6750, COP: 1120, ARS: 261, CLP: 253, EGP: 12.9, ILS: 0.99, KWD: 0.082, QAR: 0.97 },
+            THB: { USD: 0.030, INR: 2.48, EUR: 0.028, GBP: 0.023, JPY: 4.46, AUD: 0.045, CAD: 0.040, CHF: 0.027, CNY: 0.22, SGD: 0.040, NZD: 0.049, MXN: 0.59, BRL: 0.17, ZAR: 0.53, RUB: 2.86, KRW: 40.9, HKD: 0.23, NOK: 0.32, SEK: 0.31, DKK: 0.21, TRY: 1.02, AED: 0.11, SAR: 0.11, MYR: 0.13, PHP: 1.72, IDR: 465, VND: 751, COP: 124, ARS: 29.1, CLP: 28.1, EGP: 1.44, ILS: 0.11, KWD: 0.0091, QAR: 0.11 },
+            MYR: { USD: 0.23, INR: 19.2, EUR: 0.21, GBP: 0.18, JPY: 34.6, AUD: 0.35, CAD: 0.31, CHF: 0.20, CNY: 1.67, SGD: 0.31, NZD: 0.38, MXN: 4.56, BRL: 1.30, ZAR: 4.10, RUB: 22.2, KRW: 317, HKD: 1.80, NOK: 2.50, SEK: 2.41, DKK: 1.59, TRY: 7.86, AED: 0.84, SAR: 0.86, THB: 7.75, PHP: 13.3, IDR: 3600, VND: 5810, COP: 963, ARS: 225, CLP: 218, EGP: 11.2, ILS: 0.86, KWD: 0.071, QAR: 0.83 },
+            PHP: { USD: 0.017, INR: 1.44, EUR: 0.016, GBP: 0.014, JPY: 2.62, AUD: 0.026, CAD: 0.023, CHF: 0.015, CNY: 0.13, SGD: 0.023, NZD: 0.029, MXN: 0.34, BRL: 0.097, ZAR: 0.31, RUB: 1.67, KRW: 23.8, HKD: 0.13, NOK: 0.19, SEK: 0.18, DKK: 0.12, TRY: 0.59, AED: 0.063, SAR: 0.065, THB: 0.58, MYR: 0.075, IDR: 270, VND: 436, COP: 72.3, ARS: 16.9, CLP: 16.4, EGP: 0.84, ILS: 0.064, KWD: 0.0053, QAR: 0.062 },
+            IDR: { USD: 0.000064, INR: 0.0053, EUR: 0.000059, GBP: 0.000050, JPY: 0.0096, AUD: 0.000097, CAD: 0.000087, CHF: 0.000057, CNY: 0.00046, SGD: 0.000085, NZD: 0.00011, MXN: 0.0013, BRL: 0.00036, ZAR: 0.0011, RUB: 0.0062, KRW: 0.088, HKD: 0.00050, NOK: 0.00069, SEK: 0.00067, DKK: 0.00044, TRY: 0.0022, AED: 0.00023, SAR: 0.00024, THB: 0.0021, MYR: 0.00028, PHP: 0.0037, VND: 5.95, COP: 0.99, ARS: 0.23, CLP: 0.22, EGP: 0.0031, ILS: 0.00024, KWD: 0.000020, QAR: 0.00023 },
+            VND: { USD: 0.000039, INR: 0.0033, EUR: 0.000037, GBP: 0.000031, JPY: 0.0060, AUD: 0.000060, CAD: 0.000054, CHF: 0.000035, CNY: 0.00029, SGD: 0.000053, NZD: 0.000065, MXN: 0.00078, BRL: 0.00022, ZAR: 0.00070, RUB: 0.0038, KRW: 0.055, HKD: 0.00031, NOK: 0.00043, SEK: 0.00041, DKK: 0.00027, TRY: 0.0014, AED: 0.00014, SAR: 0.00015, THB: 0.0013, MYR: 0.00017, PHP: 0.0023, IDR: 0.17, COP: 0.60, ARS: 0.14, CLP: 0.14, EGP: 0.0019, ILS: 0.00015, KWD: 0.000012, QAR: 0.00014 },
+            COP: { USD: 0.00024, INR: 0.020, EUR: 0.00022, GBP: 0.00019, JPY: 0.036, AUD: 0.00036, CAD: 0.00032, CHF: 0.00021, CNY: 0.0017, SGD: 0.00032, NZD: 0.00040, MXN: 0.0047, BRL: 0.0013, ZAR: 0.0042, RUB: 0.023, KRW: 0.33, HKD: 0.0019, NOK: 0.0026, SEK: 0.0025, DKK: 0.0017, TRY: 0.0082, AED: 0.00088, SAR: 0.00090, THB: 0.0080, MYR: 0.0010, PHP: 0.014, IDR: 1.01, VND: 1.67, ARS: 0.23, CLP: 0.23, EGP: 0.012, ILS: 0.00089, KWD: 0.000073, QAR: 0.00086 },
+            ARS: { USD: 0.0010, INR: 0.085, EUR: 0.00094, GBP: 0.00080, JPY: 0.15, AUD: 0.0015, CAD: 0.0014, CHF: 0.00091, CNY: 0.0074, SGD: 0.0014, NZD: 0.0017, MXN: 0.020, BRL: 0.0057, ZAR: 0.018, RUB: 0.098, KRW: 1.41, HKD: 0.0080, NOK: 0.011, SEK: 0.011, DKK: 0.0071, TRY: 0.035, AED: 0.0037, SAR: 0.0038, THB: 0.034, MYR: 0.0044, PHP: 0.059, IDR: 4.35, VND: 7.03, COP: 4.34, CLP: 0.97, EGP: 0.049, ILS: 0.0038, KWD: 0.00031, QAR: 0.0037 },
+            CLP: { USD: 0.0011, INR: 0.088, EUR: 0.00098, GBP: 0.00083, JPY: 0.16, AUD: 0.0016, CAD: 0.0014, CHF: 0.00094, CNY: 0.0076, SGD: 0.0014, NZD: 0.0017, MXN: 0.021, BRL: 0.0059, ZAR: 0.019, RUB: 0.10, KRW: 1.45, HKD: 0.0082, NOK: 0.011, SEK: 0.011, DKK: 0.0073, TRY: 0.036, AED: 0.0039, SAR: 0.0040, THB: 0.036, MYR: 0.0046, PHP: 0.061, IDR: 4.48, VND: 7.24, COP: 4.47, ARS: 1.03, EGP: 0.051, ILS: 0.0039, KWD: 0.00032, QAR: 0.0039 },
+            EGP: { USD: 0.021, INR: 1.72, EUR: 0.019, GBP: 0.016, JPY: 3.09, AUD: 0.031, CAD: 0.028, CHF: 0.018, CNY: 0.15, SGD: 0.027, NZD: 0.034, MXN: 0.41, BRL: 0.12, ZAR: 0.37, RUB: 1.99, KRW: 28.5, HKD: 0.16, NOK: 0.22, SEK: 0.22, DKK: 0.14, TRY: 0.70, AED: 0.076, SAR: 0.077, THB: 0.69, MYR: 0.089, PHP: 1.19, IDR: 323, VND: 522, COP: 86.5, ARS: 20.2, CLP: 19.6, ILS: 0.077, KWD: 0.0063, QAR: 0.075 },
+            ILS: { USD: 0.27, INR: 22.4, EUR: 0.25, GBP: 0.21, JPY: 40.5, AUD: 0.41, CAD: 0.36, CHF: 0.24, CNY: 1.95, SGD: 0.36, NZD: 0.44, MXN: 5.31, BRL: 1.52, ZAR: 4.79, RUB: 25.9, KRW: 371, HKD: 2.10, NOK: 2.93, SEK: 2.83, DKK: 1.87, TRY: 9.22, AED: 0.99, SAR: 1.01, THB: 9.05, MYR: 1.17, PHP: 15.6, IDR: 4210, VND: 6800, COP: 1130, ARS: 264, CLP: 255, EGP: 13.0, KWD: 0.083, QAR: 0.98 },
+            KWD: { USD: 3.26, INR: 272, EUR: 3.03, GBP: 2.57, JPY: 492, AUD: 4.94, CAD: 4.43, CHF: 2.90, CNY: 23.7, SGD: 4.34, NZD: 5.39, MXN: 64.5, BRL: 18.4, ZAR: 58.1, RUB: 315, KRW: 4500, HKD: 25.5, NOK: 35.5, SEK: 34.3, DKK: 22.7, TRY: 112, AED: 12.0, SAR: 12.3, THB: 110, MYR: 14.2, PHP: 189, IDR: 51100, VND: 82600, COP: 13700, ARS: 3200, CLP: 3100, EGP: 158, ILS: 12.1, QAR: 11.9 },
+            QAR: { USD: 0.27, INR: 22.9, EUR: 0.26, GBP: 0.22, JPY: 41.3, AUD: 0.42, CAD: 0.37, CHF: 0.25, CNY: 2.00, SGD: 0.37, NZD: 0.46, MXN: 5.43, BRL: 1.55, ZAR: 4.89, RUB: 26.5, KRW: 379, HKD: 2.14, NOK: 2.98, SEK: 2.89, DKK: 1.91, TRY: 9.42, AED: 1.01, SAR: 1.03, THB: 9.26, MYR: 1.20, PHP: 15.9, IDR: 4310, VND: 6960, COP: 1150, ARS: 269, CLP: 260, EGP: 13.3, ILS: 1.02, KWD: 0.084 }
         };
 
-        function convertCurrency() {
-            const amount = parseFloat(document.getElementById('amount').value);
-            const fromCurrency = document.getElementById('fromCurrency').value;
-            const toCurrency = document.getElementById('toCurrency').value;
-
-            if (isNaN(amount) || amount < 0) {
-                alert(isHindi ? 'कृपया एक मान्य राशि दर्ज करें।' : 'Please enter a valid amount.');
-                return;
+        function validateInput(input) {
+            console.log("validateInput");
+            try {
+                if (input.id === "amount") {
+                    let value = parseFloat(input.value);
+                    input.classList.toggle("invalid", value <= 0 || isNaN(value));
+                } else if (input.id === "from-currency" || input.id === "to-currency") {
+                    input.classList.toggle("invalid", !input.value);
+                }
+            } catch (e) {
+                console.error("Validation failed:", e.message);
             }
-
-            // Convert to USD first, then to target currency
-            const usdAmount = amount / exchangeRates[fromCurrency];
-            const convertedAmount = usdAmount * exchangeRates[toCurrency];
-
-            document.getElementById('conversionResult').textContent = isHindi 
-                ? `${amount} ${fromCurrency} = ${convertedAmount.toFixed(2)} ${toCurrency}` 
-                : `${amount} ${fromCurrency} = ${convertedAmount.toFixed(2)} ${toCurrency}`;
-            document.getElementById('result').classList.remove('hidden');
         }
 
-        document.getElementById('themeToggle').addEventListener('click', () => {
-            document.body.classList.toggle('dark-mode');
-            const icon = document.getElementById('themeToggle');
-            icon.src = document.body.classList.contains('dark-mode')
-                ? 'https://img.icons8.com/ios-filled/50/ffffff/sun.png'
-                : 'https://img.icons8.com/ios-filled/50/000000/moon-symbol.png';
-        });
+        function calculateCurrency() {
+            console.log("calculateCurrency");
+            document.getElementById("spinner").style.display = "inline";
+            setTimeout(() => {
+                try {
+                    const amount = parseFloat(document.getElementById("amount").value);
+                    const fromCurrency = document.getElementById("from-currency").value;
+                    const toCurrency = document.getElementById("to-currency").value;
+                    const resultDiv = document.getElementById("currency-result");
+                    const tableBody = document.getElementById("result-table-body");
+                    const table = document.getElementById("result-table");
+                    const suggestionsDiv = document.getElementById("suggestions");
+                    tableBody.innerHTML = "";
+                    conversionDetails = {};
 
-        document.getElementById('langToggle').addEventListener('click', () => {
-            isHindi = !isHindi;
+                    if (!amount || amount <= 0 || !fromCurrency || !toCurrency) {
+                        resultDiv.innerText = "Invalid input. Check all fields.";
+                        table.style.display = "none";
+                        suggestionsDiv.innerHTML = "";
+                        document.getElementById("spinner").style.display = "none";
+                        console.log("Invalid input");
+                        return;
+                    }
 
-            document.getElementById('calcTitle').textContent = isHindi 
-                ? 'मुद्रा विनिमय कैलकुलेटर' 
-                : 'Currency Exchange Calculator';
-            document.getElementById('amountLabel').textContent = isHindi 
-                ? 'राशि' 
-                : 'Amount';
-            document.getElementById('fromCurrencyLabel').textContent = isHindi 
-                ? 'से मुद्रा' 
-                : 'From Currency';
-            document.getElementById('toCurrencyLabel').textContent = isHindi 
-                ? 'में मुद्रा' 
-                : 'To Currency';
-            document.getElementById('calcButton').textContent = isHindi 
-                ? 'परिवर्तन करें' 
-                : 'Convert';
-            document.getElementById('aboutTitle').textContent = isHindi 
-                ? 'मुद्रा विनिमय कैलकुलेटर के बारे में' 
-                : 'About the Currency Exchange Calculator';
-            document.getElementById('aboutText1').textContent = isHindi 
-                ? 'मुद्रा विनिमय कैलकुलेटर आपको USD, EUR, GBP, INR, और अन्य प्रमुख विश्व मुद्राओं के बीच परिवर्तन करने में मदद करता है। एक राशि दर्ज करें और मुद्राएँ चुनें ताकि प्रदर्शनात्मक विनिमय दरों के आधार पर परिवर्तित मूल्य देख सकें।'
-                : 'The Currency Exchange Calculator helps you convert between major world currencies, including USD, EUR, GBP, INR, and more. Enter an amount and select the currencies to see the converted value based on illustrative exchange rates.';
-            document.getElementById('aboutText2').textContent = isHindi 
-                ? 'यह उपकरण प्रदर्शन के लिए स्थिर विनिमय दरों का उपयोग करता है। वास्तविक समय की दरों के लिए, किसी वित्तीय सेवा प्रदाता से परामर्श करें। यह यात्रियों, व्यवसायों, या किसी भी व्यक्ति के लिए आदर्श है जिसे त्वरित मुद्रा परिवर्तन की आवश्यकता है। वित्तीय निर्णय लेने से पहले हमेशा दरों को सत्यापित करें।'
-                : 'This tool uses static exchange rates for demonstration purposes. For real-time rates, consult a financial service provider. It’s ideal for travelers, businesses, or anyone needing quick currency conversions. Always verify rates before making financial decisions.';
-        });
+                    const rate = fromCurrency === toCurrency ? 1 : exchangeRates[fromCurrency][toCurrency];
+                    const convertedAmount = (amount * rate).toFixed(2);
+
+                    conversionDetails = {
+                        amount: amount.toFixed(2),
+                        fromCurrency,
+                        toCurrency,
+                        rate: rate.toFixed(4),
+                        convertedAmount,
+                        suggestions: [
+                            "Check live exchange rates for accuracy.",
+                            "Consider bank or service fees for actual conversions.",
+                            "Use trusted exchange services for transactions."
+                        ]
+                    };
+
+                    resultDiv.innerText = `${conversionDetails.amount} ${fromCurrency} = ${convertedAmount} ${toCurrency}`;
+                    tableBody.innerHTML = `
+                        <tr><td>Amount</td><td>${conversionDetails.amount} ${fromCurrency}</td></tr>
+                        <tr><td>From Currency</td><td>${fromCurrency}</td></tr>
+                        <tr><td>To Currency</td><td>${toCurrency}</td></tr>
+                        <tr><td>Exchange Rate</td><td>1 ${fromCurrency} = ${conversionDetails.rate} ${toCurrency}</td></tr>
+                        <tr><td>Converted Amount</td><td>${convertedAmount} ${toCurrency}</td></tr>
+                    `;
+                    suggestionsDiv.innerHTML = `<strong>Suggestions:</strong><ul>${conversionDetails.suggestions.map(s => `<li>${s}</li>`).join("")}</ul>`;
+                    table.style.display = "table";
+                    document.getElementById("spinner").style.display = "none";
+                    console.log("Calculation done");
+                } catch (e) {
+                    console.error("Calculation failed:", e.message);
+                    alert("Error: " + e.message + ". Use a local server (e.g., Live Server) and check internet.");
+                    document.getElementById("spinner").style.display = "none";
+                }
+            }, 500);
+        }
+
+        function toggleSpeech() {
+            console.log("toggleSpeech");
+            try {
+                const result = document.getElementById("currency-result").innerText;
+                if (!result || result.includes("Invalid")) return;
+                if (isSpeaking) {
+                    window.speechSynthesis.cancel();
+                    isSpeaking = false;
+                } else {
+                    utterance = new SpeechSynthesisUtterance(result);
+                    utterance.lang = "en";
+                    utterance.onend = () => { isSpeaking = false; };
+                    window.speechSynthesis.speak(utterance);
+                    isSpeaking = true;
+                }
+            } catch (e) {
+                console.error("Speech failed:", e.message);
+                alert("Speech failed: " + e.message);
+            }
+        }
+
+        function stopSpeech() {
+            if (isSpeaking) {
+                window.speechSynthesis.cancel();
+                isSpeaking = false;
+            }
+        }
+
+        window.onpagehide = stopSpeech;
+        window.onbeforeunload = stopSpeech;
     </script>
 </body>
 </html>
