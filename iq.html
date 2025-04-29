@@ -12,6 +12,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js@3.9.1/dist/chart.min.js"></script>
+ 
     <style>
         body { font-family: Arial, sans-serif; background: linear-gradient(135deg, #1A202C, #2D3748); color: #fff; margin: 0; }
         .header { background: #2c3e50; padding: 20px 0; text-align: center; }
@@ -37,6 +38,7 @@
         .result-table th { background: #3498db; color: white; }
         .result-table tr:nth-child(even) { background: #f0f0f0; }
         #chart-container { margin-top: 20px; }
+        .ct-chart { height: 200px; }
         .note { font-size: 0.75rem; font-style: italic; color: #555; margin-top: 10px; text-align: center; }
         @media (max-width: 600px) { 
             .input-row { flex-direction: column; align-items: flex-start; } 
@@ -87,7 +89,7 @@
             </table>
             <div id="suggestions" style="margin-top: 15px;"></div>
             <div id="chart-container" style="display: none;">
-                <canvas id="iq-chart"></canvas>
+                <div id="iq-chart" class="ct-chart"></div>
             </div>
             <div class="ads-section">
                 <p>Contact for Ads: <a href="/cdn-cgi/l/email-protection#17313e25242363353239343f322517303a363e3b7934383a"><span class="__cf_email__" data-cfemail="4d2b243f3e39792f28232e25283f0d2a202c2421632e2220">[email protected]</span></a></p>
@@ -133,8 +135,8 @@
             document.getElementById("spinner").style.display = "inline";
             setTimeout(() => {
                 try {
-                    if (!window.Chart) {
-                        throw new Error("Chart.js not loaded. Check CDN or use local server.");
+                    if (typeof Chartist === 'undefined') {
+                        throw new Error("Chartist.js not loaded. Check CDN or use local server.");
                     }
                     const age = parseInt(document.getElementById("age").value);
                     const mentalAge = parseFloat(document.getElementById("mental-age").value);
@@ -212,35 +214,25 @@
 
                     // Chart (IQ Distribution)
                     chartContainer.style.display = "block";
-                    const ctx = document.getElementById("iq-chart").getContext("2d");
+                    const chartElement = document.getElementById("iq-chart");
+                    chartElement.innerHTML = ""; // Clear previous chart
                     const iqRange = Array.from({length: 81}, (_, i) => 60 + i);
                     const gaussian = iqRange.map(x => (1 / (sd * Math.sqrt(2 * Math.PI))) * Math.exp(-((x - mean) ** 2) / (2 * sd ** 2)));
-                    new Chart(ctx, {
-                        type: "line",
-                        data: {
-                            labels: iqRange,
-                            datasets: [
-                                {
-                                    label: "IQ Distribution",
-                                    data: gaussian,
-                                    borderColor: "#3498db",
-                                    fill: false
-                                },
-                                {
-                                    label: "Your IQ",
-                                    data: iqRange.map(x => x === iqDetails.iq ? gaussian[iqRange.indexOf(iqDetails.iq)] : null),
-                                    borderColor: "#ff6b6b",
-                                    pointRadius: 5,
-                                    pointBackgroundColor: "#ff6b6b",
-                                    showLine: false
-                                }
-                            ]
-                        },
-                        options: {
-                            scales: {
-                                x: { title: { display: true, text: "IQ Score" } },
-                                y: { display: false }
-                            }
+                    const userIqData = iqRange.map(x => x === iqDetails.iq ? gaussian[iqRange.indexOf(iqDetails.iq)] : null);
+                    new Chartist.Line('#iq-chart', {
+                        labels: iqRange,
+                        series: [
+                            gaussian, // Gaussian curve
+                            userIqData // User's IQ point
+                        ]
+                    }, {
+                        fullWidth: true,
+                        chartPadding: { top: 20, right: 0, bottom: 20, left: 0 },
+                        axisY: { showGrid: false, showLabel: false },
+                        axisX: { labelInterpolationFnc: value => value % 10 === 0 ? value : '' },
+                        series: {
+                            'series-1': { lineSmooth: Chartist.Interpolation.cardinal() },
+                            'series-2': { showLine: false, showPoint: true, pointSize: 10 }
                         }
                     });
 
