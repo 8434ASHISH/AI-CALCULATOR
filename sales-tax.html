@@ -2,30 +2,18 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-FEQ7R89CFG"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-FEQ7R89CFG');
-</script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Smart AI Calculator - Sales Tax Calculator | Free Online Tool</title>
-    <meta name="description" content="Calculate your sales tax and total amount with our free AI-powered Sales Tax Calculator. Available in English, Hindi, Tamil, Telugu, Spanish, Bengali, Arabic, Mandarin, and French. Try now!">
-    <meta name="keywords" content="sales tax calculator, ai sales tax calculator, free sales tax calculator, online sales tax calculator, tax calculator">
+    <title>Smart AI Calculator - Sales Tax Calculator | Free Online Tool 2025</title>
+    <meta name="description" content="Calculate sales tax instantly with our free AI-powered Sales Tax Calculator. Perfect for shopping, business, and tax planning. Available in multiple languages. Try now!">
+    <meta name="keywords" content="sales tax calculator, tax calculator, free online sales tax calculator 2025, calculate sales tax for shopping, AI sales tax calculator, online tax calculator, sales tax estimator, quick tax calculator, business tax calculator">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://smartaicalculator.com/sales-tax.html">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/chartist@0.11.4/dist/chartist.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chartist@0.11.4/dist/chartist.min.js"></script>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            background: linear-gradient(135deg, #1A202C, #2D3748);
-            color: #fff;
-            margin: 0;
-        }
+        body { font-family: Arial, sans-serif; background: linear-gradient(135deg, #1A202C, #2D3748); color: #fff; margin: 0; }
         .header { background: #2c3e50; padding: 20px 0; text-align: center; position: relative; }
         .nav-tabs { display: flex; justify-content: center; gap: 20px; padding: 10px 0; background: #34495e; }
         .nav-tab { color: white; text-decoration: none; padding: 5px 15px; transition: background 0.3s; }
@@ -35,53 +23,22 @@
         .input-row { display: flex; justify-content: space-between; margin-bottom: 15px; }
         .input-row label { font-weight: bold; }
         input { border: 1px solid #ccc; padding: 5px; border-radius: 3px; width: 100px; }
-        button { 
-            background: linear-gradient(135deg, #ff6b6b, #e63946); 
-            color: white; 
-            padding: 12px 24px; 
-            border: none; 
-            border-radius: 5px; 
-            cursor: pointer; 
-            font-weight: bold; 
-            font-size: 1.1rem; 
-            box-shadow: 0 3px 6px rgba(0,0,0,0.4); 
-            transition: transform 0.2s, background 0.2s; 
-            text-transform: uppercase; 
-        }
-        button:hover { 
-            background: linear-gradient(135deg, #e63946, #c0392b); 
-            transform: scale(1.05); 
-        }
+        button { background-color: #28a745; color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer; font-weight: bold; font-size: 1.1rem; box-shadow: 0 3px 6px rgba(0,0,0,0.4); transition: transform 0.2s, background 0.2s; text-transform: uppercase; }
+        button:hover { background-color: #218838; transform: scale(1.05); }
         .ads-section { margin-top: 20px; padding: 20px; background: #34495e; border-radius: 10px; text-align: center; box-shadow: 0 0 10px rgba(0,0,0,0.3); }
         .ads-section p { font-size: 1.5rem; font-weight: bold; color: #1e90ff; }
         .ads-section a { color: #1e90ff; text-decoration: underline; }
-        .voice-icon { 
-            display: inline-block; 
-            padding: 10px; 
-            cursor: pointer; 
-            font-size: 2rem; 
-            color: #00cec9; 
-            transition: color 0.2s, transform 0.2s; 
-            visibility: visible; 
-        }
-        .voice-icon:hover { 
-            color: #00b7b3; 
-            transform: scale(1.1); 
-        }
-        .button-container { 
-            display: flex; 
-            justify-content: center; 
-            align-items: center; 
-            gap: 15px; 
-            margin: 20px 0; 
-        }
+        .voice-icon { display: inline-block; padding: 10px; cursor: pointer; font-size: 2rem; color: #00cec9; transition: color 0.2s, transform 0.2s; visibility: visible; }
+        .voice-icon:hover { color: #00b7b3; transform: scale(1.1); }
+        .result-container { margin-top: 20px; }
+        .related-links { margin-top: 20px; font-weight: bold; }
+        .related-links ul { list-style: none; padding: 0; }
+        .related-links li { margin: 10px 0; }
+        .related-links a { color: #3498db; text-decoration: underline; }
+        .ct-chart { height: 200px; }
         @media (max-width: 600px) { 
             .input-row { flex-direction: column; } 
             input { width: 100%; margin-bottom: 10px; } 
-            .button-container { flex-direction: row; gap: 10px; } 
-            .voice-icon { display: inline-block; visibility: visible; } 
-        }
-        @media (min-width: 601px) { 
             .voice-icon { display: inline-block; visibility: visible; } 
         }
     </style>
@@ -92,34 +49,43 @@
         <p id="tagline">Sales Tax Calculator</p>
     </header>
     <nav class="nav-tabs">
-        <a href="index.html#financial" class="nav-tab" onclick="showCategory('financial')">FINANCIAL</a>
-        <a href="index.html#health" class="nav-tab" onclick="showCategory('home')">HOME</a>
-        
+        <a href="index.html#financial" class="nav-tab active" onclick="showCategory('financial')">FINANCIAL</a>
+        <a href="index.html#misc" class="nav-tab" onclick="showCategory('home')">HOME</a>
     </nav>
     <div class="calculator-content">
         <div class="calculator-box">
-            <h2 id="calc-title">Enter amount and sales tax rate to calculate total amount</h2>
+            <h2 id="calc-title">Enter item price and tax rate to calculate sales tax</h2>
             <div class="input-row">
-                <label id="amount-label">Original Amount (₹)</label>
-                <input type="number" id="original-amount" min="0" value="1000">
+                <label id="item-price-label">Item Price (₹)</label>
+                <input type="number" id="item-price" min="0" step="0.01" value="1000">
             </div>
             <div class="input-row">
-                <label id="rate-label">Sales Tax Rate (%)</label>
-                <input type="number" id="tax-rate" min="0" step="0.1" value="10">
+                <label id="tax-rate-label">Tax Rate (%)</label>
+                <input type="number" id="tax-rate" min="0" step="0.1" value="18">
             </div>
-            <div class="button-container">
+            <div class="button-container" style="display: flex; justify-content: center; align-items: center; gap: 15px; margin: 20px 0;">
                 <button onclick="calculateSalesTax()">Calculate <span id="spinner" style="display:none;">⏳</span></button>
                 <span class="voice-icon" onclick="toggleSpeech()" title="Toggle Speech"><i class="fas fa-volume-up"></i></span>
             </div>
-            <div class="ads-section">
-                <p>Contact for Ads: <a href="mailto:first4bencher@gmail.com">first4bencher@gmail.com</a></p>
+            <div class="result-container">
+                <div id="tax-result" class="mt-4 font-semibold"></div>
+                <div id="chart-container" style="display: none;">
+                    <div id="tax-chart" class="ct-chart"></div>
+                </div>
+                <div id="related-links" class="related-links" style="display: none;">
+                    <p>You May Also Like:</p>
+                    <ul>
+                        <li><a href="amortization.html">💸 AMORTIZATION Calculator</a></li>
+                        <li><a href="mortgage.html">🏦 Mortgage Calculator</a></li>
+                    </ul>
+                </div>
+                <div id="ads-section" class="ads-section" style="display: none;">
+                    <p>Contact for Ads: <a href="mailto:first4bencher@gmail.com">first4bencher@gmail.com</a></p>
+                </div>
             </div>
-            <div id="salestax-result" class="mt-4 font-semibold"></div>
             <div id="seo-content" class="mt-4 text-sm">
                 <h3>About Sales Tax Calculator</h3>
-                <p>Welcome to the AI Sales Tax Calculator, a free online tool designed to help you calculate your sales tax and total amount with ease. Whether you’re a business owner, shopper, or accountant, this calculator leverages advanced AI technology to provide accurate and instant results. Available in multiple languages including English, Hindi, Tamil, Telugu, Spanish, Bengali, Arabic, Mandarin, and French, it caters to a diverse global audience. Simply enter your original amount and sales tax rate, then click "Calculate" to get your tax breakdown.</p>
-                <p>Why choose our Sales Tax Calculator? It’s user-friendly, fast, and optimized for all devices, making it perfect for businesses, retailers, and taxpayers. The tool uses a standard sales tax formula: Tax Amount = Original Amount × (Sales Tax Rate / 100), and Total Amount = Original Amount + Tax Amount. Our AI integration ensures precision and offers suggestions for tax planning. This calculator stands out due to its multilingual support and modern design, setting it apart from traditional sales tax calculators.</p>
-                <p>SEO optimization is crucial for this tool to rank high on search engines like Google. We’ve included meta tags, a canonical URL, and keywords such as "sales tax calculator online," "free sales tax calculator," and "AI sales tax tool" to boost visibility. To enhance ranking, consider adding backlinks from financial or tax-related blogs or submitting the site to directories. Regular updates and user feedback can further improve its performance. Ideal for tax calculations, this calculator is a must-try for anyone seeking financial clarity. Explore it today and take control of your sales tax calculations!</p>
+                <p>Our AI-powered Sales Tax Calculator helps you quickly calculate sales tax and total cost for shopping or business needs. Available in multiple languages, it’s perfect for global users. Enter item price and tax rate to get instant results.</p>
             </div>
         </div>
     </div>
@@ -134,74 +100,198 @@
         let isSpeaking = false;
         let utterance = null;
         const translations = {
-            en: { header: "Smart AI Calculator", tagline: "Sales Tax Calculator", calcTitle: "Enter amount and sales tax rate to calculate total amount", amountLabel: "Original Amount (₹)", rateLabel: "Sales Tax Rate (%)", resultPrefix: "Total Amount: " },
-            hi: { header: "स्मार्ट एआई कैलकुलेटर", tagline: "बिक्री कर कैलकुलेटर", calcTitle: "कुल राशि की गणना के लिए राशि और बिक्री कर दर दर्ज करें", amountLabel: "मूल राशि (₹)", rateLabel: "बिक्री कर दर (%)", resultPrefix: "कुल राशि: " },
-            ta: { header: "ஸ்மார்ட் AI கால்குலேட்டர்", tagline: "விற்பனை வரி கால்குலேட்டர்", calcTitle: "மொத்த தொகையை கணக்கிட தொகை மற்றும் விற்பனை வரி விகிதத்தை உள்ளிடவும்", amountLabel: "மூல தொகை (₹)", rateLabel: "விற்பனை வரி விகிதம் (%)", resultPrefix: "மொத்த தொகை: " },
-            te: { header: "స్మార్ట్ AI కాల్కులేటర్", tagline: "సేల్స్ టాక్స్ కాల్కులేటర్", calcTitle: "మొత్తం రాశిని లెక్కించడానికి రాశి మరియు సేల్స్ టాక్స్ రేటును నమోదు చేయండి", amountLabel: "అసలు రాశి (₹)", rateLabel: "సేల్స్ టాక్స్ రేటు (%)", resultPrefix: "మొత్తం రాశి: " },
-            es: { header: "Calculadora de IA Inteligente", tagline: "Calculadora de Impuestos de Ventas", calcTitle: "Ingrese el monto y la tasa de impuestos de ventas para calcular el monto total", amountLabel: "Monto original (₹)", rateLabel: "Tasa de impuestos de ventas (%)", resultPrefix: "Monto total: " },
-            bn: { header: "স্মার্ট এআই ক্যালকুলেটর", tagline: "বিক্রয় কর ক্যালকুলেটর", calcTitle: "মোট পরিমাণ গণনার জন্য পরিমাণ এবং বিক্রয় করের হার লিখুন", amountLabel: "মূল পরিমাণ (₹)", rateLabel: "বিক্রয় করের হার (%)", resultPrefix: "মোট পরিমাণ: " },
-            ar: { header: "حاسبة الذكاء الاصطناعي الذكية", tagline: "حاسبة ضريبة المبيعات", calcTitle: "أدخل المبلغ ونسبة ضريبة المبيعات لحساب المبلغ الإجمالي", amountLabel: "المبلغ الأصلي (₹)", rateLabel: "نسبة ضريبة المبيعات (%)", resultPrefix: "المبلغ الإجمالي: " },
-            zh: { header: "智能人工智能计算器", tagline: "销售税计算器", calcTitle: "输入金额和销售税率以计算总金额", amountLabel: "原始金额 (₹)", rateLabel: "销售税率 (%)", resultPrefix: "总金额: " },
-            fr: { header: "Calculateur IA Intelligent", tagline: "Calculateur de Taxe de Vente", calcTitle: "Entrez le montant et le taux de taxe de vente pour calculer le montant total", amountLabel: "Montant initial (₹)", rateLabel: "Taux de taxe de vente (%)", resultPrefix: "Montant total: " }
+            en: { 
+                header: "Smart AI Calculator", 
+                tagline: "Sales Tax Calculator", 
+                calcTitle: "Enter item price and tax rate to calculate sales tax", 
+                itemPriceLabel: "Item Price (₹)", 
+                taxRateLabel: "Tax Rate (%)", 
+                resultPrefix: "Sales Tax: ", 
+                invalidInput: "Please enter valid values" 
+            },
+            hi: { 
+                header: "स्मार्ट एआई कैलकुलेटर", 
+                tagline: "बिक्री कर कैलकुलेटर", 
+                calcTitle: "वस्तु मूल्य और कर दर दर्ज करें बिक्री कर की गणना के लिए", 
+                itemPriceLabel: "वस्तु मूल्य (₹)", 
+                taxRateLabel: "कर दर (%)", 
+                resultPrefix: "बिक्री कर: ", 
+                invalidInput: "कृपया वैध मान दर्ज करें" 
+            },
+            ta: { 
+                header: "ஸ்மார்ட் AI கால்குலேட்டர்", 
+                tagline: "விற்பனை வரி கால்குலேட்டர்", 
+                calcTitle: "பொருள் விலை மற்றும் வரி விகிதத்தை உள்ளிடவும் விற்பனை வரியைக் கணக்கிட", 
+                itemPriceLabel: "பொருள் விலை (₹)", 
+                taxRateLabel: "வரி விகிதம் (%)", 
+                resultPrefix: "விற்பனை வரி: ", 
+                invalidInput: "சரியான மதிப்புகளை உள்ளிடவும்" 
+            },
+            te: { 
+                header: "స్మార్ట్ AI కాల్కులేటర్", 
+                tagline: "సేల్స్ టాక్స్ కాల్కులేటర్", 
+                calcTitle: "ఐటమ్ ధర మరియు టాక్స్ రేటును నమోదు చేయండి సేల్స్ టాక్స్ లెక్కించడానికి", 
+                itemPriceLabel: "ఐటమ్ ధర (₹)", 
+                taxRateLabel: "టాక్స్ రేటు (%)", 
+                resultPrefix: "సేల్స్ టాక్స్: ", 
+                invalidInput: "దయచేసి సరైన విలువలను నమోదు చేయండి" 
+            },
+            es: { 
+                header: "Calculadora de IA Inteligente", 
+                tagline: "Calculadora de Impuesto sobre Ventas", 
+                calcTitle: "Ingrese el precio del artículo y la tasa de impuesto para calcular el impuesto sobre ventas", 
+                itemPriceLabel: "Precio del Artículo (₹)", 
+                taxRateLabel: "Tasa de Impuesto (%)", 
+                resultPrefix: "Impuesto sobre Ventas: ", 
+                invalidInput: "Por favor, ingrese valores válidos" 
+            },
+            bn: { 
+                header: "স্মার্ট এআই ক্যালকুলেটর", 
+                tagline: "বিক্রয় কর ক্যালকুলেটর", 
+                calcTitle: "আইটেমের মূল্য এবং কর হার লিখুন বিক্রয় কর গণনার জন্য", 
+                itemPriceLabel: "আইটেমের মূল্য (₹)", 
+                taxRateLabel: "কর হার (%)", 
+                resultPrefix: "বিক্রয় কর: ", 
+                invalidInput: "দয়া করে বৈধ মান লিখুন" 
+            },
+            ar: { 
+                header: "حاسبة الذكاء الاصطناعي الذكية", 
+                tagline: "حاسبة ضريبة المبيعات", 
+                calcTitle: "أدخل سعر السلعة ونسبة الضريبة لحساب ضريبة المبيعات", 
+                itemPriceLabel: "سعر السلعة (₹)", 
+                taxRateLabel: "نسبة الضريبة (%)", 
+                resultPrefix: "ضريبة المبيعات: ", 
+                invalidInput: "يرجى إدخال قيم صحيحة" 
+            },
+            zh: { 
+                header: "智能人工智能计算器", 
+                tagline: "销售税计算器", 
+                calcTitle: "输入商品价格和税率以计算销售税", 
+                itemPriceLabel: "商品价格 (₹)", 
+                taxRateLabel: "税率 (%)", 
+                resultPrefix: "销售税: ", 
+                invalidInput: "请输入有效值" 
+            },
+            fr: { 
+                header: "Calculateur IA Intelligent", 
+                tagline: "Calculateur de Taxe de Vente", 
+                calcTitle: "Entrez le prix de l'article et le taux de taxe pour calculer la taxe de vente", 
+                itemPriceLabel: "Prix de l'Article (₹)", 
+                taxRateLabel: "Taux de Taxe (%)", 
+                resultPrefix: "Taxe de Vente: ", 
+                invalidInput: "Veuillez entrer des valeurs valides" 
+            }
         };
+
         function calculateSalesTax() {
             document.getElementById("spinner").style.display = "inline";
             setTimeout(() => {
-                let originalAmount = parseFloat(document.getElementById("original-amount").value);
-                let taxRate = parseFloat(document.getElementById("tax-rate").value);
-                let resultDiv = document.getElementById("salestax-result");
-                if (originalAmount >= 0 && taxRate >= 0) {
-                    let taxAmount = (originalAmount * taxRate) / 100;
-                    let totalAmount = originalAmount + taxAmount;
-                    resultDiv.innerHTML = `${translations[lang].resultPrefix} ${totalAmount.toFixed(2)} ₹<br>Sales Tax Amount: ${taxAmount.toFixed(2)} ₹<br>Original Amount: ${originalAmount.toFixed(2)} ₹`;
-                } else {
-                    resultDiv.innerText = lang === 'en' ? "Please enter valid values" : lang === 'hi' ? "कृपया वैध मान दर्ज करें" : lang === 'ta' ? "சரியான மதிப்புகளை உள்ளிடவும்" : lang === 'te' ? "దయచేసి సరైన విలువలను నమోదు చేయండి" : lang === 'es' ? "Por favor, ingrese valores válidos" : lang === 'bn' ? "দয়া করে বৈধ মান লিখুন" : lang === 'ar' ? "يرجى إدخال قيم صحيحة" : lang === 'zh' ? "请输入有效值" : "Veuillez entrer des valeurs valides";
+                try {
+                    if (typeof Chartist === 'undefined') {
+                        throw new Error("Chartist.js not loaded. Check CDN or use local server.");
+                    }
+                    let price = parseFloat(document.getElementById("item-price").value);
+                    let taxRate = parseFloat(document.getElementById("tax-rate").value) / 100;
+                    let resultDiv = document.getElementById("tax-result");
+                    let chartContainer = document.getElementById("chart-container");
+                    let relatedLinksDiv = document.getElementById("related-links");
+                    let adsSectionDiv = document.getElementById("ads-section");
+
+                    if (price >= 0 && taxRate >= 0) {
+                        let salesTax = price * taxRate;
+                        let totalAmount = price + salesTax;
+
+                        resultDiv.innerHTML = `${translations[lang].resultPrefix} ${salesTax.toFixed(2)} ₹<br>Total Amount: ${totalAmount.toFixed(2)} ₹`;
+                        
+                        // Chart
+                        chartContainer.style.display = "block";
+                        const chartElement = document.getElementById("tax-chart");
+                        chartElement.innerHTML = "";
+                        new Chartist.Pie('#tax-chart', {
+                            series: [price, salesTax],
+                            labels: ['Item Price', 'Sales Tax']
+                        }, {
+                            donut: true,
+                            donutWidth: 60,
+                            startAngle: 270,
+                            showLabel: true
+                        });
+
+                        relatedLinksDiv.style.display = "block";
+                        adsSectionDiv.style.display = "block";
+                    } else {
+                        resultDiv.innerText = translations[lang].invalidInput;
+                        chartContainer.style.display = "none";
+                        relatedLinksDiv.style.display = "none";
+                        adsSectionDiv.style.display = "none";
+                    }
+                    document.getElementById("spinner").style.display = "none";
+                    console.log("Calculation done");
+                } catch (e) {
+                    console.error("Calculation failed:", e.message);
+                    alert("Error: " + e.message + ". Use a local server (e.g., Live Server) and check internet.");
+                    document.getElementById("spinner").style.display = "none";
                 }
-                document.getElementById("spinner").style.display = "none";
             }, 1000);
         }
+
         function toggleSpeech() {
-            console.log("Toggling speech for result");
-            const result = document.getElementById("salestax-result").innerHTML;
-            if (!result) {
-                console.log("No result to speak");
-                return;
-            }
-            if (isSpeaking) {
-                window.speechSynthesis.cancel();
-                isSpeaking = false;
-                console.log("Speech stopped");
-            } else {
-                utterance = new SpeechSynthesisUtterance(result);
-                utterance.lang = lang === 'zh' ? 'zh-CN' : lang === 'ar' ? 'ar-SA' : lang;
-                utterance.onend = () => {
+            console.log("toggleSpeech");
+            try {
+                const result = document.getElementById("tax-result").innerText;
+                if (!result || result.includes("valid values")) return;
+                if (isSpeaking) {
+                    window.speechSynthesis.cancel();
                     isSpeaking = false;
-                    console.log("Speech ended");
-                };
-                window.speechSynthesis.speak(utterance);
-                isSpeaking = true;
-                console.log("Speech started");
+                } else {
+                    const totalAmount = result.match(/Total Amount: ([\d,.]+) ₹/)[1];
+                    const speechText = lang === 'en' ? `Your total amount including sales tax is ${totalAmount} rupees.` :
+                                      lang === 'hi' ? `आपका कुल राशि बिक्री कर सहित ${totalAmount} रुपये है।` :
+                                      lang === 'ta' ? `விற்பனை வரி உட்பட உங்கள் மொத்த தொகை ${totalAmount} ரூபாய்.` :
+                                      lang === 'te' ? `సేల్స్ టాక్స్ సహా మీ మొత్తం మొత్తం ${totalAmount} రూపాయలు.` :
+                                      lang === 'es' ? `Su monto total incluyendo el impuesto sobre ventas es ${totalAmount} rupias.` :
+                                      lang === 'bn' ? `বিক্রয় কর সহ আপনার মোট পরিমাণ ${totalAmount} টাকা।` :
+                                      lang === 'ar' ? `إجمالي مبلغك بما في ذلك ضريبة المبيعات هو ${totalAmount} روبية.` :
+                                      lang === 'zh' ? `您的总金额包括销售税为${totalAmount}卢比。` :
+                                      `Votre montant total, taxe de vente incluse, est de ${totalAmount} roupies.`;
+                    utterance = new SpeechSynthesisUtterance(speechText);
+                    utterance.lang = lang === 'zh' ? 'zh-CN' : lang === 'ar' ? 'ar-SA' : lang;
+                    utterance.onend = () => { isSpeaking = false; };
+                    window.speechSynthesis.speak(utterance);
+                    isSpeaking = true;
+                }
+            } catch (e) {
+                console.error("Speech failed:", e.message);
+                alert("Speech failed: " + e.message);
             }
         }
+
         function stopSpeech() {
             if (isSpeaking) {
                 window.speechSynthesis.cancel();
                 isSpeaking = false;
-                console.log("Speech stopped on page exit");
             }
         }
+
         function showCategory(category) {
             // No action needed here as navigation is handled by index.html
         }
+
         window.onload = () => {
-            document.getElementById('header-title').textContent = translations[lang].header;
-            document.getElementById('tagline').textContent = translations[lang].tagline;
-            document.getElementById('calc-title').textContent = translations[lang].calcTitle;
-            document.getElementById('amount-label').textContent = translations[lang].amountLabel;
-            document.getElementById('rate-label').textContent = translations[lang].rateLabel;
-            console.log("Voice icon loaded");
+            try {
+                document.getElementById('header-title').textContent = translations[lang].header;
+                document.getElementById('tagline').textContent = translations[lang].tagline;
+                document.getElementById('calc-title').textContent = translations[lang].calcTitle;
+                document.getElementById('item-price-label').textContent = translations[lang].itemPriceLabel;
+                document.getElementById('tax-rate-label').textContent = translations[lang].taxRateLabel;
+            } catch (e) {
+                console.error("Initialization failed:", e.message);
+                alert("Initialization error: " + e.message);
+            }
         };
+
         window.onpagehide = stopSpeech;
         window.onbeforeunload = stopSpeech;
     </script>
-<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'934ab0e65a83454b',t:'MTc0NTM4MzMxMi4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></html>
+</body>
+</html>
