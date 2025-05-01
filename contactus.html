@@ -3,17 +3,155 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact Us - AI Calculator</title>
+    <title>Contact Us - Smart AI Calculator | Free Online Tool 2025</title>
+    <meta name="description" content="Contact Smart AI Calculator for support, feedback, or ads. Use our form in English, Chinese, or Russian to reach us at first4bencher@gmail.com.">
+    <meta name="keywords" content="smart ai calculator contact us 2025, calculator contact, contact online calculator English Chinese Russian, free calculator support, calculator feedback">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://smartaicalculator.com/contactus.html">
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        body { font-family: Arial, sans-serif; background: linear-gradient(135deg, #1A202C, #2D3748); color: #fff; margin: 0; }
+        body { font-family: Arial, sans-serif; background: linear-gradient(135deg, #1A202C, #2D3748); color: #fff; margin: 0; padding: 0; }
+        .header { background: #2c3e50; padding: 20px 0; text-align: center; }
         .content { max-width: 800px; margin: 20px auto; padding: 20px; background: rgba(45, 55, 72, 0.9); border-radius: 10px; box-shadow: 0 0 15px rgba(0,0,0,0.5); }
+        h1, h2 { color: #3498db; }
+        p, li { line-height: 1.6; }
+        a { color: #1e90ff; text-decoration: underline; }
+        a:hover { color: #00b7b3; text-decoration: none; }
+        .section { margin-bottom: 30px; }
+        .lang-toggle { text-align: center; margin: 20px 0; }
+        .lang-toggle a { color: #3498db; padding: 10px; }
+        .lang-toggle a:hover { color: #1e90ff; }
+        .form-container { background: #e0e0e0; color: #333; padding: 20px; border-radius: 5px; }
+        .form-container label { display: block; font-weight: bold; margin-bottom: 5px; }
+        .form-container input, .form-container select, .form-container textarea { width: 100%; padding: 8px; margin-bottom: 15px; border: 1px solid #ccc; border-radius: 3px; }
+        .form-container button { background-color: #28a745; color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer; font-weight: bold; font-size: 1.1rem; box-shadow: 0 3px 6px rgba(0,0,0,0.4); transition: transform 0.2s, background 0.2s; text-transform: uppercase; }
+        .form-container button:hover { background-color: #218838; transform: scale(1.05); }
+        footer { background: #2c3e50; text-align: center; padding: 20px 0; }
+        @media (max-width: 600px) { .form-container input, .form-container select, .form-container textarea { font-size: 0.9rem; } }
     </style>
 </head>
 <body>
-    <div class="content">
-        <h1>Contact Us</h1>
-        <p>For any support or feedback, reach out to us at: <a href="mailto:first4bencher@gmail.com">first4bencher@gmail.com</a></p>
+    <header class="header">
+        <h1>Smart AI Calculator</h1>
+        <p>Contact Us</p>
+    </header>
+    <div class="lang-toggle">
+        <a href="#english" onclick="showLang('english')">English</a> | 
+        <a href="#chinese" onclick="showLang('chinese')">中文</a> | 
+        <a href="#russian" onclick="showLang('russian')">Русский</a>
     </div>
+    <div class="content">
+        <div id="english" class="section">
+            <h2>Contact Us</h2>
+            <p>Have questions, feedback, or want to advertise with us? Fill out the form below, and we’ll get back to you as soon as possible.</p>
+            <div class="form-container">
+                <form id="contact-form-en" onsubmit="sendEmail('en'); return false;">
+                    <label for="name-en">Name</label>
+                    <input type="text" id="name-en" required placeholder="Your Name">
+                    <label for="email-en">Email</label>
+                    <input type="email" id="email-en" required placeholder="Your Email">
+                    <label for="type-en">Message Type</label>
+                    <select id="type-en" required>
+                        <option value="Support">Support</option>
+                        <option value="Feedback">Feedback</option>
+                        <option value="Ads">Ads</option>
+                    </select>
+                    <label for="message-en">Message</label>
+                    <textarea id="message-en" rows="5" required placeholder="Your Message"></textarea>
+                    <button type="submit">Send Message</button>
+                </form>
+            </div>
+            <h3>Contact Me</h3>
+            <p>Email: <a href="mailto:first4bencher@gmail.com">first4bencher@gmail.com</a></p>
+        </div>
+        <div id="chinese" class="section" style="display: none;">
+            <h2>联系我们</h2>
+            <p>有问题、反馈或想与我们合作广告？请填写下面的表单，我们会尽快回复您。</p>
+            <div class="form-container">
+                <form id="contact-form-zh" onsubmit="sendEmail('zh'); return false;">
+                    <label for="name-zh">姓名</label>
+                    <input type="text" id="name-zh" required placeholder="您的姓名">
+                    <label for="email-zh">电子邮件</label>
+                    <input type="email" id="email-zh" required placeholder="您的电子邮件">
+                    <label for="type-zh">消息类型</label>
+                    <select id="type-zh" required>
+                        <option value="Support">支持</option>
+                        <option value="Feedback">反馈</option>
+                        <option value="Ads">广告</option>
+                    </select>
+                    <label for="message-zh">消息</label>
+                    <textarea id="message-zh" rows="5" required placeholder="您的消息"></textarea>
+                    <button type="submit">发送消息</button>
+                </form>
+            </div>
+            <h3>联系我</h3>
+            <p>电子邮件: <a href="mailto:first4bencher@gmail.com">first4bencher@gmail.com</a></p>
+        </div>
+        <div id="russian" class="section" style="display: none;">
+            <h2>Свяжитесь с нами</h2>
+            <p>Есть вопросы, отзывы или хотите разместить рекламу? Заполните форму ниже, и мы свяжемся с вами как можно скорее.</p>
+            <div class="form-container">
+                <form id="contact-form-ru" onsubmit="sendEmail('ru'); return false;">
+                    <label for="name-ru">Имя</label>
+                    <input type="text" id="name-ru" required placeholder="Ваше имя">
+                    <label for="email-ru">Электронная почта</label>
+                    <input type="email" id="email-ru" required placeholder="Ваш email">
+                    <label for="type-ru">Тип сообщения</label>
+                    <select id="type-ru" required>
+                        <option value="Support">Поддержка</option>
+                        <option value="Feedback">Обратная связь</option>
+                        <option value="Ads">Реклама</option>
+                    </select>
+                    <label for="message-ru">Сообщение</label>
+                    <textarea id="message-ru" rows="5" required placeholder="Ваше сообщение"></textarea>
+                    <button type="submit">Отправить сообщение</button>
+                </form>
+            </div>
+            <h3>Свяжитесь со мной</h3>
+            <p>Электронная почта: <a href="mailto:first4bencher@gmail.com">first4bencher@gmail.com</a></p>
+        </div>
+    </div>
+    <footer>
+        <p>2025 © Smart AI Calculator. All rights reserved.</p>
+        <a href="privacy.html">Privacy Policy</a> | 
+        <a href="disclaimer.html">Disclaimer</a> | 
+        <a href="howto.html">How to Use</a>
+    </footer>
+    <script>
+        function showLang(lang) {
+            document.getElementById('english').style.display = lang === 'english' ? 'block' : 'none';
+            document.getElementById('chinese').style.display = lang === 'chinese' ? 'block' : 'none';
+            document.getElementById('russian').style.display = lang === 'russian' ? 'block' : 'none';
+        }
+
+        function sendEmail(lang) {
+            try {
+                const name = document.getElementById(`name-${lang}`).value;
+                const email = document.getElementById(`email-${lang}`).value;
+                const type = document.getElementById(`type-${lang}`).value;
+                const message = document.getElementById(`message-${lang}`).value;
+
+                if (!name || !email || !type || !message) {
+                    alert(lang === 'en' ? 'Please fill all fields.' :
+                          lang === 'zh' ? '请填写所有字段。' :
+                          'Пожалуйста, заполните все поля.');
+                    return;
+                }
+
+                const subject = encodeURIComponent(`[${type}] Contact from ${name}`);
+                const body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\nType: ${type}\nMessage: ${message}`);
+                const mailtoLink = `mailto:first4bencher@gmail.com?subject=${subject}&body=${body}`;
+                
+                window.location.href = mailtoLink;
+            } catch (e) {
+                console.error('Email redirect failed:', e.message);
+                alert(lang === 'en' ? 'Failed to open email client. Please try again.' :
+                      lang === 'zh' ? '无法打开电子邮件客户端。请重试。' :
+                      'Не удалось открыть почтовый клиент. Пожалуйста, попробуйте снова.');
+            }
+        }
+
+        window.onload = () => showLang('english');
+    </script>
 </body>
 </html>
