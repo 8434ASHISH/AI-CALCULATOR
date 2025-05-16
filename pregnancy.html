@@ -14,33 +14,30 @@
   "creator": { "@type": "Organization", "name": "Smart AI Calculator" }
 }
 </script>
-
     <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-FEQ7R89CFG"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-FEQ7R89CFG');
-</script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-FEQ7R89CFG"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-FEQ7R89CFG');
+    </script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pregnancy due date calculator with conception date input</title>
-    <meta name="description" content="Accurately predict your pregnancy due date, trimesters, and milestones with our advanced calculator. Includes charts and health suggestions!">
-    <meta name="keywords" content="pregnancy calculator, Pregnancy due date calculator with conception date input, due date calculator, trimester calculator, pregnancy tracker">
+    <title>Advanced Pregnancy due date calculator with conception date input</title>
+    <meta name="description" content="Advanced pregnancy calculator with due date prediction, trimester tracking, detailed charts, health suggestions, and multi-language support.">
+    <meta name="keywords" content="advanced pregnancy calculator, Pregnancy due date calculator with conception date input, due date calculator, trimester calculator, pregnancy tracker, multilingual pregnancy tool">
     <meta name="robots" content="index, follow">
-      <link rel="canonical" href="https://smartaicalculator.com/pregnancy.html">
+    <link rel="canonical" href="https://smartaicalculator.com/pregnancy.html">
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/chartist@0.11.4/dist/chartist.min.css">
-    <script src="https://cdn.jsdelivr.net/npm/chartist@0.11.4/dist/chartist.min.js"></script>
     <style>
         body { font-family: Arial, sans-serif; background: linear-gradient(135deg, #1A202C, #2D3748); color: #fff; margin: 0; }
         .header { background: #2c3e50; padding: 20px 0; text-align: center; }
         .nav-tabs { display: flex; justify-content: center; gap: 20px; padding: 10px 0; background: #34495e; }
         .nav-tab { color: white; text-decoration: none; padding: 5px 15px; transition: background 0.3s; font-weight: bold; text-shadow: 0 0 5px rgba(255, 107, 107, 0.5); }
         .nav-tab:hover, .nav-tab.active { background: #3498db; border-radius: 5px; }
-        .calculator-content { max-width: 600px; margin: 20px auto; padding: 20px; background: rgba(45, 55, 72, 0.9); border-radius: 10px; box-shadow: 0 0 15px rgba(0,0,0,0.5); }
+        .calculator-content { max-width: 800px; margin: 20px auto; padding: 20px; background: rgba(45, 55, 72, 0.9); border-radius: 10px; box-shadow: 0 0 15px rgba(0,0,0,0.5); }
         .calculator-box { background: #e0e0e0; color: #333; padding: 20px; border-radius: 5px; text-align: center; }
         .input-row { display: flex; justify-content: space-between; margin-bottom: 15px; align-items: center; }
         .input-row label { font-weight: bold; }
@@ -58,80 +55,634 @@
         .result-table th, .result-table td { border: 1px solid #ccc; padding: 10px; text-align: left; }
         .result-table th { background: #3498db; color: white; }
         .result-table tr:nth-child(even) { background: #f0f0f0; }
-        #chart-container { margin-top: 20px; }
-        .ct-chart { height: 200px; }
+        .milestone-card { background: white; border-radius: 5px; padding: 15px; margin: 10px 0; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+        .milestone-title { font-weight: bold; color: #e63946; margin-bottom: 5px; font-size: 1.1rem; }
+        .milestone-desc { color: #333; font-size: 0.9rem; }
+        .faq-item { margin-bottom: 15px; }
+        .faq-question { font-weight: bold; cursor: pointer; color: #2c3e50; }
+        .faq-answer { display: none; margin-top: 5px; padding: 10px; background: #f8f9fa; border-radius: 5px; }
+        .language-dropdown { margin-bottom: 15px; text-align: right; }
+        .language-select { padding: 5px 10px; border-radius: 5px; border: 1px solid #3498db; background: white; color: #333; }
+        .chart-container { margin-top: 20px; padding: 10px; background: white; border-radius: 5px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+        .chart-select { margin-bottom: 10px; padding: 5px; border-radius: 5px; border: 1px solid #3498db; }
+        .timeline { position: relative; max-width: 100%; margin: 20px 0; }
+        .timeline::after { content: ''; position: absolute; width: 100%; height: 2px; background: #3498db; top: 50%; left: 0; transform: translateY(-50%); z-index: 1; }
+        .timeline-item { position: relative; padding: 15px 0; width: 100%; }
+        .timeline-content { margin-left: 30px; background: white; padding: 15px; border-radius: 5px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+        .timeline-date { font-weight: bold; color: #e63946; font-size: 1rem; }
+        .timeline-label { color: #333; font-size: 0.9rem; }
         @media (max-width: 600px) { 
             .input-row { flex-direction: column; align-items: flex-start; } 
             input { width: 100%; margin-bottom: 10px; } 
             .button-container { flex-direction: row; gap: 10px; } 
             .voice-icon { display: inline-block; visibility: visible; } 
+            .chart-container { width: 100%; }
         }
     </style>
 </head>
 <body>
     <header class="header">
-        <h1>Smart AI Calculator</h1>
-        <h2>Pregnancy due date calculator with conception date input</h2>
+        <h1 id="header-title">Smart AI Calculator</h1>
+        <h2 id="header-subtitle">Advanced Pregnancy due date calculator with conception date input</h2>
     </header>
     <nav class="nav-tabs">
-        <a href="index.html#home" class="nav-tab">HOME</a>
-        <a href="index.html#miscellaneous" class="nav-tab active">MISCELLANEOUS</a>
+        <a href="index.html#home" class="nav-tab" id="home-tab">HOME</a>
+        <a href="index.html#miscellaneous" class="nav-tab active" id="misc-tab">MISCELLANEOUS</a>
     </nav>
     <div class="calculator-content">
         <div class="calculator-box">
-            <h2>Pregnancy Details</h2>
+            <div class="language-dropdown">
+                <select class="language-select" id="language-select" onchange="changeLanguage(this.value)">
+                    <option value="en">English</option>
+                    <option value="hi">हिन्दी (Hindi)</option>
+                    <option value="ar">العربية (Arabic)</option>
+                    <option value="es">Español (Spanish)</option>
+                    <option value="bn">বাংলা (Bengali)</option>
+                </select>
+            </div>
+            
+            <h2 id="pregnancy-title">Pregnancy Details</h2>
             <div class="input-row">
-                <label>Last Menstrual Period (LMP):</label>
+                <label id="lmp-label">Last Menstrual Period (LMP):</label>
                 <input type="date" id="lmp-date" oninput="validateInput(this)">
             </div>
             <div class="input-row">
-                <label>Average Cycle Length (days, optional):</label>
+                <label id="cycle-label">Average Cycle Length (days, optional):</label>
                 <input type="number" id="cycle-length" min="20" max="45" value="28" step="1" oninput="validateInput(this)">
             </div>
             <div class="button-container">
-                <button class="calculate-btn" onclick="calculatePregnancy()">Calculate <span id="spinner" style="display:none;">⏳</span></button>
+                <button class="calculate-btn" onclick="calculatePregnancy()"><span id="calculate-text">Calculate</span> <span id="spinner" style="display:none;">⏳</span></button>
                 <span class="voice-icon" onclick="toggleSpeech()" title="Toggle Speech"><i class="fas fa-volume-up"></i></span>
             </div>
+            
             <div id="pregnancy-result" class="mt-4 font-semibold"></div>
             <table class="result-table" id="result-table" style="display: none;">
                 <thead>
                     <tr>
-                        <th>Detail</th>
-                        <th>Value</th>
+                        <th id="detail-header">Detail</th>
+                        <th id="value-header">Result</th>
                     </tr>
                 </thead>
                 <tbody id="result-table-body"></tbody>
             </table>
-            <div id="suggestions" style="margin-top: 15px;"></div>
+            
             <div id="chart-container" style="display: none;">
-                <div id="pregnancy-chart" class="ct-chart"></div>
-                <p style="margin-top: 10px;">You May Also Like:</p>
-<ul style="list-style: none; padding-left: 0;">
-  <li><a href="menstruation-cycle.html" style="font-weight: bold; color: #4f46e5; text-decoration: none;">MENSTRUATION CYCLE Calculator</a></li>
-  <li><a href="body-fat.html" style="font-weight: bold; color: #4f46e5; text-decoration: none;">BODY FATs Calculator</a></li>
-</ul>
+                <h3 id="chart-title" style="text-align: left; color: #2c3e50;">Pregnancy Progress</h3>
+                <select class="chart-select" id="chart-type" onchange="updateChartType(this.value)">
+                    <option value="pie">Pie Chart</option>
+                    <option value="bar">Bar Chart</option>
+                    <option value="line">Line Chart</option>
+                </select>
+                <div class="chart-container">
+                    <canvas id="pregnancyChart"></canvas>
+                </div>
             </div>
+            
+            <div id="milestones-container" style="display: none; margin-top: 20px;">
+                <h3 id="milestones-title" style="text-align: left; color: #2c3e50;">Pregnancy Milestones</h3>
+                <div id="milestones"></div>
+            </div>
+            
+            <div id="timeline-container" style="display: none; margin-top: 20px;">
+                <h3 id="timeline-title" style="text-align: left; color: #2c3e50;">Pregnancy Timeline</h3>
+                <div class="timeline" id="pregnancy-timeline"></div>
+            </div>
+            
+            <div id="related-tools" style="display: none; margin-top: 15px;">
+                <p style="font-weight: bold;">You May Also Like:</p>
+                <ul style="list-style: none; padding-left: 0;">
+                    <li><a href="menstruation-cycle.html" style="font-weight: bold; color: #4f46e5; text-decoration: none;">MENSTRUATION CYCLE Calculator</a></li>
+                    <li><a href="body-fat.html" style="font-weight: bold; color: #4f46e5; text-decoration: none;">BODY FATs Calculator</a></li>
+                </ul>
+            </div>
+            
+            <div id="faq-container" style="margin-top: 30px;">
+                <h3 id="faq-title" style="text-align: left; color: #2c3e50;">Frequently Asked Questions</h3>
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(1)"><span id="faq-q1">How accurate is the due date calculation?</span></div>
+                    <div class="faq-answer" id="faq-answer-1"><span id="faq-a1">The due date calculation is based on the standard 40-week pregnancy timeline from your last menstrual period. Only about 5% of women deliver on their exact due date, but it's a good estimate for planning purposes.</span></div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(2)"><span id="faq-q2">What if I don't know my exact LMP?</span></div>
+                    <div class="faq-answer" id="faq-answer-2"><span id="faq-a2">If you don't know your exact LMP, an ultrasound scan in early pregnancy can provide a more accurate due date estimation. The earlier the ultrasound, the more accurate the dating.</span></div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(3)"><span id="faq-q3">How does cycle length affect the calculation?</span></div>
+                    <div class="faq-answer" id="faq-answer-3"><span id="faq-a3">Women with longer cycles typically ovulate later in their cycle. If your cycle is consistently longer than 28 days, your due date may be adjusted accordingly.</span></div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(4)"><span id="faq-q4">What are the key milestones during pregnancy?</span></div>
+                    <div class="faq-answer" id="faq-answer-4"><span id="faq-a4">Key milestones include positive pregnancy test (4 weeks), first heartbeat (6 weeks), end of first trimester (12 weeks), feeling baby move (16-25 weeks), viability (24 weeks), and full term (37 weeks).</span></div>
+                </div>
+            </div>
+            
             <div class="ads-section">
-                <p>Contact for Ads: <a href="/cdn-cgi/l/email-protection#17313e25242363353239343f322517303a363e3b7934383a"><span class="__cf_email__" data-cfemail="4d2b243f3e39792f28232e25283f0d2a202c2421632e2220">[email protected]</span></a></p>
+                <p>Contact for Ads: <a href="/cdn-cgi/l/email-protection#54323d2627206036373c313a371432353f333b3e7c313d3f"><span class="__cf_email__" data-cfemail="4d2b243f3e39792f28232e25283f0d2a202c2421632e2220">[email protected]</span></a></p>
             </div>
+            
             <div id="seo-content" class="mt-4 text-sm">
-                <h3>About Pregnancy Calculator</h3>
-                <p>Our Smart AI Pregnancy Calculator uses advanced methods to predict your due date, trimesters, and pregnancy milestones with high accuracy. Includes charts and personalized health suggestions!</p>
+                <h3 id="about-title">About Advanced Pregnancy Calculator</h3>
+                <p id="about-text">Our Smart AI Pregnancy Calculator is an advanced tool that predicts your due date, tracks trimesters, and provides detailed pregnancy milestones with visual charts. It offers personalized health suggestions, FAQ section, and supports multiple languages including English, Hindi, Arabic, Spanish, and Bengali.</p>
             </div>
         </div>
     </div>
     <footer class="bg-gray-800 text-white text-center py-4 mt-8">
-        <p style="font-weight: bold;">2025 © Smart AI Calculator. All rights reserved.</p>
-        <a href="privacy.html" class="text-blue-400 ml-2">Privacy Policy</a> |
-        <a href="contactus.html" class="text-blue-400 ml-2">Contact Us</a> |
-        <a href="howto.html" class="text-blue-400 ml-2">How to Use</a>
+        <p style="font-weight: bold;" id="footer-text">2025 © Smart AI Calculator. All rights reserved.</p>
+        <a href="privacy.html" class="text-blue-400 ml-2" id="privacy-link">Privacy Policy</a> |
+        <a href="contactus.html" class="text-blue-400 ml-2" id="contact-link">Contact Us</a> |
+        <a href="howto.html" class="text-blue-400 ml-2" id="howto-link">How to Use</a>
     </footer>
     <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
     <script>
         let isSpeaking = false;
         let utterance = null;
         let pregnancyDetails = {};
-
+        let currentLanguage = 'en';
+        let pregnancyChart = null;
+        let currentChartType = 'pie';
+        
+        // Language translations
+        const translations = {
+            en: {
+                title: "Pregnancy Details",
+                lmpLabel: "Last Menstrual Period (LMP):",
+                cycleLabel: "Average Cycle Length (days, optional):",
+                calculate: "Calculate",
+                detail: "Detail",
+                value: "Result",
+                milestonesTitle: "Pregnancy Milestones",
+                timelineTitle: "Pregnancy Timeline",
+                chartTitle: "Pregnancy Progress",
+                faqTitle: "Frequently Asked Questions",
+                aboutTitle: "About Advanced Pregnancy Calculator",
+                aboutText: "Our Smart AI Pregnancy Calculator is an advanced tool that predicts your due date, tracks trimesters, and provides detailed pregnancy milestones with visual charts. It offers personalized health suggestions, FAQ section, and supports multiple languages including English, Hindi, Arabic, Spanish, and Bengali.",
+                homeTab: "HOME",
+                miscTab: "MISCELLANEOUS",
+                headerTitle: "Smart AI Calculator",
+                headerSubtitle: "Advanced Pregnancy due date calculator with conception date input",
+                footerText: "2025 © Smart AI Calculator. All rights reserved.",
+                privacy: "Privacy Policy",
+                contact: "Contact Us",
+                howto: "How to Use",
+                chartTypes: {
+                    bar: "Bar Chart",
+                    pie: "Pie Chart",
+                    line: "Line Chart"
+                },
+                milestones: [
+                    { week: 4, title: "Positive Pregnancy Test", desc: "Around week 4, a pregnancy test can confirm conception." },
+                    { week: 6, title: "First Heartbeat", desc: "Baby's heartbeat is detectable via ultrasound around week 6." },
+                    { week: 12, title: "End of First Trimester", desc: "Major organs form, and morning sickness may ease." },
+                    { week: 16, title: "Feeling Baby Move", desc: "You may start feeling the baby's movements between weeks 16-25." },
+                    { week: 20, title: "Anatomy Ultrasound", desc: "A detailed scan to check baby's development." },
+                    { week: 24, title: "Viability Milestone", desc: "Baby reaches a stage where survival outside the womb is possible." },
+                    { week: 28, title: "Third Trimester Begins", desc: "Baby grows rapidly, preparing for birth." },
+                    { week: 37, title: "Full Term", desc: "Baby is fully developed and ready for delivery." }
+                ],
+                timeline: [
+                    { event: "Last Menstrual Period", desc: "The start of your pregnancy journey." },
+                    { event: "End of First Trimester", desc: "Completion of the first 12 weeks, a critical development phase." },
+                    { event: "End of Second Trimester", desc: "Baby is growing and moving, reaching 27 weeks." },
+                    { event: "Due Date", desc: "Expected delivery date around 40 weeks." }
+                ],
+                faq: {
+                    q1: "How accurate is the due date calculation?",
+                    a1: "The due date calculation is based on the standard 40-week pregnancy timeline from your last menstrual period. Only about 5% of women deliver on their exact due date, but it's a good estimate for planning purposes.",
+                    q2: "What if I don't know my exact LMP?",
+                    a2: "If you don't know your exact LMP, an ultrasound scan in early pregnancy can provide a more accurate due date estimation. The earlier the ultrasound, the more accurate the dating.",
+                    q3: "How does cycle length affect the calculation?",
+                    a3: "Women with longer cycles typically ovulate later in their cycle. If your cycle is consistently longer than 28 days, your due date may be adjusted accordingly.",
+                    q4: "What are the key milestones during pregnancy?",
+                    a4: "Key milestones include positive pregnancy test (4 weeks), first heartbeat (6 weeks), end of first trimester (12 weeks), feeling baby move (16-25 weeks), viability (24 weeks), and full term (37 weeks)."
+                }
+            },
+            hi: {
+                title: "गर्भावस्था विवरण",
+                lmpLabel: "अंतिम मासिक धर्म (LMP):",
+                cycleLabel: "औसत चक्र लंबाई (दिन, वैकल्पिक):",
+                calculate: "गणना करें",
+                detail: "विवरण",
+                value: "परिणाम",
+                milestonesTitle: "गर्भावस्था के मील के पत्थर",
+                timelineTitle: "गर्भावस्था समयरेखा",
+                chartTitle: "गर्भावस्था प्रगति",
+                faqTitle: "अक्सर पूछे जाने वाले प्रश्न",
+                aboutTitle: "उन्नत गर्भावस्था कैलकुलेटर के बारे में",
+                aboutText: "हमारा स्मार्ट एआई गर्भावस्था कैलकुलेटर एक उन्नत उपकरण है जो आपकी नियत तिथि की भविष्यवाणी करता है, तिमाही को ट्रैक करता है, और दृश्य चार्ट के साथ विस्तृत गर्भावस्था मील के पत्थर प्रदान करता है। यह व्यक्तिगत स्वास्थ्य सुझाव, एफएक्यू अनुभाग प्रदान करता है, और अंग्रेजी, हिंदी, अरबी, स्पेनिश और बंगाली सहित कई भाषाओं का समर्थन करता है।",
+                homeTab: "होम",
+                miscTab: "विविध",
+                headerTitle: "स्मार्ट एआई कैलकुलेटर",
+                headerSubtitle: "गर्भाधान तिथि इनपुट के साथ उन्नत गर्भावस्था नियत तिथि कैलकुलेटर",
+                footerText: "2025 © स्मार्ट एआई कैलकुलेटर। सर्वाधिकार सुरक्षित।",
+                privacy: "गोपनीयता नीति",
+                contact: "संपर्क करें",
+                howto: "उपयोग कैसे करें",
+                chartTypes: {
+                    bar: "बार चार्ट",
+                    pie: "पाई चार्ट",
+                    line: "लाइन चार्ट"
+                },
+                milestones: [
+                    { week: 4, title: "सकारात्मक गर्भावस्था परीक्षण", desc: "लगभग 4 सप्ताह में, गर्भावस्था परीक्षण गर्भधारण की पुष्टि कर सकता है।" },
+                    { week: 6, title: "पहली धड़कन", desc: "लगभग 6 सप्ताह में अल्ट्रासाउंड के माध्यम से बच्चे की धड़कन का पता चलता है।" },
+                    { week: 12, title: "पहली तिमाही का अंत", desc: "प्रमुख अंग बनते हैं, और मॉर्निंग सिकनेस कम हो सकता है।" },
+                    { week: 16, title: "बच्चे की हलचल", desc: "16-25 सप्ताह के बीच आप बच्चे की हलचल महसूस कर सकते हैं।" },
+                    { week: 20, title: "एनाटॉमी अल्ट्रासाउंड", desc: "बच्चे के विकास की जाँच के लिए विस्तृत स्कैन।" },
+                    { week: 24, title: "जीवक्षमता मील का पत्थर", desc: "बच्चा उस अवस्था तक पहुँचता है जहाँ गर्भ के बाहर जीवित रहना संभव है।" },
+                    { week: 28, title: "तीसरी तिमाही शुरू", desc: "बच्चा तेजी से बढ़ता है, जन्म की तैयारी करता है।" },
+                    { week: 37, title: "पूर्ण अवधि", desc: "बच्चा पूरी तरह विकसित है और प्रसव के लिए तैयार है।" }
+                ],
+                timeline: [
+                    { event: "अंतिम मासिक धर्म", desc: "आपकी गर्भावस्था यात्रा की शुरुआत।" },
+                    { event: "पहली तिमाही का अंत", desc: "पहले 12 सप्ताह पूरे, एक महत्वपूर्ण विकास चरण।" },
+                    { event: "दूसरी तिमाही का अंत", desc: "बच्चा बढ़ रहा है और हिल रहा है, 27 सप्ताह तक पहुँच रहा है।" },
+                    { event: "नियत तिथि", desc: "लगभग 40 सप्ताह में अपेक्षित प्रसव तिथि।" }
+                ],
+                faq: {
+                    q1: "नियत तिथि गणना कितनी सटीक है?",
+                    a1: "नियत तिथि गणना आपके अंतिम मासिक धर्म से मानक 40-सप्ताह की गर्भावस्था समयरेखा पर आधारित है। केवल लगभग 5% महिलाएं अपनी सटीक नियत तिथि पर प्रसव करती हैं, लेकिन यह योजना बनाने के लिए एक अच्छा अनुमान है।",
+                    q2: "अगर मुझे अपनी सटीक LMP पता नहीं है तो क्या होगा?",
+                    a2: "यदि आपको अपनी सटीक LMP पता नहीं है, तो प्रारंभिक गर्भावस्था में अल्ट्रासाउंड स्कैन अधिक सटीक नियत तिथि अनुमान प्रदान कर सकता है। अल्ट्रासाउंड जितना पहले होगा, डेटिंग उतनी ही सटीक होगी।",
+                    q3: "चक्र लंबाई गणना को कैसे प्रभावित करती है?",
+                    a3: "लंबे चक्र वाली महिलाएं आमतौर पर अपने चक्र में बाद में ओव्यूलेट करती हैं। यदि आपका चक्र लगातार 28 दिनों से अधिक है, तो आपकी नियत तिथि को तदनुसार समायोजित किया जा सकता है।",
+                    q4: "गर्भावस्था के दौरान प्रमुख मील के पत्थर क्या हैं?",
+                    a4: "प्रमुख मील के पत्थर में सकारात्मक गर्भावस्था परीक्षण (4 सप्ताह), पहली धड़कन (6 सप्ताह), पहली तिमाही का अंत (12 सप्ताह), बच्चे की हलचल महसूस करना (16-25 सप्ताह), व्यवहार्यता (24 सप्ताह), और पूर्ण अवधि (37 सप्ताह) शामिल हैं।"
+                }
+            },
+            ar: {
+                title: "تفاصيل الحمل",
+                lmpLabel: "آخر دورة شهرية (LMP):",
+                cycleLabel: "متوسط طول الدورة (أيام، اختياري):",
+                calculate: "احسب",
+                detail: "التفاصيل",
+                value: "النتيجة",
+                milestonesTitle: "معالم الحمل",
+                timelineTitle: "الجدول الزمني للحمل",
+                chartTitle: "تقدم الحمل",
+                faqTitle: "أسئلة مكررة",
+                aboutTitle: "حول حاسبة الحمل المتقدمة",
+                aboutText: "تعتبر حاسبة الحمل الذكية الخاصة بنا أداة متقدمة تتنبأ بتاريخ استحقاقك، وتتبع الثلث، وتوفر معالم حمل مفصلة مع مخططات بصرية. إنه يوفر اقتراحات صحية مخصصة، قسم الأسئلة الشائعة، ويدعم لغات متعددة بما في ذلك الإنجليزية والهندية والعربية والإسبانية والبنغالية.",
+                homeTab: "الصفحة الرئيسية",
+                miscTab: "متنوع",
+                headerTitle: "الآلة الحاسبة الذكية",
+                headerSubtitle: "حاسبة تاريخ استحقاق الحمل المتقدمة مع إدخال تاريخ الحمل",
+                footerText: "2025 © الآلة الحاسبة الذكية. جميع الحقوق محفوظة.",
+                privacy: "سياسة الخصوصية",
+                contact: "اتصل بنا",
+                howto: "كيفية الاستخدام",
+                chartTypes: {
+                    bar: "مخطط شريطي",
+                    pie: "مخطط دائري",
+                    line: "مخطط خطي"
+                },
+                milestones: [
+                    { week: 4, title: "اختبار الحمل الإيجابي", desc: "حوالي الأسبوع 4، يمكن لاختبار الحمل تأكيد الحمل." },
+                    { week: 6, title: "أول نبض قلب", desc: "يمكن اكتشاف نبض قلب الطفل عبر الموجات فوق الصوتية حوالي الأسبوع 6." },
+                    { week: 12, title: "نهاية الثلث الأول", desc: "تتشكل الأعضاء الرئيسية، وقد يخف غثيان الصباح." },
+                    { week: 16, title: "الشعور بحركة الطفل", desc: "قد تبدئين بالشعور بحركات الطفل بين الأسابيع 16-25." },
+                    { week: 20, title: "فحص الموجات فوق الصوتية التشريحي", desc: "فحص مفصل للتحقق من تطور الطفل." },
+                    { week: 24, title: "معلم الجدوى", desc: "يصل الطفل إلى مرحلة يمكن فيها البقاء على قيد الحياة خارج الرحم." },
+                    { week: 28, title: "بدء الثلث الثالث", desc: "ينمو الطفل بسرعة، يستعد للولادة." },
+                    { week: 37, title: "المدة الكاملة", desc: "الطفل مكتمل النمو وجاهز للولادة." }
+                ],
+                timeline: [
+                    { event: "آخر دورة شهرية", desc: "بداية رحلة الحمل الخاصة بك." },
+                    { event: "نهاية الثلث الأول", desc: "إكمال الأسابيع الـ12 الأولى، مرحلة تطور حاسمة." },
+                    { event: "نهاية الثلث الثاني", desc: "الطفل ينمو ويتحرك، يصل إلى 27 أسبوعًا." },
+                    { event: "تاريخ الاستحقاق", desc: "تاريخ الولادة المتوقع حوالي 40 أسبوعًا." }
+                ],
+                faq: {
+                    q1: "ما مدى دقة حساب تاريخ الاستحقاق؟",
+                    a1: "يعتمد حساب تاريخ الاستحقاق على الجدول الزمني القياسي للحمل لمدة 40 أسبوعًا من آخر دورة شهرية لك. فقط حوالي 5٪ من النساء يلدن في تاريخ استحقاقهن بالضبط، لكنه تقدير جيد لأغراض التخطيط.",
+                    q2: "ماذا لو لم أكن أعرف آخر دورة شهرية لي بالضبط؟",
+                    a2: "إذا كنت لا تعرف آخر دورة شهرية لك بالضبط، يمكن أن يوفر فحص الموجات فوق الصوتية في وقت مبكر من الحمل تقديرًا أكثر دقة لتاريخ الاستحقاق. كلما كان الفحص بالموجات فوق الصوتية مبكرًا، كانت التأريخ أكثر دقة.",
+                    q3: "كيف يؤثر طول الدورة على الحساب؟",
+                    a3: "عادة ما تحدث الإباضة لدى النساء ذوات الدورات الطويلة في وقت لاحق من دورتهن. إذا كانت دورتك أطول باستمرار من 28 يومًا، فقد يتم تعديل تاريخ استحقاقك وفقًا لذلك.",
+                    q4: "ما هي المعالم الرئيسية أثناء الحمل؟",
+                    a4: "تشمل المعالم الرئيسية اختبار الحمل الإيجابي (4 أسابيع)، أول نبض للقلب (6 أسابيع)، نهاية الثلث الأول (12 أسبوعًا)، الشعور بحركة الطفل (16-25 أسبوعًا)، الجدوى (24 أسبوعًا)، والمدة الكاملة (37 أسبوعًا)."
+                }
+            },
+            es: {
+                title: "Detalles del embarazo",
+                lmpLabel: "Último período menstrual (LMP):",
+                cycleLabel: "Duración promedio del ciclo (días, opcional):",
+                calculate: "Calcular",
+                detail: "Detalle",
+                value: "Resultado",
+                milestonesTitle: "Hitos del embarazo",
+                timelineTitle: "Cronología del embarazo",
+                chartTitle: "Progreso del embarazo",
+                faqTitle: "Preguntas frecuentes",
+                aboutTitle: "Acerca de la Calculadora de Embarazo Avanzada",
+                aboutText: "Nuestra Calculadora de Embarazo Smart AI es una herramienta avanzada que predice su fecha de parto, realiza un seguimiento de los trimestres y proporciona hitos detallados del embarazo con gráficos visuales. Ofrece sugerencias de salud personalizadas, sección de preguntas frecuentes y admite varios idiomas, incluidos inglés, hindi, árabe, español y bengalí.",
+                homeTab: "INICIO",
+                miscTab: "VARIOS",
+                headerTitle: "Calculadora Smart AI",
+                headerSubtitle: "Calculadora avanzada de fecha de parto con entrada de fecha de concepción",
+                footerText: "2025 © Calculadora Smart AI. Todos los derechos reservados.",
+                privacy: "Política de privacidad",
+                contact: "Contáctenos",
+                howto: "Cómo usar",
+                chartTypes: {
+                    bar: "Gráfico de barras",
+                    pie: "Gráfico circular",
+                    line: "Gráfico de líneas"
+                },
+                milestones: [
+                    { week: 4, title: "Prueba de embarazo positiva", desc: "Alrededor de la semana 4, una prueba de embarazo puede confirmar la concepción." },
+                    { week: 6, title: "Primer latido", desc: "El latido del corazón del bebé se puede detectar mediante ultrasonido alrededor de la semana 6." },
+                    { week: 12, title: "Fin del primer trimestre", desc: "Se forman los órganos principales, y las náuseas matutinas pueden disminuir." },
+                    { week: 16, title: "Sentir al bebé moverse", desc: "Puedes empezar a sentir los movimientos del bebé entre las semanas 16-25." },
+                    { week: 20, title: "Ultrasonido anatómico", desc: "Un escaneo detallado para verificar el desarrollo del bebé." },
+                    { week: 24, title: "Hito de viabilidad", desc: "El bebé alcanza una etapa en la que puede sobrevivir fuera del útero." },
+                    { week: 28, title: "Inicio del tercer trimestre", desc: "El bebé crece rápidamente, preparándose para el nacimiento." },
+                    { week: 37, title: "Término completo", desc: "El bebé está completamente desarrollado y listo para el parto." }
+                ],
+                timeline: [
+                    { event: "Último período menstrual", desc: "El comienzo de tu viaje de embarazo." },
+                    { event: "Fin del primer trimestre", desc: "Completado las primeras 12 semanas, una fase de desarrollo crítica." },
+                    { event: "Fin del segundo trimestre", desc: "El bebé está creciendo y moviéndose, alcanzando las 27 semanas." },
+                    { event: "Fecha de parto", desc: "Fecha de nacimiento esperada alrededor de las 40 semanas." }
+                ],
+                faq: {
+                    q1: "¿Qué tan preciso es el cálculo de la fecha de parto?",
+                    a1: "El cálculo de la fecha de parto se basa en la línea de tiempo estándar de embarazo de 40 semanas desde su último período menstrual. Solo alrededor del 5% de las mujeres dan a luz en su fecha de parto exacta, pero es una buena estimación para fines de planificación.",
+                    q2: "¿Qué pasa si no sé exactamente mi último período menstrual?",
+                    a2: "Si no conoce su último período menstrual exacto, un ultrasonido al principio del embarazo puede proporcionar una estimación más precisa de la fecha de parto. Cuanto antes sea el ultrasonido, más precisa será la datación.",
+                    q3: "¿Cómo afecta la duración del ciclo al cálculo?",
+                    a3: "Las mujeres con ciclos más largos generalmente ovulan más tarde en su ciclo. Si su ciclo es consistentemente más largo de 28 días, su fecha de parto puede ajustarse en consecuencia.",
+                    q4: "¿Cuáles son los hitos clave durante el embarazo?",
+                    a4: "Los hitos clave incluyen prueba de embarazo positiva (4 semanas), primer latido del corazón (6 semanas), final del primer trimestre (12 semanas), sentir que el bebé se mueve (16-25 semanas), viabilidad (24 semanas) y término completo (37 semanas)."
+                }
+            },
+            bn: {
+                title: "গর্ভাবস্থার বিবরণ",
+                lmpLabel: "শেষ মাসিক (LMP):",
+                cycleLabel: "গড় চক্র দৈর্ঘ্য (দিন, ঐচ্ছিক):",
+                calculate: "গণনা করুন",
+                detail: "বিস্তারিত",
+                value: "ফলাফল",
+                milestonesTitle: "গর্ভাবস্থার মাইলফলক",
+                timelineTitle: "গর্ভাবস্থার সময়রেখা",
+                chartTitle: "গর্ভাবস্থার প্রগতি",
+                faqTitle: "প্রায়শই জিজ্ঞাসিত প্রশ্ন",
+                aboutTitle: "উন্নত গর্ভাবস্থা ক্যালকুলেটর সম্পর্কে",
+                aboutText: "আমাদের স্মার্ট এআই প্রেগন্যান্সি ক্যালকুলেটর একটি উন্নত টুল যা আপনার নির্ধারিত তারিখের পূর্বাভাস দেয়, ত্রৈমাসিক ট্র্যাক করে এবং ভিজ্যুয়াল চার্ট সহ বিস্তারিত গর্ভাবস্থার মাইলফলক প্রদান করে। এটি ব্যক্তিগতকৃত স্বাস্থ্য পরামর্শ, FAQ বিভাগ এবং ইংরেজি, হিন্দি, আরবি, স্প্যানিশ এবং বাংলা সহ একাধিক ভাষা সমর্থন করে।",
+                homeTab: "হোম",
+                miscTab: "বিবিধ",
+                headerTitle: "স্মার্ট এআই ক্যালকুলেটর",
+                headerSubtitle: "ধারণার তারিখ ইনপুট সহ উন্নত গর্ভাবস্থার নির্ধারিত তারিখ ক্যালকুলেটর",
+                footerText: "২০২৫ © স্মার্ট এআই ক্যালকুলেটর। সর্বস্বত্ব সংরক্ষিত।",
+                privacy: "গোপনীয়তা নীতি",
+                contact: "যোগাযোগ করুন",
+                howto: "কিভাবে ব্যবহার করবেন",
+                chartTypes: {
+                    bar: "বার চার্ট",
+                    pie: "পাই চার্ট",
+                    line: "লাইন চার্ট"
+                },
+                milestones: [
+                    { week: 4, title: "ইতিবাচক গর্ভাবস্থা পরীক্ষা", desc: "প্রায় ৪ সপ্তাহে, গর্ভাবস্থা পরীক্ষা গর্ভধারণ নিশ্চিত করতে পারে।" },
+                    { week: 6, title: "প্রথম হৃদস্পন্দন", desc: "প্রায় ৬ সপ্তাহে আল্ট্রাসাউন্ডের মাধ্যমে শিশুর হৃদস্পন্দন শনাক্ত করা যায়।" },
+                    { week: 12, title: "প্রথম ত্রৈমাসিকের শেষ", desc: "প্রধান অঙ্গগুলি গঠিত হয়, এবং সকালের অসুস্থতা কমতে পারে।" },
+                    { week: 16, title: "শিশুর নড়াচড়া অনুভব", desc: "১৬-২৫ সপ্তাহের মধ্যে আপনি শিশুর নড়াচড়া অনুভব করতে পারেন।" },
+                    { week: 20, title: "অ্যানাটমি আল্ট্রাসাউন্ড", desc: "শিশুর বিকাশ পরীক্ষা করার জন্য বিস্তারিত স্ক্যান।" },
+                    { week: 24, title: "বাঁচার সম্ভাবনা মাইলফলক", desc: "শিশু এমন একটি পর্যায়ে পৌঁছায় যেখানে গর্ভের বাইরে বেঁচে থাকা সম্ভব।" },
+                    { week: 28, title: "তৃতীয় ত্রৈমাসিক শুরু", desc: "শিশু দ্রুত বৃদ্ধি পায়, জন্মের জন্য প্রস্তুতি নেয়।" },
+                    { week: 37, title: "পূর্ণ মেয়াদ", desc: "শিশু সম্পূর্ণ বিকশিত এবং প্রসবের জন্য প্রস্তুত।" }
+                ],
+                timeline: [
+                    { event: "শেষ মাসিক", desc: "আপনার গর্ভাবস্থার যাত্রার শুরু।" },
+                    { event: "প্রথম ত্রৈমাসিকের শেষ", desc: "প্রথম ১২ সপ্তাহ সম্পন্ন, একটি গুরুত্বপূর্ণ বিকাশ পর্যায়।" },
+                    { event: "দ্বিতীয় ত্রৈমাসিকের শেষ", desc: "শিশু বাড়ছে এবং নড়ছে, ২৭ সপ্তাহে পৌঁছেছে।" },
+                    { event: "নির্ধারিত তারিখ", desc: "প্রায় ৪০ সপ্তাহে প্রত্যাশিত প্রসবের তারিখ।" }
+                ],
+                faq: {
+                    q1: "নির্ধারিত তারিখ গণনা কতটা সঠিক?",
+                    a1: "নির্ধারিত তারিখ গণনা আপনার শেষ মাসিক থেকে প্রমিত 40-সপ্তাহের গর্ভাবস্থার সময়রেখার উপর ভিত্তি করে। প্রায় 5% মহিলা তাদের সঠিক নির্ধারিত তারিখে প্রসব করেন, তবে এটি পরিকল্পনার উদ্দেশ্যে একটি ভাল অনুমান।",
+                    q2: "যদি আমি আমার সঠিক LMP জানি না?",
+                    a2: "আপনি যদি আপনার সঠিক LMP জানেন না, প্রারম্ভিক গর্ভাবস্থায় একটি আল্ট্রাসাউন্ড স্ক্যান আরও সঠিক নির্ধারিত তারিখ অনুমান প্রদান করতে পারে। আল্ট্রাসাউন্ড যত তাড়াতাড়ি হবে, ডেটিং তত বেশি সঠিক হবে।",
+                    q3: "চক্রের দৈর্ঘ্য গণনাকে কীভাবে প্রভাবিত করে?",
+                    a3: "দীর্ঘ চক্রযুক্ত মহিলারা সাধারণত তাদের চক্রের পরে ডিম্বস্ফোটন করে। যদি আপনার চক্র ধারাবাহিকভাবে 28 দিনের বেশি হয়, তবে আপনার নির্ধারিত তারিখ সেই অনুযায়ী সামঞ্জস্য করা হতে পারে।",
+                    q4: "গর্ভাবস্থার সময় প্রধান মাইলফলকগুলি কী কী?",
+                    a4: "প্রধান মাইলফলকগুলির মধ্যে রয়েছে ইতিবাচক গর্ভাবস্থা পরীক্ষা (4 সপ্তাহ), প্রথম হৃদস্পন্দন (6 সপ্তাহ), প্রথম ত্রৈমাসিকের শেষ (12 সপ্তাহ), শিশুর নড়াচড়া অনুভব করা (16-25 সপ্তাহ), বাঁচার সম্ভাবনা (24 সপ্তাহ) এবং পূর্ণ মেয়াদ (37 সপ্তাহ)।"
+                }
+            }
+        };
+        
+        // Change language function
+        function changeLanguage(lang) {
+            currentLanguage = lang;
+            document.getElementById('language-select').value = lang;
+            
+            const t = translations[lang];
+            
+            // Update UI elements
+            document.getElementById('pregnancy-title').textContent = t.title;
+            document.getElementById('lmp-label').textContent = t.lmpLabel;
+            document.getElementById('cycle-label').textContent = t.cycleLabel;
+            document.getElementById('calculate-text').textContent = t.calculate;
+            document.getElementById('detail-header').textContent = t.detail;
+            document.getElementById('value-header').textContent = t.value;
+            document.getElementById('milestones-title').textContent = t.milestonesTitle;
+            document.getElementById('timeline-title').textContent = t.timelineTitle;
+            document.getElementById('chart-title').textContent = t.chartTitle;
+            document.getElementById('faq-title').textContent = t.faqTitle;
+            document.getElementById('about-title').textContent = t.aboutTitle;
+            document.getElementById('about-text').textContent = t.aboutText;
+            document.getElementById('home-tab').textContent = t.homeTab;
+            document.getElementById('misc-tab').textContent = t.miscTab;
+            document.getElementById('header-title').textContent = t.headerTitle;
+            document.getElementById('header-subtitle').textContent = t.headerSubtitle;
+            document.getElementById('footer-text').textContent = t.footerText;
+            document.getElementById('privacy-link').textContent = t.privacy;
+            document.getElementById('contact-link').textContent = t.contact;
+            document.getElementById('howto-link').textContent = t.howto;
+            
+            // Update chart type dropdown
+            const chartSelect = document.getElementById('chart-type');
+            chartSelect.innerHTML = `
+                <option value="pie">${t.chartTypes.pie}</option>
+                <option value="bar">${t.chartTypes.bar}</option>
+                <option value="line">${t.chartTypes.line}</option>
+            `;
+            chartSelect.value = currentChartType;
+            
+            // Update FAQs
+            document.getElementById('faq-q1').textContent = t.faq.q1;
+            document.getElementById('faq-a1').textContent = t.faq.a1;
+            document.getElementById('faq-q2').textContent = t.faq.q2;
+            document.getElementById('faq-a2').textContent = t.faq.a2;
+            document.getElementById('faq-q3').textContent = t.faq.q3;
+            document.getElementById('faq-a3').textContent = t.faq.a3;
+            document.getElementById('faq-q4').textContent = t.faq.q4;
+            document.getElementById('faq-a4').textContent = t.faq.a4;
+            
+            // If results are already shown, update them
+            if (pregnancyDetails.lmp) {
+                updateResultsForLanguage();
+            }
+        }
+        
+        function updateChartType(type) {
+            currentChartType = type;
+            updateResultsForLanguage();
+        }
+        
+        function updateResultsForLanguage() {
+            const lang = currentLanguage;
+            const t = translations[lang];
+            const resultDiv = document.getElementById("pregnancy-result");
+            const tableBody = document.getElementById("result-table-body");
+            const milestonesDiv = document.getElementById("milestones");
+            const timelineDiv = document.getElementById("pregnancy-timeline");
+            
+            resultDiv.innerText = `${t.value}: ${pregnancyDetails.dueDate}`;
+            
+            tableBody.innerHTML = `
+                <tr><td>${t.detail}</td><td>${pregnancyDetails.lmp}</td></tr>
+                <tr><td>${t.cycleLabel}</td><td>${pregnancyDetails.cycleLength} ${lang === 'en' ? 'days' : t.cycleLabel.split('(')[0].trim()}</td></tr>
+                <tr><td>${t.value}</td><td>${pregnancyDetails.dueDate}</td></tr>
+                <tr><td>${lang === 'en' ? 'Weeks Pregnant' : t.chartTitle}</td><td>${pregnancyDetails.weeksPregnant} ${lang === 'en' ? 'weeks' : t.chartTitle.split(' ')[0]}</td></tr>
+                <tr><td>${t.detail}</td><td>${pregnancyDetails.trimester}</td></tr>
+            `;
+            
+            // Update milestones
+            let milestonesContent = '';
+            t.milestones.forEach(milestone => {
+                milestonesContent += `
+                    <div class="milestone-card">
+                        <div class="milestone-title">Week ${milestone.week}: ${milestone.title}</div>
+                        <p class="milestone-desc">${milestone.desc}</p>
+                    </div>
+                `;
+            });
+            milestonesDiv.innerHTML = milestonesContent;
+            
+            // Update timeline
+            const timelineContent = `
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-date">${pregnancyDetails.lmp}</div>
+                        <div class="timeline-label">${t.timeline[0].event}</div>
+                        <p class="milestone-desc">${t.timeline[0].desc}</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-date">${pregnancyDetails.trimester1End}</div>
+                        <div class="timeline-label">${t.timeline[1].event}</div>
+                        <p class="milestone-desc">${t.timeline[1].desc}</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-date">${pregnancyDetails.trimester2End}</div>
+                        <div class="timeline-label">${t.timeline[2].event}</div>
+                        <p class="milestone-desc">${t.timeline[2].desc}</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-date">${pregnancyDetails.dueDate}</div>
+                        <div class="timeline-label">${t.timeline[3].event}</div>
+                        <p class="milestone-desc">${t.timeline[3].desc}</p>
+                    </div>
+                </div>
+            `;
+            timelineDiv.innerHTML = timelineContent;
+            
+            // Update chart
+            if (pregnancyChart) {
+                pregnancyChart.destroy();
+            }
+            const ctx = document.getElementById('pregnancyChart').getContext('2d');
+            const chartConfig = {
+                data: {
+                    labels: [lang === 'en' ? 'Weeks Pregnant' : t.chartTitle.split(' ')[0], lang === 'en' ? 'Weeks Remaining' : t.chartTitle.split(' ')[0] + ' (باقي)'],
+                    datasets: [{
+                        label: t.chartTitle,
+                        data: [pregnancyDetails.weeksPregnant, 40 - pregnancyDetails.weeksPregnant],
+                        backgroundColor: ['#3498db', '#e63946'],
+                        borderColor: ['#2c3e50', '#c0392b'],
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    scales: {
+                        x: currentChartType === 'bar' ? {
+                            beginAtZero: true,
+                            max: 40,
+                            title: {
+                                display: true,
+                                text: lang === 'en' ? 'Weeks' : t.chartTitle.split(' ')[0],
+                                color: '#2c3e50',
+                                font: { weight: 'bold' }
+                            }
+                        } : undefined,
+                        y: currentChartType === 'bar' ? {
+                            title: {
+                                display: true,
+                                text: t.chartTitle,
+                                color: '#2c3e50',
+                                font: { weight: 'bold' }
+                            }
+                        } : undefined
+                    },
+                    plugins: {
+                        legend: { display: currentChartType !== 'bar' },
+                        title: {
+                            display: false
+                        }
+                    }
+                }
+            };
+            
+            if (currentChartType === 'bar') {
+                chartConfig.type = 'bar';
+                chartConfig.options.indexAxis = 'y';
+            } else if (currentChartType === 'pie') {
+                chartConfig.type = 'pie';
+                chartConfig.options = {
+                    plugins: {
+                        legend: { display: true },
+                        title: {
+                            display: true,
+                            text: t.chartTitle,
+                            color: '#2c3e50',
+                            font: { weight: 'bold' }
+                        }
+                    }
+                };
+            } else if (currentChartType === 'line') {
+                chartConfig.type = 'line';
+                chartConfig.data.datasets[0].fill = false;
+                chartConfig.data.datasets[0].pointBackgroundColor = '#3498db';
+                chartConfig.options.scales = {
+                    x: {
+                        title: {
+                            display: true,
+                            text: lang === 'en' ? 'Progress' : t.chartTitle.split(' ')[0],
+                            color: '#2c3e50',
+                            font: { weight: 'bold' }
+                        }
+                    },
+                    y: {
+                        beginAtZero: true,
+                        max: 40,
+                        title: {
+                            display: true,
+                            text: lang === 'en' ? 'Weeks' : t.chartTitle.split(' ')[0],
+                            color: '#2c3e50',
+                            font: { weight: 'bold' }
+                        }
+                    }
+                };
+            }
+            
+            pregnancyChart = new Chart(ctx, chartConfig);
+        }
+        
         // Custom date formatter for dd/mm/yyyy
         function formatDate(date) {
             const day = String(date.getDate()).padStart(2, '0');
@@ -141,7 +692,6 @@
         }
 
         function validateInput(input) {
-            console.log("validateInput");
             try {
                 if (input.id === "lmp-date") {
                     input.classList.toggle("invalid", !input.value);
@@ -153,32 +703,42 @@
                 console.error("Validation failed:", e.message);
             }
         }
+        
+        function toggleFAQ(id) {
+            const answer = document.getElementById('faq-answer-' + id);
+            answer.style.display = answer.style.display === 'block' ? 'none' : 'block';
+        }
 
         function calculatePregnancy() {
-            console.log("calculatePregnancy");
             document.getElementById("spinner").style.display = "inline";
             setTimeout(() => {
                 try {
-                    if (typeof Chartist === 'undefined') {
-                        throw new Error("Chartist.js not loaded. Check CDN or use local server.");
-                    }
                     const lmpDate = document.getElementById("lmp-date").value;
                     const cycleLength = parseInt(document.getElementById("cycle-length").value) || 28;
                     const resultDiv = document.getElementById("pregnancy-result");
                     const tableBody = document.getElementById("result-table-body");
                     const table = document.getElementById("result-table");
+                    const milestonesDiv = document.getElementById("milestones");
+                    const milestonesContainer = document.getElementById("milestones-container");
+                    const timelineContainer = document.getElementById("timeline-container");
                     const chartContainer = document.getElementById("chart-container");
-                    const suggestionsDiv = document.getElementById("suggestions");
+                    const relatedTools = document.getElementById("related-tools");
+                    
                     tableBody.innerHTML = "";
                     pregnancyDetails = {};
 
                     if (!lmpDate || cycleLength < 20 || cycleLength > 45) {
-                        resultDiv.innerText = "Invalid input. Check LMP and cycle length.";
+                        resultDiv.innerText = translations[currentLanguage].value + ": Invalid input. Check LMP and cycle length.";
                         table.style.display = "none";
+                        milestonesContainer.style.display = "none";
+                        timelineContainer.style.display = "none";
                         chartContainer.style.display = "none";
-                        suggestionsDiv.innerHTML = "";
+                        relatedTools.style.display = "none";
+                        if (pregnancyChart) {
+                            pregnancyChart.destroy();
+                            pregnancyChart = null;
+                        }
                         document.getElementById("spinner").style.display = "none";
-                        console.log("Invalid input");
                         return;
                     }
 
@@ -187,68 +747,44 @@
                     const dueDate = new Date(lmp.getTime() + 280 * 24 * 60 * 60 * 1000); // 40 weeks
                     const today = new Date();
                     const weeksPregnant = Math.floor((today - lmp) / (7 * 24 * 60 * 60 * 1000));
+                    const daysPregnant = Math.floor((today - lmp) / (24 * 60 * 60 * 1000));
                     const trimester1End = new Date(lmp.getTime() + 12 * 7 * 24 * 60 * 60 * 1000);
                     const trimester2End = new Date(lmp.getTime() + 27 * 7 * 24 * 60 * 60 * 1000);
-                    const trimester = weeksPregnant <= 12 ? "1st Trimester" : weeksPregnant <= 27 ? "2nd Trimester" : "3rd Trimester";
-
+                    const trimester = weeksPregnant <= 12 ? translations[currentLanguage].timeline[1].event : weeksPregnant <= 27 ? translations[currentLanguage].timeline[2].event : translations[currentLanguage].timeline[3].event;
+                    
+                    // Calculate conception date
+                    const conceptionDate = new Date(lmp.getTime() + (cycleLength - 14) * 24 * 60 * 60 * 1000);
+                    
                     pregnancyDetails = {
                         lmp: formatDate(lmp),
                         cycleLength,
                         dueDate: formatDate(dueDate),
                         weeksPregnant,
+                        daysPregnant,
                         trimester,
                         trimester1End: formatDate(trimester1End),
                         trimester2End: formatDate(trimester2End),
-                        suggestions: [
-                            "Schedule regular prenatal checkups with your doctor.",
-                            "Maintain a balanced diet rich in folic acid and iron.",
-                            "Stay hydrated and engage in light exercise as advised.",
-                            "Consult a healthcare provider for personalized guidance."
-                        ]
+                        conceptionDate: formatDate(conceptionDate)
                     };
 
-                    resultDiv.innerText = `Due Date: ${pregnancyDetails.dueDate}`;
-                    tableBody.innerHTML = `
-                        <tr><td>Last Menstrual Period</td><td>${pregnancyDetails.lmp}</td></tr>
-                        <tr><td>Cycle Length</td><td>${pregnancyDetails.cycleLength} days</td></tr>
-                        <tr><td>Due Date</td><td>${pregnancyDetails.dueDate}</td></tr>
-                        <tr><td>Weeks Pregnant</td><td>${pregnancyDetails.weeksPregnant} weeks</td></tr>
-                        <tr><td>Trimester</td><td>${pregnancyDetails.trimester}</td></tr>
-                    `;
-                    suggestionsDiv.innerHTML = `<strong>Suggestions:</strong><ul>${pregnancyDetails.suggestions.map(s => `<li>${s}</li>`).join("")}</ul>`;
+                    // Update results
+                    updateResultsForLanguage();
                     table.style.display = "table";
-
-                    // Chart
+                    milestonesContainer.style.display = "block";
+                    timelineContainer.style.display = "block";
                     chartContainer.style.display = "block";
-                    const chartElement = document.getElementById("pregnancy-chart");
-                    chartElement.innerHTML = ""; // Clear previous chart
-                    new Chartist.Line('#pregnancy-chart', {
-                        labels: [
-                            pregnancyDetails.lmp,
-                            pregnancyDetails.trimester1End,
-                            pregnancyDetails.trimester2End,
-                            pregnancyDetails.dueDate
-                        ],
-                        series: [[0, 1, 2, 3]]
-                    }, {
-                        fullWidth: true,
-                        chartPadding: { top: 20, right: 0, bottom: 20, left: 0 },
-                        axisY: { showGrid: false, showLabel: false },
-                        axisX: { labelInterpolationFnc: value => value }
-                    });
-
+                    relatedTools.style.display = "block";
+                    
                     document.getElementById("spinner").style.display = "none";
-                    console.log("Calculation done");
                 } catch (e) {
                     console.error("Calculation failed:", e.message);
-                    alert("Error: " + e.message + ". Use a local server (e.g., Live Server) and check internet.");
+                    alert("Error: " + e.message);
                     document.getElementById("spinner").style.display = "none";
                 }
             }, 500);
         }
 
         function toggleSpeech() {
-            console.log("toggleSpeech");
             try {
                 const result = document.getElementById("pregnancy-result").innerText;
                 if (!result || result.includes("Invalid")) return;
@@ -257,7 +793,7 @@
                     isSpeaking = false;
                 } else {
                     utterance = new SpeechSynthesisUtterance(result);
-                    utterance.lang = "en";
+                    utterance.lang = currentLanguage;
                     utterance.onend = () => { isSpeaking = false; };
                     window.speechSynthesis.speak(utterance);
                     isSpeaking = true;
@@ -277,6 +813,9 @@
 
         window.onpagehide = stopSpeech;
         window.onbeforeunload = stopSpeech;
+        
+        // Initialize with English language
+        changeLanguage('en');
     </script>
 </body>
 </html>
