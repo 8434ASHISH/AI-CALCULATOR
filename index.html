@@ -19,8 +19,7 @@
 <meta name="twitter:description" content="All-in-one AI-powered calculators for students, couples, professionals & more.">
 <meta name="twitter:image" content="https://8434ashish.github.io/AI-CALCULATOR/assets/og-image.png">
 <meta name="google-site-verification" content="CmtUpGTAjW0qFs-2cWvI2aI9uwV_M_ag3KDQSIpq2DA" />
-
-    <meta charset="UTF-8">
+ <meta charset="UTF-8">
  <meta name="yandex-verification" content=" f262a8ed1abee929">
  <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-FEQ7R89CFG"></script>
@@ -28,7 +27,6 @@
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-
   gtag('config', 'G-FEQ7R89CFG');
 </script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -275,7 +273,6 @@
   position: relative;
   z-index: 1;
 }
-
 .glitter-box h2 {
   font-size: 20px;
   color: #1e1b4b;
@@ -283,7 +280,6 @@
   margin-bottom: 12px;
   animation: glowText 1.8s ease-in-out infinite alternate;
 }
-
 .glitter-box a {
   text-decoration: none;
   font-size: 16px;
@@ -295,32 +291,27 @@
   box-shadow: 0 0 6px rgba(251, 113, 133, 0.5);
   transition: all 0.3s ease;
 }
-
 .glitter-box a:hover {
   transform: scale(1.07);
   box-shadow: 0 0 12px rgba(168, 85, 247, 0.8);
 }
-
 @keyframes glitterAnim {
   0% { box-shadow: 0 0 10px #fcd34d, 0 0 18px #f472b6; }
   50% { box-shadow: 0 0 18px #f9a8d4, 0 0 24px #c084fc; }
   100% { box-shadow: 0 0 10px #fcd34d, 0 0 18px #f472b6; }
 }
-
 @keyframes glowText {
   0% { text-shadow: 0 0 4px #facc15; }
   100% { text-shadow: 0 0 10px #facc15, 0 0 18px #f472b6; }
 }
 </style>
-
 <!-- 💫 Compact Block -->
 <div class="glitter-box">
   <h2>🔥check your pregnancy conception period? 18.2K women's Already Tried!</h2>
   <a href="pregnancy.html">🔥 Try Now</a>
 </div>
-
-        <div id="calculators-list" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-            <!-- Calculators will be dynamically loaded here -->
+ <div id="calculators-list" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+  <!-- Calculators will be dynamically loaded here -->
         </div>
         <div class="action-buttons">
             <a href="index.html" class="action-btn home-btn">
@@ -335,8 +326,7 @@
    🔥 BLOG: Readers section
   </a>
 </div>
-
-    </div>
+ </div>
     <footer class="bg-gray-100 text-gray-700 text-center py-6 mt-8">
         <div class="max-w-6xl mx-auto px-4">
             <div class="flex flex-wrap justify-center gap-4 mb-4">
@@ -381,15 +371,13 @@
         };
 
         let currentLang = 'en';
-
         function toggleLangList(event) {
             event.preventDefault();
             event.stopPropagation();
             const langList = document.getElementById('lang-list');
             langList.classList.toggle('active');
         }
-
-        function changeLanguage(lang, langName, event) {
+       function changeLanguage(lang, langName, event) {
             event.preventDefault();
             event.stopPropagation(); // Ensure event doesn't bubble up
             currentLang = lang;
@@ -399,8 +387,7 @@
             const langList = document.getElementById('lang-list');
             langList.classList.remove('active'); // Forcefully close dropdown
         }
-
-        function showCategory(category) {
+       function showCategory(category) {
             document.getElementById('category-title').textContent = translations[currentLang].categories[category] || translations['en'].categories[category];
             const calculatorsList = document.getElementById('calculators-list');
             calculatorsList.innerHTML = '';
@@ -427,8 +414,7 @@
             document.querySelectorAll('.nav-tab').forEach(tab => tab.classList.remove('active'));
             document.querySelector(`.nav-tab[href="#${category}"]`).classList.add('active');
         }
-
-        function getCategoryColor(category) {
+       function getCategoryColor(category) {
             const colors = {
                 'financial': 'blue',
                 'mathematics': 'yellow',
@@ -444,16 +430,13 @@
             };
             return colors[category.split(' ')[0]] || 'gray';
         }
-
-        // Initialize with default category
+      // Initialize with default category
         document.addEventListener('DOMContentLoaded', () => showCategory('financial'));
-
-        // Prevent dropdown from closing when clicking inside
+    // Prevent dropdown from closing when clicking inside
         document.getElementById('lang-dropdown').addEventListener('click', function(event) {
             event.stopPropagation();
         });
-
-        // Close dropdown when clicking outside
+ // Close dropdown when clicking outside
         document.addEventListener('click', function(event) {
             const langList = document.getElementById('lang-list');
             const langDropdown = document.getElementById('lang-dropdown');
