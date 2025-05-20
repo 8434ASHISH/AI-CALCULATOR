@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SMART AI CALCULATOR</title>
+    <link rel="canonical" href="https://smart-aicalculator.com/run-rate-calculators">
+    <style>
+body{font-family:Arial,sans-serif;margin:0;padding:0;background-color:#f4f4f4}h1,h2,h3{text-align:center;color:#333}select{display:block;margin:10px auto;padding:5px}.categories{text-align:center;margin:20px 0}.categories a{display:inline-block;margin:0 10px;padding:8px 16px;color:#fff;text-decoration:none;background-color:#4e54c8;border-radius:5px}.categories a:hover{background-color:#3b41a6}.calculator-container{max-width:600px;margin:20px auto;padding:20px;background:#e6f0fa;border-radius:8px;box-shadow:0 0 10px rgba(0,0,0,0.1)}label{display:block;margin:10px 0 5px;font-weight:700}input[type=number]{width:100%;padding:8px;margin-bottom:10px;border:1px solid #ccc;border-radius:4px}button{display:block;width:100%;padding:10px;background:#007bff;color:#fff;border:none;border-radius:4px;cursor:pointer}button:hover{background:#0056b3}.result{text-align:center;margin-top:20px;font-size:1.2em}footer{text-align:center;padding:20px;background:#333;color:#fff;margin-top:20px}footer a{color:#007bff;text-decoration:none;margin:0 10px}footer p{margin:10px 0}
+    </style>
+</head>
+<body>
+    <div>
+        <h1 id="heading">SMART AI CALCULATOR</h1>
+        <h3 id="subheading">A to Z Calculators Powered by AI</h3>
+    </div>
+
+    <div>
+        <select id="languageSelect" onchange="switchLanguage()">
+            <option value="en">English</option>
+            <option value="hi">हिन्दी (Hindi)</option>
+        </select>
+    </div>
+
+    <div class="categories">
+        <a href="#" id="homeLink">Home</a>
+        <a href="#" id="toolsLink">Newly Added Tools</a>
+    </div>
+
+    <div class="calculator-container">
+        <h2 id="calcHeading1">NET RUN RATE CALCULATOR</h2>
+        <label for="runsScored" id="runsScoredLabel">Total Runs Scored:</label>
+        <input type="number" id="runsScored" min="0" required>
+        
+        <label for="oversFaced" id="oversFacedLabel">Total Overs Faced:</label>
+        <input type="number" id="oversFaced" min="0" step="0.1" required>
+        
+        <label for="runsConceded" id="runsConcededLabel">Total Runs Conceded:</label>
+        <input type="number" id="runsConceded" min="0" required>
+        
+        <label for="oversBowled" id="oversBowledLabel">Total Overs Bowled:</label>
+        <input type="number" id="oversBowled" min="0" step="0.1" required>
+        
+        <button onclick="calculateNRR()" id="calcButton1">Calculate NRR</button>
+        
+        <div class="result" id="result1"></div>
+    </div>
+
+    <div class="calculator-container">
+        <h2 id="calcHeading2">RUN RATE CALCULATOR</h2>
+        <label for="runsScoredRR" id="runsScoredLabelRR">Total Runs Scored:</label>
+        <input type="number" id="runsScoredRR" min="0" required>
+        
+        <label for="oversFacedRR" id="oversFacedLabelRR">Total Overs Faced:</label>
+        <input type="number" id="oversFacedRR" min="0" step="0.1" required>
+        
+        <button onclick="calculateRunRate()" id="calcButton2">Calculate Run Rate</button>
+        
+        <div class="result" id="result2"></div>
+    </div>
+
+    <footer>
+        <div>
+            <a href="#" id="privacyLink">Privacy Policy</a>
+            <a href="#" id="disclaimerLink">Disclaimer</a>
+            <a href="#" id="howToUseLink">How to Use</a>
+            <a href="#" id="contactLink">Contact Us</a>
+        </div>
+        <div>
+            <p id="footerText">© 2025 SMART AI Calculator. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+const translations={en:{heading:"SMART AI CALCULATOR",subheading:"A to Z Calculators Powered by AI",homeLink:"Home",toolsLink:"Newly Added Tools",calcHeading1:"NET RUN RATE CALCULATOR",runsScoredLabel:"Total Runs Scored:",oversFacedLabel:"Total Overs Faced:",runsConcededLabel:"Total Runs Conceded:",oversBowledLabel:"Total Overs Bowled:",calcButton1:"Calculate NRR",resultPrefix1:"Net Run Rate (NRR): ",calcHeading2:"RUN RATE CALCULATOR",runsScoredLabelRR:"Total Runs Scored:",oversFacedLabelRR:"Total Overs Faced:",calcButton2:"Calculate Run Rate",resultPrefix2:"Run Rate: ",privacyLink:"Privacy Policy",disclaimerLink:"Disclaimer",howToUseLink:"How to Use",contactLink:"Contact Us",footerText:"© 2025 SMART AI Calculator. All rights reserved."},hi:{heading:"स्मार्ट AI कैलकुलेटर",subheading:"ए टू जेड कैलकुलेटर जो AI द्वारा संचालित हैं",homeLink:"होम",toolsLink:"नए जोड़े गए टूल्स",calcHeading1:"नेट रन रेट कैलकुलेटर",runsScoredLabel:"कुल रन स्कोर:",oversFacedLabel:"कुल ओवर फेस किए:",runsConcededLabel:"कुल रन दिए:",oversBowledLabel:"कुल ओवर डाले:",calcButton1:"NRR की गणना करें",resultPrefix1:"नेट रन रेट (NRR): ",calcHeading2:"रन रेट कैलकुलेटर",runsScoredLabelRR:"कुल रन स्कोर:",oversFacedLabelRR:"कुल ओवर फेस किए:",calcButton2:"रन रेट की गणना करें",resultPrefix2:"रन रेट: ",privacyLink:"गोपनीयता नीति",disclaimerLink:"अस्वीकरण",howToUseLink:"उपयोग कैसे करें",contactLink:"हमसे संपर्क करें",footerText:"© 2025 स्मार्ट AI कैलकुलेटर। सभी अधिकार सुरक्षित।"}};function switchLanguage(){const lang=document.getElementById("languageSelect").value;document.getElementById("heading").textContent=translations[lang].heading;document.getElementById("subheading").textContent=translations[lang].subheading;document.getElementById("homeLink").textContent=translations[lang].homeLink;document.getElementById("toolsLink").textContent=translations[lang].toolsLink;document.getElementById("calcHeading1").textContent=translations[lang].calcHeading1;document.getElementById("runsScoredLabel").textContent=translations[lang].runsScoredLabel;document.getElementById("oversFacedLabel").textContent=translations[lang].oversFacedLabel;document.getElementById("runsConcededLabel").textContent=translations[lang].runsConcededLabel;document.getElementById("oversBowledLabel").textContent=translations[lang].oversBowledLabel;document.getElementById("calcButton1").textContent=translations[lang].calcButton1;document.getElementById("calcHeading2").textContent=translations[lang].calcHeading2;document.getElementById("runsScoredLabelRR").textContent=translations[lang].runsScoredLabelRR;document.getElementById("oversFacedLabelRR").textContent=translations[lang].oversFacedLabelRR;document.getElementById("calcButton2").textContent=translations[lang].calcButton2;document.getElementById("privacyLink").textContent=translations[lang].privacyLink;document.getElementById("disclaimerLink").textContent=translations[lang].disclaimerLink;document.getElementById("howToUseLink").textContent=translations[lang].howToUseLink;document.getElementById("contactLink").textContent=translations[lang].contactLink;document.getElementById("footerText").textContent=translations[lang].footerText;const result1Div=document.getElementById("result1");if(result1Div.textContent){const nrr=result1Div.textContent.match(/-?\d+\.\d+/);if(nrr){result1Div.textContent=`${translations[lang].resultPrefix1}${nrr[0]}`;}}const result2Div=document.getElementById("result2");if(result2Div.textContent){const runRate=result2Div.textContent.match(/\d+\.\d+/);if(runRate){result2Div.textContent=`${translations[lang].resultPrefix2}${runRate[0]}`;}}}function calculateNRR(){const runsScored=parseFloat(document.getElementById("runsScored").value);const oversFaced=parseFloat(document.getElementById("oversFaced").value);const runsConceded=parseFloat(document.getElementById("runsConceded").value);const oversBowled=parseFloat(document.getElementById("oversBowled").value);if(!runsScored||!oversFaced||!runsConceded||!oversBowled||oversFaced===0||oversBowled===0){document.getElementById("result1").textContent="Please fill all fields with valid numbers!";return;}const battingRunRate=runsScored/oversFaced;const bowlingRunRate=runsConceded/oversBowled;const nrr=(battingRunRate-bowlingRunRate).toFixed(2);const lang=document.getElementById("languageSelect").value;document.getElementById("result1").textContent=`${translations[lang].resultPrefix1}${nrr}`;}function calculateRunRate(){const runsScored=parseFloat(document.getElementById("runsScoredRR").value);const oversFaced=parseFloat(document.getElementById("oversFacedRR").value);if(!runsScored||!oversFaced||oversFaced===0){document.getElementById("result2").textContent="Please fill all fields with valid numbers!";return;}const runRate=(runsScored/oversFaced).toFixed(2);const lang=document.getElementById("languageSelect").value;document.getElementById("result2").textContent=`${translations[lang].resultPrefix2}${runRate}`;}
+    </script>
+</body>
+</html>
