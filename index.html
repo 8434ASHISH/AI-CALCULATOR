@@ -1,40 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
-<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
-<link rel="icon" type="image/png" sizes="16x16" href="android-chrome-512x512.png">
-<link rel="icon" type="image/png" sizes="16x16" href="android-chrome-192x192.png">
-<link rel="manifest" href="site.webmanifest">
- <!-- ✅ Open Graph Meta Tags -->
-<meta property="og:title" content="Smart AI Calculator - Free Online Tools">
-<meta property="og:description" content="Use AI-powered free calculators for IQ, marks, love, health, finance & more.">
-<meta property="og:image" content="https://8434ashish.github.io/AI-CALCULATOR/assets/og-image.png">
-<meta property="og:url" content="https://smartaicalculator.com">
-<meta property="og:type" content="website">
-<!-- ✅ Twitter Card Preview -->
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Smart AI Calculator - Free Online Tools">
-<meta name="twitter:description" content="All-in-one AI-powered calculators for students, couples, professionals & more.">
-<meta name="twitter:image" content="https://8434ashish.github.io/AI-CALCULATOR/assets/og-image.png">
-<meta name="google-site-verification" content="CmtUpGTAjW0qFs-2cWvI2aI9uwV_M_ag3KDQSIpq2DA" />
- <meta charset="UTF-8">
- <meta name="yandex-verification" content=" f262a8ed1abee929">
- <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-FEQ7R89CFG"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-FEQ7R89CFG');
-</script>
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SMART AI Calculator - All-in-One Calculator Tools</title>
     <meta name="description" content="Explore our free AI-powered calculators including age, BMI, loan, and more. Available in multiple languages!">
     <meta name="keywords" content="ai calculator, age calculator, loan calculator India, ऑनलाइन कैलकुलेटर फ्री, Scientific calculator online, Scientific calculator online, Online calculator, Calculator, bmi calculator, Mortgage calculator, ऑनलाइन कैलकुलेटर, loan calculator, Free online calculator">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    
+    <!-- Preload critical resources -->
+    <link rel="preload" href="https://cdn.tailwindcss.com" as="script">
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" as="style">
+    <link rel="preload" href="apple-touch-icon.png" as="image">
+    <link rel="preload" href="favicon-32x32.png" as="image">
+    <link rel="preload" href="favicon-16x16.png" as="image">
+    
+    <!-- Favicons -->
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="android-chrome-512x512.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="android-chrome-192x192.png">
+    <link rel="manifest" href="site.webmanifest">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Smart AI Calculator - Free Online Tools">
+    <meta property="og:description" content="Use AI-powered free calculators for IQ, marks, love, health, finance & more.">
+    <meta property="og:image" content="https://8434ashish.github.io/AI-CALCULATOR/assets/og-image.png">
+    <meta property="og:url" content="https://smartaicalculator.com">
+    <meta property="og:type" content="website">
+    
+    <!-- Twitter Card Preview -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Smart AI Calculator - Free Online Tools">
+    <meta name="twitter:description" content="All-in-one AI-powered calculators for students, couples, professionals & more.">
+    <meta name="twitter:image" content="https://8434ashish.github.io/AI-CALCULATOR/assets/og-image.png">
+    
+    <!-- Verification tags -->
+    <meta name="google-site-verification" content="CmtUpGTAjW0qFs-2cWvI2aI9uwV_M_ag3KDQSIpq2DA">
+    <meta name="yandex-verification" content="f262a8ed1abee929">
+    
+    <title>SMART AI Calculator - All-in-One Calculator Tools</title>
+    
+    <!-- Inline critical CSS -->
     <style>
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -195,6 +201,50 @@
             color: #3a41b8;
             transform: translateY(-3px);
         }
+        .glitter-box {
+            margin: 25px auto;
+            padding: 16px 20px;
+            max-width: 520px;
+            border-radius: 10px;
+            background: radial-gradient(circle, #fde68a, #fca5a5, #f0abfc);
+            box-shadow: 0 0 12px #f472b6, 0 0 18px #c084fc;
+            text-align: center;
+            font-family: 'Segoe UI', sans-serif;
+            animation: glitterAnim 4s ease-in-out infinite;
+            position: relative;
+            z-index: 1;
+        }
+        .glitter-box h2 {
+            font-size: 20px;
+            color: #1e1b4b;
+            text-shadow: 0 0 6px #fcd34d;
+            margin-bottom: 12px;
+            animation: glowText 1.8s ease-in-out infinite alternate;
+        }
+        .glitter-box a {
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: 600;
+            color: #fff;
+            background: linear-gradient(to right, #f43f5e, #8b5cf6);
+            padding: 10px 18px;
+            border-radius: 6px;
+            box-shadow: 0 0 6px rgba(251, 113, 133, 0.5);
+            transition: all 0.3s ease;
+        }
+        .glitter-box a:hover {
+            transform: scale(1.07);
+            box-shadow: 0 0 12px rgba(168, 85, 247, 0.8);
+        }
+        @keyframes glitterAnim {
+            0% { box-shadow: 0 0 10px #fcd34d, 0 0 18px #f472b6; }
+            50% { box-shadow: 0 0 18px #f9a8d4, 0 0 24px #c084fc; }
+            100% { box-shadow: 0 0 10px #fcd34d, 0 0 18px #f472b6; }
+        }
+        @keyframes glowText {
+            0% { text-shadow: 0 0 4px #facc15; }
+            100% { text-shadow: 0 0 10px #facc15, 0 0 18px #f472b6; }
+        }
         @media (max-width: 768px) {
             .header h1 {
                 font-size: 2rem;
@@ -215,6 +265,15 @@
             }
         }
     </style>
+    
+    <!-- Non-critical CSS loaded asynchronously -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"></noscript>
+    
+    <!-- Preconnect to external domains -->
+    <link rel="preconnect" href="https://www.googletagmanager.com">
+    <link rel="preconnect" href="https://cdn.tailwindcss.com">
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
 </head>
 <body>
     <header class="header">
@@ -258,61 +317,16 @@
     </nav>
     <div class="calculator-content">
         <h2 id="category-title" class="text-2xl font-semibold mb-4 text-center">FINANCIAL CALCULATORS</h2>
-     <!-- ✨ COMPACT Glittering Trending Box -->
-<style>
-.glitter-box {
-  margin: 25px auto;
-  padding: 16px 20px;
-  max-width: 520px;
-  border-radius: 10px;
-  background: radial-gradient(circle, #fde68a, #fca5a5, #f0abfc);
-  box-shadow: 0 0 12px #f472b6, 0 0 18px #c084fc;
-  text-align: center;
-  font-family: 'Segoe UI', sans-serif;
-  animation: glitterAnim 4s ease-in-out infinite;
-  position: relative;
-  z-index: 1;
-}
-.glitter-box h2 {
-  font-size: 20px;
-  color: #1e1b4b;
-  text-shadow: 0 0 6px #fcd34d;
-  margin-bottom: 12px;
-  animation: glowText 1.8s ease-in-out infinite alternate;
-}
-.glitter-box a {
-  text-decoration: none;
-  font-size: 16px;
-  font-weight: 600;
-  color: #fff;
-  background: linear-gradient(to right, #f43f5e, #8b5cf6);
-  padding: 10px 18px;
-  border-radius: 6px;
-  box-shadow: 0 0 6px rgba(251, 113, 133, 0.5);
-  transition: all 0.3s ease;
-}
-.glitter-box a:hover {
-  transform: scale(1.07);
-  box-shadow: 0 0 12px rgba(168, 85, 247, 0.8);
-}
-@keyframes glitterAnim {
-  0% { box-shadow: 0 0 10px #fcd34d, 0 0 18px #f472b6; }
-  50% { box-shadow: 0 0 18px #f9a8d4, 0 0 24px #c084fc; }
-  100% { box-shadow: 0 0 10px #fcd34d, 0 0 18px #f472b6; }
-}
-@keyframes glowText {
-  0% { text-shadow: 0 0 4px #facc15; }
-  100% { text-shadow: 0 0 10px #facc15, 0 0 18px #f472b6; }
-}
-</style>
-<!-- 💫 Compact Block -->
-<div class="glitter-box">
-  <h2>🔥check your pregnancy conception period? 25.6K women's Already Tried!</h2>
-  <a href="pregnancy.html">🔥 Try Now</a>
-</div>
- <div id="calculators-list" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-  <!-- Calculators will be dynamically loaded here -->
+        
+        <div class="glitter-box">
+            <h2>🔥check your pregnancy conception period? 30.2K women's Already Tried!</h2>
+            <a href="pregnancy.html">🔥 Try Now</a>
         </div>
+        
+        <div id="calculators-list" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+            <!-- Calculators will be dynamically loaded here -->
+        </div>
+        
         <div class="action-buttons">
             <a href="index.html" class="action-btn home-btn">
                 <i class="fas fa-home"></i> Home
@@ -321,12 +335,14 @@
                 <i class="fas fa-comment-alt"></i> Feedback
             </a>
         </div>
-     <div style="text-align: center; margin: 30px 0;">
-  <a href="blog.html" style="background: #2a9d8f; color: white; padding: 12px 24px; border-radius: 6px; text-decoration: none; font-weight: bold;">
-   🔥 BLOG: Readers section
-  </a>
-</div>
- </div>
+        
+        <div style="text-align: center; margin: 30px 0;">
+            <a href="blog.html" style="background: #2a9d8f; color: white; padding: 12px 24px; border-radius: 6px; text-decoration: none; font-weight: bold;">
+                🔥 BLOG: Readers section
+            </a>
+        </div>
+    </div>
+    
     <footer class="bg-gray-100 text-gray-700 text-center py-6 mt-8">
         <div class="max-w-6xl mx-auto px-4">
             <div class="flex flex-wrap justify-center gap-4 mb-4">
@@ -335,10 +351,33 @@
                 <a href="how-to-use.html" class="hover:text-blue-600 font-medium">How to Use</a>
                 <a href="contact-us.html" class="hover:text-blue-600 font-medium">Contact Us</a>
             </div>
-           
-         <p class="text-sm">© 2025 SMART AI Calculator. All rights reserved.</p>
+            <p class="text-sm">© 2025 SMART AI Calculator. All rights reserved.</p>
         </div>
     </footer>
+
+    <!-- Load scripts asynchronously -->
+    <script>
+        // Load Tailwind CSS asynchronously
+        (function() {
+            var script = document.createElement('script');
+            script.src = 'https://cdn.tailwindcss.com';
+            script.async = true;
+            document.head.appendChild(script);
+        })();
+
+        // Load Google Analytics asynchronously
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-FEQ7R89CFG');
+        
+        var gtagScript = document.createElement('script');
+        gtagScript.src = 'https://www.googletagmanager.com/gtag/js?id=G-FEQ7R89CFG';
+        gtagScript.async = true;
+        document.head.appendChild(gtagScript);
+    </script>
+
+    <!-- Inline JavaScript for critical functionality -->
     <script>
         const translations = {
             en: { tagline: "A to Z Calculators Powered by AI", categories: { financial: "FINANCIAL CALCULATORS", mathematics: "MATHEMATICS CALCULATORS", health: "HEALTH CALCULATORS", "unit-converter": "UNIT CONVERTER CALCULATORS", "student academic": "ACADEMIC CALCULATORS", "home construction": "CONSTRUCTION CALCULATORS", "time-series": "TIME SERIES forecasting CALCULATORS", fun: "FUN CALCULATORS", misc: "MISCELLANEOUS CALCULATORS", "new-tools": "NEWLY ADDED TOOLS" }, calculatorNames: { loan: "Loan Calculator", "car-loan": "Car Loan Calculator", "auto-loan": "Auto Loan Calculator", mortgage: "Mortgage Calculator", roi: "ROI Calculator", saving: "Saving Calculator", gst: "GST Calculator", discount: "Discount Calculator", emi: "EMI Calculator", sip: "SIP Calculator", investment: "Investment Calculator", amortization: "Amortization Calculator", inflation: "Inflation Calculator", "sales-tax": "Sales Tax Calculator", percentage: "Percentage Calculator", "compound-interest": "Compound Interest Calculator", gpa: "GPA Calculator", "standard-deviation": "Standard Deviation Calculator", percentile: "Percentile Calculator", "mean-mode-median": "Mean-Mode-Median Calculator", "decimal-to-fraction": "Decimal to Fraction Calculator", scientific: "Scientific Calculator", algebra: "Algebra Calculator", geometry: "Geometry Calculator", pythagoras: "Pythagoras Theorem Calculator", bmi: "BMI Calculator", bmr: "BMR Calculator", "body-fat": "Body Fat Calculator", pregnancy: "Pregnancy Calculator", calories: "Calories Calculator", "weight-measurement": "Weight measurement Calculator ", iq: "Iq Calculator", "menstruation-cycle": "Menstruation Cycle Calculator", length: "Length Converter", temperature: "Temperature Converter", "weight": "Weight Converter", currency: "Currency Converter", "time-conversion": "Time Conversion Calculator", "si-unit": "SI Unit Calculator", cgpa: "CGPA Calculator", "marks-percentage": "Marks Percentage Calculator", "indian-exam-admission": "Indian Exam Admission Predictor", "global-exam-admission": "Global Exam Admission Predictor", paint: "Paint Calculator", tile: "Tile Calculator", "concrete-volume": "Concrete Volume Calculator", cement: "Cement Calculator", "flooring-cost": "Flooring Cost Estimator", "wall-plaster": "Wall Plaster Calculator", "construction-material": "Construction Material Estimator", "labour-cost": "Labour Cost Calculator", arima: "ARIMA Calculator", lstm: "LSTM Calculator", "trend-analysis": "Trend Analysis Calculator", "railway-trends": "Railway Trends Calculator", "hangman-game": "Hangman Game", "tic-tac-toe": "Tic Tac Toe Game", "Flame-test-game": "Flame-Test Game", "word-guessing": "Word Guessing Game", "mental-math": "Mental Math Game", "quiz-game": "Quiz Game", age: "Age Calculator", "date-difference": "Date Difference Calculator", tip: "Tip Calculator", "household-item": "Household Item Calculator", "random-number": "Random Number Generator", "password-generator": "Password Generator", subnet: "Subnet Calculator", retirement: "Retirement Calculator", salary: "Salary Calculator", "trigonometry-function": "Trigonometry Function Calculator", "matrix-calculator": "Matrix Calculator", "run-rate-calculator": "Run Rate Calculator", "probability-calculator": "Probability Calculator", "golden-ratio-calculator": "Golden Ratio Calculator", "prime-factor-calculator": "Prime Factor Calculator", "goal-score-calculator": "Goal Score Calculator", "pregnancy-weight-gain-calculator": "Pregnancy Weight Gain Calculator" }, buttons: { home: "Home", feedback: "Feedback" } },
@@ -354,30 +393,33 @@
             ru: { tagline: "Калькуляторы от A до Z на базе ИИ", categories: { financial: "ФИНАНСОВЫЕ КАЛЬКУЛЯТОРЫ", mathematics: "МАТЕМАТИЧЕСКИЕ КАЛЬКУЛЯТОРЫ", health: "КАЛЬКУЛЯТОРЫ ЗДОРОВЬЯ", "unit-converter": "КАЛЬКУЛЯТОРЫ ПЕРЕВОДА ЕДИНИЦ", "student academic": "АКАДЕМИЧЕСКИЕ КАЛЬКУЛЯТОРЫ", "home construction": "КАЛЬКУЛЯТОРЫ СТРОИТЕЛЬСТВА", "time-series": "КАЛЬКУЛЯТОРЫ ВРЕМЕННЫХ РЯДОВ", fun: "РАЗВЛЕКАТЕЛЬНЫЕ КАЛЬКУЛЯТОРЫ", misc: "РАЗНООБРАЗНЫЕ КАЛЬКУЛЯТОРЫ", "new-tools": "НОВЫЕ ИНСТРУМЕНТЫ" }, calculatorNames: { loan: "Калькулятор кредита", "car-loan": "Калькулятор автокредита", "auto-loan": "Калькулятор автокредита", mortgage: "Ипотечный калькулятор", roi: "Калькулятор ROI", saving: "Калькулятор сбережений", gst: "Калькулятор GST", discount: "Калькулятор скидок", emi: "Калькулятор EMI", sip: "Калькулятор SIP", investment: "Калькулятор инвестиций", amortization: "Калькулятор амортизации", inflation: "Калькулятор инфляции", "sales-tax": "Калькулятор налога с продаж", percentage: "Калькулятор процентов", "compound-interest": "Калькулятор сложных процентов", gpa: "Калькулятор GPA", "standard-deviation": "Калькулятор стандартного отклонения", percentile: "Калькулятор процентилей", "mean-mode-median": "Калькулятор среднего, моды и медианы", "decimal-to-fraction": "Калькулятор десятичных дробей", scientific: "Научный калькулятор", algebra: "Калькулятор алгебры", geometry: "Калькулятор геометрии", pythagoras: "Калькулятор теоремы Пифагора", bmi: "Калькулятор ИМТ", bmr: "Калькулятор BMR", "body-fat": "Калькулятор жира в организме", pregnancy: "Калькулятор беременности", calories: "Калькулятор калорий", "weight-measurement": "Калькулятор измерения веса", iq: "Калькулятор IQ", "menstruation-cycle": "Калькулятор менструального цикла", length: "Конвертер длины", temperature: "Конвертер температуры", "weight": "Конвертер веса", currency: "Конвертер валют", "time-conversion": "Калькулятор конвертации времени", "si-unit": "Калькулятор единиц СИ", cgpa: "Калькулятор CGPA", "marks-percentage": "Калькулятор процентного соотношения оценок", "indian-exam-admission": "Прогнозирование поступления в индийские вузы", "global-exam-admission": "Прогнозирование поступления в глобальные вузы", paint: "Калькулятор краски", tile: "Калькулятор плитки", "concrete-volume": "Калькулятор объема бетона", cement: "Калькулятор цемента", "flooring-cost": "Оценка стоимости напольного покрытия", "wall-plaster": "Калькулятор штукатурки стен", "construction-material": "Оценка строительных материалов", "labour-cost": "Калькулятор стоимости рабочей силы", arima: "Калькулятор ARIMA", lstm: "Калькулятор LSTM", "trend-analysis": "Калькулятор анализа трендов", "railway-trends": "Калькулятор трендов железных дорог", "hangman-game": "Игра 'Виселица'", "tic-tac-toe": "Игра 'Крестики-нолики'", "Flame-test-game": "Игра 'Тест пламенем'", "word-guessing": "Игра 'Угадай слово'", "mental-math": "Игра 'Устный счет'", "quiz-game": "Викторина", age: "Калькулятор возраста", "date-difference": "Калькулятор разницы дат", tip: "Калькулятор чаевых", "household-item": "Калькулятор домашних предметов", "random-number": "Генератор случайных чисел", "password-generator": "Генератор паролей", subnet: "Калькулятор подсети", retirement: "Калькулятор пенсии", salary: "Калькулятор зарплаты", "trigonometry-function": "Калькулятор тригонометрических функций", "matrix-calculator": "Калькулятор матриц", "run-rate-calculator": "Калькулятор темпа выполнения", "probability-calculator": "Калькулятор вероятности", "golden-ratio-calculator": "Калькулятор золотого сечения", "prime-factor-calculator": "Калькулятор простых множителей", "goal-score-calculator": "Калькулятор целевого счета", "pregnancy-weight-gain-calculator": "Калькулятор набора веса при беременности" }, buttons: { home: "Главная", feedback: "Обратная связь" } },
             ko: { tagline: "AI로 구동되는 A부터 Z까지 계산기", categories: { financial: "금융 계산기", mathematics: "수학 계산기", health: "건강 계산기", "unit-converter": "단위 변환 계산기", "student academic": "학업 계산기", "home construction": "건축 계산기", "time-series": "시계열 예측 계산기", fun: "재미있는 계산기", misc: "기타 계산기", "new-tools": "새로 추가된 도구" }, calculatorNames: { loan: "대출 계산기", "car-loan": "자동차 대출 계산기", "auto-loan": "자동차 대출 계산기", mortgage: "모기지 계산기", roi: "ROI 계산기", saving: "저축 계산기", gst: "GST 계산기", discount: "할인 계산기", emi: "EMI 계산기", sip: "SIP 계산기", investment: "투자 계산기", amortization: "상각 계산기", inflation: "인플레이션 계산기", "sales-tax": "판매세 계산기", percentage: "백분율 계산기", "compound-interest": "복리 계산기", gpa: "GPA 계산기", "standard-deviation": "표준 편차 계산기", percentile: "백분위 계산기", "mean-mode-median": "평균-최빈값-중앙값 계산기", "decimal-to-fraction": "소수에서 분수 계산기", scientific: "과학 계산기", algebra: "대수 계산기", geometry: "기하 계산기", pythagoras: "피타고라스 정리 계산기", bmi: "BMI 계산기", bmr: "BMR 계산기", "body-fat": "체지방 계산기", pregnancy: "임신 계산기", calories: "칼로리 계산기", "weight-measurement": "체중 측정 계산기", iq: "IQ 계산기", "menstruation-cycle": "생리 주기 계산기", length: "길이 변환기", temperature: "온도 변환기", "weight": "무게 변환기", currency: "통화 변환기", "time-conversion": "시간 변환 계산기", "si-unit": "SI 단위 계산기", cgpa: "CGPA 계산기", "marks-percentage": "점수 백분율 계산기", "indian-exam-admission": "인도 시험 입학 예측기", "global-exam-admission": "글로벌 시험 입학 예측기", paint: "페인트 계산기", tile: "타일 계산기", "concrete-volume": "콘크리트 부피 계산기", cement: "시멘트 계산기", "flooring-cost": "바닥재 비용 추정기", "wall-plaster": "벽 플라스터 계산기", "construction-material": "건축 자재 추정기", "labour-cost": "노동 비용 계산기", arima: "ARIMA 계산기", lstm: "LSTM 계산기", "trend-analysis": "추세 분석 계산기", "railway-trends": "철도 추세 계산기", "hangman-game": "행맨 게임", "tic-tac-toe": "틱택토 게임", "Flame-test-game": "불꽃 테스트 게임", "word-guessing": "단어 추측 게임", "mental-math": "암산 게임", "quiz-game": "퀴즈 게임", age: "나이 계산기", "date-difference": "날짜 차이 계산기", tip: "팁 계산기", "household-item": "가정용품 계산기", "random-number": "난수 생성기", "password-generator": "비밀번호 생성기", subnet: "서브넷 계산기", retirement: "퇴직 계산기", salary: "급여 계산기", "trigonometry-function": "삼각 함수 계산기", "matrix-calculator": "행렬 계산기", "run-rate-calculator": "런 레이트 계산기", "probability-calculator": "확률 계산기", "golden-ratio-calculator": "황금 비율 계산기", "prime-factor-calculator": "소인수 계산기", "goal-score-calculator": "목표 점수 계산기", "pregnancy-weight-gain-calculator": "임신 체중 증가 계산기" }, buttons: { home: "홈", feedback: "피드백" } },
             de: { tagline: "A bis Z Rechner mit KI-Unterstützung", categories: { financial: "FINANZRECHNER", mathematics: "MATHEMATIKRECHNER", health: "GESUNDHEITSRECHNER", "unit-converter": "EINHEITENUMRECHNER", "student academic": "AKADEMISCHE RECHNER", "home construction": "BAURECHNER", "time-series": "ZEITREIHENRECHNER", fun: "SPAßRECHNER", misc: "VERSCHIEDENE RECHNER", "new-tools": "NEU HINZUGEFÜGTE WERKZEUGE" }, calculatorNames: { loan: "Kreditrechner", "car-loan": "Autokreditrechner", "auto-loan": "Autokreditrechner", mortgage: "Hypothekenrechner", roi: "ROI-Rechner", saving: "Sparrechner", gst: "GST-Rechner", discount: "Rabattrechner", emi: "EMI-Rechner", sip: "SIP-Rechner", investment: "Anlagerechner", amortization: "Tilgungsrechner", inflation: "Inflationsrechner", "sales-tax": "Umsatzsteuerrechner", percentage: "Prozentrechner", "compound-interest": "Zinseszinsrechner", gpa: "GPA-Rechner", "standard-deviation": "Standardabweichungsrechner", percentile: "Perzentilrechner", "mean-mode-median": "Mittelwert-Modus-Median-Rechner", "decimal-to-fraction": "Dezimal-zu-Bruch-Rechner", scientific: "Wissenschaftlicher Rechner", algebra: "Algebra-Rechner", geometry: "Geometrie-Rechner", pythagoras: "Satz des Pythagoras Rechner", bmi: "BMI-Rechner", bmr: "BMR-Rechner", "body-fat": "Körperfettrechner", pregnancy: "Schwangerschaftsrechner", calories: "Kalorienrechner", "weight-measurement": "Gewichtsmessrechner", iq: "IQ-Rechner", "menstruation-cycle": "Menstruationszyklus-Rechner", length: "Längenumrechner", temperature: "Temperaturenumrechner", "weight": "Gewichtsumrechner", currency: "Währungsumrechner", "time-conversion": "Zeitumrechnungsrechner", "si-unit": "SI-Einheitenrechner", cgpa: "CGPA-Rechner", "marks-percentage": "Notenprozentsatzrechner", "indian-exam-admission": "Indische Prüfungszulassungsvorhersage", "global-exam-admission": "Globale Prüfungszulassungsvorhersage", paint: "Farbenrechner", tile: "Fliesenrechner", "concrete-volume": "Betonvolumenrechner", cement: "Zementrechner", "flooring-cost": "Bodenbelagskostenschätzer", "wall-plaster": "Wandputzrechner", "construction-material": "Baumaterialschätzer", "labour-cost": "Arbeitskostenrechner", arima: "ARIMA-Rechner", lstm: "LSTM-Rechner", "trend-analysis": "Trendanalyse-Rechner", "railway-trends": "Eisenbahntrends-Rechner", "hangman-game": "Galgenmännchen-Spiel", "tic-tac-toe": "Tic-Tac-Toe-Spiel", "Flame-test-game": "Flammentest-Spiel", "word-guessing": "Wortratespiel", "mental-math": "Kopfrechenspiel", "quiz-game": "Quizspiel", age: "Altersrechner", "date-difference": "Datumsdifferenzrechner", tip: "Trinkgeldrechner", "household-item": "Haushaltsgegenstandsrechner", "random-number": "Zufallszahlengenerator", "password-generator": "Passwortgenerator", subnet: "Subnetzrechner", retirement: "Rentenrechner", salary: "Gehaltsrechner", "trigonometry-function": "Trigonometriefunktionsrechner", "matrix-calculator": "Matrixrechner", "run-rate-calculator": "Laufratenrechner", "probability-calculator": "Wahrscheinlichkeitsrechner", "golden-ratio-calculator": "Goldener-Schnitt-Rechner", "prime-factor-calculator": "Primfaktorrechner", "goal-score-calculator": "Torpunktrechner", "pregnancy-weight-gain-calculator": "Schwangerschaftsgewichtszunahme-Rechner" }, buttons: { home: "Startseite", feedback: "Feedback" } },
-            pt: { tagline: "Calculadoras de A a Z alimentadas por IA", categories: { financial: "CALCULADORAS FINANCEIRAS", mathematics: "CALCULADORAS MATEMÁTICAS", health: "CALCULADORAS DE SAÚDE", "unit-converter": "CALCULADORAS DE CONVERSÃO DE UNIDADES", "student academic": "CALCULADORAS ACADÊMICAS", "home construction": "CALCULADORAS DE CONSTRUÇÃO", "time-series": "CALCULADORAS DE SÉRIES TEMPORAIS", fun: "CALCULADORAS DIVERTIDAS", misc: "CALCULADORAS DIVERSAS", "new-tools": "FERRAMENTAS RECÉM-ADICIONADAS" }, calculatorNames: { loan: "Calculadora de Empréstimo", "car-loan": "Calculadora de Empréstimo para Carro", "auto-loan": "Calculadora de Empréstimo Automático", mortgage: "Calculadora de Hipoteca", roi: "Calculadora de ROI", saving: "Calculadora de Poupança", gst: "Calculadora de GST", discount: "Calculadora de Desconto", emi: "Calculadora de EMI", sip: "Calculadora de SIP", investment: "Calculadora de Investimento", amortization: "Calculadora de Amortização", inflation: "Calculadora de Inflação", "sales-tax": "Calculadora de Imposto sobre Vendas", percentage: "Calculadora de Porcentagem", "compound-interest": "Calculadora de Juros Compostos", gpa: "Calculadora de GPA", "standard-deviation": "Calculadora de Desvio Padrão", percentile: "Calculadora de Percentil", "mean-mode-median": "Calculadora de Média-Moda-Mediana", "decimal-to-fraction": "Calculadora de Decimal para Fração", scientific: "Calculadora Científica", algebra: "Calculadora de Álgebra", geometry: "Calculadora de Geometria", pythagoras: "Calculadora do Teorema de Pitágoras", bmi: "Calculadora de IMC", bmr: "Calculadora de TMB", "body-fat": "Calculadora de Gordura Corporal", pregnancy: "Calculadora de Gravidez", calories: "Calculadora de Calorias", "weight-measurement": "Calculadora de Medição de Peso", iq: "Calculadora de QI", "menstruation-cycle": "Calculadora de Ciclo Menstrual", length: "Conversor de Comprimento", temperature: "Conversor de Temperatura", "weight": "Conversor de Peso", currency: "Conversor de Moeda", "time-conversion": "Calculadora de Conversão de Tempo", "si-unit": "Calculadora de Unidade SI", cgpa: "Calculadora de CGPA", "marks-percentage": "Calculadora de Porcentagem de Notas", "indian-exam-admission": "Previsor de Admissão em Exames Indianos", "global-exam-admission": "Previsor de Admissão em Exames Globais", paint: "Calculadora de Tinta", tile: "Calculadora de Azulejo", "concrete-volume": "Calculadora de Volume de Concreto", cement: "Calculadora de Cimento", "flooring-cost": "Estimador de Custo de Piso", "wall-plaster": "Calculadora de Reboco de Parede", "construction-material": "Estimador de Material de Construção", "labour-cost": "Calculadora de Custo de Mão de Obra", arima: "Calculadora ARIMA", lstm: "Calculadora LSTM", "trend-analysis": "Calculadora de Análise de Tendências", "railway-trends": "Calculadora de Tendências Ferroviárias", "hangman-game": "Jogo da Forca", "tic-tac-toe": "Jogo da Velha", "Flame-test-game": "Jogo de Teste de Chama", "word-guessing": "Jogo de Adivinhação de Palavras", "mental-math": "Jogo de Matemática Mental", "quiz-game": "Jogo de Quiz", age: "Calculadora de Idade", "date-difference": "Calculadora de Diferença de Datas", tip: "Calculadora de Gorjeta", "household-item": "Calculadora de Itens Domésticos", "random-number": "Gerador de Números Aleatórios", "password-generator": "Gerador de Senhas", subnet: "Calculadora de Sub-rede", retirement: "Calculadora de Aposentadoria", salary: "Calculadora de Salário", "trigonometry-function": "Calculadora de Função Trigonométrica", "matrix-calculator": "Calculadora de Matriz", "run-rate-calculator": "Calculadora de Taxa de Execução", "probability-calculator": "Calculadora de Probabilidade", "golden-ratio-calculator": "Calculadora de Proporção Áurea", "prime-factor-calculator": "Calculadora de Fator Primo", "goal-score-calculator": "Calculadora de Pontuação de Objetivo", "pregnancy-weight-gain-calculator": "Calculadora de Ganho de Peso na Gravidez" }, buttons: { home: "Início", feedback: "Feedback" } },
+            pt: { tagline: "Calculadoras de A a Z alimentadas por IA", categories: { financial: "CALCULADORAS FINANCEIRAS", mathematics: "CALCULADORAS MATEMÁTICAS", health: "CALCULADORAS DE SAÚDE", "unit-converter": "CALCULADORAS DE CONVERSÃO DE UNIDADES", "student academic": "CALCULADORAS ACADÊMICAS", "home construction": "CALCULADORAS DE CONSTRUÇÃO", "time-series": "CALCULADORAS DE SÉRIES TEMPORAIS", fun: "CALCULADORAS DIVERTIDAS", misc: "CALCULADORAS DIVERSAS", "new-tools": "FERRAMENTAS RECÉM-ADICIONADAS" }, calculatorNames: { loan: "Calculadora de Empréstimo", "car-loan": "Calculadora de Empréstimo para Carro", "auto-loan": "Calculadora de Empréstimo Automático", mortgage: "Calculadora de Hipoteca", roi: "Calculadora de ROI", saving: "Calculadora de Poupança", gst: "Calculadora de GST", discount: "Calculadora de Desconto", emi: "Calculadora de EMI", sip: "Calculadora de SIP", investment: "Calculadora de Investimento", amortization: "Calculadora de Amortização", inflation: "Calculadora de Inflação", "sales-tax": "Calculadora de Imposto sobre Vendas", percentage: "Calculadora de Porcentagem", "compound-interest": "Calculadora de Juros Compostos", gpa: "Calculadora de GPA", "standard-deviation": "Calculadora de Desvio Padrão", percentile: "Calculadora de Percentil", "mean-mode-median": "Calculadora de Média-Moda-Mediana", "decimal-to-fraction": "Calculadora de Decimal para Fração", scientific: "Calculadora Científica", algebra: "Calculadora de Álgebra", geometry: "Calculadora de Geometria", pythagoras: "Calculadora do Teorema de Pitágoras", bmi: "Calculadora de IMC", bmr: "Calculadora de TMB", "body-fat": "Calculadora de Gordura Corporal", pregnancy: "Calculadora de Gravidez", calories: "Calculadora de Calorías", "weight-measurement": "Calculadora de Medição de Peso", iq: "Calculadora de QI", "menstruation-cycle": "Calculadora de Ciclo Menstrual", length: "Conversor de Comprimento", temperature: "Conversor de Temperatura", "weight": "Conversor de Peso", currency: "Conversor de Moeda", "time-conversion": "Calculadora de Conversão de Tempo", "si-unit": "Calculadora de Unidade SI", cgpa: "Calculadora de CGPA", "marks-percentage": "Calculadora de Porcentagem de Notas", "indian-exam-admission": "Previsor de Admissão em Exames Indianos", "global-exam-admission": "Previsor de Admissão em Exames Globais", paint: "Calculadora de Tinta", tile: "Calculadora de Azulejo", "concrete-volume": "Calculadora de Volume de Concreto", cement: "Calculadora de Cimento", "flooring-cost": "Estimador de Custo de Piso", "wall-plaster": "Calculadora de Reboco de Parede", "construction-material": "Estimador de Material de Construção", "labour-cost": "Calculadora de Custo de Mão de Obra", arima: "Calculadora ARIMA", lstm: "Calculadora LSTM", "trend-analysis": "Calculadora de Análise de Tendências", "railway-trends": "Calculadora de Tendências Ferroviárias", "hangman-game": "Jogo da Forca", "tic-tac-toe": "Jogo da Velha", "Flame-test-game": "Jogo de Teste de Chama", "word-guessing": "Jogo de Adivinhação de Palavras", "mental-math": "Jogo de Matemática Mental", "quiz-game": "Jogo de Quiz", age: "Calculadora de Idade", "date-difference": "Calculadora de Diferença de Datas", tip: "Calculadora de Gorjeta", "household-item": "Calculadora de Itens Domésticos", "random-number": "Gerador de Números Aleatórios", "password-generator": "Gerador de Senhas", subnet: "Calculadora de Sub-rede", retirement: "Calculadora de Aposentadoria", salary: "Calculadora de Salário", "trigonometry-function": "Calculadora de Função Trigonométrica", "matrix-calculator": "Calculadora de Matriz", "run-rate-calculator": "Calculadora de Taxa de Execução", "probability-calculator": "Calculadora de Probabilidade", "golden-ratio-calculator": "Calculadora de Proporção Áurea", "prime-factor-calculator": "Calculadora de Fator Primo", "goal-score-calculator": "Calculadora de Pontuação de Objetivo", "pregnancy-weight-gain-calculator": "Calculadora de Ganho de Peso na Gravidez" }, buttons: { home: "Início", feedback: "Feedback" } },
             ja: { tagline: "AI搭載のAからZまでの計算機", categories: { financial: "金融計算機", mathematics: "数学計算機", health: "健康計算機", "unit-converter": "単位変換計算機", "student academic": "学術計算機", "home construction": "建築計算機", "time-series": "時系列予測計算機", fun: "楽しい計算機", misc: "その他の計算機", "new-tools": "新しく追加されたツール" }, calculatorNames: { loan: "ローン計算機", "car-loan": "車ローン計算機", "auto-loan": "自動車ローン計算機", mortgage: "住宅ローン計算機", roi: "ROI計算機", saving: "貯蓄計算機", gst: "GST計算機", discount: "割引計算機", emi: "EMI計算機", sip: "SIP計算機", investment: "投資計算機", amortization: "償却計算機", inflation: "インフレ計算機", "sales-tax": "消費税計算機", percentage: "パーセンテージ計算機", "compound-interest": "複利計算機", gpa: "GPA計算機", "standard-deviation": "標準偏差計算機", percentile: "パーセンタイル計算機", "mean-mode-median": "平均-最頻値-中央値計算機", "decimal-to-fraction": "小数から分数計算機", scientific: "科学計算機", algebra: "代数計算機", geometry: "幾何学計算機", pythagoras: "ピタゴラスの定理計算機", bmi: "BMI計算機", bmr: "BMR計算機", "body-fat": "体脂肪計算機", pregnancy: "妊娠計算機", calories: "カロリー計算機", "weight-measurement": "体重測定計算機", iq: "IQ計算機", "menstruation-cycle": "月経周期計算機", length: "長さ変換機", temperature: "温度変換機", "weight": "重量変換機", currency: "通貨変換機", "time-conversion": "時間変換計算機", "si-unit": "SI単位計算機", cgpa: "CGPA計算機", "marks-percentage": "点数パーセンテージ計算機", "indian-exam-admission": "インドの試験入学予測", "global-exam-admission": "グローバル試験入学予測", paint: "ペイント計算機", tile: "タイル計算機", "concrete-volume": "コンクリート体積計算機", cement: "セメント計算機", "flooring-cost": "床材コスト見積もり", "wall-plaster": "壁プラスター計算機", "construction-material": "建築資材見積もり", "labour-cost": "労働コスト計算機", arima: "ARIMA計算機", lstm: "LSTM計算機", "trend-analysis": "トレンド分析計算機", "railway-trends": "鉄道トレンド計算機", "hangman-game": "ハングマンゲーム", "tic-tac-toe": "三目並べゲーム", "Flame-test-game": "炎テストゲーム", "word-guessing": "単語当てゲーム", "mental-math": "暗算ゲーム", "quiz-game": "クイズゲーム", age: "年齢計算機", "date-difference": "日付差計算機", tip: "チップ計算機", "household-item": "家庭用品計算機", "random-number": "乱数生成器", "password-generator": "パスワード生成器", subnet: "サブネット計算機", retirement: "退職計算機", salary: "給与計算機", "trigonometry-function": "三角関数計算機", "matrix-calculator": "行列計算機", "run-rate-calculator": "実行率計算機", "probability-calculator": "確率計算機", "golden-ratio-calculator": "黄金比計算機", "prime-factor-calculator": "素因数計算機", "goal-score-calculator": "目標スコア計算機", "pregnancy-weight-gain-calculator": "妊娠体重増加計算機" }, buttons: { home: "ホーム", feedback: "フィードバック" } },
             id: { tagline: "Kalkulator A sampai Z dengan Tenaga AI", categories: { financial: "KALKULATOR KEUANGAN", mathematics: "KALKULATOR MATEMATIKA", health: "KALKULATOR KESEHATAN", "unit-converter": "KALKULATOR KONVERSI SATUAN", "student academic": "KALKULATOR AKADEMIK", "home construction": "KALKULATOR KONSTRUKSI RUMAH", "time-series": "KALKULATOR PERAMALAN DERET WAKTU", fun: "KALKULATOR MENYENANGKAN", misc: "KALKULATOR LAINNYA", "new-tools": "ALAT BARU DITAMBAHKAN" }, calculatorNames: { loan: "Kalkulator Pinjaman", "car-loan": "Kalkulator Pinjaman Mobil", "auto-loan": "Kalkulator Pinjaman Otomatis", mortgage: "Kalkulator Hipotek", roi: "Kalkulator ROI", saving: "Kalkulator Tabungan", gst: "Kalkulator GST", discount: "Kalkulator Diskon", emi: "Kalkulator EMI", sip: "Kalkulator SIP", investment: "Kalkulator Investasi", amortization: "Kalkulator Amortisasi", inflation: "Kalkulator Inflasi", "sales-tax": "Kalkulator Pajak Penjualan", percentage: "Kalkulator Persentase", "compound-interest": "Kalkulator Bunga Majemuk", gpa: "Kalkulator GPA", "standard-deviation": "Kalkulator Standar Deviasi", percentile: "Kalkulator Persentil", "mean-mode-median": "Kalkulator Mean-Modus-Median", "decimal-to-fraction": "Kalkulator Desimal ke Pecahan", scientific: "Kalkulator Ilmiah", algebra: "Kalkulator Aljabar", geometry: "Kalkulator Geometri", pythagoras: "Kalkulator Teorema Pythagoras", bmi: "Kalkulator BMI", bmr: "Kalkulator BMR", "body-fat": "Kalkulator Lemak Tubuh", pregnancy: "Kalkulator Kehamilan", calories: "Kalkulator Kalori", "weight-measurement": "Kalkulator Pengukuran Berat", iq: "Kalkulator IQ", "menstruation-cycle": "Kalkulator Siklus Menstruasi", length: "Konverter Panjang", temperature: "Konverter Suhu", "weight": "Konverter Berat", currency: "Konverter Mata Uang", "time-conversion": "Kalkulator Konversi Waktu", "si-unit": "Kalkulator Unit SI", cgpa: "Kalkulator CGPA", "marks-percentage": "Kalkulator Persentase Nilai", "indian-exam-admission": "Prediksi Penerimaan Ujian India", "global-exam-admission": "Prediksi Penerimaan Ujian Global", paint: "Kalkulator Cat", tile: "Kalkulator Ubin", "concrete-volume": "Kalkulator Volume Beton", cement: "Kalkulator Semen", "flooring-cost": "Estimator Biaya Lantai", "wall-plaster": "Kalkulator Plester Dinding", "construction-material": "Estimator Material Konstruksi", "labour-cost": "Kalkulator Biaya Tenaga Kerja", arima: "Kalkulator ARIMA", lstm: "Kalkulator LSTM", "trend-analysis": "Kalkulator Analisis Tren", "railway-trends": "Kalkulator Tren Kereta Api", "hangman-game": "Permainan Hangman", "tic-tac-toe": "Permainan Tic Tac Toe", "Flame-test-game": "Permainan Uji Nyala", "word-guessing": "Permainan Tebak Kata", "mental-math": "Permainan Matematika Mental", "quiz-game": "Permainan Kuis", age: "Kalkulator Usia", "date-difference": "Kalkulator Selisih Tanggal", tip: "Kalkulator Tip", "household-item": "Kalkulator Barang Rumah Tangga", "random-number": "Generator Angka Acak", "password-generator": "Generator Kata Sandi", subnet: "Kalkulator Subnet", retirement: "Kalkulator Pensiun", salary: "Kalkulator Gaji", "trigonometry-function": "Kalkulator Fungsi Trigonometri", "matrix-calculator": "Kalkulator Matriks", "run-rate-calculator": "Kalkulator Laju Lari", "probability-calculator": "Kalkulator Probabilitas", "golden-ratio-calculator": "Kalkulator Rasio Emas", "prime-factor-calculator": "Kalkulator Faktor Prima", "goal-score-calculator": "Kalkulator Skor Tujuan", "pregnancy-weight-gain-calculator": "Kalkulator Kenaikan Berat Badan Kehamilan" }, buttons: { home: "Beranda", feedback: "Umpan Balik" } },
             it: { tagline: "Calcolatori dalla A alla Z alimentati da AI", categories: { financial: "CALCOLATORI FINANZIARI", mathematics: "CALCOLATORI MATEMATICI", health: "CALCOLATORI DI SALUTE", "unit-converter": "CALCOLATORI DI CONVERSIONE UNITÀ", "student academic": "CALCOLATORI ACCADEMICI", "home construction": "CALCOLATORI DI COSTRUZIONE", "time-series": "CALCOLATORI DI SERIE TEMPORALI", fun: "CALCOLATORI DIVERTENTI", misc: "CALCOLATORI VARI", "new-tools": "NUOVI STRUMENTI AGGIUNTI" }, calculatorNames: { loan: "Calcolatore di Prestito", "car-loan": "Calcolatore di Prestito Auto", "auto-loan": "Calcolatore di Prestito Auto", mortgage: "Calcolatore di Mutuo", roi: "Calcolatore di ROI", saving: "Calcolatore di Risparmio", gst: "Calcolatore di GST", discount: "Calcolatore di Sconto", emi: "Calcolatore di EMI", sip: "Calcolatore di SIP", investment: "Calcolatore di Investimento", amortization: "Calcolatore di Ammortamento", inflation: "Calcolatore di Inflazione", "sales-tax": "Calcolatore di Imposta sulle Vendite", percentage: "Calcolatore di Percentuale", "compound-interest": "Calcolatore di Interesse Composto", gpa: "Calcolatore di GPA", "standard-deviation": "Calcolatore di Deviazione Standard", percentile: "Calcolatore di Percentile", "mean-mode-median": "Calcolatore di Media-Moda-Mediana", "decimal-to-fraction": "Calcolatore da Decimale a Frazione", scientific: "Calcolatore Scientifico", algebra: "Calcolatore di Algebra", geometry: "Calcolatore di Geometria", pythagoras: "Calcolatore del Teorema di Pitagora", bmi: "Calcolatore di BMI", bmr: "Calcolatore di BMR", "body-fat": "Calcolatore di Grasso Corporeo", pregnancy: "Calcolatore di Gravidanza", calories: "Calcolatore di Calorie", "weight-measurement": "Calcolatore di Misurazione del Peso", iq: "Calcolatore di QI", "menstruation-cycle": "Calcolatore del Ciclo Mestruale", length: "Convertitore di Lunghezza", temperature: "Convertitore di Temperatura", "weight": "Convertitore di Peso", currency: "Convertitore di Valuta", "time-conversion": "Calcolatore di Conversione del Tempo", "si-unit": "Calcolatore di Unità SI", cgpa: "Calcolatore di CGPA", "marks-percentage": "Calcolatore di Percentuale dei Voti", "indian-exam-admission": "Previsore di Ammissione agli Esami Indiani", "global-exam-admission": "Previsore di Ammissione agli Esami Globali", paint: "Calcolatore di Vernice", tile: "Calcolatore di Piastrelle", "concrete-volume": "Calcolatore di Volume del Calcestruzzo", cement: "Calcolatore di Cemento", "flooring-cost": "Stimatore del Costo del Pavimento", "wall-plaster": "Calcolatore di Intonaco per Pareti", "construction-material": "Stimatore di Materiali da Costruzione", "labour-cost": "Calcolatore del Costo della Manodopera", arima: "Calcolatore ARIMA", lstm: "Calcolatore LSTM", "trend-analysis": "Calcolatore di Analisi delle Tendenze", "railway-trends": "Calcolatore delle Tendenze Ferroviarie", "hangman-game": "Gioco dell'Impiccato", "tic-tac-toe": "Gioco del Tris", "Flame-test-game": "Gioco del Test della Fiamma", "word-guessing": "Gioco di Indovinare Parole", "mental-math": "Gioco di Matematica Mentale", "quiz-game": "Gioco a Quiz", age: "Calcolatore dell'Età", "date-difference": "Calcolatore della Differenza di Data", tip: "Calcolatore della Mancia", "household-item": "Calcolatore degli Oggetti Domestici", "random-number": "Generatore di Numeri Casuali", "password-generator": "Generatore di Password", subnet: "Calcolatore di Sottorete", retirement: "Calcolatore della Pensione", salary: "Calcolatore dello Stipendio", "trigonometry-function": "Calcolatore di Funzioni Trigonometriche", "matrix-calculator": "Calcolatore di Matrici", "run-rate-calculator": "Calcolatore del Tasso di Esecuzione", "probability-calculator": "Calcolatore di Probabilità", "golden-ratio-calculator": "Calcolatore del Rapporto Aureo", "prime-factor-calculator": "Calcolatore dei Fattori Primi", "goal-score-calculator": "Calcolatore del Punteggio Obiettivo", "pregnancy-weight-gain-calculator": "Calcolatore dell'Aumento di Peso in Gravidanza" }, buttons: { home: "Home", feedback: "Feedback" } }
         };
 
         let currentLang = 'en';
+        
         function toggleLangList(event) {
             event.preventDefault();
             event.stopPropagation();
             const langList = document.getElementById('lang-list');
             langList.classList.toggle('active');
         }
-       function changeLanguage(lang, langName, event) {
+        
+        function changeLanguage(lang, langName, event) {
             event.preventDefault();
-            event.stopPropagation(); // Ensure event doesn't bubble up
+            event.stopPropagation();
             currentLang = lang;
             document.getElementById('tagline').textContent = translations[lang].tagline || translations['en'].tagline;
             document.getElementById('lang-text').textContent = langName;
             showCategory(document.querySelector('.nav-tab.active').getAttribute('href').substring(1));
             const langList = document.getElementById('lang-list');
-            langList.classList.remove('active'); // Forcefully close dropdown
+            langList.classList.remove('active');
         }
-       function showCategory(category) {
+        
+        function showCategory(category) {
             document.getElementById('category-title').textContent = translations[currentLang].categories[category] || translations['en'].categories[category];
             const calculatorsList = document.getElementById('calculators-list');
             calculatorsList.innerHTML = '';
@@ -404,7 +446,8 @@
             document.querySelectorAll('.nav-tab').forEach(tab => tab.classList.remove('active'));
             document.querySelector(`.nav-tab[href="#${category}"]`).classList.add('active');
         }
-       function getCategoryColor(category) {
+        
+        function getCategoryColor(category) {
             const colors = {
                 'financial': 'blue',
                 'mathematics': 'yellow',
@@ -420,13 +463,16 @@
             };
             return colors[category.split(' ')[0]] || 'gray';
         }
-      // Initialize with default category
+        
+        // Initialize with default category
         document.addEventListener('DOMContentLoaded', () => showCategory('financial'));
-    // Prevent dropdown from closing when clicking inside
+        
+        // Prevent dropdown from closing when clicking inside
         document.getElementById('lang-dropdown').addEventListener('click', function(event) {
             event.stopPropagation();
         });
- // Close dropdown when clicking outside
+        
+        // Close dropdown when clicking outside
         document.addEventListener('click', function(event) {
             const langList = document.getElementById('lang-list');
             const langDropdown = document.getElementById('lang-dropdown');
