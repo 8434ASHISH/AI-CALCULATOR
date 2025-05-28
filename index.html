@@ -5,21 +5,17 @@
     <meta name="google-adsense-account" content="ca-pub-6141370059352407">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Explore our free AI-powered calculators including age, BMI, loan, and more. Available in multiple languages!">
-    <meta name="keywords" content="ai calculator, age calculator, loan calculator India, ऑनलाइन कैलकुलेटर फ्री, Scientific calculator online, Scientific calculator online, Online calculator, Calculator, bmi calculator, Mortgage calculator, ऑनलाइन कैलकुलेटर, loan calculator, Free online calculator">
+    <meta name="keywords" content="ai calculator, age calculator, loan calculator India, ऑनलाइन कैलकुलेटर फ्री, Scientific calculator online, Online calculator, Calculator, bmi calculator, Mortgage calculator, ऑनलाइन कैलकुलेटर, loan calculator, Free online calculator">
     
     <!-- Preload critical resources -->
-    <link rel="preload" href="https://cdn.tailwindcss.com" as="script">
-    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" as="style">
-    <link rel="preload" href="apple-touch-icon.png" as="image">
-    <link rel="preload" href="favicon-32x32.png" as="image">
-    <link rel="preload" href="favicon-16x16.png" as="image">
+    <link rel="preload" href="https://cdn.tailwindcss.com" as="script" crossorigin>
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" as="style" crossorigin>
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&display=swap" as="style">
     
     <!-- Favicons -->
     <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="android-chrome-512x512.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="android-chrome-192x192.png">
     <link rel="manifest" href="site.webmanifest">
     
     <!-- Open Graph Meta Tags -->
@@ -41,115 +37,168 @@
     
     <title>SMART AI Calculator - All-in-One Calculator Tools</title>
     
-    <!-- Inline critical CSS -->
+    <!-- Inline critical CSS with optimized selectors -->
     <style>
+        :root {
+            --primary: #4e54c8;
+            --primary-dark: #3a41b8;
+            --secondary: #ff6b6b;
+            --secondary-dark: #ff5252;
+        }
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Noto Sans', system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
             background-color: #f8f9fa;
             color: #333;
-            margin: 0;
+            line-height: 1.5;
+            text-rendering: optimizeLegibility;
+            -webkit-font-smoothing: antialiased;
         }
         .header {
-            background: linear-gradient(135deg, #4e54c8, #8f94fb);
-            padding: 25px 0;
+            background: linear-gradient(135deg, var(--primary), #8f94fb);
+            padding: 1.5rem 0;
             text-align: center;
             box-shadow: 0 4px 12px rgba(0,0,0,0.1);
             display: flex;
             flex-direction: column;
             align-items: center;
+            position: relative;
+            z-index: 10;
         }
         .header h1 {
-            color: white;
-            font-size: 2.5rem;
+            color: #fff;
+            font-size: clamp(1.8rem, 4vw, 2.5rem);
             font-weight: 800;
             text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
-            margin-bottom: 10px;
+            margin-bottom: 0.6rem;
         }
         #tagline {
-            color: white;
-            font-size: 1.2rem;
+            color: #fff;
+            font-size: clamp(1rem, 2vw, 1.2rem);
             font-weight: 500;
-            margin-bottom: 15px;
+            margin-bottom: 1rem;
         }
-        .lang-dropdown {
-            background: rgba(255,255,255,0.2);
-            color: white;
-            padding: 8px 15px;
-            border-radius: 25px;
-            cursor: pointer;
-            font-weight: 600;
-            transition: all 0.3s;
-            border: 1px solid rgba(255,255,255,0.3);
-            display: flex;
-            align-items: center;
-            gap: 5px;
-            margin-top: 10px;
-            position: relative;
-        }
-        .lang-dropdown:hover {
-            background: rgba(255,255,255,0.3);
-        }
-        .lang-list {
-            display: none;
-            position: absolute;
-            top: 100%;
-            left: 50%;
-            transform: translateX(-50%);
-            background: white;
-            border-radius: 8px;
-            min-width: 150px;
-            box-shadow: 0 8px 16px rgba(0,0,0,0.15);
-            z-index: 10;
-            overflow: hidden;
-        }
-        .lang-list.active {
-            display: block;
-        }
-        .lang-option {
-            padding: 10px 15px;
-            color: #333;
-            text-decoration: none;
-            display: block;
-            transition: all 0.2s;
-        }
-        .lang-option:hover {
-            background: #f0f0f0;
-            color: #4e54c8;
+        /* Language Dropdown Styles */
+.lang-dropdown {
+    background: rgba(255,255,255,0.2);
+    color: #fff;
+    padding: 0.5rem 1rem;
+    border-radius: 1.5rem;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(255,255,255,0.3);
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+    margin-top: 0.6rem;
+    position: relative; /* Creates stacking context */
+    z-index: 1001;
+}
+
+.lang-dropdown:hover {
+    background: rgba(255,255,255,0.3);
+}
+
+.lang-list {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #fff;
+    border-radius: 0.5rem;
+    min-width: 16rem;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+    z-index: 1100; /* Higher than header z-index */
+    overflow-y: auto;
+    max-height: 70vh;
+    width: max-content;
+    columns: 2;
+    column-gap: 1rem;
+    margin-top: 5px;
+}
+
+.lang-list.active {
+    display: block;
+}
+
+.lang-option {
+    padding: 0.6rem 1rem;
+    color: #333;
+    text-decoration: none;
+    display: block;
+    transition: all 0.2s ease;
+    white-space: nowrap;
+    break-inside: avoid;
+}
+
+.lang-option:hover {
+    background: #f0f0f0;
+    color: var(--primary);
+}
+
+/* Fix for header to ensure dropdown appears above content */
+.header {
+    position: relative;
+    z-index: 1000; /* Lower than dropdown z-index */
+}
+
+/* Mobile responsive adjustments */
+@media (max-width: 768px) {
+    .lang-list {
+        position: fixed;
+        top: 120px;
+        left: 5%;
+        right: 5%;
+        transform: none;
+        width: auto;
+        max-width: 90%;
+        columns: 1;
+    }
         }
         .nav-tabs {
             display: flex;
             justify-content: center;
-            gap: 15px;
-            padding: 15px 0;
-            background: white;
+            gap: 1rem;
+            padding: 1rem 0;
+            background: #fff;
             box-shadow: 0 2px 10px rgba(0,0,0,0.05);
             flex-wrap: wrap;
+            position: relative;
+            z-index: 10;
         }
         .nav-tab {
             color: #555;
             text-decoration: none;
-            padding: 8px 20px;
-            transition: all 0.3s;
+            padding: 0.5rem 1.25rem;
+            transition: all 0.3s ease;
             font-weight: 600;
-            border-radius: 25px;
+            border-radius: 1.5rem;
+            font-size: 0.9rem;
         }
         .nav-tab:hover, .nav-tab.active {
-            background: #4e54c8;
-            color: white;
+            background: var(--primary);
+            color: #fff;
         }
         .calculator-content {
-            max-width: 1100px;
-            margin: 30px auto;
-            padding: 25px;
-            background: white;
-            border-radius: 12px;
+            max-width: 68.75rem;
+            margin: 1.875rem auto;
+            padding: 1.5rem;
+            background: #fff;
+            border-radius: 0.75rem;
             box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            position: relative;
         }
         #category-title {
-            color: #4e54c8;
-            font-size: 1.8rem;
+            color: var(--primary);
+            font-size: clamp(1.4rem, 3vw, 1.8rem);
             font-weight: 700;
-            margin-bottom: 25px;
+            margin-bottom: 1.5rem;
             text-align: center;
             text-transform: uppercase;
             letter-spacing: 1px;
@@ -157,85 +206,182 @@
         .action-buttons {
             display: flex;
             justify-content: center;
-            gap: 15px;
-            margin-top: 25px;
+            gap: 1rem;
+            margin-top: 1.5rem;
+            flex-wrap: wrap;
         }
         .action-btn {
-            padding: 10px 25px;
-            border-radius: 25px;
+            padding: 0.6rem 1.5rem;
+            border-radius: 1.5rem;
             font-weight: 600;
             cursor: pointer;
-            transition: all 0.3s;
+            transition: all 0.3s ease;
             text-decoration: none;
-            display: inline-block;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.95rem;
         }
         .home-btn {
-            background: #4e54c8;
-            color: white;
-            border: 2px solid #4e54c8;
+            background: var(--primary);
+            color: #fff;
+            border: 2px solid var(--primary);
         }
         .home-btn:hover {
-            background: #3a41b8;
-            border-color: #3a41b8;
+            background: var(--primary-dark);
+            border-color: var(--primary-dark);
         }
         .feedback-btn {
-            background: #ff6b6b;
-            color: white;
-            border: 2px solid #ff6b6b;
+            background: var(--secondary);
+            color: #fff;
+            border: 2px solid var(--secondary);
         }
         .feedback-btn:hover {
-            background: #ff5252;
-            border-color: #ff5252;
+            background: var(--secondary-dark);
+            border-color: var(--secondary-dark);
         }
         .social-icons {
             display: flex;
             justify-content: center;
-            gap: 15px;
-            margin-top: 10px;
+            gap: 1rem;
+            margin-top: 0.6rem;
         }
         .social-icon {
-            color: #4e54c8;
+            color: var(--primary);
             font-size: 1.5rem;
-            transition: all 0.3s;
+            transition: all 0.3s ease;
         }
         .social-icon:hover {
-            color: #3a41b8;
+            color: var(--primary-dark);
             transform: translateY(-3px);
         }
         .glitter-box {
-            margin: 25px auto;
-            padding: 16px 20px;
-            max-width: 520px;
-            border-radius: 10px;
+            margin: 1.5rem auto;
+            padding: 1rem 1.25rem;
+            max-width: 32.5rem;
+            border-radius: 0.6rem;
             background: radial-gradient(circle, #fde68a, #fca5a5, #f0abfc);
             box-shadow: 0 0 12px #f472b6, 0 0 18px #c084fc;
             text-align: center;
-            font-family: 'Segoe UI', sans-serif;
+            font-family: system-ui, sans-serif;
             animation: glitterAnim 4s ease-in-out infinite;
             position: relative;
             z-index: 1;
         }
         .glitter-box h2 {
-            font-size: 20px;
+            font-size: 1.25rem;
             color: #1e1b4b;
             text-shadow: 0 0 6px #fcd34d;
-            margin-bottom: 12px;
+            margin-bottom: 0.75rem;
             animation: glowText 1.8s ease-in-out infinite alternate;
         }
         .glitter-box a {
             text-decoration: none;
-            font-size: 16px;
+            font-size: 1rem;
             font-weight: 600;
             color: #fff;
             background: linear-gradient(to right, #f43f5e, #8b5cf6);
-            padding: 10px 18px;
-            border-radius: 6px;
+            padding: 0.6rem 1.1rem;
+            border-radius: 0.4rem;
             box-shadow: 0 0 6px rgba(251, 113, 133, 0.5);
             transition: all 0.3s ease;
+            display: inline-block;
         }
         .glitter-box a:hover {
             transform: scale(1.07);
             box-shadow: 0 0 12px rgba(168, 85, 247, 0.8);
+        }
+        #calculators-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+            gap: 1rem;
+            margin: 0 auto;
+        }
+        .calculator-card {
+            background: var(--primary);
+            color: #fff;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            text-align: center;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: block;
+        }
+        .calculator-card:hover {
+            background: var(--primary-dark);
+            transform: translateY(-3px);
+        }
+        .blog-btn {
+            background: #2a9d8f;
+            color: #fff;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.4rem;
+            text-decoration: none;
+            font-weight: 700;
+            display: inline-block;
+            margin: 1.8rem 0;
+            text-align: center;
+        }
+        footer {
+            background: #f1f5f9;
+            color: #4b5563;
+            text-align: center;
+            padding: 1.5rem 0;
+            margin-top: 2rem;
+        }
+        .footer-links {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+        .footer-link {
+            color: #4b5563;
+            font-weight: 500;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        .footer-link:hover {
+            color: var(--primary);
+        }
+        .copyright {
+            font-size: 0.875rem;
+        }
+        .ad-container {
+            margin: 1rem auto;
+            text-align: center;
+            overflow: hidden;
+        }
+        .mobile-ad {
+            display: none;
+        }
+        @media (max-width: 768px) {
+            .lang-list {
+                columns: 1;
+                min-width: 90vw;
+            }
+            .mobile-ad {
+                display: block;
+            }
+            .desktop-ad {
+                display: none;
+            }
+            .nav-tabs {
+                gap: 0.6rem;
+                padding: 0.6rem;
+            }
+            .nav-tab {
+                padding: 0.4rem 0.9rem;
+                font-size: 0.85rem;
+            }
+            .calculator-content {
+                padding: 1rem;
+            }
+            #calculators-list {
+                grid-template-columns: 1fr;
+            }
         }
         @keyframes glitterAnim {
             0% { box-shadow: 0 0 10px #fcd34d, 0 0 18px #f472b6; }
@@ -246,35 +392,37 @@
             0% { text-shadow: 0 0 4px #facc15; }
             100% { text-shadow: 0 0 10px #facc15, 0 0 18px #f472b6; }
         }
-        @media (max-width: 768px) {
-            .header h1 {
-                font-size: 2rem;
-            }
-            #tagline {
-                font-size: 1rem;
-            }
-            .nav-tabs {
-                gap: 10px;
-                padding: 10px;
-            }
-            .nav-tab {
-                padding: 6px 15px;
-                font-size: 0.9rem;
-            }
-            .calculator-content {
-                padding: 15px;
-            }
-        }
     </style>
-    
-    <!-- Non-critical CSS loaded asynchronously -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" media="print" onload="this.media='all'">
-    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"></noscript>
     
     <!-- Preconnect to external domains -->
     <link rel="preconnect" href="https://www.googletagmanager.com">
     <link rel="preconnect" href="https://cdn.tailwindcss.com">
     <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    
+    <!-- Non-critical CSS loaded asynchronously -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&display=swap" media="print" onload="this.media='all'">
+    <noscript>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&display=swap">
+    </noscript>
+    
+    <!-- Google Analytics with improved loading -->
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-FEQ7R89CFG', { 'transport_type': 'beacon' });
+        
+        // Load GA script without blocking
+        setTimeout(function() {
+            var gaScript = document.createElement('script');
+            gaScript.src = 'https://www.googletagmanager.com/gtag/js?id=G-FEQ7R89CFG';
+            gaScript.async = true;
+            document.head.appendChild(gaScript);
+        }, 0);
+    </script>
 </head>
 <body>
     <header class="header">
@@ -304,6 +452,7 @@
             </div>
         </div>
     </header>
+    
     <nav class="nav-tabs">
         <a href="#financial" class="nav-tab active" onclick="showCategory('financial')">Financial</a>
         <a href="#mathematics" class="nav-tab" onclick="showCategory('mathematics')">Mathematics</a>
@@ -316,8 +465,19 @@
         <a href="#misc" class="nav-tab" onclick="showCategory('misc')">Miscellaneous</a>
         <a href="#new-tools" class="nav-tab" onclick="showCategory('new-tools')">Newly Added Tools</a>
     </nav>
+    
     <div class="calculator-content">
         <h2 id="category-title" class="text-2xl font-semibold mb-4 text-center">FINANCIAL CALCULATORS</h2>
+        
+        <!-- Mobile Ad (only shows on mobile) -->
+        <div class="ad-container mobile-ad">
+            <ins class="adsbygoogle"
+                 style="display:block"
+                 data-ad-client="ca-pub-YOUR_PUBLISHER_ID"
+                 data-ad-slot="YOUR_MOBILE_AD_SLOT"
+                 data-ad-format="auto"
+                 data-full-width-responsive="true"></ins>
+        </div>
         
         <div class="glitter-box">
             <h2>🔥check your pregnancy conception period? 30.2K women's Already Tried!</h2>
@@ -337,22 +497,32 @@
             </a>
         </div>
         
-        <div style="text-align: center; margin: 30px 0;">
-            <a href="blog.html" style="background: #2a9d8f; color: white; padding: 12px 24px; border-radius: 6px; text-decoration: none; font-weight: bold;">
+        <div style="text-align: center;">
+            <a href="blog.html" class="blog-btn">
                 🔥 BLOG: Readers section
             </a>
         </div>
     </div>
     
     <footer class="bg-gray-100 text-gray-700 text-center py-6 mt-8">
+        <!-- Desktop Ad (only shows on desktop) -->
+        <div class="ad-container desktop-ad">
+            <ins class="adsbygoogle"
+                 style="display:block"
+                 data-ad-client="ca-pub-YOUR_PUBLISHER_ID"
+                 data-ad-slot="YOUR_DESKTOP_AD_SLOT"
+                 data-ad-format="auto"
+                 data-full-width-responsive="true"></ins>
+        </div>
+        
         <div class="max-w-6xl mx-auto px-4">
-            <div class="flex flex-wrap justify-center gap-4 mb-4">
-                <a href="privacy.html" class="hover:text-blue-600 font-medium">Privacy Policy</a>
-                <a href="disclaimer.html" class="hover:text-blue-600 font-medium">Disclaimer</a>
-                <a href="how-to-use.html" class="hover:text-blue-600 font-medium">How to Use</a>
-                <a href="contact-us.html" class="hover:text-blue-600 font-medium">Contact Us</a>
+            <div class="footer-links">
+                <a href="privacy.html" class="footer-link">Privacy Policy</a>
+                <a href="disclaimer.html" class="footer-link">Disclaimer</a>
+                <a href="how-to-use.html" class="footer-link">How to Use</a>
+                <a href="contact-us.html" class="footer-link">Contact Us</a>
             </div>
-            <p class="text-sm">© 2025 SMART AI Calculator. All rights reserved.</p>
+            <p class="copyright">© 2025 SMART AI Calculator. All rights reserved.</p>
         </div>
     </footer>
 
@@ -366,20 +536,14 @@
             document.head.appendChild(script);
         })();
 
-        // Load Google Analytics asynchronously
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'G-FEQ7R89CFG');
-        
-        var gtagScript = document.createElement('script');
-        gtagScript.src = 'https://www.googletagmanager.com/gtag/js?id=G-FEQ7R89CFG';
-        gtagScript.async = true;
-        document.head.appendChild(gtagScript);
-    </script>
+        // Load AdSense after critical content
+        document.addEventListener('DOMContentLoaded', function() {
+            setTimeout(function() {
+                (adsbygoogle = window.adsbygoogle || []).push({});
+            }, 1000);
+        });
 
-    <!-- Inline JavaScript for critical functionality -->
-    <script>
+        // Inline JavaScript for critical functionality
         const translations = {
             en: { tagline: "A to Z Calculators Powered by AI", categories: { financial: "FINANCIAL CALCULATORS", mathematics: "MATHEMATICS CALCULATORS", health: "HEALTH CALCULATORS", "unit-converter": "UNIT CONVERTER CALCULATORS", "student academic": "ACADEMIC CALCULATORS", "home construction": "CONSTRUCTION CALCULATORS", "time-series": "TIME SERIES forecasting CALCULATORS", fun: "FUN CALCULATORS", misc: "MISCELLANEOUS CALCULATORS", "new-tools": "NEWLY ADDED TOOLS" }, calculatorNames: { loan: "Loan Calculator", "car-loan": "Car Loan Calculator", "auto-loan": "Auto Loan Calculator", mortgage: "Mortgage Calculator", roi: "ROI Calculator", saving: "Saving Calculator", gst: "GST Calculator", discount: "Discount Calculator", emi: "EMI Calculator", sip: "SIP Calculator", investment: "Investment Calculator", amortization: "Amortization Calculator", inflation: "Inflation Calculator", "sales-tax": "Sales Tax Calculator", percentage: "Percentage Calculator", "compound-interest": "Compound Interest Calculator", gpa: "GPA Calculator", "standard-deviation": "Standard Deviation Calculator", percentile: "Percentile Calculator", "mean-mode-median": "Mean-Mode-Median Calculator", "decimal-to-fraction": "Decimal to Fraction Calculator", scientific: "Scientific Calculator", algebra: "Algebra Calculator", geometry: "Geometry Calculator", pythagoras: "Pythagoras Theorem Calculator", bmi: "BMI Calculator", bmr: "BMR Calculator", "body-fat": "Body Fat Calculator", pregnancy: "Pregnancy Calculator", calories: "Calories Calculator", "weight-measurement": "Weight measurement Calculator ", iq: "Iq Calculator", "menstruation-cycle": "Menstruation Cycle Calculator", length: "Length Converter", temperature: "Temperature Converter", "weight": "Weight Converter", currency: "Currency Converter", "time-conversion": "Time Conversion Calculator", "si-unit": "SI Unit Calculator", cgpa: "CGPA Calculator", "marks-percentage": "Marks Percentage Calculator", "indian-exam-admission": "Indian Exam Admission Predictor", "global-exam-admission": "Global Exam Admission Predictor", paint: "Paint Calculator", tile: "Tile Calculator", "concrete-volume": "Concrete Volume Calculator", cement: "Cement Calculator", "flooring-cost": "Flooring Cost Estimator", "wall-plaster": "Wall Plaster Calculator", "construction-material": "Construction Material Estimator", "labour-cost": "Labour Cost Calculator", arima: "ARIMA Calculator", lstm: "LSTM Calculator", "trend-analysis": "Trend Analysis Calculator", "railway-trends": "Railway Trends Calculator", "hangman-game": "Hangman Game", "tic-tac-toe": "Tic Tac Toe Game", "Flame-test-game": "Flame-Test Game", "word-guessing": "Word Guessing Game", "mental-math": "Mental Math Game", "quiz-game": "Quiz Game", age: "Age Calculator", "date-difference": "Date Difference Calculator", tip: "Tip Calculator", "household-item": "Household Item Calculator", "random-number": "Random Number Generator", "password-generator": "Password Generator", subnet: "Subnet Calculator", retirement: "Retirement Calculator", salary: "Salary Calculator", "trigonometry-function": "Trigonometry Function Calculator", "matrix-calculator": "Matrix Calculator", "run-rate-calculator": "Run Rate Calculator", "probability-calculator": "Probability Calculator", "golden-ratio-calculator": "Golden Ratio Calculator", "prime-factor-calculator": "Prime Factor Calculator", "goal-score-calculator": "Goal Score Calculator", "pregnancy-weight-gain-calculator": "Pregnancy Weight Gain Calculator" }, buttons: { home: "Home", feedback: "Feedback" } },
             hi: { tagline: "AI द्वारा संचालित A से Z कैलकुलेटर", categories: { financial: "वित्तीय कैलकुलेटर", mathematics: "गणित कैलकुलेटर", health: "स्वास्थ्य कैलकुलेटर", "unit-converter": "यूनिट कनवर्टर कैलकुलेटर", "student academic": "शैक्षणिक कैलकुलेटर", "home construction": "निर्माण कैलकुलेटर", "time-series": "टाइम सीरीज कैलकुलेटर", fun: "मनोरंजन कैलकुलेटर", misc: "विविध कैलकुलेटर", "new-tools": "नए जोड़े गए टूल्स" }, calculatorNames: { loan: "लोन कैलकुलेटर", "car-loan": "कार लोन कैलकुलेटर", "auto-loan": "ऑटो लोन कैलकुलेटर", mortgage: "मॉर्गेज कैलकुलेटर", roi: "ROI कैलकुलेटर", saving: "बचत कैलकुलेटर", gst: "GST कैलकुलेटर", discount: "डिस्काउंट कैलकुलेटर", emi: "EMI कैलकुलेटर", sip: "SIP कैलकुलेटर", investment: "निवेश कैलकुलेटर", amortization: "एमॉर्टाइजेशन कैलकुलेटर", inflation: "मुद्रास्फीति कैलकुलेटर", "sales-tax": "सेल्स टैक्स कैलकुलेटर", percentage: "प्रतिशत कैलकुलेटर", "compound-interest": "चक्रवृद्धि ब्याज कैलकुलेटर", gpa: "GPA कैलकुलेटर", "standard-deviation": "मानक विचलन कैलकुलेटर", percentile: "percentile कैलकुलेटर", "mean-mode-median": "औसत-मोड-माध्यिका कैलकुलेटर", "decimal-to-fraction": "दशमलव से भिन्न कैलकुलेटर", scientific: "वैज्ञानिक कैलकुलेटर", algebra: "बीजगणित कैलकुलेटर", geometry: "ज्यामिति कैलकुलेटर", pythagoras: "पाइथागोरस प्रमेय कैलकुलेटर", bmi: "BMI कैलकुलेटर", bmr: "BMR कैलकुलेटर", "body-fat": "बॉडी फैट कैलकुलेटर", pregnancy: "प्रेगनेंसी कैलकुलेटर", calories: "कैलोरी कैलकुलेटर", "weight-measurement": "वजन माप कैलकुलेटर", iq: "IQ कैलकुलेटर", "menstruation-cycle": "मासिक धर्म चक्र कैलकुलेटर", length: "लंबाई कनवर्टर", temperature: "तापमान कनवर्टर", "weight": "वजन कनवर्टर", currency: "मुद्रा कनवर्टर", "time-conversion": "समय रूपांतरण कैलकुलेटर", "si-unit": "SI यूनिट कैलकुलेटर", cgpa: "CGPA कैलकुलेटर", "marks-percentage": "मार्क्स प्रतिशत कैलकुलेटर", "indian-exam-admission": "भारतीय परीक्षा प्रवेश भविष्यवक्ता", "global-exam-admission": "वैश्विक परीक्षा प्रवेश भविष्यवक्ता", paint: "पेंट कैलकुलेटर", tile: "टाइल कैलकुलेटर", "concrete-volume": "कंक्रीट वॉल्यूम कैलकुलेटर", cement: "सीमेंट कैलकुलेटर", "flooring-cost": "फ्लोरिंग लागत अनुमानक", "wall-plaster": "दीवार प्लास्टर कैलकुलेटर", "construction-material": "निर्माण सामग्री अनुमानक", "labour-cost": "श्रम लागत कैलकुलेटर", arima: "ARIMA कैलकुलेटर", lstm: "LSTM कैलकुलेटर", "trend-analysis": "प्रवृत्ति विश्लेषण कैलकुलेटर", "railway-trends": "रेलवे ट्रेंड्स कैलकुलेटर", "hangman-game": "हैंगमैन गेम", "tic-tac-toe": "टिक टैक टो गेम", "Flame-test-game": "फ्लेम-टेस्ट गेम", "word-guessing": "शब्द अनुमान गेम", "mental-math": "मानसिक गणित गेम", "quiz-game": "क्विज गेम", age: "आयु कैलकुलेटर", "date-difference": "तारीख अंतर कैलकुलेटर", tip: "टिप कैलकुलेटर", "household-item": "घरेलू वस्तु कैलकुलेटर", "random-number": "रैंडम नंबर जनरेटर", "password-generator": "पासवर्ड जनरेटर", subnet: "subnet कैलकुलेटर", retirement: "रिटायरमेंट कैलकुलेटर", salary: "वेतन कैलकुलेटर", "trigonometry-function": "त्रिकोणमिति फंक्शन कैलकुलेटर", "matrix-calculator": "मैट्रिक्स कैलकुलेटर", "run-rate-calculator": "रन रेट कैलकुलेटर", "probability-calculator": "प्रायिकता कैलकुलेटर", "golden-ratio-calculator": "गोल्डन रेशियो कैलकुलेटर", "prime-factor-calculator": "प्राइम फैक्टर कैलकुलेटर", "goal-score-calculator": "गोल स्कोर कैलकुलेटर", "pregnancy-weight-gain-calculator": "गर्भावस्था वजन वृद्धि कैलकुलेटर" }, buttons: { home: "Home", feedback: "Feedback" } },
@@ -395,9 +559,9 @@
             ko: { tagline: "AI로 구동되는 A부터 Z까지 계산기", categories: { financial: "금융 계산기", mathematics: "수학 계산기", health: "건강 계산기", "unit-converter": "단위 변환 계산기", "student academic": "학업 계산기", "home construction": "건축 계산기", "time-series": "시계열 예측 계산기", fun: "재미있는 계산기", misc: "기타 계산기", "new-tools": "새로 추가된 도구" }, calculatorNames: { loan: "대출 계산기", "car-loan": "자동차 대출 계산기", "auto-loan": "자동차 대출 계산기", mortgage: "모기지 계산기", roi: "ROI 계산기", saving: "저축 계산기", gst: "GST 계산기", discount: "할인 계산기", emi: "EMI 계산기", sip: "SIP 계산기", investment: "투자 계산기", amortization: "상각 계산기", inflation: "인플레이션 계산기", "sales-tax": "판매세 계산기", percentage: "백분율 계산기", "compound-interest": "복리 계산기", gpa: "GPA 계산기", "standard-deviation": "표준 편차 계산기", percentile: "백분위 계산기", "mean-mode-median": "평균-최빈값-중앙값 계산기", "decimal-to-fraction": "소수에서 분수 계산기", scientific: "과학 계산기", algebra: "대수 계산기", geometry: "기하 계산기", pythagoras: "피타고라스 정리 계산기", bmi: "BMI 계산기", bmr: "BMR 계산기", "body-fat": "체지방 계산기", pregnancy: "임신 계산기", calories: "칼로리 계산기", "weight-measurement": "체중 측정 계산기", iq: "IQ 계산기", "menstruation-cycle": "생리 주기 계산기", length: "길이 변환기", temperature: "온도 변환기", "weight": "무게 변환기", currency: "통화 변환기", "time-conversion": "시간 변환 계산기", "si-unit": "SI 단위 계산기", cgpa: "CGPA 계산기", "marks-percentage": "점수 백분율 계산기", "indian-exam-admission": "인도 시험 입학 예측기", "global-exam-admission": "글로벌 시험 입학 예측기", paint: "페인트 계산기", tile: "타일 계산기", "concrete-volume": "콘크리트 부피 계산기", cement: "시멘트 계산기", "flooring-cost": "바닥재 비용 추정기", "wall-plaster": "벽 플라스터 계산기", "construction-material": "건축 자재 추정기", "labour-cost": "노동 비용 계산기", arima: "ARIMA 계산기", lstm: "LSTM 계산기", "trend-analysis": "추세 분석 계산기", "railway-trends": "철도 추세 계산기", "hangman-game": "행맨 게임", "tic-tac-toe": "틱택토 게임", "Flame-test-game": "불꽃 테스트 게임", "word-guessing": "단어 추측 게임", "mental-math": "암산 게임", "quiz-game": "퀴즈 게임", age: "나이 계산기", "date-difference": "날짜 차이 계산기", tip: "팁 계산기", "household-item": "가정용품 계산기", "random-number": "난수 생성기", "password-generator": "비밀번호 생성기", subnet: "서브넷 계산기", retirement: "퇴직 계산기", salary: "급여 계산기", "trigonometry-function": "삼각 함수 계산기", "matrix-calculator": "행렬 계산기", "run-rate-calculator": "런 레이트 계산기", "probability-calculator": "확률 계산기", "golden-ratio-calculator": "황금 비율 계산기", "prime-factor-calculator": "소인수 계산기", "goal-score-calculator": "목표 점수 계산기", "pregnancy-weight-gain-calculator": "임신 체중 증가 계산기" }, buttons: { home: "홈", feedback: "피드백" } },
             de: { tagline: "A bis Z Rechner mit KI-Unterstützung", categories: { financial: "FINANZRECHNER", mathematics: "MATHEMATIKRECHNER", health: "GESUNDHEITSRECHNER", "unit-converter": "EINHEITENUMRECHNER", "student academic": "AKADEMISCHE RECHNER", "home construction": "BAURECHNER", "time-series": "ZEITREIHENRECHNER", fun: "SPAßRECHNER", misc: "VERSCHIEDENE RECHNER", "new-tools": "NEU HINZUGEFÜGTE WERKZEUGE" }, calculatorNames: { loan: "Kreditrechner", "car-loan": "Autokreditrechner", "auto-loan": "Autokreditrechner", mortgage: "Hypothekenrechner", roi: "ROI-Rechner", saving: "Sparrechner", gst: "GST-Rechner", discount: "Rabattrechner", emi: "EMI-Rechner", sip: "SIP-Rechner", investment: "Anlagerechner", amortization: "Tilgungsrechner", inflation: "Inflationsrechner", "sales-tax": "Umsatzsteuerrechner", percentage: "Prozentrechner", "compound-interest": "Zinseszinsrechner", gpa: "GPA-Rechner", "standard-deviation": "Standardabweichungsrechner", percentile: "Perzentilrechner", "mean-mode-median": "Mittelwert-Modus-Median-Rechner", "decimal-to-fraction": "Dezimal-zu-Bruch-Rechner", scientific: "Wissenschaftlicher Rechner", algebra: "Algebra-Rechner", geometry: "Geometrie-Rechner", pythagoras: "Satz des Pythagoras Rechner", bmi: "BMI-Rechner", bmr: "BMR-Rechner", "body-fat": "Körperfettrechner", pregnancy: "Schwangerschaftsrechner", calories: "Kalorienrechner", "weight-measurement": "Gewichtsmessrechner", iq: "IQ-Rechner", "menstruation-cycle": "Menstruationszyklus-Rechner", length: "Längenumrechner", temperature: "Temperaturenumrechner", "weight": "Gewichtsumrechner", currency: "Währungsumrechner", "time-conversion": "Zeitumrechnungsrechner", "si-unit": "SI-Einheitenrechner", cgpa: "CGPA-Rechner", "marks-percentage": "Notenprozentsatzrechner", "indian-exam-admission": "Indische Prüfungszulassungsvorhersage", "global-exam-admission": "Globale Prüfungszulassungsvorhersage", paint: "Farbenrechner", tile: "Fliesenrechner", "concrete-volume": "Betonvolumenrechner", cement: "Zementrechner", "flooring-cost": "Bodenbelagskostenschätzer", "wall-plaster": "Wandputzrechner", "construction-material": "Baumaterialschätzer", "labour-cost": "Arbeitskostenrechner", arima: "ARIMA-Rechner", lstm: "LSTM-Rechner", "trend-analysis": "Trendanalyse-Rechner", "railway-trends": "Eisenbahntrends-Rechner", "hangman-game": "Galgenmännchen-Spiel", "tic-tac-toe": "Tic-Tac-Toe-Spiel", "Flame-test-game": "Flammentest-Spiel", "word-guessing": "Wortratespiel", "mental-math": "Kopfrechenspiel", "quiz-game": "Quizspiel", age: "Altersrechner", "date-difference": "Datumsdifferenzrechner", tip: "Trinkgeldrechner", "household-item": "Haushaltsgegenstandsrechner", "random-number": "Zufallszahlengenerator", "password-generator": "Passwortgenerator", subnet: "Subnetzrechner", retirement: "Rentenrechner", salary: "Gehaltsrechner", "trigonometry-function": "Trigonometriefunktionsrechner", "matrix-calculator": "Matrixrechner", "run-rate-calculator": "Laufratenrechner", "probability-calculator": "Wahrscheinlichkeitsrechner", "golden-ratio-calculator": "Goldener-Schnitt-Rechner", "prime-factor-calculator": "Primfaktorrechner", "goal-score-calculator": "Torpunktrechner", "pregnancy-weight-gain-calculator": "Schwangerschaftsgewichtszunahme-Rechner" }, buttons: { home: "Startseite", feedback: "Feedback" } },
             pt: { tagline: "Calculadoras de A a Z alimentadas por IA", categories: { financial: "CALCULADORAS FINANCEIRAS", mathematics: "CALCULADORAS MATEMÁTICAS", health: "CALCULADORAS DE SAÚDE", "unit-converter": "CALCULADORAS DE CONVERSÃO DE UNIDADES", "student academic": "CALCULADORAS ACADÊMICAS", "home construction": "CALCULADORAS DE CONSTRUÇÃO", "time-series": "CALCULADORAS DE SÉRIES TEMPORAIS", fun: "CALCULADORAS DIVERTIDAS", misc: "CALCULADORAS DIVERSAS", "new-tools": "FERRAMENTAS RECÉM-ADICIONADAS" }, calculatorNames: { loan: "Calculadora de Empréstimo", "car-loan": "Calculadora de Empréstimo para Carro", "auto-loan": "Calculadora de Empréstimo Automático", mortgage: "Calculadora de Hipoteca", roi: "Calculadora de ROI", saving: "Calculadora de Poupança", gst: "Calculadora de GST", discount: "Calculadora de Desconto", emi: "Calculadora de EMI", sip: "Calculadora de SIP", investment: "Calculadora de Investimento", amortization: "Calculadora de Amortização", inflation: "Calculadora de Inflação", "sales-tax": "Calculadora de Imposto sobre Vendas", percentage: "Calculadora de Porcentagem", "compound-interest": "Calculadora de Juros Compostos", gpa: "Calculadora de GPA", "standard-deviation": "Calculadora de Desvio Padrão", percentile: "Calculadora de Percentil", "mean-mode-median": "Calculadora de Média-Moda-Mediana", "decimal-to-fraction": "Calculadora de Decimal para Fração", scientific: "Calculadora Científica", algebra: "Calculadora de Álgebra", geometry: "Calculadora de Geometria", pythagoras: "Calculadora do Teorema de Pitágoras", bmi: "Calculadora de IMC", bmr: "Calculadora de TMB", "body-fat": "Calculadora de Gordura Corporal", pregnancy: "Calculadora de Gravidez", calories: "Calculadora de Calorías", "weight-measurement": "Calculadora de Medição de Peso", iq: "Calculadora de QI", "menstruation-cycle": "Calculadora de Ciclo Menstrual", length: "Conversor de Comprimento", temperature: "Conversor de Temperatura", "weight": "Conversor de Peso", currency: "Conversor de Moeda", "time-conversion": "Calculadora de Conversão de Tempo", "si-unit": "Calculadora de Unidade SI", cgpa: "Calculadora de CGPA", "marks-percentage": "Calculadora de Porcentagem de Notas", "indian-exam-admission": "Previsor de Admissão em Exames Indianos", "global-exam-admission": "Previsor de Admissão em Exames Globais", paint: "Calculadora de Tinta", tile: "Calculadora de Azulejo", "concrete-volume": "Calculadora de Volume de Concreto", cement: "Calculadora de Cimento", "flooring-cost": "Estimador de Custo de Piso", "wall-plaster": "Calculadora de Reboco de Parede", "construction-material": "Estimador de Material de Construção", "labour-cost": "Calculadora de Custo de Mão de Obra", arima: "Calculadora ARIMA", lstm: "Calculadora LSTM", "trend-analysis": "Calculadora de Análise de Tendências", "railway-trends": "Calculadora de Tendências Ferroviárias", "hangman-game": "Jogo da Forca", "tic-tac-toe": "Jogo da Velha", "Flame-test-game": "Jogo de Teste de Chama", "word-guessing": "Jogo de Adivinhação de Palavras", "mental-math": "Jogo de Matemática Mental", "quiz-game": "Jogo de Quiz", age: "Calculadora de Idade", "date-difference": "Calculadora de Diferença de Datas", tip: "Calculadora de Gorjeta", "household-item": "Calculadora de Itens Domésticos", "random-number": "Gerador de Números Aleatórios", "password-generator": "Gerador de Senhas", subnet: "Calculadora de Sub-rede", retirement: "Calculadora de Aposentadoria", salary: "Calculadora de Salário", "trigonometry-function": "Calculadora de Função Trigonométrica", "matrix-calculator": "Calculadora de Matriz", "run-rate-calculator": "Calculadora de Taxa de Execução", "probability-calculator": "Calculadora de Probabilidade", "golden-ratio-calculator": "Calculadora de Proporção Áurea", "prime-factor-calculator": "Calculadora de Fator Primo", "goal-score-calculator": "Calculadora de Pontuação de Objetivo", "pregnancy-weight-gain-calculator": "Calculadora de Ganho de Peso na Gravidez" }, buttons: { home: "Início", feedback: "Feedback" } },
-            ja: { tagline: "AI搭載のAからZまでの計算機", categories: { financial: "金融計算機", mathematics: "数学計算機", health: "健康計算機", "unit-converter": "単位変換計算機", "student academic": "学術計算機", "home construction": "建築計算機", "time-series": "時系列予測計算機", fun: "楽しい計算機", misc: "その他の計算機", "new-tools": "新しく追加されたツール" }, calculatorNames: { loan: "ローン計算機", "car-loan": "車ローン計算機", "auto-loan": "自動車ローン計算機", mortgage: "住宅ローン計算機", roi: "ROI計算機", saving: "貯蓄計算機", gst: "GST計算機", discount: "割引計算機", emi: "EMI計算機", sip: "SIP計算機", investment: "投資計算機", amortization: "償却計算機", inflation: "インフレ計算機", "sales-tax": "消費税計算機", percentage: "パーセンテージ計算機", "compound-interest": "複利計算機", gpa: "GPA計算機", "standard-deviation": "標準偏差計算機", percentile: "パーセンタイル計算機", "mean-mode-median": "平均-最頻値-中央値計算機", "decimal-to-fraction": "小数から分数計算機", scientific: "科学計算機", algebra: "代数計算機", geometry: "幾何学計算機", pythagoras: "ピタゴラスの定理計算機", bmi: "BMI計算機", bmr: "BMR計算機", "body-fat": "体脂肪計算機", pregnancy: "妊娠計算機", calories: "カロリー計算機", "weight-measurement": "体重測定計算機", iq: "IQ計算機", "menstruation-cycle": "月経周期計算機", length: "長さ変換機", temperature: "温度変換機", "weight": "重量変換機", currency: "通貨変換機", "time-conversion": "時間変換計算機", "si-unit": "SI単位計算機", cgpa: "CGPA計算機", "marks-percentage": "点数パーセンテージ計算機", "indian-exam-admission": "インドの試験入学予測", "global-exam-admission": "グローバル試験入学予測", paint: "ペイント計算機", tile: "タイル計算機", "concrete-volume": "コンクリート体積計算機", cement: "セメント計算機", "flooring-cost": "床材コスト見積もり", "wall-plaster": "壁プラスター計算機", "construction-material": "建築資材見積もり", "labour-cost": "労働コスト計算機", arima: "ARIMA計算機", lstm: "LSTM計算機", "trend-analysis": "トレンド分析計算機", "railway-trends": "鉄道トレンド計算機", "hangman-game": "ハングマンゲーム", "tic-tac-toe": "三目並べゲーム", "Flame-test-game": "炎テストゲーム", "word-guessing": "単語当てゲーム", "mental-math": "暗算ゲーム", "quiz-game": "クイズゲーム", age: "年齢計算機", "date-difference": "日付差計算機", tip: "チップ計算機", "household-item": "家庭用品計算機", "random-number": "乱数生成器", "password-generator": "パスワード生成器", subnet: "サブネット計算機", retirement: "退職計算機", salary: "給与計算機", "trigonometry-function": "三角関数計算機", "matrix-calculator": "行列計算機", "run-rate-calculator": "実行率計算機", "probability-calculator": "確率計算機", "golden-ratio-calculator": "黄金比計算機", "prime-factor-calculator": "素因数計算機", "goal-score-calculator": "目標スコア計算機", "pregnancy-weight-gain-calculator": "妊娠体重増加計算機" }, buttons: { home: "ホーム", feedback: "フィードバック" } },
+            ja: { tagline: "AI搭載のAからZまでの計算機", categories: { financial: "金融計算機", mathematics: "数学計算机", health: "健康計算機", "unit-converter": "単位変換計算機", "student academic": "学術計算機", "home construction": "建築計算機", "time-series": "時系列予測計算機", fun: "楽しい計算機", misc: "その他の計算機", "new-tools": "新しく追加されたツール" }, calculatorNames: { loan: "ローン計算機", "car-loan": "車ローン計算機", "auto-loan": "自動車ローン計算機", mortgage: "住宅ローン計算機", roi: "ROI計算機", saving: "貯蓄計算機", gst: "GST計算機", discount: "割引計算機", emi: "EMI計算機", sip: "SIP計算機", investment: "投資計算機", amortization: "償却計算機", inflation: "インフレ計算機", "sales-tax": "消費税計算機", percentage: "パーセンテージ計算機", "compound-interest": "複利計算機", gpa: "GPA計算機", "standard-deviation": "標準偏差計算機", percentile: "パーセンタイル計算機", "mean-mode-median": "平均-最頻値-中央値計算機", "decimal-to-fraction": "小数から分数計算機", scientific: "科学計算機", algebra: "代数計算機", geometry: "幾何学計算機", pythagoras: "ピタゴラスの定理計算機", bmi: "BMI計算機", bmr: "BMR計算機", "body-fat": "体脂肪計算機", pregnancy: "妊娠計算機", calories: "カロリー計算機", "weight-measurement": "体重測定計算機", iq: "IQ計算機", "menstruation-cycle": "月経周期計算機", length: "長さ変換機", temperature: "温度変換機", "weight": "重量変換機", currency: "通貨変換機", "time-conversion": "時間変換計算機", "si-unit": "SI単位計算機", cgpa: "CGPA計算機", "marks-percentage": "点数パーセンテージ計算機", "indian-exam-admission": "インドの試験入学予測", "global-exam-admission": "グローバル試験入学予測", paint: "ペイント計算機", tile: "タイル計算機", "concrete-volume": "コンクリート体積計算機", cement: "セメント計算機", "flooring-cost": "床材コスト見積もり", "wall-plaster": "壁プラスター計算機", "construction-material": "建築資材見積もり", "labour-cost": "労働コスト計算機", arima: "ARIMA計算機", lstm: "LSTM計算機", "trend-analysis": "トレンド分析計算機", "railway-trends": "鉄道トレンド計算機", "hangman-game": "ハングマンゲーム", "tic-tac-toe": "三目並べゲーム", "Flame-test-game": "炎テストゲーム", "word-guessing": "単語当てゲーム", "mental-math": "暗算ゲーム", "quiz-game": "クイズゲーム", age: "年齢計算機", "date-difference": "日付差計算機", tip: "チップ計算機", "household-item": "家庭用品計算機", "random-number": "乱数生成器", "password-generator": "パスワード生成器", subnet: "サブネット計算機", retirement: "退職計算機", salary: "給与計算機", "trigonometry-function": "三角関数計算機", "matrix-calculator": "行列計算機", "run-rate-calculator": "実行率計算機", "probability-calculator": "確率計算機", "golden-ratio-calculator": "黄金比計算機", "prime-factor-calculator": "素因数計算機", "goal-score-calculator": "目標スコア計算機", "pregnancy-weight-gain-calculator": "妊娠体重増加計算機" }, buttons: { home: "ホーム", feedback: "フィードバック" } },
             id: { tagline: "Kalkulator A sampai Z dengan Tenaga AI", categories: { financial: "KALKULATOR KEUANGAN", mathematics: "KALKULATOR MATEMATIKA", health: "KALKULATOR KESEHATAN", "unit-converter": "KALKULATOR KONVERSI SATUAN", "student academic": "KALKULATOR AKADEMIK", "home construction": "KALKULATOR KONSTRUKSI RUMAH", "time-series": "KALKULATOR PERAMALAN DERET WAKTU", fun: "KALKULATOR MENYENANGKAN", misc: "KALKULATOR LAINNYA", "new-tools": "ALAT BARU DITAMBAHKAN" }, calculatorNames: { loan: "Kalkulator Pinjaman", "car-loan": "Kalkulator Pinjaman Mobil", "auto-loan": "Kalkulator Pinjaman Otomatis", mortgage: "Kalkulator Hipotek", roi: "Kalkulator ROI", saving: "Kalkulator Tabungan", gst: "Kalkulator GST", discount: "Kalkulator Diskon", emi: "Kalkulator EMI", sip: "Kalkulator SIP", investment: "Kalkulator Investasi", amortization: "Kalkulator Amortisasi", inflation: "Kalkulator Inflasi", "sales-tax": "Kalkulator Pajak Penjualan", percentage: "Kalkulator Persentase", "compound-interest": "Kalkulator Bunga Majemuk", gpa: "Kalkulator GPA", "standard-deviation": "Kalkulator Standar Deviasi", percentile: "Kalkulator Persentil", "mean-mode-median": "Kalkulator Mean-Modus-Median", "decimal-to-fraction": "Kalkulator Desimal ke Pecahan", scientific: "Kalkulator Ilmiah", algebra: "Kalkulator Aljabar", geometry: "Kalkulator Geometri", pythagoras: "Kalkulator Teorema Pythagoras", bmi: "Kalkulator BMI", bmr: "Kalkulator BMR", "body-fat": "Kalkulator Lemak Tubuh", pregnancy: "Kalkulator Kehamilan", calories: "Kalkulator Kalori", "weight-measurement": "Kalkulator Pengukuran Berat", iq: "Kalkulator IQ", "menstruation-cycle": "Kalkulator Siklus Menstruasi", length: "Konverter Panjang", temperature: "Konverter Suhu", "weight": "Konverter Berat", currency: "Konverter Mata Uang", "time-conversion": "Kalkulator Konversi Waktu", "si-unit": "Kalkulator Unit SI", cgpa: "Kalkulator CGPA", "marks-percentage": "Kalkulator Persentase Nilai", "indian-exam-admission": "Prediksi Penerimaan Ujian India", "global-exam-admission": "Prediksi Penerimaan Ujian Global", paint: "Kalkulator Cat", tile: "Kalkulator Ubin", "concrete-volume": "Kalkulator Volume Beton", cement: "Kalkulator Semen", "flooring-cost": "Estimator Biaya Lantai", "wall-plaster": "Kalkulator Plester Dinding", "construction-material": "Estimator Material Konstruksi", "labour-cost": "Kalkulator Biaya Tenaga Kerja", arima: "Kalkulator ARIMA", lstm: "Kalkulator LSTM", "trend-analysis": "Kalkulator Analisis Tren", "railway-trends": "Kalkulator Tren Kereta Api", "hangman-game": "Permainan Hangman", "tic-tac-toe": "Permainan Tic Tac Toe", "Flame-test-game": "Permainan Uji Nyala", "word-guessing": "Permainan Tebak Kata", "mental-math": "Permainan Matematika Mental", "quiz-game": "Permainan Kuis", age: "Kalkulator Usia", "date-difference": "Kalkulator Selisih Tanggal", tip: "Kalkulator Tip", "household-item": "Kalkulator Barang Rumah Tangga", "random-number": "Generator Angka Acak", "password-generator": "Generator Kata Sandi", subnet: "Kalkulator Subnet", retirement: "Kalkulator Pensiun", salary: "Kalkulator Gaji", "trigonometry-function": "Kalkulator Fungsi Trigonometri", "matrix-calculator": "Kalkulator Matriks", "run-rate-calculator": "Kalkulator Laju Lari", "probability-calculator": "Kalkulator Probabilitas", "golden-ratio-calculator": "Kalkulator Rasio Emas", "prime-factor-calculator": "Kalkulator Faktor Prima", "goal-score-calculator": "Kalkulator Skor Tujuan", "pregnancy-weight-gain-calculator": "Kalkulator Kenaikan Berat Badan Kehamilan" }, buttons: { home: "Beranda", feedback: "Umpan Balik" } },
-            it: { tagline: "Calcolatori dalla A alla Z alimentati da AI", categories: { financial: "CALCOLATORI FINANZIARI", mathematics: "CALCOLATORI MATEMATICI", health: "CALCOLATORI DI SALUTE", "unit-converter": "CALCOLATORI DI CONVERSIONE UNITÀ", "student academic": "CALCOLATORI ACCADEMICI", "home construction": "CALCOLATORI DI COSTRUZIONE", "time-series": "CALCOLATORI DI SERIE TEMPORALI", fun: "CALCOLATORI DIVERTENTI", misc: "CALCOLATORI VARI", "new-tools": "NUOVI STRUMENTI AGGIUNTI" }, calculatorNames: { loan: "Calcolatore di Prestito", "car-loan": "Calcolatore di Prestito Auto", "auto-loan": "Calcolatore di Prestito Auto", mortgage: "Calcolatore di Mutuo", roi: "Calcolatore di ROI", saving: "Calcolatore di Risparmio", gst: "Calcolatore di GST", discount: "Calcolatore di Sconto", emi: "Calcolatore di EMI", sip: "Calcolatore di SIP", investment: "Calcolatore di Investimento", amortization: "Calcolatore di Ammortamento", inflation: "Calcolatore di Inflazione", "sales-tax": "Calcolatore di Imposta sulle Vendite", percentage: "Calcolatore di Percentuale", "compound-interest": "Calcolatore di Interesse Composto", gpa: "Calcolatore di GPA", "standard-deviation": "Calcolatore di Deviazione Standard", percentile: "Calcolatore di Percentile", "mean-mode-median": "Calcolatore di Media-Moda-Mediana", "decimal-to-fraction": "Calcolatore da Decimale a Frazione", scientific: "Calcolatore Scientifico", algebra: "Calcolatore di Algebra", geometry: "Calcolatore di Geometria", pythagoras: "Calcolatore del Teorema di Pitagora", bmi: "Calcolatore di BMI", bmr: "Calcolatore di BMR", "body-fat": "Calcolatore di Grasso Corporeo", pregnancy: "Calcolatore di Gravidanza", calories: "Calcolatore di Calorie", "weight-measurement": "Calcolatore di Misurazione del Peso", iq: "Calcolatore di QI", "menstruation-cycle": "Calcolatore del Ciclo Mestruale", length: "Convertitore di Lunghezza", temperature: "Convertitore di Temperatura", "weight": "Convertitore di Peso", currency: "Convertitore di Valuta", "time-conversion": "Calcolatore di Conversione del Tempo", "si-unit": "Calcolatore di Unità SI", cgpa: "Calcolatore di CGPA", "marks-percentage": "Calcolatore di Percentuale dei Voti", "indian-exam-admission": "Previsore di Ammissione agli Esami Indiani", "global-exam-admission": "Previsore di Ammissione agli Esami Globali", paint: "Calcolatore di Vernice", tile: "Calcolatore di Piastrelle", "concrete-volume": "Calcolatore di Volume del Calcestruzzo", cement: "Calcolatore di Cemento", "flooring-cost": "Stimatore del Costo del Pavimento", "wall-plaster": "Calcolatore di Intonaco per Pareti", "construction-material": "Stimatore di Materiali da Costruzione", "labour-cost": "Calcolatore del Costo della Manodopera", arima: "Calcolatore ARIMA", lstm: "Calcolatore LSTM", "trend-analysis": "Calcolatore di Analisi delle Tendenze", "railway-trends": "Calcolatore delle Tendenze Ferroviarie", "hangman-game": "Gioco dell'Impiccato", "tic-tac-toe": "Gioco del Tris", "Flame-test-game": "Gioco del Test della Fiamma", "word-guessing": "Gioco di Indovinare Parole", "mental-math": "Gioco di Matematica Mentale", "quiz-game": "Gioco a Quiz", age: "Calcolatore dell'Età", "date-difference": "Calcolatore della Differenza di Data", tip: "Calcolatore della Mancia", "household-item": "Calcolatore degli Oggetti Domestici", "random-number": "Generatore di Numeri Casuali", "password-generator": "Generatore di Password", subnet: "Calcolatore di Sottorete", retirement: "Calcolatore della Pensione", salary: "Calcolatore dello Stipendio", "trigonometry-function": "Calcolatore di Funzioni Trigonometriche", "matrix-calculator": "Calcolatore di Matrici", "run-rate-calculator": "Calcolatore del Tasso di Esecuzione", "probability-calculator": "Calcolatore di Probabilità", "golden-ratio-calculator": "Calcolatore del Rapporto Aureo", "prime-factor-calculator": "Calcolatore dei Fattori Primi", "goal-score-calculator": "Calcolatore del Punteggio Obiettivo", "pregnancy-weight-gain-calculator": "Calcolatore dell'Aumento di Peso in Gravidanza" }, buttons: { home: "Home", feedback: "Feedback" } }
+            it: { tagline: "Calcolatori dalla A alla Z alimentati da AI", categories: { financial: "CALCOLATORI FINANZIARI", mathematics: "CALCOLATORI MATEMATICI", health: "CALCOLATORI DI SALUTE", "unit-converter": "CALCOLATORI DI CONVERSIONE UNITÀ", "student academic": "CALCOLATORI ACCADEMICI", "home construction": "CALCOLATORI DI COSTRUZIONE", "time-series": "CALCOLATORI DI SERIE TEMPORALI", fun: "CALCOLATORI DIVERTENTI", misc: "CALCOLATORI VARI", "new-tools": "NUOVI STRUMENTI AGGIUNTI" }, calculatorNames: { loan: "Calcolatore di Prestito", "car-loan": "Calcolatore di Prestito Auto", "auto-loan": "Calcolatore di Prestito Auto", mortgage: "Calcolatore di Mutuo", roi: "Calcolatore di ROI", saving: "Calcolatore di Risparmio", gst: "Calcolatore de GST", discount: "Calcolatore di Sconto", emi: "Calcolatore di EMI", sip: "Calcolatore di SIP", investment: "Calcolatore di Investimento", amortization: "Calcolatore di Ammortamento", inflation: "Calcolatore di Inflazione", "sales-tax": "Calcolatore di Imposta sulle Vendite", percentage: "Calcolatore di Percentuale", "compound-interest": "Calcolatore di Interesse Composto", gpa: "Calcolatore di GPA", "standard-deviation": "Calcolatore di Deviazione Standard", percentile: "Calcolatore di Percentile", "mean-mode-median": "Calcolatore di Media-Moda-Mediana", "decimal-to-fraction": "Calcolatore da Decimale a Frazione", scientific: "Calcolatore Scientifico", algebra: "Calcolatore di Algebra", geometry: "Calcolatore di Geometria", pythagoras: "Calcolatore del Teorema di Pitagora", bmi: "Calcolatore di BMI", bmr: "Calcolatore di BMR", "body-fat": "Calcolatore di Grasso Corporeo", pregnancy: "Calcolatore di Gravidanza", calories: "Calcolatore di Calorie", "weight-measurement": "Calcolatore di Misurazione del Peso", iq: "Calcolatore di QI", "menstruation-cycle": "Calcolatore del Ciclo Mestruale", length: "Convertitore di Lunghezza", temperature: "Convertitore di Temperatura", "weight": "Convertitore di Peso", currency: "Convertitore di Valuta", "time-conversion": "Calcolatore di Conversione del Tempo", "si-unit": "Calcolatore di Unità SI", cgpa: "Calcolatore di CGPA", "marks-percentage": "Calcolatore di Percentuale dei Voti", "indian-exam-admission": "Previsore di Ammissione agli Esami Indiani", "global-exam-admission": "Previsore di Ammissione agli Esami Globali", paint: "Calcolatore di Vernice", tile: "Calcolatore di Piastrelle", "concrete-volume": "Calcolatore di Volume del Calcestruzzo", cement: "Calcolatore di Cemento", "flooring-cost": "Stimatore del Costo del Pavimento", "wall-plaster": "Calcolatore di Intonaco per Pareti", "construction-material": "Stimatore di Materiali da Costruzione", "labour-cost": "Calcolatore del Costo della Manodopera", arima: "Calcolatore ARIMA", lstm: "Calcolatore LSTM", "trend-analysis": "Calcolatore di Analisi delle Tendenze", "railway-trends": "Calcolatore delle Tendenze Ferroviarie", "hangman-game": "Gioco dell'Impiccato", "tic-tac-toe": "Gioco del Tris", "Flame-test-game": "Gioco del Test della Fiamma", "word-guessing": "Gioco di Indovinare Parole", "mental-math": "Gioco di Matematica Mentale", "quiz-game": "Gioco a Quiz", age: "Calcolatore dell'Età", "date-difference": "Calcolatore della Differenza di Data", tip: "Calcolatore della Mancia", "household-item": "Calcolatore degli Oggetti Domestici", "random-number": "Generatore di Numeri Casuali", "password-generator": "Generatore di Password", subnet: "Calcolatore di Sottorete", retirement: "Calcolatore della Pensione", salary: "Calcolatore dello Stipendio", "trigonometry-function": "Calcolatore di Funzioni Trigonometriche", "matrix-calculator": "Calcolatore di Matrici", "run-rate-calculator": "Calcolatore del Tasso di Esecuzione", "probability-calculator": "Calcolatore di Probabilità", "golden-ratio-calculator": "Calcolatore del Rapporto Aureo", "prime-factor-calculator": "Calcolatore dei Fattori Primi", "goal-score-calculator": "Calcolatore del Punteggio Obiettivo", "pregnancy-weight-gain-calculator": "Calcolatore dell'Aumento di Peso in Gravidanza" }, buttons: { home: "Home", feedback: "Feedback" } }
         };
 
         let currentLang = 'en';
@@ -440,7 +604,7 @@
             calculators.forEach(calc => {
                 const a = document.createElement('a');
                 a.href = `${calc}.html`;
-                a.className = `bg-${getCategoryColor(category)}-500 text-white p-3 rounded-lg hover:bg-${getCategoryColor(category)}-600 block text-center font-medium`;
+                a.className = 'calculator-card';
                 a.textContent = translations[currentLang].calculatorNames[calc] || translations['en'].calculatorNames[calc];
                 calculatorsList.appendChild(a);
             });
@@ -448,25 +612,10 @@
             document.querySelector(`.nav-tab[href="#${category}"]`).classList.add('active');
         }
         
-        function getCategoryColor(category) {
-            const colors = {
-                'financial': 'blue',
-                'mathematics': 'yellow',
-                'health': 'green',
-                'unit-converter': 'purple',
-                'academic': 'indigo',
-                'construction': 'gray',
-                'ml': 'red',
-                'time-series': 'teal',
-                'fun': 'pink',
-                'misc': 'orange',
-                'new-tools': 'violet'
-            };
-            return colors[category.split(' ')[0]] || 'gray';
-        }
-        
         // Initialize with default category
-        document.addEventListener('DOMContentLoaded', () => showCategory('financial'));
+        document.addEventListener('DOMContentLoaded', () => {
+            showCategory('financial');
+        });
         
         // Prevent dropdown from closing when clicking inside
         document.getElementById('lang-dropdown').addEventListener('click', function(event) {
