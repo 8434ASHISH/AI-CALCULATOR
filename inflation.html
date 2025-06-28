@@ -2,221 +2,227 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Smart AI Calculator - Inflation Calculator | Free Online Tool</title>
-    <meta name="description" content="Calculate the impact of inflation on your money with our free AI-powered Inflation Calculator. Available in English, Hindi, Tamil, Telugu, Spanish, Bengali, Arabic, Mandarin, and French. Try now!">
-    <meta name="keywords" content="inflation calculator, ai inflation calculator, free inflation calculator, online inflation calculator, purchasing power calculator">
-    <meta name="robots" content="index, follow">
-   <link rel="canonical" href="https://smartaicalculator.com/inflation.html">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-FEQ7R89CFG"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-FEQ7R89CFG');
+</script>
+  <title>Inflation Calculator - Adjust for Purchasing Power (2024 Guide) | Smart AI Tools</title>
+    <meta name="description" content="Free inflation calculator for India. Calculate how inflation affects money's value over time. Learn inflation protection strategies for 2024 investments.">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Inflation Calculator",
+      "url": "https://smartaicalculator.com/inflation.html",
+      "applicationCategory": "FinancialApplication",
+      "operatingSystem": "All",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "INR"
+      },
+      "creator": {
+        "@type": "Organization",
+        "name": "Smart AI Calculator"
+      }
+    }
+    </script>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            background: linear-gradient(135deg, #1A202C, #2D3748);
-            color: #fff;
-            margin: 0;
-        }
-        .header { background: #2c3e50; padding: 20px 0; text-align: center; position: relative; }
-        .nav-tabs { display: flex; justify-content: center; gap: 20px; padding: 10px 0; background: #34495e; }
-        .nav-tab { color: white; text-decoration: none; padding: 5px 15px; transition: background 0.3s; }
-        .nav-tab:hover, .nav-tab.active { background: #3498db; border-radius: 5px; }
-        .calculator-content { max-width: 600px; margin: 20px auto; padding: 20px; background: rgba(45, 55, 72, 0.9); border-radius: 10px; box-shadow: 0 0 15px rgba(0,0,0,0.5); }
-        .calculator-box { background: #e0e0e0; color: #333; padding: 20px; border-radius: 5px; text-align: center; }
-        .input-row { display: flex; justify-content: space-between; margin-bottom: 15px; }
-        .input-row label { font-weight: bold; }
-        input, select { border: 1px solid #ccc; padding: 5px; border-radius: 3px; width: 100px; }
-        button { 
-            background: linear-gradient(135deg, #ff6b6b, #e63946); 
-            color: white; 
-            padding: 12px 24px; 
-            border: none; 
-            border-radius: 5px; 
-            cursor: pointer; 
-            font-weight: bold; 
-            font-size: 1.1rem; 
-            box-shadow: 0 3px 6px rgba(0,0,0,0.4); 
-            transition: transform 0.2s, background 0.2s; 
-            text-transform: uppercase; 
-        }
-        button:hover { 
-            background: linear-gradient(135deg, #e63946, #c0392b); 
-            transform: scale(1.05); 
-        }
-        .ads-section { margin-top: 20px; padding: 20px; background: #34495e; border-radius: 10px; text-align: center; box-shadow: 0 0 10px rgba(0,0,0,0.3); }
-        .ads-section p { font-size: 1.5rem; font-weight: bold; color: #1e90ff; }
-        .ads-section a { color: #1e90ff; text-decoration: underline; }
-        .voice-icon { 
-            display: inline-block; 
-            padding: 10px; 
-            cursor: pointer; 
-            font-size: 2rem; 
-            color: #00cec9; 
-            transition: color 0.2s, transform 0.2s; 
-            visibility: visible; 
-        }
-        .voice-icon:hover { 
-            color: #00b7b3; 
-            transform: scale(1.1); 
-        }
-        .button-container { 
-            display: flex; 
-            justify-content: center; 
-            align-items: center; 
-            gap: 15px; 
-            margin: 20px 0; 
-        }
-        @media (max-width: 600px) { 
-            .input-row { flex-direction: column; } 
-            input, select { width: 100%; margin-bottom: 10px; } 
-            .button-container { flex-direction: row; gap: 10px; } 
-            .voice-icon { display: inline-block; visibility: visible; } 
-        }
-        @media (min-width: 601px) { 
-            .voice-icon { display: inline-block; visibility: visible; } 
-        }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: linear-gradient(135deg, #1A202C, #2D3748); color: #fff; }
+        .calculator-box { background: rgba(45, 55, 72, 0.9); border-radius: 8px; padding: 30px; margin: 30px 0; }
+        .input-group { margin-bottom: 20px; }
+        .input-group label { display: block; margin-bottom: 8px; color: #3498db; font-weight: bold; }
+        .btn { background: linear-gradient(135deg, #ff6b6b, #e63946); color: white; padding: 12px 24px; border: none; border-radius: 5px; cursor: pointer; }
+        .result-box { background: #34495e; padding: 20px; border-radius: 8px; margin-top: 30px; }
+        .info-box { border-left: 4px solid #3498db; padding: 15px; margin: 20px 0; background: rgba(52, 73, 94, 0.5); }
+        .inflation-impact { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin: 20px 0; }
+        .impact-item { background: #2d3748; padding: 15px; border-radius: 5px; text-align: center; }
+        .purchasing-power { width: 100%; height: 300px; margin: 20px 0; background: #2d3748; position: relative; }
+        .power-bar { position: absolute; bottom: 0; background: #3498db; transition: height 1s; width: 45%; }
     </style>
 </head>
 <body>
-    <header class="header">
-        <h1 id="header-title">Smart AI Calculator</h1>
-        <p id="tagline">Inflation Calculator</p>
-    </header>
-    <nav class="nav-tabs">
-        <a href="index.html#financial" class="nav-tab" onclick="showCategory('financial')">FINANCIAL</a>
-        <a href="index.html#health" class="nav-tab" onclick="showCategory('home')">HOME</a>
-        
-    </nav>
-    <div class="calculator-content">
+    <div class="container mx-auto p-4 max-w-4xl">
+        <!-- SEO Article Introduction -->
+        <article>
+            <h1 class="text-3xl font-bold mb-4">Inflation Calculator - Protect Your Money's Value (2024)</h1>
+            
+            <div class="info-box">
+                <p><strong>Shocking Fact:</strong> At 6% inflation, ₹1 lakh today will be worth only ₹54,000 in 10 years and ₹29,000 in 20 years!</p>
+            </div>
+
+            <h2 class="text-2xl font-bold mt-6 mb-3">What is Inflation?</h2>
+            <p>Inflation measures how prices for goods and services rise over time, reducing your money's purchasing power. India's average inflation has been 6-7% over the past decade.</p>
+
+            <h2 class="text-2xl font-bold mt-6 mb-3">How Inflation Affects Common Expenses</h2>
+            <div class="inflation-impact">
+                <div class="impact-item">
+                    <h3 class="font-bold text-lg mb-2">Education</h3>
+                    <p>10-12% inflation</p>
+                    <p class="text-sm">₹5L college fee becomes ₹16L in 10 years</p>
+                </div>
+                <div class="impact-item">
+                    <h3 class="font-bold text-lg mb-2">Healthcare</h3>
+                    <p>8-10% inflation</p>
+                    <p class="text-sm">₹10K hospital bill becomes ₹26K in 10 years</p>
+                </div>
+                <div class="impact-item">
+                    <h3 class="font-bold text-lg mb-2">Real Estate</h3>
+                    <p>6-8% inflation</p>
+                    <p class="text-sm">₹50L home becomes ₹1.1Cr in 10 years</p>
+                </div>
+            </div>
+
+            <h2 class="text-2xl font-bold mt-6 mb-3">Inflation Calculation Formula</h2>
+            <div class="bg-gray-800 p-4 rounded-lg">
+                <p class="font-mono">Future Value = Present Value × (1 + Inflation Rate)^Years</p>
+                <p class="mt-2">
+                    <span class="font-bold">Example:</span><br>
+                    ₹1,00,000 at 6% inflation for 5 years:<br>
+                    ₹1,00,000 × (1 + 0.06)^5 = ₹1,33,823
+                </p>
+            </div>
+        </article>
+
+        <!-- Inflation Calculator -->
         <div class="calculator-box">
-            <h2 id="calc-title">Enter amount, inflation rate, and years to calculate inflation impact</h2>
-            <div class="input-row">
-                <label id="amount-label">Amount (₹)</label>
-                <input type="number" id="amount" min="0" value="10000">
+            <h2 class="text-2xl font-bold mb-4">Inflation Calculator</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div class="input-group">
+                    <label for="present-amount">Present Amount (₹)</label>
+                    <input type="number" id="present-amount" class="w-full p-3 rounded bg-gray-700" placeholder="1,00,000" value="100000">
+                </div>
+                <div class="input-group">
+                    <label for="inflation-rate">Expected Inflation Rate (% p.a.)</label>
+                    <input type="number" id="inflation-rate" class="w-full p-3 rounded bg-gray-700" placeholder="6" step="0.1" value="6">
+                </div>
+                <div class="input-group">
+                    <label for="years">Time Period (years)</label>
+                    <input type="number" id="years" class="w-full p-3 rounded bg-gray-700" placeholder="10" value="10">
+                </div>
             </div>
-            <div class="input-row">
-                <label id="rate-label">Inflation Rate (%)</label>
-                <input type="number" id="inflation-rate" min="0" step="0.1" value="5">
+            <button onclick="calculateInflation()" class="btn w-full mt-6 py-3 text-lg">Calculate Future Value</button>
+            
+            <div id="results" class="result-box hidden mt-6">
+                <h3 class="text-xl font-bold mb-4">Inflation Impact</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                        <p class="flex justify-between mb-3"><span>Future Amount Needed:</span> <span id="future-value" class="font-bold"></span></p>
+                        <p class="flex justify-between mb-3"><span>Equivalent to Today's:</span> <span id="present-value" class="font-bold"></span></p>
+                    </div>
+                </div>
+                
+                <div class="mt-6">
+                    <h4 class="text-lg font-bold mb-3">Purchasing Power Change</h4>
+                    <div class="purchasing-power">
+                        <div class="power-bar" id="present-bar" style="left: 0; height: 100%;"></div>
+                        <div class="power-bar" id="future-bar" style="left: 50%; height: 50%; background: #e63946;"></div>
+                    </div>
+                    <div class="flex justify-between mt-2">
+                        <span>Today's Value</span>
+                        <span>Future Value</span>
+                    </div>
+                </div>
             </div>
-            <div class="input-row">
-                <label id="years-label">Years</label>
-                <input type="number" id="years" min="1" value="5">
+        </div>
+
+        <!-- More Article Content -->
+        <article>
+            <h2 class="text-2xl font-bold mt-6 mb-3">How to Beat Inflation in 2024</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="bg-gray-800 p-4 rounded-lg">
+                    <h3 class="text-lg font-bold mb-2">1. Equity Investments</h3>
+                    <p>Stocks/MFs historically return 12-15% - beating 6-7% inflation. ₹10,000/month at 12% for 20 years grows to ₹1 crore.</p>
+                </div>
+                <div class="bg-gray-800 p-4 rounded-lg">
+                    <h3 class="text-lg font-bold mb-2">2. Real Assets</h3>
+                    <p>Real estate (6-8% appreciation + rental yield) and gold (7-10% long-term) preserve purchasing power.</p>
+                </div>
             </div>
-            <div class="input-row">
-                <label id="direction-label">Direction</label>
-                <select id="direction">
-                    <option value="future">Future Value</option>
-                    <option value="past">Past Value</option>
-                </select>
+
+            <h2 class="text-2xl font-bold mt-6 mb-3">Historical Inflation Rates in India</h2>
+            <div class="overflow-x-auto">
+                <table class="w-full">
+                    <thead class="bg-gray-700">
+                        <tr>
+                            <th class="p-3 text-left">Year</th>
+                            <th class="p-3 text-left">Average Inflation</th>
+                            <th class="p-3 text-left">₹1L Value After 5 Years</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="border-b border-gray-700">
+                            <td class="p-3">2020-2023</td>
+                            <td class="p-3">6.2%</td>
+                            <td class="p-3">₹73,500</td>
+                        </tr>
+                        <tr class="border-b border-gray-700">
+                            <td class="p-3">2015-2019</td>
+                            <td class="p-3">4.8%</td>
+                            <td class="p-3">₹78,400</td>
+                        </tr>
+                        <tr>
+                            <td class="p-3">2010-2014</td>
+                            <td class="p-3">9.5%</td>
+                            <td class="p-3">₹62,400</td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
-            <div class="button-container">
-                <button onclick="calculateInflation()">Calculate <span id="spinner" style="display:none;">⏳</span></button>
-                <span class="voice-icon" onclick="toggleSpeech()" title="Toggle Speech"><i class="fas fa-volume-up"></i></span>
+
+            <div class="info-box mt-6">
+                <p><strong>Pro Tip:</strong> For retirement planning, assume 6% inflation and 12% returns. ₹50,000/month today would require ₹1.6 lakhs/month after 20 years to maintain the same lifestyle.</p>
             </div>
-            <div class="ads-section">
-                <p>Contact for Ads: <a href="mailto:first4bencher@gmail.com">first4bencher@gmail.com</a></p>
-            </div>
-            <div id="inflation-result" class="mt-4 font-semibold"></div>
-            <p style="margin-top: 10px;">You May Also Like:</p>
-<ul style="list-style: none; padding-left: 0;">
-  <li><a href="gst.html" style="font-weight: bold; color: #4f46e5; text-decoration: none;">GST Calculator</a></li>
-  <li><a href="loan.html" style="font-weight: bold; color: #4f46e5; text-decoration: none;">LOAN Calculator</a></li>
-</ul>
-            <div id="seo-content" class="mt-4 text-sm">
-                <h3>About Inflation Calculator</h3>
-                <p>Welcome to the AI Inflation Calculator, a free online tool designed to help you calculate the impact of inflation on your money with ease. Whether you’re planning for future expenses or analyzing past purchasing power, this calculator leverages advanced AI technology to provide accurate and instant results. Available in multiple languages including English, Hindi, Tamil, Telugu, Spanish, Bengali, Arabic, Mandarin, and French, it caters to a diverse global audience. Simply enter your amount, inflation rate, years, and choose the direction, then click "Calculate" to get your inflation-adjusted value.</p>
-                <p>Why choose our Inflation Calculator? It’s user-friendly, fast, and optimized for all devices, making it perfect for financial planners, investors, and individuals. The tool uses a standard inflation formula: Future Value = Present Value × (1 + inflation rate)^years, or Past Value = Future Value / (1 + inflation rate)^years. Our AI integration ensures precision and offers suggestions for financial planning. This calculator stands out due to its multilingual support and modern design, setting it apart from traditional inflation calculators.</p>
-                <p>SEO optimization is crucial for this tool to rank high on search engines like Google. We’ve included meta tags, a canonical URL, and keywords such as "inflation calculator online," "free inflation calculator," and "AI inflation tool" to boost visibility. To enhance ranking, consider adding backlinks from financial or economic blogs or submitting the site to directories. Regular updates and user feedback can further improve its performance. Ideal for financial planning, this calculator is a must-try for anyone seeking clarity on inflation’s impact. Explore it today and take control of your financial calculations!</p>
+        </article>
+
+        <!-- You May Like Section -->
+        <div class="mt-8">
+            <h2 class="text-2xl font-bold mb-4">You May Also Like</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                <a href="sip.html" class="bg-gray-800 p-4 rounded-lg block hover:bg-gray-700">
+                    <h3 class="font-bold">SIP Calculator</h3>
+                    <p class="text-sm">Plan mutual fund investments</p>
+                </a>
+                <a href="retirement.html" class="bg-gray-800 p-4 rounded-lg block hover:bg-gray-700">
+                    <h3 class="font-bold">Retirement Planner</h3>
+                    <p class="text-sm">Calculate inflation-adjusted corpus</p>
+                </a>
+                <a href="loan.html" class="bg-gray-800 p-4 rounded-lg block hover:bg-gray-700">
+                    <h3 class="font-bold">loan calculator</h3>
+                    <p class="text-sm">Check required LOANS</p>
+                </a>
             </div>
         </div>
     </div>
-    <footer class="bg-gray-800 text-white text-center py-4 mt-8">
-        <p style="font-weight: bold;">2025 © Smart AI Calculator. All rights reserved.</p>
-        <a href="privacy.html" class="text-blue-400 ml-2">Privacy Policy</a> |
-        <a href="contactus.html" class="text-blue-400 ml-2">Contact Us</a> |
-        <a href="howto.html" class="text-blue-400 ml-2">How to Use</a>
-    </footer>
+
     <script>
-        let lang = 'en';
-        let isSpeaking = false;
-        let utterance = null;
-        const translations = {
-            en: { header: "Smart AI Calculator", tagline: "Inflation Calculator", calcTitle: "Enter amount, inflation rate, and years to calculate inflation impact", amountLabel: "Amount (₹)", rateLabel: "Inflation Rate (%)", yearsLabel: "Years", directionLabel: "Direction", resultPrefix: "Adjusted Value: " },
-            hi: { header: "स्मार्ट एआई कैलकुलेटर", tagline: "मुद्रास्फीति कैलकुलेटर", calcTitle: "मुद्रास्फीति प्रभाव की गणना के लिए राशि, मुद्रास्फीति दर और वर्ष दर्ज करें", amountLabel: "राशि (₹)", rateLabel: "मुद्रास्फीति दर (%)", yearsLabel: "वर्ष", directionLabel: "दिशा", resultPrefix: "समायोजित मूल्य: " },
-            ta: { header: "ஸ்மார்ட் AI கால்குலேட்டர்", tagline: "பணவீக்க கால்குலேட்டர்", calcTitle: "பணவீக்கத்தின் தாக்கத்தை கணக்கிட தொகை, பணவீக்க விகிதம் மற்றும் ஆண்டுகளை உள்ளிடவும்", amountLabel: "தொகை (₹)", rateLabel: "பணவீக்க விகிதம் (%)", yearsLabel: "ஆண்டுகள்", directionLabel: "திசை", resultPrefix: "சரிசெய்யப்பட்ட மதிப்பு: " },
-            te: { header: "స్మార్ట్ AI కాల్కులేటర్", tagline: "ఇన్ఫ్లేషన్ కాల్కులేటర్", calcTitle: "ఇన్ఫ్లేషన్ ప్రభావాన్ని లెక్కించడానికి రాశి, ఇన్ఫ్లేషన్ రేటు మరియు సంవత్సరాలను నమోదు చేయండి", amountLabel: "రాశి (₹)", rateLabel: "ఇన్ఫ్లేషన్ రేటు (%)", yearsLabel: "సంవత్సరాలు", directionLabel: "దిశ", resultPrefix: "సర్దుబాటు విలువ: " },
-            es: { header: "Calculadora de IA Inteligente", tagline: "Calculadora de Inflación", calcTitle: "Ingrese el monto, la tasa de inflación y los años para calcular el impacto de la inflación", amountLabel: "Monto (₹)", rateLabel: "Tasa de inflación (%)", yearsLabel: "Años", directionLabel: "Dirección", resultPrefix: "Valor ajustado: " },
-            bn: { header: "স্মার্ট এআই ক্যালকুলেটর", tagline: "মুদ্রাস্ফীতি ক্যালকুলেটর", calcTitle: "মুদ্রাস্ফীতির প্রভাব গণনার জন্য পরিমাণ, মুদ্রাস্ফীতির হার এবং বছর লিখুন", amountLabel: "পরিমাণ (₹)", rateLabel: "মুদ্রাস্ফীতির হার (%)", yearsLabel: "বছর", directionLabel: "দিক", resultPrefix: "সামঞ্জস্য মূল্য: " },
-            ar: { header: "حاسبة الذكاء الاصطناعي الذكية", tagline: "حاسبة التضخم", calcTitle: "أدخل المبلغ، ونسبة التضخم، والسنوات لحساب تأثير التضخم", amountLabel: "المبلغ (₹)", rateLabel: "نسبة التضخم (%)", yearsLabel: "سنوات", directionLabel: "الاتجاه", resultPrefix: "القيمة المعدلة: " },
-            zh: { header: "智能人工智能计算器", tagline: "通货膨胀计算器", calcTitle: "输入金额、通货膨胀率和年份以计算通货膨胀影响", amountLabel: "金额 (₹)", rateLabel: "通货膨胀率 (%)", yearsLabel: "年份", directionLabel: "方向", resultPrefix: "调整后的价值: " },
-            fr: { header: "Calculateur IA Intelligent", tagline: "Calculateur d'Inflation", calcTitle: "Entrez le montant, le taux d'inflation et les années pour calculer l'impact de l'inflation", amountLabel: "Montant (₹)", rateLabel: "Taux d'inflation (%)", yearsLabel: "Années", directionLabel: "Direction", resultPrefix: "Valeur ajustée: " }
-        };
         function calculateInflation() {
-            document.getElementById("spinner").style.display = "inline";
-            setTimeout(() => {
-                let amount = parseFloat(document.getElementById("amount").value);
-                let rate = parseFloat(document.getElementById("inflation-rate").value) / 100;
-                let years = parseFloat(document.getElementById("years").value);
-                let direction = document.getElementById("direction").value;
-                let resultDiv = document.getElementById("inflation-result");
-                if (amount > 0 && rate >= 0 && years > 0) {
-                    let adjustedValue;
-                    if (direction === "future") {
-                        adjustedValue = amount * Math.pow(1 + rate, years);
-                    } else {
-                        adjustedValue = amount / Math.pow(1 + rate, years);
-                    }
-                    resultDiv.innerHTML = `${translations[lang].resultPrefix} ${adjustedValue.toFixed(2)} ₹`;
-                } else {
-                    resultDiv.innerText = lang === 'en' ? "Please enter valid values" : lang === 'hi' ? "कृपया वैध मान दर्ज करें" : lang === 'ta' ? "சரியான மதிப்புகளை உள்ளிடவும்" : lang === 'te' ? "దయచేసి సరైన విలువలను నమోదు చేయండి" : lang === 'es' ? "Por favor, ingrese valores válidos" : lang === 'bn' ? "দয়া করে বৈধ মান লিখুন" : lang === 'ar' ? "يرجى إدخال قيم صحيحة" : lang === 'zh' ? "请输入有效值" : "Veuillez entrer des valeurs valides";
-                }
-                document.getElementById("spinner").style.display = "none";
-            }, 1000);
+            const presentAmount = parseFloat(document.getElementById('present-amount').value);
+            const inflationRate = parseFloat(document.getElementById('inflation-rate').value) / 100;
+            const years = parseInt(document.getElementById('years').value);
+            
+            // Calculate future value
+            const futureValue = presentAmount * Math.pow(1 + inflationRate, years);
+            
+            // Calculate present value equivalent
+            const presentValueEquivalent = presentAmount / Math.pow(1 + inflationRate, years);
+            
+            // Calculate purchasing power percentage
+            const purchasingPower = (1 / Math.pow(1 + inflationRate, years)) * 100;
+            
+            // Display results
+            document.getElementById('future-value').textContent = '₹' + Math.round(futureValue).toLocaleString();
+            document.getElementById('present-value').textContent = '₹' + presentAmount.toLocaleString() + ' today';
+            
+            // Update chart
+            document.getElementById('future-bar').style.height = purchasingPower + '%';
+            
+            document.getElementById('results').classList.remove('hidden');
         }
-        function toggleSpeech() {
-            console.log("Toggling speech for result");
-            const result = document.getElementById("inflation-result").innerHTML;
-            if (!result) {
-                console.log("No result to speak");
-                return;
-            }
-            if (isSpeaking) {
-                window.speechSynthesis.cancel();
-                isSpeaking = false;
-                console.log("Speech stopped");
-            } else {
-                utterance = new SpeechSynthesisUtterance(result);
-                utterance.lang = lang === 'zh' ? 'zh-CN' : lang === 'ar' ? 'ar-SA' : lang;
-                utterance.onend = () => {
-                    isSpeaking = false;
-                    console.log("Speech ended");
-                };
-                window.speechSynthesis.speak(utterance);
-                isSpeaking = true;
-                console.log("Speech started");
-            }
-        }
-        function stopSpeech() {
-            if (isSpeaking) {
-                window.speechSynthesis.cancel();
-                isSpeaking = false;
-                console.log("Speech stopped on page exit");
-            }
-        }
-        function showCategory(category) {
-            // No action needed here as navigation is handled by index.html
-        }
-        window.onload = () => {
-            document.getElementById('header-title').textContent = translations[lang].header;
-            document.getElementById('tagline').textContent = translations[lang].tagline;
-            document.getElementById('calc-title').textContent = translations[lang].calcTitle;
-            document.getElementById('amount-label').textContent = translations[lang].amountLabel;
-            document.getElementById('rate-label').textContent = translations[lang].rateLabel;
-            document.getElementById('years-label').textContent = translations[lang].yearsLabel;
-            document.getElementById('direction-label').textContent = translations[lang].directionLabel;
-            console.log("Voice icon loaded");
-        };
-        window.onpagehide = stopSpeech;
-        window.onbeforeunload = stopSpeech;
     </script>
-<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'934ab0e65a83454b',t:'MTc0NTM4MzMxMi4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></html>
+</body>
+</html>
