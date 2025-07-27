@@ -2,257 +2,532 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "WebApplication",
-  "name": "BMR Calculator",
-  "url": "https://smartaicalculator.com/bmr.html",
-  "applicationCategory": "HealthApplication",
-  "operatingSystem": "All",
-  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "INR" },
-  "creator": { "@type": "Organization", "name": "Smart AI Calculator" }
-}
-</script>
-<!-- Google tag (gtag.js) -->
+    <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-FEQ7R89CFG"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-
   gtag('config', 'G-FEQ7R89CFG');
 </script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> BMR Calculator – Know Your Basal Metabolic Rate</title>
-    <meta name="description" content="Calculate your BMR to understand your daily calorie needs and plan your diet accordingly">
-    <meta name="keywords" content="bmr calculator, calculator, daily calorie needs calculator, BMR calculator for weight loss, BMR calculator for daily calorie needs based on activity level, ai bmr calculator, free bmr calculator, online bmr calculator, basal metabolic rate calculator">
-    <meta name="robots" content="index, follow">
-     <link rel="canonical" href="https://smartaicalculator.com/bmr.html">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <title>BMR Calculator 2024 | Basal Metabolic Rate Tool for India & USA</title>
+    <meta name="description" content="Free online BMR calculator for Indians & Americans. Calculate your basal metabolic rate in kg/cm or lbs/ft. Learn how many calories you burn at rest with Harris-Benedict formula.">
+    <meta name="keywords" content="BMR calculator, basal metabolic rate, calorie calculator, metabolism calculator, Harris-Benedict formula">
     <style>
         body {
-            font-family: Arial, sans-serif;
-            background: linear-gradient(135deg, #1A202C, #2D3748);
-            color: #fff;
-            margin: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.7;
+            color: #333;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f9f9f9;
         }
-        .header { background: #2c3e50; padding: 20px 0; text-align: center; position: relative; }
-        .nav-tabs { display: flex; justify-content: center; gap: 20px; padding: 10px 0; background: #34495e; }
-        .nav-tab { color: white; text-decoration: none; padding: 5px 15px; transition: background 0.3s; }
-        .nav-tab:hover, .nav-tab.active { background: #3498db; border-radius: 5px; }
-        .calculator-content { max-width: 600px; margin: 20px auto; padding: 20px; background: rgba(45, 55, 72, 0.9); border-radius: 10px; box-shadow: 0 0 15px rgba(0,0,0,0.5); }
-        .calculator-box { background: #e0e0e0; color: #333; padding: 20px; border-radius: 5px; text-align: center; }
-        .input-row { display: flex; justify-content: space-between; margin-bottom: 15px; }
-        .input-row label { font-weight: bold; }
-        input, select { border: 1px solid #ccc; padding: 5px; border-radius: 3px; width: 100px; }
-        button { 
-            background: linear-gradient(135deg, #ff6b6b, #e63946); 
-            color: white; 
-            padding: 12px 24px; 
-            border: none; 
-            border-radius: 5px; 
-            cursor: pointer; 
-            font-weight: bold; 
-            font-size: 1.1rem; 
-            box-shadow: 0 3px 6px rgba(0,0,0,0.4); 
-            transition: transform 0.2s, background 0.2s; 
-            text-transform: uppercase; 
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 2.2em;
         }
-        button:hover { 
-            background: linear-gradient(135deg, #e63946, #c0392b); 
-            transform: scale(1.05); 
+        .intro {
+            font-size: 1.1em;
+            text-align: center;
+            margin-bottom: 40px;
+            color: #555;
         }
-        .ads-section { margin-top: 10px; padding: 10px; background: #34495e; border-radius: 5px; text-align: center; box-shadow: 0 0 5px rgba(0,0,0,0.3); }
-        .ads-section p { font-size: 1.2rem; font-weight: bold; color: #1e90ff; }
-        .ads-section a { color: #1e90ff; text-decoration: underline; }
-        .voice-icon { 
-            display: inline-block; 
-            padding: 10px; 
-            cursor: pointer; 
-            font-size: 2rem; 
-            color: #00cec9; 
-            transition: color 0.2s, transform 0.2s; 
-            visibility: visible; 
+        .calculator-container {
+            background: white;
+            border-radius: 10px;
+            padding: 25px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            margin: 40px auto;
+            max-width: 500px;
+            border: 1px solid #e0e0e0;
         }
-        .voice-icon:hover { 
-            color: #00b7b3; 
-            transform: scale(1.1); 
+        .calculator-title {
+            color: #2c3e50;
+            margin-top: 0;
+            text-align: center;
+            font-size: 1.5em;
         }
-        .button-container { 
-            display: flex; 
-            justify-content: center; 
-            align-items: center; 
-            gap: 15px; 
-            margin: 20px 0; 
+        .unit-toggle {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
         }
-        @media (max-width: 600px) { 
-            .input-row { flex-direction: column; } 
-            input, select { width: 100%; margin-bottom: 10px; } 
-            .button-container { flex-direction: row; gap: 10px; } 
-            .voice-icon { display: inline-block; visibility: visible; } 
+        .unit-btn {
+            padding: 8px 15px;
+            border: 1px solid #ddd;
+            background: #f1f1f1;
+            cursor: pointer;
         }
-        @media (min-width: 601px) { 
-            .voice-icon { display: inline-block; visibility: visible; } 
+        .unit-btn:first-child {
+            border-radius: 5px 0 0 5px;
+        }
+        .unit-btn:last-child {
+            border-radius: 0 5px 5px 0;
+        }
+        .unit-btn.active {
+            background: #3498db;
+            color: white;
+            border-color: #3498db;
+        }
+        .input-group {
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #444;
+        }
+        input, select {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-size: 16px;
+            box-sizing: border-box;
+        }
+        button {
+            background-color: #3498db;
+            color: white;
+            border: none;
+            padding: 14px;
+            width: 100%;
+            border-radius: 6px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #2980b9;
+        }
+        #result {
+            margin-top: 25px;
+            padding: 20px;
+            background-color: #f8f9fa;
+            border-radius: 6px;
+            border-left: 4px solid #3498db;
+        }
+        .calorie-recommendation {
+            padding: 15px;
+            background-color: #e8f4fc;
+            border-radius: 8px;
+            margin-top: 15px;
+        }
+        .article-section {
+            margin: 50px 0;
+        }
+        h2 {
+            color: #2c3e50;
+            font-size: 1.8em;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #eee;
+        }
+        h3 {
+            color: #2c3e50;
+            font-size: 1.4em;
+            margin: 30px 0 15px 0;
+        }
+        p {
+            margin-bottom: 20px;
+            font-size: 1.05em;
+        }
+        ul, ol {
+            margin-bottom: 25px;
+            padding-left: 20px;
+        }
+        li {
+            margin-bottom: 10px;
+        }
+        .highlight-box {
+            background-color: #e8f4fc;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 25px 0;
+            border-left: 4px solid #3498db;
+        }
+        .note {
+            background-color: #fff8e1;
+            padding: 15px;
+            border-left: 4px solid #ffc107;
+            margin: 20px 0;
+        }
+        .faq {
+            margin: 40px 0;
+        }
+        .faq-item {
+            margin-bottom: 25px;
+        }
+        .faq-question {
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 8px;
+            font-size: 1.1em;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 25px 0;
+        }
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+        th, td {
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        .related-calculators {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin: 30px 0;
+        }
+        .calculator-card {
+            background: white;
+            border-radius: 8px;
+            padding: 15px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            flex: 1 1 200px;
+            border: 1px solid #e0e0e0;
+        }
+        .calculator-card h4 {
+            margin-top: 0;
+            color: #2c3e50;
+        }
+        @media (max-width: 600px) {
+            body {
+                padding: 15px;
+            }
+            h1 {
+                font-size: 1.8em;
+            }
+            .related-calculators {
+                flex-direction: column;
+            }
         }
     </style>
 </head>
 <body>
-    <header class="header">
-        <h1 id="header-title"> Basal Metabolic Rate (BMR) Calculator</h1>
-        <p id="tagline">BMR Calculator</p>
-    </header>
-    <nav class="nav-tabs">
-      
-        <a href="index.html#health" class="nav-tab" onclick="showCategory('health')">HEALTH</a>
-        <a href="index.html#math" class="nav-tab" onclick="showCategory('home')">HOME</a>
-       
-    </nav>
-    <div class="calculator-content">
-        <div class="calculator-box">
-            <h2 id="calc-title">Enter details to calculate BMR</h2>
-            <div class="input-row">
-                <label id="weight-label">Weight (kg)</label>
-                <input type="number" id="weight" min="0" step="any" value="70">
-            </div>
-            <div class="input-row">
-                <label id="height-label">Height (cm)</label>
-                <input type="number" id="height" min="0" step="any" value="175">
-            </div>
-            <div class="input-row">
-                <label id="age-label">Age (years)</label>
-                <input type="number" id="age" min="0" step="any" value="30">
-            </div>
-            <div class="input-row">
-                <label id="gender-label">Gender</label>
-                <select id="gender">
-                    <option value="male">Male</option>
-                    <option value="female">Female</option>
-                </select>
-            </div>
-            <div class="button-container">
-                <button onclick="calculateBMR()">Calculate <span id="spinner" style="display:none;">⏳</span></button>
-                <span class="voice-icon" onclick="toggleSpeech()" title="Toggle Speech"><i class="fas fa-volume-up"></i></span>
-            </div>
-            <div id="bmr-result" class="mt-4 font-semibold"></div>
-            <p style="margin-top: 10px;">You May Also Like:</p>
-<ul style="list-style: none; padding-left: 0;">
-  <li><a href="bmi.html" style="font-weight: bold; color: #4f46e5; text-decoration: none;">BMI Calculator</a></li>
-  <li><a href="body-fat.html" style="font-weight: bold; color: #4f46e5; text-decoration: none;">BODY FAT Calculator</a></li>
-</ul>
-            <div class="ads-section">
-                <p>Contact for Ads: <a href="mailto:first4bencher@gmail.com">first4bencher@gmail.com</a></p>
-            </div>
-            <div id="seo-content" class="mt-4 text-sm">
-                <h3>About BMR Calculator</h3>
-                <p>Welcome to the AI BMR Calculator, a free online tool designed to help you calculate your Basal Metabolic Rate (BMR) with ease. Whether you’re planning a fitness journey or monitoring your health, this calculator leverages advanced AI technology to provide accurate and instant results. Available in multiple languages including English, Hindi, Tamil, Telugu, Spanish, Bengali, Arabic, Mandarin, and French, it caters to a diverse global audience. Simply enter your weight (kg), height (cm), age (years), and gender, then click "Calculate" to get your BMR.</p>
-                <p>Why choose our BMR Calculator? It’s user-friendly, fast, and optimized for all devices, making it perfect for health assessments. The tool calculates BMR using the Mifflin-St Jeor Equation, a widely accepted standard for estimating daily calorie needs at rest. Our AI integration ensures precision and offers suggestions for health tracking. This calculator stands out due to its multilingual support and modern design, setting it apart from traditional BMR calculators.</p>
-            </div>
-             <!-- FAQs Section -->
-    <div>
-        <h2>FREQUENTLY ASKED QUESTIONS</h2>
-        <p><strong>Q1: How accurate are the results provided by this calculator?</strong><br>
-        A: Our calculators use standard formulas and algorithms to provide accurate results. However, results may vary based on the input data you provide. For professional advice, we recommend consulting an expert.</p>
+    <h1>BMR Calculator 2024</h1>
+    <p class="intro">Calculate your Basal Metabolic Rate in kg/cm (India) or lbs/ft (USA). Know how many calories you burn at rest.</p>
+    
+    <div class="calculator-container">
+        <h2 class="calculator-title">BMR Calculator</h2>
         
-        <p><strong>Q2: Do I need to sign up or pay to use this calculator?</strong><br>
-        A: No, all calculators on SMART AI Calculator are completely free to use, and no sign-up is required. Just enter your details and get instant results!</p>
+        <div class="unit-toggle">
+            <div class="unit-btn active" id="metric-btn" onclick="toggleUnits('metric')">Metric (kg/cm)</div>
+            <div class="unit-btn" id="imperial-btn" onclick="toggleUnits('imperial')">Imperial (lbs/ft)</div>
+        </div>
         
-        <p><strong>Q3: Can I use this calculator on my mobile device?</strong><br>
-        A: Yes, our website is fully responsive and works seamlessly on all devices, including mobiles, tablets, and desktops. No app download is needed—just access it through your browser.</p>
+        <div id="metric-inputs">
+            <div class="input-group">
+                <label for="weight-kg">Weight (kg):</label>
+                <input type="number" id="weight-kg" placeholder="Enter weight in kilograms" step="0.1" min="0">
+            </div>
+            <div class="input-group">
+                <label for="height-cm">Height (cm):</label>
+                <input type="number" id="height-cm" placeholder="Enter height in centimeters" step="0.1" min="0">
+            </div>
+        </div>
         
-        <p><strong>Q4: What should I do if I encounter an error or have a suggestion?</strong><br>
-        A: If you face any issues or have suggestions, please use the "Feedback" link on our website to reach out. We’re here to help and improve your experience!</p>
+        <div id="imperial-inputs" style="display: none;">
+            <div class="input-group">
+                <label for="weight-lbs">Weight (lbs):</label>
+                <input type="number" id="weight-lbs" placeholder="Enter weight in pounds" step="0.1" min="0">
+            </div>
+            <div class="input-group">
+                <label for="height-ft">Height:</label>
+                <div style="display: flex; gap: 10px;">
+                    <input type="number" id="height-ft" placeholder="Feet" style="flex: 1;" min="0">
+                    <input type="number" id="height-in" placeholder="Inches" style="flex: 1;" min="0" max="11">
+                </div>
+            </div>
+        </div>
+        
+        <div class="input-group">
+            <label for="age">Age (years):</label>
+            <input type="number" id="age" placeholder="Enter your age" min="18" max="120">
+        </div>
+        
+        <div class="input-group">
+            <label for="gender">Gender:</label>
+            <select id="gender">
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+            </select>
+        </div>
+        
+        <button onclick="calculateBMR()">Calculate BMR</button>
+        <div id="result"></div>
     </div>
+
+    <div class="article-section">
+        <h2>What is Basal Metabolic Rate (BMR)?</h2>
+        <p>Your Basal Metabolic Rate (BMR) is the number of calories your body needs to maintain basic physiological functions at complete rest, including breathing, circulation, and cell production. It accounts for about 60-70% of your total daily energy expenditure.</p>
+        
+        <div class="highlight-box">
+            <h3>Harris-Benedict Equation:</h3>
+            <p><strong>For Men:</strong> BMR = 88.362 + (13.397 × weight in kg) + (4.799 × height in cm) - (5.677 × age in years)</p>
+            <p><strong>For Women:</strong> BMR = 447.593 + (9.247 × weight in kg) + (3.098 × height in cm) - (4.330 × age in years)</p>
+        </div>
+        
+        <h3>Why Knowing Your BMR Matters</h3>
+        <p>Understanding your BMR is essential for:</p>
+        <ul>
+            <li><strong>Weight management:</strong> Helps create effective diet plans</li>
+            <li><strong>Fitness goals:</strong> Guides calorie intake for muscle gain or fat loss</li>
+            <li><strong>Metabolic health:</strong> Identifies potential metabolic issues</li>
+            <li><strong>Nutrition planning:</strong> Provides baseline for meal planning</li>
+        </ul>
+        
+        <h2>BMR Differences: India vs USA</h2>
+        <p>While BMR calculations are universal, lifestyle factors differ:</p>
+        <table>
+            <tr>
+                <th>Factor</th>
+                <th>Indian Context</th>
+                <th>US Context</th>
+            </tr>
+            <tr>
+                <td>Average BMR</td>
+                <td>~1500 kcal (urban sedentary)</td>
+                <td>~1700 kcal (urban sedentary)</td>
+            </tr>
+            <tr>
+                <td>Diet Impact</td>
+                <td>Higher carb intake may affect metabolism</td>
+                <td>Higher protein intake may increase BMR</td>
+            </tr>
+            <tr>
+                <td>Physical Activity</td>
+                <td>More walking in daily life</td>
+                <td>More structured exercise</td>
+            </tr>
+        </table>
+        
+        <div class="note">
+            <p><strong>Note for Indians:</strong> Traditional diets rich in spices like turmeric and ginger may slightly increase metabolic rate compared to Western diets.</p>
+        </div>
+        
+        <h2>How to Increase Your BMR</h2>
+        <p>Boost your metabolism naturally with these science-backed methods:</p>
+        
+        <h3>For Indian Lifestyle</h3>
+        <ul>
+            <li>Include metabolism-boosting spices (turmeric, black pepper, ginger)</li>
+            <li>Practice yoga asanas that stimulate metabolism</li>
+            <li>Walk after meals (common in traditional Indian lifestyle)</li>
+            <li>Stay hydrated with traditional drinks like buttermilk</li>
+        </ul>
+        
+        <h3>For Western Lifestyle</h3>
+        <ul>
+            <li>Strength training 2-3 times weekly</li>
+            <li>High-protein breakfast</li>
+            <li>Cold exposure (cold showers, ice baths)</li>
+            <li>Standing desk or frequent movement breaks</li>
+        </ul>
+        
+        <h2>BMR vs TDEE: What's the Difference?</h2>
+        <p>While BMR measures calories at rest, Total Daily Energy Expenditure (TDEE) includes all activities:</p>
+        <table>
+            <tr>
+                <th>Component</th>
+                <th>% of TDEE</th>
+                <th>Description</th>
+            </tr>
+            <tr>
+                <td>BMR</td>
+                <td>60-70%</td>
+                <td>Calories burned at complete rest</td>
+            </tr>
+            <tr>
+                <td>NEAT</td>
+                <td>15-25%</td>
+                <td>Non-exercise activity (fidgeting, standing)</td>
+            </tr>
+            <tr>
+                <td>Exercise</td>
+                <td>10-15%</td>
+                <td>Structured workouts</td>
+            </tr>
+            <tr>
+                <td>TEF</td>
+                <td>5-10%</td>
+                <td>Thermic effect of food (digestion)</td>
+            </tr>
+        </table>
+        
+        <div class="highlight-box">
+            <h3>Activity Multipliers:</h3>
+            <ul>
+                <li><strong>Sedentary:</strong> BMR × 1.2 (little or no exercise)</li>
+                <li><strong>Lightly active:</strong> BMR × 1.375 (light exercise 1-3 days/week)</li>
+                <li><strong>Moderately active:</strong> BMR × 1.55 (moderate exercise 3-5 days/week)</li>
+                <li><strong>Very active:</strong> BMR × 1.725 (hard exercise 6-7 days/week)</li>
+                <li><strong>Extremely active:</strong> BMR × 1.9 (very hard exercise & physical job)</li>
+            </ul>
+        </div>
+        
+        <h2>Frequently Asked Questions</h2>
+        <div class="faq">
+            <div class="faq-item">
+                <div class="faq-question">Q: Why is my BMR lower than my friend's?</div>
+                <p>A: BMR varies based on body composition (muscle burns more than fat), age, gender, and genetics. Men typically have higher BMR than women due to more muscle mass.</p>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">Q: Does vegetarian diet affect BMR?</div>
+                <p>A: Indian vegetarians may have slightly lower BMR due to typically lower protein intake, but this can be offset with adequate dal, paneer, and nuts.</p>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">Q: How accurate is the Harris-Benedict equation?</div>
+                <p>A: It's about 70% accurate for most people. For precise measurement, consider metabolic testing at a clinic.</p>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">Q: Can I increase my BMR permanently?</div>
+                <p>A: Yes, through muscle gain (each pound of muscle burns ~6 kcal/day at rest) and improving thyroid function if deficient.</p>
+            </div>
+        </div>
+        
+        <h2>Related Health Calculators</h2>
+        <p>You may also find these calculators useful for your health and fitness:</p>
+        <div class="related-calculators">
+            <div class="calculator-card">
+                <h4>BMI Calculator</h4>
+                <p>Check your Body Mass Index to understand your weight category.</p>
+                <a href="/bmi-calculator" style="color: #3498db; font-weight: 600;">Try BMI Calculator →</a>
+            </div>
+            <div class="calculator-card">
+                <h4>TDEE Calculator</h4>
+                <p>Calculate your Total Daily Energy Expenditure including activity.</p>
+                <a href="/tdee-calculator" style="color: #3498db; font-weight: 600;">Try TDEE Calculator →</a>
+            </div>
+            <div class="calculator-card">
+                <h4>Body Fat Calculator</h4>
+                <p>Estimate your body fat percentage using multiple methods.</p>
+                <a href="/body-fat-calculator" style="color: #3498db; font-weight: 600;">Try Body Fat Calculator →</a>
+            </div>
+            <div class="calculator-card">
+                <h4>Macro Calculator</h4>
+                <p>Determine your ideal protein, carbs and fat intake.</p>
+                <a href="/macro-calculator" style="color: #3498db; font-weight: 600;">Try Macro Calculator →</a>
+            </div>
         </div>
     </div>
-    <footer class="bg-gray-800 text-white text-center py-4 mt-8">
-        <p style="font-weight: bold;">2025 © Smart AI Calculator. All rights reserved.</p>
-        <a href="privacy.html" class="text-blue-400 ml-2">Privacy Policy</a> |
-        <a href="contactus.html" class="text-blue-400 ml-2">Contact Us</a> |
-        <a href="howto.html" class="text-blue-400 ml-2">How to Use</a>
-    </footer>
+
     <script>
-        let lang = 'en';
-        let isSpeaking = false;
-        let utterance = null;
-        const translations = {
-            en: { header: "Smart AI Calculator", tagline: "BMR Calculator", calcTitle: "Enter details to calculate BMR", weightLabel: "Weight (kg)", heightLabel: "Height (cm)", ageLabel: "Age (years)", genderLabel: "Gender", resultPrefix: "BMR: " },
-            hi: { header: "स्मार्ट एआई कैलकुलेटर", tagline: "बीएमआर कैलकुलेटर", calcTitle: "बीएमआर की गणना के लिए विवरण दर्ज करें", weightLabel: "वजन (किग्रा)", heightLabel: "ऊंचाई (सेमी)", ageLabel: "आयु (वर्ष)", genderLabel: "लिंग", resultPrefix: "बीएमआर: " },
-            ta: { header: "ஸ்மார்ட் AI கால்குலேட்டர்", tagline: "பிஎம்ஆர் கால்குலேட்டர்", calcTitle: "பிஎம்ஆர் கணக்கிட விவரங்களை உள்ளிடவும்", weightLabel: "எடை (கிலோ)", heightLabel: "உயரம் (செமீ)", ageLabel: "வயது (ஆண்டுகள்)", genderLabel: "பாலினம்", resultPrefix: "பிஎம்ஆர்: " },
-            te: { header: "స్మార్ట్ AI కాల్కులేటర్", tagline: "బిఎమ్ఆర్ కాల్కులేటర్", calcTitle: "బిఎమ్ఆర్‌ని లెక్కించడానికి వివరాలను నమోదు చేయండి", weightLabel: "బరువు (కిలోలు)", heightLabel: "ఎత్తు (సెంటీమీటర్లు)", ageLabel: "వయస్సు (సంవత్సరాలు)", genderLabel: "లింగం", resultPrefix: "బిఎమ్ఆర్: " },
-            es: { header: "Calculadora de IA Inteligente", tagline: "Calculadora de TMB", calcTitle: "Ingrese los detalles para calcular la TMB", weightLabel: "Peso (kg)", heightLabel: "Altura (cm)", ageLabel: "Edad (años)", genderLabel: "Género", resultPrefix: "TMB: " },
-            bn: { header: "স্মার্ট এআই ক্যালকুলেটর", tagline: "বিএমআর ক্যালকুলেটর", calcTitle: "বিএমআর গণনার জন্য বিবরণ লিখুন", weightLabel: "ওজন (কেজি)", heightLabel: "উচ্চতা (সেমি)", ageLabel: "বয়স (বছর)", genderLabel: "লিঙ্গ", resultPrefix: "বিএমআর: " },
-            ar: { header: "حاسبة الذكاء الاصطناعي الذكية", tagline: "حاسبة معدل الأيض الأساسي", calcTitle: "أدخل التفاصيل لحساب معدل الأيض الأساسي", weightLabel: "الوزن (كجم)", heightLabel: "الطول (سم)", ageLabel: "العمر (سنوات)", genderLabel: "الجنس", resultPrefix: "معدل الأيض الأساسي: " },
-            zh: { header: "智能人工智能计算器", tagline: "BMR计算器", calcTitle: "输入详细信息以计算BMR", weightLabel: "体重 (公斤)", heightLabel: "身高 (厘米)", ageLabel: "年龄 (年)", genderLabel: "性别", resultPrefix: "BMR: " },
-            fr: { header: "Calculateur IA Intelligent", tagline: "Calculateur de MB", calcTitle: "Entrez les détails pour calculer le MB", weightLabel: "Poids (kg)", heightLabel: "Taille (cm)", ageLabel: "Âge (ans)", genderLabel: "Sexe", resultPrefix: "MB: " }
-        };
-        function calculateBMR() {
-            document.getElementById("spinner").style.display = "inline";
-            setTimeout(() => {
-                let resultDiv = document.getElementById("bmr-result");
-                let weight = parseFloat(document.getElementById("weight").value);
-                let height = parseFloat(document.getElementById("height").value);
-                let age = parseFloat(document.getElementById("age").value);
-                let gender = document.getElementById("gender").value;
-                if (!isNaN(weight) && !isNaN(height) && !isNaN(age) && weight > 0 && height > 0 && age > 0) {
-                    let bmr;
-                    if (gender === "male") {
-                        bmr = 10 * weight + 6.25 * height - 5 * age + 5;
-                    } else {
-                        bmr = 10 * weight + 6.25 * height - 5 * age - 161;
-                    }
-                    resultDiv.innerHTML = `${translations[lang].resultPrefix} ${bmr.toFixed(2)} calories/day`;
-                } else {
-                    resultDiv.innerText = lang === 'en' ? "Please enter valid weight, height, and age" : lang === 'hi' ? "कृपया वैध वजन, ऊंचाई और आयु दर्ज करें" : lang === 'ta' ? "சரியான எடை, உயரம் மற்றும் வயதை உள்ளிடவும்" : lang === 'te' ? "దయచేసి సరైన బరువు, ఎత్తు మరియు వయస్సును నమోదు చేయండి" : lang === 'es' ? "Por favor, ingrese un peso, altura y edad válidos" : lang === 'bn' ? "দয়া করে বৈধ ওজন, উচ্চতা এবং বয়স লিখুন" : lang === 'ar' ? "يرجى إدخال وزن وطول وعمر صالحين" : lang === 'zh' ? "请输入有效的体重、身高和年龄" : "Veuillez entrer un poids, une taille et un âge valides";
-                }
-                document.getElementById("spinner").style.display = "none";
-            }, 1000);
+        // Toggle between metric and imperial units
+        function toggleUnits(unitSystem) {
+            if (unitSystem === 'metric') {
+                document.getElementById('metric-inputs').style.display = 'block';
+                document.getElementById('imperial-inputs').style.display = 'none';
+                document.getElementById('metric-btn').classList.add('active');
+                document.getElementById('imperial-btn').classList.remove('active');
+            } else {
+                document.getElementById('metric-inputs').style.display = 'none';
+                document.getElementById('imperial-inputs').style.display = 'block';
+                document.getElementById('metric-btn').classList.remove('active');
+                document.getElementById('imperial-btn').classList.add('active');
+            }
         }
-        function toggleSpeech() {
-            console.log("Toggling speech for result");
-            const result = document.getElementById("bmr-result").innerHTML;
-            if (!result) {
-                console.log("No result to speak");
+        
+        function calculateBMR() {
+            const age = parseFloat(document.getElementById('age').value);
+            const gender = document.getElementById('gender').value;
+            
+            // Validate age
+            if (isNaN(age) || age < 18 || age > 120) {
+                document.getElementById('result').innerHTML = '<p style="color:#e74c3c;">Please enter a valid age (18-120).</p>';
                 return;
             }
-            if (isSpeaking) {
-                window.speechSynthesis.cancel();
-                isSpeaking = false;
-                console.log("Speech stopped");
+            
+            let weight, height, bmr;
+            
+            // Check which unit system is active
+            if (document.getElementById('metric-inputs').style.display !== 'none') {
+                // Metric calculation (kg/cm)
+                weight = parseFloat(document.getElementById('weight-kg').value);
+                height = parseFloat(document.getElementById('height-cm').value);
+                
+                if (isNaN(weight) || weight <= 0) {
+                    document.getElementById('result').innerHTML = '<p style="color:#e74c3c;">Please enter valid weight in kg.</p>';
+                    return;
+                }
+                if (isNaN(height) || height <= 0) {
+                    document.getElementById('result').innerHTML = '<p style="color:#e74c3c;">Please enter valid height in cm.</p>';
+                    return;
+                }
+                
+                if (gender === 'male') {
+                    bmr = 88.362 + (13.397 * weight) + (4.799 * height) - (5.677 * age);
+                } else {
+                    bmr = 447.593 + (9.247 * weight) + (3.098 * height) - (4.330 * age);
+                }
             } else {
-                utterance = new SpeechSynthesisUtterance(result);
-                utterance.lang = lang === 'zh' ? 'zh-CN' : lang === 'ar' ? 'ar-SA' : lang;
-                utterance.onend = () => {
-                    isSpeaking = false;
-                    console.log("Speech ended");
-                };
-                window.speechSynthesis.speak(utterance);
-                isSpeaking = true;
-                console.log("Speech started");
+                // Imperial calculation (lbs/ft/in)
+                weight = parseFloat(document.getElementById('weight-lbs').value);
+                const feet = parseFloat(document.getElementById('height-ft').value);
+                const inches = parseFloat(document.getElementById('height-in').value);
+                
+                if (isNaN(weight) || weight <= 0) {
+                    document.getElementById('result').innerHTML = '<p style="color:#e74c3c;">Please enter valid weight in lbs.</p>';
+                    return;
+                }
+                if (isNaN(feet) || feet < 0 || isNaN(inches) || inches < 0 || inches >= 12) {
+                    document.getElementById('result').innerHTML = '<p style="color:#e74c3c;">Please enter valid height in feet/inches.</p>';
+                    return;
+                }
+                
+                // Convert to metric for formula
+                const weightKg = weight * 0.453592;
+                const heightCm = (feet * 12 + inches) * 2.54;
+                
+                if (gender === 'male') {
+                    bmr = 88.362 + (13.397 * weightKg) + (4.799 * heightCm) - (5.677 * age);
+                } else {
+                    bmr = 447.593 + (9.247 * weightKg) + (3.098 * heightCm) - (4.330 * age);
+                }
             }
-        }
-        function stopSpeech() {
-            if (isSpeaking) {
-                window.speechSynthesis.cancel();
-                isSpeaking = false;
-                console.log("Speech stopped on page exit");
+            
+            const roundedBMR = Math.round(bmr);
+            
+            // Generate result with localized recommendations
+            let recommendation = '';
+            if (document.getElementById('metric-inputs').style.display !== 'none') {
+                recommendation = `<div class="calorie-recommendation">
+                    <strong>Indian Diet Tip:</strong> Include metabolism-boosting foods like green tea, ginger, and protein-rich dals to support your BMR.
+                </div>`;
+            } else {
+                recommendation = `<div class="calorie-recommendation">
+                    <strong>US Diet Tip:</strong> Focus on lean proteins and strength training to maximize your metabolic rate.
+                </div>`;
             }
+            
+            // Display results
+            document.getElementById('result').innerHTML = `
+                <p><strong>Your Basal Metabolic Rate (BMR):</strong> ${roundedBMR} calories/day</p>
+                <p>This is how many calories your body burns at complete rest.</p>
+                
+                <h4 style="margin-top:20px;">Daily Calorie Needs Based on Activity:</h4>
+                <ul>
+                    <li><strong>Sedentary:</strong> ${Math.round(roundedBMR * 1.2)} calories</li>
+                    <li><strong>Light exercise:</strong> ${Math.round(roundedBMR * 1.375)} calories</li>
+                    <li><strong>Moderate exercise:</strong> ${Math.round(roundedBMR * 1.55)} calories</li>
+                    <li><strong>Heavy exercise:</strong> ${Math.round(roundedBMR * 1.725)} calories</li>
+                    <li><strong>Athlete:</strong> ${Math.round(roundedBMR * 1.9)} calories</li>
+                </ul>
+                
+                ${recommendation}
+            `;
         }
-        function showCategory(category) {
-            // No action needed here as navigation is handled by index.html
-        }
-        window.onload = () => {
-            document.getElementById('header-title').textContent = translations[lang].header;
-            document.getElementById('tagline').textContent = translations[lang].tagline;
-            document.getElementById('calc-title').textContent = translations[lang].calcTitle;
-            document.getElementById('weight-label').textContent = translations[lang].weightLabel;
-            document.getElementById('height-label').textContent = translations[lang].heightLabel;
-            document.getElementById('age-label').textContent = translations[lang].ageLabel;
-            document.getElementById('gender-label').textContent = translations[lang].genderLabel;
-            console.log("Voice icon loaded");
-        };
-        window.onpagehide = stopSpeech;
-        window.onbeforeunload = stopSpeech;
     </script>
-<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'934ab0e65a83454b',t:'MTc0NTM4MzMxMi4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></html>
+</body>
+</html>
