@@ -3,267 +3,794 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Body Fat Calculator – Estimate Your Body Fat Percentage</title>
-    <meta name="description" content="Determine your body fat percentage using our easy Body Fat Calculator based on measurements>
-    <meta name="keywords" content="body fat calculator, calculator, body fat calculator using BMI, body fat percentage calculator for men/women, Body fat percentage calculator using waist and hip measurements, ai body fat calculator, free body fat calculator, online body fat calculator, health calculator">
-    <meta name="robots" content="index, follow">
-    <link rel="canonical" href="https://smartaicalculator.com/bodyfat.html">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <title>Body Fat Calculator 2024 | Accurate Percentage Measurement Tool</title>
+    <meta name="description" content="Free online body fat calculator using Navy, BMI, and skinfold methods. Learn your body fat percentage and ideal ranges for health and fitness.">
+    <meta name="keywords" content="body fat calculator, body fat percentage, fat percentage calculator, body composition, navy body fat calculator">
     <style>
         body {
-            font-family: Arial, sans-serif;
-            background: linear-gradient(135deg, #1A202C, #2D3748);
-            color: #fff;
-            margin: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.7;
+            color: #333;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f9f9f9;
         }
-        .header { background: #2c3e50; padding: 20px 0; text-align: center; position: relative; }
-        .nav-tabs { display: flex; justify-content: center; gap: 20px; padding: 10px 0; background: #34495e; }
-        .nav-tab { color: white; text-decoration: none; padding: 5px 15px; transition: background 0.3s; }
-        .nav-tab:hover, .nav-tab.active { background: #3498db; border-radius: 5px; }
-        .calculator-content { max-width: 600px; margin: 20px auto; padding: 20px; background: rgba(45, 55, 72, 0.9); border-radius: 10px; box-shadow: 0 0 15px rgba(0,0,0,0.5); }
-        .calculator-box { background: #e0e0e0; color: #333; padding: 20px; border-radius: 5px; text-align: center; }
-        .input-row { display: flex; justify-content: space-between; margin-bottom: 15px; }
-        .input-row label { font-weight: bold; }
-        input, select { border: 1px solid #ccc; padding: 5px; border-radius: 3px; width: 100px; }
-        button { 
-            background: linear-gradient(135deg, #ff6b6b, #e63946); 
-            color: white; 
-            padding: 12px 24px; 
-            border: none; 
-            border-radius: 5px; 
-            cursor: pointer; 
-            font-weight: bold; 
-            font-size: 1.1rem; 
-            box-shadow: 0 3px 6px rgba(0,0,0,0.4); 
-            transition: transform 0.2s, background 0.2s; 
-            text-transform: uppercase; 
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 2.2em;
         }
-        button:hover { 
-            background: linear-gradient(135deg, #e63946, #c0392b); 
-            transform: scale(1.05); 
+        .intro {
+            font-size: 1.1em;
+            text-align: center;
+            margin-bottom: 40px;
+            color: #555;
         }
-        .ads-section { margin-top: 10px; padding: 10px; background: #34495e; border-radius: 5px; text-align: center; box-shadow: 0 0 5px rgba(0,0,0,0.3); }
-        .ads-section p { font-size: 1.2rem; font-weight: bold; color: #1e90ff; }
-        .ads-section a { color: #1e90ff; text-decoration: underline; }
-        .voice-icon { 
-            display: inline-block; 
-            padding: 10px; 
-            cursor: pointer; 
-            font-size: 2rem; 
-            color: #00cec9; 
-            transition: color 0.2s, transform 0.2s; 
-            visibility: visible; 
+        .calculator-container {
+            background: white;
+            border-radius: 10px;
+            padding: 25px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            margin: 40px auto;
+            border: 1px solid #e0e0e0;
         }
-        .voice-icon:hover { 
-            color: #00b7b3; 
-            transform: scale(1.1); 
+        .calculator-title {
+            color: #2c3e50;
+            margin-top: 0;
+            text-align: center;
+            font-size: 1.5em;
         }
-        .button-container { 
-            display: flex; 
-            justify-content: center; 
-            align-items: center; 
-            gap: 15px; 
-            margin: 20px 0; 
+        .method-tabs {
+            display: flex;
+            margin-bottom: 20px;
+            border-bottom: 1px solid #ddd;
         }
-        @media (max-width: 600px) { 
-            .input-row { flex-direction: column; } 
-            input, select { width: 100%; margin-bottom: 10px; } 
-            .button-container { flex-direction: row; gap: 10px; } 
-            .voice-icon { display: inline-block; visibility: visible; } 
+        .method-tab {
+            padding: 10px 15px;
+            cursor: pointer;
+            border: 1px solid transparent;
+            border-bottom: none;
+            border-radius: 5px 5px 0 0;
+            margin-right: 5px;
+            background: #f1f1f1;
         }
-        @media (min-width: 601px) { 
-            .voice-icon { display: inline-block; visibility: visible; } 
+        .method-tab.active {
+            background: white;
+            border-color: #ddd;
+            border-bottom: 1px solid white;
+            margin-bottom: -1px;
+            font-weight: 600;
+        }
+        .method-content {
+            display: none;
+        }
+        .method-content.active {
+            display: block;
+        }
+        .input-group {
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #444;
+        }
+        input, select {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-size: 16px;
+            box-sizing: border-box;
+        }
+        button {
+            background-color: #3498db;
+            color: white;
+            border: none;
+            padding: 14px;
+            width: 100%;
+            border-radius: 6px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #2980b9;
+        }
+        #result {
+            margin-top: 25px;
+            padding: 20px;
+            background-color: #f8f9fa;
+            border-radius: 6px;
+            border-left: 4px solid #3498db;
+        }
+        .fat-category {
+            padding: 10px;
+            border-radius: 4px;
+            margin-top: 15px;
+            font-weight: bold;
+        }
+        .essential {
+            background-color: #d6eaf8;
+            border-left: 4px solid #3498db;
+        }
+        .athlete {
+            background-color: #d5f5e3;
+            border-left: 4px solid #2ecc71;
+        }
+        .fitness {
+            background-color: #d5f5e3;
+            border-left: 4px solid #2ecc71;
+        }
+        .average {
+            background-color: #fdebd0;
+            border-left: 4px solid #f39c12;
+        }
+        .obese {
+            background-color: #fadbd8;
+            border-left: 4px solid #e74c3c;
+        }
+        .article-section {
+            margin: 50px 0;
+        }
+        h2 {
+            color: #2c3e50;
+            font-size: 1.8em;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #eee;
+        }
+        h3 {
+            color: #2c3e50;
+            font-size: 1.4em;
+            margin: 30px 0 15px 0;
+        }
+        p {
+            margin-bottom: 20px;
+            font-size: 1.05em;
+        }
+        ul, ol {
+            margin-bottom: 25px;
+            padding-left: 20px;
+        }
+        li {
+            margin-bottom: 10px;
+        }
+        .highlight-box {
+            background-color: #e8f4fc;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 25px 0;
+            border-left: 4px solid #3498db;
+        }
+        .note {
+            background-color: #fff8e1;
+            padding: 15px;
+            border-left: 4px solid #ffc107;
+            margin: 20px 0;
+        }
+        .faq {
+            margin: 40px 0;
+        }
+        .faq-item {
+            margin-bottom: 25px;
+        }
+        .faq-question {
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 8px;
+            font-size: 1.1em;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 25px 0;
+        }
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+        th, td {
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        .related-calculators {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin: 30px 0;
+        }
+        .calculator-card {
+            background: white;
+            border-radius: 8px;
+            padding: 15px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            flex: 1 1 200px;
+            border: 1px solid #e0e0e0;
+        }
+        .calculator-card h4 {
+            margin-top: 0;
+            color: #2c3e50;
+        }
+        .visual-guide {
+            display: flex;
+            justify-content: space-between;
+            margin: 20px 0;
+            text-align: center;
+        }
+        .visual-category {
+            flex: 1;
+            padding: 10px;
+        }
+        .visual-category img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 5px;
+        }
+        @media (max-width: 600px) {
+            body {
+                padding: 15px;
+            }
+            h1 {
+                font-size: 1.8em;
+            }
+            .related-calculators {
+                flex-direction: column;
+            }
+            .visual-guide {
+                flex-direction: column;
+            }
         }
     </style>
 </head>
 <body>
-    <header class="header">
-        <h1 id="header-title">Body Fat Percentage Calculator</h1>
-        <p id="tagline">Body Fat Calculator</p>
-    </header>
-    <nav class="nav-tabs">
+    <h1>Body Fat Calculator 2024</h1>
+    <p class="intro">Calculate your body fat percentage using multiple methods. Understand your results and ideal ranges for health and fitness.</p>
+    
+    <div class="calculator-container">
+        <h2 class="calculator-title">Body Fat Percentage Calculator</h2>
         
-        <a href="index.html#health" class="nav-tab" onclick="showCategory('health')">HEALTH</a>
-        <a href="index.html#math" class="nav-tab" onclick="showCategory('home')">HOME</a>
-       
-    </nav>
-    <div class="calculator-content">
-        <div class="calculator-box">
-            <h2 id="calc-title">Enter details to calculate body fat percentage</h2>
-            <div class="input-row">
-                <label id="weight-label">Weight (kg)</label>
-                <input type="number" id="weight" min="0" step="any" value="70">
-            </div>
-            <div class="input-row">
-                <label id="height-label">Height (cm)</label>
-                <input type="number" id="height" min="0" step="any" value="175">
-            </div>
-            <div class="input-row">
-                <label id="age-label">Age (years)</label>
-                <input type="number" id="age" min="0" step="any" value="30">
-            </div>
-            <div class="input-row">
-                <label id="gender-label">Gender</label>
-                <select id="gender" onchange="toggleHipInput()">
+        <div class="method-tabs">
+            <div class="method-tab active" onclick="switchMethod('navy')">Navy Method</div>
+            <div class="method-tab" onclick="switchMethod('bmi')">BMI Method</div>
+            <div class="method-tab" onclick="switchMethod('skinfold')">Skinfold Method</div>
+        </div>
+        
+        <!-- Navy Method -->
+        <div id="navy-method" class="method-content active">
+            <div class="input-group">
+                <label for="gender">Gender:</label>
+                <select id="gender">
                     <option value="male">Male</option>
                     <option value="female">Female</option>
                 </select>
             </div>
-            <div class="input-row">
-                <label id="waist-label">Waist (cm)</label>
-                <input type="number" id="waist" min="0" step="any" value="80">
+            <div class="input-group">
+                <label for="height">Height (inches):</label>
+                <input type="number" id="height" placeholder="Enter height in inches" step="0.1" min="0">
             </div>
-            <div class="input-row">
-                <label id="neck-label">Neck (cm)</label>
-                <input type="number" id="neck" min="0" step="any" value="38">
+            <div class="input-group">
+                <label for="neck">Neck circumference (inches):</label>
+                <input type="number" id="neck" placeholder="Enter neck measurement" step="0.1" min="0">
             </div>
-            <div class="input-row" id="hip-input" style="display:none;">
-                <label id="hip-label">Hip (cm)</label>
-                <input type="number" id="hip" min="0" step="any" value="90">
+            <div class="input-group">
+                <label for="waist">Waist circumference (inches):</label>
+                <input type="number" id="waist" placeholder="Enter waist measurement" step="0.1" min="0">
             </div>
-            <div class="button-container">
-                <button onclick="calculateBodyFat()">Calculate <span id="spinner" style="display:none;">⏳</span></button>
-                <span class="voice-icon" onclick="toggleSpeech()" title="Toggle Speech"><i class="fas fa-volume-up"></i></span>
+            <div class="input-group" id="hip-group" style="display: none;">
+                <label for="hips">Hip circumference (inches) (women only):</label>
+                <input type="number" id="hips" placeholder="Enter hip measurement" step="0.1" min="0">
             </div>
-            <div id="bodyfat-result" class="mt-4 font-semibold"></div>
-            <p style="margin-top: 10px;">You May Also Like:</p>
-<ul style="list-style: none; padding-left: 0;">
-  <li><a href="weight-measurement.html" style="font-weight: bold; color: #4f46e5; text-decoration: none;">WEIGHT MEASUREMENT Calculator</a></li>
-  <li><a href="calories.html" style="font-weight: bold; color: #4f46e5; text-decoration: none;">CALORIES Calculator</a></li>
-</ul>
-            <div class="ads-section">
-                <p>Contact for Ads: <a href="mailto:first4bencher@gmail.com">first4bencher@gmail.com</a></p>
-            </div>
-            <div id="seo-content" class="mt-4 text-sm">
-                <h3>About Body Fat Calculator</h3>
-                <p>Welcome to the AI Body Fat Calculator, a free online tool designed to help you calculate your body fat percentage with ease. Whether you’re monitoring your fitness or planning a health journey, this calculator leverages advanced AI technology to provide accurate and instant results. Available in multiple languages including English, Hindi, Tamil, Telugu, Spanish, Bengali, Arabic, Mandarin, and French, it caters to a diverse global audience. Simply enter your weight (kg), height (cm), age (years), gender, and measurements, then click "Calculate" to get your body fat percentage.</p>
-                <p>Why choose our Body Fat Calculator? It’s user-friendly, fast, and optimized for all devices, making it perfect for health assessments. The tool calculates body fat percentage using the U.S. Navy Method, a reliable standard, and categorizes results as Athletic, Average, or Obese. Our AI integration ensures precision and offers suggestions for fitness tracking. This calculator stands out due to its multilingual support and modern design, setting it apart from traditional body fat calculators.</p>
-            </div>
-             <!-- FAQs Section -->
-    <div>
-        <h2>FREQUENTLY ASKED QUESTIONS</h2>
-        <p><strong>Q1: How accurate are the results provided by this calculator?</strong><br>
-        A: Our calculators use standard formulas and algorithms to provide accurate results. However, results may vary based on the input data you provide. For professional advice, we recommend consulting an expert.</p>
+        </div>
         
-        <p><strong>Q2: Do I need to sign up or pay to use this calculator?</strong><br>
-        A: No, all calculators on SMART AI Calculator are completely free to use, and no sign-up is required. Just enter your details and get instant results!</p>
+        <!-- BMI Method -->
+        <div id="bmi-method" class="method-content">
+            <div class="input-group">
+                <label for="bmi-gender">Gender:</label>
+                <select id="bmi-gender">
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                </select>
+            </div>
+            <div class="input-group">
+                <label for="age-bmi">Age (years):</label>
+                <input type="number" id="age-bmi" placeholder="Enter your age" min="18" max="80">
+            </div>
+            <div class="input-group">
+                <label for="bmi-value">BMI Value:</label>
+                <input type="number" id="bmi-value" placeholder="Enter your BMI" step="0.1" min="0">
+            </div>
+        </div>
         
-        <p><strong>Q3: Can I use this calculator on my mobile device?</strong><br>
-        A: Yes, our website is fully responsive and works seamlessly on all devices, including mobiles, tablets, and desktops. No app download is needed—just access it through your browser.</p>
+        <!-- Skinfold Method -->
+        <div id="skinfold-method" class="method-content">
+            <div class="input-group">
+                <label for="skinfold-gender">Gender:</label>
+                <select id="skinfold-gender">
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                </select>
+            </div>
+            <div class="input-group">
+                <label for="chest-sf">Chest skinfold (mm):</label>
+                <input type="number" id="chest-sf" placeholder="Enter chest measurement" step="0.1" min="0">
+            </div>
+            <div class="input-group">
+                <label for="abdominal-sf">Abdominal skinfold (mm):</label>
+                <input type="number" id="abdominal-sf" placeholder="Enter abdominal measurement" step="0.1" min="0">
+            </div>
+            <div class="input-group">
+                <label for="thigh-sf">Thigh skinfold (mm):</label>
+                <input type="number" id="thigh-sf" placeholder="Enter thigh measurement" step="0.1" min="0">
+            </div>
+            <div class="input-group" id="tricep-group">
+                <label for="tricep-sf">Tricep skinfold (mm):</label>
+                <input type="number" id="tricep-sf" placeholder="Enter tricep measurement" step="0.1" min="0">
+            </div>
+            <div class="input-group" id="suprailiac-group" style="display: none;">
+                <label for="suprailiac-sf">Suprailiac skinfold (mm) (women only):</label>
+                <input type="number" id="suprailiac-sf" placeholder="Enter suprailiac measurement" step="0.1" min="0">
+            </div>
+        </div>
         
-        <p><strong>Q4: What should I do if I encounter an error or have a suggestion?</strong><br>
-        A: If you face any issues or have suggestions, please use the "Feedback" link on our website to reach out. We’re here to help and improve your experience!</p>
+        <button onclick="calculateBodyFat()">Calculate Body Fat Percentage</button>
+        <div id="result"></div>
     </div>
+
+    <div class="article-section">
+        <h2>What is Body Fat Percentage?</h2>
+        <p>Body fat percentage is the proportion of fat your body contains compared to your total body weight. Unlike BMI which only considers height and weight, body fat percentage directly measures your body composition.</p>
+        
+        <div class="highlight-box">
+            <h3>Why Body Fat Percentage Matters More Than Weight:</h3>
+            <ul>
+                <li>Reveals true body composition (muscle vs fat)</li>
+                <li>Better health indicator than BMI for muscular individuals</li>
+                <li>Helps track fitness progress more accurately</li>
+                <li>Identifies health risks associated with excess fat</li>
+            </ul>
+        </div>
+        
+        <h2>Body Fat Percentage Categories</h2>
+        <p>Healthy body fat ranges differ by gender and age:</p>
+        
+        <h3>For Men</h3>
+        <table>
+            <tr>
+                <th>Category</th>
+                <th>Age 20-39</th>
+                <th>Age 40-59</th>
+                <th>Age 60+</th>
+            </tr>
+            <tr>
+                <td>Essential Fat</td>
+                <td>2-5%</td>
+                <td>2-5%</td>
+                <td>2-5%</td>
+            </tr>
+            <tr>
+                <td>Athlete</td>
+                <td>6-13%</td>
+                <td>6-15%</td>
+                <td>6-18%</td>
+            </tr>
+            <tr>
+                <td>Fitness</td>
+                <td>14-17%</td>
+                <td>16-19%</td>
+                <td>19-21%</td>
+            </tr>
+            <tr>
+                <td>Average</td>
+                <td>18-24%</td>
+                <td>20-25%</td>
+                <td>22-27%</td>
+            </tr>
+            <tr>
+                <td>Obese</td>
+                <td>25%+</td>
+                <td>26%+</td>
+                <td>28%+</td>
+            </tr>
+        </table>
+        
+        <h3>For Women</h3>
+        <table>
+            <tr>
+                <th>Category</th>
+                <th>Age 20-39</th>
+                <th>Age 40-59</th>
+                <th>Age 60+</th>
+            </tr>
+            <tr>
+                <td>Essential Fat</td>
+                <td>10-13%</td>
+                <td>10-13%</td>
+                <td>10-13%</td>
+            </tr>
+            <tr>
+                <td>Athlete</td>
+                <td>14-20%</td>
+                <td>14-22%</td>
+                <td>14-23%</td>
+            </tr>
+            <tr>
+                <td>Fitness</td>
+                <td>21-24%</td>
+                <td>23-26%</td>
+                <td>24-27%</td>
+            </tr>
+            <tr>
+                <td>Average</td>
+                <td>25-31%</td>
+                <td>27-33%</td>
+                <td>28-34%</td>
+            </tr>
+            <tr>
+                <td>Obese</td>
+                <td>32%+</td>
+                <td>34%+</td>
+                <td>35%+</td>
+            </tr>
+        </table>
+        
+        <div class="visual-guide">
+            <div class="visual-category">
+                <h4>Essential Fat</h4>
+                <p>Minimum needed for basic physiological functions</p>
+            </div>
+            <div class="visual-category">
+                <h4>Athlete</h4>
+                <p>Typical of competitive athletes</p>
+            </div>
+            <div class="visual-category">
+                <h4>Fitness</h4>
+                <p>Ideal for most healthy individuals</p>
+            </div>
+            <div class="visual-category">
+                <h4>Average</h4>
+                <p>Common in general population</p>
+            </div>
+            <div class="visual-category">
+                <h4>Obese</h4>
+                <p>Increased health risks</p>
+            </div>
+        </div>
+        
+        <h2>Measurement Methods Compared</h2>
+        <table>
+            <tr>
+                <th>Method</th>
+                <th>Accuracy</th>
+                <th>Ease</th>
+                <th>Equipment Needed</th>
+            </tr>
+            <tr>
+                <td>Navy Tape Measure</td>
+                <td>★★★☆☆</td>
+                <td>★★★★★</td>
+                <td>Tape measure</td>
+            </tr>
+            <tr>
+                <td>Skinfold Calipers</td>
+                <td>★★★★☆</td>
+                <td>★★★☆☆</td>
+                <td>Calipers</td>
+            </tr>
+            <tr>
+                <td>BMI Formula</td>
+                <td>★☆☆☆☆</td>
+                <td>★★★★★</td>
+                <td>None</td>
+            </tr>
+            <tr>
+                <td>DEXA Scan</td>
+                <td>★★★★★</td>
+                <td>★☆☆☆☆</td>
+                <td>Medical equipment</td>
+            </tr>
+            <tr>
+                <td>Bod Pod</td>
+                <td>★★★★☆</td>
+                <td>★★☆☆☆</td>
+                <td>Specialized chamber</td>
+            </tr>
+        </table>
+        
+        <div class="note">
+            <p><strong>Note:</strong> The Navy method tends to underestimate body fat in very lean individuals and overestimate in very overweight individuals. For most people, it provides a reasonable estimate.</p>
+        </div>
+        
+        <h2>How to Reduce Body Fat Percentage</h2>
+        <h3>Nutrition Strategies</h3>
+        <ul>
+            <li><strong>Calorie deficit:</strong> Consume fewer calories than you burn</li>
+            <li><strong>High protein:</strong> 0.7-1g per pound of body weight to preserve muscle</li>
+            <li><strong>Fiber-rich foods:</strong> Vegetables, fruits, whole grains keep you full</li>
+            <li><strong>Healthy fats:</strong> Avocados, nuts, olive oil in moderation</li>
+        </ul>
+        
+        <h3>Exercise Recommendations</h3>
+        <ul>
+            <li><strong>Resistance training:</strong> 3-5x weekly to maintain muscle</li>
+            <li><strong>HIIT:</strong> High intensity interval training burns fat effectively</li>
+            <li><strong>NEAT:</strong> Increase non-exercise activity (walking, standing)</li>
+            <li><strong>Recovery:</strong> Adequate sleep and stress management</li>
+        </ul>
+        
+        <h2>Frequently Asked Questions</h2>
+        <div class="faq">
+            <div class="faq-item">
+                <div class="faq-question">Q: What's more important - weight or body fat percentage?</div>
+                <p>A: Body fat percentage is more meaningful as it distinguishes between fat and muscle. Two people can weigh the same but have very different body compositions.</p>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">Q: How often should I measure my body fat?</div>
+                <p>A: Every 2-4 weeks is sufficient. Daily measurements can be misleading due to normal fluid fluctuations.</p>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">Q: Can I spot reduce fat from specific areas?</div>
+                <p>A: No, fat loss occurs systemically based on genetics. Targeted exercises strengthen muscles but don't preferentially burn fat from those areas.</p>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">Q: Why do women need more body fat than men?</div>
+                <p>A: Women require essential fat for reproductive health and hormonal balance. The female body naturally maintains higher fat levels for these biological functions.</p>
+            </div>
+        </div>
+        
+        <h2>Related Health Calculators</h2>
+        <p>You may also find these calculators useful for your fitness journey:</p>
+        <div class="related-calculators">
+            <div class="calculator-card">
+                <h4>BMI Calculator</h4>
+                <p>Check your Body Mass Index to understand your weight category.</p>
+                <a href="/bmi.html" style="color: #3498db; font-weight: 600;">Try BMI Calculator →</a>
+            </div>
+            <div class="calculator-card">
+                <h4>BMR Calculator</h4>
+                <p>Calculate your Basal Metabolic Rate to understand calorie needs.</p>
+                <a href="/bmr.html" style="color: #3498db; font-weight: 600;">Try BMR Calculator →</a>
+            </div>
+                <div class="calculator-card">
+                <h4>CALORIES CALCULATOR</h4>
+                <p>Calculate your ideal protein, calories and fat intake.</p>
+                <a href="/calories.html" style="color: #3498db; font-weight: 600;">Try Macro Calculator →</a>
+            </div>
         </div>
     </div>
-    <footer class="bg-gray-800 text-white text-center py-4 mt-8">
-        <p style="font-weight: bold;">2025 © Smart AI Calculator. All rights reserved.</p>
-        <a href="privacy.html" class="text-blue-400 ml-2">Privacy Policy</a> |
-        <a href="contactus.html" class="text-blue-400 ml-2">Contact Us</a> |
-        <a href="howto.html" class="text-blue-400 ml-2">How to Use</a>
-    </footer>
+
     <script>
-        let lang = 'en';
-        let isSpeaking = false;
-        let utterance = null;
-        const translations = {
-            en: { header: "Smart AI Calculator", tagline: "Body Fat Calculator", calcTitle: "Enter details to calculate body fat percentage", weightLabel: "Weight (kg)", heightLabel: "Height (cm)", ageLabel: "Age (years)", genderLabel: "Gender", waistLabel: "Waist (cm)", neckLabel: "Neck (cm)", hipLabel: "Hip (cm)", resultPrefix: "Body Fat: " },
-            hi: { header: "स्मार्ट एआई कैलकुलेटर", tagline: "बॉडी फैट कैलकुलेटर", calcTitle: "बॉडी फैट प्रतिशत की गणना के लिए विवरण दर्ज करें", weightLabel: "वजन (किग्रा)", heightLabel: "ऊंचाई (सेमी)", ageLabel: "आयु (वर्ष)", genderLabel: "लिंग", waistLabel: "कमर (सेमी)", neckLabel: "गर्दन (सेमी)", hipLabel: "हिप (सेमी)", resultPrefix: "बॉडी फैट: " },
-            ta: { header: "ஸ்மார்ட் AI கால்குலேட்டர்", tagline: "உடல் கொழுப்பு கால்குலேட்டர்", calcTitle: "உடல் கொழுப்பு சதவீதத்தை கணக்கிட விவரங்களை உள்ளிடவும்", weightLabel: "எடை (கிலோ)", heightLabel: "உயரம் (செமீ)", ageLabel: "வயது (ஆண்டுகள்)", genderLabel: "பாலினம்", waistLabel: "இடுப்பு (செமீ)", neckLabel: "கழுத்து (செமீ)", hipLabel: "இடுப்பு (செமீ)", resultPrefix: "உடல் கொழுப்பு: " },
-            te: { header: "స్మార్ట్ AI కాల్కులేటర్", tagline: "బాడీ ఫ్యాట్ కాల్కులేటర్", calcTitle: "బాడీ ఫ్యాట్ శాతాన్ని లెక్కించడానికి వివరాలను నమోదు చేయండి", weightLabel: "బరువు (కిలోలు)", heightLabel: "ఎత్తు (సెంటీమీటర్లు)", ageLabel: "వయస్సు (సంవత్సరాలు)", genderLabel: "లింగం", waistLabel: "నడుము (సెంటీమీటర్లు)", neckLabel: "మెడ (సెంటీమీటర్లు)", hipLabel: "హిప్ (సెంటీమీటర్లు)", resultPrefix: "బాడీ ఫ్యాట్: " },
-            es: { header: "Calculadora de IA Inteligente", tagline: "Calculadora de Grasa Corporal", calcTitle: "Ingrese los detalles para calcular el porcentaje de grasa corporal", weightLabel: "Peso (kg)", heightLabel: "Altura (cm)", ageLabel: "Edad (años)", genderLabel: "Género", waistLabel: "Cintura (cm)", neckLabel: "Cuello (cm)", hipLabel: "Cadera (cm)", resultPrefix: "Grasa Corporal: " },
-            bn: { header: "স্মার্ট এআই ক্যালকুলেটর", tagline: "বডি ফ্যাট ক্যালকুলেটর", calcTitle: "বডি ফ্যাট শতাংশ গণনার জন্য বিবরণ লিখুন", weightLabel: "ওজন (কেজি)", heightLabel: "উচ্চতা (সেমি)", ageLabel: "বয়স (বছর)", genderLabel: "লিঙ্গ", waistLabel: "কোমর (সেমি)", neckLabel: "ঘাড় (সেমি)", hipLabel: "নিতম্ব (সেমি)", resultPrefix: "বডি ফ্যাট: " },
-            ar: { header: "حاسبة الذكاء الاصطناعي الذكية", tagline: "حاسبة دهون الجسم", calcTitle: "أدخل التفاصيل لحساب نسبة دهون الجسم", weightLabel: "الوزن (كجم)", heightLabel: "الطول (سم)", ageLabel: "العمر (سنوات)", genderLabel: "الجنس", waistLabel: "الخصر (سم)", neckLabel: "الرقبة (سم)", hipLabel: "الورك (سم)", resultPrefix: "دهون الجسم: " },
-            zh: { header: "智能人工智能计算器", tagline: "体脂计算器", calcTitle: "输入详细信息以计算体脂百分比", weightLabel: "体重 (公斤)", heightLabel: "身高 (厘米)", ageLabel: "年龄 (年)", genderLabel: "性别", waistLabel: "腰围 (厘米)", neckLabel: "颈围 (厘米)", hipLabel: "臀围 (厘米)", resultPrefix: "体脂: " },
-            fr: { header: "Calculateur IA Intelligent", tagline: "Calculateur de Graisse Corporelle", calcTitle: "Entrez les détails pour calculer le pourcentage de graisse corporelle", weightLabel: "Poids (kg)", heightLabel: "Taille (cm)", ageLabel: "Âge (ans)", genderLabel: "Sexe", waistLabel: "Tour de taille (cm)", neckLabel: "Tour de cou (cm)", hipLabel: "Tour de hanches (cm)", resultPrefix: "Graisse Corporelle: " }
-        };
-        function toggleHipInput() {
-            const gender = document.getElementById("gender").value;
-            document.getElementById("hip-input").style.display = gender === "female" ? "block" : "none";
+        // Switch between calculation methods
+        function switchMethod(method) {
+            // Hide all methods
+            document.querySelectorAll('.method-content').forEach(content => {
+                content.classList.remove('active');
+            });
+            // Deactivate all tabs
+            document.querySelectorAll('.method-tab').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            // Activate selected method
+            document.getElementById(method + '-method').classList.add('active');
+            // Activate selected tab
+            event.currentTarget.classList.add('active');
+            
+            // Show/hide gender-specific fields
+            toggleGenderFields();
         }
+        
+        // Toggle gender-specific fields based on current method
+        function toggleGenderFields() {
+            const gender = document.getElementById('gender') ? document.getElementById('gender').value : 
+                         document.getElementById('skinfold-gender') ? document.getElementById('skinfold-gender').value : 'male';
+            
+            // Navy method
+            if (document.getElementById('navy-method').classList.contains('active')) {
+                document.getElementById('hip-group').style.display = gender === 'female' ? 'block' : 'none';
+            }
+            // Skinfold method
+            else if (document.getElementById('skinfold-method').classList.contains('active')) {
+                document.getElementById('suprailiac-group').style.display = gender === 'female' ? 'block' : 'none';
+                document.getElementById('tricep-group').style.display = gender === 'male' ? 'block' : 'none';
+            }
+        }
+        
+        // Calculate body fat based on selected method
         function calculateBodyFat() {
-            document.getElementById("spinner").style.display = "inline";
-            setTimeout(() => {
-                let resultDiv = document.getElementById("bodyfat-result");
-                let weight = parseFloat(document.getElementById("weight").value);
-                let height = parseFloat(document.getElementById("height").value);
-                let age = parseFloat(document.getElementById("age").value);
-                let gender = document.getElementById("gender").value;
-                let waist = parseFloat(document.getElementById("waist").value);
-                let neck = parseFloat(document.getElementById("neck").value);
-                let hip = parseFloat(document.getElementById("hip").value) || 0;
-                if (!isNaN(weight) && !isNaN(height) && !isNaN(age) && !isNaN(waist) && !isNaN(neck) && weight > 0 && height > 0 && age > 0 && waist > 0 && neck > 0 && (gender === "male" || (gender === "female" && !isNaN(hip) && hip > 0))) {
-                    let bodyFat;
-                    if (gender === "male") {
-                        bodyFat = 495 / (1.0324 - 0.19077 * Math.log10(waist - neck) + 0.15456 * Math.log10(height)) - 450;
-                    } else {
-                        bodyFat = 495 / (1.29579 - 0.35004 * Math.log10(waist + hip - neck) + 0.22100 * Math.log10(height)) - 450;
-                    }
-                    let category = "";
-                    if (gender === "male") {
-                        if (bodyFat < 14) category = lang === 'en' ? "Athletic" : lang === 'hi' ? "एथलेटिक" : lang === 'ta' ? "விளையாட்டு" : lang === 'te' ? "అథ్లెటిక్" : lang === 'es' ? "Atlético" : lang === 'bn' ? "অ্যাথলেটিক" : lang === 'ar' ? "رياضي" : lang === 'zh' ? "运动型" : "Athlétique";
-                        else if (bodyFat < 25) category = lang === 'en' ? "Average" : lang === 'hi' ? "औसत" : lang === 'ta' ? "சராசரி" : lang === 'te' ? "సగటు" : lang === 'es' ? "Promedio" : lang === 'bn' ? "গড়" : lang === 'ar' ? "متوسط" : lang === 'zh' ? "平均" : "Moyen";
-                        else category = lang === 'en' ? "Obese" : lang === 'hi' ? "मोटापा" : lang === 'ta' ? "பருமன்" : lang === 'te' ? "స్థూలకాయం" : lang === 'es' ? "Obeso" : lang === 'bn' ? "স্থূলতা" : lang === 'ar' ? "السمنة" : lang === 'zh' ? "肥胖" : "Obèse";
-                    } else {
-                        if (bodyFat < 21) category = lang === 'en' ? "Athletic" : lang === 'hi' ? "एथलेटिक" : lang === 'ta' ? "விளையாட்டு" : lang === 'te' ? "అథ్లెటిక్" : lang === 'es' ? "Atlético" : lang === 'bn' ? "অ্যাথলেটিক" : lang === 'ar' ? "رياضي" : lang === 'zh' ? "运动型" : "Athlétique";
-                        else if (bodyFat < 33) category = lang === 'en' ? "Average" : lang === 'hi' ? "औसत" : lang === 'ta' ? "சராசரி" : lang === 'te' ? "సగటు" : lang === 'es' ? "Promedio" : lang === 'bn' ? "গড়" : lang === 'ar' ? "متوسط" : lang === 'zh' ? "平均" : "Moyen";
-                        else category = lang === 'en' ? "Obese" : lang === 'hi' ? "मोटापा" : lang === 'ta' ? "பருமன்" : lang === 'te' ? "స్థూలకాయం" : lang === 'es' ? "Obeso" : lang === 'bn' ? "স্থূলতা" : lang === 'ar' ? "السمنة" : lang === 'zh' ? "肥胖" : "Obèse";
-                    }
-                    resultDiv.innerHTML = `${translations[lang].resultPrefix} ${bodyFat.toFixed(2)}% (${category})`;
-                } else {
-                    resultDiv.innerText = lang === 'en' ? "Please enter valid inputs" : lang === 'hi' ? "कृपया वैध इनपुट दर्ज करें" : lang === 'ta' ? "சரியான உள்ளீடுகளை உள்ளிடவும்" : lang === 'te' ? "దయచేసి సరైన ఇన్‌పుట్‌లను నమోదు చేయండి" : lang === 'es' ? "Por favor, ingrese entradas válidas" : lang === 'bn' ? "দয়া করে বৈধ ইনপুট লিখুন" : lang === 'ar' ? "يرجى إدخال مدخلات صالحة" : lang === 'zh' ? "请输入有效输入" : "Veuillez entrer des entrées valides";
+            let bodyFat, methodUsed, explanation;
+            
+            // Navy Method Calculation
+            if (document.getElementById('navy-method').classList.contains('active')) {
+                const gender = document.getElementById('gender').value;
+                const height = parseFloat(document.getElementById('height').value);
+                const neck = parseFloat(document.getElementById('neck').value);
+                const waist = parseFloat(document.getElementById('waist').value);
+                const hips = gender === 'female' ? parseFloat(document.getElementById('hips').value) : 0;
+                
+                // Validate inputs
+                if (isNaN(height) || height <= 0) {
+                    alert('Please enter valid height');
+                    return;
                 }
-                document.getElementById("spinner").style.display = "none";
-            }, 1000);
-        }
-        function toggleSpeech() {
-            console.log("Toggling speech for result");
-            const result = document.getElementById("bodyfat-result").innerHTML;
-            if (!result) {
-                console.log("No result to speak");
-                return;
+                if (isNaN(neck) || neck <= 0) {
+                    alert('Please enter valid neck measurement');
+                    return;
+                }
+                if (isNaN(waist) || waist <= 0) {
+                    alert('Please enter valid waist measurement');
+                    return;
+                }
+                if (gender === 'female' && (isNaN(hips) || hips <= 0)) {
+                    alert('Please enter valid hip measurement');
+                    return;
+                }
+                
+                if (gender === 'male') {
+                    bodyFat = 86.010 * Math.log10(waist - neck) - 70.041 * Math.log10(height) + 36.76;
+                } else {
+                    bodyFat = 163.205 * Math.log10(waist + hips - neck) - 97.684 * Math.log10(height) - 78.387;
+                }
+                
+                methodUsed = "U.S. Navy Method";
+                explanation = `Calculation for ${gender}: ${gender === 'male' ? 
+                    '86.010 × log10(waist - neck) - 70.041 × log10(height) + 36.76' : 
+                    '163.205 × log10(waist + hips - neck) - 97.684 × log10(height) - 78.387'}`;
             }
-            if (isSpeaking) {
-                window.speechSynthesis.cancel();
-                isSpeaking = false;
-                console.log("Speech stopped");
+            // BMI Method Calculation
+            else if (document.getElementById('bmi-method').classList.contains('active')) {
+                const gender = document.getElementById('bmi-gender').value;
+                const age = parseFloat(document.getElementById('age-bmi').value);
+                const bmi = parseFloat(document.getElementById('bmi-value').value);
+                
+                if (isNaN(age) || age < 18 || age > 80) {
+                    alert('Please enter valid age (18-80)');
+                    return;
+                }
+                if (isNaN(bmi) || bmi <= 0) {
+                    alert('Please enter valid BMI');
+                    return;
+                }
+                
+                if (gender === 'male') {
+                    bodyFat = (1.20 * bmi) + (0.23 * age) - 16.2;
+                } else {
+                    bodyFat = (1.20 * bmi) + (0.23 * age) - 5.4;
+                }
+                
+                methodUsed = "BMI-based Method";
+                explanation = `Formula for ${gender}: (1.20 × BMI) + (0.23 × Age) ${gender === 'male' ? '- 16.2' : '- 5.4'}`;
+            }
+            // Skinfold Method Calculation
+            else if (document.getElementById('skinfold-method').classList.contains('active')) {
+                const gender = document.getElementById('skinfold-gender').value;
+                const chest = parseFloat(document.getElementById('chest-sf').value);
+                const abdominal = parseFloat(document.getElementById('abdominal-sf').value);
+                const thigh = parseFloat(document.getElementById('thigh-sf').value);
+                const tricep = gender === 'male' ? parseFloat(document.getElementById('tricep-sf').value) : 0;
+                const suprailiac = gender === 'female' ? parseFloat(document.getElementById('suprailiac-sf').value) : 0;
+                
+                // Validate inputs
+                if (isNaN(chest) || chest <= 0) {
+                    alert('Please enter valid chest measurement');
+                    return;
+                }
+                if (isNaN(abdominal) || abdominal <= 0) {
+                    alert('Please enter valid abdominal measurement');
+                    return;
+                }
+                if (isNaN(thigh) || thigh <= 0) {
+                    alert('Please enter valid thigh measurement');
+                    return;
+                }
+                if (gender === 'male' && (isNaN(tricep) || tricep <= 0)) {
+                    alert('Please enter valid tricep measurement');
+                    return;
+                }
+                if (gender === 'female' && (isNaN(suprailiac) || suprailiac <= 0)) {
+                    alert('Please enter valid suprailiac measurement');
+                    return;
+                }
+                
+                const sum = gender === 'male' ? 
+                    (chest + abdominal + thigh + tricep) : 
+                    (chest + abdominal + thigh + suprailiac);
+                
+                if (gender === 'male') {
+                    bodyFat = 0.29288 * sum - 0.0005 * sum * sum + 0.15845 * age - 5.76377;
+                } else {
+                    bodyFat = 0.29669 * sum - 0.00043 * sum * sum + 0.02963 * age + 1.4072;
+                }
+                
+                methodUsed = "Skinfold Caliper Method";
+                explanation = gender === 'male' ? 
+                    "Jackson-Pollock 4-site formula for men (chest, abdominal, thigh, tricep)" :
+                    "Jackson-Pollock 4-site formula for women (chest, abdominal, thigh, suprailiac)";
+            }
+            
+            // Round to 1 decimal place
+            bodyFat = Math.round(bodyFat * 10) / 10;
+            
+            // Determine category
+            let category, categoryClass;
+            if (document.getElementById('gender') && document.getElementById('gender').value === 'female' || 
+                document.getElementById('skinfold-gender') && document.getElementById('skinfold-gender').value === 'female' ||
+                document.getElementById('bmi-gender') && document.getElementById('bmi-gender').value === 'female') {
+                // Female categories
+                if (bodyFat < 14) {
+                    category = "Essential Fat";
+                    categoryClass = "essential";
+                } else if (bodyFat < 21) {
+                    category = "Athlete";
+                    categoryClass = "athlete";
+                } else if (bodyFat < 25) {
+                    category = "Fitness";
+                    categoryClass = "fitness";
+                } else if (bodyFat < 32) {
+                    category = "Average";
+                    categoryClass = "average";
+                } else {
+                    category = "Obese";
+                    categoryClass = "obese";
+                }
             } else {
-                utterance = new SpeechSynthesisUtterance(result);
-                utterance.lang = lang === 'zh' ? 'zh-CN' : lang === 'ar' ? 'ar-SA' : lang;
-                utterance.onend = () => {
-                    isSpeaking = false;
-                    console.log("Speech ended");
-                };
-                window.speechSynthesis.speak(utterance);
-                isSpeaking = true;
-                console.log("Speech started");
+                // Male categories
+                if (bodyFat < 6) {
+                    category = "Essential Fat";
+                    categoryClass = "essential";
+                } else if (bodyFat < 14) {
+                    category = "Athlete";
+                    categoryClass = "athlete";
+                } else if (bodyFat < 18) {
+                    category = "Fitness";
+                    categoryClass = "fitness";
+                } else if (bodyFat < 25) {
+                    category = "Average";
+                    categoryClass = "average";
+                } else {
+                    category = "Obese";
+                    categoryClass = "obese";
+                }
             }
+            
+            // Display results
+            document.getElementById('result').innerHTML = `
+                <p><strong>Your Body Fat Percentage:</strong> ${bodyFat}%</p>
+                <div class="fat-category ${categoryClass}">
+                    <strong>Category:</strong> ${category}
+                </div>
+                <p><strong>Method Used:</strong> ${methodUsed}</p>
+                <p style="font-size:0.9em;color:#666;margin-top:10px;">${explanation}</p>
+                
+                <h4 style="margin-top:20px;">What This Means:</h4>
+                <ul>
+                    <li>Essential fat: Minimum needed for basic physiological functions</li>
+                    <li>Athlete: Typical of competitive athletes</li>
+                    <li>Fitness: Ideal for most healthy individuals</li>
+                    <li>Average: Common in general population</li>
+                    <li>Obese: Increased health risks</li>
+                </ul>
+            `;
         }
-        function stopSpeech() {
-            if (isSpeaking) {
-                window.speechSynthesis.cancel();
-                isSpeaking = false;
-                console.log("Speech stopped on page exit");
+        
+        // Initialize gender fields
+        document.addEventListener('DOMContentLoaded', function() {
+            // Add event listeners to gender selects
+            if (document.getElementById('gender')) {
+                document.getElementById('gender').addEventListener('change', toggleGenderFields);
             }
-        }
-        function showCategory(category) {
-            // No action needed here as navigation is handled by index.html
-        }
-        window.onload = () => {
-            document.getElementById('header-title').textContent = translations[lang].header;
-            document.getElementById('tagline').textContent = translations[lang].tagline;
-            document.getElementById('calc-title').textContent = translations[lang].calcTitle;
-            document.getElementById('weight-label').textContent = translations[lang].weightLabel;
-            document.getElementById('height-label').textContent = translations[lang].heightLabel;
-            document.getElementById('age-label').textContent = translations[lang].ageLabel;
-            document.getElementById('gender-label').textContent = translations[lang].genderLabel;
-            document.getElementById('waist-label').textContent = translations[lang].waistLabel;
-            document.getElementById('neck-label').textContent = translations[lang].neckLabel;
-            document.getElementById('hip-label').textContent = translations[lang].hipLabel;
-            console.log("Voice icon loaded");
-        };
-        window.onpagehide = stopSpeech;
-        window.onbeforeunload = stopSpeech;
+            if (document.getElementById('skinfold-gender')) {
+                document.getElementById('skinfold-gender').addEventListener('change', toggleGenderFields);
+            }
+            
+            // Initialize fields
+            toggleGenderFields();
+        });
     </script>
-<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'934ab0e65a83454b',t:'MTc0NTM4MzMxMi4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></html>
+</body>
+</html>
