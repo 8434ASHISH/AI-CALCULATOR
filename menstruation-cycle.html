@@ -2,306 +2,589 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "WebApplication",
-  "name": "Menstruation Cycle Calculator",
-  "url": "https://smartaicalculator.com/menstruation-cycle.html",
-  "applicationCategory": "HealthApplication",
-  "operatingSystem": "All",
-  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "INR" },
-  "creator": { "@type": "Organization", "name": "Smart AI Calculator" }
-}
-</script>
-
-     <!-- Google tag (gtag.js) -->
+    <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-FEQ7R89CFG"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-
-  gtag('config', 'G-FEQ7R89CFG');
+ gtag('config', 'G-FEQ7R89CFG');
 </script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Smart AI Calculator | Menstruation Cycle Calculator</title>
-    <meta name="description" content="Accurately predict your menstruation cycle, ovulation, and fertile window with our advanced calculator. Includes charts and health suggestions!">
-    <meta name="keywords" content="menstruation cycle calculator, ovulation calculator, fertile window, period tracker">
-    <meta name="robots" content="index, follow">
-      <link rel="canonical" href="https://smartaicalculator.com/menstruation-cycle.html">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/chartist@0.11.4/dist/chartist.min.css">
-    <script src="https://cdn.jsdelivr.net/npm/chartist@0.11.4/dist/chartist.min.js"></script>
+    <title>Menstrual Cycle Calculator 2024 | Period & Ovulation Tracker</title>
+    <meta name="description" content="Free menstrual cycle calculator to predict your next period, ovulation days, and fertile window. Track your cycle symptoms and understand your fertility patterns.">
+    <meta name="keywords" content="menstrual cycle calculator, period calculator, ovulation calculator, fertility calculator, period tracker">
     <style>
-        body { font-family: Arial, sans-serif; background: linear-gradient(135deg, #1A202C, #2D3748); color: #fff; margin: 0; }
-        .header { background: #2c3e50; padding: 20px 0; text-align: center; }
-        .nav-tabs { display: flex; justify-content: center; gap: 20px; padding: 10px 0; background: #34495e; }
-        .nav-tab { color: white; text-decoration: none; padding: 5px 15px; transition: background 0.3s; font-weight: bold; text-shadow: 0 0 5px rgba(255, 107, 107, 0.5); }
-        .nav-tab:hover, .nav-tab.active { background: #3498db; border-radius: 5px; }
-        .calculator-content { max-width: 600px; margin: 20px auto; padding: 20px; background: rgba(45, 55, 72, 0.9); border-radius: 10px; box-shadow: 0 0 15px rgba(0,0,0,0.5); }
-        .calculator-box { background: #e0e0e0; color: #333; padding: 20px; border-radius: 5px; text-align: center; }
-        .input-row { display: flex; justify-content: space-between; margin-bottom: 15px; align-items: center; }
-        .input-row label { font-weight: bold; }
-        input { border: 1px solid #ccc; padding: 5px; border-radius: 3px; width: 200px; }
-        input.invalid { border-color: #ff6b6b; }
-        button.calculate-btn { background: linear-gradient(135deg, #ff6b6b, #e63946); color: white; padding: 12px 24px; border: none; border-radius: 5px; cursor: pointer; font-weight: bold; font-size: 1.1rem; box-shadow: 0 3px 6px rgba(0,0,0,0.4); transition: transform 0.2s, background 0.2s; text-transform: uppercase; }
-        button.calculate-btn:hover { background: linear-gradient(135deg, #e63946, #c0392b); transform: scale(1.05); }
-        .ads-section { margin-top: 10px; padding: 10px; background: #34495e; border-radius: 5px; text-align: center; }
-        .ads-section p { font-size: 1.2rem; font-weight: bold; color: #1e90ff; }
-        .ads-section a { color: #1e90ff; text-decoration: underline; }
-        .voice-icon { display: inline-block; padding: 10px; cursor: pointer; font-size: 2rem; color: #00cec9; transition: color 0.2s, transform 0.2s; visibility: visible; }
-        .voice-icon:hover { color: #00b7b3; transform: scale(1.1); }
-        .button-container { display: flex; justify-content: center; align-items: center; gap: 15px; margin: 20px 0; }
-        .result-table { width: 100%; margin-top: 20px; border-collapse: collapse; }
-        .result-table th, .result-table td { border: 1px solid #ccc; padding: 10px; text-align: left; }
-        .result-table th { background: #3498db; color: white; }
-        .result-table tr:nth-child(even) { background: #f0f0f0; }
-        #chart-container { margin-top: 20px; }
-        .ct-chart { height: 200px; }
-        @media (max-width: 600px) { 
-            .input-row { flex-direction: column; align-items: flex-start; } 
-            input { width: 100%; margin-bottom: 10px; } 
-            .button-container { flex-direction: row; gap: 10px; } 
-            .voice-icon { display: inline-block; visibility: visible; } 
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.7;
+            color: #333;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff5f7;
+        }
+        h1 {
+            color: #d23669;
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 2.2em;
+        }
+        .intro {
+            font-size: 1.1em;
+            text-align: center;
+            margin-bottom: 40px;
+            color: #555;
+        }
+        .calculator-container {
+            background: white;
+            border-radius: 10px;
+            padding: 25px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            margin: 40px auto;
+            border: 1px solid #ffd6e1;
+        }
+        .calculator-title {
+            color: #d23669;
+            margin-top: 0;
+            text-align: center;
+            font-size: 1.5em;
+        }
+        .input-group {
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #c2255c;
+        }
+        input, select {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ffd6e1;
+            border-radius: 6px;
+            font-size: 16px;
+            box-sizing: border-box;
+        }
+        button {
+            background-color: #d23669;
+            color: white;
+            border: none;
+            padding: 14px;
+            width: 100%;
+            border-radius: 6px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #a51c4b;
+        }
+        #result {
+            margin-top: 25px;
+            padding: 20px;
+            background-color: #ffebf1;
+            border-radius: 6px;
+            border-left: 4px solid #d23669;
+        }
+        .cycle-phase {
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+            color: #8a1243;
+        }
+        .menstrual {
+            background-color: #ffdfeb;
+            border-left: 4px solid #d23669;
+        }
+        .follicular {
+            background-color: #e8f4fc;
+            border-left: 4px solid #3498db;
+        }
+        .ovulation {
+            background-color: #f0fff0;
+            border-left: 4px solid #2ecc71;
+        }
+        .luteal {
+            background-color: #fff0f5;
+            border-left: 4px solid #e84393;
+        }
+        .phase-title {
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+        .article-section {
+            margin: 50px 0;
+        }
+        h2 {
+            color: #d23669;
+            font-size: 1.8em;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #ffd6e1;
+        }
+        h3 {
+            color: #d23669;
+            font-size: 1.4em;
+            margin: 30px 0 15px 0;
+        }
+        p {
+            margin-bottom: 20px;
+            font-size: 1.05em;
+        }
+        ul, ol {
+            margin-bottom: 25px;
+            padding-left: 20px;
+        }
+        li {
+            margin-bottom: 10px;
+        }
+        .highlight-box {
+            background-color: #ffebf1;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 25px 0;
+            border-left: 4px solid #d23669;
+        }
+        .note {
+            background-color: #fff8e1;
+            padding: 15px;
+            border-left: 4px solid #ffc107;
+            margin: 20px 0;
+        }
+        .faq {
+            margin: 40px 0;
+        }
+        .faq-item {
+            margin-bottom: 25px;
+        }
+        .faq-question {
+            font-weight: 600;
+            color: #d23669;
+            margin-bottom: 8px;
+            font-size: 1.1em;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 25px 0;
+        }
+        table, th, td {
+            border: 1px solid #ffd6e1;
+        }
+        th, td {
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background-color: #ffebf1;
+            color: #c2255c;
+        }
+        .related-calculators {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin: 30px 0;
+        }
+        .calculator-card {
+            background: white;
+            border-radius: 8px;
+            padding: 15px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            flex: 1 1 200px;
+            border: 1px solid #ffd6e1;
+        }
+        .calculator-card h4 {
+            margin-top: 0;
+            color: #d23669;
+        }
+        .calendar {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 5px;
+            margin: 20px 0;
+        }
+        .calendar-day {
+            padding: 10px;
+            text-align: center;
+            border-radius: 5px;
+            background: white;
+            border: 1px solid #ffd6e1;
+        }
+        .period-day {
+            background-color: #ffdfeb;
+            font-weight: bold;
+        }
+        .fertile-day {
+            background-color: #e8f4fc;
+        }
+        .ovulation-day {
+            background-color: #d5f5e3;
+            font-weight: bold;
+        }
+        @media (max-width: 600px) {
+            body {
+                padding: 15px;
+            }
+            h1 {
+                font-size: 1.8em;
+            }
+            .related-calculators {
+                flex-direction: column;
+            }
+            .calendar {
+                grid-template-columns: repeat(7, 1fr);
+                font-size: 0.8em;
+            }
         }
     </style>
 </head>
 <body>
-    <header class="header">
-        <h1>Smart AI Calculator</h1>
-        <h2>Menstruation Cycle Calculator</h2>
-    </header>
-    <nav class="nav-tabs">
-        <a href="index.html#home" class="nav-tab">HOME</a>
-        <a href="index.html#miscellaneous" class="nav-tab active">MISCELLANEOUS</a>
-    </nav>
-    <div class="calculator-content">
-        <div class="calculator-box">
-            <h2>Menstruation Cycle Details</h2>
-            <div class="input-row">
-                <label>Last Menstrual Period (LMP):</label>
-                <input type="date" id="lmp-date" oninput="validateInput(this)">
-            </div>
-            <div class="input-row">
-                <label>Average Cycle Length (days):</label>
-                <input type="number" id="cycle-length" min="20" max="45" value="28" step="1" oninput="validateInput(this)">
-            </div>
-            <div class="input-row">
-                <label>Last Cycle Length (days, optional):</label>
-                <input type="number" id="cycle1" min="20" max="45" step="1" oninput="validateInput(this)">
-            </div>
-            <div class="input-row">
-                <label>2nd Last Cycle Length (days, optional):</label>
-                <input type="number" id="cycle2" min="20" max="45" step="1" oninput="validateInput(this)">
-            </div>
-            <div class="input-row">
-                <label>3rd Last Cycle Length (days, optional):</label>
-                <input type="number" id="cycle3" min="20" max="45" step="1" oninput="validateInput(this)">
-            </div>
-            <div class="button-container">
-                <button class="calculate-btn" onclick="calculateCycle()">Calculate <span id="spinner" style="display:none;">⏳</span></button>
-                <span class="voice-icon" onclick="toggleSpeech()" title="Toggle Speech"><i class="fas fa-volume-up"></i></span>
-            </div>
-            <div id="cycle-result" class="mt-4 font-semibold"></div>
-            <table class="result-table" id="result-table" style="display: none;">
-                <thead>
-                    <tr>
-                        <th>Detail</th>
-                        <th>Value</th>
-                    </tr>
-                </thead>
-                <tbody id="result-table-body"></tbody>
-            </table>
-            <div id="suggestions" style="margin-top: 15px;"></div>
-            <div id="chart-container" style="display: none;">
-                <div id="cycle-chart" class="ct-chart"></div>
-            </div>
-            <p style="margin-top: 10px;">You May Also Like:</p>
-<ul style="list-style: none; padding-left: 0;">
-  <li><a href="pregnancy.html" style="font-weight: bold; color: #4f46e5; text-decoration: none;">PREGNANCY Calculator</a></li>
-  <li><a href="Flame-test.html" style="font-weight: bold; color: #4f46e5; text-decoration: none;">LOVE MATCH Calculator</a></li>
-</ul>
+    <h1>Menstrual Cycle Calculator 2024</h1>
+    <p class="intro">Track your menstrual cycle, predict ovulation, and identify your fertile window with our accurate period calculator.</p>
+    
+    <div class="calculator-container">
+        <h2 class="calculator-title">Cycle Calculator</h2>
+        
+        <div class="input-group">
+            <label for="last-period">First day of last menstrual period:</label>
+            <input type="date" id="last-period">
+        </div>
+        <div class="input-group">
+            <label for="cycle-length">Average cycle length (days):</label>
+            <input type="number" id="cycle-length" value="28" min="21" max="45">
+        </div>
+        <div class="input-group">
+            <label for="period-length">Average period length (days):</label>
+            <input type="number" id="period-length" value="5" min="2" max="10">
+        </div>
+        
+        <button onclick="calculateCycle()">Calculate My Cycle</button>
+        <div id="result"></div>
+    </div>
 
-            <div class="ads-section">
-                <p>Contact for Ads: <a href="/cdn-cgi/l/email-protection#17313e25242363353239343f322517303a363e3b7934383a"><span class="__cf_email__" data-cfemail="4d2b243f3e39792f28232e25283f0d2a202c2421632e2220">[email protected]</span></a></p>
+    <div class="article-section">
+        <h2>Understanding Your Menstrual Cycle</h2>
+        <p>The menstrual cycle is controlled by hormones and typically lasts between 21-35 days. It consists of four main phases:</p>
+        
+        <div class="cycle-phase menstrual">
+            <div class="phase-title">1. Menstrual Phase (Days 1-5)</div>
+            <p>The shedding of the uterine lining. Period typically lasts 3-7 days. Estrogen and progesterone are at their lowest levels.</p>
+        </div>
+        
+        <div class="cycle-phase follicular">
+            <div class="phase-title">2. Follicular Phase (Days 6-13)</div>
+            <p>The pituitary gland releases FSH, stimulating follicle growth. Estrogen rises, thickening the uterine lining. Ends with ovulation.</p>
+        </div>
+        
+        <div class="cycle-phase ovulation">
+            <div class="phase-title">3. Ovulation (Day 14 in 28-day cycle)</div>
+            <p>LH surge triggers release of an egg from the ovary. Most fertile period is the 3 days before and including ovulation day.</p>
+        </div>
+        
+        <div class="cycle-phase luteal">
+            <div class="phase-title">4. Luteal Phase (Days 15-28)</div>
+            <p>The corpus luteum secretes progesterone to maintain uterine lining. If no pregnancy occurs, hormone levels drop, leading to menstruation.</p>
+        </div>
+        
+        <h2>Typical Cycle Length Variations</h2>
+        <table>
+            <tr>
+                <th>Cycle Length</th>
+                <th>Percentage of Women</th>
+                <th>Ovulation Day</th>
+            </tr>
+            <tr>
+                <td>21 days</td>
+                <td>5%</td>
+                <td>Day 7</td>
+            </tr>
+            <tr>
+                <td>28 days</td>
+                <td>30%</td>
+                <td>Day 14</td>
+            </tr>
+            <tr>
+                <td>30 days</td>
+                <td>20%</td>
+                <td>Day 16</td>
+            </tr>
+            <tr>
+                <td>35 days</td>
+                <td>10%</td>
+                <td>Day 21</td>
+            </tr>
+            <tr>
+                <td>Irregular</td>
+                <td>35%</td>
+                <td>Varies</td>
+            </tr>
+        </table>
+        
+        <div class="note">
+            <p><strong>Note:</strong> Only about 30% of women have cycles that consistently fall within the "average" 28-day range. Variations of ±7 days are completely normal.</p>
+        </div>
+        
+        <h2>Tracking Your Fertility Window</h2>
+        <p>The fertile window includes the 5 days before ovulation and the ovulation day itself. Here's why:</p>
+        <ul>
+            <li><strong>Sperm survival:</strong> Can live up to 5 days in the reproductive tract</li>
+            <li><strong>Egg lifespan:</strong> Survives about 12-24 hours after ovulation</li>
+            <li><strong>Peak fertility:</strong> The 2 days before ovulation have highest conception rates</li>
+        </ul>
+        
+        <h3>Fertility Awareness Methods</h3>
+        <div class="highlight-box">
+            <ul>
+                <li><strong>Calendar method:</strong> Tracking cycle length patterns (used in this calculator)</li>
+                <li><strong>Basal Body Temperature (BBT):</strong> Detects post-ovulation temperature rise</li>
+                <li><strong>Cervical mucus:</strong> Observing changes in vaginal discharge consistency</li>
+                <li><strong>Ovulation predictor kits:</strong> Detects LH surge in urine</li>
+            </ul>
+        </div>
+        
+        <h2>Common Cycle Symptoms</h2>
+        <div class="calendar" style="grid-template-columns: repeat(4, 1fr);">
+            <div class="calendar-day" style="grid-column: span 4; text-align: center; font-weight: bold; background: #ffebf1;">Menstrual Phase Symptoms</div>
+            <div class="calendar-day">Cramps</div>
+            <div class="calendar-day">Bloating</div>
+            <div class="calendar-day">Fatigue</div>
+            <div class="calendar-day">Lower back pain</div>
+            
+            <div class="calendar-day" style="grid-column: span 4; text-align: center; font-weight: bold; background: #e8f4fc;">Follicular Phase Symptoms</div>
+            <div class="calendar-day">Increasing energy</div>
+            <div class="calendar-day">Dry cervical mucus</div>
+            <div class="calendar-day">Improved mood</div>
+            <div class="calendar-day">Higher motivation</div>
+            
+            <div class="calendar-day" style="grid-column: span 4; text-align: center; font-weight: bold; background: #d5f5e3;">Ovulation Symptoms</div>
+            <div class="calendar-day">Egg-white cervical mucus</div>
+            <div class="calendar-day">Mittelschmerz (ovulation pain)</div>
+            <div class="calendar-day">Increased libido</div>
+            <div class="calendar-day">Breast tenderness</div>
+            
+            <div class="calendar-day" style="grid-column: span 4; text-align: center; font-weight: bold; background: #fff0f5;">Luteal Phase Symptoms</div>
+            <div class="calendar-day">PMS symptoms</div>
+            <div class="calendar-day">Mood swings</div>
+            <div class="calendar-day">Food cravings</div>
+            <div class="calendar-day">Bloating</div>
+        </div>
+        
+        <h2>When to See a Doctor</h2>
+        <p>Consult a healthcare provider if you experience:</p>
+        <ul>
+            <li>Cycles shorter than 21 days or longer than 35 days</li>
+            <li>Periods lasting more than 7 days</li>
+            <li>Severe pain that interferes with daily activities</li>
+            <li>No period for 90 days (without pregnancy)</li>
+            <li>Sudden changes in cycle regularity</li>
+            <li>Excessive bleeding (soaking through a pad/tampon every hour)</li>
+        </ul>
+        
+        <h2>Frequently Asked Questions</h2>
+        <div class="faq">
+            <div class="faq-item">
+                <div class="faq-question">Q: Can I get pregnant during my period?</div>
+                <p>A: While unlikely, it's possible if you have short cycles (21-23 days) since sperm can survive up to 5 days and ovulation may occur soon after your period ends.</p>
             </div>
-            <div id="seo-content" class="mt-4 text-sm">
-                <h3>About Menstruation Cycle Calculator</h3>
-                <p>Our Smart AI Menstruation Cycle Calculator uses advanced methods to predict your next period, ovulation, and fertile window with high accuracy. Includes charts and personalized health suggestions!</p>
+            <div class="faq-item">
+                <div class="faq-question">Q: Why is my cycle irregular?</div>
+                <p>A> Common causes include stress, weight changes, PCOS, thyroid disorders, perimenopause, breastfeeding, and certain medications. Occasional variations are normal.</p>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">Q: How accurate are period calculators?</div>
+                <p>A: They're reasonably accurate for women with regular cycles. For irregular cycles, tracking additional signs (BBT, cervical mucus) improves accuracy.</p>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">Q: Does birth control affect cycle calculations?</div>
+                <p>A: Yes, hormonal contraceptives regulate or eliminate natural cycles. These calculations apply to natural menstrual cycles without hormonal contraception.</p>
+            </div>
+        </div>
+        
+        <h2>Related Health Calculators</h2>
+        <p>You may also find these tools helpful for your reproductive health:</p>
+        <div class="related-calculators">
+            <div class="calculator-card">
+                <h4>Ovulation Calculator</h4>
+                <p>Pinpoint your most fertile days for conception planning.</p>
+                <a href="/pregnancy.html" style="color: #d23669; font-weight: 600;">Try Ovulation Calculator →</a>
+            </div>
+            <div class="calculator-card">
+                <h4>Pregnancy Calculator</h4>
+                <p>Estimate your due date based on last period or conception date.</p>
+                <a href="/pregnancy.html" style="color: #d23669; font-weight: 600;">Try Pregnancy Calculator →</a>
+            </div>
+            <div class="calculator-card">
+                <h4>BMR Calculator</h4>
+                <p>Track pill schedules and contraceptive effectiveness.</p>
+                <a href="/bmr.html" style="color: #d23669; font-weight: 600;">Try Birth Control Calculator →</a>
+            </div>
+            <div class="calculator-card">
+                <h4>Calories Calculator</h4>
+                <p>Monitor Your Calories.</p>
+                <a href="/calories.html" style="color: #d23669; font-weight: 600;">Try PMS Tracker →</a>
             </div>
         </div>
     </div>
-    <footer class="bg-gray-800 text-white text-center py-4 mt-8">
-        <p style="font-weight: bold;">2025 © Smart AI Calculator. All rights reserved.</p>
-        <a href="privacy.html" class="text-blue-400 ml-2">Privacy Policy</a> |
-        <a href="contactus.html" class="text-blue-400 ml-2">Contact Us</a> |
-        <a href="howto.html" class="text-blue-400 ml-2">How to Use</a>
-    </footer>
-    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+
     <script>
-        let isSpeaking = false;
-        let utterance = null;
-        let cycleDetails = {};
-
-        // Custom date formatter for dd/mm/yyyy
-        function formatDate(date) {
-            const day = String(date.getDate()).padStart(2, '0');
-            const month = String(date.getMonth() + 1).padStart(2, '0');
-            const year = date.getFullYear();
-            return `${day}/${month}/${year}`;
-        }
-
-        function validateInput(input) {
-            console.log("validateInput");
-            try {
-                if (input.id === "lmp-date") {
-                    input.classList.toggle("invalid", !input.value);
-                } else if (input.id === "cycle-length" || input.id === "cycle1" || input.id === "cycle2" || input.id === "cycle3") {
-                    let value = parseInt(input.value);
-                    input.classList.toggle("invalid", input.value && (value < 20 || value > 45 || isNaN(value)));
-                }
-            } catch (e) {
-                console.error("Validation failed:", e.message);
-            }
-        }
-
         function calculateCycle() {
-            console.log("calculateCycle");
-            document.getElementById("spinner").style.display = "inline";
-            setTimeout(() => {
-                try {
-                    if (typeof Chartist === 'undefined') {
-                        throw new Error("Chartist.js not loaded. Check CDN or use local server.");
-                    }
-                    const lmpDate = document.getElementById("lmp-date").value;
-                    let cycleLength = parseInt(document.getElementById("cycle-length").value) || 28;
-                    const cycle1 = parseInt(document.getElementById("cycle1").value) || null;
-                    const cycle2 = parseInt(document.getElementById("cycle2").value) || null;
-                    const cycle3 = parseInt(document.getElementById("cycle3").value) || null;
-                    const resultDiv = document.getElementById("cycle-result");
-                    const tableBody = document.getElementById("result-table-body");
-                    const table = document.getElementById("result-table");
-                    const chartContainer = document.getElementById("chart-container");
-                    const suggestionsDiv = document.getElementById("suggestions");
-                    tableBody.innerHTML = "";
-                    cycleDetails = {};
-
-                    if (!lmpDate || cycleLength < 20 || cycleLength > 45) {
-                        resultDiv.innerText = "Invalid input. Check LMP and cycle length.";
-                        table.style.display = "none";
-                        chartContainer.style.display = "none";
-                        suggestionsDiv.innerHTML = "";
-                        document.getElementById("spinner").style.display = "none";
-                        console.log("Invalid input");
-                        return;
-                    }
-
-                    // Advanced cycle length calculation
-                    const cycles = [cycle1, cycle2, cycle3].filter(c => c && c >= 20 && c <= 45);
-                    let adjustedCycleLength = cycleLength;
-                    let isIrregular = false;
-                    if (cycles.length > 0) {
-                        const avgCycles = cycles.reduce((a, b) => a + b, 0) / cycles.length;
-                        adjustedCycleLength = Math.round((cycleLength * 0.4 + avgCycles * 0.6)); // Weighted average
-                        const cycleVariance = Math.max(...cycles) - Math.min(...cycles);
-                        isIrregular = cycleVariance > 5;
-                    }
-
-                    const lmp = new Date(lmpDate);
-                    const nextPeriod = new Date(lmp.getTime() + adjustedCycleLength * 24 * 60 * 60 * 1000);
-                    const ovulation = new Date(lmp.getTime() + (adjustedCycleLength - 14) * 24 * 60 * 60 * 1000);
-                    const fertileStart = new Date(ovulation.getTime() - 5 * 24 * 60 * 60 * 1000);
-                    const fertileEnd = new Date(ovulation.getTime() + 1 * 24 * 60 * 60 * 1000);
-
-                    cycleDetails = {
-                        lmp: formatDate(lmp),
-                        cycleLength: adjustedCycleLength,
-                        nextPeriod: formatDate(nextPeriod),
-                        ovulation: formatDate(ovulation),
-                        fertileWindow: `${formatDate(fertileStart)} - ${formatDate(fertileEnd)}`,
-                        irregularity: isIrregular ? "Irregular cycles detected" : "Regular cycles",
-                        suggestions: [
-                            "Track symptoms like cramps or mood changes.",
-                            "Consult a doctor if cycles are highly irregular.",
-                            "Maintain a healthy diet and exercise routine.",
-                            "Use a period tracker app for better monitoring."
-                        ]
-                    };
-
-                    resultDiv.innerText = `Next Period: ${cycleDetails.nextPeriod}`;
-                    tableBody.innerHTML = `
-                        <tr><td>Last Menstrual Period</td><td>${cycleDetails.lmp}</td></tr>
-                        <tr><td>Adjusted Cycle Length</td><td>${cycleDetails.cycleLength} days</td></tr>
-                        <tr><td>Next Period</td><td>${cycleDetails.nextPeriod}</td></tr>
-                        <tr><td>Estimated Ovulation</td><td>${cycleDetails.ovulation}</td></tr>
-                        <tr><td>Fertile Window</td><td>${cycleDetails.fertileWindow}</td></tr>
-                        <tr><td>Cycle Status</td><td>${cycleDetails.irregularity}</td></tr>
-                    `;
-                    suggestionsDiv.innerHTML = `<strong>Suggestions:</strong><ul>${cycleDetails.suggestions.map(s => `<li>${s}</li>`).join("")}</ul>`;
-                    table.style.display = "table";
-
-                    // Chart
-                    chartContainer.style.display = "block";
-                    const chartElement = document.getElementById("cycle-chart");
-                    chartElement.innerHTML = ""; // Clear previous chart
-                    new Chartist.Line('#cycle-chart', {
-                        labels: [
-                            cycleDetails.lmp,
-                            cycleDetails.fertileWindow.split(" - ")[0],
-                            cycleDetails.ovulation,
-                            cycleDetails.fertileWindow.split(" - ")[1],
-                            cycleDetails.nextPeriod
-                        ],
-                        series: [[0, 1, 2, 1, 0]]
-                    }, {
-                        fullWidth: true,
-                        chartPadding: { top: 20, right: 0, bottom: 20, left: 0 },
-                        axisY: { showGrid: false, showLabel: false },
-                        axisX: { labelInterpolationFnc: value => value }
-                    });
-
-                    document.getElementById("spinner").style.display = "none";
-                    console.log("Calculation done");
-                } catch (e) {
-                    console.error("Calculation failed:", e.message);
-                    alert("Error: " + e.message + ". Use a local server (e.g., Live Server) and check internet.");
-                    document.getElementById("spinner").style.display = "none";
-                }
-            }, 500);
-        }
-
-        function toggleSpeech() {
-            console.log("toggleSpeech");
-            try {
-                const result = document.getElementById("cycle-result").innerText;
-                if (!result || result.includes("Invalid")) return;
-                if (isSpeaking) {
-                    window.speechSynthesis.cancel();
-                    isSpeaking = false;
-                } else {
-                    utterance = new SpeechSynthesisUtterance(result);
-                    utterance.lang = "en";
-                    utterance.onend = () => { isSpeaking = false; };
-                    window.speechSynthesis.speak(utterance);
-                    isSpeaking = true;
-                }
-            } catch (e) {
-                console.error("Speech failed:", e.message);
-                alert("Speech failed: " + e.message);
+            const lastPeriod = new Date(document.getElementById('last-period').value);
+            const cycleLength = parseInt(document.getElementById('cycle-length').value) || 28;
+            const periodLength = parseInt(document.getElementById('period-length').value) || 5;
+            
+            if (isNaN(lastPeriod.getTime())) {
+                alert('Please enter a valid last period date');
+                return;
             }
-        }
-
-        function stopSpeech() {
-            if (isSpeaking) {
-                window.speechSynthesis.cancel();
-                isSpeaking = false;
+            if (cycleLength < 21 || cycleLength > 45) {
+                alert('Please enter a cycle length between 21-45 days');
+                return;
             }
+            if (periodLength < 2 || periodLength > 10) {
+                alert('Please enter a period length between 2-10 days');
+                return;
+            }
+            
+            // Calculate important dates
+            const nextPeriod = new Date(lastPeriod);
+            nextPeriod.setDate(lastPeriod.getDate() + cycleLength);
+            
+            const ovulationDate = new Date(lastPeriod);
+            ovulationDate.setDate(lastPeriod.getDate() + (cycleLength - 14));
+            
+            const fertileStart = new Date(ovulationDate);
+            fertileStart.setDate(ovulationDate.getDate() - 5);
+            
+            const fertileEnd = new Date(ovulationDate);
+            fertileEnd.setDate(ovulationDate.getDate() + 1);
+            
+            const lutealPhaseStart = new Date(ovulationDate);
+            lutealPhaseStart.setDate(ovulationDate.getDate() + 1);
+            
+            // Format dates
+            const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+            const formattedLastPeriod = lastPeriod.toLocaleDateString('en-US', options);
+            const formattedNextPeriod = nextPeriod.toLocaleDateString('en-US', options);
+            const formattedOvulation = ovulationDate.toLocaleDateString('en-US', options);
+            const formattedFertileStart = fertileStart.toLocaleDateString('en-US', options);
+            const formattedFertileEnd = fertileEnd.toLocaleDateString('en-US', options);
+            
+            // Generate calendar
+            const today = new Date();
+            const calendarStart = new Date(lastPeriod);
+            calendarStart.setDate(lastPeriod.getDate() - 3);
+            const calendarEnd = new Date(nextPeriod);
+            calendarEnd.setDate(nextPeriod.getDate() + 3);
+            
+            let calendarHTML = '<h3>Your Cycle Calendar</h3><div class="calendar">';
+            
+            // Add day headers
+            const dayNames = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+            dayNames.forEach(day => {
+                calendarHTML += `<div class="calendar-day" style="font-weight:bold;">${day}</div>`;
+            });
+            
+            // Fill calendar
+            const currentDate = new Date(calendarStart);
+            while (currentDate <= calendarEnd) {
+                const dayOfMonth = currentDate.getDate();
+                const dayClass = [];
+                
+                // Check if period day
+                const periodEnd = new Date(lastPeriod);
+                periodEnd.setDate(lastPeriod.getDate() + periodLength);
+                if (currentDate >= lastPeriod && currentDate < periodEnd) {
+                    dayClass.push('period-day');
+                }
+                
+                // Check if fertile day
+                if (currentDate >= fertileStart && currentDate <= fertileEnd) {
+                    dayClass.push('fertile-day');
+                }
+                
+                // Check if ovulation day
+                if (currentDate.getDate() === ovulationDate.getDate() && 
+                    currentDate.getMonth() === ovulationDate.getMonth() && 
+                    currentDate.getFullYear() === ovulationDate.getFullYear()) {
+                    dayClass.push('ovulation-day');
+                }
+                
+                // Highlight today
+                const isToday = currentDate.getDate() === today.getDate() && 
+                               currentDate.getMonth() === today.getMonth() && 
+                               currentDate.getFullYear() === today.getFullYear();
+                
+                calendarHTML += `
+                    <div class="calendar-day ${dayClass.join(' ')}" ${isToday ? 'style="border:2px solid #d23669;"' : ''}>
+                        ${dayOfMonth}${isToday ? ' (Today)' : ''}
+                    </div>
+                `;
+                
+                currentDate.setDate(currentDate.getDate() + 1);
+            }
+            
+            calendarHTML += '</div>';
+            
+            // Determine current phase
+            let currentPhase, currentPhaseClass, currentPhaseDesc;
+            if (today < lastPeriod) {
+                currentPhase = "Luteal Phase (Waiting for period)";
+                currentPhaseClass = "luteal";
+                currentPhaseDesc = "Progesterone levels are high. If no pregnancy occurs, your period will start soon.";
+            } else if (today >= lastPeriod && today < new Date(lastPeriod.getTime() + periodLength * 24 * 60 * 60 * 1000)) {
+                currentPhase = "Menstrual Phase (Period)";
+                currentPhaseClass = "menstrual";
+                currentPhaseDesc = "Your uterine lining is shedding. Estrogen and progesterone are at their lowest levels.";
+            } else if (today >= new Date(lastPeriod.getTime() + periodLength * 24 * 60 * 60 * 1000) && today < ovulationDate) {
+                currentPhase = "Follicular Phase";
+                currentPhaseClass = "follicular";
+                currentPhaseDesc = "Follicles are developing in your ovaries. Estrogen is rising, preparing the uterine lining.";
+            } else if (today >= ovulationDate && today < new Date(ovulationDate.getTime() + 24 * 60 * 60 * 1000)) {
+                currentPhase = "Ovulation Day";
+                currentPhaseClass = "ovulation";
+                currentPhaseDesc = "An egg is released from your ovary. This is your most fertile day.";
+            } else {
+                currentPhase = "Luteal Phase";
+                currentPhaseClass = "luteal";
+                currentPhaseDesc = "The corpus luteum produces progesterone to maintain the uterine lining.";
+            }
+            
+            // Display results
+            document.getElementById('result').innerHTML = `
+                <h3>Your Cycle Predictions</h3>
+                <p><strong>Last Period Started:</strong> ${formattedLastPeriod}</p>
+                <p><strong>Next Period Expected:</strong> ${formattedNextPeriod}</p>
+                <p><strong>Ovulation Date:</strong> ${formattedOvulation}</p>
+                <p><strong>Fertile Window:</strong> ${formattedFertileStart} to ${formattedFertileEnd}</p>
+                
+                <div class="cycle-phase ${currentPhaseClass}" style="margin-top:15px;">
+                    <div class="phase-title">Current Phase: ${currentPhase}</div>
+                    <p>${currentPhaseDesc}</p>
+                </div>
+                
+                ${calendarHTML}
+                
+                <div class="highlight-box" style="margin-top:15px;">
+                    <h4>Key to Calendar:</h4>
+                    <p><span style="display:inline-block; width:15px; height:15px; background:#ffdfeb; border:1px solid #ffd6e1;"></span> Period Days</p>
+                    <p><span style="display:inline-block; width:15px; height:15px; background:#e8f4fc; border:1px solid #ffd6e1;"></span> Fertile Window</p>
+                    <p><span style="display:inline-block; width:15px; height:15px; background:#d5f5e3; border:1px solid #ffd6e1;"></span> Ovulation Day</p>
+                    <p><span style="display:inline-block; width:15px; height:15px; border:2px solid #d23669;"></span> Today</p>
+                </div>
+            `;
         }
-
-        window.onpagehide = stopSpeech;
-        window.onbeforeunload = stopSpeech;
+        
+        // Initialize with default dates
+        document.addEventListener('DOMContentLoaded', function() {
+            const today = new Date();
+            const lastPeriod = new Date(today);
+            lastPeriod.setDate(today.getDate() - 28);
+            
+            document.getElementById('last-period').valueAsDate = lastPeriod;
+        });
     </script>
 </body>
 </html>
