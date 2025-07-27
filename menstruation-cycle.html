@@ -8,12 +8,12 @@
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
- gtag('config', 'G-FEQ7R89CFG');
+  tag('config', 'G-FEQ7R89CFG');
 </script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Menstrual Cycle Calculator 2024 | Period & Ovulation Tracker</title>
-    <meta name="description" content="Free menstrual cycle calculator to predict your next period, ovulation days, and fertile window. Track your cycle symptoms and understand your fertility patterns.">
-    <meta name="keywords" content="menstrual cycle calculator, period calculator, ovulation calculator, fertility calculator, period tracker">
+    <title>IQ Calculator 2024 | Free IQ Test & Intelligence Score Interpretation</title>
+    <meta name="description" content="Free IQ calculator with test simulation. Understand your intelligence quotient score, percentile ranking, and what it means for cognitive abilities.">
+    <meta name="keywords" content="IQ calculator, IQ test, intelligence quotient, IQ score, cognitive ability test">
     <style>
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -22,10 +22,10 @@
             max-width: 900px;
             margin: 0 auto;
             padding: 20px;
-            background-color: #fff5f7;
+            background-color: #f8f9fa;
         }
         h1 {
-            color: #d23669;
+            color: #3f51b5;
             text-align: center;
             margin-bottom: 30px;
             font-size: 2.2em;
@@ -42,13 +42,40 @@
             padding: 25px;
             box-shadow: 0 4px 12px rgba(0,0,0,0.1);
             margin: 40px auto;
-            border: 1px solid #ffd6e1;
+            border: 1px solid #e0e0e0;
         }
         .calculator-title {
-            color: #d23669;
+            color: #3f51b5;
             margin-top: 0;
             text-align: center;
             font-size: 1.5em;
+        }
+        .method-tabs {
+            display: flex;
+            margin-bottom: 20px;
+            border-bottom: 1px solid #ddd;
+        }
+        .method-tab {
+            padding: 10px 15px;
+            cursor: pointer;
+            border: 1px solid transparent;
+            border-bottom: none;
+            border-radius: 5px 5px 0 0;
+            margin-right: 5px;
+            background: #f1f1f1;
+        }
+        .method-tab.active {
+            background: white;
+            border-color: #ddd;
+            border-bottom: 1px solid white;
+            margin-bottom: -1px;
+            font-weight: 600;
+        }
+        .method-content {
+            display: none;
+        }
+        .method-content.active {
+            display: block;
         }
         .input-group {
             margin-bottom: 20px;
@@ -57,18 +84,18 @@
             display: block;
             margin-bottom: 8px;
             font-weight: 600;
-            color: #c2255c;
+            color: #444;
         }
         input, select {
             width: 100%;
             padding: 12px;
-            border: 1px solid #ffd6e1;
+            border: 1px solid #ddd;
             border-radius: 6px;
             font-size: 16px;
             box-sizing: border-box;
         }
         button {
-            background-color: #d23669;
+            background-color: #3f51b5;
             color: white;
             border: none;
             padding: 14px;
@@ -80,53 +107,69 @@
             transition: background-color 0.3s;
         }
         button:hover {
-            background-color: #a51c4b;
+            background-color: #303f9f;
         }
         #result {
             margin-top: 25px;
             padding: 20px;
-            background-color: #ffebf1;
+            background-color: #f8f9fa;
             border-radius: 6px;
-            border-left: 4px solid #d23669;
+            border-left: 4px solid #3f51b5;
         }
-        .cycle-phase {
+        .iq-category {
+            padding: 10px;
+            border-radius: 4px;
+            margin-top: 15px;
+            font-weight: bold;
+        }
+        .genius {
+            background-color: #e8f5e9;
+            border-left: 4px solid #4caf50;
+        }
+        .superior {
+            background-color: #e3f2fd;
+            border-left: 4px solid #2196f3;
+        }
+        .high-average {
+            background-color: #e8eaf6;
+            border-left: 4px solid #3f51b5;
+        }
+        .average {
+            background-color: #fff8e1;
+            border-left: 4px solid #ffc107;
+        }
+        .low-average {
+            background-color: #ffebee;
+            border-left: 4px solid #f44336;
+        }
+        .test-question {
+            margin-bottom: 20px;
             padding: 15px;
-            border-radius: 8px;
-            margin: 15px 0;
-            color: #8a1243;
+            background-color: #f8f9fa;
+            border-radius: 6px;
         }
-        .menstrual {
-            background-color: #ffdfeb;
-            border-left: 4px solid #d23669;
-        }
-        .follicular {
-            background-color: #e8f4fc;
-            border-left: 4px solid #3498db;
-        }
-        .ovulation {
-            background-color: #f0fff0;
-            border-left: 4px solid #2ecc71;
-        }
-        .luteal {
-            background-color: #fff0f5;
-            border-left: 4px solid #e84393;
-        }
-        .phase-title {
+        .question-text {
             font-weight: 600;
             margin-bottom: 10px;
+        }
+        .test-options {
+            margin-left: 20px;
+        }
+        .test-option {
+            margin-bottom: 8px;
         }
         .article-section {
             margin: 50px 0;
         }
         h2 {
-            color: #d23669;
+            color: #3f51b5;
             font-size: 1.8em;
             margin-bottom: 20px;
             padding-bottom: 10px;
-            border-bottom: 2px solid #ffd6e1;
+            border-bottom: 2px solid #eee;
         }
         h3 {
-            color: #d23669;
+            color: #3f51b5;
             font-size: 1.4em;
             margin: 30px 0 15px 0;
         }
@@ -142,11 +185,11 @@
             margin-bottom: 10px;
         }
         .highlight-box {
-            background-color: #ffebf1;
+            background-color: #e8eaf6;
             padding: 20px;
             border-radius: 8px;
             margin: 25px 0;
-            border-left: 4px solid #d23669;
+            border-left: 4px solid #3f51b5;
         }
         .note {
             background-color: #fff8e1;
@@ -162,7 +205,7 @@
         }
         .faq-question {
             font-weight: 600;
-            color: #d23669;
+            color: #3f51b5;
             margin-bottom: 8px;
             font-size: 1.1em;
         }
@@ -172,15 +215,14 @@
             margin: 25px 0;
         }
         table, th, td {
-            border: 1px solid #ffd6e1;
+            border: 1px solid #ddd;
         }
         th, td {
             padding: 12px;
             text-align: left;
         }
         th {
-            background-color: #ffebf1;
-            color: #c2255c;
+            background-color: #f1f1f1;
         }
         .related-calculators {
             display: flex;
@@ -194,35 +236,11 @@
             padding: 15px;
             box-shadow: 0 2px 5px rgba(0,0,0,0.1);
             flex: 1 1 200px;
-            border: 1px solid #ffd6e1;
+            border: 1px solid #e0e0e0;
         }
         .calculator-card h4 {
             margin-top: 0;
-            color: #d23669;
-        }
-        .calendar {
-            display: grid;
-            grid-template-columns: repeat(7, 1fr);
-            gap: 5px;
-            margin: 20px 0;
-        }
-        .calendar-day {
-            padding: 10px;
-            text-align: center;
-            border-radius: 5px;
-            background: white;
-            border: 1px solid #ffd6e1;
-        }
-        .period-day {
-            background-color: #ffdfeb;
-            font-weight: bold;
-        }
-        .fertile-day {
-            background-color: #e8f4fc;
-        }
-        .ovulation-day {
-            background-color: #d5f5e3;
-            font-weight: bold;
+            color: #3f51b5;
         }
         @media (max-width: 600px) {
             body {
@@ -234,357 +252,462 @@
             .related-calculators {
                 flex-direction: column;
             }
-            .calendar {
-                grid-template-columns: repeat(7, 1fr);
-                font-size: 0.8em;
-            }
         }
     </style>
 </head>
 <body>
-    <h1>Menstrual Cycle Calculator 2024</h1>
-    <p class="intro">Track your menstrual cycle, predict ovulation, and identify your fertile window with our accurate period calculator.</p>
+    <h1>IQ Calculator 2024</h1>
+    <p class="intro">Estimate your Intelligence Quotient (IQ) score and understand what it means for your cognitive abilities.</p>
     
     <div class="calculator-container">
-        <h2 class="calculator-title">Cycle Calculator</h2>
+        <h2 class="calculator-title">IQ Test Calculator</h2>
         
-        <div class="input-group">
-            <label for="last-period">First day of last menstrual period:</label>
-            <input type="date" id="last-period">
-        </div>
-        <div class="input-group">
-            <label for="cycle-length">Average cycle length (days):</label>
-            <input type="number" id="cycle-length" value="28" min="21" max="45">
-        </div>
-        <div class="input-group">
-            <label for="period-length">Average period length (days):</label>
-            <input type="number" id="period-length" value="5" min="2" max="10">
+        <div class="method-tabs">
+            <div class="method-tab active" onclick="switchMethod('score')">IQ Score Calculator</div>
+            <div class="method-tab" onclick="switchMethod('test')">Mini IQ Test (10 Questions)</div>
         </div>
         
-        <button onclick="calculateCycle()">Calculate My Cycle</button>
+        <!-- IQ Score Calculator -->
+        <div id="score-method" class="method-content active">
+            <div class="input-group">
+                <label for="mental-age">Mental Age (if using traditional IQ formula):</label>
+                <input type="number" id="mental-age" placeholder="Enter mental age in years" min="1" max="100">
+            </div>
+            <div class="input-group">
+                <label for="chronological-age">Chronological Age (if using traditional formula):</label>
+                <input type="number" id="chronological-age" placeholder="Enter actual age in years" min="1" max="100">
+            </div>
+            <div class="input-group">
+                <label for="iq-score">Or enter your IQ score directly:</label>
+                <input type="number" id="iq-score" placeholder="Enter IQ score (e.g., 100)" min="40" max="200">
+            </div>
+        </div>
+        
+        <!-- Mini IQ Test -->
+        <div id="test-method" class="method-content">
+            <div class="test-question">
+                <div class="question-text">1. Which number comes next in this sequence: 2, 4, 8, 16, ___?</div>
+                <div class="test-options">
+                    <div class="test-option"><input type="radio" name="q1" id="q1a" value="0"> A) 18</div>
+                    <div class="test-option"><input type="radio" name="q1" id="q1b" value="1"> B) 24</div>
+                    <div class="test-option"><input type="radio" name="q1" id="q1c" value="0"> C) 30</div>
+                    <div class="test-option"><input type="radio" name="q1" id="q1d" value="0"> D) 32</div>
+                </div>
+            </div>
+            
+            <div class="test-question">
+                <div class="question-text">2. If all Bloops are Razzies and all Razzies are Lazzies, then are all Bloops definitely Lazzies?</div>
+                <div class="test-options">
+                    <div class="test-option"><input type="radio" name="q2" id="q2a" value="1"> A) Yes</div>
+                    <div class="test-option"><input type="radio" name="q2" id="q2b" value="0"> B) No</div>
+                </div>
+            </div>
+            
+            <div class="test-question">
+                <div class="question-text">3. Which word doesn't belong: Apple, Banana, Carrot, Orange?</div>
+                <div class="test-options">
+                    <div class="test-option"><input type="radio" name="q3" id="q3a" value="0"> A) Apple</div>
+                    <div class="test-option"><input type="radio" name="q3" id="q3b" value="0"> B) Banana</div>
+                    <div class="test-option"><input type="radio" name="q3" id="q3c" value="1"> C) Carrot</div>
+                    <div class="test-option"><input type="radio" name="q3" id="q3d" value="0"> D) Orange</div>
+                </div>
+            </div>
+            
+            <div class="test-question">
+                <div class="question-text">4. What is the missing number: 3, 7, 15, 31, ___?</div>
+                <div class="test-options">
+                    <div class="test-option"><input type="radio" name="q4" id="q4a" value="0"> A) 45</div>
+                    <div class="test-option"><input type="radio" name="q4" id="q4b" value="0"> B) 52</div>
+                    <div class="test-option"><input type="radio" name="q4" id="q4c" value="1"> C) 63</div>
+                    <div class="test-option"><input type="radio" name="q4" id="q4d" value="0"> D) 58</div>
+                </div>
+            </div>
+            
+            <div class="test-question">
+                <div class="question-text">5. Which shape is the odd one out?</div>
+                <div class="test-options">
+                    <div class="test-option"><input type="radio" name="q5" id="q5a" value="0"> A) ◯</div>
+                    <div class="test-option"><input type="radio" name="q5" id="q5b" value="1"> B) △</div>
+                    <div class="test-option"><input type="radio" name="q5" id="q5c" value="0"> C) ◯</div>
+                    <div class="test-option"><input type="radio" name="q5" id="q5d" value="0"> D) ◯</div>
+                </div>
+            </div>
+            
+            <div class="test-question">
+                <div class="question-text">6. If a doctor gives you 3 pills and tells you to take one every half hour, how long will the pills last?</div>
+                <div class="test-options">
+                    <div class="test-option"><input type="radio" name="q6" id="q6a" value="0"> A) 1 hour</div>
+                    <div class="test-option"><input type="radio" name="q6" id="q6b" value="1"> B) 1 hour and 30 minutes</div>
+                    <div class="test-option"><input type="radio" name="q6" id="q6c" value="0"> C) 2 hours</div>
+                    <div class="test-option"><input type="radio" name="q6" id="q6d" value="0"> D) 30 minutes</div>
+                </div>
+            </div>
+            
+            <div class="test-question">
+                <div class="question-text">7. Which word is the opposite of "Innocuous"?</div>
+                <div class="test-options">
+                    <div class="test-option"><input type="radio" name="q7" id="q7a" value="0"> A) Harmless</div>
+                    <div class="test-option"><input type="radio" name="q7" id="q7b" value="1"> B) Dangerous</div>
+                    <div class="test-option"><input type="radio" name="q7" id="q7c" value="0"> C) Pleasant</div>
+                    <div class="test-option"><input type="radio" name="q7" id="q7d" value="0"> D) Simple</div>
+                </div>
+            </div>
+            
+            <div class="test-question">
+                <div class="question-text">8. What is the next letter in this sequence: A, E, F, H, I, K, L, ___?</div>
+                <div class="test-options">
+                    <div class="test-option"><input type="radio" name="q8" id="q8a" value="0"> A) M</div>
+                    <div class="test-option"><input type="radio" name="q8" id="q8b" value="1"> B) N</div>
+                    <div class="test-option"><input type="radio" name="q8" id="q8c" value="0"> C) O</div>
+                    <div class="test-option"><input type="radio" name="q8" id="q8d" value="0"> D) P</div>
+                </div>
+            </div>
+            
+            <div class="test-question">
+                <div class="question-text">9. If you rearrange the letters "CIFAIPC" you would have the name of a:</div>
+                <div class="test-options">
+                    <div class="test-option"><input type="radio" name="q9" id="q9a" value="0"> A) City</div>
+                    <div class="test-option"><input type="radio" name="q9" id="q9b" value="1"> B) Ocean</div>
+                    <div class="test-option"><input type="radio" name="q9" id="q9c" value="0"> C) Country</div>
+                    <div class="test-option"><input type="radio" name="q9" id="q9d" value="0"> D) Animal</div>
+                </div>
+            </div>
+            
+            <div class="test-question">
+                <div class="question-text">10. Which number is one-third of one-half of one-fifth of 300?</div>
+                <div class="test-options">
+                    <div class="test-option"><input type="radio" name="q10" id="q10a" value="0"> A) 5</div>
+                    <div class="test-option"><input type="radio" name="q10" id="q10b" value="0"> B) 8</div>
+                    <div class="test-option"><input type="radio" name="q10" id="q10c" value="1"> C) 10</div>
+                    <div class="test-option"><input type="radio" name="q10" id="q10d" value="0"> D) 15</div>
+                </div>
+            </div>
+        </div>
+        
+        <button onclick="calculateIQ()">Calculate IQ Score</button>
         <div id="result"></div>
     </div>
 
     <div class="article-section">
-        <h2>Understanding Your Menstrual Cycle</h2>
-        <p>The menstrual cycle is controlled by hormones and typically lasts between 21-35 days. It consists of four main phases:</p>
+        <h2>What is IQ?</h2>
+        <p>IQ (Intelligence Quotient) is a score derived from standardized tests designed to measure human intelligence. The average IQ score is 100, with most people (about 68%) scoring between 85 and 115.</p>
         
-        <div class="cycle-phase menstrual">
-            <div class="phase-title">1. Menstrual Phase (Days 1-5)</div>
-            <p>The shedding of the uterine lining. Period typically lasts 3-7 days. Estrogen and progesterone are at their lowest levels.</p>
+        <div class="highlight-box">
+            <h3>Traditional IQ Formula:</h3>
+            <p><strong>IQ = (Mental Age ÷ Chronological Age) × 100</strong></p>
+            <p>Modern IQ tests use deviation IQ scoring where 100 is the average and the standard deviation is 15 points.</p>
         </div>
         
-        <div class="cycle-phase follicular">
-            <div class="phase-title">2. Follicular Phase (Days 6-13)</div>
-            <p>The pituitary gland releases FSH, stimulating follicle growth. Estrogen rises, thickening the uterine lining. Ends with ovulation.</p>
-        </div>
-        
-        <div class="cycle-phase ovulation">
-            <div class="phase-title">3. Ovulation (Day 14 in 28-day cycle)</div>
-            <p>LH surge triggers release of an egg from the ovary. Most fertile period is the 3 days before and including ovulation day.</p>
-        </div>
-        
-        <div class="cycle-phase luteal">
-            <div class="phase-title">4. Luteal Phase (Days 15-28)</div>
-            <p>The corpus luteum secretes progesterone to maintain uterine lining. If no pregnancy occurs, hormone levels drop, leading to menstruation.</p>
-        </div>
-        
-        <h2>Typical Cycle Length Variations</h2>
+        <h2>IQ Score Classification</h2>
         <table>
             <tr>
-                <th>Cycle Length</th>
-                <th>Percentage of Women</th>
-                <th>Ovulation Day</th>
+                <th>IQ Range</th>
+                <th>Classification</th>
+                <th>Percentile</th>
+                <th>Prevalence</th>
             </tr>
             <tr>
-                <td>21 days</td>
-                <td>5%</td>
-                <td>Day 7</td>
+                <td>130+</td>
+                <td>Very Superior (Genius)</td>
+                <td>98th+</td>
+                <td>2.2%</td>
             </tr>
             <tr>
-                <td>28 days</td>
-                <td>30%</td>
-                <td>Day 14</td>
+                <td>120-129</td>
+                <td>Superior</td>
+                <td>91st-97th</td>
+                <td>6.7%</td>
             </tr>
             <tr>
-                <td>30 days</td>
-                <td>20%</td>
-                <td>Day 16</td>
+                <td>110-119</td>
+                <td>High Average</td>
+                <td>75th-90th</td>
+                <td>16.1%</td>
             </tr>
             <tr>
-                <td>35 days</td>
-                <td>10%</td>
-                <td>Day 21</td>
+                <td>90-109</td>
+                <td>Average</td>
+                <td>25th-74th</td>
+                <td>50%</td>
             </tr>
             <tr>
-                <td>Irregular</td>
-                <td>35%</td>
-                <td>Varies</td>
+                <td>80-89</td>
+                <td>Low Average</td>
+                <td>9th-24th</td>
+                <td>16.1%</td>
+            </tr>
+            <tr>
+                <td>70-79</td>
+                <td>Borderline</td>
+                <td>3rd-8th</td>
+                <td>6.7%</td>
+            </tr>
+            <tr>
+                <td>Below 70</td>
+                <td>Extremely Low</td>
+                <td>Below 3rd</td>
+                <td>2.2%</td>
             </tr>
         </table>
         
         <div class="note">
-            <p><strong>Note:</strong> Only about 30% of women have cycles that consistently fall within the "average" 28-day range. Variations of ±7 days are completely normal.</p>
+            <p><strong>Note:</strong> IQ tests measure specific cognitive abilities, not overall worth or potential. Many factors contribute to success beyond IQ scores.</p>
         </div>
         
-        <h2>Tracking Your Fertility Window</h2>
-        <p>The fertile window includes the 5 days before ovulation and the ovulation day itself. Here's why:</p>
+        <h2>Types of Intelligence Measured by IQ Tests</h2>
+        <p>Modern IQ tests typically assess several cognitive domains:</p>
+        
+        <div class="cycle-phase follicular">
+            <div class="phase-title">1. Verbal Comprehension</div>
+            <p>Vocabulary, verbal reasoning, and knowledge of world information. Measures ability to understand and express verbal concepts.</p>
+        </div>
+        
+        <div class="cycle-phase ovulation">
+            <div class="phase-title">2. Perceptual Reasoning</div>
+            <p>Non-verbal problem solving, spatial processing, and visual-motor integration. Assesses ability to interpret and organize visual information.</p>
+        </div>
+        
+        <div class="cycle-phase luteal">
+            <div class="phase-title">3. Working Memory</div>
+            <p>Ability to hold and manipulate information in mind. Measures attention, concentration, and mental control.</p>
+        </div>
+        
+        <div class="cycle-phase menstrual">
+            <div class="phase-title">4. Processing Speed</div>
+            <p>How quickly one can perform simple cognitive tasks. Assesses visual scanning and decision speed.</p>
+        </div>
+        
+        <h2>Factors That Influence IQ Scores</h2>
         <ul>
-            <li><strong>Sperm survival:</strong> Can live up to 5 days in the reproductive tract</li>
-            <li><strong>Egg lifespan:</strong> Survives about 12-24 hours after ovulation</li>
-            <li><strong>Peak fertility:</strong> The 2 days before ovulation have highest conception rates</li>
+            <li><strong>Genetics:</strong> Accounts for 40-80% of variation in IQ among individuals</li>
+            <li><strong>Environment:</strong> Nutrition, education, and childhood stimulation affect development</li>
+            <li><strong>Education:</strong> Formal schooling improves certain cognitive abilities measured by IQ tests</li>
+            <li><strong>Health:</strong> Prenatal care, childhood illnesses, and brain injuries impact cognitive function</li>
+            <li><strong>Culture:</strong> Test bias may favor certain cultural backgrounds</li>
+            <li><strong>Test Conditions:</strong> Anxiety, fatigue, or misunderstanding instructions can affect scores</li>
         </ul>
         
-        <h3>Fertility Awareness Methods</h3>
-        <div class="highlight-box">
-            <ul>
-                <li><strong>Calendar method:</strong> Tracking cycle length patterns (used in this calculator)</li>
-                <li><strong>Basal Body Temperature (BBT):</strong> Detects post-ovulation temperature rise</li>
-                <li><strong>Cervical mucus:</strong> Observing changes in vaginal discharge consistency</li>
-                <li><strong>Ovulation predictor kits:</strong> Detects LH surge in urine</li>
-            </ul>
-        </div>
-        
-        <h2>Common Cycle Symptoms</h2>
-        <div class="calendar" style="grid-template-columns: repeat(4, 1fr);">
-            <div class="calendar-day" style="grid-column: span 4; text-align: center; font-weight: bold; background: #ffebf1;">Menstrual Phase Symptoms</div>
-            <div class="calendar-day">Cramps</div>
-            <div class="calendar-day">Bloating</div>
-            <div class="calendar-day">Fatigue</div>
-            <div class="calendar-day">Lower back pain</div>
-            
-            <div class="calendar-day" style="grid-column: span 4; text-align: center; font-weight: bold; background: #e8f4fc;">Follicular Phase Symptoms</div>
-            <div class="calendar-day">Increasing energy</div>
-            <div class="calendar-day">Dry cervical mucus</div>
-            <div class="calendar-day">Improved mood</div>
-            <div class="calendar-day">Higher motivation</div>
-            
-            <div class="calendar-day" style="grid-column: span 4; text-align: center; font-weight: bold; background: #d5f5e3;">Ovulation Symptoms</div>
-            <div class="calendar-day">Egg-white cervical mucus</div>
-            <div class="calendar-day">Mittelschmerz (ovulation pain)</div>
-            <div class="calendar-day">Increased libido</div>
-            <div class="calendar-day">Breast tenderness</div>
-            
-            <div class="calendar-day" style="grid-column: span 4; text-align: center; font-weight: bold; background: #fff0f5;">Luteal Phase Symptoms</div>
-            <div class="calendar-day">PMS symptoms</div>
-            <div class="calendar-day">Mood swings</div>
-            <div class="calendar-day">Food cravings</div>
-            <div class="calendar-day">Bloating</div>
-        </div>
-        
-        <h2>When to See a Doctor</h2>
-        <p>Consult a healthcare provider if you experience:</p>
-        <ul>
-            <li>Cycles shorter than 21 days or longer than 35 days</li>
-            <li>Periods lasting more than 7 days</li>
-            <li>Severe pain that interferes with daily activities</li>
-            <li>No period for 90 days (without pregnancy)</li>
-            <li>Sudden changes in cycle regularity</li>
-            <li>Excessive bleeding (soaking through a pad/tampon every hour)</li>
-        </ul>
+        <h2>Famous IQ Scores (Estimated)</h2>
+        <table>
+            <tr>
+                <th>Person</th>
+                <th>Estimated IQ</th>
+                <th>Notable Achievement</th>
+            </tr>
+            <tr>
+                <td>Albert Einstein</td>
+                <td>160-190</td>
+                <td>Theoretical physicist, developed theory of relativity</td>
+            </tr>
+            <tr>
+                <td>Stephen Hawking</td>
+                <td>160</td>
+                <td>Theoretical physicist, work on black holes</td>
+            </tr>
+            <tr>
+                <td>Marie Curie</td>
+                <td>180-200</td>
+                <td>Nobel Prize in Physics and Chemistry</td>
+            </tr>
+            <tr>
+                <td>Leonardo da Vinci</td>
+                <td>180-220</td>
+                <td>Polymath, artist, inventor</td>
+            </tr>
+            <tr>
+                <td>Judit Polgár</td>
+                <td>170</td>
+                <td>Chess grandmaster, strongest female player in history</td>
+            </tr>
+        </table>
         
         <h2>Frequently Asked Questions</h2>
         <div class="faq">
             <div class="faq-item">
-                <div class="faq-question">Q: Can I get pregnant during my period?</div>
-                <p>A: While unlikely, it's possible if you have short cycles (21-23 days) since sperm can survive up to 5 days and ovulation may occur soon after your period ends.</p>
+                <div class="faq-question">Q: Can IQ scores change over time?</div>
+                <p>A: Yes, especially during childhood and adolescence. Brain development, education, and life experiences can cause IQ scores to increase or decrease by 10-20 points. Adult IQ scores tend to be more stable.</p>
             </div>
             <div class="faq-item">
-                <div class="faq-question">Q: Why is my cycle irregular?</div>
-                <p>A> Common causes include stress, weight changes, PCOS, thyroid disorders, perimenopause, breastfeeding, and certain medications. Occasional variations are normal.</p>
+                <div class="faq-question">Q: Is this online IQ test accurate?</div>
+                <p>A: This calculator provides an estimate only. Professional IQ tests administered by psychologists are more comprehensive and accurate, typically taking 2-3 hours with multiple question types.</p>
             </div>
             <div class="faq-item">
-                <div class="faq-question">Q: How accurate are period calculators?</div>
-                <p>A: They're reasonably accurate for women with regular cycles. For irregular cycles, tracking additional signs (BBT, cervical mucus) improves accuracy.</p>
+                <div class="faq-question">Q: What's the difference between IQ and EQ?</div>
+                <p>A: IQ measures cognitive abilities while EQ (Emotional Quotient) measures emotional intelligence - the ability to recognize, understand, and manage emotions in oneself and others.</p>
             </div>
             <div class="faq-item">
-                <div class="faq-question">Q: Does birth control affect cycle calculations?</div>
-                <p>A: Yes, hormonal contraceptives regulate or eliminate natural cycles. These calculations apply to natural menstrual cycles without hormonal contraception.</p>
+                <div class="faq-question">Q: Can you improve your IQ?</div>
+                <p>A: While innate cognitive capacity has limits, you can improve performance on IQ tests through practice, education, and brain-training exercises. Healthy lifestyle choices also support optimal cognitive function.</p>
             </div>
         </div>
         
-        <h2>Related Health Calculators</h2>
-        <p>You may also find these tools helpful for your reproductive health:</p>
+        <h2>Related Cognitive Calculators</h2>
+        <p>You may also find these mental assessment tools interesting:</p>
         <div class="related-calculators">
             <div class="calculator-card">
-                <h4>Ovulation Calculator</h4>
-                <p>Pinpoint your most fertile days for conception planning.</p>
-                <a href="/pregnancy.html" style="color: #d23669; font-weight: 600;">Try Ovulation Calculator →</a>
+                <h4>TIC TAC TOE</h4>
+                <p>Measure your Gaming Skills.</p>
+                <a href="/" style="color: #3f51b5; font-weight: 600;">Try EQ Test →</a>
             </div>
             <div class="calculator-card">
-                <h4>Pregnancy Calculator</h4>
-                <p>Estimate your due date based on last period or conception date.</p>
-                <a href="/pregnancy.html" style="color: #d23669; font-weight: 600;">Try Pregnancy Calculator →</a>
+                <h4>Memory Test</h4>
+                <p>Assess your short-term and working memory capacity.</p>
+                <a href="/mental-math.html" style="color: #3f51b5; font-weight: 600;">Try Memory Test →</a>
             </div>
             <div class="calculator-card">
-                <h4>BMR Calculator</h4>
-                <p>Track pill schedules and contraceptive effectiveness.</p>
-                <a href="/bmr.html" style="color: #d23669; font-weight: 600;">Try Birth Control Calculator →</a>
+                <h4>Learning Style Quiz</h4>
+                <p>Discover whether you're a visual, auditory, or kinesthetic learner.</p>
+                <a href="/quiz-game.html" style="color: #3f51b5; font-weight: 600;">Try Learning Style Quiz →</a>
             </div>
             <div class="calculator-card">
-                <h4>Calories Calculator</h4>
-                <p>Monitor Your Calories.</p>
-                <a href="/calories.html" style="color: #d23669; font-weight: 600;">Try PMS Tracker →</a>
+                <h4>Word Guessing Test</h4>
+                <p>See how your mental abilities compare to different age groups.</p>
+                <a href="/word-guessing.html" style="color: #3f51b5; font-weight: 600;">Try Cognitive Age Test →</a>
             </div>
         </div>
     </div>
 
     <script>
-        function calculateCycle() {
-            const lastPeriod = new Date(document.getElementById('last-period').value);
-            const cycleLength = parseInt(document.getElementById('cycle-length').value) || 28;
-            const periodLength = parseInt(document.getElementById('period-length').value) || 5;
-            
-            if (isNaN(lastPeriod.getTime())) {
-                alert('Please enter a valid last period date');
-                return;
-            }
-            if (cycleLength < 21 || cycleLength > 45) {
-                alert('Please enter a cycle length between 21-45 days');
-                return;
-            }
-            if (periodLength < 2 || periodLength > 10) {
-                alert('Please enter a period length between 2-10 days');
-                return;
-            }
-            
-            // Calculate important dates
-            const nextPeriod = new Date(lastPeriod);
-            nextPeriod.setDate(lastPeriod.getDate() + cycleLength);
-            
-            const ovulationDate = new Date(lastPeriod);
-            ovulationDate.setDate(lastPeriod.getDate() + (cycleLength - 14));
-            
-            const fertileStart = new Date(ovulationDate);
-            fertileStart.setDate(ovulationDate.getDate() - 5);
-            
-            const fertileEnd = new Date(ovulationDate);
-            fertileEnd.setDate(ovulationDate.getDate() + 1);
-            
-            const lutealPhaseStart = new Date(ovulationDate);
-            lutealPhaseStart.setDate(ovulationDate.getDate() + 1);
-            
-            // Format dates
-            const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
-            const formattedLastPeriod = lastPeriod.toLocaleDateString('en-US', options);
-            const formattedNextPeriod = nextPeriod.toLocaleDateString('en-US', options);
-            const formattedOvulation = ovulationDate.toLocaleDateString('en-US', options);
-            const formattedFertileStart = fertileStart.toLocaleDateString('en-US', options);
-            const formattedFertileEnd = fertileEnd.toLocaleDateString('en-US', options);
-            
-            // Generate calendar
-            const today = new Date();
-            const calendarStart = new Date(lastPeriod);
-            calendarStart.setDate(lastPeriod.getDate() - 3);
-            const calendarEnd = new Date(nextPeriod);
-            calendarEnd.setDate(nextPeriod.getDate() + 3);
-            
-            let calendarHTML = '<h3>Your Cycle Calendar</h3><div class="calendar">';
-            
-            // Add day headers
-            const dayNames = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
-            dayNames.forEach(day => {
-                calendarHTML += `<div class="calendar-day" style="font-weight:bold;">${day}</div>`;
+        // Switch between calculation methods
+        function switchMethod(method) {
+            // Hide all methods
+            document.querySelectorAll('.method-content').forEach(content => {
+                content.classList.remove('active');
             });
+            // Deactivate all tabs
+            document.querySelectorAll('.method-tab').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            // Activate selected method
+            document.getElementById(method + '-method').classList.add('active');
+            // Activate selected tab
+            event.currentTarget.classList.add('active');
+        }
+        
+        // Calculate IQ score
+        function calculateIQ() {
+            let iqScore, methodUsed;
             
-            // Fill calendar
-            const currentDate = new Date(calendarStart);
-            while (currentDate <= calendarEnd) {
-                const dayOfMonth = currentDate.getDate();
-                const dayClass = [];
+            // Score Calculator Method
+            if (document.getElementById('score-method').classList.contains('active')) {
+                const mentalAge = parseFloat(document.getElementById('mental-age').value);
+                const chronologicalAge = parseFloat(document.getElementById('chronological-age').value);
+                const directScore = parseFloat(document.getElementById('iq-score').value);
                 
-                // Check if period day
-                const periodEnd = new Date(lastPeriod);
-                periodEnd.setDate(lastPeriod.getDate() + periodLength);
-                if (currentDate >= lastPeriod && currentDate < periodEnd) {
-                    dayClass.push('period-day');
+                if (!isNaN(directScore) && directScore >= 40 && directScore <= 200) {
+                    iqScore = directScore;
+                    methodUsed = "Direct IQ score input";
+                } else if (!isNaN(mentalAge) && !isNaN(chronologicalAge) && chronologicalAge > 0) {
+                    iqScore = (mentalAge / chronologicalAge) * 100;
+                    methodUsed = "Traditional IQ formula (Mental Age ÷ Chronological Age) × 100";
+                } else {
+                    alert('Please enter either a direct IQ score or both mental and chronological ages');
+                    return;
+                }
+            }
+            // Test Method
+            else if (document.getElementById('test-method').classList.contains('active')) {
+                let correctAnswers = 0;
+                
+                // Check each question
+                for (let i = 1; i <= 10; i++) {
+                    const selectedOption = document.querySelector(`input[name="q${i}"]:checked`);
+                    if (selectedOption && selectedOption.value === "1") {
+                        correctAnswers++;
+                    }
                 }
                 
-                // Check if fertile day
-                if (currentDate >= fertileStart && currentDate <= fertileEnd) {
-                    dayClass.push('fertile-day');
-                }
+                // Convert to IQ score (simplified estimation)
+                iqScore = 80 + (correctAnswers * 5);
+                methodUsed = "Mini IQ Test (10 questions)";
                 
-                // Check if ovulation day
-                if (currentDate.getDate() === ovulationDate.getDate() && 
-                    currentDate.getMonth() === ovulationDate.getMonth() && 
-                    currentDate.getFullYear() === ovulationDate.getFullYear()) {
-                    dayClass.push('ovulation-day');
-                }
-                
-                // Highlight today
-                const isToday = currentDate.getDate() === today.getDate() && 
-                               currentDate.getMonth() === today.getMonth() && 
-                               currentDate.getFullYear() === today.getFullYear();
-                
-                calendarHTML += `
-                    <div class="calendar-day ${dayClass.join(' ')}" ${isToday ? 'style="border:2px solid #d23669;"' : ''}>
-                        ${dayOfMonth}${isToday ? ' (Today)' : ''}
-                    </div>
-                `;
-                
-                currentDate.setDate(currentDate.getDate() + 1);
+                // Ensure score stays within reasonable bounds
+                if (iqScore < 80) iqScore = 80;
+                if (iqScore > 150) iqScore = 150;
             }
             
-            calendarHTML += '</div>';
+            // Round to nearest whole number
+            iqScore = Math.round(iqScore);
             
-            // Determine current phase
-            let currentPhase, currentPhaseClass, currentPhaseDesc;
-            if (today < lastPeriod) {
-                currentPhase = "Luteal Phase (Waiting for period)";
-                currentPhaseClass = "luteal";
-                currentPhaseDesc = "Progesterone levels are high. If no pregnancy occurs, your period will start soon.";
-            } else if (today >= lastPeriod && today < new Date(lastPeriod.getTime() + periodLength * 24 * 60 * 60 * 1000)) {
-                currentPhase = "Menstrual Phase (Period)";
-                currentPhaseClass = "menstrual";
-                currentPhaseDesc = "Your uterine lining is shedding. Estrogen and progesterone are at their lowest levels.";
-            } else if (today >= new Date(lastPeriod.getTime() + periodLength * 24 * 60 * 60 * 1000) && today < ovulationDate) {
-                currentPhase = "Follicular Phase";
-                currentPhaseClass = "follicular";
-                currentPhaseDesc = "Follicles are developing in your ovaries. Estrogen is rising, preparing the uterine lining.";
-            } else if (today >= ovulationDate && today < new Date(ovulationDate.getTime() + 24 * 60 * 60 * 1000)) {
-                currentPhase = "Ovulation Day";
-                currentPhaseClass = "ovulation";
-                currentPhaseDesc = "An egg is released from your ovary. This is your most fertile day.";
+            // Determine IQ classification
+            let iqClass, iqCategory;
+            if (iqScore >= 130) {
+                iqClass = "genius";
+                iqCategory = "Very Superior (Genius)";
+            } else if (iqScore >= 120) {
+                iqClass = "superior";
+                iqCategory = "Superior";
+            } else if (iqScore >= 110) {
+                iqClass = "high-average";
+                iqCategory = "High Average";
+            } else if (iqScore >= 90) {
+                iqClass = "average";
+                iqCategory = "Average";
+            } else if (iqScore >= 80) {
+                iqClass = "low-average";
+                iqCategory = "Low Average";
             } else {
-                currentPhase = "Luteal Phase";
-                currentPhaseClass = "luteal";
-                currentPhaseDesc = "The corpus luteum produces progesterone to maintain the uterine lining.";
+                iqClass = "low-average";
+                iqCategory = "Borderline";
             }
+            
+            // Calculate percentile
+            const percentile = calculatePercentile(iqScore);
             
             // Display results
             document.getElementById('result').innerHTML = `
-                <h3>Your Cycle Predictions</h3>
-                <p><strong>Last Period Started:</strong> ${formattedLastPeriod}</p>
-                <p><strong>Next Period Expected:</strong> ${formattedNextPeriod}</p>
-                <p><strong>Ovulation Date:</strong> ${formattedOvulation}</p>
-                <p><strong>Fertile Window:</strong> ${formattedFertileStart} to ${formattedFertileEnd}</p>
-                
-                <div class="cycle-phase ${currentPhaseClass}" style="margin-top:15px;">
-                    <div class="phase-title">Current Phase: ${currentPhase}</div>
-                    <p>${currentPhaseDesc}</p>
+                <h3>Your IQ Results</h3>
+                <p><strong>IQ Score:</strong> ${iqScore}</p>
+                <div class="iq-category ${iqClass}">
+                    <strong>Classification:</strong> ${iqCategory}
                 </div>
+                <p><strong>Percentile:</strong> Top ${percentile}% of population</p>
+                <p><strong>Method Used:</strong> ${methodUsed}</p>
                 
-                ${calendarHTML}
+                <h4 style="margin-top:20px;">What This Means:</h4>
+                <ul>
+                    <li><strong>130+:</strong> Very Superior - Exceptional cognitive abilities (top 2%)</li>
+                    <li><strong>120-129:</strong> Superior - High cognitive abilities (top 9%)</li>
+                    <li><strong>110-119:</strong> High Average - Above average cognitive abilities</li>
+                    <li><strong>90-109:</strong> Average - Typical cognitive abilities (50% of population)</li>
+                    <li><strong>80-89:</strong> Low Average - Below average but within normal range</li>
+                    <li><strong>Below 80:</strong> Borderline - May indicate learning challenges</li>
+                </ul>
                 
-                <div class="highlight-box" style="margin-top:15px;">
-                    <h4>Key to Calendar:</h4>
-                    <p><span style="display:inline-block; width:15px; height:15px; background:#ffdfeb; border:1px solid #ffd6e1;"></span> Period Days</p>
-                    <p><span style="display:inline-block; width:15px; height:15px; background:#e8f4fc; border:1px solid #ffd6e1;"></span> Fertile Window</p>
-                    <p><span style="display:inline-block; width:15px; height:15px; background:#d5f5e3; border:1px solid #ffd6e1;"></span> Ovulation Day</p>
-                    <p><span style="display:inline-block; width:15px; height:15px; border:2px solid #d23669;"></span> Today</p>
+                <div class="note" style="margin-top:15px;">
+                    <p><strong>Note:</strong> This is an estimation only. Professional IQ tests administered by psychologists provide more accurate measurements across multiple cognitive domains.</p>
                 </div>
             `;
         }
         
-        // Initialize with default dates
-        document.addEventListener('DOMContentLoaded', function() {
-            const today = new Date();
-            const lastPeriod = new Date(today);
-            lastPeriod.setDate(today.getDate() - 28);
+        // Calculate percentile based on IQ score (normal distribution)
+        function calculatePercentile(iq) {
+            // Assuming mean = 100, SD = 15
+            const z = (iq - 100) / 15;
+            const percentile = 100 * (1 - 0.5 * (1 + erf(z / Math.sqrt(2))));
+            return Math.round(percentile * 10) / 10;
+        }
+        
+        // Error function approximation
+        function erf(x) {
+            // Save the sign of x
+            const sign = (x >= 0) ? 1 : -1;
+            x = Math.abs(x);
             
-            document.getElementById('last-period').valueAsDate = lastPeriod;
-        });
+            // Constants
+            const a1 = 0.254829592;
+            const a2 = -0.284496736;
+            const a3 = 1.421413741;
+            const a4 = -1.453152027;
+            const a5 = 1.061405429;
+            const p = 0.3275911;
+            
+            // A&S formula 7.1.26
+            const t = 1.0 / (1.0 + p * x);
+            const y = 1.0 - (((((a5 * t + a4) * t) + a3) * t + a2) * t + a1) * t * Math.exp(-x * x);
+            
+            return sign * y;
+        }
     </script>
 </body>
 </html>
