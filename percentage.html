@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
- <script type="application/ld+json">
+     <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "WebApplication",
@@ -25,234 +25,883 @@
   gtag('config', 'G-FEQ7R89CFG');
 </script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Percentage Calculator – Find Percent Values Easily</title>
-    <meta name="description" content="Calculate percentages, percentage increase/decrease, and more with our Percentage Calculator">
-    <meta name="keywords" content="percentage calculator, percentage increase calculator, what is X percent of Y calculator, calculator, ai percentage calculator, free percentage calculator, online percentage calculator, percent calculator">
-    <meta name="robots" content="index, follow">
-   <link rel="canonical" href="https://smartaicalculator.com/percentage.html">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <title>Advanced Percentage Calculator 2024 | Multi-Function Percentage Tool</title>
+    <meta name="description" content="Advanced percentage calculator with 8 calculation modes: basic percentage, percentage change, percentage of, increase/decrease, ratio, fraction conversion, and compound calculations.">
+    <meta name="keywords" content="percentage calculator, maths, calculator, percentage increase, percentage decrease, percentage change, ratio calculator, fraction to percentage">
     <style>
+        :root {
+            --primary: #4361ee;
+            --secondary: #3a0ca3;
+            --success: #4cc9f0;
+            --warning: #f72585;
+            --dark: #212529;
+            --light: #f8f9fa;
+        }
+        
         body {
-            font-family: Arial, sans-serif;
-            background: linear-gradient(135deg, #1A202C, #2D3748);
-            color: #fff;
-            margin: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.7;
+            color: var(--dark);
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
         }
-        .header { background: #2c3e50; padding: 20px 0; text-align: center; position: relative; }
-        .nav-tabs { display: flex; justify-content: center; gap: 20px; padding: 10px 0; background: #34495e; }
-        .nav-tab { color: white; text-decoration: none; padding: 5px 15px; transition: background 0.3s; }
-        .nav-tab:hover, .nav-tab.active { background: #3498db; border-radius: 5px; }
-        .calculator-content { max-width: 600px; margin: 20px auto; padding: 20px; background: rgba(45, 55, 72, 0.9); border-radius: 10px; box-shadow: 0 0 15px rgba(0,0,0,0.5); }
-        .calculator-box { background: #e0e0e0; color: #333; padding: 20px; border-radius: 5px; text-align: center; }
-        .input-row { display: flex; justify-content: space-between; margin-bottom: 15px; }
-        .input-row label { font-weight: bold; }
-        input, select { border: 1px solid #ccc; padding: 5px; border-radius: 3px; width: 100px; }
-        button { 
-            background: linear-gradient(135deg, #ff6b6b, #e63946); 
-            color: white; 
-            padding: 12px 24px; 
-            border: none; 
-            border-radius: 5px; 
-            cursor: pointer; 
-            font-weight: bold; 
-            font-size: 1.1rem; 
-            box-shadow: 0 3px 6px rgba(0,0,0,0.4); 
-            transition: transform 0.2s, background 0.2s; 
-            text-transform: uppercase; 
+        
+        .container {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            margin-bottom: 30px;
         }
-        button:hover { 
-            background: linear-gradient(135deg, #e63946, #c0392b); 
-            transform: scale(1.05); 
+        
+        h1 {
+            color: white;
+            text-align: center;
+            margin-bottom: 10px;
+            font-size: 2.5em;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
         }
-        .ads-section { margin-top: 10px; padding: 10px; background: #34495e; border-radius: 5px; text-align: center; box-shadow: 0 0 5px rgba(0,0,0,0.3); }
-        .ads-section p { font-size: 1.2rem; font-weight: bold; color: #1e90ff; }
-        .ads-section a { color: #1e90ff; text-decoration: underline; }
-        .voice-icon { 
-            display: inline-block; 
-            padding: 10px; 
-            cursor: pointer; 
-            font-size: 2rem; 
-            color: #00cec9; 
-            transition: color 0.2s, transform 0.2s; 
-            visibility: visible; 
+        
+        .subtitle {
+            color: white;
+            text-align: center;
+            margin-bottom: 40px;
+            font-size: 1.2em;
+            opacity: 0.9;
         }
-        .voice-icon:hover { 
-            color: #00b7b3; 
-            transform: scale(1.1); 
+        
+        .calculator-title {
+            color: var(--primary);
+            margin-top: 0;
+            text-align: center;
+            font-size: 1.8em;
+            margin-bottom: 30px;
         }
-        .button-container { 
-            display: flex; 
-            justify-content: center; 
-            align-items: center; 
-            gap: 15px; 
-            margin: 20px 0; 
+        
+        .mode-tabs {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 30px;
+            justify-content: center;
         }
-        @media (max-width: 600px) { 
-            .input-row { flex-direction: column; } 
-            input, select { width: 100%; margin-bottom: 10px; } 
-            .button-container { flex-direction: row; gap: 10px; } 
-            .voice-icon { display: inline-block; visibility: visible; } 
+        
+        .mode-tab {
+            padding: 12px 20px;
+            border: 2px solid var(--primary);
+            background: white;
+            color: var(--primary);
+            cursor: pointer;
+            border-radius: 25px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            flex: 1;
+            min-width: 140px;
+            text-align: center;
         }
-        @media (min-width: 601px) { 
-            .voice-icon { display: inline-block; visibility: visible; } 
+        
+        .mode-tab.active {
+            background: var(--primary);
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(67, 97, 238, 0.3);
+        }
+        
+        .mode-content {
+            display: none;
+            animation: fadeIn 0.5s ease;
+        }
+        
+        .mode-content.active {
+            display: block;
+        }
+        
+        .input-group {
+            margin-bottom: 25px;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: var(--dark);
+        }
+        
+        input, select {
+            width: 100%;
+            padding: 15px;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            font-size: 16px;
+            box-sizing: border-box;
+            transition: border-color 0.3s ease;
+        }
+        
+        input:focus, select:focus {
+            border-color: var(--primary);
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(67, 97, 238, 0.1);
+        }
+        
+        .input-row {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+        
+        .input-row .input-group {
+            flex: 1;
+            margin-bottom: 0;
+        }
+        
+        button {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            border: none;
+            padding: 16px;
+            width: 100%;
+            border-radius: 10px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 10px;
+        }
+        
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 7px 20px rgba(67, 97, 238, 0.4);
+        }
+        
+        #result {
+            margin-top: 30px;
+            padding: 25px;
+            background: var(--light);
+            border-radius: 10px;
+            border-left: 5px solid var(--primary);
+        }
+        
+        .result-item {
+            margin-bottom: 15px;
+            padding: 15px;
+            background: white;
+            border-radius: 8px;
+            border-left: 4px solid var(--success);
+        }
+        
+        .formula {
+            font-family: 'Courier New', monospace;
+            background: #f8f9fa;
+            padding: 10px;
+            border-radius: 5px;
+            margin: 10px 0;
+            border-left: 3px solid var(--primary);
+        }
+        
+        .article-section {
+            margin: 50px 0;
+        }
+        
+        h2 {
+            color: var(--primary);
+            font-size: 2em;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #eee;
+        }
+        
+        h3 {
+            color: var(--secondary);
+            font-size: 1.5em;
+            margin: 30px 0 15px 0;
+        }
+        
+        p {
+            margin-bottom: 20px;
+            font-size: 1.05em;
+        }
+        
+        ul, ol {
+            margin-bottom: 25px;
+            padding-left: 20px;
+        }
+        
+        li {
+            margin-bottom: 10px;
+        }
+        
+        .highlight-box {
+            background: linear-gradient(135deg, #e0f7fa, #b2ebf2);
+            padding: 25px;
+            border-radius: 10px;
+            margin: 25px 0;
+            border-left: 5px solid var(--success);
+        }
+        
+        .note {
+            background: #fff3cd;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            border-left: 4px solid #ffc107;
+        }
+        
+        .faq {
+            margin: 40px 0;
+        }
+        
+        .faq-item {
+            margin-bottom: 25px;
+            padding: 20px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .faq-question {
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 10px;
+            font-size: 1.1em;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 25px 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+        
+        th, td {
+            padding: 15px;
+            text-align: left;
+        }
+        
+        th {
+            background: var(--primary);
+            color: white;
+        }
+        
+        tr:nth-child(even) {
+            background: #f8f9fa;
+        }
+        
+        .related-calculators {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+        
+        .calculator-card {
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+            border-top: 4px solid var(--primary);
+        }
+        
+        .calculator-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .calculator-card h4 {
+            margin-top: 0;
+            color: var(--primary);
+        }
+        
+        .history-section {
+            margin-top: 20px;
+            padding: 15px;
+            background: #f8f9fa;
+            border-radius: 8px;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        @media (max-width: 768px) {
+            .mode-tabs {
+                flex-direction: column;
+            }
+            
+            .input-row {
+                flex-direction: column;
+            }
+            
+            h1 {
+                font-size: 2em;
+            }
         }
     </style>
 </head>
 <body>
-    <header class="header">
-        <h1 id="header-title">Quick Percentage Calculator</h1>
-        <p id="tagline">Percentage Calculator</p>
-    </header>
-    <nav class="nav-tabs">
+    <h1>Advanced Percentage Calculator</h1>
+    <p class="subtitle">8 Calculation Modes • Real-time Results • Step-by-Step Solutions</p>
+    
+    <div class="container">
+        <h2 class="calculator-title">Multi-Function Percentage Calculator</h2>
         
-        <a href="index.html#health" class="nav-tab" onclick="showCategory('home')">HOME</a>
-        <a href="index.html#mathematics" class="nav-tab" onclick="showCategory('mathematics')">MATHEMATICS</a>
-
-    </nav>
-    <div class="calculator-content">
-        <div class="calculator-box">
-            <h2 id="calc-title">Enter amount and percentage to calculate</h2>
+        <div class="mode-tabs">
+            <div class="mode-tab active" onclick="switchMode('basic')">Basic Percentage</div>
+            <div class="mode-tab" onclick="switchMode('change')">Percentage Change</div>
+            <div class="mode-tab" onclick="switchMode('increase')">Percentage Increase</div>
+            <div class="mode-tab" onclick="switchMode('decrease')">Percentage Decrease</div>
+            <div class="mode-tab" onclick="switchMode('of')">Percentage Of</div>
+            <div class="mode-tab" onclick="switchMode('ratio')">Ratio to %</div>
+            <div class="mode-tab" onclick="switchMode('fraction')">Fraction to %</div>
+            <div class="mode-tab" onclick="switchMode('compound')">Compound %</div>
+        </div>
+        
+        <!-- Basic Percentage -->
+        <div id="basic-mode" class="mode-content active">
             <div class="input-row">
-                <label id="amount-label">Amount (₹)</label>
-                <input type="number" id="amount" min="0" value="1000">
+                <div class="input-group">
+                    <label for="basic-value">What is</label>
+                    <input type="number" id="basic-value" placeholder="Enter percentage" step="0.01">
+                </div>
+                <div class="input-group">
+                    <label for="basic-of">% of</label>
+                    <input type="number" id="basic-of" placeholder="Enter number" step="0.01">
+                </div>
             </div>
+            <button onclick="calculateBasic()">Calculate</button>
+        </div>
+        
+        <!-- Percentage Change -->
+        <div id="change-mode" class="mode-content">
             <div class="input-row">
-                <label id="percent-label">Percentage (%)</label>
-                <input type="number" id="percentage" min="0" step="0.1" value="10">
+                <div class="input-group">
+                    <label for="old-value">Old Value</label>
+                    <input type="number" id="old-value" placeholder="Enter old value" step="0.01">
+                </div>
+                <div class="input-group">
+                    <label for="new-value">New Value</label>
+                    <input type="number" id="new-value" placeholder="Enter new value" step="0.01">
+                </div>
             </div>
+            <button onclick="calculateChange()">Calculate Change</button>
+        </div>
+        
+        <!-- Percentage Increase -->
+        <div id="increase-mode" class="mode-content">
             <div class="input-row">
-                <label id="type-label">Calculation Type</label>
-                <select id="calc-type">
-                    <option value="value">Percentage Value</option>
-                    <option value="increase">Percentage Increase</option>
-                    <option value="decrease">Percentage Decrease</option>
-                </select>
+                <div class="input-group">
+                    <label for="increase-value">Increase</label>
+                    <input type="number" id="increase-value" placeholder="Enter number" step="0.01">
+                </div>
+                <div class="input-group">
+                    <label for="increase-by">by %</label>
+                    <input type="number" id="increase-by" placeholder="Enter percentage" step="0.01">
+                </div>
             </div>
-            <div class="button-container">
-                <button onclick="calculatePercentage()">Calculate <span id="spinner" style="display:none;">⏳</span></button>
-                <span class="voice-icon" onclick="toggleSpeech()" title="Toggle Speech"><i class="fas fa-volume-up"></i></span>
-            </div>
-            <div id="percentage-result" class="mt-4 font-semibold"></div>
-            <p style="margin-top: 10px;">You May Also Like:</p>
-<ul style="list-style: none; padding-left: 0;">
-  <li><a href="percentile.html" style="font-weight: bold; color: #4f46e5; text-decoration: none;">PERCENTILE Calculator</a></li>
-  <li><a href="decimal-to-fraction.html" style="font-weight: bold; color: #4f46e5; text-decoration: none;">DECIMAL TO FRACTION Calculator</a></li>
-</ul>
-            <div class="ads-section">
-                <p>Contact for Ads: <a href="mailto:first4bencher@gmail.com">first4bencher@gmail.com</a></p>
-            </div>
-            <div id="seo-content" class="mt-4 text-sm">
-                <h3>About Percentage Calculator</h3>
-                <p>Welcome to the AI Percentage Calculator, a free online tool designed to help you calculate percentages, percentage increases, or decreases with ease. Whether you’re calculating discounts, tax amounts, or financial growth, this calculator leverages advanced AI technology to provide accurate and instant results. Available in multiple languages including English, Hindi, Tamil, Telugu, Spanish, Bengali, Arabic, Mandarin, and French, it caters to a diverse global audience. Simply enter your amount, percentage, and select the calculation type, then click "Calculate" to get your result.</p>
-                <p>Why choose our Percentage Calculator? It’s user-friendly, fast, and optimized for all devices, making it perfect for students, businesses, and individuals. The tool supports three calculations: Percentage Value (X × Y%), Percentage Increase (X + X × Y%), and Percentage Decrease (X - X × Y%). Our AI integration ensures precision and offers suggestions for percentage-related calculations. This calculator stands out due to its multilingual support and modern design, setting it apart from traditional percentage calculators.</p>
-            </div>
-             <!-- FAQs Section -->
-    <div>
-        <h2>FREQUENTLY ASKED QUESTIONS</h2>
-        <p><strong>Q1: How accurate are the results provided by this calculator?</strong><br>
-        A: Our calculators use standard formulas and algorithms to provide accurate results. However, results may vary based on the input data you provide. For professional advice, we recommend consulting an expert.</p>
+            <button onclick="calculateIncrease()">Calculate Increase</button>
+        </div>
         
-        <p><strong>Q2: Do I need to sign up or pay to use this calculator?</strong><br>
-        A: No, all calculators on SMART AI Calculator are completely free to use, and no sign-up is required. Just enter your details and get instant results!</p>
+        <!-- Percentage Decrease -->
+        <div id="decrease-mode" class="mode-content">
+            <div class="input-row">
+                <div class="input-group">
+                    <label for="decrease-value">Decrease</label>
+                    <input type="number" id="decrease-value" placeholder="Enter number" step="0.01">
+                </div>
+                <div class="input-group">
+                    <label for="decrease-by">by %</label>
+                    <input type="number" id="decrease-by" placeholder="Enter percentage" step="0.01">
+                </div>
+            </div>
+            <button onclick="calculateDecrease()">Calculate Decrease</button>
+        </div>
         
-        <p><strong>Q3: Can I use this calculator on my mobile device?</strong><br>
-        A: Yes, our website is fully responsive and works seamlessly on all devices, including mobiles, tablets, and desktops. No app download is needed—just access it through your browser.</p>
+        <!-- Percentage Of -->
+        <div id="of-mode" class="mode-content">
+            <div class="input-row">
+                <div class="input-group">
+                    <label for="part-value">Part Value</label>
+                    <input type="number" id="part-value" placeholder="Enter part" step="0.01">
+                </div>
+                <div class="input-group">
+                    <label for="whole-value">Whole Value</label>
+                    <input type="number" id="whole-value" placeholder="Enter whole" step="0.01">
+                </div>
+            </div>
+            <button onclick="calculatePercentageOf()">Calculate Percentage</button>
+        </div>
         
-        <p><strong>Q4: What should I do if I encounter an error or have a suggestion?</strong><br>
-        A: If you face any issues or have suggestions, please use the "Feedback" link on our website to reach out. We’re here to help and improve your experience!</p>
-    </div>
+        <!-- Ratio to Percentage -->
+        <div id="ratio-mode" class="mode-content">
+            <div class="input-row">
+                <div class="input-group">
+                    <label for="ratio-numerator">Numerator</label>
+                    <input type="number" id="ratio-numerator" placeholder="Enter numerator" step="0.01">
+                </div>
+                <div class="input-group">
+                    <label for="ratio-denominator">Denominator</label>
+                    <input type="number" id="ratio-denominator" placeholder="Enter denominator" step="0.01">
+                </div>
+            </div>
+            <button onclick="calculateRatio()">Convert to Percentage</button>
+        </div>
+        
+        <!-- Fraction to Percentage -->
+        <div id="fraction-mode" class="mode-content">
+            <div class="input-row">
+                <div class="input-group">
+                    <label for="fraction-numerator">Fraction Numerator</label>
+                    <input type="number" id="fraction-numerator" placeholder="Enter numerator" step="0.01">
+                </div>
+                <div class="input-group">
+                    <label for="fraction-denominator">Fraction Denominator</label>
+                    <input type="number" id="fraction-denominator" placeholder="Enter denominator" step="0.01">
+                </div>
+            </div>
+            <button onclick="calculateFraction()">Convert to Percentage</button>
+        </div>
+        
+        <!-- Compound Percentage -->
+        <div id="compound-mode" class="mode-content">
+            <div class="input-group">
+                <label for="compound-base">Base Value</label>
+                <input type="number" id="compound-base" placeholder="Enter base value" step="0.01">
+            </div>
+            <div class="input-group">
+                <label for="compound-percentages">Percentage Changes (comma separated, use - for decrease)</label>
+                <input type="text" id="compound-percentages" placeholder="e.g., 10, -5, 15">
+            </div>
+            <button onclick="calculateCompound()">Calculate Compound Effect</button>
+        </div>
+        
+        <div id="result"></div>
+        
+        <div class="history-section" id="history-section" style="display: none;">
+            <h3>Calculation History</h3>
+            <div id="history-list"></div>
         </div>
     </div>
-    <footer class="bg-gray-800 text-white text-center py-4 mt-8">
-        <p style="font-weight: bold;">2025 © Smart AI Calculator. All rights reserved.</p>
-        <a href="privacy.html" class="text-blue-400 ml-2">Privacy Policy</a> |
-        <a href="contactus.html" class="text-blue-400 ml-2">Contact Us</a> |
-        <a href="howto.html" class="text-blue-400 ml-2">How to Use</a>
-    </footer>
+
+    <div class="container">
+        <div class="article-section">
+            <h2>Understanding Percentage Calculations</h2>
+            <p>Percentages are one of the most fundamental mathematical concepts used in everyday life, from calculating discounts to analyzing data trends. Our advanced calculator handles 8 different percentage calculation scenarios.</p>
+            
+            <div class="highlight-box">
+                <h3>Percentage Formula Foundation:</h3>
+                <p class="formula">Percentage = (Value / Total Value) × 100</p>
+                <p>This basic formula forms the foundation for all percentage calculations, whether you're finding percentages, increases, decreases, or conversions.</p>
+            </div>
+            
+            <h2>8 Calculation Modes Explained</h2>
+            
+            <h3>1. Basic Percentage Calculation</h3>
+            <p>Find what X% of Y is. Essential for discount calculations, tip calculations, and basic proportions.</p>
+            <p class="formula">Result = (Percentage × Number) ÷ 100</p>
+            
+            <h3>2. Percentage Change</h3>
+            <p>Calculate the percentage increase or decrease between two values. Perfect for analyzing growth, price changes, or performance metrics.</p>
+            <p class="formula">Percentage Change = ((New Value - Old Value) ÷ Old Value) × 100</p>
+            
+            <h3>3. Percentage Increase</h3>
+            <p>Increase a number by a specific percentage. Useful for salary increases, price markups, and growth projections.</p>
+            <p class="formula">Increased Value = Original Value × (1 + (Percentage ÷ 100))</p>
+            
+            <h3>4. Percentage Decrease</h3>
+            <p>Decrease a number by a specific percentage. Essential for discount calculations, depreciation, and budget reductions.</p>
+            <p class="formula">Decreased Value = Original Value × (1 - (Percentage ÷ 100))</p>
+            
+            <h3>5. Percentage Of</h3>
+            <p>Find what percentage one number is of another. Useful for market share, completion rates, and proportion analysis.</p>
+            <p class="formula">Percentage = (Part ÷ Whole) × 100</p>
+            
+            <h3>6. Ratio to Percentage</h3>
+            <p>Convert ratios to percentages. Important for probability, mixture problems, and comparative analysis.</p>
+            <p class="formula">Percentage = (Numerator ÷ Denominator) × 100</p>
+            
+            <h3>7. Fraction to Percentage</h3>
+            <p>Convert fractions to percentages. Essential for academic work, statistics, and data interpretation.</p>
+            <p class="formula">Percentage = (Numerator ÷ Denominator) × 100</p>
+            
+            <h3>8. Compound Percentage</h3>
+            <p>Calculate the cumulative effect of multiple percentage changes. Crucial for investment growth, successive discounts, and multi-stage processes.</p>
+            <p class="formula">Final Value = Base Value × (1 ± P₁/100) × (1 ± P₂/100) × ...</p>
+            
+            <h2>Common Percentage Applications</h2>
+            <table>
+                <tr>
+                    <th>Application</th>
+                    <th>Calculation Type</th>
+                    <th>Example</th>
+                </tr>
+                <tr>
+                    <td>Sales Discount</td>
+                    <td>Percentage Decrease</td>
+                    <td>20% off $50 = $40</td>
+                </tr>
+                <tr>
+                    <td>Salary Increase</td>
+                    <td>Percentage Increase</td>
+                    <td>5% raise on $60,000 = $63,000</td>
+                </tr>
+                <tr>
+                    <td>Exam Scores</td>
+                    <td>Percentage Of</td>
+                    <td>45 out of 60 = 75%</td>
+                </tr>
+                <tr>
+                    <td>Investment Growth</td>
+                    <td>Compound Percentage</td>
+                    <td>10% growth for 3 years</td>
+                </tr>
+                <tr>
+                    <td>Population Change</td>
+                    <td>Percentage Change</td>
+                    <td>City population from 1M to 1.2M = 20% increase</td>
+                </tr>
+            </table>
+            
+            <div class="note">
+                <p><strong>Pro Tip:</strong> When working with successive percentage changes, remember that a 20% increase followed by a 20% decrease does NOT return you to the original value due to the changing base amount.</p>
+            </div>
+            
+            <h2>Frequently Asked Questions</h2>
+            <div class="faq">
+                <div class="faq-item">
+                    <div class="faq-question">Q: Why do percentage calculations sometimes give unexpected results?</div>
+                    <p>A: This often happens due to the base effect. When you calculate percentages successively, each calculation uses a different base amount. For example, a 50% increase followed by a 50% decrease doesn't return to the original value because the decrease is calculated from the increased amount.</p>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">Q: How do I calculate reverse percentages?</div>
+                    <p>A> To find the original value when you know the final value and the percentage change, use: Original = Final ÷ (1 ± Percentage/100). For a 20% increase, divide by 1.20; for a 20% decrease, divide by 0.80.</p>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">Q: What's the difference between percentage points and percentages?</div>
+                    <p>A> Percentage points refer to the absolute difference between two percentages. If an interest rate increases from 5% to 7%, that's a 2 percentage point increase, but a 40% relative increase ((7-5)/5 × 100).</p>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">Q: How do compound percentages work in finance?</div>
+                    <p>A> Compound percentages calculate growth on accumulated amounts. For example, 10% annual growth on $1000 gives $1100 after year 1, then 10% of $1100 = $1210 after year 2, not $1200 as with simple interest.</p>
+                </div>
+            </div>
+            
+            <h2>Related Calculators</h2>
+            <p>You may also find these advanced calculators useful:</p>
+            <div class="related-calculators">
+                <div class="calculator-card">
+                    <h4>Scientific Calculator</h4>
+                    <p>Advanced fraction operations with step-by-step solutions.</p>
+                    <a href="scientific.html" style="color: var(--primary); font-weight: 600;">Try Fraction Calculator →</a>
+                </div>
+                <div class="calculator-card">
+                    <h4>Unit Converter Calculator</h4>
+                    <p>Calculate and simplify ratios with multiple comparison methods.</p>
+                    <a href="si-unit.html" style="color: var(--primary); font-weight: 600;">Try Ratio Calculator →</a>
+                </div>
+                <div class="calculator-card">
+                    <h4>Pregnancy Calculator</h4>
+                    <p>Calculate your pregnancy conception period.</p>
+                    <a href="pregnancy.html" style="color: var(--primary); font-weight: 600;">Try Probability Calculator →</a>
+                </div>
+                <div class="calculator-card">
+                    <h4>Financial Calculator</h4>
+                    <p>Interest, ROI, and investment growth calculations.</p>
+                    <a href="roi.html" style="color: var(--primary); font-weight: 600;">Try Financial Calculator →</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <script>
-        let lang = 'en';
-        let isSpeaking = false;
-        let utterance = null;
-        const translations = {
-            en: { header: "Smart AI Calculator", tagline: "Percentage Calculator", calcTitle: "Enter amount and percentage to calculate", amountLabel: "Amount (₹)", percentLabel: "Percentage (%)", typeLabel: "Calculation Type", resultPrefix: "Result: " },
-            hi: { header: "स्मार्ट एआई कैलकुलेटर", tagline: "प्रतिशत कैलकुलेटर", calcTitle: "गणना के लिए राशि और प्रतिशत दर्ज करें", amountLabel: "राशि (₹)", percentLabel: "प्रतिशत (%)", typeLabel: "गणना का प्रकार", resultPrefix: "परिणाम: " },
-            ta: { header: "ஸ்மார்ட் AI கால்குலேட்டர்", tagline: "விழுக்காடு கால்குலேட்டர்", calcTitle: "கணக்கீட்டிற்கு தொகை மற்றும் விழுக்காட்டை உள்ளிடவும்", amountLabel: "தொகை (₹)", percentLabel: "விழுக்காடு (%)", typeLabel: "கணக்கீட்டு வகை", resultPrefix: "முடிவு: " },
-            te: { header: "స్మార్ట్ AI కాల్కులేటర్", tagline: "శాతం కాల్కులేటర్", calcTitle: "లెక్కింపు కోసం రాశి మరియు శాతాన్ని నమోదు చేయండి", amountLabel: "రాశి (₹)", percentLabel: "శాతం (%)", typeLabel: "లెక్కింపు రకం", resultPrefix: "ఫలితం: " },
-            es: { header: "Calculadora de IA Inteligente", tagline: "Calculadora de Porcentajes", calcTitle: "Ingrese el monto y el porcentaje para calcular", amountLabel: "Monto (₹)", percentLabel: "Porcentaje (%)", typeLabel: "Tipo de cálculo", resultPrefix: "Resultado: " },
-            bn: { header: "স্মার্ট এআই ক্যালকুলেটর", tagline: "শতাংশ ক্যালকুলেটর", calcTitle: "গণনার জন্য পরিমাণ এবং শতাংশ লিখুন", amountLabel: "পরিমাণ (₹)", percentLabel: "শতাংশ (%)", typeLabel: "গণনার ধরন", resultPrefix: "ফলাফল: " },
-            ar: { header: "حاسبة الذكاء الاصطناعي الذكية", tagline: "حاسبة النسبة المئوية", calcTitle: "أدخل المبلغ والنسبة المئوية للحساب", amountLabel: "المبلغ (₹)", percentLabel: "النسبة المئوية (%)", typeLabel: "نوع الحساب", resultPrefix: "النتيجة: " },
-            zh: { header: "智能人工智能计算器", tagline: "百分比计算器", calcTitle: "输入金额和百分比进行计算", amountLabel: "金额 (₹)", percentLabel: "百分比 (%)", typeLabel: "计算类型", resultPrefix: "结果: " },
-            fr: { header: "Calculateur IA Intelligent", tagline: "Calculateur de Pourcentage", calcTitle: "Entrez le montant et le pourcentage pour calculer", amountLabel: "Montant (₹)", percentLabel: "Pourcentage (%)", typeLabel: "Type de calcul", resultPrefix: "Résultat: " }
-        };
-        function calculatePercentage() {
-            document.getElementById("spinner").style.display = "inline";
-            setTimeout(() => {
-                let amount = parseFloat(document.getElementById("amount").value);
-                let percentage = parseFloat(document.getElementById("percentage").value);
-                let calcType = document.getElementById("calc-type").value;
-                let resultDiv = document.getElementById("percentage-result");
-                if (amount >= 0 && percentage >= 0) {
-                    let result;
-                    if (calcType === "value") {
-                        result = (amount * percentage) / 100;
-                        resultDiv.innerHTML = `${translations[lang].resultPrefix} ${result.toFixed(2)} ₹`;
-                    } else if (calcType === "increase") {
-                        result = amount + (amount * percentage) / 100;
-                        resultDiv.innerHTML = `${translations[lang].resultPrefix} ${result.toFixed(2)} ₹<br>Original Amount: ${amount.toFixed(2)} ₹`;
-                    } else {
-                        result = amount - (amount * percentage) / 100;
-                        resultDiv.innerHTML = `${translations[lang].resultPrefix} ${result.toFixed(2)} ₹<br>Original Amount: ${amount.toFixed(2)} ₹`;
-                    }
-                } else {
-                    resultDiv.innerText = lang === 'en' ? "Please enter valid values" : lang === 'hi' ? "कृपया वैध मान दर्ज करें" : lang === 'ta' ? "சரியான மதிப்புகளை உள்ளிடவும்" : lang === 'te' ? "దయచేసి సరైన విలువలను నమోదు చేయండి" : lang === 'es' ? "Por favor, ingrese valores válidos" : lang === 'bn' ? "দয়া করে বৈধ মান লিখুন" : lang === 'ar' ? "يرجى إدخال قيم صحيحة" : lang === 'zh' ? "请输入有效值" : "Veuillez entrer des valeurs valides";
-                }
-                document.getElementById("spinner").style.display = "none";
-            }, 1000);
+        let calculationHistory = [];
+        
+        // Switch between calculation modes
+        function switchMode(mode) {
+            // Hide all modes
+            document.querySelectorAll('.mode-content').forEach(content => {
+                content.classList.remove('active');
+            });
+            // Deactivate all tabs
+            document.querySelectorAll('.mode-tab').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            // Activate selected mode
+            document.getElementById(mode + '-mode').classList.add('active');
+            // Activate selected tab
+            event.currentTarget.classList.add('active');
+            
+            // Clear previous results
+            document.getElementById('result').innerHTML = '';
         }
-        function toggleSpeech() {
-            console.log("Toggling speech for result");
-            const result = document.getElementById("percentage-result").innerHTML;
-            if (!result) {
-                console.log("No result to speak");
+        
+        // Basic Percentage Calculation
+        function calculateBasic() {
+            const percentage = parseFloat(document.getElementById('basic-value').value);
+            const number = parseFloat(document.getElementById('basic-of').value);
+            
+            if (isNaN(percentage) || isNaN(number)) {
+                alert('Please enter valid numbers');
                 return;
             }
-            if (isSpeaking) {
-                window.speechSynthesis.cancel();
-                isSpeaking = false;
-                console.log("Speech stopped");
-            } else {
-                utterance = new SpeechSynthesisUtterance(result);
-                utterance.lang = lang === 'zh' ? 'zh-CN' : lang === 'ar' ? 'ar-SA' : lang;
-                utterance.onend = () => {
-                    isSpeaking = false;
-                    console.log("Speech ended");
-                };
-                window.speechSynthesis.speak(utterance);
-                isSpeaking = true;
-                console.log("Speech started");
+            
+            const result = (percentage * number) / 100;
+            const formula = `(${percentage} × ${number}) ÷ 100 = ${result}`;
+            
+            displayResult(
+                `What is ${percentage}% of ${number}?`,
+                `${result}`,
+                formula,
+                'basic'
+            );
+        }
+        
+        // Percentage Change Calculation
+        function calculateChange() {
+            const oldValue = parseFloat(document.getElementById('old-value').value);
+            const newValue = parseFloat(document.getElementById('new-value').value);
+            
+            if (isNaN(oldValue) || isNaN(newValue)) {
+                alert('Please enter valid numbers');
+                return;
             }
+            
+            const change = ((newValue - oldValue) / oldValue) * 100;
+            const formula = `((${newValue} - ${oldValue}) ÷ ${oldValue}) × 100 = ${change.toFixed(2)}%`;
+            
+            displayResult(
+                `Percentage change from ${oldValue} to ${newValue}`,
+                `${change.toFixed(2)}% ${change >= 0 ? 'increase' : 'decrease'}`,
+                formula,
+                'change'
+            );
         }
-        function stopSpeech() {
-            if (isSpeaking) {
-                window.speechSynthesis.cancel();
-                isSpeaking = false;
-                console.log("Speech stopped on page exit");
+        
+        // Percentage Increase Calculation
+        function calculateIncrease() {
+            const value = parseFloat(document.getElementById('increase-value').value);
+            const percentage = parseFloat(document.getElementById('increase-by').value);
+            
+            if (isNaN(value) || isNaN(percentage)) {
+                alert('Please enter valid numbers');
+                return;
             }
+            
+            const increase = value * (percentage / 100);
+            const result = value + increase;
+            const formula = `${value} × (1 + ${percentage}/100) = ${value} × ${(1 + percentage/100).toFixed(4)} = ${result}`;
+            
+            displayResult(
+                `Increase ${value} by ${percentage}%`,
+                `${result} (increase of ${increase})`,
+                formula,
+                'increase'
+            );
         }
-        function showCategory(category) {
-            // No action needed here as navigation is handled by index.html
+        
+        // Percentage Decrease Calculation
+        function calculateDecrease() {
+            const value = parseFloat(document.getElementById('decrease-value').value);
+            const percentage = parseFloat(document.getElementById('decrease-by').value);
+            
+            if (isNaN(value) || isNaN(percentage)) {
+                alert('Please enter valid numbers');
+                return;
+            }
+            
+            const decrease = value * (percentage / 100);
+            const result = value - decrease;
+            const formula = `${value} × (1 - ${percentage}/100) = ${value} × ${(1 - percentage/100).toFixed(4)} = ${result}`;
+            
+            displayResult(
+                `Decrease ${value} by ${percentage}%`,
+                `${result} (decrease of ${decrease})`,
+                formula,
+                'decrease'
+            );
         }
-        window.onload = () => {
-            document.getElementById('header-title').textContent = translations[lang].header;
-            document.getElementById('tagline').textContent = translations[lang].tagline;
-            document.getElementById('calc-title').textContent = translations[lang].calcTitle;
-            document.getElementById('amount-label').textContent = translations[lang].amountLabel;
-            document.getElementById('percent-label').textContent = translations[lang].percentLabel;
-            document.getElementById('type-label').textContent = translations[lang].typeLabel;
-            console.log("Voice icon loaded");
-        };
-        window.onpagehide = stopSpeech;
-        window.onbeforeunload = stopSpeech;
+        
+        // Percentage Of Calculation
+        function calculatePercentageOf() {
+            const part = parseFloat(document.getElementById('part-value').value);
+            const whole = parseFloat(document.getElementById('whole-value').value);
+            
+            if (isNaN(part) || isNaN(whole) || whole === 0) {
+                alert('Please enter valid numbers (whole cannot be zero)');
+                return;
+            }
+            
+            const percentage = (part / whole) * 100;
+            const formula = `(${part} ÷ ${whole}) × 100 = ${percentage.toFixed(2)}%`;
+            
+            displayResult(
+                `What percentage is ${part} of ${whole}?`,
+                `${percentage.toFixed(2)}%`,
+                formula,
+                'percentageOf'
+            );
+        }
+        
+        // Ratio to Percentage
+        function calculateRatio() {
+            const numerator = parseFloat(document.getElementById('ratio-numerator').value);
+            const denominator = parseFloat(document.getElementById('ratio-denominator').value);
+            
+            if (isNaN(numerator) || isNaN(denominator) || denominator === 0) {
+                alert('Please enter valid numbers (denominator cannot be zero)');
+                return;
+            }
+            
+            const percentage = (numerator / denominator) * 100;
+            const formula = `(${numerator} ÷ ${denominator}) × 100 = ${percentage.toFixed(2)}%`;
+            
+            displayResult(
+                `Convert ratio ${numerator}:${denominator} to percentage`,
+                `${percentage.toFixed(2)}%`,
+                formula,
+                'ratio'
+            );
+        }
+        
+        // Fraction to Percentage
+        function calculateFraction() {
+            const numerator = parseFloat(document.getElementById('fraction-numerator').value);
+            const denominator = parseFloat(document.getElementById('fraction-denominator').value);
+            
+            if (isNaN(numerator) || isNaN(denominator) || denominator === 0) {
+                alert('Please enter valid numbers (denominator cannot be zero)');
+                return;
+            }
+            
+            const percentage = (numerator / denominator) * 100;
+            const formula = `(${numerator} ÷ ${denominator}) × 100 = ${percentage.toFixed(2)}%`;
+            
+            displayResult(
+                `Convert fraction ${numerator}/${denominator} to percentage`,
+                `${percentage.toFixed(2)}%`,
+                formula,
+                'fraction'
+            );
+        }
+        
+        // Compound Percentage Calculation
+        function calculateCompound() {
+            const base = parseFloat(document.getElementById('compound-base').value);
+            const percentagesText = document.getElementById('compound-percentages').value;
+            
+            if (isNaN(base) || !percentagesText) {
+                alert('Please enter valid base value and percentages');
+                return;
+            }
+            
+            const percentages = percentagesText.split(',').map(p => parseFloat(p.trim()));
+            if (percentages.some(isNaN)) {
+                alert('Please enter valid percentages separated by commas');
+                return;
+            }
+            
+            let current = base;
+            let steps = [`Start: ${base}`];
+            
+            percentages.forEach((p, index) => {
+                const change = current * (p / 100);
+                current = current + change;
+                steps.push(`Step ${index + 1}: ${p >= 0 ? '+' : ''}${p}% = ${current.toFixed(2)}`);
+            });
+            
+            const totalChange = ((current - base) / base) * 100;
+            const formula = `Final = ${base} ${percentages.map(p => `× (1 ${p >= 0 ? '+' : ''}${p/100})`).join(' ')} = ${current.toFixed(2)}`;
+            
+            displayResult(
+                `Compound effect of ${percentages.join('%, ')}% on ${base}`,
+                `Final: ${current.toFixed(2)} (${totalChange >= 0 ? '+' : ''}${totalChange.toFixed(2)}% overall)`,
+                formula,
+                'compound',
+                steps
+            );
+        }
+        
+        // Display results with formatting
+        function displayResult(title, result, formula, type, steps = []) {
+            const resultDiv = document.getElementById('result');
+            let html = `
+                <h3>${title}</h3>
+                <div class="result-item">
+                    <strong>Result:</strong> ${result}
+                </div>
+                <div class="formula">
+                    <strong>Calculation:</strong> ${formula}
+                </div>
+            `;
+            
+            if (steps.length > 0) {
+                html += `<div class="result-item"><strong>Step-by-step:</strong><ul>`;
+                steps.forEach(step => {
+                    html += `<li>${step}</li>`;
+                });
+                html += `</ul></div>`;
+            }
+            
+            resultDiv.innerHTML = html;
+            
+            // Add to history
+            addToHistory(title, result, formula);
+        }
+        
+        // Add calculation to history
+        function addToHistory(title, result, formula) {
+            const timestamp = new Date().toLocaleTimeString();
+            calculationHistory.unshift({
+                title,
+                result,
+                formula,
+                timestamp
+            });
+            
+            // Keep only last 5 calculations
+            if (calculationHistory.length > 5) {
+                calculationHistory.pop();
+            }
+            
+            updateHistoryDisplay();
+        }
+        
+        // Update history display
+        function updateHistoryDisplay() {
+            const historySection = document.getElementById('history-section');
+            const historyList = document.getElementById('history-list');
+            
+            if (calculationHistory.length === 0) {
+                historySection.style.display = 'none';
+                return;
+            }
+            
+            historySection.style.display = 'block';
+            historyList.innerHTML = '';
+            
+            calculationHistory.forEach(item => {
+                historyList.innerHTML += `
+                    <div class="result-item">
+                        <strong>${item.title}</strong><br>
+                        ${item.result} • ${item.timestamp}<br>
+                        <small>${item.formula}</small>
+                    </div>
+                `;
+            });
+        }
+        
+        // Initialize with some example data
+        document.addEventListener('DOMContentLoaded', function() {
+            // Set example values for demonstration
+            document.getElementById('basic-value').value = 20;
+            document.getElementById('basic-of').value = 150;
+        });
     </script>
-<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'934ab0e65a83454b',t:'MTc0NTM4MzMxMi4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></html>
+</body>
+</html>
