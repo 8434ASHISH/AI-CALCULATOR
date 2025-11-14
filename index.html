@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Free AI-powered calculators for finance, health, education, construction, and more. Accurate, easy-to-use tools with detailed explanations.">
+    <meta name="description" content="Smart AI Calculator - Free AI-powered calculators for finance, health, education, construction, and more. Accurate, easy-to-use tools with detailed explanations.">
     <meta name="keywords" content="calculator, financial calculator, health calculator, math calculator, unit converter, free online tools, loan calculator, BMI calculator, age calculator">
     <meta name="google-adsense-account" content="ca-pub-6141370059352407">
     
@@ -36,6 +36,28 @@
     <meta name="yandex-verification" content="f262a8ed1abee929">
     
     <title>Smart AI Calculator - Free Online Calculators for Finance, Health & More</title>
+    
+    <!-- Structured Data for SEO -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Smart AI Calculator",
+      "url": "https://smartaicalculator.com",
+      "description": "Free AI-powered calculators for finance, health, education, construction, and more.",
+      "applicationCategory": "UtilityApplication",
+      "operatingSystem": "Any",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "author": {
+        "@type": "Organization",
+        "name": "Smart AI Calculator"
+      }
+    }
+    </script>
     
     <!-- Inline critical CSS -->
     <style>
@@ -456,6 +478,184 @@
             box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
         }
         
+        /* Calculator Interface */
+        .calculator-interface {
+            background: white;
+            border-radius: 20px;
+            padding: 2rem;
+            margin-bottom: 2.5rem;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+        }
+        
+        .calculator-form {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .form-group label {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--dark);
+        }
+        
+        .form-group input, .form-group select {
+            padding: 0.75rem;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+        
+        .form-group input:focus, .form-group select:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(108, 99, 255, 0.1);
+        }
+        
+        .calculate-btn {
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: white;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            grid-column: 1 / -1;
+            justify-self: center;
+            margin-top: 1rem;
+        }
+        
+        .calculate-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(108, 99, 255, 0.4);
+        }
+        
+        .calculator-results {
+            background: #f8fafc;
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-top: 1.5rem;
+            border-left: 4px solid var(--primary);
+        }
+        
+        .calculator-results h3 {
+            color: var(--dark);
+            margin-bottom: 1rem;
+        }
+        
+        .result-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 0.5rem 0;
+            border-bottom: 1px solid #e2e8f0;
+        }
+        
+        .result-item:last-child {
+            border-bottom: none;
+        }
+        
+        .result-label {
+            font-weight: 500;
+            color: var(--gray);
+        }
+        
+        .result-value {
+            font-weight: 600;
+            color: var(--dark);
+        }
+        
+        /* Blog Section */
+        .blog-section {
+            background: white;
+            border-radius: 20px;
+            padding: 2.5rem;
+            margin-bottom: 2.5rem;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+        }
+        
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .blog-card {
+            background: #f8fafc;
+            border-radius: 12px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        }
+        
+        .blog-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .blog-image {
+            height: 180px;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 2rem;
+        }
+        
+        .blog-content {
+            padding: 1.5rem;
+        }
+        
+        .blog-content h3 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--dark);
+            margin-bottom: 0.75rem;
+        }
+        
+        .blog-content p {
+            color: var(--gray);
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+            line-height: 1.5;
+        }
+        
+        .blog-meta {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.8rem;
+            color: var(--gray);
+            margin-bottom: 1rem;
+        }
+        
+        .read-more {
+            display: inline-flex;
+            align-items: center;
+            color: var(--primary);
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .read-more i {
+            margin-left: 0.5rem;
+            transition: transform 0.3s ease;
+        }
+        
+        .read-more:hover i {
+            transform: translateX(5px);
+        }
+        
         /* About Section */
         .about-section {
             background: white;
@@ -650,8 +850,16 @@
                 padding: 1.5rem;
             }
             
-            .about-section {
+            .calculator-interface, .blog-section, .about-section {
                 padding: 1.5rem;
+            }
+            
+            .calculator-form {
+                grid-template-columns: 1fr;
+            }
+            
+            .blog-grid {
+                grid-template-columns: 1fr;
             }
             
             .action-buttons {
@@ -683,7 +891,7 @@
                 padding: 1.5rem 0;
             }
             
-            .calculator-card {
+            .calculator-card, .blog-card {
                 padding: 1.25rem;
             }
             
@@ -736,7 +944,7 @@
                 <a href="#student-academic" class="nav-tab" onclick="showCategory('student-academic')">Student Academic</a>
                 <a href="#home-construction" class="nav-tab" onclick="showCategory('home-construction')">Home Construction</a>
                 <a href="#misc" class="nav-tab" onclick="showCategory('misc')">Miscellaneous</a>
-                <a href="#new-tools" class="nav-tab" onclick="showCategory('new-tools')">Newly Added Tools</a>
+                <a href="#blog" class="nav-tab" onclick="showCategory('blog')">Blog</a>
             </nav>
         </div>
     </div>
@@ -746,9 +954,9 @@
         <div class="container">
             <!-- Featured Calculator -->
             <div class="featured-calculator">
-                <h2 id="featured-title">NEED A LITTLE HELP- CONTACT US </h2>
-                <p id="featured-desc">NEED A REAL PEOPLE TO DEVELOP THIS SITE, APPROX 8 MONTHS EARLIER THIS SITE NOT WORKING PROPERLY TILL NOW & ADSENSE APPROVAL FAIL MANY TIMES, ORGANIC SEARCH IS TATALY 0%. I AM JUST A COLLEGE STUDENT I DONT KNOW HOW CAN HANDLE THIS AND CREATE THIS SITE  BY AI . IF ANYONE COMES TO HELP TO DEVELOP THIS SITE PLEASE MAIL US BY GOING TO CONTACT US SECTION BELOW FOOTER . THIS SITES HOSTED ON GITHUB - 8434ASHISH/AI-CALCULATOR. I DON'T HAVE MONEY TO GIVE YOU BUT BELEIVE ME I GIVE YOU SOMETHING FOR THIS , WHATEVER I CAN DO FOR YOU. </p>
-                <a href="contact.html" class="featured-btn">
+                <h2 id="featured-title">BMI Calculator</h2>
+                <p id="featured-desc">Calculate your Body Mass Index to understand your weight status and health risks</p>
+                <a href="#health" class="featured-btn" onclick="showCategory('health')">
                     Try Now <i class="fas fa-arrow-right"></i>
                 </a>
             </div>
@@ -781,6 +989,69 @@
             <!-- Calculators Grid -->
             <div class="calculators-grid" id="calculators-list">
                 <!-- Calculators will be dynamically loaded here -->
+            </div>
+            
+            <!-- Calculator Interface -->
+            <div class="calculator-interface" id="calculator-interface" style="display: none;">
+                <h2 id="calculator-title">BMI Calculator</h2>
+                <form class="calculator-form" id="calculator-form">
+                    <!-- Calculator inputs will be dynamically loaded here -->
+                </form>
+                <div class="calculator-results" id="calculator-results" style="display: none;">
+                    <h3>Results</h3>
+                    <div id="results-content">
+                        <!-- Results will be displayed here -->
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Blog Section -->
+            <div class="blog-section" id="blog-section" style="display: none;">
+                <h2 class="section-title">Smart AI Calculator Blog</h2>
+                <div class="blog-grid">
+                    <div class="blog-card">
+                        <div class="blog-image">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <div class="blog-content">
+                            <h3>How to Calculate Your ROI on Investments</h3>
+                            <p>Learn the different methods to calculate return on investment and make better financial decisions for your future.</p>
+                            <div class="blog-meta">
+                                <span><i class="far fa-calendar"></i> NOV 12, 2025</span>
+                                <span><i class="far fa-clock"></i> 5 min read</span>
+                            </div>
+                            <a href="#" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                    <div class="blog-card">
+                        <div class="blog-image">
+                            <i class="fas fa-heartbeat"></i>
+                        </div>
+                        <div class="blog-content">
+                            <h3>Understanding BMI and Its Health Implications</h3>
+                            <p>Discover what your Body Mass Index really means and how it relates to your overall health and wellness.</p>
+                            <div class="blog-meta">
+                                <span><i class="far fa-calendar"></i> NOV 10, 2025</span>
+                                <span><i class="far fa-clock"></i> 7 min read</span>
+                            </div>
+                            <a href="#" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                    <div class="blog-card">
+                        <div class="blog-image">
+                            <i class="fas fa-home"></i>
+                        </div>
+                        <div class="blog-content">
+                            <h3>Home Construction Calculators: Plan Your Budget</h3>
+                            <p>Use our construction calculators to accurately estimate materials, costs, and timelines for your home projects.</p>
+                            <div class="blog-meta">
+                                <span><i class="far fa-calendar"></i> NOV 14, 2025</span>
+                                <span><i class="far fa-clock"></i> 6 min read</span>
+                            </div>
+                            <a href="#" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
             </div>
             
             <!-- About Section -->
@@ -831,7 +1102,7 @@
                 </div>
             </div>
             <div class="footer-bottom">
-                <p class="copyright">© 2025-2026 Smart AI Calculator. All rights reserved.</p>
+                <p class="copyright">© 2025 Smart AI Calculator. All rights reserved.</p>
             </div>
         </div>
     </footer>
@@ -856,7 +1127,7 @@
                     "student-academic": "Student Academic Calculators",
                     "home-construction": "Home Construction Calculators",
                     misc: "Miscellaneous Calculators",
-                    "new-tools": "Newly Added Tools"
+                    blog: "Blog"
                 },
                 featured: {
                     title: "BMI Calculator",
@@ -944,16 +1215,6 @@
                         { id: "password-generator", name: "Password Generator", desc: "Generate secure random passwords" },
                         { id: "subnet", name: "Subnet Calculator", desc: "Calculate subnet masks and ranges" },
                         { id: "run-rate-calculator", name: "Run Rate Calculator", desc: "Calculate run rates in cricket and other sports" }
-                    ],
-                    "new-tools": [
-                        { id: "trigonometry-function", name: "Trigonometry Function Calculator", desc: "Calculate trigonometric functions" },
-                        { id: "matrix-calculator", name: "Matrix Calculator", desc: "Perform matrix operations and calculations" },
-                        { id: "run-rate-calculator", name: "Run Rate Calculator", desc: "Calculate run rates in cricket and other sports" },
-                        { id: "probability-calculator", name: "Probability Calculator", desc: "Calculate probabilities of events" },
-                        { id: "golden-ratio-calculator", name: "Golden Ratio Calculator", desc: "Calculate golden ratio values" },
-                        { id: "prime-factor-calculator", name: "Prime Factor Calculator", desc: "Find prime factors of numbers" },
-                        { id: "goal-score-calculator", name: "Goal Score Calculator", desc: "Calculate scores needed to reach goals" },
-                        { id: "pregnancy-weight-gain-calculator", name: "Pregnancy Weight Gain Calculator", desc: "Calculate recommended weight gain during pregnancy" }
                     ]
                 }
             },
@@ -967,7 +1228,7 @@
                     "student-academic": "छात्र शैक्षणिक कैलकुलेटर",
                     "home-construction": "घर निर्माण कैलकुलेटर",
                     misc: "विविध कैलकुलेटर",
-                    "new-tools": "नए जोड़े गए टूल्स"
+                    blog: "ब्लॉग"
                 },
                 featured: {
                     title: "बीएमआई कैलकुलेटर",
@@ -1055,22 +1316,13 @@
                         { id: "password-generator", name: "पासवर्ड जनरेटर", desc: "सुरक्षित यादृच्छिक पासवर्ड उत्पन्न करें" },
                         { id: "subnet", name: "सबनेट कैलकुलेटर", desc: "सबनेट मास्क और रेंज की गणना करें" },
                         { id: "run-rate-calculator", name: "रन रेट कैलकुलेटर", desc: "क्रिकेट और अन्य खेलों में रन रेट की गणना करें" }
-                    ],
-                    "new-tools": [
-                        { id: "trigonometry-function", name: "त्रिकोणमिति फंक्शन कैलकुलेटर", desc: "त्रिकोणमितीय कार्यों की गणना करें" },
-                        { id: "matrix-calculator", name: "मैट्रिक्स कैलकुलेटर", desc: "मैट्रिक्स ऑपरेशन और गणना करें" },
-                        { id: "run-rate-calculator", name: "रन रेट कैलकुलेटर", desc: "क्रिकेट और अन्य खेलों में रन रेट की गणना करें" },
-                        { id: "probability-calculator", name: "प्रायिकता कैलकुलेटर", desc: "घटनाओं की संभावनाओं की गणना करें" },
-                        { id: "golden-ratio-calculator", name: "गोल्डन रेशियो कैलकुलेटर", desc: "गोल्डन रेशियो मानों की गणना करें" },
-                        { id: "prime-factor-calculator", name: "प्राइम फैक्टर कैलकुलेटर", desc: "संख्याओं के प्रमुख कारक खोजें" },
-                        { id: "goal-score-calculator", name: "गोल स्कोर कैलकुलेटर", desc: "लक्ष्यों तक पहुंचने के लिए आवश्यक स्कोर की गणना करें" },
-                        { id: "pregnancy-weight-gain-calculator", name: "गर्भावस्था वजन वृद्धि कैलकुलेटर", desc: "गर्भावस्था के दौरान अनुशंसित वजन वृद्धि की गणना करें" }
                     ]
                 }
             }
         };
 
         let currentLang = 'en';
+        let currentCalculator = null;
         
         function changeLanguage(lang) {
             currentLang = lang;
@@ -1103,32 +1355,272 @@
             // Update category title
             document.getElementById('category-title').textContent = translations[currentLang].categories[category];
             
-            // Load calculators for this category
-            const calculators = translations[currentLang].calculatorData[category];
-            const calculatorsList = document.getElementById('calculators-list');
+            // Hide calculator interface and blog section by default
+            document.getElementById('calculator-interface').style.display = 'none';
+            document.getElementById('blog-section').style.display = 'none';
             
-            calculatorsList.innerHTML = '';
+            if (category === 'blog') {
+                // Show blog section
+                document.getElementById('blog-section').style.display = 'block';
+                document.getElementById('calculators-list').style.display = 'none';
+                document.getElementById('category-title').style.display = 'none';
+            } else {
+                // Show calculators grid
+                document.getElementById('calculators-list').style.display = 'grid';
+                document.getElementById('category-title').style.display = 'inline-block';
+                
+                // Load calculators for this category
+                const calculators = translations[currentLang].calculatorData[category];
+                const calculatorsList = document.getElementById('calculators-list');
+                
+                calculatorsList.innerHTML = '';
+                
+                calculators.forEach(calc => {
+                    const calculatorCard = document.createElement('div');
+                    calculatorCard.className = 'calculator-card';
+                    calculatorCard.innerHTML = `
+                        <div class="calculator-icon">
+                            <i class="fas fa-calculator"></i>
+                        </div>
+                        <h3>${calc.name}</h3>
+                        <p>${calc.desc}</p>
+                        <a href="#" class="calculator-link" onclick="openCalculator('${calc.id}', '${calc.name}')">
+                            Use Calculator <i class="fas fa-arrow-right"></i>
+                        </a>
+                    `;
+                    calculatorsList.appendChild(calculatorCard);
+                });
+            }
+        }
+        
+        function openCalculator(calculatorId, calculatorName) {
+            currentCalculator = calculatorId;
             
-            calculators.forEach(calc => {
-                const calculatorCard = document.createElement('div');
-                calculatorCard.className = 'calculator-card';
-                calculatorCard.innerHTML = `
-                    <div class="calculator-icon">
-                        <i class="fas fa-calculator"></i>
-                    </div>
-                    <h3>${calc.name}</h3>
-                    <p>${calc.desc}</p>
-                    <a href="${calc.id}.html" class="calculator-link">
-                        Use Calculator <i class="fas fa-arrow-right"></i>
-                    </a>
-                `;
-                calculatorsList.appendChild(calculatorCard);
-            });
+            // Hide calculators grid and show calculator interface
+            document.getElementById('calculators-list').style.display = 'none';
+            document.getElementById('category-title').style.display = 'none';
+            document.getElementById('calculator-interface').style.display = 'block';
+            
+            // Update calculator title
+            document.getElementById('calculator-title').textContent = calculatorName;
+            
+            // Hide results
+            document.getElementById('calculator-results').style.display = 'none';
+            
+            // Load calculator form based on calculator type
+            const calculatorForm = document.getElementById('calculator-form');
+            calculatorForm.innerHTML = '';
+            
+            switch(calculatorId) {
+                case 'bmi':
+                    calculatorForm.innerHTML = `
+                        <div class="form-group">
+                            <label for="height">Height (cm)</label>
+                            <input type="number" id="height" placeholder="Enter your height in cm" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="weight">Weight (kg)</label>
+                            <input type="number" id="weight" placeholder="Enter your weight in kg" required>
+                        </div>
+                        <button type="submit" class="calculate-btn">Calculate BMI</button>
+                    `;
+                    break;
+                case 'loan':
+                    calculatorForm.innerHTML = `
+                        <div class="form-group">
+                            <label for="loan-amount">Loan Amount ($)</label>
+                            <input type="number" id="loan-amount" placeholder="Enter loan amount" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="interest-rate">Interest Rate (%)</label>
+                            <input type="number" id="interest-rate" placeholder="Enter interest rate" step="0.01" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="loan-term">Loan Term (years)</label>
+                            <input type="number" id="loan-term" placeholder="Enter loan term in years" required>
+                        </div>
+                        <button type="submit" class="calculate-btn">Calculate Loan</button>
+                    `;
+                    break;
+                case 'percentage':
+                    calculatorForm.innerHTML = `
+                        <div class="form-group">
+                            <label for="percentage-value">Percentage Value</label>
+                            <input type="number" id="percentage-value" placeholder="Enter percentage" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="base-value">Base Value</label>
+                            <input type="number" id="base-value" placeholder="Enter base value" required>
+                        </div>
+                        <button type="submit" class="calculate-btn">Calculate Percentage</button>
+                    `;
+                    break;
+                case 'age':
+                    calculatorForm.innerHTML = `
+                        <div class="form-group">
+                            <label for="birth-date">Birth Date</label>
+                            <input type="date" id="birth-date" required>
+                        </div>
+                        <button type="submit" class="calculate-btn">Calculate Age</button>
+                    `;
+                    break;
+                default:
+                    calculatorForm.innerHTML = `
+                        <div class="form-group">
+                            <label for="value1">Value 1</label>
+                            <input type="number" id="value1" placeholder="Enter value 1" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="value2">Value 2</label>
+                            <input type="number" id="value2" placeholder="Enter value 2" required>
+                        </div>
+                        <button type="submit" class="calculate-btn">Calculate</button>
+                    `;
+            }
+            
+            // Scroll to calculator interface
+            document.getElementById('calculator-interface').scrollIntoView({ behavior: 'smooth' });
+        }
+        
+        function calculateResults() {
+            const resultsContent = document.getElementById('results-content');
+            resultsContent.innerHTML = '';
+            
+            switch(currentCalculator) {
+                case 'bmi':
+                    const height = parseFloat(document.getElementById('height').value);
+                    const weight = parseFloat(document.getElementById('weight').value);
+                    
+                    if (height && weight) {
+                        const heightInMeters = height / 100;
+                        const bmi = weight / (heightInMeters * heightInMeters);
+                        let category = '';
+                        
+                        if (bmi < 18.5) category = 'Underweight';
+                        else if (bmi < 25) category = 'Normal weight';
+                        else if (bmi < 30) category = 'Overweight';
+                        else category = 'Obese';
+                        
+                        resultsContent.innerHTML = `
+                            <div class="result-item">
+                                <span class="result-label">BMI</span>
+                                <span class="result-value">${bmi.toFixed(2)}</span>
+                            </div>
+                            <div class="result-item">
+                                <span class="result-label">Category</span>
+                                <span class="result-value">${category}</span>
+                            </div>
+                        `;
+                    }
+                    break;
+                case 'loan':
+                    const loanAmount = parseFloat(document.getElementById('loan-amount').value);
+                    const interestRate = parseFloat(document.getElementById('interest-rate').value);
+                    const loanTerm = parseFloat(document.getElementById('loan-term').value);
+                    
+                    if (loanAmount && interestRate && loanTerm) {
+                        const monthlyRate = interestRate / 100 / 12;
+                        const numberOfPayments = loanTerm * 12;
+                        const monthlyPayment = (loanAmount * monthlyRate * Math.pow(1 + monthlyRate, numberOfPayments)) / 
+                                              (Math.pow(1 + monthlyRate, numberOfPayments) - 1);
+                        const totalPayment = monthlyPayment * numberOfPayments;
+                        const totalInterest = totalPayment - loanAmount;
+                        
+                        resultsContent.innerHTML = `
+                            <div class="result-item">
+                                <span class="result-label">Monthly Payment</span>
+                                <span class="result-value">$${monthlyPayment.toFixed(2)}</span>
+                            </div>
+                            <div class="result-item">
+                                <span class="result-label">Total Payment</span>
+                                <span class="result-value">$${totalPayment.toFixed(2)}</span>
+                            </div>
+                            <div class="result-item">
+                                <span class="result-label">Total Interest</span>
+                                <span class="result-value">$${totalInterest.toFixed(2)}</span>
+                            </div>
+                        `;
+                    }
+                    break;
+                case 'percentage':
+                    const percentageValue = parseFloat(document.getElementById('percentage-value').value);
+                    const baseValue = parseFloat(document.getElementById('base-value').value);
+                    
+                    if (percentageValue && baseValue) {
+                        const result = (percentageValue / 100) * baseValue;
+                        
+                        resultsContent.innerHTML = `
+                            <div class="result-item">
+                                <span class="result-label">${percentageValue}% of ${baseValue}</span>
+                                <span class="result-value">${result.toFixed(2)}</span>
+                            </div>
+                        `;
+                    }
+                    break;
+                case 'age':
+                    const birthDate = new Date(document.getElementById('birth-date').value);
+                    const today = new Date();
+                    
+                    if (birthDate) {
+                        let age = today.getFullYear() - birthDate.getFullYear();
+                        const monthDiff = today.getMonth() - birthDate.getMonth();
+                        
+                        if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < birthDate.getDate())) {
+                            age--;
+                        }
+                        
+                        resultsContent.innerHTML = `
+                            <div class="result-item">
+                                <span class="result-label">Age</span>
+                                <span class="result-value">${age} years</span>
+                            </div>
+                        `;
+                    }
+                    break;
+                default:
+                    const value1 = parseFloat(document.getElementById('value1').value);
+                    const value2 = parseFloat(document.getElementById('value2').value);
+                    
+                    if (value1 && value2) {
+                        const sum = value1 + value2;
+                        const difference = value1 - value2;
+                        const product = value1 * value2;
+                        const quotient = value1 / value2;
+                        
+                        resultsContent.innerHTML = `
+                            <div class="result-item">
+                                <span class="result-label">Sum</span>
+                                <span class="result-value">${sum.toFixed(2)}</span>
+                            </div>
+                            <div class="result-item">
+                                <span class="result-label">Difference</span>
+                                <span class="result-value">${difference.toFixed(2)}</span>
+                            </div>
+                            <div class="result-item">
+                                <span class="result-label">Product</span>
+                                <span class="result-value">${product.toFixed(2)}</span>
+                            </div>
+                            <div class="result-item">
+                                <span class="result-label">Quotient</span>
+                                <span class="result-value">${quotient.toFixed(2)}</span>
+                            </div>
+                        `;
+                    }
+            }
+            
+            // Show results
+            document.getElementById('calculator-results').style.display = 'block';
         }
         
         // Initialize with financial calculators
         document.addEventListener('DOMContentLoaded', function() {
             showCategory('financial');
+            
+            // Add event listener to calculator form
+            document.getElementById('calculator-form').addEventListener('submit', function(e) {
+                e.preventDefault();
+                calculateResults();
+            });
         });
     </script>
 </body>
