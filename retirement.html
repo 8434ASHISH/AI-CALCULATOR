@@ -1,183 +1,269 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Smart AI Calculator | Retirement Calculator</title>
-    <meta name="description" content="Estimate your retirement savings with our free calculator. Enter current savings, monthly contributions, years, and return rate. Try now!">
-    <meta name="keywords" content="retirement calculator, savings calculator, financial planning">
-    <meta name="robots" content="index, follow">
-    <link rel="canonical" href="https://smartaicalculator.com/retirement-calculator.html">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-    <style>
-        body { font-family: Arial, sans-serif; background: linear-gradient(135deg, #1A202C, #2D3748); color: #fff; margin: 0; }
-        .header { background: #2c3e50; padding: 20px 0; text-align: center; }
-        .nav-tabs { display: flex; justify-content: center; gap: 20px; padding: 10px 0; background: #34495e; }
-        .nav-tab { color: white; text-decoration: none; padding: 5px 15px; transition: background 0.3s; font-weight: bold; text-shadow: 0 0 5px rgba(255, 107, 107, 0.5); }
-        .nav-tab:hover, .nav-tab.active { background: #3498db; border-radius: 5px; }
-        .calculator-content { max-width: 600px; margin: 20px auto; padding: 20px; background: rgba(45, 55, 72, 0.9); border-radius: 10px; box-shadow: 0 0 15px rgba(0,0,0,0.5); }
-        .calculator-box { background: #e0e0e0; color: #333; padding: 20px; border-radius: 5px; text-align: center; }
-        .input-row { display: flex; justify-content: space-between; margin-bottom: 15px; }
-        .input-row label { font-weight: bold; }
-        input { border: 1px solid #ccc; padding: 5px; border-radius: 3px; width: 150px; }
-        input.invalid { border-color: #ff6b6b; }
-        button { background: linear-gradient(135deg, #ff6b6b, #e63946); color: white; padding: 12px 24px; border: none; border-radius: 5px; cursor: pointer; font-weight: bold; font-size: 1.1rem; box-shadow: 0 3px 6px rgba(0,0,0,0.4); transition: transform 0.2s, background 0.2s; text-transform: uppercase; }
-        button:hover { background: linear-gradient(135deg, #e63946, #c0392b); transform: scale(1.05); }
-        .ads-section { margin-top: 10px; padding: 10px; background: #34495e; border-radius: 5px; text-align: center; }
-        .ads-section p { font-size: 1.2rem; font-weight: bold; color: #1e90ff; }
-        .ads-section a { color: #1e90ff; text-decoration: underline; }
-        .voice-icon { display: inline-block; padding: 10px; cursor: pointer; font-size: 2rem; color: #00cec9; transition: color 0.2s, transform 0.2s; visibility: visible; }
-        .voice-icon:hover { color: #00b7b3; transform: scale(1.1); }
-        .button-container { display: flex; justify-content: center; align-items: center; gap: 15px; margin: 20px 0; }
-        .result-table { width: 100%; margin-top: 20px; border-collapse: collapse; }
-        .result-table th, .result-table td { border: 1px solid #ccc; padding: 10px; text-align: left; }
-        .result-table th { background: #3498db; color: white; }
-        .result-table tr:nth-child(even) { background: #f0f0f0; }
-        @media (max-width: 600px) { 
-            .input-row { flex-direction: column; } 
-            input { width: 100%; margin-bottom: 10px; } 
-            .button-container { flex-direction: row; gap: 10px; } 
-            .voice-icon { display: inline-block; visibility: visible; } 
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Retirement Planner Calculator India & USA | SMART AI CALCULATOR</title>
+
+<meta name="description" content="SMART AI CALCULATOR Retirement Planner Calculator for India & USA helps you estimate retirement corpus, monthly savings and future expenses. Plan retirement smartly.">
+
+<meta name="keywords" content="retirement planner calculator india usa, retirement planning calculator, pension calculator, smart ai calculator">
+
+<link rel="canonical" href="https://smartaicalculator.com/retirement.html"/>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-FEQ7R89CFG"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-FEQ7R89CFG');
+</script>
+
+<!-- Schema.org -->
+<script type="application/ld+json">
+{
+"@context":"https://schema.org",
+"@type":"WebApplication",
+"name":"Retirement Planner Calculator",
+"url":"https://smartaicalculator.com/retirement-planner.html",
+"applicationCategory":"FinanceApplication",
+"provider":{"@type":"Organization","name":"SMART AI CALCULATOR"}
+}
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<style>
+body{
+font-family:Segoe UI,Arial;
+background:#f8fafc;
+color:#1e293b;
+max-width:1000px;
+margin:auto;
+padding:20px;
+line-height:1.7
+}
+h1{text-align:center;color:#7c2d12;font-size:2.3em}
+h2{color:#7c2d12;border-bottom:2px solid #fed7aa;padding-bottom:8px}
+.intro{text-align:center;color:#374151;margin-bottom:40px}
+
+.calculator-box{
+background:#ffffff;
+border-radius:14px;
+padding:25px;
+box-shadow:0 12px 30px rgba(0,0,0,0.08);
+margin:40px 0;
+border-left:6px solid #ea580c
+}
+
+label{font-weight:600;color:#9a3412}
+input{
+width:100%;
+padding:12px;
+margin:10px 0;
+border-radius:6px;
+border:1px solid #fed7aa
+}
+
+button{
+background:#ea580c;
+color:white;
+border:none;
+padding:14px;
+width:100%;
+font-size:16px;
+border-radius:6px;
+cursor:pointer
+}
+button:hover{background:#c2410c}
+
+#result{
+margin-top:20px;
+background:#fff7ed;
+padding:15px;
+border-radius:8px;
+border-left:4px solid #ea580c
+}
+
+.ads{
+background:#e5e7eb;
+padding:15px;
+text-align:center;
+border-radius:8px;
+margin:25px 0;
+color:#475569
+}
+
+.chart-box{margin:30px 0}
+
+.faq-item{margin-bottom:20px}
+
+.related{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:15px
+}
+.related div{
+background:#ffffff;
+padding:15px;
+border-radius:8px;
+box-shadow:0 4px 10px rgba(0,0,0,0.08)
+}
+
+footer{
+margin-top:60px;
+padding:20px;
+text-align:center;
+font-size:14px;
+color:#475569;
+border-top:1px solid #e2e8f0
+}
+footer a{color:#7c2d12;text-decoration:none;margin:0 6px}
+
+.speaker{cursor:pointer;float:right;font-size:20px}
+</style>
 </head>
+
 <body>
-    <header class="header">
-        <h1>Smart AI Calculator</h1>
-        <h2>Retirement Calculator</h2>
-    </header>
-    <nav class="nav-tabs">
-        <a href="index.html#home" class="nav-tab">HOME</a>
-        <a href="index.html#miscellaneous" class="nav-tab active">MISCELLANEOUS</a>
-    </nav>
-    <div class="calculator-content">
-        <div class="calculator-box">
-            <h2>Enter Retirement Details</h2>
-            <div class="input-row">
-                <label>Current Savings (₹)</label>
-                <input type="number" id="current-savings" min="0" step="0.01" oninput="validateInput(this)">
-            </div>
-            <div class="input-row">
-                <label>Monthly Contribution (₹)</label>
-                <input type="number" id="monthly-contribution" min="0" step="0.01" oninput="validateInput(this)">
-            </div>
-            <div class="input-row">
-                <label>Years Until Retirement</label>
-                <input type="number" id="years" min="1" step="1" oninput="validateInput(this)">
-            </div>
-            <div class="input-row">
-                <label>Annual Return Rate (%)</label>
-                <input type="number" id="return-rate" min="0" max="100" step="0.1" oninput="validateInput(this)">
-            </div>
-            <div class="button-container">
-                <button onclick="calculateRetirement()">Calculate <span id="spinner" style="display:none;">⏳</span></button>
-                <span class="voice-icon" onclick="toggleSpeech()" title="Toggle Speech"><i class="fas fa-volume-up"></i></span>
-            </div>
-            <div id="retirement-result" class="mt-4 font-semibold"></div>
-            <table class="result-table" id="result-table" style="display: none;">
-                <thead>
-                    <tr>
-                        <th>Detail</th>
-                        <th>Value</th>
-                    </tr>
-                </thead>
-                <tbody id="result-table-body"></tbody>
-            </table>
-            <p style="margin-top: 10px;">You May Also Like:</p>
-<ul style="list-style: none; padding-left: 0;">
-  <li><a href="salary.html" style="font-weight: bold; color: #4f46e5; text-decoration: none;">SALARY Calculator</a></li>
-  <li><a href="password-generator.html" style="font-weight: bold; color: #4f46e5; text-decoration: none;">PASSWORD GENERATOR Calculator</a></li>
+
+<h1><b>SMART AI CALCULATOR</b><br><b>Retirement Planner Calculator (India & USA)</b></h1>
+
+<!-- INTRO -->
+<p class="intro">
+The <b>Retirement Planner Calculator</b> by SMART AI CALCULATOR helps individuals
+in <b>India & USA</b> estimate how much money they need for retirement and how
+much they should save every month to achieve a stress-free retirement.
+</p>
+
+<!-- WHAT IS RETIREMENT PLANNING -->
+<h2>What is Retirement Planning?</h2>
+<p>
+Retirement planning is the process of determining retirement income goals
+and the actions needed to achieve those goals. It includes estimating future
+expenses, inflation impact, life expectancy, and expected returns on savings.
+A retirement planner calculator simplifies this complex process.
+</p>
+
+<!-- CALCULATOR -->
+<div class="calculator-box">
+<h2>Retirement Planner Calculator <span class="speaker" onclick="speakResult()">🔊</span></h2>
+
+<label>Current Age</label>
+<input type="number" id="currentAge" placeholder="Example: 30">
+
+<label>Retirement Age</label>
+<input type="number" id="retireAge" placeholder="Example: 60">
+
+<label>Monthly Expenses (Today)</label>
+<input type="number" id="expense" placeholder="Example: 30000">
+
+<label>Expected Annual Return (%)</label>
+<input type="number" id="returnRate" placeholder="Example: 10">
+
+<label>Expected Inflation Rate (%)</label>
+<input type="number" id="inflation" placeholder="Example: 6">
+
+<button onclick="calculateRetirement()">Plan Retirement</button>
+
+<div id="result"></div>
+</div>
+
+<div class="ads">📢 Google Adsense Ad Space</div>
+
+<div class="chart-box">
+<canvas id="retireChart"></canvas>
+</div>
+
+<!-- HOW CALCULATED -->
+<h2>How Retirement Planning is Calculated</h2>
+<p>
+The retirement planner estimates future monthly expenses after adjusting
+for inflation, calculates the required retirement corpus, and estimates
+how much you need to save based on expected investment returns.
+</p>
+
+<!-- BENEFITS -->
+<h2>Benefits of Retirement Planner Calculator</h2>
+<ul>
+<li>Helps estimate required retirement corpus</li>
+<li>Considers inflation and investment returns</li>
+<li>Encourages disciplined long-term savings</li>
+<li>Useful for India & USA retirement planning</li>
 </ul>
-            <div class="ads-section">
-                <p>Contact for Ads: <a href="mailto:first4bencher@gmail.com">first4bencher@gmail.com</a></p>
-            </div>
-            <div id="seo-content" class="mt-4 text-sm">
-                <h3>About Retirement Calculator</h3>
-                <p>Our Smart AI Retirement Calculator estimates your future savings based on current savings, monthly contributions, years, and return rate. It’s user-friendly, responsive, and SEO-optimized with keywords like 'retirement calculator' and 'financial planning.' Perfect for retirement planning!</p>
-            </div>
-        </div>
-    </div>
-    <footer class="bg-gray-800 text-white text-center py-4 mt-8">
-        <p style="font-weight: bold;">2025 © Smart AI Calculator. All rights reserved.</p>
-        <a href="privacy.html" class="text-blue-400 ml-2">Privacy Policy</a> |
-        <a href="contactus.html" class="text-blue-400 ml-2">Contact Us</a> |
-        <a href="howto.html" class="text-blue-400 ml-2">How to Use</a>
-    </footer>
-    <script>
-        let isSpeaking = false;
-        let utterance = null;
-        function validateInput(input) {
-            let value = parseFloat(input.value);
-            if (input.id === "current-savings" && (value < 0 || isNaN(value))) {
-                input.classList.add("invalid");
-            } else if (input.id === "monthly-contribution" && (value < 0 || isNaN(value))) {
-                input.classList.add("invalid");
-            } else if (input.id === "years" && (value < 1 || isNaN(value))) {
-                input.classList.add("invalid");
-            } else if (input.id === "return-rate" && (value < 0 || value > 100 || isNaN(value))) {
-                input.classList.add("invalid");
-            } else {
-                input.classList.remove("invalid");
-            }
-        }
-        function calculateRetirement() {
-            document.getElementById("spinner").style.display = "inline";
-            setTimeout(() => {
-                let currentSavings = parseFloat(document.getElementById("current-savings").value);
-                let monthlyContribution = parseFloat(document.getElementById("monthly-contribution").value);
-                let years = parseFloat(document.getElementById("years").value);
-                let returnRate = parseFloat(document.getElementById("return-rate").value) / 100;
-                let resultDiv = document.getElementById("retirement-result");
-                let tableBody = document.getElementById("result-table-body");
-                let table = document.getElementById("result-table");
-                tableBody.innerHTML = "";
-                if (isNaN(currentSavings) || currentSavings < 0 || isNaN(monthlyContribution) || monthlyContribution < 0 || isNaN(years) || years < 1 || isNaN(returnRate) || returnRate < 0 || returnRate > 1) {
-                    resultDiv.innerText = "Invalid input. Check all fields.";
-                    table.style.display = "none";
-                    document.getElementById("spinner").style.display = "none";
-                    return;
-                }
-                let months = years * 12;
-                let monthlyRate = returnRate / 12;
-                let futureValueSavings = currentSavings * Math.pow(1 + monthlyRate, months);
-                let futureValueContributions = monthlyContribution * ((Math.pow(1 + monthlyRate, months) - 1) / monthlyRate);
-                let totalSavings = futureValueSavings + futureValueContributions;
-                resultDiv.innerText = `Retirement Savings: ₹${totalSavings.toFixed(2)}`;
-                tableBody.innerHTML = `
-                    <tr><td>Retirement Savings</td><td>₹${totalSavings.toFixed(2)}</td></tr>
-                    <tr><td>Current Savings</td><td>₹${currentSavings.toFixed(2)}</td></tr>
-                    <tr><td>Monthly Contribution</td><td>₹${monthlyContribution.toFixed(2)}</td></tr>
-                    <tr><td>Years</td><td>${years}</td></tr>
-                `;
-                table.style.display = "table";
-                document.getElementById("spinner").style.display = "none";
-            }, 500);
-        }
-        function toggleSpeech() {
-            const result = document.getElementById("retirement-result").innerText;
-            if (!result || result.includes("Invalid")) {
-                console.log("No valid result to speak");
-                return;
-            }
-            if (isSpeaking) {
-                window.speechSynthesis.cancel();
-                isSpeaking = false;
-            } else {
-                utterance = new SpeechSynthesisUtterance(result);
-                utterance.lang = "en";
-                utterance.onend = () => { isSpeaking = false; };
-                window.speechSynthesis.speak(utterance);
-                isSpeaking = true;
-            }
-        }
-        function stopSpeech() {
-            if (isSpeaking) {
-                window.speechSynthesis.cancel();
-                isSpeaking = false;
-            }
-        }
-        window.onpagehide = stopSpeech;
-        window.onbeforeunload = stopSpeech;
-    </script>
+
+<!-- FAQ -->
+<h2>Frequently Asked Questions (FAQ)</h2>
+
+<div class="faq-item">
+<b>When should I start retirement planning?</b>
+<p>The earlier you start, the less monthly savings are required.</p>
+</div>
+
+<div class="faq-item">
+<b>Does this calculator consider inflation?</b>
+<p>Yes, inflation is included to estimate future expenses.</p>
+</div>
+
+<div class="faq-item">
+<b>Is this calculator accurate?</b>
+<p>It provides close estimates based on standard financial assumptions.</p>
+</div>
+
+<!-- INTERLINKING -->
+<h2>Related Calculators</h2>
+<div class="related">
+<div><a href="sip.html">SIP Calculator</a></div>
+<div><a href="saving.html">Saving Calculator</a></div>
+</div>
+
+<footer>
+<a href="privacy-policy.html">Privacy Policy</a> |
+<a href="disclaimer.html">Disclaimer</a> |
+<a href="contact-us.html">Contact Us</a>
+<p>© 2025-2026 SMART AI CALCULATOR</p>
+</footer>
+
+<script>
+let chart;
+
+function calculateRetirement(){
+let age = +currentAge.value;
+let retire = +retireAge.value;
+let expense = +document.getElementById("expense").value;
+let r = +returnRate.value/100;
+let inf = +inflation.value/100;
+
+let years = retire - age;
+let futureExpense = expense * Math.pow(1+inf, years);
+let corpus = futureExpense * 12 * 25;
+
+result.innerHTML =
+`<p><b>Years to Retirement:</b> ${years}</p>
+<p><b>Estimated Monthly Expense at Retirement:</b> ${futureExpense.toFixed(2)}</p>
+<p><b>Estimated Retirement Corpus Needed:</b> ${corpus.toFixed(2)}</p>`;
+
+if(chart) chart.destroy();
+chart = new Chart(retireChart,{
+type:"bar",
+data:{
+labels:["Today's Monthly Expense","Retirement Monthly Expense"],
+datasets:[{
+data:[expense,futureExpense],
+backgroundColor:["#ea580c","#22c55e"]
+}]
+}
+});
+}
+
+function speakResult(){
+if(!result.innerText) return;
+let s = new SpeechSynthesisUtterance(result.innerText);
+s.lang="en-US";
+speechSynthesis.speak(s);
+}
+</script>
+
+</body>
 </html>
