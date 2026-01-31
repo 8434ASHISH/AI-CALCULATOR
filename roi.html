@@ -1,203 +1,252 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ROI Calculator – Measure Your Investment Returns</title>
-    <meta name="description" content=" Calculate Return on Investment (ROI) to assess the profitability of your investments easily.">
-    <meta name="keywords" content="roi calculator, ai roi calculator, caculator, return on investment calculator, ROI percentage calculator, free roi calculator, online roi calculator, return on investment calculator">
-    <meta name="robots" content="index, follow">
-  <link rel="canonical" href="https://smartaicalculator.com/roi.html">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background: linear-gradient(135deg, #1A202C, #2D3748);
-            color: #fff;
-            margin: 0;
-        }
-        .header { background: #2c3e50; padding: 20px 0; text-align: center; position: relative; }
-        .nav-tabs { display: flex; justify-content: center; gap: 20px; padding: 10px 0; background: #34495e; }
-        .nav-tab { color: white; text-decoration: none; padding: 5px 15px; transition: background 0.3s; }
-        .nav-tab:hover, .nav-tab.active { background: #3498db; border-radius: 5px; }
-        .calculator-content { max-width: 600px; margin: 20px auto; padding: 20px; background: rgba(45, 55, 72, 0.9); border-radius: 10px; box-shadow: 0 0 15px rgba(0,0,0,0.5); }
-        .calculator-box { background: #e0e0e0; color: #333; padding: 20px; border-radius: 5px; text-align: center; }
-        .input-row { display: flex; justify-content: space-between; margin-bottom: 15px; }
-        .input-row label { font-weight: bold; }
-        input { border: 1px solid #ccc; padding: 5px; border-radius: 3px; width: 100px; }
-        button { 
-            background: linear-gradient(135deg, #ff6b6b, #e63946); 
-            color: white; 
-            padding: 12px 24px; 
-            border: none; 
-            border-radius: 5px; 
-            cursor: pointer; 
-            font-weight: bold; 
-            font-size: 1.1rem; 
-            box-shadow: 0 3px 6px rgba(0,0,0,0.4); 
-            transition: transform 0.2s, background 0.2s; 
-            text-transform: uppercase; 
-        }
-        button:hover { 
-            background: linear-gradient(135deg, #e63946, #c0392b); 
-            transform: scale(1.05); 
-        }
-        .ads-section { margin-top: 20px; padding: 20px; background: #34495e; border-radius: 10px; text-align: center; box-shadow: 0 0 10px rgba(0,0,0,0.3); }
-        .ads-section p { font-size: 1.5rem; font-weight: bold; color: #1e90ff; }
-        .ads-section a { color: #1e90ff; text-decoration: underline; }
-        .voice-icon { 
-            display: inline-block; 
-            padding: 10px; 
-            cursor: pointer; 
-            font-size: 2rem; 
-            color: #00cec9; 
-            transition: color 0.2s, transform 0.2s; 
-        }
-        .voice-icon:hover { 
-            color: #00b7b3; 
-            transform: scale(1.1); 
-        }
-        .button-container { 
-            display: flex; 
-            justify-content: center; 
-            align-items: center; 
-            gap: 15px; 
-            margin: 20px 0; 
-        }
-        @media (max-width: 600px) { 
-            .input-row { flex-direction: column; } 
-            input { width: 100%; margin-bottom: 10px; } 
-            .button-container { flex-direction: row; gap: 10px; } 
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>ROI Calculator India & USA | SMART AI CALCULATOR</title>
+
+<meta name="description" content="SMART AI CALCULATOR ROI Calculator for India & USA helps you calculate return on investment percentage, profit and loss with charts.">
+
+<meta name="keywords" content="roi calculator india usa, return on investment calculator, smart ai calculator">
+
+<link rel="canonical" href="https://smartaicalculator.com/roi.html"/>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-FEQ7R89CFG"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-FEQ7R89CFG');
+</script>
+
+<!-- Schema.org -->
+<script type="application/ld+json">
+{
+"@context":"https://schema.org",
+"@type":"WebApplication",
+"name":"ROI Calculator",
+"url":"https://smartaicalculator.com/roi.html",
+"applicationCategory":"FinanceApplication",
+"provider":{"@type":"Organization","name":"SMART AI CALCULATOR"}
+}
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<style>
+body{
+font-family:Segoe UI,Arial;
+background:#fff1f2;
+color:#1f2937;
+max-width:1000px;
+margin:auto;
+padding:20px;
+line-height:1.7
+}
+h1{text-align:center;color:#be123c;font-size:2.3em}
+h2{color:#be123c;border-bottom:2px solid #fecdd3;padding-bottom:8px}
+.intro{text-align:center;color:#374151;margin-bottom:40px}
+
+.calculator-box{
+background:#ffffff;
+border-radius:14px;
+padding:25px;
+box-shadow:0 12px 30px rgba(0,0,0,0.08);
+margin:40px 0;
+border-left:6px solid #e11d48
+}
+
+label{font-weight:600;color:#9f1239}
+input{
+width:100%;
+padding:12px;
+margin:10px 0;
+border-radius:6px;
+border:1px solid #fecdd3
+}
+
+button{
+background:#e11d48;
+color:white;
+border:none;
+padding:14px;
+width:100%;
+font-size:16px;
+border-radius:6px;
+cursor:pointer
+}
+button:hover{background:#be123c}
+
+#result{
+margin-top:20px;
+background:#fff1f2;
+padding:15px;
+border-radius:8px;
+border-left:4px solid #e11d48
+}
+
+.ads{
+background:#e5e7eb;
+padding:15px;
+text-align:center;
+border-radius:8px;
+margin:25px 0;
+color:#475569
+}
+
+.chart-box{margin:30px 0}
+
+.related{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:15px
+}
+.related div{
+background:#ffffff;
+padding:15px;
+border-radius:8px;
+box-shadow:0 4px 10px rgba(0,0,0,0.08)
+}
+
+footer{
+margin-top:60px;
+padding:20px;
+text-align:center;
+font-size:14px;
+color:#475569;
+border-top:1px solid #e2e8f0
+}
+footer a{color:#be123c;text-decoration:none;margin:0 6px}
+
+.speaker{cursor:pointer;float:right;font-size:20px}
+</style>
 </head>
+
 <body>
-    <header class="header">
-        <h1 id="header-title">Investment ROI Calculator</h1>
-        <p id="tagline">ROI Calculator</p>
-    </header>
-    <nav class="nav-tabs">
-        <a href="index.html#financial" class="nav-tab" onclick="showCategory('financial')">FINANCIAL</a>
-        <a href="index.html#health" class="nav-tab" onclick="showCategory('home')">HOME</a>
-       
-    </nav>
-    <div class="calculator-content">
-        <div class="calculator-box">
-            <h2 id="calc-title">Enter initial investment and final value to calculate ROI</h2>
-            <div class="input-row">
-                <label id="amount-label">Initial Investment (₹)</label>
-                <input type="number" id="initial-investment" min="0" value="100000">
-            </div>
-            <div class="input-row">
-                <label id="final-label">Final Value (₹)</label>
-                <input type="number" id="final-value" min="0" value="120000">
-            </div>
-            <div class="button-container">
-                <button onclick="calculateROI()">Calculate <span id="spinner" style="display:none;">⏳</span></button>
-                <span class="voice-icon" onclick="toggleSpeech()" title="Toggle Speech">🔊</span>
-            </div>
-            <p style="margin-top: 10px;">You May Also Like:</p>
-<ul style="list-style: none; padding-left: 0;">
-  <li><a href="investment.html" style="font-weight: bold; color: #4f46e5; text-decoration: none;">INVESTMENT Calculator</a></li>
-  <li><a href="loan.html" style="font-weight: bold; color: #4f46e5; text-decoration: none;">LOAN Calculator</a></li>
+
+<h1><b>SMART AI CALCULATOR</b><br><b>ROI Calculator (India & USA)</b></h1>
+
+<!-- INTRO -->
+<p class="intro">
+The <b>ROI Calculator</b> by SMART AI CALCULATOR helps investors and businesses
+in <b>India & USA</b> measure profitability by calculating
+<b>Return on Investment (ROI)</b> quickly and accurately.
+</p>
+
+<!-- WHAT IS ROI -->
+<h2>What is ROI?</h2>
+<p>
+ROI (Return on Investment) is a financial metric used to evaluate the
+profitability of an investment. It compares the net profit to the cost
+of investment and is widely used in business, marketing, and investment
+analysis in both India and the USA.
+</p>
+
+<!-- CALCULATOR -->
+<div class="calculator-box">
+<h2>ROI Calculator <span class="speaker" onclick="speakResult()">🔊</span></h2>
+
+<label>Investment Cost</label>
+<input type="number" id="cost" placeholder="Example: 100000">
+
+<label>Final Value</label>
+<input type="number" id="value" placeholder="Example: 140000">
+
+<button onclick="calculateROI()">Calculate ROI</button>
+
+<div id="result"></div>
+</div>
+
+<div class="ads">📢 Google Adsense Ad Space</div>
+
+<div class="chart-box">
+<canvas id="roiChart"></canvas>
+</div>
+
+<!-- HOW CALCULATED -->
+<h2>How ROI is Calculated</h2>
+<p>
+ROI is calculated using a simple percentage formula that shows how much
+profit or loss you made compared to the original investment amount.
+</p>
+
+<!-- BENEFITS -->
+<h2>Benefits of ROI Calculator</h2>
+<ul>
+<li>Quickly evaluates investment performance</li>
+<li>Helps compare multiple investment options</li>
+<li>Useful for business & marketing decisions</li>
+<li>Works for India & USA markets</li>
 </ul>
-            <div class="ads-section">
-                <p>Contact for Ads: <a href="mailto:first4bencher@gmail.com">first4bencher@gmail.com</a></p>
-            </div>
-            <div id="roi-result" class="mt-4 font-semibold"></div>
-            <div id="seo-content" class="mt-4 text-sm">
-                <h3>About ROI Calculator</h3>
-                <p>Welcome to the AI ROI Calculator, a free online tool designed to help you calculate your Return on Investment (ROI) with ease. Whether you’re evaluating business investments, stock market returns, or real estate ventures, this calculator leverages advanced AI technology to provide accurate and instant results. Available in multiple languages including English, Hindi, Tamil, Telugu, Spanish, Bengali, Arabic, Mandarin, and French, it caters to a diverse global audience. Simply enter your initial investment and final value, and click "Calculate" to get your ROI breakdown.</p>
-                <p>Why choose our ROI Calculator? It’s user-friendly, fast, and optimized for all devices, making it perfect for investors, financial planners, and entrepreneurs. The tool uses a standard ROI formula: ROI = [(Final Value - Initial Investment) / Initial Investment] * 100. Our AI integration ensures precision and offers suggestions for optimizing investments. This calculator stands out due to its multilingual support and modern design, setting it apart from traditional ROI calculators.</p>
-                <p>SEO optimization is crucial for this tool to rank high on search engines like Google. We’ve included meta tags, a canonical URL, and keywords such as "roi calculator online," "free roi calculator," and "AI roi tool" to boost visibility. To enhance ranking, consider adding backlinks from financial or investment blogs or submitting the site to directories. Regular updates and user feedback can further improve its performance. Ideal for investment planning, this calculator is a must-try for anyone seeking financial clarity. Explore it today and take control of your investment decisions!</p>
-            </div>
-             <!-- FAQs Section -->
-    <div>
-        <h2>FREQUENTLY ASKED QUESTIONS</h2>
-        <p><strong>Q1: How accurate are the results provided by this calculator?</strong><br>
-        A: Our calculators use standard formulas and algorithms to provide accurate results. However, results may vary based on the input data you provide. For professional advice, we recommend consulting an expert.</p>
-        
-        <p><strong>Q2: Do I need to sign up or pay to use this calculator?</strong><br>
-        A: No, all calculators on SMART AI Calculator are completely free to use, and no sign-up is required. Just enter your details and get instant results!</p>
-        
-        <p><strong>Q3: Can I use this calculator on my mobile device?</strong><br>
-        A: Yes, our website is fully responsive and works seamlessly on all devices, including mobiles, tablets, and desktops. No app download is needed—just access it through your browser.</p>
-        
-        <p><strong>Q4: What should I do if I encounter an error or have a suggestion?</strong><br>
-        A: If you face any issues or have suggestions, please use the "Feedback" link on our website to reach out. We’re here to help and improve your experience!</p>
-    </div>
-        </div>
-    </div>
-    <footer class="bg-gray-800 text-white text-center py-4 mt-8">
-        <p style="font-weight: bold;">2025 © Smart AI Calculator. All rights reserved.</p>
-        <a href="privacy.html" class="text-blue-400 ml-2">Privacy Policy</a> |
-        <a href="contactus.html" class="text-blue-400 ml-2">Contact Us</a> |
-        <a href="howto.html" class="text-blue-400 ml-2">How to Use</a>
-    </footer>
-    <script>
-        let lang = 'en';
-        let isSpeaking = false;
-        let utterance = null;
-        const translations = {
-            en: { header: "Smart AI Calculator", tagline: "ROI Calculator", calcTitle: "Enter initial investment and final value to calculate ROI", amountLabel: "Initial Investment (₹)", finalLabel: "Final Value (₹)", resultPrefix: "ROI: " },
-            hi: { header: "स्मार्ट एआई कैलकुलेटर", tagline: "ROI कैलकुलेटर", calcTitle: "प्रारंभिक निवेश और अंतिम मूल्य दर्ज करें ROI की गणना के लिए", amountLabel: "प्रारंभिक निवेश (₹)", finalLabel: "अंतिम मूल्य (₹)", resultPrefix: "ROI: " },
-            ta: { header: "ஸ்மார்ட் AI கால்குலேட்டர்", tagline: "ROI கால்குலேட்டர்", calcTitle: "ஆரம்ப முதலீடு மற்றும் இறுதி மதிப்பை உள்ளிடவும் ROI கணக்கிட", amountLabel: "ஆரம்ப முதலீடு (₹)", finalLabel: "இறுதி மதிப்பு (₹)", resultPrefix: "ROI: " },
-            te: { header: "స్మార్ట్ AI కాల్కులేటర్", tagline: "ROI కాల్కులేటర్", calcTitle: "ప్రారంభ పెట్టుబడి మరియు చివరి విలువను నమోదు చేయండి ROI కోసం", amountLabel: "ప్రారంభ పెట్టుబడి (₹)", finalLabel: "చివరి విలువ (₹)", resultPrefix: "ROI: " },
-            es: { header: "Calculadora de IA Inteligente", tagline: "Calculadora de ROI", calcTitle: "Ingrese la inversión inicial y el valor final para calcular el ROI", amountLabel: "Inversión inicial (₹)", finalLabel: "Valor final (₹)", resultPrefix: "ROI: " },
-            bn: { header: "স্মার্ট এআই ক্যালকুলেটর", tagline: "ROI ক্যালকুলেটর", calcTitle: "প্রাথমিক বিনিয়োগ এবং চূড়ান্ত মূল্য লিখুন ROI গণনার জন্য", amountLabel: "প্রাথমিক বিনিয়োগ (₹)", finalLabel: "চূড়ান্ত মূল্য (₹)", resultPrefix: "ROI: " },
-            ar: { header: "حاسبة الذكاء الاصطناعي الذكية", tagline: "حاسبة العائد على الاستثمار", calcTitle: "أدخل الاستثمار الأولي والقيمة النهائية لحساب العائد على الاستثمار", amountLabel: "الاستثمار الأولي (₹)", finalLabel: "القيمة النهائية (₹)", resultPrefix: "العائد على الاستثمار: " },
-            zh: { header: "智能人工智能计算器", tagline: "投资回报率计算器", calcTitle: "输入初始投资和最终价值以计算ROI", amountLabel: "初始投资 (₹)", finalLabel: "最终价值 (₹)", resultPrefix: "ROI: " },
-            fr: { header: "Calculateur IA Intelligent", tagline: "Calculateur de ROI", calcTitle: "Entrez l'investissement initial et la valeur finale pour calculer le ROI", amountLabel: "Investissement initial (₹)", finalLabel: "Valeur finale (₹)", resultPrefix: "ROI: " }
-        };
-        function calculateROI() {
-            document.getElementById("spinner").style.display = "inline";
-            setTimeout(() => {
-                let initialInvestment = parseFloat(document.getElementById("initial-investment").value);
-                let finalValue = parseFloat(document.getElementById("final-value").value);
-                let resultDiv = document.getElementById("roi-result");
-                if (initialInvestment > 0 && finalValue >= 0) {
-                    let roi = ((finalValue - initialInvestment) / initialInvestment) * 100;
-                    let netProfit = finalValue - initialInvestment;
-                    resultDiv.innerHTML = `${translations[lang].resultPrefix} ${roi.toFixed(2)} %<br>Net Profit: ${netProfit.toFixed(2)} ₹<br>Final Value: ${finalValue.toFixed(2)} ₹`;
-                } else {
-                    resultDiv.innerText = lang === 'en' ? "Please enter valid values" : lang === 'hi' ? "कृपया वैध मान दर्ज करें" : lang === 'ta' ? "சரியான மதிப்புகளை உள்ளிடவும்" : lang === 'te' ? "దయచేసి సరైన విలువలను నమోదు చేయండి" : lang === 'es' ? "Por favor, ingrese valores válidos" : lang === 'bn' ? "দয়া করে বৈধ মান লিখুন" : lang === 'ar' ? "يرجى إدخال قيم صحيحة" : lang === 'zh' ? "请输入有效值" : "Veuillez entrer des valeurs valides";
-                }
-                document.getElementById("spinner").style.display = "none";
-            }, 1000);
-        }
-        function toggleSpeech() {
-            const result = document.getElementById("roi-result").innerHTML;
-            if (!result) return;
-            if (isSpeaking) {
-                window.speechSynthesis.cancel();
-                isSpeaking = false;
-            } else {
-                utterance = new SpeechSynthesisUtterance(result);
-                utterance.lang = lang === 'zh' ? 'zh-CN' : lang === 'ar' ? 'ar-SA' : lang;
-                utterance.onend = () => {
-                    isSpeaking = false;
-                };
-                window.speechSynthesis.speak(utterance);
-                isSpeaking = true;
-            }
-        }
-        function stopSpeech() {
-            if (isSpeaking) {
-                window.speechSynthesis.cancel();
-                isSpeaking = false;
-            }
-        }
-        function showCategory(category) {
-            // No action needed here as navigation is handled by index.html
-        }
-        window.onload = () => {
-            document.getElementById('header-title').textContent = translations[lang].header;
-            document.getElementById('tagline').textContent = translations[lang].tagline;
-            document.getElementById('calc-title').textContent = translations[lang].calcTitle;
-            document.getElementById('amount-label').textContent = translations[lang].amountLabel;
-            document.getElementById('final-label').textContent = translations[lang].finalLabel;
-        };
-        window.onpagehide = stopSpeech;
-        window.onbeforeunload = stopSpeech;
-    </script>
-<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'934ab0e65a83454b',t:'MTc0NTM4MzMxMi4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></html>
+
+<!-- FAQ -->
+<h2>Frequently Asked Questions (FAQ)</h2>
+
+<div class="faq-item">
+<b>What is a good ROI?</b>
+<p>A higher ROI is better; acceptable ROI depends on risk and market.</p>
+</div>
+
+<div class="faq-item">
+<b>Can ROI be negative?</b>
+<p>Yes, a negative ROI indicates a loss.</p>
+</div>
+
+<div class="faq-item">
+<b>Is ROI enough to judge an investment?</b>
+<p>No, ROI should be considered with risk and time factors.</p>
+</div>
+
+<!-- INTERLINKING -->
+<h2>Related Calculators</h2>
+<div class="related">
+<div><a href="sip.html">SIP Calculator</a></div>
+<div><a href="investment.html">Investment Calculator</a></div>
+</div>
+
+<footer>
+<a href="privacy-policy.html">Privacy Policy</a> |
+<a href="disclaimer.html">Disclaimer</a> |
+<a href="contact-us.html">Contact Us</a>
+<p>© 2026 SMART AI CALCULATOR</p>
+</footer>
+
+<script>
+let chart;
+
+function calculateROI(){
+let cost = +document.getElementById("cost").value;
+let value = +document.getElementById("value").value;
+
+let profit = value - cost;
+let roi = (profit / cost) * 100;
+
+result.innerHTML =
+`<p><b>Profit / Loss:</b> ${profit.toFixed(2)}</p>
+<p><b>ROI Percentage:</b> ${roi.toFixed(2)}%</p>`;
+
+if(chart) chart.destroy();
+chart = new Chart(roiChart,{
+type:"bar",
+data:{
+labels:["Investment","Final Value"],
+datasets:[{
+data:[cost,value],
+backgroundColor:["#e11d48","#22c55e"]
+}]
+}
+});
+}
+
+function speakResult(){
+if(!result.innerText) return;
+let s = new SpeechSynthesisUtterance(result.innerText);
+s.lang="en-US";
+speechSynthesis.speak(s);
+}
+</script>
+
+</body>
+</html>
