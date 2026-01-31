@@ -1,189 +1,239 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Smart AI Calculator | Salary Calculator</title>
-    <meta name="description" content="Calculate your net salary with our free salary calculator. Enter gross salary, tax rate, and deductions for instant results. Try now!">
-    <meta name="keywords" content="salary calculator, net salary, payroll calculator">
-    <meta name="robots" content="index, follow">
-<link rel="canonical" href="https://smartaicalculator.com/salary-calculator.html">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-    <style>
-        body { font-family: Arial, sans-serif; background: linear-gradient(135deg, #1A202C, #2D3748); color: #fff; margin: 0; }
-        .header { background: #2c3e50; padding: 20px 0; text-align: center; }
-        .nav-tabs { display: flex; justify-content: center; gap: 20px; padding: 10px 0; background: #34495e; }
-        .nav-tab { color: white; text-decoration: none; padding: 5px 15px; transition: background 0.3s; font-weight: bold; text-shadow: 0 0 5px rgba(255, 107, 107, 0.5); }
-        .nav-tab:hover, .nav-tab.active { background: #3498db; border-radius: 5px; }
-        .calculator-content { max-width: 600px; margin: 20px auto; padding: 20px; background: rgba(45, 55, 72, 0.9); border-radius: 10px; box-shadow: 0 0 15px rgba(0,0,0,0.5); }
-        .calculator-box { background: #e0e0e0; color: #333; padding: 20px; border-radius: 5px; text-align: center; }
-        .input-row { display: flex; justify-content: space-between; margin-bottom: 15px; }
-        .input-row label { font-weight: bold; }
-        input { border: 1px solid #ccc; padding: 5px; border-radius: 3px; width: 150px; }
-        input.invalid { border-color: #ff6b6b; }
-        button { background: linear-gradient(135deg, #ff6b6b, #e63946); color: white; padding: 12px 24px; border: none; border-radius: 5px; cursor: pointer; font-weight: bold; font-size: 1.1rem; box-shadow: 0 3px 6px rgba(0,0,0,0.4); transition: transform 0.2s, background 0.2s; text-transform: uppercase; }
-        button:hover { background: linear-gradient(135deg, #e63946, #c0392b); transform: scale(1.05); }
-        .ads-section { margin-top: 10px; padding: 10px; background: #34495e; border-radius: 5px; text-align: center; }
-        .ads-section p { font-size: 1.2rem; font-weight: bold; color: #1e90ff; }
-        .ads-section a { color: #1e90ff; text-decoration: underline; }
-        .voice-icon { display: inline-block; padding: 10px; cursor: pointer; font-size: 2rem; color: #00cec9; transition: color 0.2s, transform 0.2s; visibility: visible; }
-        .voice-icon:hover { color: #00b7b3; transform: scale(1.1); }
-        .button-container { display: flex; justify-content: center; align-items: center; gap: 15px; margin: 20px 0; }
-        .suggestions { margin-top: 20px; padding: 15px; background: #f0f0f0; border-radius: 5px; text-align: left; display: none; }
-        .suggestions h3 { font-size: 1.2rem; font-weight: bold; margin-bottom: 10px; }
-        .suggestions ul { list-style-type: disc; padding-left: 20px; }
-        .suggestions li { margin-bottom: 8px; }
-        .result-table { width: 100%; margin-top: 20px; border-collapse: collapse; }
-        .result-table th, .result-table td { border: 1px solid #ccc; padding: 10px; text-align: left; }
-        .result-table th { background: #3498db; color: white; }
-        .result-table tr:nth-child(even) { background: #f0f0f0; }
-        @media (max-width: 600px) { 
-            .input-row { flex-direction: column; } 
-            input { width: 100%; margin-bottom: 10px; } 
-            .button-container { flex-direction: row; gap: 10px; } 
-            .voice-icon { display: inline-block; visibility: visible; } 
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Salary Calculator India & USA | SMART AI CALCULATOR</title>
+
+<meta name="description" content="SMART AI CALCULATOR Salary Calculator for India & USA helps you calculate monthly, yearly, gross and net salary easily. Free, fast and accurate.">
+
+<meta name="keywords" content="salary calculator india usa, monthly salary calculator, yearly salary calculator, smart ai calculator">
+
+<link rel="canonical" href="https://smartaicalculator.com/salary.html"/>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-FEQ7R89CFG"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-FEQ7R89CFG');
+</script>
+
+<!-- Schema.org -->
+<script type="application/ld+json">
+{
+"@context":"https://schema.org",
+"@type":"WebApplication",
+"name":"Salary Calculator",
+"url":"https://smartaicalculator.com/salary.html",
+"applicationCategory":"FinanceApplication",
+"provider":{"@type":"Organization","name":"SMART AI CALCULATOR"}
+}
+</script>
+
+<style>
+body{
+font-family:Segoe UI,Arial;
+background:#f8fafc;
+color:#1e293b;
+max-width:1000px;
+margin:auto;
+padding:20px;
+line-height:1.7
+}
+h1{text-align:center;color:#0f766e;font-size:2.3em}
+h2{color:#0f766e;border-bottom:2px solid #99f6e4;padding-bottom:8px}
+.intro{text-align:center;color:#334155;margin-bottom:40px}
+
+.calculator-box{
+background:#ffffff;
+border-radius:14px;
+padding:25px;
+box-shadow:0 12px 30px rgba(0,0,0,0.08);
+margin:40px 0;
+border-left:6px solid #14b8a6
+}
+
+label{font-weight:600;color:#115e59}
+input{
+width:100%;
+padding:12px;
+margin:10px 0;
+border-radius:6px;
+border:1px solid #99f6e4
+}
+
+button{
+background:#14b8a6;
+color:white;
+border:none;
+padding:14px;
+width:100%;
+font-size:16px;
+border-radius:6px;
+cursor:pointer
+}
+button:hover{background:#0f766e}
+
+#result{
+margin-top:20px;
+background:#ecfeff;
+padding:15px;
+border-radius:8px;
+border-left:4px solid #14b8a6
+}
+
+.ads{
+background:#e5e7eb;
+padding:15px;
+text-align:center;
+border-radius:8px;
+margin:25px 0;
+color:#475569
+}
+
+.faq-item{margin-bottom:20px}
+
+.related{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:15px
+}
+.related div{
+background:#ffffff;
+padding:15px;
+border-radius:8px;
+box-shadow:0 4px 10px rgba(0,0,0,0.08)
+}
+
+footer{
+margin-top:60px;
+padding:20px;
+text-align:center;
+font-size:14px;
+color:#475569;
+border-top:1px solid #e2e8f0
+}
+footer a{color:#0f766e;text-decoration:none;margin:0 6px}
+
+.speaker{cursor:pointer;float:right;font-size:20px}
+</style>
 </head>
+
 <body>
-    <header class="header">
-        <h1>Smart AI Calculator</h1>
-        <h2>Salary Calculator</h2>
-    </header>
-    <nav class="nav-tabs">
-        <a href="index.html#home" class="nav-tab">HOME</a>
-        <a href="index.html#miscellaneous" class="nav-tab active">MISCELLANEOUS</a>
-    </nav>
-    <div class="calculator-content">
-        <div class="calculator-box">
-            <h2>Enter Salary Details</h2>
-            <div class="input-row">
-                <label>Gross Salary (₹)</label>
-                <input type="number" id="gross-salary" min="0" step="0.01" oninput="validateInput(this)">
-            </div>
-            <div class="input-row">
-                <label>Tax Rate (%)</label>
-                <input type="number" id="tax-rate" min="0" max="100" step="0.1" oninput="validateInput(this)">
-            </div>
-            <div class="input-row">
-                <label>Other Deductions (₹)</label>
-                <input type="number" id="deductions" min="0" step="0.01" oninput="validateInput(this)">
-            </div>
-            <div class="button-container">
-                <button onclick="calculateSalary()">Calculate <span id="spinner" style="display:none;">⏳</span></button>
-                <span class="voice-icon" onclick="toggleSpeech()" title="Toggle Speech"><i class="fas fa-volume-up"></i></span>
-            </div>
-            <div id="salary-result" class="mt-4 font-semibold"></div>
-            <table class="result-table" id="result-table" style="display: none;">
-                <thead>
-                    <tr>
-                        <th>Detail</th>
-                        <th>Value</th>
-                    </tr>
-                </thead>
-                <tbody id="result-table-body"></tbody>
-            </table>
-            <div class="suggestions" id="suggestions">
-                <h3>Suggestions for Salary Calculation</h3>
-                <ul>
-                    <li>Verify tax rate based on local regulations.</li>
-                    <li>Include all deductions like insurance or loans.</li>
-                    <li>Use for budgeting or financial planning.</li>
-                </ul>
-            </div>
-            <p style="margin-top: 10px;">You May Also Like:</p>
-<ul style="list-style: none; padding-left: 0;">
-  <li><a href="retirement.html" style="font-weight: bold; color: #4f46e5; text-decoration: none;">RETIREMENT Calculator</a></li>
-  <li><a href="tip.html" style="font-weight: bold; color: #4f46e5; text-decoration: none;">TIP Calculator</a></li>
+
+<h1><b>SMART AI CALCULATOR</b><br><b>Salary Calculator (India & USA)</b></h1>
+
+<!-- INTRO -->
+<p class="intro">
+The <b>Salary Calculator</b> by SMART AI CALCULATOR helps employees and employers
+in <b>India & USA</b> calculate monthly and yearly salary, understand gross vs net
+income, and plan finances better.
+</p>
+
+<!-- WHAT IS SALARY -->
+<h2>What is Salary?</h2>
+<p>
+Salary is the fixed regular payment received by an employee for work performed.
+It can be calculated on a monthly or yearly basis and may include allowances,
+bonuses, and deductions. A salary calculator helps estimate income clearly
+without manual calculation.
+</p>
+
+<!-- CALCULATOR -->
+<div class="calculator-box">
+<h2>Salary Calculator <span class="speaker" onclick="speakResult()">🔊</span></h2>
+
+<label>Monthly Salary</label>
+<input type="number" id="monthly" placeholder="Example: 50000">
+
+<label>Annual Bonus (Optional)</label>
+<input type="number" id="bonus" placeholder="Example: 100000">
+
+<label>Annual Deductions (Tax, PF, etc.)</label>
+<input type="number" id="deduction" placeholder="Example: 60000">
+
+<button onclick="calculateSalary()">Calculate Salary</button>
+
+<div id="result"></div>
+</div>
+
+<div class="ads">📢 Google Adsense Ad Space</div>
+
+<!-- HOW CALCULATED -->
+<h2>How Salary is Calculated</h2>
+<p>
+Yearly salary is calculated by multiplying monthly salary by 12 and adding
+bonuses. Net salary is calculated after subtracting deductions such as tax,
+PF, or insurance.
+</p>
+
+<!-- BENEFITS -->
+<h2>Benefits of Salary Calculator</h2>
+<ul>
+<li>Quick salary breakdown</li>
+<li>Helps understand gross vs net income</li>
+<li>Useful for job offers comparison</li>
+<li>Supports India & USA salary structure</li>
 </ul>
-            <div class="ads-section">
-                <p>Contact for Ads: <a href="mailto:first4bencher@gmail.com">first4bencher@gmail.com</a></p>
-            </div>
-            <div id="seo-content" class="mt-4 text-sm">
-                <h3>About Salary Calculator</h3>
-                <p>Our Smart AI Salary Calculator computes your net salary after taxes and deductions. Enter gross salary, tax rate, and other deductions for instant results. It’s user-friendly, responsive, and SEO-optimized with keywords like 'salary calculator' and 'net salary.' Perfect for financial planning!</p>
-            </div>
-        </div>
-    </div>
-    <footer class="bg-gray-800 text-white text-center py-4 mt-8">
-        <p style="font-weight: bold;">2025 © Smart AI Calculator. All rights reserved.</p>
-        <a href="privacy.html" class="text-blue-400 ml-2">Privacy Policy</a> |
-        <a href="contactus.html" class="text-blue-400 ml-2">Contact Us</a> |
-        <a href="howto.html" class="text-blue-400 ml-2">How to Use</a>
-    </footer>
-    <script>
-        let isSpeaking = false;
-        let utterance = null;
-        function validateInput(input) {
-            let value = parseFloat(input.value);
-            if (input.id === "gross-salary" && (value < 0 || isNaN(value))) {
-                input.classList.add("invalid");
-            } else if (input.id === "tax-rate" && (value < 0 || value > 100 || isNaN(value))) {
-                input.classList.add("invalid");
-            } else if (input.id === "deductions" && (value < 0 || isNaN(value))) {
-                input.classList.add("invalid");
-            } else {
-                input.classList.remove("invalid");
-            }
-        }
-        function calculateSalary() {
-            document.getElementById("spinner").style.display = "inline";
-            setTimeout(() => {
-                let grossSalary = parseFloat(document.getElementById("gross-salary").value);
-                let taxRate = parseFloat(document.getElementById("tax-rate").value);
-                let deductions = parseFloat(document.getElementById("deductions").value);
-                let resultDiv = document.getElementById("salary-result");
-                let tableBody = document.getElementById("result-table-body");
-                let suggestionsDiv = document.getElementById("suggestions");
-                let table = document.getElementById("result-table");
-                tableBody.innerHTML = "";
-                if (isNaN(grossSalary) || grossSalary < 0 || isNaN(taxRate) || taxRate < 0 || taxRate > 100 || isNaN(deductions) || deductions < 0) {
-                    resultDiv.innerText = "Invalid input. Check all fields.";
-                    table.style.display = "none";
-                    suggestionsDiv.style.display = "none";
-                    document.getElementById("spinner").style.display = "none";
-                    return;
-                }
-                let taxAmount = grossSalary * (taxRate / 100);
-                let totalDeductions = taxAmount + deductions;
-                let netSalary = grossSalary - totalDeductions;
-                resultDiv.innerText = `Net Salary: ₹${netSalary.toFixed(2)}`;
-                tableBody.innerHTML = `
-                    <tr><td>Gross Salary</td><td>₹${grossSalary.toFixed(2)}</td></tr>
-                    <tr><td>Tax Amount</td><td>₹${taxAmount.toFixed(2)}</td></tr>
-                    <tr><td>Other Deductions</td><td>₹${deductions.toFixed(2)}</td></tr>
-                    <tr><td>Net Salary</td><td>₹${netSalary.toFixed(2)}</td></tr>
-                `;
-                table.style.display = "table";
-                suggestionsDiv.style.display = "block";
-                document.getElementById("spinner").style.display = "none";
-            }, 500);
-        }
-        function toggleSpeech() {
-            const result = document.getElementById("salary-result").innerText;
-            if (!result || result.includes("Invalid")) {
-                console.log("No valid result to speak");
-                return;
-            }
-            if (isSpeaking) {
-                window.speechSynthesis.cancel();
-                isSpeaking = false;
-            } else {
-                utterance = new SpeechSynthesisUtterance(result);
-                utterance.lang = "en";
-                utterance.onend = () => { isSpeaking = false; };
-                window.speechSynthesis.speak(utterance);
-                isSpeaking = true;
-            }
-        }
-        function stopSpeech() {
-            if (isSpeaking) {
-                window.speechSynthesis.cancel();
-                isSpeaking = false;
-            }
-        }
-        window.onpagehide = stopSpeech;
-        window.onbeforeunload = stopSpeech;
-    </script>
+
+<!-- FAQ -->
+<h2>Frequently Asked Questions (FAQ)</h2>
+
+<div class="faq-item">
+<b>Is this net salary or gross salary?</b>
+<p>This calculator shows both gross and net salary.</p>
+</div>
+
+<div class="faq-item">
+<b>Can I include bonuses?</b>
+<p>Yes, annual bonuses can be added separately.</p>
+</div>
+
+<div class="faq-item">
+<b>Is this calculator free?</b>
+<p>Yes, SMART AI CALCULATOR tools are completely free.</p>
+</div>
+
+<!-- INTERLINKING -->
+<h2>Related Calculators</h2>
+<div class="related">
+<div><a href="tax.html">Tax Calculator</a></div>
+<div><a href="saving.html">Saving Calculator</a></div>
+</div>
+
+<footer>
+<a href="privacy-policy.html">Privacy Policy</a> |
+<a href="disclaimer.html">Disclaimer</a> |
+<a href="contact-us.html">Contact Us</a>
+<p>© 2026 SMART AI CALCULATOR</p>
+</footer>
+
+<script>
+function calculateSalary(){
+let monthly = +document.getElementById("monthly").value;
+let bonus = +document.getElementById("bonus").value || 0;
+let deduction = +document.getElementById("deduction").value || 0;
+
+let yearly = monthly * 12;
+let gross = yearly + bonus;
+let net = gross - deduction;
+
+result.innerHTML =
+`<p><b>Yearly Salary:</b> ${yearly.toFixed(2)}</p>
+<p><b>Gross Salary (with bonus):</b> ${gross.toFixed(2)}</p>
+<p><b>Net Salary (after deductions):</b> ${net.toFixed(2)}</p>`;
+}
+
+function speakResult(){
+if(!result.innerText) return;
+let s = new SpeechSynthesisUtterance(result.innerText);
+s.lang="en-US";
+speechSynthesis.speak(s);
+}
+</script>
+
+</body>
 </html>
