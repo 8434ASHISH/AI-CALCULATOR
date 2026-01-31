@@ -1,233 +1,272 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <script type="application/ld+json">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>GST Calculator India & USA | SMART AI CALCULATOR</title>
+
+<meta name="description" content="SMART AI CALCULATOR GST Calculator for India & USA helps you calculate GST inclusive and exclusive prices easily. Fast, accurate & free with charts.">
+
+<meta name="keywords" content="gst calculator india usa, gst inclusive exclusive calculator, smart ai calculator">
+
+<link rel="canonical" href="https://smartaicalculator.com/gst.html"/>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-FEQ7R89CFG"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-FEQ7R89CFG');
+</script>
+
+<!-- Schema.org -->
+<script type="application/ld+json">
 {
-  "@context": "https://schema.org",
-  "@type": "WebApplication",
-  "name": "GST Calculator",
-  "url": "https://smartaicalculator.com/gst.html",
-  "applicationCategory": "FinanceApplication",
-  "operatingSystem": "All",
-  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "INR" },
-  "creator": { "@type": "Organization", "name": "Smart AI Calculator" }
+"@context":"https://schema.org",
+"@type":"WebApplication",
+"name":"GST Calculator",
+"url":"https://smartaicalculator.com/gst.html",
+"applicationCategory":"FinanceApplication",
+"provider":{"@type":"Organization","name":"SMART AI CALCULATOR"}
 }
 </script>
 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Smart AI Calculator - GST Calculator | Free Online Tool</title>
-    <meta name="description" content="Calculate GST amount and total price with our free AI-powered GST Calculator. Available in multiple languages. Try now!">
-    <meta name="keywords" content="gst calculator, Free online GST calculator for small businesses, GST payment calculator for monthly tax filing, ai gst calculator, free gst calculator, online gst calculator, goods and services tax calculator">
-    <meta name="robots" content="index, follow">
-    <link rel="canonical" href="https://smartaicalculator.com/gst.html">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/chartist@0.11.4/dist/chartist.min.css">
-    <script src="https://cdn.jsdelivr.net/npm/chartist@0.11.4/dist/chartist.min.js"></script>
-    <style>
-        body { font-family: Arial, sans-serif; background: linear-gradient(135deg, #1A202C, #2D3748); color: #fff; margin: 0; }
-        .header { background: #2c3e50; padding: 20px 0; text-align: center; position: relative; }
-        .nav-tabs { display: flex; justify-content: center; gap: 20px; padding: 10px 0; background: #34495e; }
-        .nav-tab { color: white; text-decoration: none; padding: 5px 15px; transition: background 0.3s; }
-        .nav-tab:hover, .nav-tab.active { background: #3498db; border-radius: 5px; }
-        .calculator-content { max-width: 600px; margin: 20px auto; padding: 20px; background: rgba(45, 55, 72, 0.9); border-radius: 10px; box-shadow: 0 0 15px rgba(0,0,0,0.5); }
-        .calculator-box { background: #e0e0e0; color: #333; padding: 20px; border-radius: 5px; text-align: center; }
-        .input-row { display: flex; justify-content: space-between; margin-bottom: 15px; }
-        .input-row label { font-weight: bold; }
-        input { border: 1px solid #ccc; padding: 5px; border-radius: 3px; width: 100px; }
-        button { background-color: #28a745; color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer; font-weight: bold; font-size: 1.1rem; box-shadow: 0 3px 6px rgba(0,0,0,0.4); transition: transform 0.2s, background 0.2s; text-transform: uppercase; }
-        button:hover { background-color: #218838; transform: scale(1.05); }
-        .ads-section { margin-top: 20px; padding: 20px; background: #34495e; border-radius: 10px; text-align: center; box-shadow: 0 0 10px rgba(0,0,0,0.3); }
-        .ads-section p { font-size: 1.5rem; font-weight: bold; color: #1e90ff; }
-        .ads-section a { color: #1e90ff; text-decoration: underline; }
-        .voice-icon { display: inline-block; padding: 10px; cursor: pointer; font-size: 2rem; color: #00cec9; transition: color 0.2s, transform 0.2s; visibility: visible; }
-        .voice-icon:hover { color: #00b7b3; transform: scale(1.1); }
-        .result-container { margin-top: 20px; }
-        .related-links { margin-top: 20px; font-weight: bold; }
-        .related-links ul { list-style: none; padding: 0; }
-        .related-links li { margin: 10px 0; }
-        .related-links a { color: #3498db; text-decoration: underline; }
-        .ct-chart { height: 200px; }
-        @media (max-width: 600px) { 
-            .input-row { flex-direction: column; } 
-            input { width: 100%; margin-bottom: 10px; } 
-            .voice-icon { display: inline-block; visibility: visible; } 
-        }
-    </style>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<style>
+body{
+font-family:Segoe UI,Arial;
+background:#fff7ed;
+color:#1f2933;
+max-width:1000px;
+margin:auto;
+padding:20px;
+line-height:1.7
+}
+h1{text-align:center;color:#c2410c;font-size:2.3em}
+h2{color:#c2410c;border-bottom:2px solid #fed7aa;padding-bottom:8px}
+.intro{text-align:center;color:#374151;margin-bottom:40px}
+
+.calculator-box{
+background:#ffffff;
+border-radius:14px;
+padding:25px;
+box-shadow:0 12px 30px rgba(0,0,0,0.08);
+margin:40px 0;
+border-left:6px solid #f97316
+}
+
+label{font-weight:600;color:#9a3412}
+input,select{
+width:100%;
+padding:12px;
+margin:10px 0;
+border-radius:6px;
+border:1px solid #fed7aa
+}
+
+button{
+background:#f97316;
+color:white;
+border:none;
+padding:14px;
+width:100%;
+font-size:16px;
+border-radius:6px;
+cursor:pointer
+}
+button:hover{background:#c2410c}
+
+#result{
+margin-top:20px;
+background:#fff7ed;
+padding:15px;
+border-radius:8px;
+border-left:4px solid #f97316
+}
+
+.ads{
+background:#e5e7eb;
+padding:15px;
+text-align:center;
+border-radius:8px;
+margin:25px 0;
+color:#475569
+}
+
+.chart-box{margin:30px 0}
+
+.faq-item{margin-bottom:20px}
+
+.related{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:15px
+}
+.related div{
+background:#ffffff;
+padding:15px;
+border-radius:8px;
+box-shadow:0 4px 10px rgba(0,0,0,0.08)
+}
+
+footer{
+margin-top:60px;
+padding:20px;
+text-align:center;
+font-size:14px;
+color:#475569;
+border-top:1px solid #e2e8f0
+}
+footer a{color:#c2410c;text-decoration:none;margin:0 6px}
+
+.speaker{cursor:pointer;float:right;font-size:20px}
+</style>
 </head>
+
 <body>
-    <header class="header">
-        <h1 id="header-title">Smart AI Calculator</h1>
-        <p id="tagline">GST Calculator</p>
-    </header>
-    <nav class="nav-tabs">
-        <a href="index.html#financial" class="nav-tab active" onclick="showCategory('financial')">FINANCIAL</a>
-        <a href="index.html#misc" class="nav-tab" onclick="showCategory('home')">HOME</a>
-    </nav>
-    <div class="calculator-content">
-        <div class="calculator-box">
-            <h2 id="calc-title">GST payment calculator for monthly tax filing</h2>
-            <div class="input-row">
-                <label id="amount-label">Amount (₹)</label>
-                <input type="number" id="amount" min="0" value="1000">
-            </div>
-            <div class="input-row">
-                <label id="gst-rate-label">GST Rate (%)</label>
-                <input type="number" id="gst-rate" min="0" step="0.1" value="18">
-            </div>
-            <div class="button-container" style="display: flex; justify-content: center; align-items: center; gap: 15px; margin: 20px 0;">
-                <button onclick="calculateGST()">Calculate <span id="spinner" style="display:none;">⏳</span></button>
-                <span class="voice-icon" onclick="toggleSpeech()" title="Toggle Speech"><i class="fas fa-volume-up"></i></span>
-            </div>
-            <div class="result-container">
-                <div id="gst-result" class="mt-4 font-semibold"></div>
-                <div id="chart-container" style="display: none;">
-                    <div id="gst-chart" class="ct-chart"></div>
-                </div>
-                <div id="related-links" class="related-links" style="display: none;">
-                    <p>You May Also Like:</p>
-                    <ul>
-                        <li><a href="saving.html">🔥 SAVING Calculator</a></li>
-                        <li><a href="sip.html">💪 SIP Calculator</a></li>
-                    </ul>
-                </div>
-                <div id="ads-section" class="ads-section" style="display: none;">
-                    <p>Contact for Ads: <a href="mailto:first4bencher@gmail.com">first4bencher@gmail.com</a></p>  
-                </div>
-            </div>
-            <div id="seo-content" class="mt-4 text-sm">
-                <h3>About GST Calculator</h3>
-                <p>Our AI-powered GST Calculator helps you calculate GST amount and total price with ease. Available in multiple languages, it’s perfect for global users. Enter amount and GST rate to get instant results.</p>
-            </div>
-        </div>
-    </div>
-    <footer class="bg-gray-800 text-white text-center py-4 mt-8">
-        <p style="font-weight: bold;">2025 © Smart AI Calculator. All rights reserved.</p>
-        <a href="privacy.html" class="text-blue-400 ml-2">Privacy Policy</a> |
-        <a href="contactus.html" class="text-blue-400 ml-2">Contact Us</a> |
-        <a href="howto.html" class="text-blue-400 ml-2">How to Use</a>
-    </footer>
-    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
-    <script>
-        let lang = 'en';
-        let isSpeaking = false;
-        let utterance = null;
-        const translations = {
-            en: { header: "Smart AI Calculator", tagline: "GST Calculator", calcTitle: "Enter amount and GST rate to calculate total price", amountLabel: "Amount (₹)", gstRateLabel: "GST Rate (%)", resultPrefix: "GST Amount: ", invalidInput: "Please enter valid values" },
-            hi: { header: "स्मार्ट एआई कैलकुलेटर", tagline: "जीएसटी कैलकुलेटर", calcTitle: "राशि और जीएसटी दर दर्ज करें कुल मूल्य की गणना के लिए", amountLabel: "राशि (₹)", gstRateLabel: "जीएसटी दर (%)", resultPrefix: "जीएसटी राशि: ", invalidInput: "कृपया वैध मान दर्ज करें" },
-            ta: { header: "ஸ்மார்ட் AI கால்குலேட்டர்", tagline: "ஜிஎஸ்டி கால்குலேட்டர்", calcTitle: "தொகை மற்றும் ஜிஎஸ்டி விகிதத்தை உள்ளிடவும் மொத்த விலையைக் கணக்கிட", amountLabel: "தொகை (₹)", gstRateLabel: "ஜிஎஸ்டி விகிதம் (%)", resultPrefix: "ஜிஎஸ்டி தொகை: ", invalidInput: "சரியான மதிப்புகளை உள்ளிடவும்" },
-            te: { header: "స్మార్ట్ AI కాల్కులేటర్", tagline: "జీఎస్టీ కాల్కులేటర్", calcTitle: "మొత్తం మరియు జీఎస్టీ రేటును నమోదు చేయండి మొత్తం ధర కోసం", amountLabel: "మొత్తం (₹)", gstRateLabel: "జీఎస్టీ రేటు (%)", resultPrefix: "జీఎస్టీ మొత్తం: ", invalidInput: "దయచేసి సరైన విలువలను నమోదు చేయండి" },
-            es: { header: "Calculadora de IA Inteligente", tagline: "Calculadora de GST", calcTitle: "Ingrese el monto y la tasa de GST para calcular el precio total", amountLabel: "Monto (₹)", gstRateLabel: "Tasa de GST (%)", resultPrefix: "Monto de GST: ", invalidInput: "Por favor, ingrese valores válidos" },
-            bn: { header: "স্মার্ট এআই ক্যালকুলেটর", tagline: "জিএসটি ক্যালকুলেটর", calcTitle: "মোট মূল্য গণনার জন্য পরিমাণ এবং জিএসটি হার লিখুন", amountLabel: "পরিমাণ (₹)", gstRateLabel: "জিএসটি হার (%)", resultPrefix: "জিএসটি পরিমাণ: ", invalidInput: "দয়া করে বৈধ মান লিখুন" },
-            ar: { header: "حاسبة الذكاء الاصطناعي الذكية", tagline: "حاسبة ضريبة السلع والخدمات", calcTitle: "أدخل المبلغ ونسبة ضريبة السلع والخدمات لحساب السعر الإجمالي", amountLabel: "المبلغ (₹)", gstRateLabel: "نسبة ضريبة السلع والخدمات (%)", resultPrefix: "مبلغ ضريبة السلع والخدمات: ", invalidInput: "يرجى إدخال قيم صحيحة" },
-            zh: { header: "智能人工智能计算器", tagline: "商品和服务税计算器", calcTitle: "输入金额和商品和服务税率以计算总价", amountLabel: "金额 (₹)", gstRateLabel: "商品和服务税率 (%)", resultPrefix: "商品和服务税金额: ", invalidInput: "请输入有效值" },
-            fr: { header: "Calculateur IA Intelligent", tagline: "Calculateur de GST", calcTitle: "Entrez le montant et le taux de GST pour calculer le prix total", amountLabel: "Montant (₹)", gstRateLabel: "Taux de GST (%)", resultPrefix: "Montant de GST: ", invalidInput: "Veuillez entrer des valeurs valides" }
-        };
 
-        function calculateGST() {
-            document.getElementById("spinner").style.display = "inline";
-            setTimeout(() => {
-                try {
-                    if (typeof Chartist === 'undefined') {
-                        throw new Error("Chartist.js not loaded. Check CDN or use local server.");
-                    }
-                    let amount = parseFloat(document.getElementById("amount").value);
-                    let gstRate = parseFloat(document.getElementById("gst-rate").value) / 100;
-                    let resultDiv = document.getElementById("gst-result");
-                    let chartContainer = document.getElementById("chart-container");
-                    let relatedLinksDiv = document.getElementById("related-links");
-                    let adsSectionDiv = document.getElementById("ads-section");
+<h1><b>SMART AI CALCULATOR</b><br><b>GST Calculator (India & USA)</b></h1>
 
-                    if (amount > 0 && gstRate >= 0) {
-                        let gstAmount = amount * gstRate;
-                        let totalPrice = amount + gstAmount;
-                        resultDiv.innerHTML = `${translations[lang].resultPrefix} ${gstAmount.toFixed(2)} ₹<br>Total Price: ${totalPrice.toFixed(2)} ₹`;
-                        
-                        // Chart
-                        chartContainer.style.display = "block";
-                        const chartElement = document.getElementById("gst-chart");
-                        chartElement.innerHTML = "";
-                        new Chartist.Pie('#gst-chart', {
-                            series: [amount, gstAmount],
-                            labels: ['Base Amount', 'GST']
-                        }, {
-                            donut: true,
-                            donutWidth: 60,
-                            startAngle: 270,
-                            showLabel: true
-                        });
+<!-- INTRO -->
+<p class="intro">
+The <b>GST Calculator</b> by SMART AI CALCULATOR helps businesses and individuals
+in <b>India & USA</b> calculate Goods and Services Tax quickly.
+It supports both <b>GST inclusive</b> and <b>GST exclusive</b> pricing methods.
+</p>
 
-                        relatedLinksDiv.style.display = "block";
-                        adsSectionDiv.style.display = "block";
-                    } else {
-                        resultDiv.innerText = translations[lang].invalidInput;
-                        chartContainer.style.display = "none";
-                        relatedLinksDiv.style.display = "none";
-                        adsSectionDiv.style.display = "none";
-                    }
-                    document.getElementById("spinner").style.display = "none";
-                    console.log("Calculation done");
-                } catch (e) {
-                    console.error("Calculation failed:", e.message);
-                    alert("Error: " + e.message + ". Use a local server (e.g., Live Server) and check internet.");
-                    document.getElementById("spinner").style.display = "none";
-                }
-            }, 1000);
-        }
+<!-- WHAT IS GST -->
+<h2>What is GST?</h2>
+<p>
+GST (Goods and Services Tax) is an indirect tax applied on the supply of goods
+and services. In India, GST replaces multiple indirect taxes, while in the USA
+similar calculations are used for sales tax. A GST Calculator simplifies tax
+calculation and avoids manual errors.
+</p>
 
-        function toggleSpeech() {
-            console.log("toggleSpeech");
-            try {
-                const result = document.getElementById("gst-result").innerText;
-                if (!result || result.includes("valid values")) return;
-                if (isSpeaking) {
-                    window.speechSynthesis.cancel();
-                    isSpeaking = false;
-                } else {
-                    const gstAmount = result.match(/GST Amount: ([\d,.]+) ₹/)[1];
-                    const speechText = lang === 'en' ? `Your GST amount is ${gstAmount} rupees.` :
-                                      lang === 'hi' ? `आपकी जीएसटी राशि ${gstAmount} रुपये है।` :
-                                      lang === 'ta' ? `உங்கள் ஜிஎஸ்டி தொகை ${gstAmount} ரூபாய்.` :
-                                      lang === 'te' ? `మీ జీఎస్టీ మొత్తం ${gstAmount} రూపాయలు.` :
-                                      lang === 'es' ? `Su monto de GST es ${gstAmount} rupias.` :
-                                      lang === 'bn' ? `আপনার জিএসটি পরিমাণ ${gstAmount} টাকা।` :
-                                      lang === 'ar' ? `مبلغ ضريبة السلع والخدمات الخاص بك ${gstAmount} روبية.` :
-                                      lang === 'zh' ? `您的商品和服务税金额为${gstAmount}卢比。` :
-                                      `Votre montant de GST est de ${gstAmount} roupies.`;
-                    utterance = new SpeechSynthesisUtterance(speechText);
-                    utterance.lang = lang === 'zh' ? 'zh-CN' : lang === 'ar' ? 'ar-SA' : lang;
-                    utterance.onend = () => { isSpeaking = false; };
-                    window.speechSynthesis.speak(utterance);
-                    isSpeaking = true;
-                }
-            } catch (e) {
-                console.error("Speech failed:", e.message);
-                alert("Speech failed: " + e.message);
-            }
-        }
+<!-- CALCULATOR -->
+<div class="calculator-box">
+<h2>GST Calculator <span class="speaker" onclick="speakResult()">🔊</span></h2>
 
-        function stopSpeech() {
-            if (isSpeaking) {
-                window.speechSynthesis.cancel();
-                isSpeaking = false;
-            }
-        }
+<label>Amount</label>
+<input type="number" id="amount" placeholder="Example: 1000">
 
-        function showCategory(category) {
-            // No action needed here as navigation is handled by index.html
-        }
+<label>GST Rate (%)</label>
+<select id="rate">
+<option value="5">5%</option>
+<option value="12">12%</option>
+<option value="18">18%</option>
+<option value="28">28%</option>
+</select>
 
-        window.onload = () => {
-            document.getElementById('header-title').textContent = translations[lang].header;
-            document.getElementById('tagline').textContent = translations[lang].tagline;
-            document.getElementById('calc-title').textContent = translations[lang].calcTitle;
-            document.getElementById('amount-label').textContent = translations[lang].amountLabel;
-            document.getElementById('gst-rate-label').textContent = translations[lang].gstRateLabel;
-        };
+<label>Calculation Type</label>
+<select id="type">
+<option value="exclusive">Add GST (Exclusive)</option>
+<option value="inclusive">Remove GST (Inclusive)</option>
+</select>
 
-        window.onpagehide = stopSpeech;
-        window.onbeforeunload = stopSpeech;
-    </script>
+<button onclick="calculateGST()">Calculate GST</button>
+
+<div id="result"></div>
+</div>
+
+<div class="ads">📢 Google Adsense Ad Space</div>
+
+<div class="chart-box">
+<canvas id="gstChart"></canvas>
+</div>
+
+<!-- HOW CALCULATED -->
+<h2>How GST is Calculated</h2>
+<p>
+GST calculation depends on whether the price is inclusive or exclusive of tax.
+The calculator automatically applies the correct formula to give accurate
+results.
+</p>
+
+<!-- BENEFITS -->
+<h2>Benefits of Using GST Calculator</h2>
+<ul>
+<li>Instant and accurate tax calculation</li>
+<li>Supports Indian GST slabs</li>
+<li>Useful for billing and invoicing</li>
+<li>Saves time and avoids manual errors</li>
+</ul>
+
+<!-- FAQ -->
+<h2>Frequently Asked Questions (FAQ)</h2>
+
+<div class="faq-item">
+<b>What is GST inclusive price?</b>
+<p>It is the price that already includes GST.</p>
+</div>
+
+<div class="faq-item">
+<b>What is GST exclusive price?</b>
+<p>GST is added separately to the base amount.</p>
+</div>
+
+<div class="faq-item">
+<b>Is this calculator free?</b>
+<p>Yes, SMART AI CALCULATOR tools are 100% free.</p>
+</div>
+
+<!-- INTERLINKING -->
+<h2>Related Calculators</h2>
+<div class="related">
+<div><a href="discount.html">Discount Calculator</a></div>
+<div><a href="sales-tax.html">Sales Tax Calculator</a></div>
+</div>
+
+<footer>
+<a href="privacy-policy.html">Privacy Policy</a> |
+<a href="disclaimer.html">Disclaimer</a> |
+<a href="contact-us.html">Contact Us</a>
+<p>© 2026 SMART AI CALCULATOR</p>
+</footer>
+
+<script>
+let chart;
+
+function calculateGST(){
+let amt = +amount.value;
+let rateVal = +rate.value;
+let gst, total;
+
+if(type.value==="exclusive"){
+gst = amt*rateVal/100;
+total = amt+gst;
+}else{
+gst = amt-(amt*100/(100+rateVal));
+total = amt;
+}
+
+result.innerHTML =
+`<p><b>GST Amount:</b> ${gst.toFixed(2)}</p>
+<p><b>Total Amount:</b> ${total.toFixed(2)}</p>`;
+
+if(chart) chart.destroy();
+chart = new Chart(gstChart,{
+type:"pie",
+data:{
+labels:["Base Amount","GST"],
+datasets:[{
+data:[total-gst,gst],
+backgroundColor:["#f97316","#22c55e"]
+}]
+}
+});
+}
+
+function speakResult(){
+if(!result.innerText) return;
+let s = new SpeechSynthesisUtterance(result.innerText);
+s.lang="en-US";
+speechSynthesis.speak(s);
+}
+</script>
+
 </body>
 </html>
