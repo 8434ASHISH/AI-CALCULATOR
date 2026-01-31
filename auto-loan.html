@@ -1,227 +1,261 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Smart AI Calculator - Auto Loan Calculator | Free Online Tool</title>
-    <meta name="description" content="Calculate your auto loan EMI, interest, and total payable amount with our free AI-powered Auto Loan Calculator. Available in multiple languages. Try now!">
-    <meta name="keywords" content="auto loan calculator, ai auto loan calculator, free auto loan calculator, online auto loan calculator, auto loan emi calculator">
-    <meta name="robots" content="index, follow">
-    <link rel="canonical" href="https://smartaicalculator.com/auto-loan.html">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/chartist@0.11.4/dist/chartist.min.css">
-    <script src="https://cdn.jsdelivr.net/npm/chartist@0.11.4/dist/chartist.min.js"></script>
-    <style>
-        body { font-family: Arial, sans-serif; background: linear-gradient(135deg, #1A202C, #2D3748); color: #fff; margin: 0; }
-        .header { background: #2c3e50; padding: 20px 0; text-align: center; position: relative; }
-        .nav-tabs { display: flex; justify-content: center; gap: 20px; padding: 10px 0; background: #34495e; }
-        .nav-tab { color: white; text-decoration: none; padding: 5px 15px; transition: background 0.3s; }
-        .nav-tab:hover, .nav-tab.active { background: #3498db; border-radius: 5px; }
-        .calculator-content { max-width: 600px; margin: 20px auto; padding: 20px; background: rgba(45, 55, 72, 0.9); border-radius: 10px; box-shadow: 0 0 15px rgba(0,0,0,0.5); }
-        .calculator-box { background: #e0e0e0; color: #333; padding: 20px; border-radius: 5px; text-align: center; }
-        .input-row { display: flex; justify-content: space-between; margin-bottom: 15px; }
-        .input-row label { font-weight: bold; }
-        input { border: 1px solid #ccc; padding: 5px; border-radius: 3px; width: 100px; }
-        button { background-color: #28a745; color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer; font-weight: bold; font-size: 1.1rem; box-shadow: 0 3px 6px rgba(0,0,0,0.4); transition: transform 0.2s, background 0.2s; text-transform: uppercase; }
-        button:hover { background-color: #218838; transform: scale(1.05); }
-        .ads-section { margin-top: 20px; padding: 20px; background: #34495e; border-radius: 10px; text-align: center; box-shadow: 0 0 10px rgba(0,0,0,0.3); }
-        .ads-section p { font-size: 1.5rem; font-weight: bold; color: #1e90ff; }
-        .ads-section a { color: #1e90ff; text-decoration: underline; }
-        .voice-icon { display: inline-block; padding: 10px; cursor: pointer; font-size: 2rem; color: #00cec9; transition: color  0.2s, transform 0.2s; visibility: visible; }
-        .voice-icon:hover { color: #00b7b3; transform: scale(1.1); }
-        .result-container { margin-top: 20px; }
-        .related-links { margin-top: 20px; font-weight: bold; }
-        .related-links ul { list-style: none; padding: 0; }
-        .related-links li { margin: 10px 0; }
-        .related-links a { color: #3498db; text-decoration: underline; }
-        .ct-chart { height: 200px; }
-        @media (max-width: 600px) { 
-            .input-row { flex-direction: column; } 
-            input { width: 100%; margin-bottom: 10px; } 
-            .voice-icon { display: inline-block; visibility: visible; } 
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Auto Loan Calculator India & USA | SMART AI CALCULATOR</title>
+
+<meta name="description" content="SMART AI CALCULATOR Auto Loan Calculator for India & USA helps you calculate auto loan EMI, interest and total cost instantly with charts.">
+
+<meta name="keywords" content="auto loan calculator india usa, auto finance calculator, smart ai calculator">
+
+<link rel="canonical" href="https://smartaicalculator.com/auto-loan.html"/>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-FEQ7R89CFG"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-FEQ7R89CFG');
+</script>
+
+<!-- Schema.org -->
+<script type="application/ld+json">
+{
+"@context":"https://schema.org",
+"@type":"WebApplication",
+"name":"Auto Loan Calculator",
+"url":"https://smartaicalculator.com/auto-loan.html",
+"applicationCategory":"FinanceApplication",
+"provider":{"@type":"Organization","name":"SMART AI CALCULATOR"}
+}
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<style>
+body{
+font-family:Segoe UI,Arial;
+background:#f8fafc;
+color:#1e293b;
+max-width:1000px;
+margin:auto;
+padding:20px;
+line-height:1.7
+}
+h1{text-align:center;color:#1e3a8a;font-size:2.3em}
+h2{color:#1e3a8a;border-bottom:2px solid #bfdbfe;padding-bottom:8px}
+.intro{text-align:center;color:#334155;margin-bottom:40px}
+
+.calculator-box{
+background:#ffffff;
+border-radius:14px;
+padding:25px;
+box-shadow:0 12px 30px rgba(0,0,0,0.08);
+margin:40px 0;
+border-left:6px solid #2563eb
+}
+
+label{font-weight:600;color:#1e40af}
+input{
+width:100%;
+padding:12px;
+margin:10px 0;
+border-radius:6px;
+border:1px solid #bfdbfe
+}
+
+button{
+background:#2563eb;
+color:white;
+border:none;
+padding:14px;
+width:100%;
+font-size:16px;
+border-radius:6px;
+cursor:pointer
+}
+button:hover{background:#1e3a8a}
+
+#result{
+margin-top:20px;
+background:#eff6ff;
+padding:15px;
+border-radius:8px;
+border-left:4px solid #2563eb
+}
+
+.ads{
+background:#e5e7eb;
+padding:15px;
+text-align:center;
+border-radius:8px;
+margin:25px 0;
+color:#475569
+}
+
+.chart-box{margin:30px 0}
+
+.faq-item{margin-bottom:20px}
+
+.related{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:15px
+}
+.related div{
+background:#ffffff;
+padding:15px;
+border-radius:8px;
+box-shadow:0 4px 10px rgba(0,0,0,0.08)
+}
+
+footer{
+margin-top:60px;
+padding:20px;
+text-align:center;
+font-size:14px;
+color:#475569;
+border-top:1px solid #e2e8f0
+}
+footer a{color:#1e3a8a;text-decoration:none;margin:0 6px}
+
+.speaker{cursor:pointer;float:right;font-size:20px}
+</style>
 </head>
+
 <body>
-    <header class="header">
-        <h1 id="header-title">Smart AI Calculator</h1>
-        <p id="tagline">Auto Loan Calculator</p>
-    </header>
-    <nav class="nav-tabs">
-        <a href="index.html#financial" class="nav-tab active" onclick="showCategory('financial')">FINANCIAL</a>
-        <a href="index.html#misc" class="nav-tab" onclick="showCategory('home')">HOME</a>
-    </nav>
-    <div class="calculator-content">
-        <div class="calculator-box">
-            <h2 id="calc-title">Enter auto loan amount, interest rate, and tenure to calculate EMI</h2>
-            <div class="input-row">
-                <label id="amount-label">Loan Amount (₹)</label>
-                <input type="number" id="loan-amount" min="0" value="500000">
-            </div>
-            <div class="input-row">
-                <label id="rate-label">Interest Rate (%)</label>
-                <input type="number" id="interest-rate" min="0" step="0.1" value="7">
-            </div>
-            <div class="input-row">
-                <label id="tenure-label">Tenure (Years)</label>
-                <input type="number" id="tenure" min="1" value="5">
-            </div>
-            <div class="button-container" style="display: flex; justify-content: center; align-items: center; gap: 15px; margin: 20px 0;">
-                <button onclick="calculateAutoLoan()">Calculate <span id="spinner" style="display:none;">⏳</span></button>
-                <span class="voice-icon" onclick="toggleSpeech()" title="Toggle Speech"><i class="fas fa-volume-up"></i></span>
-            </div>
-            <div class="result-container">
-                <div id="loan-result" class="mt-4 font-semibold"></div>
-                <div id="chart-container" style="display: none;">
-                    <div id="loan-chart" class="ct-chart"></div>
-                </div>
-                <div id="related-links" class="related-links" style="display: none;">
-                    <p>You May Also Like:</p>
-                    <ul>
-                        <li><a href="mortgage.html">🔥 MORTGAGE CALCULTOR</a></li>
-                        <li><a href="car-loan.html">💪 CAR LOAN CALCULATOR</a></li>
-                    </ul>
-                </div>
-                <div id="ads-section" class="ads-section" style="display: none;">
-                   <p>Contact for Ads: <a href="mailto:first4bencher@gmail.com">first4bencher@gmail.com</a></p>
-                </div>
-            </div>
-            <div id="seo-content" class="mt-4 text-sm">
-                <h3>About Auto Loan Calculator</h3>
-                <p>Our AI-powered Auto Loan Calculator helps you calculate your auto loan EMI, total interest, and payable amount with ease. Available in multiple languages, it’s perfect for global users. Enter loan amount, interest rate, and tenure to get instant results.</p>
-            </div>
-        </div>
-    </div>
-    <footer class="bg-gray-800 text-white text-center py-4 mt-8">
-        <p style="font-weight: bold;">2025 © Smart AI Calculator. All rights reserved.</p>
-        <a href="privacy.html" class="text-blue-400 ml-2">Privacy Policy</a> |
-        <a href="contactus.html" class="text-blue-400 ml-2">Contact Us</a> |
-        <a href="howto.html" class="text-blue-400 ml-2">How to Use</a>
-    </footer>
-    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
-    <script>
-        let lang = 'en';
-        let isSpeaking = false;
-        let utterance = null;
-        const translations = {
-            en: { header: "Smart AI Calculator", tagline: "Auto Loan Calculator", calcTitle: "Enter auto loan amount, interest rate, and tenure to calculate EMI", amountLabel: "Loan Amount (₹)", rateLabel: "Interest Rate (%)", tenureLabel: "Tenure (Years)", resultPrefix: "EMI: ", invalidInput: "Please enter valid values" },
-            hi: { header: "स्मार्ट एआई कैलकुलेटर", tagline: "ऑटो लोन कैलकुलेटर", calcTitle: "ऑटो ऋण राशि, ब्याज दर और अवधि दर्ज करें EMI की गणना के लिए", amountLabel: "ऋण राशि (₹)", rateLabel: "ब्याज दर (%)", tenureLabel: "अवधि (वर्ष)", resultPrefix: "EMI: ", invalidInput: "कृपया वैध मान दर्ज करें" },
-            ta: { header: "ஸ்மார்ட் AI கால்குலேட்டர்", tagline: "ஆட்டோ கடன் கால்குலேட்டர்", calcTitle: "ஆட்டோ கடன் தொகை, வட்டி விகிதம் மற்றும் காலத்தை உள்ளிடவும் EMI கணக்கிட", amountLabel: "கடன் தொகை (₹)", rateLabel: "வட்டி விகிதம் (%)", tenureLabel: "காலம் (ஆண்டுகள்)", resultPrefix: "EMI: ", invalidInput: "சரியான மதிப்புகளை உள்ளிடவும்" },
-            te: { header: "స్మార్ట్ AI కాల్కులేటర్", tagline: "ఆటో లోన్ కాల్కులేటర్", calcTitle: "ఆటో లోన్ రాశి, ఆసక్తి రేటు మరియు కాలవద్దన్ని నమోదు చేయండి EMI కోసం", amountLabel: "లోన్ రాశి (₹)", rateLabel: "ఆసక్తి రేటు (%)", tenureLabel: "కాలం (సంవత్సరాలు)", resultPrefix: "EMI: ", invalidInput: "దయచేసి సరైన విలువలను నమోదు చేయండి" },
-            es: { header: "Calculadora de IA Inteligente", tagline: "Calculadora de Préstamo Auto", calcTitle: "Ingrese el monto del préstamo auto, la tasa de interés y el plazo para calcular la EMI", amountLabel: "Monto del préstamo (₹)", rateLabel: "Tasa de interés (%)", tenureLabel: "Plazo (Años)", resultPrefix: "EMI: ", invalidInput: "Por favor, ingrese valores válidos" },
-            bn: { header: "স্মার্ট এআই ক্যালকুলেটর", tagline: "অটো লোন ক্যালকুলেটর", calcTitle: "অটো লোনের অংক, সুদের হার এবং মেয়াদ লিখুন EMI গণনার জন্য", amountLabel: "লোনের পরিমাণ (₹)", rateLabel: "সুদের হার (%)", tenureLabel: "মেয়াদ (বছর)", resultPrefix: "EMI: ", invalidInput: "দয়া করে বৈধ মান লিখুন" },
-            ar: { header: "حاسبة الذكاء الاصطناعي الذكية", tagline: "حاسبة قرض السيارة", calcTitle: "أدخل مبلغ قرض السيارة، ونسبة الفائدة، والمدة لحساب القسط الشهري", amountLabel: "مبلغ القرض (₹)", rateLabel: "نسبة الفائدة (%)", tenureLabel: "المدة (سنوات)", resultPrefix: "القسط الشهري: ", invalidInput: "يرجى إدخال قيم صحيحة" },
-            zh: { header: "智能人工智能计算器", tagline: "汽车贷款计算器", calcTitle: "输入汽车贷款金额、利率和期限以计算EMI", amountLabel: "贷款金额 (₹)", rateLabel: "利率 (%)", tenureLabel: "期限 (年)", resultPrefix: "EMI: ", invalidInput: "请输入有效值" },
-            fr: { header: "Calculateur IA Intelligent", tagline: "Calculateur de Prêt Auto", calcTitle: "Entrez le montant du prêt auto, le taux d'intérêt et la durée pour calculer l'EMI", amountLabel: "Montant du prêt (₹)", rateLabel: "Taux d'intérêt (%)", tenureLabel: "Durée (Années)", resultPrefix: "EMI: ", invalidInput: "Veuillez entrer des valeurs valides" }
-        };
 
-        function calculateAutoLoan() {
-            document.getElementById("spinner").style.display = "inline";
-            setTimeout(() => {
-                try {
-                    if (typeof Chartist === 'undefined') {
-                        throw new Error("Chartist.js not loaded. Check CDN or use local server.");
-                    }
-                    let principal = parseFloat(document.getElementById("loan-amount").value);
-                    let rate = parseFloat(document.getElementById("interest-rate").value) / 12 / 100;
-                    let tenure = parseFloat(document.getElementById("tenure").value) * 12;
-                    let resultDiv = document.getElementById("loan-result");
-                    let chartContainer = document.getElementById("chart-container");
-                    let relatedLinksDiv = document.getElementById("related-links");
-                    let adsSectionDiv = document.getElementById("ads-section");
+<h1><b>SMART AI CALCULATOR</b><br><b>Auto Loan Calculator (India & USA)</b></h1>
 
-                    if (principal > 0 && rate > 0 && tenure > 0) {
-                        let emi = (principal * rate * Math.pow(1 + rate, tenure)) / (Math.pow(1 + rate, tenure) - 1);
-                        let totalPayment = emi * tenure;
-                        let totalInterest = totalPayment - principal;
-                        resultDiv.innerHTML = `${translations[lang].resultPrefix} ${emi.toFixed(2)} ₹/month<br>Total Interest: ${totalInterest.toFixed(2)} ₹<br>Total Payment: ${totalPayment.toFixed(2)} ₹`;
-                        
-                        // Chart
-                        chartContainer.style.display = "block";
-                        const chartElement = document.getElementById("loan-chart");
-                        chartElement.innerHTML = "";
-                        new Chartist.Pie('#loan-chart', {
-                            series: [principal, totalInterest],
-                            labels: ['Principal', 'Interest']
-                        }, {
-                            donut: true,
-                            donutWidth: 60,
-                            startAngle: 270,
-                            showLabel: true
-                        });
+<!-- INTRO -->
+<p class="intro">
+The <b>Auto Loan Calculator</b> by SMART AI CALCULATOR helps buyers in
+<b>India & USA</b> calculate monthly auto loan EMI, interest cost,
+and total repayment amount for vehicles.
+</p>
 
-                        relatedLinksDiv.style.display = "block";
-                        adsSectionDiv.style.display = "block";
-                    } else {
-                        resultDiv.innerText = translations[lang].invalidInput;
-                        chartContainer.style.display = "none";
-                        relatedLinksDiv.style.display = "none";
-                        adsSectionDiv.style.display = "none";
-                    }
-                    document.getElementById("spinner").style.display = "none";
-                    console.log("Calculation done");
-                } catch (e) {
-                    console.error("Calculation failed:", e.message);
-                    alert("Error: " + e.message + ". Use a local server (e.g., Live Server) and check internet.");
-                    document.getElementById("spinner").style.display = "none";
-                }
-            }, 1000);
-        }
+<!-- WHAT IS AUTO LOAN -->
+<h2>What is an Auto Loan?</h2>
+<p>
+An auto loan is a type of financing used to purchase vehicles such as cars,
+SUVs, or trucks. The loan is repaid in fixed monthly installments that include
+principal and interest. Auto loan calculators help compare lenders and plan
+affordable EMIs.
+</p>
 
-        function toggleSpeech() {
-            console.log("toggleSpeech");
-            try {
-                const result = document.getElementById("loan-result").innerText;
-                if (!result || result.includes("valid values")) return;
-                if (isSpeaking) {
-                    window.speechSynthesis.cancel();
-                    isSpeaking = false;
-                } else {
-                    const emi = result.match(/EMI: ([\d,.]+) ₹/)[1];
-                    const speechText = lang === 'en' ? `Your EMI is ${emi} rupees per month.` :
-                                      lang === 'hi' ? `आपका EMI ${emi} रुपये प्रति माह है।` :
-                                      lang === 'ta' ? `உங்கள் EMI மாதம் ${emi} ரூபாய்.` :
-                                      lang === 'te' ? `మీ EMI నెలకు ${emi} రూపాయలు.` :
-                                      lang === 'es' ? `Su EMI es ${emi} rupias por mes.` :
-                                      lang === 'bn' ? `আপনার EMI প্রতি মাসে ${emi} টাকা।` :
-                                      lang === 'ar' ? `قسطك الشهري ${emi} روبية.` :
-                                      lang === 'zh' ? `您的EMI每月为${emi}卢比。` :
-                                      `Votre EMI est de ${emi} roupies par mois.`;
-                    utterance = new SpeechSynthesisUtterance(speechText);
-                    utterance.lang = lang === 'zh' ? 'zh-CN' : lang === 'ar' ? 'ar-SA' : lang;
-                    utterance.onend = () => { isSpeaking = false; };
-                    window.speechSynthesis.speak(utterance);
-                    isSpeaking = true;
-                }
-            } catch (e) {
-                console.error("Speech failed:", e.message);
-                alert("Speech failed: " + e.message);
-            }
-        }
+<!-- CALCULATOR -->
+<div class="calculator-box">
+<h2>Auto Loan Calculator <span class="speaker" onclick="speakResult()">🔊</span></h2>
 
-        function stopSpeech() {
-            if (isSpeaking) {
-                window.speechSynthesis.cancel();
-                isSpeaking = false;
-            }
-        }
+<label>Vehicle Price / Loan Amount</label>
+<input type="number" id="amount" placeholder="Example: 1200000">
 
-        function showCategory(category) {
-            // No action needed here as navigation is handled by index.html
-        }
+<label>Annual Interest Rate (%)</label>
+<input type="number" id="rate" placeholder="Example: 8.5">
 
-        window.onload = () => {
-            document.getElementById('header-title').textContent = translations[lang].header;
-            document.getElementById('tagline').textContent = translations[lang].tagline;
-            document.getElementById('calc-title').textContent = translations[lang].calcTitle;
-            document.getElementById('amount-label').textContent = translations[lang].amountLabel;
-            document.getElementById('rate-label').textContent = translations[lang].rateLabel;
-            document.getElementById('tenure-label').textContent = translations[lang].tenureLabel;
-        };
+<label>Loan Tenure (Years)</label>
+<input type="number" id="years" placeholder="Example: 6">
 
-        window.onpagehide = stopSpeech;
-        window.onbeforeunload = stopSpeech;
-    </script>
+<button onclick="calculateAutoLoan()">Calculate Auto Loan</button>
+
+<div id="result"></div>
+</div>
+
+<div class="ads">📢 Google Adsense Ad Space</div>
+
+<div class="chart-box">
+<canvas id="autoLoanChart"></canvas>
+</div>
+
+<!-- HOW CALCULATED -->
+<h2>How Auto Loan EMI is Calculated</h2>
+<p>
+Auto loan EMI is calculated using a standard formula that considers loan amount,
+interest rate, and repayment tenure. Longer tenures reduce EMI but increase
+total interest payable.
+</p>
+
+<!-- BENEFITS -->
+<h2>Benefits of Auto Loan Calculator</h2>
+<ul>
+<li>Instant EMI estimation</li>
+<li>Clear interest & total cost breakup</li>
+<li>Helps choose optimal loan tenure</li>
+<li>Supports India & USA auto finance systems</li>
+</ul>
+
+<!-- FAQ -->
+<h2>Frequently Asked Questions (FAQ)</h2>
+
+<div class="faq-item">
+<b>Is auto loan different from car loan?</b>
+<p>In the USA, auto loan covers all vehicles; in India it is often called car loan.</p>
+</div>
+
+<div class="faq-item">
+<b>Can I prepay my auto loan?</b>
+<p>Yes, but some lenders may charge a prepayment penalty.</p>
+</div>
+
+<div class="faq-item">
+<b>Does longer tenure reduce EMI?</b>
+<p>Yes, but it increases the total interest paid.</p>
+</div>
+
+<!-- INTERLINKING -->
+<h2>Related Calculators</h2>
+<div class="related">
+<div><a href="car-loan.html">Car Loan Calculator</a></div>
+<div><a href="emi.html">EMI Calculator</a></div>
+</div>
+
+<footer>
+<a href="privacy-policy.html">Privacy Policy</a> |
+<a href="disclaimer.html">Disclaimer</a> |
+<a href="contact-us.html">Contact Us</a>
+<p>© 2026 SMART AI CALCULATOR</p>
+</footer>
+
+<script>
+let chart;
+
+function calculateAutoLoan(){
+let P = +amount.value;
+let r = +rate.value/12/100;
+let n = +years.value*12;
+
+let emi = (P*r*Math.pow(1+r,n))/(Math.pow(1+r,n)-1);
+let total = emi*n;
+let interest = total-P;
+
+result.innerHTML =
+`<p><b>Monthly EMI:</b> ${emi.toFixed(2)}</p>
+<p><b>Total Interest:</b> ${interest.toFixed(2)}</p>
+<p><b>Total Payment:</b> ${total.toFixed(2)}</p>`;
+
+if(chart) chart.destroy();
+chart = new Chart(autoLoanChart,{
+type:"doughnut",
+data:{
+labels:["Principal","Interest"],
+datasets:[{
+data:[P,interest],
+backgroundColor:["#2563eb","#f59e0b"]
+}]
+}
+});
+}
+
+function speakResult(){
+if(!result.innerText) return;
+let s = new SpeechSynthesisUtterance(result.innerText);
+s.lang="en-US";
+speechSynthesis.speak(s);
+}
+</script>
+
 </body>
 </html>
