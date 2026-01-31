@@ -1,254 +1,261 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "WebApplication",
-  "name": "SIP Calculator",
-  "url": "https://smartaicalculator.com/sip.html",
-  "applicationCategory": "FinanceApplication",
-  "operatingSystem": "All",
-  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "INR" },
-  "creator": { "@type": "Organization", "name": "Smart AI Calculator" }
-}
-</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>SIP Calculator India & USA | SMART AI CALCULATOR</title>
+
+<meta name="description" content="SMART AI CALCULATOR SIP Calculator for India & USA helps you calculate mutual fund SIP returns with charts. Monthly investment calculator for long-term goals.">
+
+<meta name="keywords" content="sip calculator india usa, mutual fund sip calculator, smart ai calculator">
+
+<link rel="canonical" href="https://smartaicalculator.com/sip.html"/>
+
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-FEQ7R89CFG"></script>
 <script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-FEQ7R89CFG');
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-FEQ7R89CFG');
 </script>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SIP Calculator for ₹5000 Monthly Investment in Mutual Funds-Smart AI Calculator</title>
-  <meta name="description" content="Use this SIP calculator to plan your mutual fund investment in India. Calculate returns based on duration and monthly amount with graph.">
-    <meta name="keywords" content="sip calculator, SIP Calculator for ₹5000 Monthly Investment in Mutual Funds, mutual fund calculator, mutual fund sip calculator, sip investment calculator, how to calculate sip, groww sip calculator,  investment calculator, free sip calculator, online sip calculator, sip return calculator,  wealth planner">
-    <meta name="robots" content="index, follow">
-    <link rel="canonical" href="https://smartaicalculator.com/sip.html">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background: linear-gradient(135deg, #1A202C, #2D3748);
-            color: #fff;
-            margin: 0;
-        }
-        .header { background: #2c3e50; padding: 20px 0; text-align: center; }
-        .nav-tabs { display: flex; justify-content: center; gap: 20px; padding: 10px 0; background: #34495e; }
-        .nav-tab { color: white; text-decoration: none; padding: 5px 15px; transition: background 0.3s; font-weight: bold; text-shadow: 0 0 5px rgba(255, 107, 107, 0.5); }
-        .nav-tab:hover, .nav-tab.active { background: #3498db; border-radius: 5px; }
-        .calculator-content { max-width: 600px; margin: 20px auto; padding: 20px; background: rgba(45, 55, 72, 0.9); border-radius: 10px; box-shadow: 0 0 15px rgba(0,0,0,0.5); }
-        .calculator-box { background: #e0e0e0; color: #333; padding: 20px; border-radius: 5px; text-align: center; }
-        .input-row { display: flex; justify-content: space-between; margin-bottom: 15px; }
-        .input-row label { font-weight: bold; }
-        input, select { border: 1px solid #ccc; padding: 5px; border-radius: 3px; width: 150px; }
-        input.invalid { border-color: #ff6b6b; }
-        button { 
-            background: linear-gradient(135deg, #ff6b6b, #e63946); 
-            color: white; 
-            padding: 12px 24px; 
-            border: none; 
-            border-radius: 5px; 
-            cursor: pointer; 
-            font-weight: bold; 
-            font-size: 1.1rem; 
-            box-shadow: 0 3px 6px rgba(0,0,0,0.4); 
-            transition: transform 0.2s, background 0.2s; 
-            text-transform: uppercase; 
-        }
-        button:hover { 
-            background: linear-gradient(135deg, #e63946, #c0392b); 
-            transform: scale(1.05); 
-        }
-        .ads-section { margin-top: 10px; padding: 10px; background: #34495e; border-radius: 5px; text-align: center; }
-        .ads-section p { font-size: 1.2rem; font-weight: bold; color: #1e90ff; }
-        .ads-section a { color: #1e90ff; text-decoration: underline; }
-        .voice-icon { 
-            display: inline-block; 
-            padding: 10px; 
-            cursor: pointer; 
-            font-size: 2rem; 
-            color: #00cec9; 
-            transition: color 0.2s, transform 0.2s; 
-            visibility: visible; 
-        }
-        .voice-icon:hover { 
-            color: #00b7b3; 
-            transform: scale(1.1); 
-        }
-        .button-container { 
-            display: flex; 
-            justify-content: center; 
-            align-items: center; 
-            gap: 15px; 
-            margin: 20px 0; 
-        }
-        .suggestions { margin-top: 20px; padding: 15px; background: #f0f0f0; border-radius: 5px; text-align: left; display: none; }
-        .suggestions h3 { font-size: 1.2rem; font-weight: bold; margin-bottom: 10px; }
-        .suggestions ul { list-style-type: disc; padding-left: 20px; }
-        .suggestions li { margin-bottom: 8px; }
-        .result-table { width: 100%; margin-top: 20px; border-collapse: collapse; }
-        .result-table th, .result-table td { border: 1px solid #ccc; padding: 10px; text-align: left; }
-        .result-table th { background: #3498db; color: white; }
-        .result-table tr:nth-child(even) { background: #f0f0f0; }
-        @media (max-width: 600px) { 
-            .input-row { flex-direction: column; } 
-            input, select { width: 100%; margin-bottom: 10px; } 
-            .button-container { flex-direction: row; gap: 10px; } 
-            .voice-icon { display: inline-block; visibility: visible; } 
-        }
-    </style>
-</head>
-<body>
-    <header class="header">
-        <h1>Smart AI SIP Calculator</h1>
-        <p>Calculate Your SIP Investment Returns</p>
-    </header>
-    <nav class="nav-tabs">
-        <a href="index.html#home" class="nav-tab">HOME</a>
-        <a href="index.html#financial" class="nav-tab active">FINANCIAL</a>
-    </nav>
-    <div class="calculator-content">
-        <div class="calculator-box">
-            <h2>Enter SIP Details</h2>
-            <div class="input-row">
-                <label>Monthly Investment (₹)</label>
-                <input type="number" id="investment" min="500" max="100000" step="100" oninput="validateInput(this)">
-            </div>
-            <div class="input-row">
-                <label>Annual Expected Return (%)</label>
-                <input type="number" id="return-rate" min="5" max="20" step="0.1" oninput="validateInput(this)">
-            </div>
-            <div class="input-row">
-                <label>Investment Period (Years)</label>
-                <input type="number" id="period" min="1" max="30" step="1" oninput="validateInput(this)">
-            </div>
-            <div class="button-container">
-                <button onclick="calculateSIP()">Calculate <span id="spinner" style="display:none;">⏳</span></button>
-                <span class="voice-icon" onclick="toggleSpeech()" title="Toggle Speech"><i class="fas fa-volume-up"></i></span>
-            </div>
-            <div id="sip-result" class="mt-4 font-semibold"></div>
-            <table class="result-table" id="result-table" style="display: none;">
-                <thead>
-                    <tr>
-                        <th>Detail</th>
-                        <th>Value</th>
-                    </tr>
-                </thead>
-                <tbody id="result-table-body"></tbody>
-            </table>
-           <p>You May Also Like:</p>
-                    <ul>
-                        <li><a href="inflation.html">🔥 INFLATION Calculator</a></li>
-                        <li><a href="emi.html">💪 EMI Calculator</a></li>
-                    </ul>
 
-            <div class="suggestions" id="suggestions">
-                <h3>Suggestions for SIP</h3>
-                <ul>
-                    <li>Start SIP early to maximize compounding benefits.</li>
-                    <li>Consider increasing SIP amount annually (step-up SIP).</li>
-                    <li>Choose funds with consistent performance and low expense ratios.</li>
-                    <li>Review your portfolio periodically to stay aligned with goals.</li>
-                </ul>
-            </div>
-            <div class="ads-section">
-                <p>Contact for Ads: <a href="mailto:first4bencher@gmail.com">first4bencher@gmail.com</a></p>
-            </div>
-            <div id="seo-content" class="mt-4 text-sm">
-                <h3>About SIP Calculator</h3>
-                <p>Our Smart AI SIP Calculator helps you estimate the future value of your Systematic Investment Plan (SIP). Enter monthly investment, expected return, and period to see maturity amount and wealth gained. It’s user-friendly, responsive, and SEO-optimized with keywords like 'SIP calculator' and 'investment calculator.' Perfect for wealth planning!</p>
-            </div>
-        </div>
-    </div>
-    <footer class="bg-gray-800 text-white text-center py-4 mt-8">
-        <p style="font-weight: bold;">2025 © Smart AI Calculator. All rights reserved.</p>
-        <a href="privacy.html" class="text-blue-400 ml-2">Privacy Policy</a> |
-        <a href="contactus.html" class="text-blue-400 ml-2">Contact Us</a> |
-        <a href="howto.html" class="text-blue-400 ml-2">How to Use</a>
-    </footer>
-    <script>
-        let isSpeaking = false;
-        let utterance = null;
-        function validateInput(input) {
-            let value = parseFloat(input.value);
-            let id = input.id;
-            if (id === "investment" && (value < 500 || value > 100000)) {
-                input.classList.add("invalid");
-            } else if (id === "return-rate" && (value < 5 || value > 20)) {
-                input.classList.add("invalid");
-            } else if (id === "period" && (value < 1 || value > 30)) {
-                input.classList.add("invalid");
-            } else {
-                input.classList.remove("invalid");
-            }
-        }
-        function calculateSIP() {
-            document.getElementById("spinner").style.display = "inline";
-            setTimeout(() => {
-                let investment = parseFloat(document.getElementById("investment").value);
-                let returnRate = parseFloat(document.getElementById("return-rate").value);
-                let period = parseFloat(document.getElementById("period").value);
-                let resultDiv = document.getElementById("sip-result");
-                let tableBody = document.getElementById("result-table-body");
-                let suggestionsDiv = document.getElementById("suggestions");
-                let table = document.getElementById("result-table");
-                tableBody.innerHTML = "";
-                if (isNaN(investment) || isNaN(returnRate) || isNaN(period) || 
-                    investment < 500 || investment > 100000 || 
-                    returnRate < 5 || returnRate > 20 || 
-                    period < 1 || period > 30) {
-                    resultDiv.innerText = "Invalid input. Please check your values.";
-                    table.style.display = "none";
-                    suggestionsDiv.style.display = "none";
-                    document.getElementById("spinner").style.display = "none";
-                    return;
-                }
-                let monthlyRate = returnRate / 12 / 100;
-                let months = period * 12;
-                let futureValue = investment * (((Math.pow(1 + monthlyRate, months) - 1) / monthlyRate) * (1 + monthlyRate));
-                let investedAmount = investment * months;
-                let wealthGained = futureValue - investedAmount;
-                resultDiv.innerText = `Maturity Amount: ₹${futureValue.toFixed(2)}`;
-                tableBody.innerHTML = `
-                    <tr><td>Invested Amount</td><td>₹${investedAmount.toFixed(2)}</td></tr>
-                    <tr><td>Wealth Gained</td><td>₹${wealthGained.toFixed(2)}</td></tr>
-                    <tr><td>Maturity Amount</td><td>₹${futureValue.toFixed(2)}</td></tr>
-                `;
-                table.style.display = "table";
-                suggestionsDiv.style.display = "block";
-                document.getElementById("spinner").style.display = "none";
-            }, 500);
-        }
-        function toggleSpeech() {
-            const result = document.getElementById("sip-result").innerText;
-            if (!result || result.includes("Invalid")) {
-                console.log("No valid result to speak");
-                return;
-            }
-            if (isSpeaking) {
-                window.speechSynthesis.cancel();
-                isSpeaking = false;
-            } else {
-                utterance = new SpeechSynthesisUtterance(result);
-                utterance.lang = "en";
-                utterance.onend = () => { isSpeaking = false; };
-                window.speechSynthesis.speak(utterance);
-                isSpeaking = true;
-            }
-        }
-        function stopSpeech() {
-            if (isSpeaking) {
-                window.speechSynthesis.cancel();
-                isSpeaking = false;
-            }
-        }
-        window.onpagehide = stopSpeech;
-        window.onbeforeunload = stopSpeech;
-    </script>
+<!-- Schema.org -->
+<script type="application/ld+json">
+{
+"@context":"https://schema.org",
+"@type":"WebApplication",
+"name":"SIP Calculator",
+"url":"https://smartaicalculator.com/sip.html",
+"applicationCategory":"FinanceApplication",
+"provider":{"@type":"Organization","name":"SMART AI CALCULATOR"}
+}
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<style>
+body{
+font-family:Segoe UI,Arial;
+background:#f9fafb;
+color:#0f172a;
+max-width:1000px;
+margin:auto;
+padding:20px;
+line-height:1.7
+}
+h1{text-align:center;color:#166534;font-size:2.3em}
+h2{color:#166534;border-bottom:2px solid #86efac;padding-bottom:8px}
+.intro{text-align:center;color:#334155;margin-bottom:40px}
+
+.calculator-box{
+background:#ffffff;
+border-radius:14px;
+padding:25px;
+box-shadow:0 12px 30px rgba(0,0,0,0.08);
+margin:40px 0;
+border-left:6px solid #22c55e
+}
+
+label{font-weight:600;color:#166534}
+input{
+width:100%;
+padding:12px;
+margin:10px 0;
+border-radius:6px;
+border:1px solid #bbf7d0
+}
+
+button{
+background:#22c55e;
+color:white;
+border:none;
+padding:14px;
+width:100%;
+font-size:16px;
+border-radius:6px;
+cursor:pointer
+}
+button:hover{background:#166534}
+
+#result{
+margin-top:20px;
+background:#ecfdf5;
+padding:15px;
+border-radius:8px;
+border-left:4px solid #22c55e
+}
+
+.ads{
+background:#e5e7eb;
+padding:15px;
+text-align:center;
+border-radius:8px;
+margin:25px 0;
+color:#475569
+}
+
+.chart-box{margin:30px 0}
+
+.faq-item{margin-bottom:20px}
+
+.related{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:15px
+}
+.related div{
+background:#ffffff;
+padding:15px;
+border-radius:8px;
+box-shadow:0 4px 10px rgba(0,0,0,0.08)
+}
+
+footer{
+margin-top:60px;
+padding:20px;
+text-align:center;
+font-size:14px;
+color:#475569;
+border-top:1px solid #e2e8f0
+}
+footer a{color:#166534;text-decoration:none;margin:0 6px}
+
+.speaker{cursor:pointer;float:right;font-size:20px}
+</style>
+</head>
+
+<body>
+
+<h1><b>SMART AI CALCULATOR</b><br><b>SIP Calculator (India & USA)</b></h1>
+
+<!-- INTRO -->
+<p class="intro">
+A <b>Systematic Investment Plan (SIP)</b> is a smart way to invest small
+amounts regularly in mutual funds. This SIP Calculator by
+<b>SMART AI CALCULATOR</b> helps users from <b>India & USA</b>
+estimate future investment value easily.
+</p>
+
+<!-- WHAT IS SIP -->
+<h2>What is SIP?</h2>
+<p>
+SIP (Systematic Investment Plan) allows investors to invest a fixed amount
+monthly or yearly into mutual funds. It is widely used in India and the USA
+for long-term wealth creation, retirement planning, and financial goals.
+</p>
+
+<!-- CALCULATOR -->
+<div class="calculator-box">
+<h2>SIP Calculator <span class="speaker" onclick="speakResult()">🔊</span></h2>
+
+<label>Monthly Investment Amount</label>
+<input type="number" id="monthly" placeholder="Example: 5000">
+
+<label>Expected Annual Return (%)</label>
+<input type="number" id="rate" placeholder="Example: 12">
+
+<label>Investment Duration (Years)</label>
+<input type="number" id="years" placeholder="Example: 15">
+
+<button onclick="calculateSIP()">Calculate SIP</button>
+
+<div id="result"></div>
+</div>
+
+<div class="ads">📢 Google Adsense Ad Space</div>
+
+<div class="chart-box">
+<canvas id="sipChart"></canvas>
+</div>
+
+<!-- HOW CALCULATED -->
+<h2>How SIP is Calculated</h2>
+<p>
+SIP returns are calculated using the compound interest principle. The formula
+estimates future value based on monthly investment, expected returns, and
+investment duration.
+</p>
+
+<!-- BENEFITS -->
+<h2>Benefits of SIP Investment</h2>
+<ul>
+<li>Disciplined investing habit</li>
+<li>Power of compounding</li>
+<li>Lower market risk through rupee cost averaging</li>
+<li>Suitable for salaried & long-term investors</li>
+</ul>
+
+<!-- FAQ -->
+<h2>Frequently Asked Questions (FAQ)</h2>
+
+<div class="faq-item">
+<b>Is SIP better than lump sum investment?</b>
+<p>SIP reduces market timing risk and is ideal for beginners.</p>
+</div>
+
+<div class="faq-item">
+<b>Can I stop SIP anytime?</b>
+<p>Yes, SIPs are flexible and can be paused or stopped anytime.</p>
+</div>
+
+<div class="faq-item">
+<b>Is SIP available in the USA?</b>
+<p>Yes, similar systematic investment plans exist in US mutual funds.</p>
+</div>
+
+<!-- INTERLINKING -->
+<h2>Related Calculators</h2>
+<div class="related">
+<div><a href="emi.html">EMI Calculator</a></div>
+<div><a href="roi.html">ROI Calculator</a></div>
+</div>
+
+<footer>
+<a href="privacy-policy.html">Privacy Policy</a> |
+<a href="disclaimer.html">Disclaimer</a> |
+<a href="contact-us.html">Contact Us</a>
+<p>© 2026 SMART AI CALCULATOR</p>
+</footer>
+
+<script>
+let chart;
+
+function calculateSIP(){
+let m = +monthly.value;
+let r = +rate.value/12/100;
+let n = +years.value*12;
+
+let fv = m*((Math.pow(1+r,n)-1)/r)*(1+r);
+let invested = m*n;
+let gain = fv-invested;
+
+result.innerHTML =
+`<p><b>Total Invested:</b> ${invested.toFixed(2)}</p>
+<p><b>Estimated Returns:</b> ${gain.toFixed(2)}</p>
+<p><b>Total Value:</b> ${fv.toFixed(2)}</p>`;
+
+if(chart) chart.destroy();
+chart = new Chart(sipChart,{
+type:"doughnut",
+data:{
+labels:["Invested Amount","Returns"],
+datasets:[{
+data:[invested,gain],
+backgroundColor:["#22c55e","#f59e0b"]
+}]
+}
+});
+}
+
+function speakResult(){
+if(!result.innerText) return;
+let s = new SpeechSynthesisUtterance(result.innerText);
+s.lang="en-US";
+speechSynthesis.speak(s);
+}
+</script>
+
+</body>
 </html>
