@@ -1,273 +1,232 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "WebApplication",
-      "name": "Loan Calculator",
-      "url": "https://smartaicalculator.com/loan.html",
-      "applicationCategory": "FinancialApplication",
-      "operatingSystem": "All",
-      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "INR" },
-      "creator": { "@type": "Organization", "name": "Smart AI Calculator" }
-    }
-    </script>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Loan Calculator - Calculate EMI, Interest & Payment Schedule | Smart AI Tools</title>
-    <meta name="description" content="Free online loan calculator to estimate monthly payments (EMI), total interest, and amortization schedule for personal loans, home loans, car loans, and more.">
-    <meta name="keywords" content="loan calculator, EMI calculator, personal loan calculator, home loan calculator, car loan calculator, loan payment calculator, amortization calculator">
-    <meta name="robots" content="index, follow">
-    <link rel="canonical" href="https://smartaicalculator.com/loan-calculator.html">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-    <style>
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: linear-gradient(135deg, #1A202C, #2D3748); color: #fff; margin: 0; line-height: 1.6; }
-        .header { background: #2c3e50; padding: 20px 0; text-align: center; }
-        .nav-tabs { display: flex; justify-content: center; gap: 20px; padding: 10px 0; background: #34495e; flex-wrap: wrap; }
-        .nav-tab { color: white; text-decoration: none; padding: 5px 15px; transition: background 0.3s; font-weight: bold; }
-        .nav-tab:hover, .nav-tab.active { background: #3498db; border-radius: 5px; }
-        .container { max-width: 1000px; margin: 20px auto; padding: 0 20px; }
-        .calculator-box { background: rgba(45, 55, 72, 0.9); border-radius: 8px; padding: 30px; margin-bottom: 30px; }
-        .input-group { margin-bottom: 20px; }
-        .input-group label { display: block; margin-bottom: 8px; font-weight: bold; color: #3498db; }
-        .input-group input, .input-group select { width: 100%; padding: 10px; border-radius: 5px; border: 1px solid #4a5568; background: #2d3748; color: white; }
-        .btn { background: linear-gradient(135deg, #ff6b6b, #e63946); color: white; padding: 12px 24px; border: none; border-radius: 5px; cursor: pointer; font-weight: bold; transition: transform 0.2s; width: 100%; }
-        .btn:hover { transform: scale(1.02); }
-        .result-box { background: #34495e; padding: 20px; border-radius: 8px; margin-top: 30px; }
-        .result-item { display: flex; justify-content: space-between; margin-bottom: 10px; padding-bottom: 10px; border-bottom: 1px solid #4a5568; }
-        .section-title { color: #3498db; border-bottom: 2px solid #3498db; padding-bottom: 10px; margin-top: 40px; }
-        .info-box { background: #34495e; padding: 15px; border-left: 4px solid #3498db; margin: 20px 0; }
-        table { width: 100%; border-collapse: collapse; margin-top: 20px; }
-        th, td { padding: 12px; text-align: left; border-bottom: 1px solid #4a5568; }
-        th { background: #3498db; color: white; }
-        tr:hover { background: #3c4a5e; }
-        @media (max-width: 768px) {
-            .input-row { flex-direction: column; }
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Loan Calculator India & USA | SMART AI CALCULATOR</title>
+
+<meta name="description" content="SMART AI CALCULATOR Loan Calculator for India & USA helps you calculate EMI, interest and total loan cost. Supports Indian & US financial systems with charts.">
+
+<meta name="keywords" content="loan calculator india usa, emi calculator, interest calculator, smart ai calculator">
+
+<link rel="canonical" href="https://smartaicalculator.com/loan.html"/>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-FEQ7R89CFG"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-FEQ7R89CFG');
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<style>
+body{
+font-family:Segoe UI,Arial;
+background:#f8fafc;
+color:#0f172a;
+max-width:1000px;
+margin:auto;
+padding:20px;
+line-height:1.7
+}
+h1{color:#0f766e;text-align:center;font-size:2.2em}
+h2{color:#0f766e;border-bottom:2px solid #99f6e4;padding-bottom:8px}
+.intro{text-align:center;color:#334155;margin-bottom:40px}
+
+.calculator-box{
+background:#ffffff;
+border-radius:12px;
+padding:25px;
+box-shadow:0 10px 25px rgba(0,0,0,0.08);
+margin:40px 0;
+border-left:6px solid #14b8a6
+}
+
+label{font-weight:600;color:#0f766e}
+input{
+width:100%;
+padding:12px;
+margin:10px 0;
+border-radius:6px;
+border:1px solid #cbd5f5
+}
+
+button{
+background:#14b8a6;
+color:white;
+border:none;
+padding:14px;
+width:100%;
+font-size:16px;
+border-radius:6px;
+cursor:pointer
+}
+button:hover{background:#0f766e}
+
+#result{
+margin-top:20px;
+background:#ecfeff;
+padding:15px;
+border-radius:8px;
+border-left:4px solid #14b8a6
+}
+
+.chart-box{margin:30px 0}
+
+.highlight{
+background:#f1f5f9;
+padding:20px;
+border-radius:10px;
+margin:25px 0
+}
+
+.faq-item{margin-bottom:20px}
+
+.related{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:15px
+}
+.related div{
+background:#ffffff;
+padding:15px;
+border-radius:8px;
+box-shadow:0 4px 10px rgba(0,0,0,0.06)
+}
+
+footer{
+margin-top:60px;
+padding:20px;
+text-align:center;
+font-size:14px;
+color:#475569;
+border-top:1px solid #e2e8f0
+}
+footer a{color:#0f766e;text-decoration:none;margin:0 6px}
+</style>
 </head>
+
 <body>
-    <header class="header">
-        <h1>Smart AI Loan Calculator</h1>
-        <h2>Calculate your loan EMI, interest, and payment schedule</h2>
-    </header>
-    <nav class="nav-tabs">
-        <a href="index.html#home" class="nav-tab">HOME</a>
-        <a href="index.html#financial" class="nav-tab active">FINANCIAL</a>
-    </nav>
 
-    <div class="container">
-        <article>
-            <h2 class="section-title">Comprehensive Loan Calculator</h2>
-            <p>Our advanced loan calculator helps you understand exactly how much you'll pay each month (EMI), the total interest over the loan term, and provides a complete payment schedule. Whether you're planning for a personal loan, home loan, car loan, or education loan, this tool gives you the clarity you need to make informed financial decisions.</p>
-            
-            <div class="info-box">
-                <p><strong>Pro Tip:</strong> Try reducing your loan term by even 1-2 years to see how much interest you can save. Even small reductions can lead to significant savings!</p>
-            </div>
+<h1><b>SMART AI CALCULATOR – Loan Calculator (India & USA)</b></h1>
+<p class="intro">
+Easily calculate your <b>Loan EMI, total interest, and repayment amount</b>
+using our advanced Loan Calculator designed for both
+<b>Indian & US financial systems</b>.
+</p>
 
-            <div class="calculator-box">
-                <h3>Loan Details</h3>
-                <div class="input-group">
-                    <label for="loan-amount">Loan Amount (₹)</label>
-                    <input type="number" id="loan-amount" placeholder="e.g. 500000" min="1000" step="1000">
-                </div>
-                <div class="input-group">
-                    <label for="interest-rate">Annual Interest Rate (%)</label>
-                    <input type="number" id="interest-rate" placeholder="e.g. 8.5" min="1" max="30" step="0.01">
-                </div>
-                <div class="input-group">
-                    <label for="loan-term">Loan Term (years)</label>
-                    <input type="number" id="loan-term" placeholder="e.g. 5" min="1" max="30">
-                </div>
-                <div class="input-group">
-                    <label for="start-date">Loan Start Date</label>
-                    <input type="date" id="start-date">
-                </div>
-                <button onclick="calculateLoan()" class="btn">Calculate Loan Details</button>
-            </div>
+<div class="calculator-box">
+<h2><b>Loan Calculator</b></h2>
 
-            <div id="results" style="display: none;">
-                <div class="result-box">
-                    <h3>Loan Summary</h3>
-                    <div class="result-item">
-                        <span>Monthly Payment (EMI):</span>
-                        <span id="monthly-payment" class="font-bold"></span>
-                    </div>
-                    <div class="result-item">
-                        <span>Total Interest Payable:</span>
-                        <span id="total-interest" class="font-bold"></span>
-                    </div>
-                    <div class="result-item">
-                        <span>Total Payment (Principal + Interest):</span>
-                        <span id="total-payment" class="font-bold"></span>
-                    </div>
-                    <div class="result-item">
-                        <span>Loan Completion Date:</span>
-                        <span id="end-date" class="font-bold"></span>
-                    </div>
-                </div>
+<label>Loan Amount</label>
+<input type="number" id="amount" placeholder="Example: 500000">
 
-                <h3 class="section-title">Amortization Schedule</h3>
-                <div class="overflow-x-auto">
-                    <table id="amortization-table">
-                        <thead>
-                            <tr>
-                                <th>Payment #</th>
-                                <th>Payment Date</th>
-                                <th>Principal</th>
-                                <th>Interest</th>
-                                <th>Total Payment</th>
-                                <th>Remaining Balance</th>
-                            </tr>
-                        </thead>
-                        <tbody id="amortization-body"></tbody>
-                    </table>
-                </div>
-            </div>
+<label>Annual Interest Rate (%)</label>
+<input type="number" id="rate" placeholder="Example: 8.5">
 
-            <h2 class="section-title">Understanding Loan Calculations</h2>
-            <p>When you take a loan, you repay it through Equated Monthly Installments (EMIs) that include both principal and interest components. Our calculator uses the standard EMI formula:</p>
-            
-            <div class="info-box">
-                <p><strong>EMI Formula:</strong> EMI = [P × r × (1+r)^n] / [(1+r)^n-1]</p>
-                <p>Where:<br>
-                P = Principal loan amount<br>
-                r = Monthly interest rate (annual rate/12/100)<br>
-                n = Loan term in months</p>
-            </div>
+<label>Loan Tenure (Years)</label>
+<input type="number" id="years" placeholder="Example: 10">
 
-            <h3>Types of Loans You Can Calculate</h3>
-            <ul>
-                <li><strong>Personal Loans:</strong> Unsecured loans for various personal needs</li>
-                <li><strong>Home Loans:</strong> Long-term loans for property purchase</li>
-                <li><strong>Car Loans:</strong> Vehicle financing with fixed terms</li>
-                <li><strong>Education Loans:</strong> For funding higher education</li>
-                <li><strong>Business Loans:</strong> For business expansion or working capital</li>
-            </ul>
+<button onclick="calculateLoan()">Calculate Loan</button>
 
-            <h2 class="section-title">Frequently Asked Questions</h2>
-            <div class="info-box">
-                <p><strong>Q: How can I reduce my total interest payment?</strong><br>
-                A: You can reduce total interest by: (1) Choosing a shorter loan term, (2) Making prepayments when possible, (3) Negotiating for a lower interest rate.</p>
-            </div>
-            <div class="info-box">
-                <p><strong>Q: What's the difference between flat rate and reducing balance interest?</strong><br>
-                A: Flat rate calculates interest on the full loan amount throughout the term, while reducing balance calculates interest only on the outstanding principal, making it cheaper.</p>
-            </div>
+<div id="result"></div>
+</div>
 
-            <h3>You May Also Like:</h3>
-            <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 15px; margin: 20px 0;">
-                <div style="background: #34495e; padding: 15px; border-radius: 5px;">
-                    <h4>EMI Calculator</h4>
-                    <a href="emi.html" style="color: #4f46e5; text-decoration: none;">Try Now →</a>
-                </div>
-                <div style="background: #34495e; padding: 15px; border-radius: 5px;">
-                    <h4>Home Loan Calculator</h4>
-                    <a href="home-loan.html" style="color: #4f46e5; text-decoration: none;">Try Now →</a>
-                </div>
-                <div style="background: #34495e; padding: 15px; border-radius: 5px;">
-                    <h4>Car Loan Calculator</h4>
-                    <a href="car-loan.html" style="color: #4f46e5; text-decoration: none;">Try Now →</a>
-                </div>
-            </div>
-        </article>
-    </div>
+<div class="chart-box">
+<canvas id="loanChart"></canvas>
+</div>
 
-    <footer style="background: #2c3e50; text-align: center; padding: 20px 0; margin-top: 40px;">
-        <p style="font-weight: bold;">2025 © Smart AI Calculator. All rights reserved.</p>
-        <a href="privacy.html" style="color: #4f46e5; margin: 0 10px;">Privacy Policy</a>
-        <a href="contactus.html" style="color: #4f46e5; margin: 0 10px;">Contact Us</a>
-        <a href="howto.html" style="color: #4f46e5; margin: 0 10px;">How to Use</a>
-    </footer>
+<h2>How Loan EMI Calculation Works</h2>
+<p>
+Loan EMI (Equated Monthly Installment) is calculated using a standard formula
+followed by banks and financial institutions in both India and the USA.
+</p>
 
-    <script>
-        // Set default date to today
-        window.onload = function() {
-            document.getElementById('start-date').valueAsDate = new Date();
-        };
+<div class="highlight">
+<b>EMI Formula:</b><br>
+EMI = P × r × (1+r)<sup>n</sup> / ((1+r)<sup>n</sup> − 1)
+<ul>
+<li><b>P</b> = Loan Amount</li>
+<li><b>r</b> = Monthly Interest Rate</li>
+<li><b>n</b> = Loan Tenure in Months</li>
+</ul>
+</div>
 
-        function calculateLoan() {
-            // Get input values
-            const principal = parseFloat(document.getElementById('loan-amount').value);
-            const annualRate = parseFloat(document.getElementById('interest-rate').value);
-            const years = parseInt(document.getElementById('loan-term').value);
-            const startDate = new Date(document.getElementById('start-date').value);
+<h2>Why Use SMART AI CALCULATOR?</h2>
+<ul>
+<li>Supports Indian (₹, Lakh, Crore) & US ($) systems</li>
+<li>Instant EMI & interest breakdown</li>
+<li>Visual charts for better understanding</li>
+<li>Free, fast & mobile-friendly</li>
+</ul>
 
-            // Validate inputs
-            if (isNaN(principal) || isNaN(annualRate) || isNaN(years) || !startDate.getTime()) {
-                alert('Please fill all fields with valid values');
-                return;
-            }
+<h2>Frequently Asked Questions (FAQ)</h2>
 
-            // Calculate monthly values
-            const monthlyRate = annualRate / 100 / 12;
-            const numberOfPayments = years * 12;
+<div class="faq-item">
+<b>Is this loan calculator accurate?</b>
+<p>Yes. It uses standard banking formulas used in India and the USA.</p>
+</div>
 
-            // Calculate EMI using standard formula
-            const emi = principal * monthlyRate * Math.pow(1 + monthlyRate, numberOfPayments) / 
-                        (Math.pow(1 + monthlyRate, numberOfPayments) - 1);
+<div class="faq-item">
+<b>Can I calculate home, car, or personal loans?</b>
+<p>Yes. This calculator works for all loan types.</p>
+</div>
 
-            // Calculate total values
-            const totalPayment = emi * numberOfPayments;
-            const totalInterest = totalPayment - principal;
+<div class="faq-item">
+<b>Does it support mobile devices?</b>
+<p>Yes, fully responsive on all devices.</p>
+</div>
 
-            // Display results
-            document.getElementById('monthly-payment').textContent = '₹' + emi.toFixed(2);
-            document.getElementById('total-interest').textContent = '₹' + totalInterest.toFixed(2);
-            document.getElementById('total-payment').textContent = '₹' + totalPayment.toFixed(2);
-            
-            // Calculate end date
-            const endDate = new Date(startDate);
-            endDate.setMonth(endDate.getMonth() + numberOfPayments);
-            document.getElementById('end-date').textContent = endDate.toDateString();
+<h2>Related Calculators</h2>
+<div class="related">
+<div><a href="emi.html">EMI Calculator</a></div>
+<div><a href="sip.html">SIP Calculator</a></div>
+<div><a href="mortgage.html">Mortgage Calculator</a></div>
+<div><a href="gst.html">GST Calculator</a></div>
+<div><a href="inflation.html">Inflation Calculator</a></div>
+</div>
 
-            // Generate amortization schedule
-            generateAmortizationSchedule(principal, annualRate, years, startDate);
+<footer>
+<a href="privacy-policy.html">Privacy Policy</a> |
+<a href="disclaimer.html">Disclaimer</a> |
+<a href="contact-us.html">Contact Us</a>
+<p>© 2026 SMART AI CALCULATOR</p>
+</footer>
 
-            // Show results
-            document.getElementById('results').style.display = 'block';
-        }
+<script>
+let chart;
+function calculateLoan(){
+let P = +amount.value;
+let r = +rate.value/12/100;
+let n = +years.value*12;
 
-        function generateAmortizationSchedule(principal, annualRate, years, startDate) {
-            const monthlyRate = annualRate / 100 / 12;
-            const numberOfPayments = years * 12;
-            const emi = principal * monthlyRate * Math.pow(1 + monthlyRate, numberOfPayments) / 
-                        (Math.pow(1 + monthlyRate, numberOfPayments) - 1);
+let emi = (P*r*Math.pow(1+r,n))/(Math.pow(1+r,n)-1);
+let total = emi*n;
+let interest = total-P;
 
-            let balance = principal;
-            const tableBody = document.getElementById('amortization-body');
-            tableBody.innerHTML = '';
+result.innerHTML =
+`<p><b>Monthly EMI:</b> ${emi.toFixed(2)}</p>
+<p><b>Total Interest:</b> ${interest.toFixed(2)}</p>
+<p><b>Total Payment:</b> ${total.toFixed(2)}</p>`;
 
-            let currentDate = new Date(startDate);
+if(chart) chart.destroy();
+chart = new Chart(loanChart,{
+type:"doughnut",
+data:{
+labels:["Principal","Interest"],
+datasets:[{
+data:[P,interest],
+backgroundColor:["#14b8a6","#f97316"]
+}]
+}
+});
+}
+</script>
 
-            for (let i = 1; i <= numberOfPayments; i++) {
-                const interest = balance * monthlyRate;
-                const principalPayment = emi - interest;
-                balance -= principalPayment;
-
-                // Adjust for rounding errors in final payment
-                if (i === numberOfPayments) {
-                    balance = 0;
-                }
-
-                // Create table row
-                const row = document.createElement('tr');
-                row.innerHTML = `
-                    <td>${i}</td>
-                    <td>${currentDate.toDateString()}</td>
-                    <td>₹${principalPayment.toFixed(2)}</td>
-                    <td>₹${interest.toFixed(2)}</td>
-                    <td>₹${emi.toFixed(2)}</td>
-                    <td>₹${Math.max(0, balance).toFixed(2)}</td>
-                `;
-                tableBody.appendChild(row);
-
-                // Move to next month
-                currentDate.setMonth(currentDate.getMonth() + 1);
-            }
-        }
-    </script>
 </body>
 </html>
+
