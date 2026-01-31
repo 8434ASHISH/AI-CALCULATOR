@@ -1,303 +1,300 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-FEQ7R89CFG"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Investment Calculator India & USA | SMART AI CALCULATOR</title>
+
+<meta name="description" content="SMART AI CALCULATOR Investment Calculator for India & USA helps you estimate investment growth, returns and total value using charts, graphs and pie charts.">
+
+<meta name="keywords" content="investment calculator india usa, investment growth calculator, smart ai calculator">
+
+<link rel="canonical" href="https://smartaicalculator.com/investment.html"/>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-FEQ7R89CFG"></script>
 <script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-FEQ7R89CFG');
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-FEQ7R89CFG');
 </script>
-<title>Investment Calculator - Estimate Returns on Your Investments (2024 Guide) | Smart AI Tools</title>
-    <meta name="description" content="Free investment return calculator for stocks, mutual funds & fixed deposits. Calculate compound growth, compare investment options, and plan your financial future.">
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "WebApplication",
-      "name": "Investment Calculator",
-      "url": "https://smartaicalculator.com/investment.html",
-      "applicationCategory": "FinancialApplication",
-      "operatingSystem": "All",
-      "offers": {
-        "@type": "Offer",
-        "price": "0",
-        "priceCurrency": "INR"
-      },
-      "creator": {
-        "@type": "Organization",
-        "name": "Smart AI Calculator"
-      }
-    }
-    </script>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: linear-gradient(135deg, #1A202C, #2D3748); color: #fff; }
-        .calculator-box { background: rgba(45, 55, 72, 0.9); border-radius: 8px; padding: 30px; margin: 30px 0; }
-        .input-group { margin-bottom: 20px; }
-        .input-group label { display: block; margin-bottom: 8px; color: #3498db; font-weight: bold; }
-        .btn { background: linear-gradient(135deg, #ff6b6b, #e63946); color: white; padding: 12px 24px; border: none; border-radius: 5px; cursor: pointer; }
-        .result-box { background: #34495e; padding: 20px; border-radius: 8px; margin-top: 30px; }
-        .info-box { border-left: 4px solid #3498db; padding: 15px; margin: 20px 0; background: rgba(52, 73, 94, 0.5); }
-        .investment-types { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin: 20px 0; }
-        .investment-type { background: #2d3748; padding: 15px; border-radius: 5px; }
-        .growth-chart { width: 100%; height: 300px; margin: 20px 0; background: #2d3748; position: relative; }
-        .growth-bar { position: absolute; bottom: 0; background: #3498db; transition: width 2s; }
-        .comparison-table { width: 100%; margin: 20px 0; }
-    </style>
+
+<!-- Schema.org -->
+<script type="application/ld+json">
+{
+"@context":"https://schema.org",
+"@type":"WebApplication",
+"name":"Investment Calculator",
+"url":"https://smartaicalculator.com/investment.html",
+"applicationCategory":"FinanceApplication",
+"provider":{"@type":"Organization","name":"SMART AI CALCULATOR"}
+}
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<style>
+body{
+font-family:Segoe UI,Arial;
+background:#f8fafc;
+color:#1e293b;
+max-width:1000px;
+margin:auto;
+padding:20px;
+line-height:1.7
+}
+h1{text-align:center;color:#065f46;font-size:2.3em}
+h2{color:#065f46;border-bottom:2px solid #6ee7b7;padding-bottom:8px}
+.intro{text-align:center;color:#334155;margin-bottom:40px}
+
+.calculator-box{
+background:#ffffff;
+border-radius:14px;
+padding:25px;
+box-shadow:0 12px 30px rgba(0,0,0,0.08);
+margin:40px 0;
+border-left:6px solid #10b981
+}
+
+label{font-weight:600;color:#065f46}
+input{
+width:100%;
+padding:12px;
+margin:10px 0;
+border-radius:6px;
+border:1px solid #a7f3d0
+}
+
+button{
+background:#10b981;
+color:white;
+border:none;
+padding:14px;
+width:100%;
+font-size:16px;
+border-radius:6px;
+cursor:pointer
+}
+button:hover{background:#065f46}
+
+#result{
+margin-top:20px;
+background:#ecfdf5;
+padding:15px;
+border-radius:8px;
+border-left:4px solid #10b981
+}
+
+.ads{
+background:#e5e7eb;
+padding:15px;
+text-align:center;
+border-radius:8px;
+margin:25px 0;
+color:#475569
+}
+
+.chart-box{margin:30px 0}
+
+.faq-item{margin-bottom:20px}
+
+.related{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:15px
+}
+.related div{
+background:#ffffff;
+padding:15px;
+border-radius:8px;
+box-shadow:0 4px 10px rgba(0,0,0,0.08)
+}
+
+footer{
+margin-top:60px;
+padding:20px;
+text-align:center;
+font-size:14px;
+color:#475569;
+border-top:1px solid #e2e8f0
+}
+footer a{color:#065f46;text-decoration:none;margin:0 6px}
+
+.speaker{cursor:pointer;float:right;font-size:20px}
+</style>
 </head>
+
 <body>
-    <div class="container mx-auto p-4 max-w-4xl">
-        <!-- SEO Article Introduction -->
-        <article>
-            <h1 class="text-3xl font-bold mb-4">Investment Calculator - Plan Your Financial Growth (2024)</h1>
-            
-            <div class="info-box">
-                <p><strong>Compound Magic:</strong> ₹10,000/month at 12% for 30 years becomes ₹3.5 crores - you invest only ₹36 lakhs, earn ₹3.14 crores in returns!</p>
-            </div>
 
-            <h2 class="text-2xl font-bold mt-6 mb-3">Why Use an Investment Calculator?</h2>
-            <p>This tool helps you answer critical wealth-building questions:</p>
-            <ul class="list-disc pl-5 my-3">
-                <li>How much will my investments grow over time?</li>
-                <li>What monthly investment is needed to reach ₹1 crore?</li>
-                <li>How does compounding affect long-term returns?</li>
-                <li>Which investment option gives better returns?</li>
-            </ul>
+<h1><b>SMART AI CALCULATOR</b><br><b>Investment Calculator (India & USA)</b></h1>
 
-            <h2 class="text-2xl font-bold mt-6 mb-3">Compound Interest Formula</h2>
-            <div class="bg-gray-800 p-4 rounded-lg">
-                <p class="font-mono">A = P × (1 + r/n)^(n×t)</p>
-                <p class="mt-2">
-                    <span class="font-bold">Where:</span><br>
-                    A = Future value<br>
-                    P = Principal amount<br>
-                    r = Annual interest rate (decimal)<br>
-                    n = Compounding frequency per year<br>
-                    t = Time in years
-                </p>
-            </div>
+<!-- INTRO -->
+<p class="intro">
+The <b>Investment Calculator</b> by SMART AI CALCULATOR helps investors in
+<b>India & USA</b> estimate how their money grows over time based on
+investment amount, expected return, and duration.
+</p>
 
-            <h2 class="text-2xl font-bold mt-6 mb-3">Expected Returns by Investment Type</h2>
-            <div class="investment-types">
-                <div class="investment-type">
-                    <h3 class="font-bold text-lg mb-2">Equity Investments</h3>
-                    <p>Stocks/MFs: 10-15%</p>
-                    <p class="text-sm">(Long-term average)</p>
-                </div>
-                <div class="investment-type">
-                    <h3 class="font-bold text-lg mb-2">Fixed Income</h3>
-                    <p>FDs/RDs: 6-8%</p>
-                    <p class="text-sm">(Low risk)</p>
-                </div>
-                <div class="investment-type">
-                    <h3 class="font-bold text-lg mb-2">Real Estate</h3>
-                    <p>8-12%</p>
-                    <p class="text-sm">(Including rental yield)</p>
-                </div>
-                <div class="investment-type">
-                    <h3 class="font-bold text-lg mb-2">Gold</h3>
-                    <p>7-10%</p>
-                    <p class="text-sm">(Long-term)</p>
-                </div>
-            </div>
-        </article>
+<!-- WHAT IS INVESTMENT -->
+<h2>What is an Investment?</h2>
+<p>
+An investment is the allocation of money with the expectation of generating
+income or profit over time. Common investments include mutual funds, stocks,
+bonds, and fixed deposits. An investment calculator helps visualize growth
+and returns clearly.
+</p>
 
-        <!-- Investment Calculator -->
-        <div class="calculator-box">
-            <h2 class="text-2xl font-bold mb-4">Investment Calculator</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <div class="input-group">
-                    <label for="initial-investment">Initial Investment (₹)</label>
-                    <input type="number" id="initial-investment" class="w-full p-3 rounded bg-gray-700" placeholder="1,00,000" value="100000">
-                </div>
-                <div class="input-group">
-                    <label for="monthly-contribution">Monthly Contribution (₹)</label>
-                    <input type="number" id="monthly-contribution" class="w-full p-3 rounded bg-gray-700" placeholder="10,000" value="10000">
-                </div>
-                <div class="input-group">
-                    <label for="expected-return">Expected Return (% p.a.)</label>
-                    <input type="number" id="expected-return" class="w-full p-3 rounded bg-gray-700" placeholder="12" step="0.1" value="12">
-                </div>
-                <div class="input-group">
-                    <label for="investment-period">Investment Period (years)</label>
-                    <input type="number" id="investment-period" class="w-full p-3 rounded bg-gray-700" placeholder="10" value="10">
-                </div>
-            </div>
-            <button onclick="calculateInvestment()" class="btn w-full mt-6 py-3 text-lg">Calculate Investment Growth</button>
-            
-            <div id="results" class="result-box hidden mt-6">
-                <h3 class="text-xl font-bold mb-4">Investment Projection</h3>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <div>
-                        <p class="flex justify-between mb-3"><span>Total Invested:</span> <span id="total-invested" class="font-bold"></span></p>
-                        <p class="flex justify-between mb-3"><span>Interest Earned:</span> <span id="interest-earned" class="font-bold"></span></p>
-                    </div>
-                    <div>
-                        <p class="flex justify-between mb-3"><span>Maturity Value:</span> <span id="maturity-value" class="font-bold"></span></p>
-                        <p class="flex justify-between mb-3"><span>Effective Annual Return:</span> <span id="effective-return" class="font-bold"></span></p>
-                    </div>
-                </div>
-                
-                <div class="mt-6">
-                    <h4 class="text-lg font-bold mb-3">Yearly Growth Projection</h4>
-                    <div class="overflow-x-auto">
-                        <table class="comparison-table">
-                            <thead class="bg-gray-700">
-                                <tr>
-                                    <th class="p-3 text-left">Year</th>
-                                    <th class="p-3 text-left">Invested</th>
-                                    <th class="p-3 text-left">Returns</th>
-                                    <th class="p-3 text-left">Total Value</th>
-                                </tr>
-                            </thead>
-                            <tbody id="yearly-growth">
-                                <!-- Filled by JavaScript -->
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
-        </div>
+<!-- CALCULATOR -->
+<div class="calculator-box">
+<h2>Investment Calculator <span class="speaker" onclick="speakResult()">🔊</span></h2>
 
-        <!-- More Article Content -->
-        <article>
-            <h2 class="text-2xl font-bold mt-6 mb-3">Smart Investment Strategies for 2024</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div class="bg-gray-800 p-4 rounded-lg">
-                    <h3 class="text-lg font-bold mb-2">1. Asset Allocation</h3>
-                    <p>Follow the 100-age rule for equity allocation. At 30 years old, invest 70% in equities and 30% in debt instruments.</p>
-                </div>
-                <div class="bg-gray-800 p-4 rounded-lg">
-                    <h3 class="text-lg font-bold mb-2">2. Systematic Approach</h3>
-                    <p>Use SIPs for mutual funds to average purchase costs and reduce market timing risk.</p>
-                </div>
-            </div>
+<label>Initial Investment Amount</label>
+<input type="number" id="amount" placeholder="Example: 200000">
 
-            <h2 class="text-2xl font-bold mt-6 mb-3">Investment Comparison (₹10,000/month for 20 years)</h2>
-            <div class="overflow-x-auto">
-                <table class="comparison-table">
-                    <thead class="bg-gray-700">
-                        <tr>
-                            <th class="p-3 text-left">Asset Class</th>
-                            <th class="p-3 text-left">Expected Return</th>
-                            <th class="p-3 text-left">Total Invested</th>
-                            <th class="p-3 text-left">Maturity Value</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr class="border-b border-gray-700">
-                            <td class="p-3">Savings Account</td>
-                            <td class="p-3">3-4%</td>
-                            <td class="p-3">₹24,00,000</td>
-                            <td class="p-3">₹32-36 lakhs</td>
-                        </tr>
-                        <tr class="border-b border-gray-700">
-                            <td class="p-3">Fixed Deposits</td>
-                            <td class="p-3">6-7%</td>
-                            <td class="p-3">₹24,00,000</td>
-                            <td class="p-3">₹46-52 lakhs</td>
-                        </tr>
-                        <tr class="border-b border-gray-700">
-                            <td class="p-3">Debt Funds</td>
-                            <td class="p-3">7-9%</td>
-                            <td class="p-3">₹24,00,000</td>
-                            <td class="p-3">₹52-65 lakhs</td>
-                        </tr>
-                        <tr>
-                            <td class="p-3">Equity Funds</td>
-                            <td class="p-3">12-15%</td>
-                            <td class="p-3">₹24,00,000</td>
-                            <td class="p-3">₹1-1.5 crores</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
+<label>Expected Annual Return (%)</label>
+<input type="number" id="rate" placeholder="Example: 12">
 
-            <div class="info-box mt-6">
-                <p><strong>Pro Tip:</strong> Start early! A 25-year-old investing ₹5,000/month at 12% until retirement (60 years) would accumulate ₹5.8 crores, while starting at 35 would yield only ₹1.7 crores.</p>
-            </div>
-        </article>
+<label>Investment Duration (Years)</label>
+<input type="number" id="years" placeholder="Example: 10">
 
-        <!-- You May Like Section -->
-        <div class="mt-8">
-            <h2 class="text-2xl font-bold mb-4">You May Also Like</h2>
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-                <a href="sip.html" class="bg-gray-800 p-4 rounded-lg block hover:bg-gray-700">
-                    <h3 class="font-bold">SIP Calculator</h3>
-                    <p class="text-sm">Calculate mutual fund SIP returns</p>
-                </a>
-                <a href="retirement.html" class="bg-gray-800 p-4 rounded-lg block hover:bg-gray-700">
-                    <h3 class="font-bold">Retirement Planner</h3>
-                    <p class="text-sm">Plan your retirement corpus</p>
-                </a>
-                <a href="inflation.html" class="bg-gray-800 p-4 rounded-lg block hover:bg-gray-700">
-                    <h3 class="font-bold">Inflation Calculator</h3>
-                    <p class="text-sm">Adjust for purchasing power</p>
-                </a>
-            </div>
-        </div>
-    </div>
+<button onclick="calculateInvestment()">Calculate Investment</button>
 
-    <script>
-        function calculateInvestment() {
-            const initial = parseFloat(document.getElementById('initial-investment').value) || 0;
-            const monthly = parseFloat(document.getElementById('monthly-contribution').value) || 0;
-            const annualReturn = parseFloat(document.getElementById('expected-return').value);
-            const years = parseInt(document.getElementById('investment-period').value);
-            
-            const monthlyRate = annualReturn / 100 / 12;
-            const months = years * 12;
-            
-            // Calculate future value
-            let futureValue = initial;
-            for (let i = 0; i < months; i++) {
-                futureValue = (futureValue + monthly) * (1 + monthlyRate);
-            }
-            
-            const totalInvested = initial + (monthly * months);
-            const interestEarned = futureValue - totalInvested;
-            const effectiveReturn = (Math.pow(futureValue / totalInvested, 1/years) - 1) * 100;
-            
-            // Display results
-            document.getElementById('total-invested').textContent = '₹' + Math.round(totalInvested).toLocaleString();
-            document.getElementById('interest-earned').textContent = '₹' + Math.round(interestEarned).toLocaleString();
-            document.getElementById('maturity-value').textContent = '₹' + Math.round(futureValue).toLocaleString();
-            document.getElementById('effective-return').textContent = effectiveReturn.toFixed(2) + '%';
-            
-            // Generate yearly projection
-            generateYearlyProjection(initial, monthly, annualReturn, years);
-            
-            document.getElementById('results').classList.remove('hidden');
-        }
+<div id="result"></div>
+</div>
 
-        function generateYearlyProjection(initial, monthly, annualReturn, years) {
-            const tableBody = document.getElementById('yearly-growth');
-            tableBody.innerHTML = '';
-            
-            let runningTotal = initial;
-            let yearlyInvestment = monthly * 12;
-            
-            for (let year = 1; year <= years; year++) {
-                // Calculate yearly growth
-                for (let month = 1; month <= 12; month++) {
-                    runningTotal = (runningTotal + monthly) * (1 + (annualReturn/100/12));
-                }
-                
-                const totalInvested = initial + (yearlyInvestment * year);
-                const returns = runningTotal - totalInvested;
-                
-                const row = document.createElement('tr');
-                row.className = year % 2 === 0 ? 'bg-gray-800' : 'bg-gray-700';
-                row.innerHTML = `
-                    <td class="p-3">Year ${year}</td>
-                    <td class="p-3">₹${Math.round(totalInvested).toLocaleString()}</td>
-                    <td class="p-3">₹${Math.round(returns).toLocaleString()}</td>
-                    <td class="p-3">₹${Math.round(runningTotal).toLocaleString()}</td>
-                `;
-                tableBody.appendChild(row);
-            }
-        }
-    </script>
+<div class="ads">📢 Google Adsense Ad Space</div>
+
+<!-- CHARTS -->
+<div class="chart-box">
+<canvas id="lineChart"></canvas>
+</div>
+
+<div class="chart-box">
+<canvas id="barChart"></canvas>
+</div>
+
+<div class="chart-box">
+<canvas id="pieChart"></canvas>
+</div>
+
+<!-- HOW CALCULATED -->
+<h2>How Investment Returns are Calculated</h2>
+<p>
+Investment returns are calculated using compound interest. The calculator
+estimates the future value based on annual compounding of expected returns.
+</p>
+
+<!-- BENEFITS -->
+<h2>Benefits of Investment Calculator</h2>
+<ul>
+<li>Visualizes investment growth over time</li>
+<li>Shows profit vs invested amount clearly</li>
+<li>Helps compare different investment durations</li>
+<li>Useful for India & USA investors</li>
+</ul>
+
+<!-- FAQ -->
+<h2>Frequently Asked Questions (FAQ)</h2>
+
+<div class="faq-item">
+<b>Is this calculator suitable for stocks?</b>
+<p>Yes, it can estimate returns based on expected annual growth.</p>
+</div>
+
+<div class="faq-item">
+<b>Does it consider inflation?</b>
+<p>No, this calculator shows nominal returns.</p>
+</div>
+
+<div class="faq-item">
+<b>Is this calculator free?</b>
+<p>Yes, SMART AI CALCULATOR tools are 100% free.</p>
+</div>
+
+<!-- INTERLINKING -->
+<h2>Related Calculators</h2>
+<div class="related">
+<div><a href="roi.html">ROI Calculator</a></div>
+<div><a href="sip.html">SIP Calculator</a></div>
+</div>
+
+<footer>
+<a href="privacy-policy.html">Privacy Policy</a> |
+<a href="disclaimer.html">Disclaimer</a> |
+<a href="contact-us.html">Contact Us</a>
+<p>© 2026 SMART AI CALCULATOR</p>
+</footer>
+
+<script>
+let lineC, barC, pieC;
+
+function calculateInvestment(){
+let P = +amount.value;
+let r = +rate.value/100;
+let n = +years.value;
+
+let values=[];
+for(let i=0;i<=n;i++){
+values.push(P*Math.pow(1+r,i));
+}
+let finalValue = values[n];
+let gain = finalValue - P;
+
+result.innerHTML =
+`<p><b>Invested Amount:</b> ${P.toFixed(2)}</p>
+<p><b>Total Returns:</b> ${gain.toFixed(2)}</p>
+<p><b>Final Value:</b> ${finalValue.toFixed(2)}</p>`;
+
+if(lineC) lineC.destroy();
+if(barC) barC.destroy();
+if(pieC) pieC.destroy();
+
+lineC = new Chart(lineChart,{
+type:"line",
+data:{
+labels:[...Array(n+1).keys()],
+datasets:[{
+label:"Investment Growth",
+data:values,
+borderColor:"#10b981",
+fill:false
+}]
+}
+});
+
+barC = new Chart(barChart,{
+type:"bar",
+data:{
+labels:["Invested","Final Value"],
+datasets:[{
+data:[P,finalValue],
+backgroundColor:["#34d399","#065f46"]
+}]
+}
+});
+
+pieC = new Chart(pieChart,{
+type:"pie",
+data:{
+labels:["Invested Amount","Returns"],
+datasets:[{
+data:[P,gain],
+backgroundColor:["#34d399","#f59e0b"]
+}]
+}
+});
+}
+
+function speakResult(){
+if(!result.innerText) return;
+let s = new SpeechSynthesisUtterance(result.innerText);
+s.lang="en-US";
+speechSynthesis.speak(s);
+}
+</script>
+
 </body>
 </html>
+
