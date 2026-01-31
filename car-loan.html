@@ -1,278 +1,260 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "WebApplication",
-      "name": "Car Loan Calculator",
-      "url": "https://smartaicalculator.com/car-loan.html",
-      "applicationCategory": "FinancialApplication",
-      "operatingSystem": "All",
-      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "INR" },
-      "creator": { "@type": "Organization", "name": "Smart AI Calculator" }
-    }
-    </script>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Car Loan Calculator - Calculate EMI, Interest & Payment Schedule | Smart AI Tools</title>
-    <meta name="description" content="Free online car loan calculator to estimate monthly payments (EMI), total interest, and complete amortization schedule. Compare auto loan options and save money.">
-    <meta name="keywords" content="car loan calculator, auto loan calculator, car EMI calculator, vehicle loan calculator, car finance calculator">
-    <meta name="robots" content="index, follow">
-    <link rel="canonical" href="https://smartaicalculator.com/car-loan-calculator.html">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-    <style>
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: linear-gradient(135deg, #1A202C, #2D3748); color: #fff; margin: 0; line-height: 1.6; }
-        .header { background: #2c3e50; padding: 20px 0; text-align: center; }
-        .nav-tabs { display: flex; justify-content: center; gap: 20px; padding: 10px 0; background: #34495e; flex-wrap: wrap; }
-        .nav-tab { color: white; text-decoration: none; padding: 5px 15px; transition: background 0.3s; font-weight: bold; }
-        .nav-tab:hover, .nav-tab.active { background: #3498db; border-radius: 5px; }
-        .container { max-width: 1000px; margin: 20px auto; padding: 0 20px; }
-        .calculator-box { background: rgba(45, 55, 72, 0.9); border-radius: 8px; padding: 30px; margin-bottom: 30px; }
-        .input-group { margin-bottom: 20px; }
-        .input-group label { display: block; margin-bottom: 8px; font-weight: bold; color: #3498db; }
-        .input-group input, .input-group select { width: 100%; padding: 10px; border-radius: 5px; border: 1px solid #4a5568; background: #2d3748; color: white; }
-        .btn { background: linear-gradient(135deg, #ff6b6b, #e63946); color: white; padding: 12px 24px; border: none; border-radius: 5px; cursor: pointer; font-weight: bold; transition: transform 0.2s; width: 100%; }
-        .btn:hover { transform: scale(1.02); }
-        .result-box { background: #34495e; padding: 20px; border-radius: 8px; margin-top: 30px; }
-        .result-item { display: flex; justify-content: space-between; margin-bottom: 10px; padding-bottom: 10px; border-bottom: 1px solid #4a5568; }
-        .section-title { color: #3498db; border-bottom: 2px solid #3498db; padding-bottom: 10px; margin-top: 40px; }
-        .info-box { background: #34495e; padding: 15px; border-left: 4px solid #3498db; margin: 20px 0; }
-        table { width: 100%; border-collapse: collapse; margin-top: 20px; }
-        th, td { padding: 12px; text-align: left; border-bottom: 1px solid #4a5568; }
-        th { background: #3498db; color: white; }
-        tr:hover { background: #3c4a5e; }
-        @media (max-width: 768px) {
-            .input-row { flex-direction: column; }
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Car Loan Calculator India & USA | SMART AI CALCULATOR</title>
+
+<meta name="description" content="SMART AI CALCULATOR Car Loan Calculator for India & USA helps you calculate EMI, interest and total cost of car loan easily with charts.">
+
+<meta name="keywords" content="car loan calculator india usa, auto loan calculator, smart ai calculator">
+
+<link rel="canonical" href="https://smartaicalculator.com/car-loan.html"/>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-FEQ7R89CFG"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-FEQ7R89CFG');
+</script>
+
+<!-- Schema.org -->
+<script type="application/ld+json">
+{
+"@context":"https://schema.org",
+"@type":"WebApplication",
+"name":"Car Loan Calculator",
+"url":"https://smartaicalculator.com/car-loan.html",
+"applicationCategory":"FinanceApplication",
+"provider":{"@type":"Organization","name":"SMART AI CALCULATOR"}
+}
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<style>
+body{
+font-family:Segoe UI,Arial;
+background:#f0f9ff;
+color:#1e293b;
+max-width:1000px;
+margin:auto;
+padding:20px;
+line-height:1.7
+}
+h1{text-align:center;color:#0c4a6e;font-size:2.3em}
+h2{color:#0c4a6e;border-bottom:2px solid #bae6fd;padding-bottom:8px}
+.intro{text-align:center;color:#334155;margin-bottom:40px}
+
+.calculator-box{
+background:#ffffff;
+border-radius:14px;
+padding:25px;
+box-shadow:0 12px 30px rgba(0,0,0,0.08);
+margin:40px 0;
+border-left:6px solid #0ea5e9
+}
+
+label{font-weight:600;color:#075985}
+input{
+width:100%;
+padding:12px;
+margin:10px 0;
+border-radius:6px;
+border:1px solid #bae6fd
+}
+
+button{
+background:#0ea5e9;
+color:white;
+border:none;
+padding:14px;
+width:100%;
+font-size:16px;
+border-radius:6px;
+cursor:pointer
+}
+button:hover{background:#0369a1}
+
+#result{
+margin-top:20px;
+background:#f0f9ff;
+padding:15px;
+border-radius:8px;
+border-left:4px solid #0ea5e9
+}
+
+.ads{
+background:#e5e7eb;
+padding:15px;
+text-align:center;
+border-radius:8px;
+margin:25px 0;
+color:#475569
+}
+
+.chart-box{margin:30px 0}
+
+.faq-item{margin-bottom:20px}
+
+.related{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:15px
+}
+.related div{
+background:#ffffff;
+padding:15px;
+border-radius:8px;
+box-shadow:0 4px 10px rgba(0,0,0,0.08)
+}
+
+footer{
+margin-top:60px;
+padding:20px;
+text-align:center;
+font-size:14px;
+color:#475569;
+border-top:1px solid #e2e8f0
+}
+footer a{color:#0c4a6e;text-decoration:none;margin:0 6px}
+
+.speaker{cursor:pointer;float:right;font-size:20px}
+</style>
 </head>
+
 <body>
-    <header class="header">
-        <h1>Smart AI Car Loan Calculator</h1>
-        <h2>Calculate your car loan EMI, interest, and payment schedule</h2>
-    </header>
-    <nav class="nav-tabs">
-        <a href="index.html#home" class="nav-tab">HOME</a>
-        <a href="index.html#financial" class="nav-tab active">FINANCIAL</a>
-    </nav>
 
-    <div class="container">
-        <article>
-            <h2 class="section-title">Car Loan Calculator</h2>
-            <p>Our comprehensive car loan calculator helps you understand exactly how much you'll pay each month (EMI), the total interest over the loan term, and provides a complete payment schedule. Compare different loan scenarios to find the best option for your budget.</p>
-            
-            <div class="info-box">
-                <p><strong>Pro Tip:</strong> A 20% down payment typically gets you better interest rates. Try adjusting the down payment to see how it affects your monthly EMI.</p>
-            </div>
+<h1><b>SMART AI CALCULATOR</b><br><b>Car Loan Calculator (India & USA)</b></h1>
 
-            <div class="calculator-box">
-                <h3>Car Loan Details</h3>
-                <div class="input-group">
-                    <label for="car-price">Car Price (₹)</label>
-                    <input type="number" id="car-price" placeholder="e.g. 800000" min="100000" step="10000">
-                </div>
-                <div class="input-group">
-                    <label for="down-payment">Down Payment (₹)</label>
-                    <input type="number" id="down-payment" placeholder="e.g. 160000" min="0" step="10000">
-                </div>
-                <div class="input-group">
-                    <label for="loan-amount">Loan Amount (₹)</label>
-                    <input type="number" id="loan-amount" placeholder="Calculated automatically" readonly>
-                </div>
-                <div class="input-group">
-                    <label for="interest-rate">Interest Rate (%)</label>
-                    <input type="number" id="interest-rate" placeholder="e.g. 8.5" min="5" max="20" step="0.01">
-                </div>
-                <div class="input-group">
-                    <label for="loan-term">Loan Term (years)</label>
-                    <select id="loan-term">
-                        <option value="1">1 Year</option>
-                        <option value="2">2 Years</option>
-                        <option value="3">3 Years</option>
-                        <option value="4">4 Years</option>
-                        <option value="5" selected>5 Years</option>
-                        <option value="7">7 Years</option>
-                    </select>
-                </div>
-                <button onclick="calculateCarLoan()" class="btn">Calculate Car Loan EMI</button>
-            </div>
+<!-- INTRO -->
+<p class="intro">
+The <b>Car Loan Calculator</b> by SMART AI CALCULATOR helps users in
+<b>India & USA</b> estimate monthly EMI, total interest, and overall cost
+of financing a car purchase.
+</p>
 
-            <div id="results" style="display: none;">
-                <div class="result-box">
-                    <h3>Loan Summary</h3>
-                    <div class="result-item">
-                        <span>Monthly EMI:</span>
-                        <span id="monthly-payment" class="font-bold"></span>
-                    </div>
-                    <div class="result-item">
-                        <span>Total Interest Payable:</span>
-                        <span id="total-interest" class="font-bold"></span>
-                    </div>
-                    <div class="result-item">
-                        <span>Total Payment (Principal + Interest):</span>
-                        <span id="total-payment" class="font-bold"></span>
-                    </div>
-                    <div class="result-item">
-                        <span>Effective Car Cost:</span>
-                        <span id="total-cost" class="font-bold"></span>
-                    </div>
-                </div>
+<!-- WHAT IS CAR LOAN -->
+<h2>What is a Car Loan?</h2>
+<p>
+A car loan is a type of secured loan taken to purchase a vehicle.
+The borrower repays the loan in monthly installments (EMIs) that include
+both principal and interest. Car loan calculators make it easy to compare
+loan offers and plan budgets accurately.
+</p>
 
-                <h3 class="section-title">Amortization Schedule</h3>
-                <div class="overflow-x-auto">
-                    <table id="amortization-table">
-                        <thead>
-                            <tr>
-                                <th>Month</th>
-                                <th>Payment</th>
-                                <th>Principal</th>
-                                <th>Interest</th>
-                                <th>Balance</th>
-                            </tr>
-                        </thead>
-                        <tbody id="amortization-body"></tbody>
-                    </table>
-                </div>
-            </div>
+<!-- CALCULATOR -->
+<div class="calculator-box">
+<h2>Car Loan Calculator <span class="speaker" onclick="speakResult()">🔊</span></h2>
 
-            <h2 class="section-title">Understanding Car Loan Calculations</h2>
-            <p>When you finance a car, you typically make a down payment (usually 10-20% of the car's value) and borrow the remaining amount. The loan is repaid through Equated Monthly Installments (EMIs) that include both principal and interest components.</p>
-            
-            <div class="info-box">
-                <p><strong>EMI Formula:</strong> EMI = [P × r × (1+r)^n] / [(1+r)^n-1]</p>
-                <p>Where:<br>
-                P = Principal loan amount (Car Price - Down Payment)<br>
-                r = Monthly interest rate (annual rate/12/100)<br>
-                n = Loan term in months</p>
-            </div>
+<label>Car Price / Loan Amount</label>
+<input type="number" id="amount" placeholder="Example: 800000">
 
-            <h3>Factors Affecting Your Car Loan</h3>
-            <ul>
-                <li><strong>Down Payment:</strong> Higher down payment means lower loan amount and EMI</li>
-                <li><strong>Loan Term:</strong> Longer terms reduce EMI but increase total interest</li>
-                <li><strong>Interest Rate:</strong> Depends on credit score, lender, and vehicle type</li>
-                <li><strong>Car Depreciation:</strong> New cars depreciate faster but may get better rates</li>
-            </ul>
+<label>Annual Interest Rate (%)</label>
+<input type="number" id="rate" placeholder="Example: 9">
 
-            <h2 class="section-title">Frequently Asked Questions</h2>
-            <div class="info-box">
-                <p><strong>Q: What's the ideal car loan tenure?</strong><br>
-                A: 3-5 years is typically recommended. Longer terms mean paying more interest, while shorter terms increase EMI burden.</p>
-            </div>
-            <div class="info-box">
-                <p><strong>Q: How can I reduce my car loan interest?</strong><br>
-                A: 1) Improve credit score, 2) Negotiate with lenders, 3) Make larger down payment, 4) Choose shorter tenure, 5) Make prepayments when possible.</p>
-            </div>
+<label>Loan Tenure (Years)</label>
+<input type="number" id="years" placeholder="Example: 5">
 
-            <h3>You May Also Like:</h3>
-            <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 15px; margin: 20px 0;">
-                <div style="background: #34495e; padding: 15px; border-radius: 5px;">
-                    <h4>Auto Loan Calculator</h4>
-                    <a href="auto-loan.html" style="color: #4f46e5; text-decoration: none;">Try Now →</a>
-                </div>
-                <div style="background: #34495e; padding: 15px; border-radius: 5px;">
-                    <h4>Personal Loan Calculator</h4>
-                    <a href="loan-calculator.html" style="color: #4f46e5; text-decoration: none;">Try Now →</a>
-                </div>
-                <div style="background: #34495e; padding: 15px; border-radius: 5px;">
-                    <h4>Two-Wheeler Loan Calculator</h4>
-                    <a href="loan-calculator.html" style="color: #4f46e5; text-decoration: none;">Try Now →</a>
-                </div>
-            </div>
-        </article>
-    </div>
+<button onclick="calculateCarLoan()">Calculate Car Loan</button>
 
-    <footer style="background: #2c3e50; text-align: center; padding: 20px 0; margin-top: 40px;">
-        <p style="font-weight: bold;">2025 © Smart AI Calculator. All rights reserved.</p>
-        <a href="privacy.html" style="color: #4f46e5; margin: 0 10px;">Privacy Policy</a>
-        <a href="contactus.html" style="color: #4f46e5; margin: 0 10px;">Contact Us</a>
-        <a href="howto.html" style="color: #4f46e5; margin: 0 10px;">How to Use</a>
-    </footer>
+<div id="result"></div>
+</div>
 
-    <script>
-        // Auto-calculate loan amount when price or down payment changes
-        document.getElementById('car-price').addEventListener('input', updateLoanAmount);
-        document.getElementById('down-payment').addEventListener('input', updateLoanAmount);
+<div class="ads">📢 Google Adsense Ad Space</div>
 
-        function updateLoanAmount() {
-            const carPrice = parseFloat(document.getElementById('car-price').value) || 0;
-            const downPayment = parseFloat(document.getElementById('down-payment').value) || 0;
-            document.getElementById('loan-amount').value = (carPrice - downPayment).toFixed(2);
-        }
+<div class="chart-box">
+<canvas id="carLoanChart"></canvas>
+</div>
 
-        function calculateCarLoan() {
-            const carPrice = parseFloat(document.getElementById('car-price').value);
-            const downPayment = parseFloat(document.getElementById('down-payment').value);
-            const loanAmount = carPrice - downPayment;
-            const annualRate = parseFloat(document.getElementById('interest-rate').value);
-            const years = parseInt(document.getElementById('loan-term').value);
+<!-- HOW CALCULATED -->
+<h2>How Car Loan EMI is Calculated</h2>
+<p>
+Car loan EMI is calculated using the standard EMI formula that considers
+loan amount, interest rate, and repayment tenure.
+</p>
 
-            // Validate inputs
-            if (isNaN(carPrice) || isNaN(downPayment) || isNaN(annualRate) || downPayment >= carPrice) {
-                alert('Please enter valid values. Down payment must be less than car price.');
-                return;
-            }
+<!-- BENEFITS -->
+<h2>Benefits of Car Loan Calculator</h2>
+<ul>
+<li>Helps estimate monthly EMI easily</li>
+<li>Shows total interest payable</li>
+<li>Useful for comparing loan offers</li>
+<li>Supports India & USA car loan systems</li>
+</ul>
 
-            // Calculate monthly values
-            const monthlyRate = annualRate / 100 / 12;
-            const numberOfPayments = years * 12;
+<!-- FAQ -->
+<h2>Frequently Asked Questions (FAQ)</h2>
 
-            // Calculate EMI
-            const emi = loanAmount * monthlyRate * Math.pow(1 + monthlyRate, numberOfPayments) / 
-                       (Math.pow(1 + monthlyRate, numberOfPayments) - 1);
+<div class="faq-item">
+<b>Is car loan interest higher than home loan?</b>
+<p>Yes, car loans usually have higher interest rates.</p>
+</div>
 
-            // Calculate total values
-            const totalPayment = emi * numberOfPayments;
-            const totalInterest = totalPayment - loanAmount;
-            const totalCost = carPrice + totalInterest;
+<div class="faq-item">
+<b>Can I prepay my car loan?</b>
+<p>Yes, but some lenders may charge prepayment fees.</p>
+</div>
 
-            // Display results
-            document.getElementById('monthly-payment').textContent = '₹' + emi.toFixed(2);
-            document.getElementById('total-interest').textContent = '₹' + totalInterest.toFixed(2);
-            document.getElementById('total-payment').textContent = '₹' + totalPayment.toFixed(2);
-            document.getElementById('total-cost').textContent = '₹' + totalCost.toFixed(2);
+<div class="faq-item">
+<b>Is this calculator accurate?</b>
+<p>Yes, it uses standard EMI formulas.</p>
+</div>
 
-            // Generate amortization schedule
-            generateAmortizationSchedule(loanAmount, annualRate, years);
+<!-- INTERLINKING -->
+<h2>Related Calculators</h2>
+<div class="related">
+<div><a href="emi.html">EMI Calculator</a></div>
+<div><a href="loan.html">Loan Calculator</a></div>
+</div>
 
-            // Show results
-            document.getElementById('results').style.display = 'block';
-        }
+<footer>
+<a href="privacy-policy.html">Privacy Policy</a> |
+<a href="disclaimer.html">Disclaimer</a> |
+<a href="contact-us.html">Contact Us</a>
+<p>© 2026 SMART AI CALCULATOR</p>
+</footer>
 
-        function generateAmortizationSchedule(principal, annualRate, years) {
-            const monthlyRate = annualRate / 100 / 12;
-            const numberOfPayments = years * 12;
-            const emi = principal * monthlyRate * Math.pow(1 + monthlyRate, numberOfPayments) / 
-                       (Math.pow(1 + monthlyRate, numberOfPayments) - 1);
+<script>
+let chart;
 
-            let balance = principal;
-            const tableBody = document.getElementById('amortization-body');
-            tableBody.innerHTML = '';
+function calculateCarLoan(){
+let P = +amount.value;
+let r = +rate.value/12/100;
+let n = +years.value*12;
 
-            for (let i = 1; i <= numberOfPayments; i++) {
-                const interest = balance * monthlyRate;
-                const principalPayment = emi - interest;
-                balance -= principalPayment;
+let emi = (P*r*Math.pow(1+r,n))/(Math.pow(1+r,n)-1);
+let total = emi*n;
+let interest = total-P;
 
-                // Adjust for rounding errors in final payment
-                if (i === numberOfPayments) {
-                    balance = 0;
-                }
+result.innerHTML =
+`<p><b>Monthly EMI:</b> ${emi.toFixed(2)}</p>
+<p><b>Total Interest:</b> ${interest.toFixed(2)}</p>
+<p><b>Total Payment:</b> ${total.toFixed(2)}</p>`;
 
-                // Create table row
-                const row = document.createElement('tr');
-                row.innerHTML = `
-                    <td>${i}</td>
-                    <td>₹${emi.toFixed(2)}</td>
-                    <td>₹${principalPayment.toFixed(2)}</td>
-                    <td>₹${interest.toFixed(2)}</td>
-                    <td>₹${Math.max(0, balance).toFixed(2)}</td>
-                `;
-                tableBody.appendChild(row);
-            }
-        }
-    </script>
+if(chart) chart.destroy();
+chart = new Chart(carLoanChart,{
+type:"doughnut",
+data:{
+labels:["Principal","Interest"],
+datasets:[{
+data:[P,interest],
+backgroundColor:["#0ea5e9","#f59e0b"]
+}]
+}
+});
+}
+
+function speakResult(){
+if(!result.innerText) return;
+let s = new SpeechSynthesisUtterance(result.innerText);
+s.lang="en-US";
+speechSynthesis.speak(s);
+}
+</script>
+
 </body>
 </html>
