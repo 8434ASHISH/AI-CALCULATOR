@@ -1,228 +1,260 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-FEQ7R89CFG"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Inflation Calculator India & USA | SMART AI CALCULATOR</title>
+
+<meta name="description" content="SMART AI CALCULATOR Inflation Calculator for India & USA helps you calculate future value and purchasing power loss due to inflation with charts.">
+
+<meta name="keywords" content="inflation calculator india usa, purchasing power calculator, smart ai calculator">
+
+<link rel="canonical" href="https://smartaicalculator.com/inflation.html"/>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-FEQ7R89CFG"></script>
 <script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-FEQ7R89CFG');
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-FEQ7R89CFG');
 </script>
-  <title>Inflation Calculator - Adjust for Purchasing Power (2024 Guide) | Smart AI Tools</title>
-    <meta name="description" content="Free inflation calculator for India. Calculate how inflation affects money's value over time. Learn inflation protection strategies for 2024 investments.">
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "WebApplication",
-      "name": "Inflation Calculator",
-      "url": "https://smartaicalculator.com/inflation.html",
-      "applicationCategory": "FinancialApplication",
-      "operatingSystem": "All",
-      "offers": {
-        "@type": "Offer",
-        "price": "0",
-        "priceCurrency": "INR"
-      },
-      "creator": {
-        "@type": "Organization",
-        "name": "Smart AI Calculator"
-      }
-    }
-    </script>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: linear-gradient(135deg, #1A202C, #2D3748); color: #fff; }
-        .calculator-box { background: rgba(45, 55, 72, 0.9); border-radius: 8px; padding: 30px; margin: 30px 0; }
-        .input-group { margin-bottom: 20px; }
-        .input-group label { display: block; margin-bottom: 8px; color: #3498db; font-weight: bold; }
-        .btn { background: linear-gradient(135deg, #ff6b6b, #e63946); color: white; padding: 12px 24px; border: none; border-radius: 5px; cursor: pointer; }
-        .result-box { background: #34495e; padding: 20px; border-radius: 8px; margin-top: 30px; }
-        .info-box { border-left: 4px solid #3498db; padding: 15px; margin: 20px 0; background: rgba(52, 73, 94, 0.5); }
-        .inflation-impact { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin: 20px 0; }
-        .impact-item { background: #2d3748; padding: 15px; border-radius: 5px; text-align: center; }
-        .purchasing-power { width: 100%; height: 300px; margin: 20px 0; background: #2d3748; position: relative; }
-        .power-bar { position: absolute; bottom: 0; background: #3498db; transition: height 1s; width: 45%; }
-    </style>
+
+<!-- Schema.org -->
+<script type="application/ld+json">
+{
+"@context":"https://schema.org",
+"@type":"WebApplication",
+"name":"Inflation Calculator",
+"url":"https://smartaicalculator.com/inflation.html",
+"applicationCategory":"FinanceApplication",
+"provider":{"@type":"Organization","name":"SMART AI CALCULATOR"}
+}
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<style>
+body{
+font-family:Segoe UI,Arial;
+background:#f0fdf4;
+color:#052e16;
+max-width:1000px;
+margin:auto;
+padding:20px;
+line-height:1.7
+}
+h1{text-align:center;color:#166534;font-size:2.3em}
+h2{color:#166534;border-bottom:2px solid #86efac;padding-bottom:8px}
+.intro{text-align:center;color:#14532d;margin-bottom:40px}
+
+.calculator-box{
+background:#ffffff;
+border-radius:14px;
+padding:25px;
+box-shadow:0 12px 30px rgba(0,0,0,0.08);
+margin:40px 0;
+border-left:6px solid #22c55e
+}
+
+label{font-weight:600;color:#166534}
+input{
+width:100%;
+padding:12px;
+margin:10px 0;
+border-radius:6px;
+border:1px solid #bbf7d0
+}
+
+button{
+background:#22c55e;
+color:white;
+border:none;
+padding:14px;
+width:100%;
+font-size:16px;
+border-radius:6px;
+cursor:pointer
+}
+button:hover{background:#166534}
+
+#result{
+margin-top:20px;
+background:#ecfdf5;
+padding:15px;
+border-radius:8px;
+border-left:4px solid #22c55e
+}
+
+.ads{
+background:#e5e7eb;
+padding:15px;
+text-align:center;
+border-radius:8px;
+margin:25px 0;
+color:#475569
+}
+
+.chart-box{margin:30px 0}
+
+.faq-item{margin-bottom:20px}
+
+.related{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:15px
+}
+.related div{
+background:#ffffff;
+padding:15px;
+border-radius:8px;
+box-shadow:0 4px 10px rgba(0,0,0,0.08)
+}
+
+footer{
+margin-top:60px;
+padding:20px;
+text-align:center;
+font-size:14px;
+color:#475569;
+border-top:1px solid #e2e8f0
+}
+footer a{color:#166534;text-decoration:none;margin:0 6px}
+
+.speaker{cursor:pointer;float:right;font-size:20px}
+</style>
 </head>
+
 <body>
-    <div class="container mx-auto p-4 max-w-4xl">
-        <!-- SEO Article Introduction -->
-        <article>
-            <h1 class="text-3xl font-bold mb-4">Inflation Calculator - Protect Your Money's Value (2024)</h1>
-            
-            <div class="info-box">
-                <p><strong>Shocking Fact:</strong> At 6% inflation, ₹1 lakh today will be worth only ₹54,000 in 10 years and ₹29,000 in 20 years!</p>
-            </div>
 
-            <h2 class="text-2xl font-bold mt-6 mb-3">What is Inflation?</h2>
-            <p>Inflation measures how prices for goods and services rise over time, reducing your money's purchasing power. India's average inflation has been 6-7% over the past decade.</p>
+<h1><b>SMART AI CALCULATOR</b><br><b>Inflation Calculator (India & USA)</b></h1>
 
-            <h2 class="text-2xl font-bold mt-6 mb-3">How Inflation Affects Common Expenses</h2>
-            <div class="inflation-impact">
-                <div class="impact-item">
-                    <h3 class="font-bold text-lg mb-2">Education</h3>
-                    <p>10-12% inflation</p>
-                    <p class="text-sm">₹5L college fee becomes ₹16L in 10 years</p>
-                </div>
-                <div class="impact-item">
-                    <h3 class="font-bold text-lg mb-2">Healthcare</h3>
-                    <p>8-10% inflation</p>
-                    <p class="text-sm">₹10K hospital bill becomes ₹26K in 10 years</p>
-                </div>
-                <div class="impact-item">
-                    <h3 class="font-bold text-lg mb-2">Real Estate</h3>
-                    <p>6-8% inflation</p>
-                    <p class="text-sm">₹50L home becomes ₹1.1Cr in 10 years</p>
-                </div>
-            </div>
+<!-- INTRO -->
+<p class="intro">
+The <b>Inflation Calculator</b> by SMART AI CALCULATOR helps users in
+<b>India & USA</b> understand how inflation reduces purchasing power over time
+and estimates the future value of money.
+</p>
 
-            <h2 class="text-2xl font-bold mt-6 mb-3">Inflation Calculation Formula</h2>
-            <div class="bg-gray-800 p-4 rounded-lg">
-                <p class="font-mono">Future Value = Present Value × (1 + Inflation Rate)^Years</p>
-                <p class="mt-2">
-                    <span class="font-bold">Example:</span><br>
-                    ₹1,00,000 at 6% inflation for 5 years:<br>
-                    ₹1,00,000 × (1 + 0.06)^5 = ₹1,33,823
-                </p>
-            </div>
-        </article>
+<!-- WHAT IS INFLATION -->
+<h2>What is Inflation?</h2>
+<p>
+Inflation refers to the gradual increase in prices of goods and services over time.
+As inflation rises, the value of money decreases, meaning you can buy less with the
+same amount. Inflation calculators are essential for long-term financial planning
+in both India and the United States.
+</p>
 
-        <!-- Inflation Calculator -->
-        <div class="calculator-box">
-            <h2 class="text-2xl font-bold mb-4">Inflation Calculator</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <div class="input-group">
-                    <label for="present-amount">Present Amount (₹)</label>
-                    <input type="number" id="present-amount" class="w-full p-3 rounded bg-gray-700" placeholder="1,00,000" value="100000">
-                </div>
-                <div class="input-group">
-                    <label for="inflation-rate">Expected Inflation Rate (% p.a.)</label>
-                    <input type="number" id="inflation-rate" class="w-full p-3 rounded bg-gray-700" placeholder="6" step="0.1" value="6">
-                </div>
-                <div class="input-group">
-                    <label for="years">Time Period (years)</label>
-                    <input type="number" id="years" class="w-full p-3 rounded bg-gray-700" placeholder="10" value="10">
-                </div>
-            </div>
-            <button onclick="calculateInflation()" class="btn w-full mt-6 py-3 text-lg">Calculate Future Value</button>
-            
-            <div id="results" class="result-box hidden mt-6">
-                <h3 class="text-xl font-bold mb-4">Inflation Impact</h3>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <div>
-                        <p class="flex justify-between mb-3"><span>Future Amount Needed:</span> <span id="future-value" class="font-bold"></span></p>
-                        <p class="flex justify-between mb-3"><span>Equivalent to Today's:</span> <span id="present-value" class="font-bold"></span></p>
-                    </div>
-                </div>
-                
-                <div class="mt-6">
-                    <h4 class="text-lg font-bold mb-3">Purchasing Power Change</h4>
-                    <div class="purchasing-power">
-                        <div class="power-bar" id="present-bar" style="left: 0; height: 100%;"></div>
-                        <div class="power-bar" id="future-bar" style="left: 50%; height: 50%; background: #e63946;"></div>
-                    </div>
-                    <div class="flex justify-between mt-2">
-                        <span>Today's Value</span>
-                        <span>Future Value</span>
-                    </div>
-                </div>
-            </div>
-        </div>
+<!-- CALCULATOR -->
+<div class="calculator-box">
+<h2>Inflation Calculator <span class="speaker" onclick="speakResult()">🔊</span></h2>
 
-        <!-- More Article Content -->
-        <article>
-            <h2 class="text-2xl font-bold mt-6 mb-3">How to Beat Inflation in 2024</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div class="bg-gray-800 p-4 rounded-lg">
-                    <h3 class="text-lg font-bold mb-2">1. Equity Investments</h3>
-                    <p>Stocks/MFs historically return 12-15% - beating 6-7% inflation. ₹10,000/month at 12% for 20 years grows to ₹1 crore.</p>
-                </div>
-                <div class="bg-gray-800 p-4 rounded-lg">
-                    <h3 class="text-lg font-bold mb-2">2. Real Assets</h3>
-                    <p>Real estate (6-8% appreciation + rental yield) and gold (7-10% long-term) preserve purchasing power.</p>
-                </div>
-            </div>
+<label>Current Amount</label>
+<input type="number" id="amount" placeholder="Example: 100000">
 
-            <h2 class="text-2xl font-bold mt-6 mb-3">Historical Inflation Rates in India</h2>
-            <div class="overflow-x-auto">
-                <table class="w-full">
-                    <thead class="bg-gray-700">
-                        <tr>
-                            <th class="p-3 text-left">Year</th>
-                            <th class="p-3 text-left">Average Inflation</th>
-                            <th class="p-3 text-left">₹1L Value After 5 Years</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr class="border-b border-gray-700">
-                            <td class="p-3">2020-2023</td>
-                            <td class="p-3">6.2%</td>
-                            <td class="p-3">₹73,500</td>
-                        </tr>
-                        <tr class="border-b border-gray-700">
-                            <td class="p-3">2015-2019</td>
-                            <td class="p-3">4.8%</td>
-                            <td class="p-3">₹78,400</td>
-                        </tr>
-                        <tr>
-                            <td class="p-3">2010-2014</td>
-                            <td class="p-3">9.5%</td>
-                            <td class="p-3">₹62,400</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
+<label>Annual Inflation Rate (%)</label>
+<input type="number" id="rate" placeholder="Example: 6">
 
-            <div class="info-box mt-6">
-                <p><strong>Pro Tip:</strong> For retirement planning, assume 6% inflation and 12% returns. ₹50,000/month today would require ₹1.6 lakhs/month after 20 years to maintain the same lifestyle.</p>
-            </div>
-        </article>
+<label>Number of Years</label>
+<input type="number" id="years" placeholder="Example: 10">
 
-        <!-- You May Like Section -->
-        <div class="mt-8">
-            <h2 class="text-2xl font-bold mb-4">You May Also Like</h2>
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-                <a href="sip.html" class="bg-gray-800 p-4 rounded-lg block hover:bg-gray-700">
-                    <h3 class="font-bold">SIP Calculator</h3>
-                    <p class="text-sm">Plan mutual fund investments</p>
-                </a>
-                <a href="retirement.html" class="bg-gray-800 p-4 rounded-lg block hover:bg-gray-700">
-                    <h3 class="font-bold">Retirement Planner</h3>
-                    <p class="text-sm">Calculate inflation-adjusted corpus</p>
-                </a>
-                <a href="loan.html" class="bg-gray-800 p-4 rounded-lg block hover:bg-gray-700">
-                    <h3 class="font-bold">loan calculator</h3>
-                    <p class="text-sm">Check required LOANS</p>
-                </a>
-            </div>
-        </div>
-    </div>
+<button onclick="calculateInflation()">Calculate Inflation</button>
 
-    <script>
-        function calculateInflation() {
-            const presentAmount = parseFloat(document.getElementById('present-amount').value);
-            const inflationRate = parseFloat(document.getElementById('inflation-rate').value) / 100;
-            const years = parseInt(document.getElementById('years').value);
-            
-            // Calculate future value
-            const futureValue = presentAmount * Math.pow(1 + inflationRate, years);
-            
-            // Calculate present value equivalent
-            const presentValueEquivalent = presentAmount / Math.pow(1 + inflationRate, years);
-            
-            // Calculate purchasing power percentage
-            const purchasingPower = (1 / Math.pow(1 + inflationRate, years)) * 100;
-            
-            // Display results
-            document.getElementById('future-value').textContent = '₹' + Math.round(futureValue).toLocaleString();
-            document.getElementById('present-value').textContent = '₹' + presentAmount.toLocaleString() + ' today';
-            
-            // Update chart
-            document.getElementById('future-bar').style.height = purchasingPower + '%';
-            
-            document.getElementById('results').classList.remove('hidden');
-        }
-    </script>
+<div id="result"></div>
+</div>
+
+<div class="ads">📢 Google Adsense Ad Space</div>
+
+<div class="chart-box">
+<canvas id="inflationChart"></canvas>
+</div>
+
+<!-- HOW CALCULATED -->
+<h2>How Inflation is Calculated</h2>
+<p>
+Inflation impact is calculated using the compound formula that estimates the
+future value of money after accounting for annual inflation over a period of time.
+</p>
+
+<!-- BENEFITS -->
+<h2>Benefits of Using Inflation Calculator</h2>
+<ul>
+<li>Helps plan long-term financial goals</li>
+<li>Shows real value of future money</li>
+<li>Useful for retirement and investment planning</li>
+<li>Supports India & USA inflation analysis</li>
+</ul>
+
+<!-- FAQ -->
+<h2>Frequently Asked Questions (FAQ)</h2>
+
+<div class="faq-item">
+<b>What is a good inflation rate?</b>
+<p>Generally 4–6% is considered moderate for India; lower for the USA.</p>
+</div>
+
+<div class="faq-item">
+<b>Does inflation affect savings?</b>
+<p>Yes, inflation reduces purchasing power if returns are lower than inflation.</p>
+</div>
+
+<div class="faq-item">
+<b>Is this calculator accurate?</b>
+<p>Yes, it uses standard compound inflation formulas.</p>
+</div>
+
+<!-- INTERLINKING -->
+<h2>Related Calculators</h2>
+<div class="related">
+<div><a href="sip.html">SIP Calculator</a></div>
+<div><a href="roi.html">ROI Calculator</a></div>
+</div>
+
+<footer>
+<a href="privacy-policy.html">Privacy Policy</a> |
+<a href="disclaimer.html">Disclaimer</a> |
+<a href="contact-us.html">Contact Us</a>
+<p>© 2026 SMART AI CALCULATOR</p>
+</footer>
+
+<script>
+let chart;
+
+function calculateInflation(){
+let P = +amount.value;
+let r = +rate.value/100;
+let n = +years.value;
+
+let futureValue = P*Math.pow(1+r,n);
+let loss = futureValue - P;
+
+result.innerHTML =
+`<p><b>Future Value:</b> ${futureValue.toFixed(2)}</p>
+<p><b>Inflation Impact:</b> ${loss.toFixed(2)}</p>`;
+
+if(chart) chart.destroy();
+chart = new Chart(inflationChart,{
+type:"line",
+data:{
+labels:[...Array(n+1).keys()],
+datasets:[{
+label:"Value Over Years",
+data:[...Array(n+1)].map((_,i)=>P*Math.pow(1+r,i)),
+borderColor:"#22c55e",
+fill:false
+}]
+}
+});
+}
+
+function speakResult(){
+if(!result.innerText) return;
+let s = new SpeechSynthesisUtterance(result.innerText);
+s.lang="en-US";
+speechSynthesis.speak(s);
+}
+</script>
+
 </body>
 </html>
