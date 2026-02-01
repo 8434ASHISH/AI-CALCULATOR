@@ -1,291 +1,123 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <!-- Google tag (gtag.js) -->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>CGPA Calculator India & USA | CGPA to Percentage Calculator | SMART AI CALCULATOR</title>
+
+<meta name="description" content="Free CGPA Calculator for India & USA. Add subjects one by one, calculate CGPA and convert CGPA to percentage using official formula (×9.5).">
+
+<meta name="keywords" content="cgpa calculator india, cgpa calculator usa, cgpa to percentage calculator, grade calculator, student cgpa calculator, smart ai calculator">
+
+<link rel="canonical" href="https://smartaicalculator.com/cgpa.html"/>
+
+<!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-FEQ7R89CFG"></script>
 <script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-FEQ7R89CFG');
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-FEQ7R89CFG');
 </script>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Convert CGPA to percentage for CBSE students online | Free Online Tool</title>
-    <meta name="description" content="Easily convert your CGPA score into percentage using SmartAI's free CGPA to Percentage Calculator tool for students">
 
-    <meta name="keywords" content="cgpa calculator, Convert CGPA to percentage for CBSE students online, online cgpa calculator, how to calculate cgpa, vtu cgpa calculator, cgpa calculator india, free cgpa calculator, cgpa to percentage">
-    <meta name="robots" content="index, follow">
-   <link rel="canonical" href="https://smartaicalculator.com/cgpa.html">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background: linear-gradient(135deg, #1A202C, #2D3748);
-            color: #fff;
-            margin: 0;
-        }
-        .header { background: #2c3e50; padding: 20px 0; text-align: center; position: relative; }
-        .nav-tabs { display: flex; justify-content: center; gap: 20px; padding: 10px 0; background: #34495e; }
-        .nav-tab { color: white; text-decoration: none; padding: 5px 15px; transition: background 0.3s; font-weight: bold; text-shadow: 0 0 5px rgba(255, 107, 107, 0.5); }
-        .nav-tab:hover, .nav-tab.active { background: #3498db; border-radius: 5px; }
-        .calculator-content { max-width: 600px; margin: 20px auto; padding: 20px; background: rgba(45, 55, 72, 0.9); border-radius: 10px; box-shadow: 0 0 15px rgba(0,0,0,0.5); }
-        .calculator-box { background: #e0e0e0; color: #333; padding: 20px; border-radius: 5px; text-align: center; }
-        .input-row { display: flex; justify-content: space-between; margin-bottom: 15px; }
-        .input-row label { font-weight: bold; }
-        input { border: 1px solid #ccc; padding: 5px; border-radius: 3px; width: 120px; }
-        input.invalid { border-color: #ff6b6b; }
-        button { 
-            background: linear-gradient(135deg, #ff6b6b, #e63946); 
-            color: white; 
-            padding: 12px 24px; 
-            border: none; 
-            border-radius: 5px; 
-            cursor: pointer; 
-            font-weight: bold; 
-            font-size: 1.1rem; 
-            box-shadow: 0 3px 6px rgba(0,0,0,0.4); 
-            transition: transform 0.2s, background 0.2s; 
-            text-transform: uppercase; 
-        }
-        button:hover { 
-            background: linear-gradient(135deg, #e63946, #c0392b); 
-            transform: scale(1.05); 
-        }
-        .add-subject-btn { 
-            background: linear-gradient(135deg, #00cec9, #00b7b3); 
-            padding: 8px 16px; 
-            font-size: 0.9rem; 
-        }
-        .add-subject-btn:hover { 
-            background: linear-gradient(135deg, #00b7b3, #009b9a); 
-        }
-        .remove-subject-btn { 
-            background: linear-gradient(135deg, #ff7675, #d63031); 
-            padding: 5px 10px; 
-            font-size: 0.8rem; 
-        }
-        .remove-subject-btn:hover { 
-            background: linear-gradient(135deg, #d63031, #b71c1c); 
-        }
-        .ads-section { margin-top: 10px; padding: 10px; background: #34495e; border-radius: 5px; text-align: center; box-shadow: 0 0 5px rgba(0,0,0,0.3); }
-        .ads-section p { font-size: 1.2rem; font-weight: bold; color: #1e90ff; }
-        .ads-section a { color: #1e90ff; text-decoration: underline; }
-        .voice-icon { 
-            display: inline-block; 
-            padding: 10px; 
-            cursor: pointer; 
-            font-size: 2rem; 
-            color: #00cec9; 
-            transition: color 0.2s, transform 0.2s; 
-            visibility: visible; 
-        }
-        .voice-icon:hover { 
-            color: #00b7b3; 
-            transform: scale(1.1); 
-        }
-        .button-container { 
-            display: flex; 
-            justify-content: center; 
-            align-items: center; 
-            gap: 15px; 
-            margin: 20px 0; 
-        }
-        .suggestions { margin-top: 20px; padding: 15px; background: #f0f0f0; border-radius: 5px; text-align: left; display: none; }
-        .suggestions h3 { font-size: 1.2rem; font-weight: bold; margin-bottom: 10px; }
-        .suggestions ul { list-style-type: disc; padding-left: 20px; }
-        .suggestions li { margin-bottom: 8px; }
-        .percentage-section { margin-top: 20px; padding: 15px; background: #e0e0e0; border-radius: 5px; text-align: center; border-top: 3px solid #3498db; }
-        .percentage-section h3 { font-size: 1.2rem; font-weight: bold; margin-bottom: 10px; }
-        .subject-input { display: flex; gap: 10px; margin-bottom: 10px; align-items: center; }
-        .subject-input input { width: 150px; }
-        @media (max-width: 600px) { 
-            .input-row { flex-direction: column; } 
-            input { width: 100%; margin-bottom: 10px; } 
-            .button-container { flex-direction: row; gap: 10px; } 
-            .voice-icon { display: inline-block; visibility: visible; } 
-            .subject-input { flex-direction: column; } 
-            .subject-input input { width: 100%; }
-        }
-        @media (min-width: 601px) { 
-            .voice-icon { display: inline-block; visibility: visible; } 
-        }
-    </style>
+<script type="application/ld+json">
+{
+"@context":"https://schema.org",
+"@type":"WebApplication",
+"name":"CGPA Calculator",
+"url":"https://smartaicalculator.com/cgpa.html",
+"applicationCategory":"EducationalApplication",
+"provider":{"@type":"Organization","name":"SMART AI CALCULATOR"}
+}
+</script>
+
+<style>
+body{font-family:Segoe UI,Arial;background:#f8fafc;max-width:1000px;margin:auto;padding:20px}
+h1{text-align:center;color:#1e40af}
+.box{background:#fff;padding:25px;border-radius:14px;box-shadow:0 10px 25px rgba(0,0,0,.08)}
+input{width:100%;padding:10px;margin:6px 0;border-radius:6px;border:1px solid #c7d2fe}
+button{background:#2563eb;color:#fff;border:none;padding:12px;width:100%;border-radius:6px;cursor:pointer}
+.row{display:grid;grid-template-columns:2fr 1fr 1fr;gap:10px;margin-bottom:10px}
+#result{margin-top:20px;background:#eff6ff;padding:15px;border-left:4px solid #2563eb}
+.ads{margin:25px 0;padding:15px;background:#e5e7eb;text-align:center;border-radius:8px}
+footer{text-align:center;margin-top:40px;font-size:14px}
+footer a{color:#2563eb;margin:0 6px;text-decoration:none}
+.speaker{float:right;cursor:pointer}
+</style>
 </head>
+
 <body>
-    <header class="header">
-        <h1 id="header-title">Smart AI CGPA Calculator</h1>
-        <p id="tagline">CGPA Calculator</p>
-    </header>
-    <nav class="nav-tabs">
-        <a href="index.html#home" class="nav-tab" onclick="showCategory('home')">HOME</a>
-        <a href="index.html#academic-calculator" class="nav-tab active" onclick="showCategory('academic-calculator')">ACADEMIC CALCULATOR</a>
-    </nav>
-    <div class="calculator-content">
-        <div class="calculator-box">
-            <h2 id="calc-title">Enter details to calculate CGPA</h2>
-            <div id="cgpa-inputs">
-                <div id="cgpa-subjects"></div>
-                <button class="add-subject-btn" onclick="addSubject()">Add More Subjects</button>
-            </div>
-            <div class="button-container">
-                <button onclick="calculateCGPA()">Calculate <span id="spinner" style="display:none;">⏳</span></button>
-                <span class="voice-icon" onclick="toggleSpeech('cgpa')" title="Toggle Speech"><i class="fas fa-volume-up"></i></span>
-            </div>
-            <div id="cgpa-result" class="mt-4 font-semibold"></div>
-            <div class="suggestions" id="suggestions">
-                <h3>Suggestions for Academic Performance</h3>
-                <ul>
-                    <li>Verify your CGPA with official records for accuracy.</li>
-                    <li>Focus on consistent study habits to improve your CGPA.</li>
-                    <li>Use past performance data to set realistic academic goals.</li>
-                    <li>Consult teachers for guidance on subjects with lower CGPA.</li>
-                </ul>
-            </div>
-            <div class="percentage-section">
-                <h3>CGPA to Percentage Calculator</h3>
-                <p>(As per CBSE rule: CGPA × 9.5)</p>
-                <div class="input-row">
-                    <label id="cgpa-percentage-label">Enter CGPA</label>
-                    <input type="number" id="cgpa-percentage" min="0" max="10" step="any" value="8">
-                </div>
-                <div class="button-container">
-                    <button onclick="calculatePercentage()">Calculate</button>
-                    <span class="voice-icon" onclick="toggleSpeech('percentage')" title="Toggle Speech"><i class="fas fa-volume-up"></i></span>
-                </div>
-                <div id="percentage-result" class="mt-4 font-semibold"></div>
-            </div>
-            <p style="margin-top: 10px;">You May Also Like:</p>
-<ul style="list-style: none; padding-left: 0;">
-  <li><a href="age.html" style="font-weight: bold; color: #4f46e5; text-decoration: none;">AGE Calculator</a></li>
-  <li><a href="global-exam-admission.html" style="font-weight: bold; color: #4f46e5; text-decoration: none;">GLOBAL EXAM ADMISSION PREDICTOR Calculator</a></li>
-</ul>
-            <div class="ads-section">
-                <p>Contact for Ads: <a href="mailto:first4bencher@gmail.com">first4bencher@gmail.com</a></p>
-            </div>
-            <div id="seo-content" class="mt-4 text-sm">
-                <h3>About CGPA Calculator</h3>
-                <p>Welcome to the AI CGPA Calculator, a free online tool designed to help students calculate their CGPA with ease. It also includes a CGPA to Percentage converter (CBSE rule: multiply by 9.5). Available in multiple languages including English, Hindi, Tamil, Telugu, Spanish, Bengali, Arabic, Mandarin, and French, it caters to a diverse global audience. Add as many subjects as needed with subject names, enter CGPA, and click "Calculate" to get your result.</p>
-                <p>Why choose our CGPA Calculator? It’s user-friendly, fast, and optimized for all devices, making it perfect for quick calculations. The tool supports dynamic subject inputs with real-time validation for CGPA. Our AI integration ensures accuracy and offers professional suggestions for academic improvement. This calculator stands out due to its multilingual support and modern design, setting it apart from traditional tools.</p>
-                <p>SEO optimization is crucial for this tool to rank high on search engines like Google. We’ve included meta tags, a canonical URL, and keywords such as "cgpa calculator," "free cgpa calculator," and "cgpa to percentage" to boost visibility. To enhance ranking, consider adding backlinks from educational blogs or submitting the site to directories. Regular updates and user feedback can further improve its performance. Ideal for students and educators, this calculator is a must-try for anyone seeking clarity on academic performance. Explore it today and simplify your calculations!</p>
-            </div>
-        </div>
-    </div>
-    <footer class="bg-gray-800 text-white text-center py-4 mt-8">
-        <p style="font-weight: bold;">2025 © Smart AI Calculator. All rights reserved.</p>
-        <a href="privacy.html" class="text-blue-400 ml-2">Privacy Policy</a> |
-        <a href="contactus.html" class="text-blue-400 ml-2">Contact Us</a> |
-        <a href="howto.html" class="text-blue-400 ml-2">How to Use</a>
-    </footer>
-    <script>
-        let lang = 'en';
-        let isSpeaking = false;
-        let utterance = null;
-        const translations = {
-            en: { header: "Smart AI CGPA Calculator", tagline: "CGPA Calculator", calcTitle: "Enter details to calculate CGPA", subjectLabel: "Subject Name", cgpaLabel: "Obtained CGPA (0-10)", cgpaPercentageLabel: "Enter CGPA", resultPrefix: "Result: " },
-            hi: { header: "स्मार्ट एआई सीजीपीए कैलकुलेटर", tagline: "सीजीपीए कैलकुलेटर", calcTitle: "सीजीपीए की गणना के लिए विवरण दर्ज करें", subjectLabel: "विषय का नाम", cgpaLabel: "प्राप्त सीजीपीए (0-10)", cgpaPercentageLabel: "सीजीपीए दर्ज करें", resultPrefix: "परिणाम: " },
-            ta: { header: "ஸ்மார்ட் AI CGPA கால்குலேட்டர்", tagline: "CGPA கால்குலேட்டர்", calcTitle: "CGPA கணக்கிட விவரங்களை உள்ளிடவும்", subjectLabel: "பாடத்தின் பெயர்", cgpaLabel: "பெறப்பட்ட CGPA (0-10)", cgpaPercentageLabel: "CGPA உள்ளிடவும்", resultPrefix: "முடிவு: " },
-            te: { header: "స్మార్ట్ AI CGPA కాల్కులేటర్", tagline: "CGPA కాల్కులేటర్", calcTitle: "CGPA లెక్కించడానికి వివరాలను నమోదు చేయండి", subjectLabel: "సబ్జెక్ట్ పేరు", cgpaLabel: "సాధించిన CGPA (0-10)", cgpaPercentageLabel: "CGPA నమోదు చేయండి", resultPrefix: "ఫలితం: " },
-            es: { header: "Calculadora de CGPA IA Inteligente", tagline: "Calculadora de CGPA", calcTitle: "Ingrese detalles para calcular el CGPA", subjectLabel: "Nombre de la asignatura", cgpaLabel: "CGPA obtenido (0-10)", cgpaPercentageLabel: "Ingrese CGPA", resultPrefix: "Resultado: " },
-            bn: { header: "স্মার্ট এআই CGPA ক্যালকুলেটর", tagline: "CGPA ক্যালকুলেটর", calcTitle: "CGPA গণনার জন্য বিবরণ লিখুন", subjectLabel: "বিষয়ের নাম", cgpaLabel: "প্রাপ্ত CGPA (0-10)", cgpaPercentageLabel: "CGPA লিখুন", resultPrefix: "ফলাফল: " },
-            ar: { header: "حاسبة CGPA الذكاء الاصطناعي الذكية", tagline: "حاسبة CGPA", calcTitle: "أدخل التفاصيل لحساب CGPA", subjectLabel: "اسم المادة", cgpaLabel: "CGPA المحصل عليه (0-10)", cgpaPercentageLabel: "أدخل CGPA", resultPrefix: "النتيجة: " },
-            zh: { header: "智能人工智能CGPA计算器", tagline: "CGPA计算器", calcTitle: "输入详细信息以计算CGPA", subjectLabel: "科目名称", cgpaLabel: "获得CGPA (0-10)", cgpaPercentageLabel: "输入CGPA", resultPrefix: "结果: " },
-            fr: { header: "Calculateur CGPA IA Intelligent", tagline: "Calculateur de CGPA", calcTitle: "Entrez les détails pour calculer le CGPA", subjectLabel: "Nom de la matière", cgpaLabel: "CGPA obtenu (0-10)", cgpaPercentageLabel: "Entrez le CGPA", resultPrefix: "Résultat: " }
-        };
-        function addSubject() {
-            let container = document.getElementById("cgpa-subjects");
-            let div = document.createElement("div");
-            div.className = "subject-input";
-            div.innerHTML = `
-                <input type="text" placeholder="${translations[lang].subjectLabel}">
-                <input type="number" placeholder="${translations[lang].cgpaLabel}" min="0" max="10" step="any" oninput="validateCGPA(this)">
-                <button class="remove-subject-btn" onclick="removeSubject(this)">Remove</button>
-            `;
-            container.appendChild(div);
-        }
-        function removeSubject(btn) {
-            btn.parentElement.remove();
-        }
-        function validateCGPA(input) {
-            let value = parseFloat(input.value);
-            if (isNaN(value) || value < 0 || value > 10) {
-                input.classList.add("invalid");
-            } else {
-                input.classList.remove("invalid");
-            }
-        }
-        function calculateCGPA() {
-            document.getElementById("spinner").style.display = "inline";
-            setTimeout(() => {
-                let resultDiv = document.getElementById("cgpa-result");
-                let suggestionsDiv = document.getElementById("suggestions");
-                let inputs = document.querySelectorAll("#cgpa-subjects .subject-input input[type='number']");
-                let cgpas = Array.from(inputs).map(input => parseFloat(input.value)).filter(val => !isNaN(val));
-                if (cgpas.length === 0 || cgpas.some(val => val < 0 || val > 10)) {
-                    resultDiv.innerText = lang === 'en' ? "Please enter valid CGPA values (0-10)" : lang === 'hi' ? "कृपया वैध सीजीपीए मान दर्ज करें (0-10)" : lang === 'ta' ? "சரியான CGPA மதிப்புகளை உள்ளிடவும் (0-10)" : lang === 'te' ? "దయచేసి సరైన CGPA విలువలను నమోదు చేయండి (0-10)" : lang === 'es' ? "Por favor, ingrese valores CGPA válidos (0-10)" : lang === 'bn' ? "দয়া করে বৈধ CGPA মান লিখুন (0-10)" : lang === 'ar' ? "يرجى إدخال قيم CGPA صالحة (0-10)" : lang === 'zh' ? "请输入有效的CGPA值 (0-10)" : "Veuillez entrer des valeurs CGPA valides (0-10)";
-                    suggestionsDiv.style.display = "none";
-                } else {
-                    let cgpa = cgpas.reduce((sum, val) => sum + val, 0) / cgpas.length;
-                    resultDiv.innerHTML = `${translations[lang].resultPrefix} CGPA: ${cgpa.toFixed(2)}`;
-                    suggestionsDiv.style.display = "block";
-                }
-                document.getElementById("spinner").style.display = "none";
-            }, 1000);
-        }
-        function calculatePercentage() {
-            let cgpa = parseFloat(document.getElementById("cgpa-percentage").value);
-            let resultDiv = document.getElementById("percentage-result");
-            if (!isNaN(cgpa) && cgpa >= 0 && cgpa <= 10) {
-                let percentage = cgpa * 9.5;
-                resultDiv.innerHTML = `${translations[lang].resultPrefix} ${percentage.toFixed(2)}%`;
-            } else {
-                resultDiv.innerText = lang === 'en' ? "Please enter valid CGPA (0-10)" : lang === 'hi' ? "कृपया वैध सीजीपीए दर्ज करें (0-10)" : lang === 'ta' ? "சரியான CGPA உள்ளிடவும் (0-10)" : lang === 'te' ? "దయచేసి సరైన CGPA నమోదు చేయండి (0-10)" : lang === 'es' ? "Por favor, ingrese un CGPA válido (0-10)" : lang === 'bn' ? "দয়া করে বৈধ CGPA লিখুন (0-10)" : lang === 'ar' ? "يرجى إدخال CGPA صالح (0-10)" : lang === 'zh' ? "请输入有效的CGPA (0-10)" : "Veuillez entrer un CGPA valide (0-10)";
-            }
-        }
-        function toggleSpeech(section) {
-            console.log(`Toggling speech for ${section} result`);
-            const result = section === 'cgpa' ? document.getElementById("cgpa-result").innerHTML : document.getElementById("percentage-result").innerHTML;
-            if (!result) {
-                console.log("No result to speak");
-                return;
-            }
-            if (isSpeaking) {
-                window.speechSynthesis.cancel();
-                isSpeaking = false;
-                console.log("Speech stopped");
-            } else {
-                utterance = new SpeechSynthesisUtterance(result);
-                utterance.lang = lang === 'zh' ? 'zh-CN' : lang === 'ar' ? 'ar-SA' : lang;
-                utterance.onend = () => {
-                    isSpeaking = false;
-                    console.log("Speech ended");
-                };
-                window.speechSynthesis.speak(utterance);
-                isSpeaking = true;
-                console.log("Speech started");
-            }
-        }
-        function stopSpeech() {
-            if (isSpeaking) {
-                window.speechSynthesis.cancel();
-                isSpeaking = false;
-                console.log("Speech stopped on page exit");
-            }
-        }
-        function showCategory(category) {
-            // No action needed here as navigation is handled by index.html
-        }
-        window.onload = () => {
-            document.getElementById('header-title').textContent = translations[lang].header;
-            document.getElementById('tagline').textContent = translations[lang].tagline;
-            document.getElementById('calc-title').textContent = translations[lang].calcTitle;
-            document.getElementById('cgpa-percentage-label').textContent = translations[lang].cgpaPercentageLabel;
-            addSubject(); // Add one CGPA subject by default
-            console.log("Voice icon loaded");
-        };
-        window.onpagehide = stopSpeech;
-        window.onbeforeunload = stopSpeech;
-    </script>
+
+<h1><b>SMART AI CALCULATOR</b><br><b>CGPA Calculator (India & USA)</b></h1>
+
+<p>
+This <b>CGPA Calculator</b> helps students calculate CGPA by adding subjects
+one by one and also converts CGPA to percentage using the official
+<b>CGPA × 9.5</b> formula.
+</p>
+
+<div class="box">
+<h2>CGPA Calculator <span class="speaker" onclick="speak()">🔊</span></h2>
+
+<div id="subjects">
+<div class="row">
+<input placeholder="Subject Name">
+<input type="number" placeholder="Obtained">
+<input type="number" placeholder="Out of">
+</div>
+</div>
+
+<button onclick="addRow()">+ Add Subject</button><br><br>
+<button onclick="calculateCGPA()">Calculate CGPA</button>
+
+<div id="result"></div>
+</div>
+
+<div class="ads">📢 Google Adsense Ad Space</div>
+
+<h2>CGPA Formula</h2>
+<p>
+<b>CGPA = (Total Marks Obtained ÷ Total Maximum Marks) × 10</b><br>
+<b>Percentage = CGPA × 9.5</b>
+</p>
+
+<h2>FAQ</h2>
+<p><b>Is CGPA × 9.5 official?</b> Yes, used by CBSE & many universities.</p>
+<p><b>Can I add unlimited subjects?</b> Yes.</p>
+
+<footer>
+<a href="privacy-policy.html">Privacy Policy</a> |
+<a href="disclaimer.html">Disclaimer</a> |
+<a href="contact-us.html">Contact Us</a>
+</footer>
+
+<script>
+function addRow(){
+let div=document.createElement("div");
+div.className="row";
+div.innerHTML='<input placeholder="Subject Name"><input type="number" placeholder="Obtained"><input type="number" placeholder="Out of">';
+subjects.appendChild(div);
+}
+
+function calculateCGPA(){
+let rows=document.querySelectorAll(".row");
+let obt=0, total=0;
+rows.forEach(r=>{
+let o=+r.children[1].value;
+let t=+r.children[2].value;
+if(o&&t){ obt+=o; total+=t; }
+});
+let cgpa=(obt/total)*10;
+let per=cgpa*9.5;
+result.innerHTML=`<b>CGPA:</b> ${cgpa.toFixed(2)}<br><b>Percentage:</b> ${per.toFixed(2)}%`;
+}
+
+function speak(){
+let s=new SpeechSynthesisUtterance(result.innerText);
+speechSynthesis.speak(s);
+}
+</script>
+
+</body>
 </html>
