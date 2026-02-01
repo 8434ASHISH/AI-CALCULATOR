@@ -1,19 +1,177 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Coming Soon - Smart AI Calculator</title>
-    <link rel="canonical" href="https://smartaicalculator.com/coming-soon">
-    <style>
-body{font-family:Arial,sans-serif;margin:0;padding:0;background:#e8ecef;display:flex;justify-content:center;align-items:center;height:100vh;text-align:center}h1{font-size:3em;color:#333;margin-bottom:20px}h2{font-size:1.5em;color:#555;margin-bottom:30px}button{display:inline-block;padding:12px 30px;background:#007bff;color:#fff;border:none;border-radius:5px;font-size:1.2em;cursor:pointer;text-decoration:none}button:hover{background:#0056b3}
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Matrix Calculator India & USA | Matrix Operations Calculator | SMART AI CALCULATOR</title>
+
+<meta name="description" content="Free Matrix Calculator for India & USA. Perform matrix addition, subtraction, multiplication, determinant, transpose and inverse using exact formulas.">
+
+<meta name="keywords" content="matrix calculator india, matrix calculator usa, matrix operations calculator, determinant calculator, inverse matrix calculator, smart ai calculator">
+
+<link rel="canonical" href="https://smartaicalculator.com/matrix-calculator.html"/>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-FEQ7R89CFG"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-FEQ7R89CFG');
+</script>
+
+<!-- Schema.org -->
+<script type="application/ld+json">
+{
+"@context":"https://schema.org",
+"@type":"WebApplication",
+"name":"Matrix Calculator",
+"url":"https://smartaicalculator.com/matrix.html",
+"applicationCategory":"EducationalApplication",
+"provider":{"@type":"Organization","name":"SMART AI CALCULATOR"}
+}
+</script>
+
+<style>
+body{font-family:Segoe UI,Arial;background:#f8fafc;color:#1e293b;max-width:1100px;margin:auto;padding:20px;line-height:1.7}
+h1{text-align:center;color:#1f2937;font-size:2.3em}
+h2{color:#1f2937;border-bottom:2px solid #cbd5e1;padding-bottom:8px}
+.intro{text-align:center;color:#334155;margin-bottom:40px}
+.calculator-box{background:#fff;border-radius:14px;padding:25px;box-shadow:0 12px 30px rgba(0,0,0,0.08);margin:40px 0;border-left:6px solid #475569}
+label{font-weight:600;color:#1f2937}
+input{width:70px;padding:10px;margin:5px;border-radius:6px;border:1px solid #cbd5e1;text-align:center}
+button{background:#475569;color:#fff;border:none;padding:12px 16px;margin:8px;border-radius:6px;cursor:pointer}
+button:hover{background:#1f2937}
+.matrix{margin-bottom:15px}
+#result{margin-top:20px;background:#f1f5f9;padding:15px;border-radius:8px;border-left:4px solid #475569}
+.ads{background:#e5e7eb;padding:15px;text-align:center;border-radius:8px;margin:25px 0;color:#475569}
+.related{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:15px}
+.related div{background:#fff;padding:15px;border-radius:8px;box-shadow:0 4px 10px rgba(0,0,0,0.08)}
+footer{margin-top:60px;padding:20px;text-align:center;font-size:14px;color:#475569;border-top:1px solid #e2e8f0}
+footer a{color:#1f2937;text-decoration:none;margin:0 6px}
+.speaker{cursor:pointer;float:right;font-size:20px}
+</style>
 </head>
+
 <body>
-    <div>
-        <h1>Coming Soon</h1>
-        <h2>A Warm Welcome on my website</h2>
-        <a href="https://smartaicalculator.com/"><button>Home</button></a>
-    </div>
+
+<h1><b>SMART AI CALCULATOR</b><br><b>Matrix Calculator (India & USA)</b></h1>
+
+<p class="intro">
+The <b>Matrix Calculator</b> by SMART AI CALCULATOR helps students in
+<b>India & USA</b> perform <b>basic and advanced matrix operations</b>
+accurately using standard mathematical formulas.
+</p>
+
+<h2>What is a Matrix?</h2>
+<p>
+A matrix is a rectangular arrangement of numbers in rows and columns.
+Matrices are widely used in algebra, physics, engineering, computer graphics,
+and data science.
+</p>
+
+<div class="calculator-box">
+<h2>Matrix Calculator (2 × 2) <span class="speaker" onclick="speakResult()">🔊</span></h2>
+
+<h3>Matrix A</h3>
+<div class="matrix">
+<input id="a11"><input id="a12"><br>
+<input id="a21"><input id="a22">
+</div>
+
+<h3>Matrix B</h3>
+<div class="matrix">
+<input id="b11"><input id="b12"><br>
+<input id="b21"><input id="b22">
+</div>
+
+<button onclick="addMatrix()">A + B</button>
+<button onclick="subMatrix()">A − B</button>
+<button onclick="mulMatrix()">A × B</button>
+<button onclick="detMatrix()">Determinant of A</button>
+<button onclick="transMatrix()">Transpose of A</button>
+<button onclick="invMatrix()">Inverse of A</button>
+
+<div id="result"></div>
+</div>
+
+<div class="ads">📢 Google Adsense Ad Space</div>
+
+<h2>Matrix Formulas Used</h2>
+<ul>
+<li><b>Addition/Subtraction:</b> Corresponding elements</li>
+<li><b>Multiplication:</b> Row × Column method</li>
+<li><b>Determinant (2×2):</b> |A| = ad − bc</li>
+<li><b>Transpose:</b> Aᵀ = rows ↔ columns</li>
+<li><b>Inverse (2×2):</b> A⁻¹ = (1/|A|) × [[d, −b], [−c, a]]</li>
+</ul>
+
+<h2>Why Matrices are Important?</h2>
+<ul>
+<li>Foundation of linear algebra</li>
+<li>Used in engineering & computer science</li>
+<li>Essential for higher mathematics</li>
+<li>Important for exams & academics</li>
+</ul>
+
+<h2>Frequently Asked Questions (FAQ)</h2>
+<p><b>Can this calculator handle larger matrices?</b><br>This version supports 2×2 matrices.</p>
+<p><b>What if determinant is zero?</b><br>The inverse does not exist.</p>
+<p><b>Is this exam-accurate?</b><br>Yes, it uses standard matrix formulas.</p>
+
+<h2>Related Calculators</h2>
+<div class="related">
+<div><a href="algebra.html">Algebra Calculator</a></div>
+<div><a href="geometry.html">Geometry Calculator</a></div>
+<div><a href="scientific.html">Scientific Calculator</a></div>
+<div><a href="probability.html">Probability Calculator</a></div>
+</div>
+
+<footer>
+<a href="privacy-policy.html">Privacy Policy</a> |
+<a href="disclaimer.html">Disclaimer</a> |
+<a href="contact-us.html">Contact Us</a>
+<p>© 2026 SMART AI CALCULATOR</p>
+</footer>
+
+<script>
+function g(id){return +document.getElementById(id).value||0;}
+function addMatrix(){
+let r=`[${g('a11')+g('b11')} ${g('a12')+g('b12')} ; ${g('a21')+g('b21')} ${g('a22')+g('b22')}]`;
+result.innerHTML="<p><b>A + B =</b> "+r+"</p>";
+}
+function subMatrix(){
+let r=`[${g('a11')-g('b11')} ${g('a12')-g('b12')} ; ${g('a21')-g('b21')} ${g('a22')-g('b22')}]`;
+result.innerHTML="<p><b>A − B =</b> "+r+"</p>";
+}
+function mulMatrix(){
+let r11=g('a11')*g('b11')+g('a12')*g('b21');
+let r12=g('a11')*g('b12')+g('a12')*g('b22');
+let r21=g('a21')*g('b11')+g('a22')*g('b21');
+let r22=g('a21')*g('b12')+g('a22')*g('b22');
+result.innerHTML=`<p><b>A × B =</b> [${r11} ${r12} ; ${r21} ${r22}]</p>`;
+}
+function detMatrix(){
+let d=g('a11')*g('a22')-g('a12')*g('a21');
+result.innerHTML="<p><b>Determinant |A| =</b> "+d+"</p>";
+}
+function transMatrix(){
+result.innerHTML=`<p><b>Transpose Aᵀ =</b> [${g('a11')} ${g('a21')} ; ${g('a12')} ${g('a22')}]</p>`;
+}
+function invMatrix(){
+let d=g('a11')*g('a22')-g('a12')*g('a21');
+if(d===0){ result.innerHTML="<p>Inverse does not exist (determinant = 0)</p>"; return; }
+let r=`[( ${g('a22')/d} ${-g('a12')/d} ); ( ${-g('a21')/d} ${g('a11')/d} )]`;
+result.innerHTML="<p><b>Inverse A⁻¹ =</b> "+r+"</p>";
+}
+function speakResult(){
+if(!result.innerText) return;
+let s=new SpeechSynthesisUtterance(result.innerText);
+s.lang="en-US";
+speechSynthesis.speak(s);
+}
+</script>
+
 </body>
 </html>
