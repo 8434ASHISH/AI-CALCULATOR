@@ -1,19 +1,146 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Coming Soon - Smart AI Calculator</title>
-    <link rel="canonical" href="https://smartaicalculator.com/coming-soon">
-    <style>
-body{font-family:Arial,sans-serif;margin:0;padding:0;background:#e8ecef;display:flex;justify-content:center;align-items:center;height:100vh;text-align:center}h1{font-size:3em;color:#333;margin-bottom:20px}h2{font-size:1.5em;color:#555;margin-bottom:30px}button{display:inline-block;padding:12px 30px;background:#007bff;color:#fff;border:none;border-radius:5px;font-size:1.2em;cursor:pointer;text-decoration:none}button:hover{background:#0056b3}
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Goal Score Calculator India & USA | Target Marks Calculator | SMART AI CALCULATOR</title>
+
+<meta name="description" content="Free Goal Score Calculator for India & USA. Calculate required marks to achieve target percentage or goal score in exams, tests and assessments.">
+
+<meta name="keywords" content="goal score calculator india, goal score calculator usa, target score calculator, required marks calculator, exam goal calculator, smart ai calculator">
+
+<link rel="canonical" href="https://smartaicalculator.com/goal-score-calculator.html"/>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-FEQ7R89CFG"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-FEQ7R89CFG');
+</script>
+
+<script type="application/ld+json">
+{
+"@context":"https://schema.org",
+"@type":"WebApplication",
+"name":"Goal Score Calculator",
+"url":"https://smartaicalculator.com/goal-score.html",
+"applicationCategory":"EducationalApplication",
+"provider":{"@type":"Organization","name":"SMART AI CALCULATOR"}
+}
+</script>
+
+<style>
+body{font-family:Segoe UI,Arial;background:#f8fafc;max-width:1000px;margin:auto;padding:20px}
+h1{text-align:center;color:#7c2d12}
+h2{color:#7c2d12;border-bottom:2px solid #fed7aa}
+.box{background:#fff;padding:25px;border-radius:14px;box-shadow:0 10px 25px rgba(0,0,0,.08)}
+input{width:100%;padding:12px;margin:8px 0;border-radius:6px;border:1px solid #fed7aa}
+button{background:#ea580c;color:#fff;border:none;padding:12px;width:100%;border-radius:6px;cursor:pointer}
+button:hover{background:#c2410c}
+#result{margin-top:20px;background:#fff7ed;padding:15px;border-left:4px solid #ea580c}
+.ads{margin:25px 0;padding:15px;background:#e5e7eb;text-align:center;border-radius:8px}
+footer{text-align:center;margin-top:40px;font-size:14px}
+footer a{color:#7c2d12;margin:0 6px;text-decoration:none}
+.speaker{float:right;cursor:pointer}
+.related{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:15px;margin-top:20px}
+.related div{background:#fff;padding:15px;border-radius:8px;box-shadow:0 4px 10px rgba(0,0,0,0.08)}
+</style>
 </head>
+
 <body>
-    <div>
-        <h1>Coming Soon</h1>
-        <h2>A Warm Welcome on my website</h2>
-        <a href="https://smartaicalculator.com/"><button>Home</button></a>
-    </div>
+
+<h1><b>SMART AI CALCULATOR</b><br><b>Goal Score Calculator (India & USA)</b></h1>
+
+<p>
+The <b>Goal Score Calculator</b> helps students and learners in
+<b>India & USA</b> calculate the <b>minimum marks required</b>
+to achieve a desired target percentage or score in exams.
+</p>
+
+<h2>What is a Goal Score?</h2>
+<p>
+A goal score is the target marks a student needs to achieve
+a specific percentage or performance goal in an examination or assessment.
+</p>
+
+<div class="box">
+<h2>Goal Score Calculator <span class="speaker" onclick="speak()">🔊</span></h2>
+
+<label>Total Maximum Marks</label>
+<input type="number" id="total" placeholder="Example: 500">
+
+<label>Desired Percentage (%)</label>
+<input type="number" id="target" placeholder="Example: 75">
+
+<label>Marks Already Obtained</label>
+<input type="number" id="obtained" placeholder="Example: 300">
+
+<button onclick="calculateGoal()">Calculate Required Score</button>
+
+<div id="result"></div>
+</div>
+
+<div class="ads">📢 Google Adsense Ad Space</div>
+
+<h2>Goal Score Formula</h2>
+<p>
+<b>Target Marks = (Desired Percentage × Total Marks) ÷ 100</b><br>
+<b>Required Score = Target Marks − Marks Already Obtained</b>
+</p>
+
+<h2>Why Goal Score Calculator is Useful?</h2>
+<ul>
+<li>Helps students set clear academic targets</li>
+<li>Useful for exam planning & strategy</li>
+<li>Reduces stress by showing exact required score</li>
+<li>Applicable for school, college & competitive exams</li>
+</ul>
+
+<h2>Frequently Asked Questions (FAQ)</h2>
+<p><b>Can required score be negative?</b><br>No, it means target already achieved.</p>
+<p><b>Is this useful for board exams?</b><br>Yes, CBSE, ICSE, State Boards & USA exams.</p>
+<p><b>Is this calculator accurate?</b><br>Yes, it uses standard percentage formula.</p>
+
+<h2>Related Calculators</h2>
+<div class="related">
+<div><a href="cgpa.html">CGPA Calculator</a></div>
+<div><a href="percentage.html">Marks Percentage Calculator</a></div>
+<div><a href="gpa.html">GPA Calculator</a></div>
+<div><a href="result-grade.html">Result Grade Calculator</a></div>
+</div>
+
+<footer>
+<a href="privacy-policy.html">Privacy Policy</a> |
+<a href="disclaimer.html">Disclaimer</a> |
+<a href="contact-us.html">Contact Us</a>
+</footer>
+
+<script>
+function calculateGoal(){
+let total=+total.value;
+let target=+target.value;
+let obt=+obtained.value;
+
+let targetMarks=(target/100)*total;
+let required=targetMarks-obt;
+
+if(required<=0){
+result.innerHTML="<b>🎉 Congratulations!</b> You have already achieved your target.";
+}else{
+result.innerHTML=`<b>Target Marks:</b> ${targetMarks.toFixed(2)}<br>
+<b>Required Additional Marks:</b> ${required.toFixed(2)}`;
+}
+}
+
+function speak(){
+if(!result.innerText) return;
+let s=new SpeechSynthesisUtterance(result.innerText);
+speechSynthesis.speak(s);
+}
+</script>
+
 </body>
 </html>
