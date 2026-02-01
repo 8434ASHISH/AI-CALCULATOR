@@ -1,199 +1,152 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Smart AI Calculator | Subnet Calculator</title>
-    <meta name="description" content="Calculate subnet details like network address, broadcast address, and usable IPs with our free subnet calculator. Enter IP address and subnet mask. Try now!">
-    <meta name="keywords" content="subnet calculator, network calculator, IP calculator">
-    <meta name="robots" content="index, follow">
-   <link rel="canonical" href="https://smartaicalculator.com/subnet.html">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-    <style>
-        body { font-family: Arial, sans-serif; background: linear-gradient(135deg, #1A202C, #2D3748); color: #fff; margin: 0; }
-        .header { background: #2c3e50; padding: 20px 0; text-align: center; }
-        .nav-tabs { display: flex; justify-content: center; gap: 20px; padding: 10px 0; background: #34495e; }
-        .nav-tab { color: white; text-decoration: none; padding: 5px 15px; transition: background 0.3s; font-weight: bold; text-shadow: 0 0 5px rgba(255, 107, 107, 0.5); }
-        .nav-tab:hover, .nav-tab.active { background: #3498db; border-radius: 5px; }
-        .calculator-content { max-width: 600px; margin: 20px auto; padding: 20px; background: rgba(45, 55, 72, 0.9); border-radius: 10px; box-shadow: 0 0 15px rgba(0,0,0,0.5); }
-        .calculator-box { background: #e0e0e0; color: #333; padding: 20px; border-radius: 5px; text-align: center; }
-        .input-row { display: flex; justify-content: space-between; margin-bottom: 15px; }
-        .input-row label { font-weight: bold; }
-        input, select { border: 1px solid #ccc; padding: 5px; border-radius: 3px; width: 150px; }
-        input.invalid { border-color: #ff6b6b; }
-        button { background: linear-gradient(135deg, #ff6b6b, #e63946); color: white; padding: 12px 24px; border: none; border-radius: 5px; cursor: pointer; font-weight: bold; font-size: 1.1rem; box-shadow: 0 3px 6px rgba(0,0,0,0.4); transition: transform 0.2s, background 0.2s; text-transform: uppercase; }
-        button:hover { background: linear-gradient(135deg, #e63946, #c0392b); transform: scale(1.05); }
-        .ads-section { margin-top: 10px; padding: 10px; background: #34495e; border-radius: 5px; text-align: center; }
-        .ads-section p { font-size: 1.2rem; font-weight: bold; color: #1e90ff; }
-        .ads-section a { color: #1e90ff; text-decoration: underline; }
-        .voice-icon { display: inline-block; padding: 10px; cursor: pointer; font-size: 2rem; color: #00cec9; transition: color 0.2s, transform 0.2s; visibility: visible; }
-        .voice-icon:hover { color: #00b7b3; transform: scale(1.1); }
-        .button-container { display: flex; justify-content: center; align-items: center; gap: 15px; margin: 20px 0; }
-        .suggestions { margin-top: 20px; padding: 15px; background: #f0f0f0; border-radius: 5px; text-align: left; display: none; }
-        .suggestions h3 { font-size: 1.2rem; font-weight: bold; margin-bottom: 10px; }
-        .suggestions ul { list-style-type: disc; padding-left: 20px; }
-        .suggestions li { margin-bottom: 8px; }
-        .result-table { width: 100%; margin-top: 20px; border-collapse: collapse; }
-        .result-table th, .result-table td { border: 1px solid #ccc; padding: 10px; text-align: left; }
-        .result-table th { background: #3498db; color: white; }
-        .result-table tr:nth-child(even) { background: #f0f0f0; }
-        @media (max-width: 600px) { 
-            .input-row { flex-direction: column; } 
-            input, select { width: 100%; margin-bottom: 10px; } 
-            .button-container { flex-direction: row; gap: 10px; } 
-            .voice-icon { display: inline-block; visibility: visible; } 
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Subnet Calculator India & USA | IP Subnet Calculator | SMART AI CALCULATOR</title>
+
+<meta name="description" content="Free Subnet Calculator for India & USA. Calculate subnet mask, network address, broadcast address, usable IP range and total hosts easily.">
+
+<meta name="keywords" content="subnet calculator india, subnet calculator usa, ip subnet calculator, cidr calculator, network calculator, smart ai calculator">
+
+<link rel="canonical" href="https://smartaicalculator.com/subnet.html"/>
+
+<!-- Google tag -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-FEQ7R89CFG"></script>
+<script>
+window.dataLayer=window.dataLayer||[];
+function gtag(){dataLayer.push(arguments);}
+gtag('js',new Date());
+gtag('config','G-FEQ7R89CFG');
+</script>
+
+<script type="application/ld+json">
+{
+"@context":"https://schema.org",
+"@type":"WebApplication",
+"name":"Subnet Calculator",
+"url":"https://smartaicalculator.com/subnet-calculator.html",
+"applicationCategory":"NetworkingApplication",
+"provider":{"@type":"Organization","name":"SMART AI CALCULATOR"}
+}
+</script>
+
+<style>
+body{font-family:Segoe UI;background:#f8fafc;max-width:1100px;margin:auto;padding:20px;line-height:1.7}
+h1{text-align:center;color:#0f172a}
+h2{color:#0f172a;border-bottom:2px solid #cbd5e1}
+.box{background:#fff;padding:25px;border-radius:14px;box-shadow:0 10px 25px rgba(0,0,0,.08)}
+input,select{width:100%;padding:12px;margin:8px 0;border-radius:6px;border:1px solid #cbd5e1}
+button{background:#0f172a;color:#fff;border:none;padding:12px;width:100%;border-radius:6px}
+#result{margin-top:20px;background:#f1f5f9;padding:15px;border-left:4px solid #0f172a}
+.ads{margin:25px 0;background:#e5e7eb;padding:15px;text-align:center;border-radius:8px}
+.related{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:15px;margin-top:20px}
+.related div{background:#fff;padding:15px;border-radius:8px;box-shadow:0 4px 10px rgba(0,0,0,.08)}
+footer{text-align:center;margin-top:40px;font-size:14px}
+footer a{color:#0f172a;margin:0 6px;text-decoration:none}
+.speaker{float:right;cursor:pointer}
+</style>
 </head>
+
 <body>
-    <header class="header">
-        <h1>Smart AI Calculator</h1>
-        <h2>Subnet Calculator</h2>
-    </header>
-    <nav class="nav-tabs">
-        <a href="index.html#home" class="nav-tab">HOME</a>
-        <a href="index.html#miscellaneous" class="nav-tab active">MISCELLANEOUS</a>
-    </nav>
-    <div class="calculator-content">
-        <div class="calculator-box">
-            <h2>Enter Network Details</h2>
-            <div class="input-row">
-                <label>IP Address</label>
-                <input type="text" id="ip-address" placeholder="e.g., 192.168.1.0" oninput="validateInput(this)">
-            </div>
-            <div class="input-row">
-                <label>Subnet Mask (CIDR)</label>
-                <input type="number" id="cidr" min="0" max="32" step="1" oninput="validateInput(this)">
-            </div>
-            <div class="button-container">
-                <button onclick="calculateSubnet()">Calculate <span id="spinner" style="display:none;">⏳</span></button>
-                <span class="voice-icon" onclick="toggleSpeech()" title="Toggle Speech"><i class="fas fa-volume-up"></i></span>
-            </div>
-            <div id="subnet-result" class="mt-4 font-semibold"></div>
-            <table class="result-table" id="result-table" style="display: none;">
-                <thead>
-                    <tr>
-                        <th>Detail</th>
-                        <th>Value</th>
-                    </tr>
-                </thead>
-                <tbody id="result-table-body"></tbody>
-            </table>
-            <div class="suggestions" id="suggestions">
-                <h3>Suggestions for Subnetting</h3>
-                <ul>
-                    <li>Verify IP address format (e.g., 192.168.1.0).</li>
-                    <li>Ensure CIDR value is between 0 and 32.</li>
-                    <li>Use for network planning or troubleshooting.</li>
-                </ul>
-            </div>
-            <div class="ads-section">
-                <p>Contact for Ads: <a href="mailto:first4bencher@gmail.com">first4bencher@gmail.com</a></p>
-            </div>
-            <div id="seo-content" class="mt-4 text-sm">
-                <h3>About Subnet Calculator</h3>
-                <p>Our Smart AI Subnet Calculator computes network address, broadcast address, and usable IPs. Enter an IP address and CIDR subnet mask for instant results. It’s user-friendly, responsive, and SEO-optimized with keywords like 'subnet calculator' and 'network calculator.' Perfect for network administrators!</p>
-            </div>
-        </div>
-    </div>
-    <footer class="bg-gray-800 text-white text-center py-4 mt-8">
-        <p style="font-weight: bold;">2025 © Smart AI Calculator. All rights reserved.</p>
-        <a href="privacy.html" class="text-blue-400 ml-2">Privacy Policy</a> |
-        <a href="contactus.html" class="text-blue-400 ml-2">Contact Us</a> |
-        <a href="howto.html" class="text-blue-400 ml-2">How to Use</a>
-    </footer>
-    <script>
-        let isSpeaking = false;
-        let utterance = null;
-        function validateInput(input) {
-            if (input.id === "ip-address") {
-                let value = input.value;
-                let ipRegex = /^(\d{1,3}\.){3}\d{1,3}$/;
-                if (!ipRegex.test(value) || value.split('.').some(num => parseInt(num) > 255)) {
-                    input.classList.add("invalid");
-                } else {
-                    input.classList.remove("invalid");
-                }
-            } else if (input.id === "cidr") {
-                let value = parseInt(input.value);
-                if (isNaN(value) || value < 0 || value > 32) {
-                    input.classList.add("invalid");
-                } else {
-                    input.classList.remove("invalid");
-                }
-            }
-        }
-        function calculateSubnet() {
-            document.getElementById("spinner").style.display = "inline";
-            setTimeout(() => {
-                let ipAddress = document.getElementById("ip-address").value;
-                let cidr = parseInt(document.getElementById("cidr").value);
-                let resultDiv = document.getElementById("subnet-result");
-                let tableBody = document.getElementById("result-table-body");
-                let suggestionsDiv = document.getElementById("suggestions");
-                let table = document.getElementById("result-table");
-                tableBody.innerHTML = "";
-                let ipRegex = /^(\d{1,3}\.){3}\d{1,3}$/;
-                if (!ipRegex.test(ipAddress) || ipAddress.split('.').some(num => parseInt(num) > 255) || isNaN(cidr) || cidr < 0 || cidr > 32) {
-                    resultDiv.innerText = "Invalid input. Check IP address or CIDR.";
-                    table.style.display = "none";
-                    suggestionsDiv.style.display = "none";
-                    document.getElementById("spinner").style.display = "none";
-                    return;
-                }
-                let ipParts = ipAddress.split('.').map(Number);
-                let ipBinary = ipParts.reduce((bin, num) => bin + num.toString(2).padStart(8, '0'), '');
-                let subnetMask = '1'.repeat(cidr).padEnd(32, '0');
-                let networkBinary = '';
-                for (let i = 0; i < 32; i++) {
-                    networkBinary += (ipBinary[i] === '1' && subnetMask[i] === '1') ? '1' : '0';
-                }
-                let broadcastBinary = networkBinary.slice(0, cidr) + '1'.repeat(32 - cidr);
-                let networkParts = [];
-                let broadcastParts = [];
-                for (let i = 0; i < 4; i++) {
-                    networkParts.push(parseInt(networkBinary.slice(i * 8, (i + 1) * 8), 2));
-                    broadcastParts.push(parseInt(broadcastBinary.slice(i * 8, (i + 1) * 8), 2));
-                }
-                let totalHosts = Math.pow(2, 32 - cidr);
-                let usableHosts = totalHosts - 2;
-                resultDiv.innerText = `Network Address: ${networkParts.join('.')}`;
-                tableBody.innerHTML = `
-                    <tr><td>Network Address</td><td>${networkParts.join('.')}</td></tr>
-                    <tr><td>Broadcast Address</td><td>${broadcastParts.join('.')}</td></tr>
-                    <tr><td>Total Hosts</td><td>${totalHosts}</td></tr>
-                    <tr><td>Usable IPs</td><td>${usableHosts}</td></tr>
-                `;
-                table.style.display = "table";
-                suggestionsDiv.style.display = "block";
-                document.getElementById("spinner").style.display = "none";
-            }, 500);
-        }
-        function toggleSpeech() {
-            const result = document.getElementById("subnet-result").innerText;
-            if (!result || result.includes("Invalid")) {
-                console.log("No valid result to speak");
-                return;
-            }
-            if (isSpeaking) {
-                window.speechSynthesis.cancel();
-                isSpeaking = false;
-            } else {
-                utterance = new SpeechSynthesisUtterance(result);
-                utterance.lang = "en";
-                utterance.onend = () => { isSpeaking = false; };
-                window.speechSynthesis.speak(utterance);
-                isSpeaking = true;
-            }
-        }
-        function stopSpeech() {
-            if (isSpeaking) {
-                window.speechSynthesis.cancel();
-                isSpeaking = false;
-            }
-        }
-        window.onpagehide = stopSpeech;
-        window.onbeforeunload = stopSpeech;
-    </script>
+
+<h1><b>SMART AI CALCULATOR</b><br><b>Subnet Calculator (India & USA)</b></h1>
+
+<p>
+The <b>Subnet Calculator</b> helps networking students and professionals
+calculate <b>subnet mask, network address, broadcast address</b>,
+and <b>usable IP range</b> using CIDR notation.
+</p>
+
+<h2>What is a Subnet?</h2>
+<p>
+A subnet is a logical subdivision of an IP network.
+Subnetting improves network performance, security, and management.
+</p>
+
+<div class="box">
+<h2>Subnet Calculator <span class="speaker" onclick="speak()">🔊</span></h2>
+
+<label>IP Address</label>
+<input type="text" id="ip" placeholder="Example: 192.168.1.10">
+
+<label>CIDR Notation</label>
+<select id="cidr">
+<option>/8</option><option>/16</option><option>/24</option>
+<option>/25</option><option>/26</option><option>/27</option>
+<option>/28</option><option>/29</option><option>/30</option>
+</select>
+
+<button onclick="calculateSubnet()">Calculate Subnet</button>
+
+<div id="result"></div>
+</div>
+
+<div class="ads">📢 Google Adsense Ad Space</div>
+
+<h2>Subnet Calculation Method</h2>
+<ul>
+<li>Convert IP address to binary</li>
+<li>Apply subnet mask using CIDR</li>
+<li>Calculate network & broadcast addresses</li>
+<li>Determine usable host range</li>
+</ul>
+
+<h2>Why Use Subnet Calculator?</h2>
+<ul>
+<li>Simplifies IP subnetting</li>
+<li>Essential for networking exams</li>
+<li>Helps network planning</li>
+<li>Reduces manual calculation errors</li>
+</ul>
+
+<h2>Frequently Asked Questions (FAQ)</h2>
+<p><b>What is CIDR?</b><br>Classless Inter-Domain Routing.</p>
+<p><b>Is this IPv4 only?</b><br>Yes, currently IPv4 supported.</p>
+<p><b>Is this calculator accurate?</b><br>Yes, based on standard subnet rules.</p>
+
+<h2>Related Calculators</h2>
+<div class="related">
+<div><a href="password-generator.html">Password Generator</a></div>
+<div><a href="random-number.html">Random Number Generator</a></div>
+</div>
+
+<footer>
+<a href="privacy-policy.html">Privacy Policy</a> |
+<a href="disclaimer.html">Disclaimer</a> |
+<a href="contact-us.html">Contact Us</a>
+<p>© 2025–2026 SMART AI CALCULATOR</p>
+</footer>
+
+<script>
+function calculateSubnet(){
+let ip=document.getElementById("ip").value.split(".");
+let cidr=parseInt(document.getElementById("cidr").value.replace("/",""));
+if(ip.length!==4){ result.innerHTML="Invalid IP"; return; }
+
+let ipInt=ip.reduce((a,o)=> (a<<8)+parseInt(o),0);
+let mask = cidr===0?0:(~0 << (32-cidr))>>>0;
+
+let network = ipInt & mask;
+let broadcast = network | (~mask>>>0);
+let totalHosts = Math.pow(2,32-cidr);
+let usable = totalHosts>2 ? totalHosts-2 : totalHosts;
+
+result.innerHTML=
+`<b>Subnet Mask:</b> ${[(mask>>>24)&255,(mask>>>16)&255,(mask>>>8)&255,mask&255].join(".")}<br>
+<b>Network Address:</b> ${[(network>>>24)&255,(network>>>16)&255,(network>>>8)&255,network&255].join(".")}<br>
+<b>Broadcast Address:</b> ${[(broadcast>>>24)&255,(broadcast>>>16)&255,(broadcast>>>8)&255,broadcast&255].join(".")}<br>
+<b>Total IPs:</b> ${totalHosts}<br>
+<b>Usable Hosts:</b> ${usable}`;
+}
+
+function speak(){
+if(!result.innerText) return;
+let s=new SpeechSynthesisUtterance(result.innerText);
+speechSynthesis.speak(s);
+}
+</script>
+
+</body>
 </html>
