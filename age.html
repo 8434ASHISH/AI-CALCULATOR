@@ -1,318 +1,158 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <script type="application/ld+json">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Age Calculator India & USA | Calculate Age from Date of Birth | SMART AI CALCULATOR</title>
+
+<meta name="description" content="Free Age Calculator for India & USA. Calculate your exact age in years, months and days from date of birth using current date (editable).">
+
+<meta name="keywords" content="age calculator india, age calculator usa, calculate age from date of birth, dob age calculator, smart ai calculator">
+
+<link rel="canonical" href="https://smartaicalculator.com/age.html"/>
+
+<!-- Google tag -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-FEQ7R89CFG"></script>
+<script>
+window.dataLayer=window.dataLayer||[];
+function gtag(){dataLayer.push(arguments);}
+gtag('js',new Date());
+gtag('config','G-FEQ7R89CFG');
+</script>
+
+<script type="application/ld+json">
 {
-  "@context": "https://schema.org",
-  "@type": "WebApplication",
-  "name": "Age Calculator",
-  "url": "https://smartaicalculator.com/age.html",
-  "applicationCategory": "UtilityApplication",
-  "operatingSystem": "All",
-  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "INR" },
-  "creator": { "@type": "Organization", "name": "Smart AI Calculator" }
+"@context":"https://schema.org",
+"@type":"WebApplication",
+"name":"Age Calculator",
+"url":"https://smartaicalculator.com/age-calculator.html",
+"applicationCategory":"UtilityApplication",
+"provider":{"@type":"Organization","name":"SMART AI CALCULATOR"}
 }
 </script>
 
-    <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-FEQ7R89CFG"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-FEQ7R89CFG');
-</script>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title>Age Calculator Online - How to Calculate Your Exact Age | Smart AI Tools</title>
-<meta name="description" content="Learn how to calculate your exact age with our comprehensive guide and free age calculator tool. Understand age calculation methods for different purposes.">
-<meta name="keywords" content="age calculator, how to calculate age, age calculation methods, birthday calculator, exact age calculator, age calculator tool, age in years months days">
-    <meta name="robots" content="index, follow">
-   <link rel="canonical" href="https://smartaicalculator.com/age.html">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-    <style>
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: linear-gradient(135deg, #1A202C, #2D3748); color: #fff; margin: 0; line-height: 1.6; }
-        .header { background: #2c3e50; padding: 20px 0; text-align: center; }
-        .nav-tabs { display: flex; justify-content: center; gap: 20px; padding: 10px 0; background: #34495e; }
-        .nav-tab { color: white; text-decoration: none; padding: 5px 15px; transition: background 0.3s; font-weight: bold; text-shadow: 0 0 5px rgba(255, 107, 107, 0.5); }
-        .nav-tab:hover, .nav-tab.active { background: #3498db; border-radius: 5px; }
-        .container { max-width: 1000px; margin: 20px auto; padding: 0 20px; }
-        .article-content { background: rgba(45, 55, 72, 0.9); border-radius: 10px; box-shadow: 0 0 15px rgba(0,0,0,0.5); padding: 30px; margin-bottom: 30px; }
-        .calculator-box { background: #e0e0e0; color: #333; padding: 25px; border-radius: 8px; margin: 30px 0; }
-        .input-row { display: flex; justify-content: space-between; margin-bottom: 15px; align-items: center; }
-        .input-row label { font-weight: bold; width: 150px; }
-        input { border: 1px solid #ccc; padding: 8px; border-radius: 4px; width: 200px; }
-        input.invalid { border-color: #ff6b6b; }
-        button { background: linear-gradient(135deg, #ff6b6b, #e63946); color: white; padding: 12px 24px; border: none; border-radius: 5px; cursor: pointer; font-weight: bold; font-size: 1.1rem; box-shadow: 0 3px 6px rgba(0,0,0,0.4); transition: transform 0.2s, background 0.2s; text-transform: uppercase; }
-        button:hover { background: linear-gradient(135deg, #e63946, #c0392b); transform: scale(1.05); }
-        .voice-icon { display: inline-block; padding: 10px; cursor: pointer; font-size: 2rem; color: #00cec9; transition: color 0.2s, transform 0.2s; }
-        .voice-icon:hover { color: #00b7b3; transform: scale(1.1); }
-        .button-container { display: flex; justify-content: center; align-items: center; gap: 15px; margin: 20px 0; }
-        .result-table { width: 100%; margin: 20px 0; border-collapse: collapse; }
-        .result-table th, .result-table td { border: 1px solid #ccc; padding: 12px; text-align: left; }
-        .result-table th { background: #3498db; color: white; }
-        .result-table tr:nth-child(even) { background: #f0f0f0; }
-        h1, h2, h3, h4 { color: #3498db; }
-        .info-box { background: #34495e; padding: 15px; border-left: 4px solid #3498db; margin: 20px 0; }
-        .faq-item { margin-bottom: 20px; }
-        .faq-question { font-weight: bold; color: #3498db; cursor: pointer; }
-        .faq-answer { margin-top: 10px; padding-left: 20px; display: none; }
-        .related-tools { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 15px; margin: 30px 0; }
-        .tool-card { background: #34495e; padding: 15px; border-radius: 5px; transition: transform 0.3s; }
-        .tool-card:hover { transform: translateY(-5px); }
-        @media (max-width: 768px) { 
-            .input-row { flex-direction: column; align-items: flex-start; } 
-            .input-row label { width: 100%; margin-bottom: 5px; }
-            input { width: 100%; } 
-            .related-tools { grid-template-columns: 1fr; }
-        }
-    </style>
+<style>
+body{font-family:Segoe UI;background:#f8fafc;max-width:1100px;margin:auto;padding:20px;line-height:1.7}
+h1{text-align:center;color:#7c2d12}
+h2{color:#7c2d12;border-bottom:2px solid #fed7aa}
+.box{background:#fff;padding:25px;border-radius:14px;box-shadow:0 10px 25px rgba(0,0,0,.08)}
+input{width:100%;padding:12px;margin:8px 0;border-radius:6px;border:1px solid #fed7aa}
+button{background:#ea580c;color:#fff;border:none;padding:12px;width:100%;border-radius:6px}
+#result{margin-top:20px;background:#fff7ed;padding:15px;border-left:4px solid #ea580c}
+.ads{margin:25px 0;background:#e5e7eb;padding:15px;text-align:center;border-radius:8px}
+.related{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:15px;margin-top:20px}
+.related div{background:#fff;padding:15px;border-radius:8px;box-shadow:0 4px 10px rgba(0,0,0,.08)}
+footer{text-align:center;margin-top:40px;font-size:14px}
+footer a{color:#7c2d12;margin:0 6px;text-decoration:none}
+.speaker{float:right;cursor:pointer}
+</style>
 </head>
+
 <body>
-    <header class="header">
-        <h1>Smart AI Calculator</h1>
-        <h2>Comprehensive Guide to Age Calculation</h2>
-    </header>
-    <nav class="nav-tabs">
-        <a href="index.html#home" class="nav-tab">HOME</a>
-        <a href="index.html#miscellaneous" class="nav-tab active">MISCELLANEOUS</a>
-    </nav>
-    
-    <div class="container">
-        <article class="article-content">
-            <h1>How to Calculate Your Exact Age: A Complete Guide</h1>
-            
-            <p>Calculating your exact age is more than just subtracting your birth year from the current year. Our comprehensive guide explains different methods of age calculation and provides a free tool to calculate your age accurately in years, months, and days.</p>
-            
-            <div class="info-box">
-                <p><strong>Did you know?</strong> The way age is calculated varies across cultures. In some East Asian countries, people are considered to be 1 year old at birth and gain a year on Lunar New Year!</p>
-            </div>
-            
-            <h2>Why Accurate Age Calculation Matters</h2>
-            <p>Knowing your exact age is important for many reasons:</p>
-            <ul>
-                <li>Legal requirements (driving, voting, retirement)</li>
-                <li>Medical assessments and developmental milestones</li>
-                <li>Educational enrollment</li>
-                <li>Financial planning and insurance</li>
-                <li>Personal curiosity and milestone celebrations</li>
-            </ul>
-            
-            <h2>Our Free Age Calculator Tool</h2>
-            <p>Use our interactive calculator below to determine your exact age:</p>
-            
-            <div class="calculator-box">
-                <h3>Calculate Your Exact Age</h3>
-                <div class="input-row">
-                    <label for="dob">Date of Birth:</label>
-                    <input type="date" id="dob" oninput="validateInput(this)">
-                </div>
-                <div class="input-row">
-                    <label for="present-date">Present Date:</label>
-                    <input type="date" id="present-date" oninput="validateInput(this)">
-                </div>
-                <div class="button-container">
-                    <button onclick="calculateAge()">Calculate Age <span id="spinner" style="display:none;">⏳</span></button>
-                    <span class="voice-icon" onclick="toggleSpeech()" title="Toggle Speech"><i class="fas fa-volume-up"></i></span>
-                </div>
-                <div id="age-result" class="mt-4 font-semibold"></div>
-                <table class="result-table" id="result-table" style="display: none;">
-                    <thead>
-                        <tr>
-                            <th>Detail</th>
-                            <th>Value</th>
-                        </tr>
-                    </thead>
-                    <tbody id="result-table-body"></tbody>
-                </table>
-            </div>
-            
-            <h2>Understanding Age Calculation Methods</h2>
-            <p>There are several ways to calculate age, each with specific uses:</p>
-            
-            <h3>1. Chronological Age</h3>
-            <p>This is the most common method, calculating the exact time elapsed since birth. Our calculator uses this method, breaking down your age into years, months, and days.</p>
-            
-            <h3>2. Legal Age</h3>
-            <p>For legal purposes, age is often calculated based on the current date relative to your birthday in the current year, regardless of whether your birthday has passed.</p>
-            
-            <h3>3. Developmental Age</h3>
-            <p>Used in medicine and education, this compares a person's physical, cognitive, or emotional development to typical standards for their chronological age.</p>
-            
-            <div class="info-box">
-                <p><strong>Pro Tip:</strong> When calculating age for official documents, always use the chronological age method with the exact dates to ensure accuracy.</p>
-            </div>
-            
-            <h2>Frequently Asked Questions</h2>
-            
-            <div class="faq-item">
-                <div class="faq-question" onclick="toggleFAQ(this)">+ Why does my age calculation show different results on other calculators?</div>
-                <div class="faq-answer">
-                    <p>Different calculators may use different algorithms or assumptions. Some might round months differently or not account for leap years accurately. Our calculator uses precise date arithmetic for the most accurate results.</p>
-                </div>
-            </div>
-            
-            <div class="faq-item">
-                <div class="faq-question" onclick="toggleFAQ(this)">+ How do you account for leap years in age calculation?</div>
-                <div class="faq-answer">
-                    <p>Our calculator automatically accounts for leap years by using the actual calendar dates in its calculations. February 29th birthdays are handled correctly, with the anniversary falling on March 1st in non-leap years.</p>
-                </div>
-            </div>
-            
-            <div class="faq-item">
-                <div class="faq-question" onclick="toggleFAQ(this)">+ Can I calculate age at a future date?</div>
-                <div class="faq-answer">
-                    <p>Yes! Simply enter a future date as the "Present Date" to see what your age will be on that date. This is useful for planning milestones or retirement dates.</p>
-                </div>
-            </div>
-            
-            <h2>Related Tools You Might Find Useful</h2>
-            
-            <div class="related-tools">
-                <div class="tool-card">
-                    <h4>Pregnancy Calculator</h4>
-                    <p>Track your pregnancy progress and estimate due dates.</p>
-                    <a href="pregnancy.html" class="text-blue-400">Try it now →</a>
-                </div>
-                <div class="tool-card">
-                    <h4>Retirement Planner</h4>
-                    <p>Calculate when you can retire based on your savings.</p>
-                    <a href="retirement.html" class="text-blue-400">Try it now →</a>
-                </div>
-                <div class="tool-card">
-                    <h4>Time Between Dates</h4>
-                    <p>Calculate the duration between any two dates.</p>
-                    <a href="date-difference.html" class="text-blue-400">Try it now →</a>
-                </div>
-            </div>
-        </article>
-    </div>
-    
-    <footer class="bg-gray-800 text-white text-center py-4 mt-8">
-        <p style="font-weight: bold;">2025 © Smart AI Calculator. All rights reserved.</p>
-        <a href="privacy.html" class="text-blue-400 ml-2">Privacy Policy</a> |
-        <a href="contactus.html" class="text-blue-400 ml-2">Contact Us</a> |
-        <a href="howto.html" class="text-blue-400 ml-2">How to Use</a>
-    </footer>
-    
-    <script>
-        let isSpeaking = false;
-        let utterance = null;
-        
-        // Initialize date inputs
-        window.onload = () => {
-            let today = new Date();
-            let presentDateInput = document.getElementById("present-date");
-            presentDateInput.value = today.toISOString().split("T")[0];
-            presentDateInput.max = today.toISOString().split("T")[0];
-        };
-        
-        function validateInput(input) {
-            let value = input.value;
-            if (!value) {
-                input.classList.add("invalid");
-            } else {
-                input.classList.remove("invalid");
-            }
-        }
-        
-        function calculateAge() {
-            document.getElementById("spinner").style.display = "inline";
-            setTimeout(() => {
-                let dob = document.getElementById("dob").value;
-                let presentDate = document.getElementById("present-date").value;
-                let resultDiv = document.getElementById("age-result");
-                let tableBody = document.getElementById("result-table-body");
-                let table = document.getElementById("result-table");
-                
-                tableBody.innerHTML = "";
-                
-                if (!dob || !presentDate || new Date(dob) > new Date(presentDate)) {
-                    resultDiv.innerHTML = "<span style='color:#e63946'>Invalid input. Date of birth must be earlier than present date.</span>";
-                    table.style.display = "none";
-                    document.getElementById("spinner").style.display = "none";
-                    return;
-                }
-                
-                let dobDate = new Date(dob);
-                let present = new Date(presentDate);
-                let years = present.getFullYear() - dobDate.getFullYear();
-                let months = present.getMonth() - dobDate.getMonth();
-                let days = present.getDate() - dobDate.getDate();
-                
-                if (days < 0) {
-                    months--;
-                    days += new Date(present.getFullYear(), present.getMonth(), 0).getDate();
-                }
-                if (months < 0) {
-                    years--;
-                    months += 12;
-                }
-                
-                // Calculate total days for additional precision
-                let totalDays = Math.floor((present - dobDate) / (1000 * 60 * 60 * 24));
-                let totalMonths = years * 12 + months;
-                let totalWeeks = Math.floor(totalDays / 7);
-                
-                resultDiv.innerHTML = `<p style="font-size:1.2rem; color:#2a9d8f;">Your exact age is: <strong>${years} years, ${months} months, and ${days} days</strong></p>`;
-                
-                tableBody.innerHTML = `
-                    <tr><td>Years</td><td>${years}</td></tr>
-                    <tr><td>Months</td><td>${totalMonths} (${years}y ${months}m)</td></tr>
-                    <tr><td>Weeks</td><td>${totalWeeks}</td></tr>
-                    <tr><td>Days</td><td>${totalDays}</td></tr>
-                    <tr><td>Next Birthday</td><td>${getNextBirthday(dobDate, present)}</td></tr>
-                `;
-                
-                table.style.display = "table";
-                document.getElementById("spinner").style.display = "none";
-            }, 500);
-        }
-        
-        function getNextBirthday(birthDate, currentDate) {
-            let nextBirthday = new Date(currentDate.getFullYear(), birthDate.getMonth(), birthDate.getDate());
-            if (nextBirthday < currentDate) {
-                nextBirthday.setFullYear(nextBirthday.getFullYear() + 1);
-            }
-            let daysUntil = Math.ceil((nextBirthday - currentDate) / (1000 * 60 * 60 * 24));
-            return `${nextBirthday.toDateString()} (in ${daysUntil} days)`;
-        }
-        
-        function toggleSpeech() {
-            const result = document.getElementById("age-result").innerText;
-            if (!result || result.includes("Invalid")) {
-                console.log("No valid result to speak");
-                return;
-            }
-            if (isSpeaking) {
-                window.speechSynthesis.cancel();
-                isSpeaking = false;
-            } else {
-                utterance = new SpeechSynthesisUtterance(result);
-                utterance.lang = "en";
-                utterance.onend = () => { isSpeaking = false; };
-                window.speechSynthesis.speak(utterance);
-                isSpeaking = true;
-            }
-        }
-        
-        function toggleFAQ(element) {
-            const answer = element.nextElementSibling;
-            const isVisible = answer.style.display === "block";
-            answer.style.display = isVisible ? "none" : "block";
-            element.textContent = element.textContent.replace(/^[+-]/, isVisible ? "+" : "-");
-        }
-        
-        function stopSpeech() {
-            if (isSpeaking) {
-                window.speechSynthesis.cancel();
-                isSpeaking = false;
-            }
-        }
-        
-        window.onpagehide = stopSpeech;
-        window.onbeforeunload = stopSpeech;
-    </script>
+
+<h1><b>SMART AI CALCULATOR</b><br><b>Age Calculator (India & USA)</b></h1>
+
+<p>
+The <b>Age Calculator</b> helps users calculate their
+<b>exact age in years, months and days</b> from their
+<b>date of birth</b>.  
+The current date is auto-filled but can be changed manually if required.
+</p>
+
+<h2>What is an Age Calculator?</h2>
+<p>
+An age calculator determines how much time has passed between
+your date of birth and the current (or selected) date.
+It is widely used for official forms, exams, jobs, and verification.
+</p>
+
+<div class="box">
+<h2>Age Calculator <span class="speaker" onclick="speak()">🔊</span></h2>
+
+<label>Date of Birth</label>
+<input type="date" id="dob">
+
+<label>Current Date (Editable)</label>
+<input type="date" id="current">
+
+<button onclick="calculateAge()">Calculate Age</button>
+
+<div id="result"></div>
+</div>
+
+<div class="ads">📢 Google Adsense Ad Space</div>
+
+<h2>Age Calculation Method</h2>
+<ul>
+<li>Take date of birth and current date</li>
+<li>Calculate difference in years, months, days</li>
+<li>Adjust months and days correctly</li>
+</ul>
+
+<h2>Why Use Age Calculator?</h2>
+<ul>
+<li>Required for exams & admissions</li>
+<li>Useful for job applications</li>
+<li>Legal & government forms</li>
+<li>Quick and error-free calculation</li>
+</ul>
+
+<h2>Frequently Asked Questions (FAQ)</h2>
+<p><b>Can I change current date?</b><br>Yes, current date is editable.</p>
+<p><b>Is leap year considered?</b><br>Yes, browser date logic handles it.</p>
+<p><b>Is this calculator accurate?</b><br>Yes, it follows standard age calculation.</p>
+
+<h2>Related Calculators</h2>
+<div class="related">
+<div><a href="date-difference.html">Date Difference Calculator</a></div>
+<div><a href="time.html">Time Converter</a></div>
+</div>
+
+<footer>
+<a href="privacy-policy.html">Privacy Policy</a> |
+<a href="disclaimer.html">Disclaimer</a> |
+<a href="contact-us.html">Contact Us</a>
+<p>© 2025–2026 SMART AI CALCULATOR</p>
+</footer>
+
+<script>
+document.getElementById("current").value =
+new Date().toISOString().split("T")[0];
+
+function calculateAge(){
+let dob=new Date(document.getElementById("dob").value);
+let cur=new Date(document.getElementById("current").value);
+
+if(!dob||!cur||dob>cur){
+result.innerHTML="Please enter valid dates.";
+return;
+}
+
+let years=cur.getFullYear()-dob.getFullYear();
+let months=cur.getMonth()-dob.getMonth();
+let days=cur.getDate()-dob.getDate();
+
+if(days<0){
+months--;
+days+=new Date(cur.getFullYear(),cur.getMonth(),0).getDate();
+}
+if(months<0){
+years--;
+months+=12;
+}
+
+result.innerHTML=
+`<b>Your Age:</b><br>
+${years} Years, ${months} Months, ${days} Days`;
+}
+
+function speak(){
+if(!result.innerText) return;
+let s=new SpeechSynthesisUtterance(result.innerText);
+speechSynthesis.speak(s);
+}
+</script>
+
 </body>
 </html>
