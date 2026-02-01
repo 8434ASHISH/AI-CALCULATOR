@@ -1,215 +1,147 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Smart AI Calculator | Household Item Calculator</title>
-    <meta name="description" content="Calculate the total cost of household items with our free calculator. Add items, quantities, and prices for instant results. Try now!">
-    <meta name="keywords" content="household item calculator, shopping calculator, budget calculator">
-    <meta name="robots" content="index, follow">
-   <link rel="canonical" href="https://smartaicalculator.com/household-item-calculator.html">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-    <style>
-        body { font-family: Arial, sans-serif; background: linear-gradient(135deg, #1A202C, #2D3748); color: #fff; margin: 0; }
-        .header { background: #2c3e50; padding: 20px 0; text-align: center; }
-        .nav-tabs { display: flex; justify-content: center; gap: 20px; padding: 10px 0; background: #34495e; }
-        .nav-tab { color: white; text-decoration: none; padding: 5px 15px; transition: background 0.3s; font-weight: bold; text-shadow: 0 0 5px rgba(255, 107, 107, 0.5); }
-        .nav-tab:hover, .nav-tab.active { background: #3498db; border-radius: 5px; }
-        .calculator-content { max-width: 600px; margin: 20px auto; padding: 20px; background: rgba(45, 55, 72, 0.9); border-radius: 10px; box-shadow: 0 0 15px rgba(0,0,0,0.5); }
-        .calculator-box { background: #e0e0e0; color: #333; padding: 20px; border-radius: 5px; text-align: center; }
-        .input-row { display: flex; justify-content: space-between; margin-bottom: 15px; align-items: center; }
-        .input-row label { font-weight: bold; }
-        input { border: 1px solid #ccc; padding: 5px; border-radius: 3px; width: 120px; }
-        input.invalid { border-color: #ff6b6b; }
-        .add-item-btn { background: #3498db; color: white; padding: 5px 10px; border: none; border-radius: 3px; cursor: pointer; }
-        .add-item-btn:hover { background: #2980b9; }
-        .remove-item-btn { background: #e63946; color: white; padding: 5px 10px; border: none; border-radius: 3px; cursor: pointer; }
-        .remove-item-btn:hover { background: #c0392b; }
-        button.calculate-btn { background: linear-gradient(135deg, #ff6b6b, #e63946); color: white; padding: 12px 24px; border: none; border-radius: 5px; cursor: pointer; font-weight: bold; font-size: 1.1rem; box-shadow: 0 3px 6px rgba(0,0,0,0.4); transition: transform 0.2s, background 0.2s; text-transform: uppercase; }
-        button.calculate-btn:hover { background: linear-gradient(135deg, #e63946, #c0392b); transform: scale(1.05); }
-        .ads-section { margin-top: 10px; padding: 10px; background: #34495e; border-radius: 5px; text-align: center; }
-        .ads-section p { font-size: 1.2rem; font-weight: bold; color: #1e90ff; }
-        .ads-section a { color: #1e90ff; text-decoration: underline; }
-        .voice-icon { display: inline-block; padding: 10px; cursor: pointer; font-size: 2rem; color: #00cec9; transition: color 0.2s, transform 0.2s; visibility: visible; }
-        .voice-icon:hover { color: #00b7b3; transform: scale(1.1); }
-        .button-container { display: flex; justify-content: center; align-items: center; gap: 15px; margin: 20px 0; }
-        .result-table { width: 100%; margin-top: 20px; border-collapse: collapse; }
-        .result-table th, .result-table td { border: 1px solid #ccc; padding: 10px; text-align: left; }
-        .result-table th { background: #3498db; color: white; }
-        .result-table tr:nth-child(even) { background: #f0f0f0; }
-        @media (max-width: 600px) { 
-            .input-row { flex-direction: column; align-items: flex-start; } 
-            input { width: 100%; margin-bottom: 10px; } 
-            .button-container { flex-direction: row; gap: 10px; } 
-            .voice-icon { display: inline-block; visibility: visible; } 
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Household Item Calculator India & USA | Home Expense Calculator | SMART AI CALCULATOR</title>
+
+<meta name="description" content="Free Household Item Calculator for India & USA. Add item name, quantity and price to calculate total household or grocery expenses easily.">
+
+<meta name="keywords" content="household item calculator india, household expense calculator usa, grocery cost calculator, home budget calculator, smart ai calculator">
+
+<link rel="canonical" href="https://smartaicalculator.com/household-item.html"/>
+
+<!-- Google tag -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-FEQ7R89CFG"></script>
+<script>
+window.dataLayer=window.dataLayer||[];
+function gtag(){dataLayer.push(arguments);}
+gtag('js',new Date());
+gtag('config','G-FEQ7R89CFG');
+</script>
+
+<script type="application/ld+json">
+{
+"@context":"https://schema.org",
+"@type":"WebApplication",
+"name":"Household Item Calculator",
+"url":"https://smartaicalculator.com/household-calculator.html",
+"applicationCategory":"UtilityApplication",
+"provider":{"@type":"Organization","name":"SMART AI CALCULATOR"}
+}
+</script>
+
+<style>
+body{font-family:Segoe UI;background:#f8fafc;max-width:1100px;margin:auto;padding:20px;line-height:1.7}
+h1{text-align:center;color:#1f2937}
+h2{color:#1f2937;border-bottom:2px solid #d1d5db}
+.box{background:#fff;padding:25px;border-radius:14px;box-shadow:0 10px 25px rgba(0,0,0,.08)}
+.row{display:grid;grid-template-columns:2fr 1fr 1fr;gap:10px;margin-bottom:10px}
+input{padding:10px;border-radius:6px;border:1px solid #d1d5db}
+button{background:#1f2937;color:#fff;border:none;padding:12px;width:100%;border-radius:6px;cursor:pointer}
+#result{margin-top:20px;background:#f3f4f6;padding:15px;border-left:4px solid #1f2937}
+.ads{margin:25px 0;background:#e5e7eb;padding:15px;text-align:center;border-radius:8px}
+.related{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:15px;margin-top:20px}
+.related div{background:#fff;padding:15px;border-radius:8px;box-shadow:0 4px 10px rgba(0,0,0,.08)}
+footer{text-align:center;margin-top:40px;font-size:14px}
+footer a{color:#1f2937;margin:0 6px;text-decoration:none}
+.speaker{float:right;cursor:pointer}
+</style>
 </head>
+
 <body>
-    <header class="header">
-        <h1>Smart AI Calculator</h1>
-        <h2>Household Item Calculator</h2>
-    </header>
-    <nav class="nav-tabs">
-        <a href="index.html#home" class="nav-tab">HOME</a>
-        <a href="index.html#miscellaneous" class="nav-tab active">MISCELLANEOUS</a>
-    </nav>
-    <div class="calculator-content">
-        <div class="calculator-box">
-            <h2>Add Household Items</h2>
-            <div id="item-list">
-                <div class="input-row item-row">
-                    <input type="text" class="item-name" placeholder="Item Name" oninput="validateInput(this)">
-                    <input type="number" class="item-quantity" min="1" step="1" placeholder="Quantity" oninput="validateInput(this)">
-                    <input type="number" class="item-price" min="0" step="0.01" placeholder="Price (₹)" oninput="validateInput(this)">
-                    <button class="remove-item-btn" onclick="removeItem(this)">Remove</button>
-                </div>
-            </div>
-            <button class="add-item-btn" onclick="addItem()">Add Item</button>
-            <div class="button-container">
-                <button class="calculate-btn" onclick="calculateTotal()">Calculate <span id="spinner" style="display:none;">⏳</span></button>
-                <span class="voice-icon" onclick="toggleSpeech()" title="Toggle Speech"><i class="fas fa-volume-up"></i></span>
-            </div>
-            <div id="household-result" class="mt-4 font-semibold"></div>
-            <table class="result-table" id="result-table" style="display: none;">
-                <thead>
-                    <tr>
-                        <th>Item</th>
-                        <th>Quantity</th>
-                        <th>Price (₹)</th>
-                        <th>Total (₹)</th>
-                    </tr>
-                </thead>
-                <tbody id="result-table-body"></tbody>
-            </table>
-            <div class="ads-section">
-                <p>Contact for Ads: <a href="mailto:first4bencher@gmail.com">first4bencher@gmail.com</a></p>
-            </div>
-            <div id="seo-content" class="mt-4 text-sm">
-                <h3>About Household Item Calculator</h3>
-                <p>Our Smart AI Household Item Calculator computes the total cost of items by adding names, quantities, and prices. It’s user-friendly, responsive, and SEO-optimized with keywords like 'household item calculator' and 'budget calculator.' Perfect for shopping budgets!</p>
-            </div>
-        </div>
-    </div>
-    <footer class="bg-gray-800 text-white text-center py-4 mt-8">
-        <p style="font-weight: bold;">2025 © Smart AI Calculator. All rights reserved.</p>
-        <a href="privacy.html" class="text-blue-400 ml-2">Privacy Policy</a> |
-        <a href="contactus.html" class="text-blue-400 ml-2">Contact Us</a> |
-        <a href="howto.html" class="text-blue-400 ml-2">How to Use</a>
-    </footer>
-    <script>
-        let isSpeaking = false;
-        let utterance = null;
-        function validateInput(input) {
-            if (input.classList.contains("item-name")) {
-                if (!input.value.trim()) {
-                    input.classList.add("invalid");
-                } else {
-                    input.classList.remove("invalid");
-                }
-            } else if (input.classList.contains("item-quantity")) {
-                let value = parseInt(input.value);
-                if (value < 1 || isNaN(value)) {
-                    input.classList.add("invalid");
-                } else {
-                    input.classList.remove("invalid");
-                }
-            } else if (input.classList.contains("item-price")) {
-                let value = parseFloat(input.value);
-                if (value < 0 || isNaN(value)) {
-                    input.classList.add("invalid");
-                } else {
-                    input.classList.remove("invalid");
-                }
-            }
-        }
-        function addItem() {
-            let itemList = document.getElementById("item-list");
-            let newItem = document.createElement("div");
-            newItem.className = "input-row item-row";
-            newItem.innerHTML = `
-                <input type="text" class="item-name" placeholder="Item Name" oninput="validateInput(this)">
-                <input type="number" class="item-quantity" min="1" step="1" placeholder="Quantity" oninput="validateInput(this)">
-                <input type="number" class="item-price" min="0" step="0.01" placeholder="Price (₹)" oninput="validateInput(this)">
-                <button class="remove-item-btn" onclick="removeItem(this)">Remove</button>
-            `;
-            itemList.appendChild(newItem);
-        }
-        function removeItem(button) {
-            if (document.querySelectorAll(".item-row").length > 1) {
-                button.parentElement.remove();
-            }
-        }
-        function calculateTotal() {
-            document.getElementById("spinner").style.display = "inline";
-            setTimeout(() => {
-                let items = document.querySelectorAll(".item-row");
-                let resultDiv = document.getElementById("household-result");
-                let tableBody = document.getElementById("result-table-body");
-                let table = document.getElementById("result-table");
-                tableBody.innerHTML = "";
-                let totalCost = 0;
-                let valid = true;
-                let itemDetails = [];
-                items.forEach(item => {
-                    let name = item.querySelector(".item-name").value.trim();
-                    let quantity = parseInt(item.querySelector(".item-quantity").value);
-                    let price = parseFloat(item.querySelector(".item-price").value);
-                    if (!name || isNaN(quantity) || quantity < 1 || isNaN(price) || price < 0) {
-                        valid = false;
-                        item.querySelectorAll("input").forEach(input => validateInput(input));
-                    } else {
-                        let itemTotal = quantity * price;
-                        totalCost += itemTotal;
-                        itemDetails.push({ name, quantity, price, itemTotal });
-                    }
-                });
-                if (!valid) {
-                    resultDiv.innerText = "Invalid input. Check all fields.";
-                    table.style.display = "none";
-                    document.getElementById("spinner").style.display = "none";
-                    return;
-                }
-                resultDiv.innerText = `Total Cost: ₹${totalCost.toFixed(2)}`;
-                itemDetails.forEach(item => {
-                    tableBody.innerHTML += `
-                        <tr>
-                            <td>${item.name}</td>
-                            <td>${item.quantity}</td>
-                            <td>₹${item.price.toFixed(2)}</td>
-                            <td>₹${item.itemTotal.toFixed(2)}</td>
-                        </tr>
-                    `;
-                });
-                table.style.display = "table";
-                document.getElementById("spinner").style.display = "none";
-            }, 500);
-        }
-        function toggleSpeech() {
-            const result = document.getElementById("household-result").innerText;
-            if (!result || result.includes("Invalid")) {
-                console.log("No valid result to speak");
-                return;
-            }
-            if (isSpeaking) {
-                window.speechSynthesis.cancel();
-                isSpeaking = false;
-            } else {
-                utterance = new SpeechSynthesisUtterance(result);
-                utterance.lang = "en";
-                utterance.onend = () => { isSpeaking = false; };
-                window.speechSynthesis.speak(utterance);
-                isSpeaking = true;
-            }
-        }
-        function stopSpeech() {
-            if (isSpeaking) {
-                window.speechSynthesis.cancel();
-                isSpeaking = false;
-            }
-        }
-        window.onpagehide = stopSpeech;
-        window.onbeforeunload = stopSpeech;
-    </script>
+
+<h1><b>SMART AI CALCULATOR</b><br><b>Household Item Calculator (India & USA)</b></h1>
+
+<p>
+The <b>Household Item Calculator</b> helps users in <b>India & USA</b>
+calculate the <b>total cost of household or grocery items</b> by adding
+items one by one with quantity and price.
+</p>
+
+<h2>What is a Household Item Calculator?</h2>
+<p>
+A household item calculator is used to track daily or monthly home expenses.
+It helps in budgeting by summing up the cost of multiple items with quantities.
+</p>
+
+<div class="box">
+<h2>Household Item Calculator <span class="speaker" onclick="speak()">🔊</span></h2>
+
+<div id="items">
+<div class="row">
+<input placeholder="Item Name">
+<input type="number" placeholder="Quantity">
+<input type="number" placeholder="Price">
+</div>
+</div>
+
+<button onclick="addItem()">+ Add Item</button><br><br>
+<button onclick="calculateTotal()">Calculate Total</button>
+
+<div id="result"></div>
+</div>
+
+<div class="ads">📢 Google Adsense Ad Space</div>
+
+<h2>Calculation Method</h2>
+<ul>
+<li><b>Item Cost = Quantity × Price</b></li>
+<li><b>Total Cost = Sum of all item costs</b></li>
+</ul>
+
+<h2>Why Use Household Item Calculator?</h2>
+<ul>
+<li>Easy household budgeting</li>
+<li>Track grocery & daily expenses</li>
+<li>Avoid overspending</li>
+<li>Useful for families & roommates</li>
+</ul>
+
+<h2>Frequently Asked Questions (FAQ)</h2>
+<p><b>Can I add unlimited items?</b><br>Yes, you can add as many items as needed.</p>
+<p><b>Is currency fixed?</b><br>No, works for ₹ and $.</p>
+<p><b>Is data saved?</b><br>No, calculation is temporary.</p>
+
+<h2>Related Calculators</h2>
+<div class="related">
+<div><a href="tip-calculator.html">Tip Calculator</a></div>
+<div><a href="percentage.html">Percentage Calculator</a></div>
+</div>
+
+<footer>
+<a href="privacy-policy.html">Privacy Policy</a> |
+<a href="disclaimer.html">Disclaimer</a> |
+<a href="contact-us.html">Contact Us</a>
+<p>© 2025–2026 SMART AI CALCULATOR</p>
+</footer>
+
+<script>
+function addItem(){
+let div=document.createElement("div");
+div.className="row";
+div.innerHTML='<input placeholder="Item Name"><input type="number" placeholder="Quantity"><input type="number" placeholder="Price">';
+items.appendChild(div);
+}
+
+function calculateTotal(){
+let rows=document.querySelectorAll(".row");
+let total=0;
+rows.forEach(r=>{
+let q=+r.children[1].value;
+let p=+r.children[2].value;
+if(q && p){ total+=q*p; }
+});
+result.innerHTML=`<b>Total Household Cost:</b> ₹ / $ ${total.toFixed(2)}`;
+}
+
+function speak(){
+if(!result.innerText) return;
+let s=new SpeechSynthesisUtterance(result.innerText);
+speechSynthesis.speak(s);
+}
+</script>
+
+</body>
 </html>
