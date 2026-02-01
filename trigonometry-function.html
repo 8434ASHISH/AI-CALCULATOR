@@ -1,19 +1,176 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Coming Soon - Smart AI Calculator</title>
-    <link rel="canonical" href="https://smartaicalculator.com/coming-soon">
-    <style>
-body{font-family:Arial,sans-serif;margin:0;padding:0;background:#e8ecef;display:flex;justify-content:center;align-items:center;height:100vh;text-align:center}h1{font-size:3em;color:#333;margin-bottom:20px}h2{font-size:1.5em;color:#555;margin-bottom:30px}button{display:inline-block;padding:12px 30px;background:#007bff;color:#fff;border:none;border-radius:5px;font-size:1.2em;cursor:pointer;text-decoration:none}button:hover{background:#0056b3}
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Trigonometry Calculator India & USA | Trigonometric Functions & Inverse | SMART AI CALCULATOR</title>
+
+<meta name="description" content="Free Trigonometry Function Calculator for India & USA. Calculate sin, cos, tan, sec, cosec, cot and inverse trigonometric functions with degree or radian option.">
+
+<meta name="keywords" content="trigonometry calculator india, trigonometry calculator usa, sin cos tan calculator, inverse trigonometric functions, trigonometric ratios, smart ai calculator">
+
+<link rel="canonical" href="https://smartaicalculator.com/trigonometry-function.html"/>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-FEQ7R89CFG"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-FEQ7R89CFG');
+</script>
+
+<!-- Schema.org -->
+<script type="application/ld+json">
+{
+"@context":"https://schema.org",
+"@type":"WebApplication",
+"name":"Trigonometry Function Calculator",
+"url":"https://smartaicalculator.com/trigonometry.html",
+"applicationCategory":"EducationalApplication",
+"provider":{"@type":"Organization","name":"SMART AI CALCULATOR"}
+}
+</script>
+
+<style>
+body{font-family:Segoe UI,Arial;background:#f8fafc;color:#1e293b;max-width:1000px;margin:auto;padding:20px;line-height:1.7}
+h1{text-align:center;color:#0f172a;font-size:2.3em}
+h2{color:#0f172a;border-bottom:2px solid #cbd5f5;padding-bottom:8px}
+.intro{text-align:center;color:#334155;margin-bottom:40px}
+.calculator-box{background:#fff;border-radius:14px;padding:25px;box-shadow:0 12px 30px rgba(0,0,0,0.08);margin:40px 0;border-left:6px solid #2563eb}
+label{font-weight:600;color:#1e3a8a}
+input,select{width:100%;padding:12px;margin:10px 0;border-radius:6px;border:1px solid #c7d2fe}
+button{background:#2563eb;color:#fff;border:none;padding:14px;width:100%;font-size:16px;border-radius:6px;cursor:pointer}
+button:hover{background:#1e40af}
+#result{margin-top:20px;background:#eff6ff;padding:15px;border-radius:8px;border-left:4px solid #2563eb}
+.ads{background:#e5e7eb;padding:15px;text-align:center;border-radius:8px;margin:25px 0;color:#475569}
+.related{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:15px}
+.related div{background:#fff;padding:15px;border-radius:8px;box-shadow:0 4px 10px rgba(0,0,0,0.08)}
+footer{margin-top:60px;padding:20px;text-align:center;font-size:14px;color:#475569;border-top:1px solid #e2e8f0}
+footer a{color:#2563eb;text-decoration:none;margin:0 6px}
+.speaker{cursor:pointer;float:right;font-size:20px}
+</style>
 </head>
+
 <body>
-    <div>
-        <h1>Coming Soon</h1>
-        <h2>A Warm Welcome on my website</h2>
-        <a href="https://smartaicalculator.com/"><button>Home</button></a>
-    </div>
+
+<h1><b>SMART AI CALCULATOR</b><br><b>Trigonometry Function Calculator (India & USA)</b></h1>
+
+<p class="intro">
+The <b>Trigonometry Function Calculator</b> by SMART AI CALCULATOR helps students in
+<b>India & USA</b> calculate <b>basic, advanced, and inverse trigonometric functions</b>
+accurately using degree or radian mode.
+</p>
+
+<h2>What is Trigonometry?</h2>
+<p>
+Trigonometry is a branch of mathematics that studies the relationship between
+angles and sides of a triangle. It is widely used in physics, engineering,
+architecture, astronomy, and navigation.
+</p>
+
+<div class="calculator-box">
+<h2>Trigonometry Calculator <span class="speaker" onclick="speakResult()">🔊</span></h2>
+
+<label>Angle Value</label>
+<input type="number" id="angle" placeholder="Example: 30">
+
+<label>Angle Unit</label>
+<select id="unit">
+<option value="deg">Degree</option>
+<option value="rad">Radian</option>
+</select>
+
+<label>Function</label>
+<select id="func">
+<option value="sin">sin</option>
+<option value="cos">cos</option>
+<option value="tan">tan</option>
+<option value="sec">sec</option>
+<option value="cosec">cosec</option>
+<option value="cot">cot</option>
+<option value="asin">sin⁻¹ (inverse)</option>
+<option value="acos">cos⁻¹ (inverse)</option>
+<option value="atan">tan⁻¹ (inverse)</option>
+</select>
+
+<button onclick="calculateTrig()">Calculate</button>
+
+<div id="result"></div>
+</div>
+
+<div class="ads">📢 Google Adsense Ad Space</div>
+
+<h2>Trigonometry Formulas Used</h2>
+<ul>
+<li><b>sinθ = Opposite / Hypotenuse</b></li>
+<li><b>cosθ = Adjacent / Hypotenuse</b></li>
+<li><b>tanθ = Opposite / Adjacent</b></li>
+<li><b>secθ = 1 / cosθ</b></li>
+<li><b>cosecθ = 1 / sinθ</b></li>
+<li><b>cotθ = 1 / tanθ</b></li>
+<li><b>Inverse:</b> sin⁻¹x, cos⁻¹x, tan⁻¹x</li>
+</ul>
+
+<h2>Why Trigonometry is Important?</h2>
+<ul>
+<li>Foundation of geometry and calculus</li>
+<li>Used in physics, engineering, astronomy</li>
+<li>Essential for school & competitive exams</li>
+<li>Applied in real-world measurements</li>
+</ul>
+
+<h2>Frequently Asked Questions (FAQ)</h2>
+<p><b>Degree vs Radian?</b><br>Degrees are common in school; radians in higher mathematics.</p>
+<p><b>Are inverse functions included?</b><br>Yes, sin⁻¹, cos⁻¹, tan⁻¹ are supported.</p>
+<p><b>Is this calculator exam-accurate?</b><br>Yes, it follows standard trigonometric definitions.</p>
+
+<h2>Related Calculators</h2>
+<div class="related">
+<div><a href="scientific.html">Scientific Calculator</a></div>
+<div><a href="geometry.html">Geometry Calculator</a></div>
+<div><a href="pythagoras.html">Pythagoras Theorem</a></div>
+<div><a href="algebra.html">Algebra Calculator</a></div>
+</div>
+
+<footer>
+<a href="privacy-policy.html">Privacy Policy</a> |
+<a href="disclaimer.html">Disclaimer</a> |
+<a href="contact-us.html">Contact Us</a>
+<p>© 2026 SMART AI CALCULATOR</p>
+</footer>
+
+<script>
+function calculateTrig(){
+let a = +angle.value;
+let u = unit.value;
+let f = func.value;
+let x = u==="deg" ? a*Math.PI/180 : a;
+let r;
+
+switch(f){
+case "sin": r=Math.sin(x); break;
+case "cos": r=Math.cos(x); break;
+case "tan": r=Math.tan(x); break;
+case "sec": r=1/Math.cos(x); break;
+case "cosec": r=1/Math.sin(x); break;
+case "cot": r=1/Math.tan(x); break;
+case "asin": r=Math.asin(a)*(180/Math.PI); break;
+case "acos": r=Math.acos(a)*(180/Math.PI); break;
+case "atan": r=Math.atan(a)*(180/Math.PI); break;
+}
+
+result.innerHTML = `<p><b>Result:</b> ${r}</p>`;
+}
+
+function speakResult(){
+if(!result.innerText) return;
+let s=new SpeechSynthesisUtterance(result.innerText);
+s.lang="en-US";
+speechSynthesis.speak(s);
+}
+</script>
+
 </body>
 </html>
