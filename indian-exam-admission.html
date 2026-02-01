@@ -1,389 +1,127 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Smart AI Admission Predictor | JEE, NEET, BITSAT & More</title>
-    <meta name="description" content="Predict your admission chances in top IITs, NITs, IIITs, and other colleges based on your JEE Main, JEE Advanced, NEET, or BITSAT scores. View category-wise cutoffs and state-wise chances. Free, budget-friendly predictions. Try now!">
-    <meta name="keywords" content="admission predictor, jee main predictor, neet predictor, iit admission, nit admission, college cutoffs">
-    <meta name="robots" content="index, follow">
-  <link rel="canonical" href="https://smartaicalculator.com/admission-predictor.html">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background: linear-gradient(135deg, #1A202C, #2D3748);
-            color: #fff;
-            margin: 0;
-        }
-        .header { background: #2c3e50; padding: 20px 0; text-align: center; position: relative; }
-        .nav-tabs { display: flex; justify-content: center; gap: 20px; padding: 10px 0; background: #34495e; }
-        .nav-tab { color: white; text-decoration: none; padding: 5px 15px; transition: background 0.3s; font-weight: bold; text-shadow: 0 0 5px rgba(255, 107, 107, 0.5); }
-        .nav-tab:hover, .nav-tab.active { background: #3498db; border-radius: 5px; }
-        .calculator-content { max-width: 900px; margin: 20px auto; padding: 20px; background: rgba(45, 55, 72, 0.9); border-radius: 10px; box-shadow: 0 0 15px rgba(0,0,0,0.5); }
-        .calculator-box { background: #e0e0e0; color: #333; padding: 20px; border-radius: 5px; text-align: center; }
-        .input-row { display: flex; justify-content: space-between; margin-bottom: 15px; }
-        .input-row label { font-weight: bold; }
-        input, select { border: 1px solid #ccc; padding: 5px; border-radius: 3px; width: 150px; }
-        input.invalid { border-color: #ff6b6b; }
-        button { 
-            background: linear-gradient(135deg, #ff6b6b, #e63946); 
-            color: white; 
-            padding: 12px 24px; 
-            border: none; 
-            border-radius: 5px; 
-            cursor: pointer; 
-            font-weight: bold; 
-            font-size: 1.1rem; 
-            box-shadow: 0 3px 6px rgba(0,0,0,0.4); 
-            transition: transform 0.2s, background 0.2s; 
-            text-transform: uppercase; 
-        }
-        button:hover { 
-            background: linear-gradient(135deg, #e63946, #c0392b); 
-            transform: scale(1.05); 
-        }
-        .ads-section { margin-top: 10px; padding: 10px; background: #34495e; border-radius: 5px; text-align: center; box-shadow: 0 0 5px rgba(0,0,0,0.3); }
-        .ads-section p { font-size: 1.2rem; font-weight: bold; color: #1e90ff; }
-        .ads-section a { color: #1e90ff; text-decoration: underline; }
-        .voice-icon { 
-            display: inline-block; 
-            padding: 10px; 
-            cursor: pointer; 
-            font-size: 2rem; 
-            color: #00cec9; 
-            transition: color 0.2s, transform 0.2s; 
-            visibility: visible; 
-        }
-        .voice-icon:hover { 
-            color: #00b7b3; 
-            transform: scale(1.1); 
-        }
-        .button-container { 
-            display: flex; 
-            justify-content: center; 
-            align-items: center; 
-            gap: 15px; 
-            margin: 20px 0; 
-        }
-        .suggestions { margin-top: 20px; padding: 15px; background: #f0f0f0; border-radius: 5px; text-align: left; display: none; }
-        .suggestions h3 { font-size: 1.2rem; font-weight: bold; margin-bottom: 10px; }
-        .suggestions ul { list-style-type: disc; padding-left: 20px; }
-        .suggestions li { margin-bottom: 8px; }
-        .result-table, .cutoff-table { width: 100%; margin-top: 20px; border-collapse: collapse; }
-        .result-table th, .result-table td, .cutoff-table th, .cutoff-table td { border: 1px solid #ccc; padding: 10px; text-align: left; }
-        .result-table th, .cutoff-table th { background: #3498db; color: white; }
-        .result-table tr:nth-child(even), .cutoff-table tr:nth-child(even) { background: #f0f0f0; }
-        .collapsible { cursor: pointer; background: #3498db; color: white; padding: 10px; border-radius: 5px; margin-top: 20px; }
-        .collapsible:hover { background: #2980b9; }
-        .cutoff-content { display: none; padding: 10px; }
-        @media (max-width: 600px) { 
-            .input-row { flex-direction: column; } 
-            input, select { width: 100%; margin-bottom: 10px; } 
-            .button-container { flex-direction: row; gap: 10px; } 
-            .voice-icon { display: inline-block; visibility: visible; } 
-            .result-table, .cutoff-table { font-size: 0.9rem; }
-        }
-        @media (min-width: 601px) { 
-            .voice-icon { display: inline-block; visibility: visible; } 
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Indian Exam Admission Predictor | IIT JEE NEET Predictor | SMART AI CALCULATOR</title>
+
+<meta name="description" content="Indian Exam Admission Predictor for IIT JEE, NEET, AIIMS. Predict admission chances based on score, rank and category. India focused admission predictor.">
+
+<meta name="keywords" content="iit admission predictor, jee admission predictor, iit jee, neet, exam, ssc, neet admission predictor, indian exam predictor, smart ai calculator">
+
+<link rel="canonical" href="https://smartaicalculator.com/indian-exam-admission.html"/>
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-FEQ7R89CFG"></script>
+<script>
+window.dataLayer=window.dataLayer||[];
+function gtag(){dataLayer.push(arguments);}
+gtag('js',new Date());
+gtag('config','G-FEQ7R89CFG');
+</script>
+
+<script type="application/ld+json">
+{
+"@context":"https://schema.org",
+"@type":"WebApplication",
+"name":"Indian Exam Admission Predictor",
+"url":"https://smartaicalculator.com/indian-exam-predictor.html",
+"applicationCategory":"EducationalApplication",
+"provider":{"@type":"Organization","name":"SMART AI CALCULATOR"}
+}
+</script>
+
+<style>
+body{font-family:Segoe UI;background:#f8fafc;max-width:1000px;margin:auto;padding:20px}
+h1{text-align:center;color:#1e3a8a}
+.box{background:#fff;padding:25px;border-radius:14px;box-shadow:0 10px 25px rgba(0,0,0,.08)}
+label{font-weight:600}
+input,select{width:100%;padding:12px;margin:8px 0;border-radius:6px;border:1px solid #bfdbfe}
+button{background:#2563eb;color:#fff;border:none;padding:12px;width:100%;border-radius:6px;cursor:pointer}
+#result{margin-top:20px;background:#eff6ff;padding:15px;border-left:4px solid #2563eb}
+.ads{margin:25px 0;background:#e5e7eb;padding:15px;text-align:center;border-radius:8px}
+footer{text-align:center;margin-top:40px;font-size:14px}
+footer a{color:#2563eb;margin:0 6px;text-decoration:none}
+.speaker{float:right;cursor:pointer}
+.related{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:15px;margin-top:20px}
+.related div{background:#fff;padding:15px;border-radius:8px;box-shadow:0 4px 10px rgba(0,0,0,.08)}
+</style>
 </head>
+
 <body>
-    <header class="header">
-        <h1>Smart AI Admission Predictor</h1>
-        <p>Predict Colleges for JEE, NEET, BITSAT & More</p>
-    </header>
-    <nav class="nav-tabs">
-        <a href="index.html#home" class="nav-tab" onclick="showCategory('home')">HOME</a>
-        <a href="index.html#academic-calculator" class="nav-tab active" onclick="showCategory('academic-calculator')">ACADEMIC CALCULATOR</a>
-    </nav>
-    <div class="calculator-content">
-        <div class="calculator-box">
-            <h2>Enter details to predict colleges</h2>
-            <div class="input-row">
-                <label>Select Exam</label>
-                <select id="exam" onchange="updateInputFields()">
-                    <option value="jee-main">JEE Main</option>
-                    <option value="jee-advanced">JEE Advanced</option>
-                    <option value="neet">NEET</option>
-                    <option value="bitsat">BITSAT</option>
-                </select>
-            </div>
-            <div class="input-row">
-                <label id="score-label">Enter Score/Percentile/Rank</label>
-                <input type="number" id="score" min="0" step="any" oninput="validateInput(this)">
-            </div>
-            <div class="input-row">
-                <label>Category</label>
-                <select id="category">
-                    <option value="general">General</option>
-                    <option value="obc">OBC</option>
-                    <option value="sc">SC</option>
-                    <option value="st">ST</option>
-                    <option value="ews">EWS</option>
-                </select>
-            </div>
-            <div class="input-row">
-                <label>Home State</label>
-                <input type="text" id="home-state" placeholder="e.g., Maharashtra">
-            </div>
-            <div class="input-row">
-                <label>Budget (per year)</label>
-                <select id="budget">
-                    <option value="low">Low (<2L)</option>
-                    <option value="medium">Medium (2-5L)</option>
-                    <option value="high">High (>5L)</option>
-                </select>
-            </div>
-            <div class="button-container">
-                <button onclick="predictColleges()">Predict <span id="spinner" style="display:none;">⏳</span></button>
-                <span class="voice-icon" onclick="toggleSpeech()" title="Toggle Speech"><i class="fas fa-volume-up"></i></span>
-            </div>
-            <div id="prediction-result" class="mt-4 font-semibold"></div>
-            <p style="margin-top: 10px;">You May Also Like:</p>
-<ul style="list-style: none; padding-left: 0;">
-  <li><a href="age.html" style="font-weight: bold; color: #4f46e5; text-decoration: none;">AGE Calculator</a></li>
-  <li><a href="geometry.html" style="font-weight: bold; color: #4f46e5; text-decoration: none;">GEOMETRY QUESTION Calculator</a></li>
-</ul>
-            <table class="result-table" id="college-table" style="display: none;">
-                <thead>
-                    <tr>
-                        <th>College</th>
-                        <th>Branch</th>
-                        <th>Home State Chance</th>
-                        <th>Other State Chance</th>
-                        <th>Est. Fees (per year)</th>
-                    </tr>
-                </thead>
-                <tbody id="college-table-body"></tbody>
-            </table>
-            <div class="collapsible" onclick="toggleCutoff()">Previous Year Cutoffs (Category-wise)</div>
-            <div class="cutoff-content" id="cutoff-content">
-                <table class="cutoff-table" id="cutoff-table">
-                    <thead>
-                        <tr>
-                            <th>College</th>
-                            <th>Branch</th>
-                            <th>General</th>
-                            <th>OBC</th>
-                            <th>SC</th>
-                            <th>ST</th>
-                            <th>EWS</th>
-                        </tr>
-                    </thead>
-                    <tbody id="cutoff-table-body"></tbody>
-                </table>
-            </div>
-            <div class="suggestions" id="suggestions">
-                <h3>Suggestions for Admission</h3>
-                <ul>
-                    <li>Verify your scores with official results for accurate predictions.</li>
-                    <li>Apply to colleges with 'High' and 'Moderate' chances during counseling.</li>
-                    <li>Leverage home state quota for better chances in government colleges.</li>
-                    <li>Explore scholarships to manage fees in private colleges.</li>
-                </ul>
-            </div>
-            <div class="ads-section">
-                <p>Contact for Ads: <a href="mailto:first4bencher@gmail.com">first4bencher@gmail.com</a></p>
-            </div>
-            <div id="seo-content" class="mt-4 text-sm">
-                <h3>About Admission Predictor</h3>
-                <p>Welcome to the AI Admission Predictor, a free tool to predict your chances in top IITs, NITs, IIITs, and other colleges based on JEE Main, JEE Advanced, NEET, or BITSAT scores. View category-wise cutoffs and state-wise admission chances. It’s user-friendly, responsive, and optimized for SEO with keywords like 'admission predictor,' 'JEE Main predictor,' and 'NEET predictor.' Ideal for students aiming for engineering or medical colleges!</p>
-            </div>
-        </div>
-    </div>
-    <footer class="bg-gray-800 text-white text-center py-4 mt-8">
-        <p style="font-weight: bold;">2025 © Smart AI Calculator. All rights reserved.</p>
-        <a href="privacy.html" class="text-blue-400 ml-2">Privacy Policy</a> |
-        <a href="contactus.html" class="text-blue-400 ml-2">Contact Us</a> |
-        <a href="howto.html" class="text-blue-400 ml-2">How to Use</a>
-    </footer>
-    <script>
-        let isSpeaking = false;
-        let utterance = null;
-        const collegeData = {
-            "jee-main": [
-                { name: "NIT Trichy", branch: "CSE", cutoffs: { general: 5000, obc: 4500, sc: 3000, st: 2500, ews: 4800 }, fees: 1.5, type: "government", state: "Tamil Nadu" },
-                { name: "NIT Surathkal", branch: "CSE", cutoffs: { general: 8000, obc: 7200, sc: 4800, st: 4000, ews: 7600 }, fees: 1.5, type: "government", state: "Karnataka" },
-                { name: "IIIT Hyderabad", branch: "CSE", cutoffs: { general: 12000, obc: 10800, sc: 7200, st: 6000, ews: 11400 }, fees: 3.5, type: "government", state: "Telangana" },
-                { name: "VIT Vellore", branch: "CSE", cutoffs: { general: 40000, obc: 40000, sc: 40000, st: 40000, ews: 40000 }, fees: 4.0, type: "private", state: "Tamil Nadu" },
-                { name: "NIT Agartala", branch: "Civil", cutoffs: { general: 50000, obc: 45000, sc: 30000, st: 25000, ews: 48000 }, fees: 1.5, type: "government", state: "Tripura" }
-            ],
-            "jee-advanced": [
-                { name: "IIT Bombay", branch: "CSE", cutoffs: { general: 100, obc: 90, sc: 60, st: 50, ews: 95 }, fees: 2.0, type: "government", state: "Maharashtra" },
-                { name: "IIT Delhi", branch: "CSE", cutoffs: { general: 200, obc: 180, sc: 120, st: 100, ews: 190 }, fees: 2.0, type: "government", state: "Delhi" },
-                { name: "IIT Kharagpur", branch: "Mechanical", cutoffs: { general: 3000, obc: 2700, sc: 1800, st: 1500, ews: 2850 }, fees: 2.0, type: "government", state: "West Bengal" }
-            ],
-            "neet": [
-                { name: "AIIMS Delhi", branch: "MBBS", cutoffs: { general: 600, obc: 570, sc: 540, st: 520, ews: 590 }, fees: 0.1, type: "government", state: "Delhi" },
-                { name: "Maulana Azad Medical College", branch: "MBBS", cutoffs: { general: 550, obc: 520, sc: 490, st: 470, ews: 540 }, fees: 0.2, type: "government", state: "Delhi" },
-                { name: "Manipal Medical College", branch: "MBBS", cutoffs: { general: 400, obc: 400, sc: 400, st: 400, ews: 400 }, fees: 6.0, type: "private", state: "Karnataka" }
-            ],
-            "bitsat": [
-                { name: "BITS Pilani", branch: "CSE", cutoffs: { general: 350, obc: 350, sc: 350, st: 350, ews: 350 }, fees: 5.0, type: "private", state: "Rajasthan" },
-                { name: "BITS Goa", branch: "ECE", cutoffs: { general: 300, obc: 300, sc: 300, st: 300, ews: 300 }, fees: 5.0, type: "private", state: "Goa" }
-            ]
-        };
-        function updateInputFields() {
-            let exam = document.getElementById("exam").value;
-            let scoreLabel = document.getElementById("score-label");
-            if (exam === "jee-main") {
-                scoreLabel.textContent = "Enter Score/Percentile/Rank (Percentile)";
-            } else if (exam === "jee-advanced") {
-                scoreLabel.textContent = "Enter Score/Percentile/Rank (Rank)";
-            } else if (exam === "neet") {
-                scoreLabel.textContent = "Enter Score/Percentile/Rank (Marks out of 720)";
-            } else if (exam === "bitsat") {
-                scoreLabel.textContent = "Enter Score/Percentile/Rank (Marks out of 390)";
-            }
-            document.getElementById("score").value = "";
-            document.getElementById("score").classList.remove("invalid");
-        }
-        function validateInput(input) {
-            let exam = document.getElementById("exam").value;
-            let value = parseFloat(input.value);
-            if (exam === "jee-main" && (value < 0 || value > 100)) {
-                input.classList.add("invalid");
-            } else if (exam === "jee-advanced" && (value < 1 || value > 250000)) {
-                input.classList.add("invalid");
-            } else if (exam === "neet" && (value < 0 || value > 720)) {
-                input.classList.add("invalid");
-            } else if (exam === "bitsat" && (value < 0 || value > 390)) {
-                input.classList.add("invalid");
-            } else {
-                input.classList.remove("invalid");
-            }
-        }
-        function toggleCutoff() {
-            let content = document.getElementById("cutoff-content");
-            content.style.display = content.style.display === "block" ? "none" : "block";
-        }
-        function predictColleges() {
-            document.getElementById("spinner").style.display = "inline";
-            setTimeout(() => {
-                let exam = document.getElementById("exam").value;
-                let score = parseFloat(document.getElementById("score").value);
-                let category = document.getElementById("category").value;
-                let homeState = document.getElementById("home-state").value.trim().toLowerCase();
-                let budget = document.getElementById("budget").value;
-                let resultDiv = document.getElementById("prediction-result");
-                let tableBody = document.getElementById("college-table-body");
-                let cutoffTableBody = document.getElementById("cutoff-table-body");
-                let suggestionsDiv = document.getElementById("suggestions");
-                let table = document.getElementById("college-table");
-                tableBody.innerHTML = "";
-                cutoffTableBody.innerHTML = "";
-                let userRank = score;
-                if (exam === "jee-main") {
-                    userRank = (100 - score) * 1000000 / 100; // 10L candidates
-                } else if (exam === "neet") {
-                    userRank = (720 - score) * 2000000 / 720; // 20L candidates
-                }
-                if (isNaN(score) || score < 0) {
-                    resultDiv.innerText = "Predicted Colleges: Invalid input";
-                    table.style.display = "none";
-                    suggestionsDiv.style.display = "none";
-                    document.getElementById("spinner").style.display = "none";
-                    return;
-                }
-                let filteredColleges = collegeData[exam].filter(college => {
-                    let feeLimit = budget === "low" ? 2 : budget === "medium" ? 5 : 100;
-                    return college.fees <= feeLimit;
-                });
-                let results = [];
-                filteredColleges.forEach(college => {
-                    let cutoff = college.cutoffs[category] || college.cutoffs.general;
-                    if (category === "obc" && !college.cutoffs.obc) cutoff *= 0.9;
-                    if (category === "sc" && !college.cutoffs.sc) cutoff *= 0.7;
-                    if (category === "st" && !college.cutoffs.st) cutoff *= 0.6;
-                    if (category === "ews" && !college.cutoffs.ews) cutoff *= 0.95;
-                    let homeCutoff = cutoff * (exam === "neet" ? 0.7 : exam === "jee-main" ? 0.8 : 1); // Lower for home state
-                    let homeChance = userRank <= homeCutoff * 0.8 ? "High" : userRank <= homeCutoff * 1.2 ? "Moderate" : "Low";
-                    let otherChance = userRank <= cutoff * 0.8 ? "High" : userRank <= cutoff * 1.2 ? "Moderate" : "Low";
-                    if (exam === "bitsat") homeChance = otherChance; // No state quota
-                    if (homeState && college.state.toLowerCase() === homeState) {
-                        results.push({ ...college, homeChance, otherChance });
-                    } else {
-                        results.push({ ...college, homeChance: otherChance, otherChance });
-                    }
-                });
-                results.sort((a, b) => a.cutoffs[category] - b.cutoffs[category]);
-                if (results.length === 0) {
-                    resultDiv.innerText = "Predicted Colleges: No colleges match your criteria";
-                    table.style.display = "none";
-                    suggestionsDiv.style.display = "none";
-                } else {
-                    resultDiv.innerHTML = "Predicted Colleges:";
-                    results.forEach(college => {
-                        let row = document.createElement("tr");
-                        row.innerHTML = `
-                            <td>${college.name}</td>
-                            <td>${college.branch}</td>
-                            <td>${college.homeChance}</td>
-                            <td>${college.otherChance}</td>
-                            <td>${college.fees}L</td>
-                        `;
-                        tableBody.appendChild(row);
-                    });
-                    table.style.display = "table";
-                    suggestionsDiv.style.display = "block";
-                }
-                filteredColleges.forEach(college => {
-                    let row = document.createElement("tr");
-                    row.innerHTML = `
-                        <td>${college.name}</td>
-                        <td>${college.branch}</td>
-                        <td>${college.cutoffs.general || "-"}</td>
-                        <td>${college.cutoffs.obc || "-"}</td>
-                        <td>${college.cutoffs.sc || "-"}</td>
-                        <td>${college.cutoffs.st || "-"}</td>
-                        <td>${college.cutoffs.ews || "-"}</td>
-                    `;
-                    cutoffTableBody.appendChild(row);
-                });
-                document.getElementById("spinner").style.display = "none";
-            }, 1000);
-        }
-        function toggleSpeech() {
-            console.log("Toggling speech for prediction result");
-            const result = document.getElementById("prediction-result").innerText;
-            if (!result || result.includes("Invalid") || result.includes("No colleges")) {
-                console.log("No valid result to speak");
-                return;
-            }
-            if (isSpeaking) {
-                window.speechSynthesis.cancel();
-                isSpeaking = false;
-                console.log("Speech stopped");
-            } else {
-                utterance = new SpeechSynthesisUtterance(result);
-                utterance.lang = "en";
-                utterance.onend = () => {
-                    isSpeaking = false;
-                    console.log("Speech ended");
-                };
-                window.speechSynthesis.speak(utterance);
-                isSpeaking = true;
-                console.log("Speech started");
-            }
-        }
-        function stopSpeech() {
-            if (isSpeaking) {
-                window.speechSynthesis.cancel();
-                isSpeaking = false;
-                console.log("Speech stopped on page exit");
-            }
-        }
-        function showCategory(category) {
-            // No action needed as navigation is handled by index.html
-        }
-        window.onload = () => {
-            updateInputFields();
-            console.log("Voice icon loaded");
-        };
-        window.onpagehide = stopSpeech;
-        window.onbeforeunload = stopSpeech;
-    </script>
+
+<h1><b>SMART AI CALCULATOR</b><br><b>Indian Exam Admission Predictor</b></h1>
+
+<p>
+Predict your <b>admission chances</b> in major Indian exams like
+<b>IIT JEE, NEET, AIIMS</b> based on rank, score and category.
+</p>
+
+<div class="box">
+<h2>Indian Admission Predictor <span class="speaker" onclick="speak()">🔊</span></h2>
+
+<label>Select Exam</label>
+<select id="exam">
+<option value="jee">JEE (IIT / NIT)</option>
+<option value="neet">NEET (Medical)</option>
+<option value="aiims">AIIMS</option>
+</select>
+
+<label>Your Rank</label>
+<input type="number" id="rank" placeholder="Example: 4500">
+
+<label>Category</label>
+<select id="cat">
+<option value="gen">General</option>
+<option value="obc">OBC</option>
+<option value="sc">SC</option>
+<option value="st">ST</option>
+</select>
+
+<button onclick="predict()">Predict Admission</button>
+<div id="result"></div>
+</div>
+
+<div class="ads">📢 Google Adsense Ad Space</div>
+
+<h2>How Prediction Works?</h2>
+<p>
+Prediction is based on historical cutoff trends, category relaxation
+and competitive rank ranges. This is an estimation, not official counseling.
+</p>
+
+<h2>Related Calculators</h2>
+<div class="related">
+<div><a href="cgpa.html">CGPA Calculator</a></div>
+<div><a href="goal-score.html">Goal Score Calculator</a></div>
+<div><a href="percentage.html">Marks Percentage</a></div>
+</div>
+
+<footer>
+<a href="privacy-policy.html">Privacy Policy</a> |
+<a href="disclaimer.html">Disclaimer</a> |
+<a href="contact-us.html">Contact Us</a>
+</footer>
+
+<script>
+function predict(){
+let r=+rank.value;
+let c=cat.value;
+let chance="Low";
+
+let relax = c==="gen"?0:(c==="obc"?2000:4000);
+
+if(r<=2000+relax) chance="High";
+else if(r<=8000+relax) chance="Medium";
+
+result.innerHTML=`<b>Admission Chance:</b> ${chance}`;
+}
+
+function speak(){
+let s=new SpeechSynthesisUtterance(result.innerText);
+speechSynthesis.speak(s);
+}
+</script>
+
+</body>
 </html>
