@@ -1,180 +1,148 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Smart AI Calculator | Random Number Generator</title>
-    <meta name="description" content="Generate a random number within your specified range with our free random number generator. Enter minimum and maximum values. Try now!">
-    <meta name="keywords" content="random number generator, number generator, randomizer">
-    <meta name="robots" content="index, follow">
-   <link rel="canonical" href="https://smartaicalculator.com/random-number-generator.html">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-    <style>
-        body { font-family: Arial, sans-serif; background: linear-gradient(135deg, #1A202C, #2D3748); color: #fff; margin: 0; }
-        .header { background: #2c3e50; padding: 20px 0; text-align: center; }
-        .nav-tabs { display: flex; justify-content: center; gap: 20px; padding: 10px 0; background: #34495e; }
-        .nav-tab { color: white; text-decoration: none; padding: 5px 15px; transition: background 0.3s; font-weight: bold; text-shadow: 0 0 5px rgba(255, 107, 107, 0.5); }
-        .nav-tab:hover, .nav-tab.active { background: #3498db; border-radius: 5px; }
-        .calculator-content { max-width: 600px; margin: 20px auto; padding: 20px; background: rgba(45, 55, 72, 0.9); border-radius: 10px; box-shadow: 0 0 15px rgba(0,0,0,0.5); }
-        .calculator-box { background: #e0e0e0; color: #333; padding: 20px; border-radius: 5px; text-align: center; }
-        .input-row { display: flex; justify-content: space-between; margin-bottom: 15px; }
-        .input-row label { font-weight: bold; }
-        input { border: 1px solid #ccc; padding: 5px; border-radius: 3px; width: 150px; }
-        input.invalid { border-color: #ff6b6b; }
-        button { background: linear-gradient(135deg, #ff6b6b, #e63946); color: white; padding: 12px 24px; border: none; border-radius: 5px; cursor: pointer; font-weight: bold; font-size: 1.1rem; box-shadow: 0 3px 6px rgba(0,0,0,0.4); transition: transform 0.2s, background 0.2s; text-transform: uppercase; }
-        button:hover { background: linear-gradient(135deg, #e63946, #c0392b); transform: scale(1.05); }
-        .ads-section { margin-top: 10px; padding: 10px; background: #34495e; border-radius: 5px; text-align: center; }
-        .ads-section p { font-size: 1.2rem; font-weight: bold; color: #1e90ff; }
-        .ads-section a { color: #1e90ff; text-decoration: underline; }
-        .voice-icon { display: inline-block; padding: 10px; cursor: pointer; font-size: 2rem; color: #00cec9; transition: color 0.2s, transform 0.2s; visibility: visible; }
-        .voice-icon:hover { color: #00b7b3; transform: scale(1.1); }
-        .button-container { display: flex; justify-content: center; align-items: center; gap: 15px; margin: 20px 0; }
-        .suggestions { margin-top: 20px; padding: 15px; background: #f0f0f0; border-radius: 5px; text-align: left; display: none; }
-        .suggestions h3 { font-size: 1.2rem; font-weight: bold; margin-bottom: 10px; }
-        .suggestions ul { list-style-type: disc; padding-left: 20px; }
-        .suggestions li { margin-bottom: 8px; }
-        .result-table { width: 100%; margin-top: 20px; border-collapse: collapse; }
-        .result-table th, .result-table td { border: 1px solid #ccc; padding: 10px; text-align: left; }
-        .result-table th { background: #3498db; color: white; }
-        .result-table tr:nth-child(even) { background: #f0f0f0; }
-        @media (max-width: 600px) { 
-            .input-row { flex-direction: column; } 
-            input { width: 100%; margin-bottom: 10px; } 
-            .button-container { flex-direction: row; gap: 10px; } 
-            .voice-icon { display: inline-block; visibility: visible; } 
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Random Number Generator India & USA | Generate Random Numbers | SMART AI CALCULATOR</title>
+
+<meta name="description" content="Free Random Number Generator for India & USA. Generate random numbers between a custom range with option for unique or repeated numbers.">
+
+<meta name="keywords" content="random number generator india, random number generator usa, number picker, random integer generator, smart ai calculator">
+
+<link rel="canonical" href="https://smartaicalculator.com/random-number.html"/>
+
+<!-- Google tag -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-FEQ7R89CFG"></script>
+<script>
+window.dataLayer=window.dataLayer||[];
+function gtag(){dataLayer.push(arguments);}
+gtag('js',new Date());
+gtag('config','G-FEQ7R89CFG');
+</script>
+
+<script type="application/ld+json">
+{
+"@context":"https://schema.org",
+"@type":"WebApplication",
+"name":"Random Number Generator",
+"url":"https://smartaicalculator.com/random-number.html",
+"applicationCategory":"UtilityApplication",
+"provider":{"@type":"Organization","name":"SMART AI CALCULATOR"}
+}
+</script>
+
+<style>
+body{font-family:Segoe UI;background:#f8fafc;max-width:1100px;margin:auto;padding:20px;line-height:1.7}
+h1{text-align:center;color:#312e81}
+h2{color:#312e81;border-bottom:2px solid #c7d2fe}
+.box{background:#fff;padding:25px;border-radius:14px;box-shadow:0 10px 25px rgba(0,0,0,.08)}
+input,select{width:100%;padding:12px;margin:8px 0;border-radius:6px;border:1px solid #c7d2fe}
+button{background:#4338ca;color:#fff;border:none;padding:12px;width:100%;border-radius:6px}
+#result{margin-top:20px;background:#eef2ff;padding:15px;border-left:4px solid #4338ca;white-space:pre-wrap}
+.ads{margin:25px 0;background:#e5e7eb;padding:15px;text-align:center;border-radius:8px}
+.related{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:15px;margin-top:20px}
+.related div{background:#fff;padding:15px;border-radius:8px;box-shadow:0 4px 10px rgba(0,0,0,.08)}
+footer{text-align:center;margin-top:40px;font-size:14px}
+footer a{color:#312e81;margin:0 6px;text-decoration:none}
+.speaker{float:right;cursor:pointer}
+</style>
 </head>
+
 <body>
-    <header class="header">
-        <h1>Smart AI Calculator</h1>
-        <h2>Random Number Generator</h2>
-    </header>
-    <nav class="nav-tabs">
-        <a href="index.html#home" class="nav-tab">HOME</a>
-        <a href="index.html#miscellaneous" class="nav-tab active">MISCELLANEOUS</a>
-    </nav>
-    <div class="calculator-content">
-        <div class="calculator-box">
-            <h2>Enter Range</h2>
-            <div class="input-row">
-                <label>Minimum Value</label>
-                <input type="number" id="min-value" oninput="validateInput(this)">
-            </div>
-            <div class="input-row">
-                <label>Maximum Value</label>
-                <input type="number" id="max-value" oninput="validateInput(this)">
-            </div>
-            <div class="button-container">
-                <button onclick="generateRandomNumber()">Generate <span id="spinner" style="display:none;">⏳</span></button>
-                <span class="voice-icon" onclick="toggleSpeech()" title="Toggle Speech"><i class="fas fa-volume-up"></i></span>
-            </div>
-            <div id="random-result" class="mt-4 font-semibold"></div>
-            <p style="margin-top: 10px;">You May Also Like:</p>
-<ul style="list-style: none; padding-left: 0;">
-  <li><a href="pregnancy.html" style="font-weight: bold; color: #4f46e5; text-decoration: none;">PREGNANCY Calculator</a></li>
-  <li><a href="retirement.html" style="font-weight: bold; color: #4f46e5; text-decoration: none;">RETIREMENT SALARY Calculator</a></li>
+
+<h1><b>SMART AI CALCULATOR</b><br><b>Random Number Generator (India & USA)</b></h1>
+
+<p>
+The <b>Random Number Generator</b> helps users generate random integers
+within a specified range. It is useful for games, contests, simulations,
+education, and testing purposes.
+</p>
+
+<h2>What is a Random Number Generator?</h2>
+<p>
+A random number generator (RNG) produces numbers that have no predictable pattern.
+In computing, pseudo-random algorithms are used to simulate randomness.
+</p>
+
+<div class="box">
+<h2>Random Number Generator <span class="speaker" onclick="speak()">🔊</span></h2>
+
+<label>Minimum Value</label>
+<input type="number" id="min" value="1">
+
+<label>Maximum Value</label>
+<input type="number" id="max" value="100">
+
+<label>How Many Numbers?</label>
+<input type="number" id="count" value="5">
+
+<label>Allow Repeats?</label>
+<select id="repeat">
+<option value="yes">Yes</option>
+<option value="no">No (Unique)</option>
+</select>
+
+<button onclick="generate()">Generate Numbers</button>
+
+<div id="result"></div>
+</div>
+
+<div class="ads">📢 Google Adsense Ad Space</div>
+
+<h2>Generation Method</h2>
+<ul>
+<li>Uses JavaScript pseudo-random function</li>
+<li>Ensures numbers fall within selected range</li>
+<li>Optional uniqueness check if repeats are disabled</li>
 </ul>
-            <table class="result-table" id="result-table" style="display: none;">
-                <thead>
-                    <tr>
-                        <th>Detail</th>
-                        <th>Value</th>
-                    </tr>
-                </thead>
-                <tbody id="result-table-body"></tbody>
-            </table>
-            <div class="suggestions" id="suggestions">
-                <h3>Suggestions for Random Number Generation</h3>
-                <ul>
-                    <li>Ensure minimum value is less than maximum value.</li>
-                    <li>Use for games, raffles, or simulations.</li>
-                    <li>Generate multiple numbers for varied results.</li>
-                </ul>
-            </div>
-            <div class="ads-section">
-                <p>Contact for Ads: <a href="mailto:first4bencher@gmail.com">first4bencher@gmail.com</a></p>
-            </div>
-            <div id="seo-content" class="mt-4 text-sm">
-                <h3>About Random Number Generator</h3>
-                <p>Our Smart AI Random Number Generator creates a random number within your specified range. Enter minimum and maximum values for instant results. It’s user-friendly, responsive, and SEO-optimized with keywords like 'random number generator' and 'randomizer.' Perfect for games and simulations!</p>
-            </div>
-        </div>
-    </div>
-    <footer class="bg-gray-800 text-white text-center py-4 mt-8">
-        <p style="font-weight: bold;">2025 © Smart AI Calculator. All rights reserved.</p>
-        <a href="privacy.html" class="text-blue-400 ml-2">Privacy Policy</a> |
-        <a href="contactus.html" class="text-blue-400 ml-2">Contact Us</a> |
-        <a href="howto.html" class="text-blue-400 ml-2">How to Use</a>
-    </footer>
-    <script>
-        let isSpeaking = false;
-        let utterance = null;
-        function validateInput(input) {
-            let min = parseFloat(document.getElementById("min-value").value);
-            let max = parseFloat(document.getElementById("max-value").value);
-            if (input.id === "min-value" && !isNaN(max) && min > max) {
-                input.classList.add("invalid");
-            } else if (input.id === "max-value" && !isNaN(min) && max < min) {
-                input.classList.add("invalid");
-            } else {
-                input.classList.remove("invalid");
-            }
-        }
-        function generateRandomNumber() {
-            document.getElementById("spinner").style.display = "inline";
-            setTimeout(() => {
-                let minValue = parseFloat(document.getElementById("min-value").value);
-                let maxValue = parseFloat(document.getElementById("max-value").value);
-                let resultDiv = document.getElementById("random-result");
-                let tableBody = document.getElementById("result-table-body");
-                let suggestionsDiv = document.getElementById("suggestions");
-                let table = document.getElementById("result-table");
-                tableBody.innerHTML = "";
-                if (isNaN(minValue) || isNaN(maxValue) || minValue > maxValue) {
-                    resultDiv.innerText = "Invalid input. Min must be less than max.";
-                    table.style.display = "none";
-                    suggestionsDiv.style.display = "none";
-                    document.getElementById("spinner").style.display = "none";
-                    return;
-                }
-                let randomNumber = Math.floor(Math.random() * (maxValue - minValue + 1)) + minValue;
-                resultDiv.innerText = `Random Number: ${randomNumber}`;
-                tableBody.innerHTML = `
-                    <tr><td>Random Number</td><td>${randomNumber}</td></tr>
-                    <tr><td>Minimum Value</td><td>${minValue}</td></tr>
-                    <tr><td>Maximum Value</td><td>${maxValue}</td></tr>
-                `;
-                table.style.display = "table";
-                suggestionsDiv.style.display = "block";
-                document.getElementById("spinner").style.display = "none";
-            }, 500);
-        }
-        function toggleSpeech() {
-            const result = document.getElementById("random-result").innerText;
-            if (!result || result.includes("Invalid")) {
-                console.log("No valid result to speak");
-                return;
-            }
-            if (isSpeaking) {
-                window.speechSynthesis.cancel();
-                isSpeaking = false;
-            } else {
-                utterance = new SpeechSynthesisUtterance(result);
-                utterance.lang = "en";
-                utterance.onend = () => { isSpeaking = false; };
-                window.speechSynthesis.speak(utterance);
-                isSpeaking = true;
-            }
-        }
-        function stopSpeech() {
-            if (isSpeaking) {
-                window.speechSynthesis.cancel();
-                isSpeaking = false;
-            }
-        }
-        window.onpagehide = stopSpeech;
-        window.onbeforeunload = stopSpeech;
-    </script>
+
+<h2>Why Use Random Number Generator?</h2>
+<ul>
+<li>Fair selection for contests & giveaways</li>
+<li>Useful for games and simulations</li>
+<li>Helpful in statistics & teaching</li>
+<li>Saves time vs manual picking</li>
+</ul>
+
+<h2>Frequently Asked Questions (FAQ)</h2>
+<p><b>Are numbers truly random?</b><br>They are pseudo-random, suitable for most uses.</p>
+<p><b>Can I generate unique numbers?</b><br>Yes, disable repeats.</p>
+<p><b>Is there a limit?</b><br>Range should support the count for unique mode.</p>
+
+<h2>Related Calculators</h2>
+<div class="related">
+<div><a href="household-calculator.html">Household Item Calculator</a></div>
+<div><a href="percentage.html">Percentage Calculator</a></div>
+</div>
+
+<footer>
+<a href="privacy-policy.html">Privacy Policy</a> |
+<a href="disclaimer.html">Disclaimer</a> |
+<a href="contact-us.html">Contact Us</a>
+<p>© 2025–2026 SMART AI CALCULATOR</p>
+</footer>
+
+<script>
+function generate(){
+let mn=+min.value, mx=+max.value, c=+count.value;
+let rep=repeat.value;
+if(mx<mn){ result.innerHTML="Max must be greater than Min"; return; }
+let res=[];
+let tries=0;
+while(res.length<c && tries<10000){
+let n=Math.floor(Math.random()*(mx-mn+1))+mn;
+if(rep==="yes" || !res.includes(n)) res.push(n);
+tries++;
+}
+result.innerHTML = "Generated Numbers:\\n" + res.join(", ");
+}
+function speak(){
+if(!result.innerText) return;
+let s=new SpeechSynthesisUtterance(result.innerText);
+speechSynthesis.speak(s);
+}
+</script>
+
+</body>
 </html>
