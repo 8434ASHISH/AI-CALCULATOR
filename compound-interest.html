@@ -1,235 +1,275 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Compound Interest Calculator | Compound Interest Calculator – Grow Your Investments</title>
-    <meta name="description" content="Calculate compound interest and final amount with our free AI-powered Compound Interest Calculator. Compute compound interest over time and see how your investments grow with our calculator">
-    <meta name="keywords" content="compound interest calculator, calculator, compound interest calculator monthly, investment growth calculator, ai compound interest calculator, free compound interest calculator, online compound interest calculator, investment calculator">
-    <meta name="robots" content="index, follow">
-     <link rel="canonical" href="https://smartaicalculator.com/compoundinterest.html">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background: linear-gradient(135deg, #1A202C, #2D3748);
-            color: #fff;
-            margin: 0;
-        }
-        .header { background: #2c3e50; padding: 20px 0; text-align: center; position: relative; }
-        .nav-tabs { display: flex; justify-content: center; gap: 20px; padding: 10px 0; background: #34495e; }
-        .nav-tab { color: white; text-decoration: none; padding: 5px 15px; transition: background 0.3s; }
-        .nav-tab:hover, .nav-tab.active { background: #3498db; border-radius: 5px; }
-        .calculator-content { max-width: 600px; margin: 20px auto; padding: 20px; background: rgba(45, 55, 72, 0.9); border-radius: 10px; box-shadow: 0 0 15px rgba(0,0,0,0.5); }
-        .calculator-box { background: #e0e0e0; color: #333; padding: 20px; border-radius: 5px; text-align: center; }
-        .input-row { display: flex; justify-content: space-between; margin-bottom: 15px; }
-        .input-row label { font-weight: bold; }
-        input, select { border: 1px solid #ccc; padding: 5px; border-radius: 3px; width: 100px; }
-        button { 
-            background: linear-gradient(135deg, #ff6b6b, #e63946); 
-            color: white; 
-            padding: 12px 24px; 
-            border: none; 
-            border-radius: 5px; 
-            cursor: pointer; 
-            font-weight: bold; 
-            font-size: 1.1rem; 
-            box-shadow: 0 3px 6px rgba(0,0,0,0.4); 
-            transition: transform 0.2s, background 0.2s; 
-            text-transform: uppercase; 
-        }
-        button:hover { 
-            background: linear-gradient(135deg, #e63946, #c0392b); 
-            transform: scale(1.05); 
-        }
-        .ads-section { margin-top: 10px; padding: 10px; background: #34495e; border-radius: 5px; text-align: center; box-shadow: 0 0 5px rgba(0,0,0,0.3); }
-        .ads-section p { font-size: 1.2rem; font-weight: bold; color: #1e90ff; }
-        .ads-section a { color: #1e90ff; text-decoration: underline; }
-        .voice-icon { 
-            display: inline-block; 
-            padding: 10px; 
-            cursor: pointer; 
-            font-size: 2rem; 
-            color: #00cec9; 
-            transition: color 0.2s, transform 0.2s; 
-            visibility: visible; 
-        }
-        .voice-icon:hover { 
-            color: #00b7b3; 
-            transform: scale(1.1); 
-        }
-        .button-container { 
-            display: flex; 
-            justify-content: center; 
-            align-items: center; 
-            gap: 15px; 
-            margin: 20px 0; 
-        }
-        @media (max-width: 600px) { 
-            .input-row { flex-direction: column; } 
-            input, select { width: 100%; margin-bottom: 10px; } 
-            .button-container { flex-direction: row; gap: 10px; } 
-            .voice-icon { display: inline-block; visibility: visible; } 
-        }
-        @media (min-width: 601px) { 
-            .voice-icon { display: inline-block; visibility: visible; } 
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Compound Interest Calculator India & USA | CI Formula Calculator | SMART AI CALCULATOR</title>
+
+<meta name="description" content="Free Compound Interest Calculator for India & USA. Calculate compound interest, maturity amount and total returns using exact CI formula with charts.">
+
+<meta name="keywords" content="compound interest calculator india, compound interest calculator usa, ci calculator, compound interest formula, investment calculator, smart ai calculator">
+
+<link rel="canonical" href="https://smartaicalculator.com/compound-interest.html"/>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-FEQ7R89CFG"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-FEQ7R89CFG');
+</script>
+
+<!-- Schema.org -->
+<script type="application/ld+json">
+{
+"@context":"https://schema.org",
+"@type":"WebApplication",
+"name":"Compound Interest Calculator",
+"url":"https://smartaicalculator.com/compound-interest.html",
+"applicationCategory":"FinanceApplication",
+"provider":{"@type":"Organization","name":"SMART AI CALCULATOR"}
+}
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<style>
+body{
+font-family:Segoe UI,Arial;
+background:#f8fafc;
+color:#1e293b;
+max-width:1000px;
+margin:auto;
+padding:20px;
+line-height:1.7
+}
+h1{text-align:center;color:#92400e;font-size:2.3em}
+h2{color:#92400e;border-bottom:2px solid #fde68a;padding-bottom:8px}
+.intro{text-align:center;color:#334155;margin-bottom:40px}
+
+.calculator-box{
+background:#ffffff;
+border-radius:14px;
+padding:25px;
+box-shadow:0 12px 30px rgba(0,0,0,0.08);
+margin:40px 0;
+border-left:6px solid #f59e0b
+}
+
+label{font-weight:600;color:#92400e}
+input,select{
+width:100%;
+padding:12px;
+margin:10px 0;
+border-radius:6px;
+border:1px solid #fde68a
+}
+
+button{
+background:#f59e0b;
+color:white;
+border:none;
+padding:14px;
+width:100%;
+font-size:16px;
+border-radius:6px;
+cursor:pointer
+}
+button:hover{background:#b45309}
+
+#result{
+margin-top:20px;
+background:#fffbeb;
+padding:15px;
+border-radius:8px;
+border-left:4px solid #f59e0b
+}
+
+.ads{
+background:#e5e7eb;
+padding:15px;
+text-align:center;
+border-radius:8px;
+margin:25px 0;
+color:#475569
+}
+
+.chart-box{margin:30px 0}
+
+.related{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:15px
+}
+.related div{
+background:#ffffff;
+padding:15px;
+border-radius:8px;
+box-shadow:0 4px 10px rgba(0,0,0,0.08)
+}
+
+footer{
+margin-top:60px;
+padding:20px;
+text-align:center;
+font-size:14px;
+color:#475569;
+border-top:1px solid #e2e8f0
+}
+footer a{color:#92400e;text-decoration:none;margin:0 6px}
+
+.speaker{cursor:pointer;float:right;font-size:20px}
+</style>
 </head>
+
 <body>
-    <header class="header">
-        <h1 id="header-title">Investment Compound Interest Calculator</h1>
-        <p id="tagline">Compound Interest Calculator</p>
-    </header>
-    <nav class="nav-tabs">
-       
-        <a href="index.html#health" class="nav-tab" onclick="showCategory('home')">HOME</a>
-        <a href="index.html#math" class="nav-tab" onclick="showCategory('mathematics')">MATHEMATICS</a>
-       
-    </nav>
-    <div class="calculator-content">
-        <div class="calculator-box">
-            <h2 id="calc-title">Enter principal, rate, time, and frequency to calculate compound interest</h2>
-            <div class="input-row">
-                <label id="principal-label">Principal Amount (₹)</label>
-                <input type="number" id="principal" min="0" value="100000">
-            </div>
-            <div class="input-row">
-                <label id="rate-label">Annual Interest Rate (%)</label>
-                <input type="number" id="rate" min="0" step="0.1" value="8">
-            </div>
-            <div class="input-row">
-                <label id="time-label">Time (Years)</label>
-                <input type="number" id="time" min="1" value="5">
-            </div>
-            <div class="input-row">
-                <label id="frequency-label">Compounding Frequency</label>
-                <select id="frequency">
-                    <option value="12">Monthly</option>
-                    <option value="4">Quarterly</option>
-                    <option value="2">Half-Yearly</option>
-                    <option value="1">Yearly</option>
-                </select>
-            </div>
-            <div class="button-container">
-                <button onclick="calculateCompoundInterest()">Calculate <span id="spinner" style="display:none;">⏳</span></button>
-                <span class="voice-icon" onclick="toggleSpeech()" title="Toggle Speech"><i class="fas fa-volume-up"></i></span>
-            </div>
-            <div id="compound-result" class="mt-4 font-semibold"></div>
-            <p style="margin-top: 10px;">You May Also Like:</p>
-<ul style="list-style: none; padding-left: 0;">
-  <li><a href="discount.html" style="font-weight: bold; color: #4f46e5; text-decoration: none;">DISCOUNT Calculator</a></li>
-  <li><a href="cgpa.html" style="font-weight: bold; color: #4f46e5; text-decoration: none;">CGPA Calculator</a></li>
+
+<h1><b>SMART AI CALCULATOR</b><br><b>Compound Interest Calculator (India & USA)</b></h1>
+
+<!-- INTRO -->
+<p class="intro">
+The <b>Compound Interest Calculator</b> by SMART AI CALCULATOR helps users in
+<b>India & USA</b> calculate compound interest, maturity amount and investment
+growth accurately using the standard compound interest formula.
+</p>
+
+<!-- WHAT IS -->
+<h2>What is Compound Interest?</h2>
+<p>
+Compound Interest is interest calculated on both the initial principal and
+the accumulated interest from previous periods. It is widely used in
+bank deposits, mutual funds, SIPs, and long-term investments.
+</p>
+
+<!-- CALCULATOR -->
+<div class="calculator-box">
+<h2>Compound Interest Calculator <span class="speaker" onclick="speakResult()">🔊</span></h2>
+
+<label>Principal Amount (P)</label>
+<input type="number" id="principal" placeholder="Example: 100000">
+
+<label>Annual Interest Rate (%) (R)</label>
+<input type="number" id="rate" placeholder="Example: 8">
+
+<label>Time Period (Years) (T)</label>
+<input type="number" id="time" placeholder="Example: 10">
+
+<label>Compounding Frequency</label>
+<select id="frequency">
+<option value="1">Yearly</option>
+<option value="2">Half-Yearly</option>
+<option value="4">Quarterly</option>
+<option value="12">Monthly</option>
+</select>
+
+<button onclick="calculateCI()">Calculate Compound Interest</button>
+
+<div id="result"></div>
+</div>
+
+<div class="ads">📢 Google Adsense Ad Space</div>
+
+<div class="chart-box">
+<canvas id="ciChart"></canvas>
+</div>
+
+<!-- HOW -->
+<h2>How Compound Interest is Calculated (Formula)</h2>
+<ul>
+<li><b>Compound Amount Formula:</b> A = P (1 + R / (100×n))<sup>n×T</sup></li>
+<li><b>Compound Interest:</b> CI = A − P</li>
 </ul>
-            <div class="ads-section">
-                <p>Contact for Ads: <a href="mailto:first4bencher@gmail.com">first4bencher@gmail.com</a></p>
-            </div>
-            <div id="seo-content" class="mt-4 text-sm">
-                <h3>About Compound Interest Calculator</h3>
-                <p>Welcome to the AI Compound Interest Calculator, a free online tool designed to help you calculate compound interest and final amount with ease. Whether you’re planning investments or savings, this calculator leverages advanced AI technology to provide accurate and instant results. Available in multiple languages including English, Hindi, Tamil, Telugu, Spanish, Bengali, Arabic, Mandarin, and French, it caters to a diverse global audience. Simply enter your principal, interest rate, time, and compounding frequency, then click "Calculate" to get your result.</p>
-                <p>Why choose our Compound Interest Calculator? It’s user-friendly, fast, and optimized for all devices, making it perfect for investors, financial planners, and individuals. The tool uses the formula A = P × (1 + r/n)^(n×t) to calculate the final amount, where P is principal, r is rate, n is compounding frequency, and t is time. Our AI integration ensures precision and offers suggestions for investment planning. This calculator stands out due to its multilingual support and modern design, setting it apart from traditional compound interest calculators.</p>
-            </div>
-             <!-- FAQs Section -->
-    <div>
-        <h2>FREQUENTLY ASKED QUESTIONS</h2>
-        <p><strong>Q1: How accurate are the results provided by this calculator?</strong><br>
-        A: Our calculators use standard formulas and algorithms to provide accurate results. However, results may vary based on the input data you provide. For professional advice, we recommend consulting an expert.</p>
-        
-        <p><strong>Q2: Do I need to sign up or pay to use this calculator?</strong><br>
-        A: No, all calculators on SMART AI Calculator are completely free to use, and no sign-up is required. Just enter your details and get instant results!</p>
-        
-        <p><strong>Q3: Can I use this calculator on my mobile device?</strong><br>
-        A: Yes, our website is fully responsive and works seamlessly on all devices, including mobiles, tablets, and desktops. No app download is needed—just access it through your browser.</p>
-        
-        <p><strong>Q4: What should I do if I encounter an error or have a suggestion?</strong><br>
-        A: If you face any issues or have suggestions, please use the "Feedback" link on our website to reach out. We’re here to help and improve your experience!</p>
-    </div>
-        </div>
-    </div>
-    <footer class="bg-gray-800 text-white text-center py-4 mt-8">
-        <p style="font-weight: bold;">2025 © Smart AI Calculator. All rights reserved.</p>
-        <a href="privacy.html" class="text-blue-400 ml-2">Privacy Policy</a> |
-        <a href="contactus.html" class="text-blue-400 ml-2">Contact Us</a> |
-        <a href="howto.html" class="text-blue-400 ml-2">How to Use</a>
-    </footer>
-    <script>
-        let lang = 'en';
-        let isSpeaking = false;
-        let utterance = null;
-        const translations = {
-            en: { header: "Smart AI Calculator", tagline: "Compound Interest Calculator", calcTitle: "Enter principal, rate, time, and frequency to calculate compound interest", principalLabel: "Principal Amount (₹)", rateLabel: "Annual Interest Rate (%)", timeLabel: "Time (Years)", frequencyLabel: "Compounding Frequency", resultPrefix: "Final Amount: " },
-            hi: { header: "स्मार्ट एआई कैलकुलेटर", tagline: "चक्रवृद्धि ब्याज कैलकुलेटर", calcTitle: "चक्रवृद्धि ब्याज की गणना के लिए मूलधन, दर, समय और आवृत्ति दर्ज करें", principalLabel: "मूलधन राशि (₹)", rateLabel: "वार्षिक ब्याज दर (%)", timeLabel: "समय (वर्ष)", frequencyLabel: "चक्रवृद्धि आवृत्ति", resultPrefix: "अंतिम राशि: " },
-            ta: { header: "ஸ்மார்ட் AI கால்குலேட்டர்", tagline: "கூட்டு வட்டி கால்குலேட்டர்", calcTitle: "கூட்டு வட்டியை கணக்கிட முதல், விகிதம், காலம் மற்றும் அதிர்வெண்ணை உள்ளிடவும்", principalLabel: "முதல் தொகை (₹)", rateLabel: "ஆண்டு வட்டி விகிதம் (%)", timeLabel: "காலம் (ஆண்டுகள்)", frequencyLabel: "கூட்டு வட்டி அதிர்வெண்", resultPrefix: "இறுதி தொகை: " },
-            te: { header: "స్మార్ట్ AI కాల్కులేటర్", tagline: "చక్రవడ్డీ కాల్కులేటర్", calcTitle: "చక్రవడ్డీని లెక్కించడానికి మొత్తం, రేటు, సమయం మరియు ఫ్రీక్వెన్సీని నమోదు చేయండి", principalLabel: "మొత్తం రాశి (₹)", rateLabel: "వార్షిక వడ్డీ రేటు (%)", timeLabel: "సమయం (సంవత్సరాలు)", frequencyLabel: "చక్రవడ్డీ ఫ్రీక్వెన్సీ", resultPrefix: "చివరి రాశి: " },
-            es: { header: "Calculadora de IA Inteligente", tagline: "Calculadora de Interés Compuesto", calcTitle: "Ingrese el capital, la tasa, el tiempo y la frecuencia para calcular el interés compuesto", principalLabel: "Monto principal (₹)", rateLabel: "Tasa de interés anual (%)", timeLabel: "Tiempo (Años)", frequencyLabel: "Frecuencia de capitalización", resultPrefix: "Monto final: " },
-            bn: { header: "স্মার্ট এআই ক্যালকুলেটর", tagline: "চক্রবৃদ্ধি সুদ ক্যালকুলেটর", calcTitle: "চক্রবৃদ্ধি সুদ গণনার জন্য মূলধন, হার, সময় এবং ফ্রিকোয়েন্সি লিখুন", principalLabel: "মূলধন পরিমাণ (₹)", rateLabel: "বার্ষিক সুদের হার (%)", timeLabel: "সময় (বছর)", frequencyLabel: "চক্রবৃদ্ধি ফ্রিকোয়েন্সি", resultPrefix: "চূড়ান্ত পরিমাণ: " },
-            ar: { header: "حاسبة الذكاء الاصطناعي الذكية", tagline: "حاسبة الفائدة المركبة", calcTitle: "أدخل رأس المال، ونسبة الفائدة، والوقت، والتردد لحساب الفائدة المركبة", principalLabel: "مبلغ رأس المال (₹)", rateLabel: "نسبة الفائدة السنوية (%)", timeLabel: "الوقت (سنوات)", frequencyLabel: "تردد التراكم", resultPrefix: "المبلغ النهائي: " },
-            zh: { header: "智能人工智能计算器", tagline: "复利计算器", calcTitle: "输入本金、利率、时间和频率以计算复利", principalLabel: "本金金额 (₹)", rateLabel: "年利率 (%)", timeLabel: "时间 (年)", frequencyLabel: "复利频率", resultPrefix: "最终金额: " },
-            fr: { header: "Calculateur IA Intelligent", tagline: "Calculateur d'Intérêt Composé", calcTitle: "Entrez le capital, le taux, le temps et la fréquence pour calculer l'intérêt composé", principalLabel: "Montant principal (₹)", rateLabel: "Taux d'intérêt annuel (%)", timeLabel: "Durée (Années)", frequencyLabel: "Fréquence de capitalisation", resultPrefix: "Montant final: " }
-        };
-        function calculateCompoundInterest() {
-            document.getElementById("spinner").style.display = "inline";
-            setTimeout(() => {
-                let principal = parseFloat(document.getElementById("principal").value);
-                let rate = parseFloat(document.getElementById("rate").value) / 100;
-                let time = parseFloat(document.getElementById("time").value);
-                let frequency = parseInt(document.getElementById("frequency").value);
-                let resultDiv = document.getElementById("compound-result");
-                if (principal > 0 && rate >= 0 && time > 0 && frequency > 0) {
-                    let amount = principal * Math.pow(1 + rate / frequency, frequency * time);
-                    let interest = amount - principal;
-                    resultDiv.innerHTML = `${translations[lang].resultPrefix} ${amount.toFixed(2)} ₹<br>Compound Interest: ${interest.toFixed(2)} ₹<br>Principal: ${principal.toFixed(2)} ₹`;
-                } else {
-                    resultDiv.innerText = lang === 'en' ? "Please enter valid values" : lang === 'hi' ? "कृपया वैध मान दर्ज करें" : lang === 'ta' ? "சரியான மதிப்புகளை உள்ளிடவும்" : lang === 'te' ? "దయచేసి సరైన విలువలను నమోదు చేయండి" : lang === 'es' ? "Por favor, ingrese valores válidos" : lang === 'bn' ? "দয়া করে বৈধ মান লিখুন" : lang === 'ar' ? "يرجى إدخال قيم صحيحة" : lang === 'zh' ? "请输入有效值" : "Veuillez entrer des valeurs valides";
-                }
-                document.getElementById("spinner").style.display = "none";
-            }, 1000);
-        }
-        function toggleSpeech() {
-            console.log("Toggling speech for result");
-            const result = document.getElementById("compound-result").innerHTML;
-            if (!result) {
-                console.log("No result to speak");
-                return;
-            }
-            if (isSpeaking) {
-                window.speechSynthesis.cancel();
-                isSpeaking = false;
-                console.log("Speech stopped");
-            } else {
-                utterance = new SpeechSynthesisUtterance(result);
-                utterance.lang = lang === 'zh' ? 'zh-CN' : lang === 'ar' ? 'ar-SA' : lang;
-                utterance.onend = () => {
-                    isSpeaking = false;
-                    console.log("Speech ended");
-                };
-                window.speechSynthesis.speak(utterance);
-                isSpeaking = true;
-                console.log("Speech started");
-            }
-        }
-        function stopSpeech() {
-            if (isSpeaking) {
-                window.speechSynthesis.cancel();
-                isSpeaking = false;
-                console.log("Speech stopped on page exit");
-            }
-        }
-        function showCategory(category) {
-            // No action needed here as navigation is handled by index.html
-        }
-        window.onload = () => {
-            document.getElementById('header-title').textContent = translations[lang].header;
-            document.getElementById('tagline').textContent = translations[lang].tagline;
-            document.getElementById('calc-title').textContent = translations[lang].calcTitle;
-            document.getElementById('principal-label').textContent = translations[lang].principalLabel;
-            document.getElementById('rate-label').textContent = translations[lang].rateLabel;
-            document.getElementById('time-label').textContent = translations[lang].timeLabel;
-            document.getElementById('frequency-label').textContent = translations[lang].frequencyLabel;
-            console.log("Voice icon loaded");
-        };
-        window.onpagehide = stopSpeech;
-        window.onbeforeunload = stopSpeech;
-    </script>
-<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'934ab0e65a83454b',t:'MTc0NTM4MzMxMi4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></html>
+
+<!-- IMPORTANCE -->
+<h2>Why Compound Interest is Important?</h2>
+<ul>
+<li>Shows true growth of long-term investments</li>
+<li>Encourages early investing habit</li>
+<li>Used in banks, mutual funds, and SIPs</li>
+<li>Powerful wealth-building concept</li>
+</ul>
+
+<!-- FAQ -->
+<h2>Frequently Asked Questions (FAQ)</h2>
+
+<div class="faq-item">
+<b>What is the power of compounding?</b>
+<p>It means earning interest on interest over time.</p>
+</div>
+
+<div class="faq-item">
+<b>Is compound interest better than simple interest?</b>
+<p>Yes, for long-term investments.</p>
+</div>
+
+<div class="faq-item">
+<b>Is this calculator accurate?</b>
+<p>Yes, it uses standard financial formulas.</p>
+</div>
+
+<!-- INTERLINKING -->
+<h2>Related Calculators</h2>
+<div class="related">
+<div><a href="percentage.html">Percentage Calculator</a></div>
+<div><a href="simple-interest.html">Simple Interest Calculator</a></div>
+<div><a href="investment.html">Investment Calculator</a></div>
+<div><a href="sip.html">SIP Calculator</a></div>
+</div>
+
+<footer>
+<a href="privacy-policy.html">Privacy Policy</a> |
+<a href="disclaimer.html">Disclaimer</a> |
+<a href="contact-us.html">Contact Us</a>
+<p>© 2026 SMART AI CALCULATOR</p>
+</footer>
+
+<script>
+let chart;
+
+function calculateCI(){
+let P = +principal.value;
+let R = +rate.value;
+let T = +time.value;
+let n = +frequency.value;
+
+let A = P * Math.pow((1 + R/(100*n)), n*T);
+let CI = A - P;
+
+result.innerHTML =
+`<p><b>Maturity Amount (A):</b> ${A.toFixed(2)}</p>
+<p><b>Compound Interest (CI):</b> ${CI.toFixed(2)}</p>`;
+
+let years=[];
+let values=[];
+for(let i=0;i<=T;i++){
+years.push("Year "+i);
+values.push(P*Math.pow((1 + R/(100*n)), n*i));
+}
+
+if(chart) chart.destroy();
+chart = new Chart(ciChart,{
+type:"line",
+data:{
+labels:years,
+datasets:[{
+label:"Investment Growth",
+data:values,
+borderColor:"#f59e0b",
+fill:false
+}]
+}
+});
+}
+
+function speakResult(){
+if(!result.innerText) return;
+let s=new SpeechSynthesisUtterance(result.innerText);
+s.lang="en-US";
+speechSynthesis.speak(s);
+}
+</script>
+
+</body>
+</html>
