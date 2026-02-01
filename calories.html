@@ -1,612 +1,292 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <!-- Google tag (gtag.js) -->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Calories Calculator India & USA | Daily Calorie Requirement Calculator | SMART AI CALCULATOR</title>
+
+<meta name="description" content="Free Calories Calculator for India & USA. Calculate daily calorie needs for men and women using kg or lbs. Learn calorie formula, BMR, TDEE and weight loss or gain planning.">
+
+<meta name="keywords" content="calories calculator india, calories calculator usa, daily calorie requirement calculator, calorie needs calculator, bmr tdee calculator, smart ai calculator">
+
+<link rel="canonical" href="https://smartaicalculator.com/calories.html"/>
+
+<!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-FEQ7R89CFG"></script>
 <script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-FEQ7R89CFG');
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-FEQ7R89CFG');
 </script>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Calories Calculator 2024 | Daily Calorie Needs & Macronutrient Tool</title>
-    <meta name="description" content="Free calorie calculator to determine your daily calorie needs for weight loss, maintenance, or gain. Calculate BMR, TDEE, and ideal macronutrient ratios.">
-    <meta name="keywords" content="calorie calculator, daily calorie needs, BMR calculator, TDEE calculator, macronutrient calculator">
-    <style>
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.7;
-            color: #333;
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 20px;
-            background-color: #f9f9f9;
-        }
-        h1 {
-            color: #e74c3c;
-            text-align: center;
-            margin-bottom: 30px;
-            font-size: 2.2em;
-        }
-        .intro {
-            font-size: 1.1em;
-            text-align: center;
-            margin-bottom: 40px;
-            color: #555;
-        }
-        .calculator-container {
-            background: white;
-            border-radius: 10px;
-            padding: 25px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-            margin: 40px auto;
-            border: 1px solid #e0e0e0;
-        }
-        .calculator-title {
-            color: #e74c3c;
-            margin-top: 0;
-            text-align: center;
-            font-size: 1.5em;
-        }
-        .input-group {
-            margin-bottom: 20px;
-        }
-        label {
-            display: block;
-            margin-bottom: 8px;
-            font-weight: 600;
-            color: #444;
-        }
-        input, select {
-            width: 100%;
-            padding: 12px;
-            border: 1px solid #ddd;
-            border-radius: 6px;
-            font-size: 16px;
-            box-sizing: border-box;
-        }
-        .radio-group {
-            margin-bottom: 15px;
-        }
-        .radio-option {
-            margin-bottom: 8px;
-        }
-        button {
-            background-color: #e74c3c;
-            color: white;
-            border: none;
-            padding: 14px;
-            width: 100%;
-            border-radius: 6px;
-            font-size: 16px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
-        button:hover {
-            background-color: #c0392b;
-        }
-        #result {
-            margin-top: 25px;
-            padding: 20px;
-            background-color: #f8f9fa;
-            border-radius: 6px;
-            border-left: 4px solid #e74c3c;
-        }
-        .result-section {
-            margin-bottom: 20px;
-        }
-        .result-title {
-            font-weight: 600;
-            color: #e74c3c;
-            margin-bottom: 10px;
-        }
-        .macro-bar {
-            display: flex;
-            height: 30px;
-            margin: 15px 0;
-            border-radius: 4px;
-            overflow: hidden;
-        }
-        .protein-bar {
-            background-color: #3498db;
-        }
-        .carbs-bar {
-            background-color: #2ecc71;
-        }
-        .fat-bar {
-            background-color: #f39c12;
-        }
-        .macro-label {
-            display: flex;
-            justify-content: space-between;
-            margin-top: 5px;
-        }
-        .article-section {
-            margin: 50px 0;
-        }
-        h2 {
-            color: #e74c3c;
-            font-size: 1.8em;
-            margin-bottom: 20px;
-            padding-bottom: 10px;
-            border-bottom: 2px solid #eee;
-        }
-        h3 {
-            color: #e74c3c;
-            font-size: 1.4em;
-            margin: 30px 0 15px 0;
-        }
-        p {
-            margin-bottom: 20px;
-            font-size: 1.05em;
-        }
-        ul, ol {
-            margin-bottom: 25px;
-            padding-left: 20px;
-        }
-        li {
-            margin-bottom: 10px;
-        }
-        .highlight-box {
-            background-color: #fdecea;
-            padding: 20px;
-            border-radius: 8px;
-            margin: 25px 0;
-            border-left: 4px solid #e74c3c;
-        }
-        .note {
-            background-color: #fff8e1;
-            padding: 15px;
-            border-left: 4px solid #ffc107;
-            margin: 20px 0;
-        }
-        .faq {
-            margin: 40px 0;
-        }
-        .faq-item {
-            margin-bottom: 25px;
-        }
-        .faq-question {
-            font-weight: 600;
-            color: #e74c3c;
-            margin-bottom: 8px;
-            font-size: 1.1em;
-        }
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 25px 0;
-        }
-        table, th, td {
-            border: 1px solid #ddd;
-        }
-        th, td {
-            padding: 12px;
-            text-align: left;
-        }
-        th {
-            background-color: #f2f2f2;
-        }
-        .related-calculators {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 15px;
-            margin: 30px 0;
-        }
-        .calculator-card {
-            background: white;
-            border-radius: 8px;
-            padding: 15px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-            flex: 1 1 200px;
-            border: 1px solid #e0e0e0;
-        }
-        .calculator-card h4 {
-            margin-top: 0;
-            color: #e74c3c;
-        }
-        @media (max-width: 600px) {
-            body {
-                padding: 15px;
-            }
-            h1 {
-                font-size: 1.8em;
-            }
-            .related-calculators {
-                flex-direction: column;
-            }
-        }
-    </style>
+
+<!-- Schema.org -->
+<script type="application/ld+json">
+{
+"@context":"https://schema.org",
+"@type":"WebApplication",
+"name":"Calories Calculator",
+"url":"https://smartaicalculator.com/calories.html",
+"applicationCategory":"HealthApplication",
+"provider":{"@type":"Organization","name":"SMART AI CALCULATOR"}
+}
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<style>
+body{
+font-family:Segoe UI,Arial;
+background:#f8fafc;
+color:#1e293b;
+max-width:1000px;
+margin:auto;
+padding:20px;
+line-height:1.7
+}
+h1{text-align:center;color:#065f46;font-size:2.3em}
+h2{color:#065f46;border-bottom:2px solid #6ee7b7;padding-bottom:8px}
+.intro{text-align:center;color:#334155;margin-bottom:40px}
+
+.calculator-box{
+background:#ffffff;
+border-radius:14px;
+padding:25px;
+box-shadow:0 12px 30px rgba(0,0,0,0.08);
+margin:40px 0;
+border-left:6px solid #10b981
+}
+
+label{font-weight:600;color:#065f46}
+input,select{
+width:100%;
+padding:12px;
+margin:10px 0;
+border-radius:6px;
+border:1px solid #a7f3d0
+}
+
+button{
+background:#10b981;
+color:white;
+border:none;
+padding:14px;
+width:100%;
+font-size:16px;
+border-radius:6px;
+cursor:pointer
+}
+button:hover{background:#065f46}
+
+#result{
+margin-top:20px;
+background:#ecfdf5;
+padding:15px;
+border-radius:8px;
+border-left:4px solid #10b981
+}
+
+.ads{
+background:#e5e7eb;
+padding:15px;
+text-align:center;
+border-radius:8px;
+margin:25px 0;
+color:#475569
+}
+
+.chart-box{margin:30px 0}
+
+footer{
+margin-top:60px;
+padding:20px;
+text-align:center;
+font-size:14px;
+color:#475569;
+border-top:1px solid #e2e8f0
+}
+footer a{color:#065f46;text-decoration:none;margin:0 6px}
+
+.speaker{cursor:pointer;float:right;font-size:20px}
+</style>
 </head>
+
 <body>
-    <h1>Calories Calculator 2024</h1>
-    <p class="intro">Calculate your daily calorie needs for weight loss, maintenance, or gain based on your activity level and goals.</p>
-    
-    <div class="calculator-container">
-        <h2 class="calculator-title">Calorie Needs Calculator</h2>
-        
-        <div class="input-group">
-            <label for="gender">Gender:</label>
-            <select id="gender">
-                <option value="male">Male</option>
-                <option value="female">Female</option>
-            </select>
-        </div>
-        
-        <div class="input-group">
-            <label for="age">Age (years):</label>
-            <input type="number" id="age" placeholder="Enter your age" min="15" max="100">
-        </div>
-        
-        <div class="input-group">
-            <label for="height">Height:</label>
-            <div style="display: flex; gap: 10px;">
-                <input type="number" id="feet" placeholder="Feet" style="flex: 1;" min="0">
-                <input type="number" id="inches" placeholder="Inches" style="flex: 1;" min="0" max="11">
-            </div>
-        </div>
-        
-        <div class="input-group">
-            <label for="weight">Weight (lbs):</label>
-            <input type="number" id="weight" placeholder="Enter your weight" step="0.1" min="0">
-        </div>
-        
-        <div class="input-group">
-            <label>Activity Level:</label>
-            <div class="radio-group">
-                <div class="radio-option">
-                    <input type="radio" id="sedentary" name="activity" value="1.2" checked>
-                    <label for="sedentary">Sedentary (little or no exercise)</label>
-                </div>
-                <div class="radio-option">
-                    <input type="radio" id="light" name="activity" value="1.375">
-                    <label for="light">Lightly active (light exercise 1-3 days/week)</label>
-                </div>
-                <div class="radio-option">
-                    <input type="radio" id="moderate" name="activity" value="1.55">
-                    <label for="moderate">Moderately active (moderate exercise 3-5 days/week)</label>
-                </div>
-                <div class="radio-option">
-                    <input type="radio" id="active" name="activity" value="1.725">
-                    <label for="active">Very active (hard exercise 6-7 days/week)</label>
-                </div>
-                <div class="radio-option">
-                    <input type="radio" id="extreme" name="activity" value="1.9">
-                    <label for="extreme">Extremely active (very hard exercise & physical job)</label>
-                </div>
-            </div>
-        </div>
-        
-        <div class="input-group">
-            <label>Goal:</label>
-            <div class="radio-group">
-                <div class="radio-option">
-                    <input type="radio" id="loss" name="goal" value="loss" checked>
-                    <label for="loss">Weight loss (deficit)</label>
-                </div>
-                <div class="radio-option">
-                    <input type="radio" id="maintain" name="goal" value="maintain">
-                    <label for="maintain">Maintain weight</label>
-                </div>
-                <div class="radio-option">
-                    <input type="radio" id="gain" name="goal" value="gain">
-                    <label for="gain">Weight gain (surplus)</label>
-                </div>
-            </div>
-        </div>
-        
-        <div class="input-group" id="deficit-group">
-            <label for="deficit">Calorie deficit/surplus:</label>
-            <select id="deficit">
-                <option value="250">Moderate (250 cal/day)</option>
-                <option value="500">Aggressive (500 cal/day)</option>
-                <option value="750">Very aggressive (750 cal/day)</option>
-                <option value="1000">Extreme (1000 cal/day)</option>
-                <option value="custom">Custom amount</option>
-            </select>
-        </div>
-        
-        <div class="input-group" id="custom-deficit-group" style="display: none;">
-            <label for="custom-deficit">Custom calorie adjustment:</label>
-            <input type="number" id="custom-deficit" placeholder="Enter custom amount" min="100" max="2000" step="50">
-        </div>
-        
-        <button onclick="calculateCalories()">Calculate My Calories</button>
-        <div id="result"></div>
-    </div>
 
-    <div class="article-section">
-        <h2>Understanding Your Calorie Needs</h2>
-        <p>Calories are units of energy that fuel your body's functions. Your daily calorie needs depend on three main factors:</p>
-        
-        <div class="highlight-box">
-            <h3>1. Basal Metabolic Rate (BMR)</h3>
-            <p>The calories your body burns at complete rest for basic functions like breathing and circulation. Accounts for 60-70% of total calories burned.</p>
-            
-            <h3>2. Thermic Effect of Food (TEF)</h3>
-            <p>Calories burned digesting and processing food. Accounts for about 10% of total calories.</p>
-            
-            <h3>3. Physical Activity</h3>
-            <p>Calories burned through exercise and daily movement. Accounts for 20-30% of total calories for most people.</p>
-        </div>
-        
-        <h2>Harris-Benedict Equation for BMR</h2>
-        <p>The most accurate method for calculating your basal metabolic rate:</p>
-        
-        <div class="note">
-            <p><strong>For Men:</strong> BMR = 88.362 + (13.397 × weight in kg) + (4.799 × height in cm) - (5.677 × age in years)</p>
-            <p><strong>For Women:</strong> BMR = 447.593 + (9.247 × weight in kg) + (3.098 × height in cm) - (4.330 × age in years)</p>
-        </div>
-        
-        <h2>Total Daily Energy Expenditure (TDEE)</h2>
-        <p>Your TDEE is your BMR multiplied by an activity factor:</p>
-        <table>
-            <tr>
-                <th>Activity Level</th>
-                <th>Description</th>
-                <th>Multiplier</th>
-            </tr>
-            <tr>
-                <td>Sedentary</td>
-                <td>Little or no exercise</td>
-                <td>BMR × 1.2</td>
-            </tr>
-            <tr>
-                <td>Lightly active</td>
-                <td>Light exercise 1-3 days/week</td>
-                <td>BMR × 1.375</td>
-            </tr>
-            <tr>
-                <td>Moderately active</td>
-                <td>Moderate exercise 3-5 days/week</td>
-                <td>BMR × 1.55</td>
-            </tr>
-            <tr>
-                <td>Very active</td>
-                <td>Hard exercise 6-7 days/week</td>
-                <td>BMR × 1.725</td>
-            </tr>
-            <tr>
-                <td>Extremely active</td>
-                <td>Very hard exercise & physical job</td>
-                <td>BMR × 1.9</td>
-            </tr>
-        </table>
-        
-        <h2>Calorie Needs for Weight Goals</h2>
-        <p>To change your weight, you need to adjust your calorie intake:</p>
-        
-        <h3>Weight Loss</h3>
-        <ul>
-            <li><strong>250 calorie deficit/day:</strong> ~0.5 lb/week loss (recommended for most)</li>
-            <li><strong>500 calorie deficit/day:</strong> ~1 lb/week loss</li>
-            <li><strong>750-1000 calorie deficit/day:</strong> ~1.5-2 lb/week loss (max recommended)</li>
-        </ul>
-        
-        <h3>Weight Gain</h3>
-        <ul>
-            <li><strong>250 calorie surplus/day:</strong> ~0.5 lb/week gain (lean muscle focus)</li>
-            <li><strong>500 calorie surplus/day:</strong> ~1 lb/week gain</li>
-            <li><strong>750-1000 calorie surplus/day:</strong> ~1.5-2 lb/week gain (for underweight)</li>
-        </ul>
-        
-        <div class="note">
-            <p><strong>Note:</strong> Very aggressive deficits or surpluses may lead to muscle loss or excessive fat gain respectively. Moderate changes are more sustainable.</p>
-        </div>
-        
-        <h2>Macronutrient Distribution</h2>
-        <p>For optimal health and body composition, balance your calories across three macronutrients:</p>
-        
-        <table>
-            <tr>
-                <th>Macronutrient</th>
-                <th>Calories/gram</th>
-                <th>Recommended %</th>
-                <th>Primary Functions</th>
-            </tr>
-            <tr>
-                <td>Protein</td>
-                <td>4</td>
-                <td>20-35%</td>
-                <td>Muscle repair, enzyme production</td>
-            </tr>
-            <tr>
-                <td>Carbohydrates</td>
-                <td>4</td>
-                <td>45-65%</td>
-                <td>Primary energy source</td>
-            </tr>
-            <tr>
-                <td>Fats</td>
-                <td>9</td>
-                <td>20-35%</td>
-                <td>Hormone production, nutrient absorption</td>
-            </tr>
-        </table>
-        
-        <h3>Popular Diet Ratios</h3>
-        <ul>
-            <li><strong>Balanced:</strong> 30% protein, 40% carbs, 30% fat</li>
-            <li><strong>Low-carb/Keto:</strong> 25% protein, 15% carbs, 60% fat</li>
-            <li><strong>High-protein:</strong> 40% protein, 30% carbs, 30% fat</li>
-            <li><strong>Athlete:</strong> 30% protein, 50% carbs, 20% fat</li>
-        </ul>
-        
-        <h2>Frequently Asked Questions</h2>
-        <div class="faq">
-            <div class="faq-item">
-                <div class="faq-question">Q: Why am I not losing weight at my calculated deficit?</div>
-                <p>A: Common reasons include: underestimating food intake, overestimating activity, metabolic adaptation, water retention, or medical conditions. Track accurately for 2-3 weeks before adjusting.</p>
-            </div>
-            <div class="faq-item">
-                <div class="faq-question">Q: How often should I recalculate my calorie needs?</div>
-                <p>A> Every 5-10 lbs of weight change, or if your activity level changes significantly. Your BMR decreases as you lose weight and increases as you gain muscle.</p>
-            </div>
-            <div class="faq-item">
-                <div class="faq-question">Q: Are all calories equal for weight loss?</div>
-                <p>A> For pure weight loss, a calorie is a calorie. However, different foods affect satiety, hormones, and metabolism differently, making some calories "better" than others for adherence and health.</p>
-            </div>
-            <div class="faq-item">
-                <div class="faq-question">Q: Should I eat back exercise calories?</div>
-                <p>A> Only if you're highly active or trying to maintain/gain weight. Most people overestimate exercise calories burned, so eating them back can erase your deficit.</p>
-            </div>
-        </div>
-        
-        <h2>Related Health Calculators</h2>
-        <p>You may also find these nutrition tools helpful:</p>
-        <div class="related-calculators">
-            <div class="calculator-card">
-                <h4>BMR Calculator</h4>
-                <p>Calculate your Basal Metabolic Rate for resting calorie needs.</p>
-                <a href="/bmr.html" style="color: #e74c3c; font-weight: 600;">Try BMR Calculator →</a>
-            </div>
-            <div class="calculator-card">
-                <h4>BMR Calculator</h4>
-                <p>Determine your ideal protein, carbs and fat intake.</p>
-                <a href="/bmr.html" style="color: #e74c3c; font-weight: 600;">Try Macro Calculator →</a>
-            </div>
-            <div class="calculator-card">
-                <h4>Body Fat Calculator</h4>
-                <p>Estimate your body fat percentage using multiple methods.</p>
-                <a href="/body-fat.html" style="color: #e74c3c; font-weight: 600;">Try Body Fat Calculator →</a>
-            </div>
-    
-        </div>
-    </div>
+<h1><b>SMART AI CALCULATOR</b><br><b>Calories Calculator (India & USA)</b></h1>
 
-    <script>
-        // Show/hide custom deficit input
-        document.getElementById('deficit').addEventListener('change', function() {
-            const customGroup = document.getElementById('custom-deficit-group');
-            customGroup.style.display = this.value === 'custom' ? 'block' : 'none';
-        });
-        
-        // Calculate calorie needs
-        function calculateCalories() {
-            const gender = document.getElementById('gender').value;
-            const age = parseInt(document.getElementById('age').value);
-            const feet = parseInt(document.getElementById('feet').value) || 0;
-            const inches = parseInt(document.getElementById('inches').value) || 0;
-            const weight = parseFloat(document.getElementById('weight').value);
-            const activityFactor = parseFloat(document.querySelector('input[name="activity"]:checked').value);
-            const goal = document.querySelector('input[name="goal"]:checked').value;
-            
-            // Validate inputs
-            if (isNaN(age) || age < 15 || age > 100) {
-                alert('Please enter a valid age (15-100)');
-                return;
-            }
-            if (isNaN(feet) || feet < 0 || isNaN(inches) || inches < 0 || inches >= 12) {
-                alert('Please enter valid height in feet and inches');
-                return;
-            }
-            if (isNaN(weight) || weight <= 0) {
-                alert('Please enter a valid weight');
-                return;
-            }
-            
-            // Convert to metric
-            const heightInches = (feet * 12) + inches;
-            const heightCm = heightInches * 2.54;
-            const weightKg = weight * 0.453592;
-            
-            // Calculate BMR (Harris-Benedict Equation)
-            let bmr;
-            if (gender === 'male') {
-                bmr = 88.362 + (13.397 * weightKg) + (4.799 * heightCm) - (5.677 * age);
-            } else {
-                bmr = 447.593 + (9.247 * weightKg) + (3.098 * heightCm) - (4.330 * age);
-            }
-            
-            // Calculate TDEE
-            const tdee = bmr * activityFactor;
-            
-            // Determine calorie adjustment
-            let deficit = 0;
-            if (goal === 'loss') {
-                if (document.getElementById('deficit').value === 'custom') {
-                    deficit = parseFloat(document.getElementById('custom-deficit').value) || 0;
-                } else {
-                    deficit = parseFloat(document.getElementById('deficit').value);
-                }
-            } else if (goal === 'gain') {
-                if (document.getElementById('deficit').value === 'custom') {
-                    deficit = -parseFloat(document.getElementById('custom-deficit').value) || 0;
-                } else {
-                    deficit = -parseFloat(document.getElementById('deficit').value);
-                }
-            }
-            
-            // Calculate final calories
-            const dailyCalories = Math.round(tdee - deficit);
-            
-            // Calculate macronutrients (balanced ratio)
-            const proteinGrams = Math.round((dailyCalories * 0.3) / 4);
-            const carbGrams = Math.round((dailyCalories * 0.4) / 4);
-            const fatGrams = Math.round((dailyCalories * 0.3) / 9);
-            
-            // Calculate macro percentages for visualization
-            const proteinPercent = 30;
-            const carbsPercent = 40;
-            const fatPercent = 30;
-            
-            // Display results
-            document.getElementById('result').innerHTML = `
-                <div class="result-section">
-                    <div class="result-title">Your Metabolic Numbers</div>
-                    <p><strong>BMR (Basal Metabolic Rate):</strong> ${Math.round(bmr)} calories/day</p>
-                    <p><strong>TDEE (Total Daily Energy Expenditure):</strong> ${Math.round(tdee)} calories/day</p>
-                    <p><strong>Recommended Daily Calories:</strong> ${dailyCalories} calories/day</p>
-                    <p><strong>Projected Weekly ${goal === 'loss' ? 'Weight Loss' : goal === 'gain' ? 'Weight Gain' : 'Maintenance'}:</strong> 
-                    ${goal === 'maintain' ? 'Maintain current weight' : Math.abs(deficit * 7 / 3500).toFixed(1) + ' lbs/week'}</p>
-                </div>
-                
-                <div class="result-section">
-                    <div class="result-title">Recommended Macronutrients (30/40/30)</div>
-                    <p><strong>Protein:</strong> ${proteinGrams}g (${Math.round(dailyCalories * 0.3)} calories)</p>
-                    <p><strong>Carbohydrates:</strong> ${carbGrams}g (${Math.round(dailyCalories * 0.4)} calories)</p>
-                    <p><strong>Fats:</strong> ${fatGrams}g (${Math.round(dailyCalories * 0.3)} calories)</p>
-                    
-                    <div class="macro-bar">
-                        <div class="protein-bar" style="width: ${proteinPercent}%"></div>
-                        <div class="carbs-bar" style="width: ${carbsPercent}%"></div>
-                        <div class="fat-bar" style="width: ${fatPercent}%"></div>
-                    </div>
-                    <div class="macro-label">
-                        <span>Protein (${proteinPercent}%)</span>
-                        <span>Carbs (${carbsPercent}%)</span>
-                        <span>Fats (${fatPercent}%)</span>
-                    </div>
-                </div>
-                
-                <div class="result-section">
-                    <div class="result-title">Dietary Recommendations</div>
-                    <ul>
-                        <li>${goal === 'loss' ? 'Focus on lean proteins and vegetables to stay full on fewer calories' : 
-                           goal === 'gain' ? 'Include calorie-dense foods like nuts, oils, and whole grains' :
-                           'Maintain balanced meals with all food groups'}</li>
-                        <li>${goal === 'loss' ? 'Limit added sugars and refined carbs' : 
-                           'Include carbohydrates for energy and recovery'}</li>
-                        <li>Drink at least ${Math.round(weight / 2)} oz of water daily</li>
-                        <li>${activityFactor < 1.55 ? 'Consider increasing activity for better results' : 
-                           'Your activity level supports your goals well'}</li>
-                    </ul>
-                </div>
-                
-                <div class="note">
-                    <p><strong>Note:</strong> These are estimates. Individual needs vary based on metabolism, body composition, and other factors. Adjust based on progress over 2-3 weeks.</p>
-                </div>
-            `;
-        }
-        
-        // Initialize with default values
-        document.addEventListener('DOMContentLoaded', function() {
-            document.getElementById('feet').value = 5;
-            document.getElementById('inches').value = 9;
-        });
-    </script>
+<!-- INTRO -->
+<p class="intro">
+The <b>Calories Calculator</b> by SMART AI CALCULATOR helps men and women in
+<b>India & USA</b> calculate their <b>daily calorie requirement</b> based on
+age, gender, weight, height, and activity level using <b>kg or lbs</b>.
+</p>
+
+<!-- WHAT IS -->
+<h2>What is a Calories Calculator?</h2>
+<p>
+A calories calculator estimates how many calories your body needs each day
+to maintain current weight. It is based on your <b>BMR (Basal Metabolic Rate)</b>
+and <b>TDEE (Total Daily Energy Expenditure)</b>, considering your activity level.
+</p>
+
+<!-- CALCULATOR -->
+<div class="calculator-box">
+<h2>Calories Calculator <span class="speaker" onclick="speakResult()">🔊</span></h2>
+
+<label>Gender</label>
+<select id="gender">
+<option value="male">Male</option>
+<option value="female">Female</option>
+</select>
+
+<label>Unit System</label>
+<select id="unit">
+<option value="metric">Metric (kg / cm)</option>
+<option value="imperial">Imperial (lbs / inches)</option>
+</select>
+
+<label>Age</label>
+<input type="number" id="age" placeholder="Example: 30">
+
+<label>Weight</label>
+<input type="number" id="weight" placeholder="Example: 70">
+
+<label>Height</label>
+<input type="number" id="height" placeholder="Example: 170">
+
+<label>Activity Level</label>
+<select id="activity">
+<option value="1.2">Sedentary (little exercise)</option>
+<option value="1.375">Lightly active (1–3 days/week)</option>
+<option value="1.55">Moderately active (3–5 days/week)</option>
+<option value="1.725">Very active (6–7 days/week)</option>
+<option value="1.9">Extra active (physical job)</option>
+</select>
+
+<button onclick="calculateCalories()">Calculate Calories</button>
+
+<div id="result"></div>
+</div>
+
+<div class="ads">📢 Google Adsense Ad Space</div>
+
+<div class="chart-box">
+<canvas id="calBar"></canvas>
+</div>
+
+<div class="chart-box">
+<canvas id="calPie"></canvas>
+</div>
+
+<!-- HOW -->
+<h2>How Calories are Calculated (Formula)</h2>
+<p>
+First, BMR is calculated using the <b>Mifflin-St Jeor Equation</b>.  
+Then, BMR is multiplied by an activity factor to get TDEE.
+</p>
+
+<ul>
+<li><b>Male BMR:</b> 10×Weight + 6.25×Height − 5×Age + 5</li>
+<li><b>Female BMR:</b> 10×Weight + 6.25×Height − 5×Age − 161</li>
+<li><b>TDEE:</b> BMR × Activity Level</li>
+</ul>
+
+<!-- IMPORTANCE -->
+<h2>Why Knowing Daily Calories is Important?</h2>
+<ul>
+<li>Helps with weight loss planning</li>
+<li>Supports healthy weight gain</li>
+<li>Improves diet and fitness results</li>
+<li>Essential for long-term health management</li>
+</ul>
+
+<!-- FAQ -->
+<h2>Frequently Asked Questions (FAQ)</h2>
+
+<div class="faq-item">
+<b>How many calories should I eat to lose weight?</b>
+<p>Usually 300–500 calories below your daily requirement.</p>
+</div>
+
+<div class="faq-item">
+<b>Are calorie needs different for men and women?</b>
+<p>Yes, due to body composition and metabolism differences.</p>
+</div>
+
+<div class="faq-item">
+<b>Is this calculator accurate?</b>
+<p>It provides reliable estimates using standard scientific formulas.</p>
+</div>
+
+<footer>
+<a href="privacy-policy.html">Privacy Policy</a> |
+<a href="disclaimer.html">Disclaimer</a> |
+<a href="contact-us.html">Contact Us</a>
+<p>© 2026 SMART AI CALCULATOR</p>
+</footer>
+
+<script>
+let barC,pieC;
+
+function calculateCalories(){
+let a=+age.value;
+let w=+weight.value;
+let h=+height.value;
+let act=+activity.value;
+
+if(unit.value==="imperial"){
+w=w*0.453592;
+h=h*2.54;
+}
+
+let bmr;
+if(gender.value==="male"){
+bmr=10*w+6.25*h-5*a+5;
+}else{
+bmr=10*w+6.25*h-5*a-161;
+}
+
+let tdee=bmr*act;
+
+result.innerHTML=
+`<p><b>BMR:</b> ${bmr.toFixed(0)} calories/day</p>
+<p><b>Daily Calories Needed:</b> ${tdee.toFixed(0)} calories/day</p>`;
+
+if(barC) barC.destroy();
+if(pieC) pieC.destroy();
+
+barC=new Chart(calBar,{
+type:"bar",
+data:{
+labels:["BMR","Daily Calories"],
+datasets:[{
+data:[bmr,tdee],
+backgroundColor:["#34d399","#10b981"]
+}]
+}
+});
+
+pieC=new Chart(calPie,{
+type:"pie",
+data:{
+labels:["BMR","Activity Calories"],
+datasets:[{
+data:[bmr,tdee-bmr],
+backgroundColor:["#34d399","#f59e0b"]
+}]
+}
+});
+}
+
+function speakResult(){
+if(!result.innerText) return;
+let s=new SpeechSynthesisUtterance(result.innerText);
+s.lang="en-US";
+speechSynthesis.speak(s);
+}
+</script>
+
 </body>
 </html>
