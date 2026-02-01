@@ -1,165 +1,150 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Smart AI Calculator | Tip Calculator</title>
-    <meta name="description" content="Calculate tip amount and total bill with our free tip calculator. Enter bill amount and tip percentage for instant results. Try now!">
-    <meta name="keywords" content="tip calculator, bill calculator, restaurant tip">
-    <meta name="robots" content="index, follow">
-   <link rel="canonical" href="https://smartaicalculator.com/tip.html">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-    <style>
-        body { font-family: Arial, sans-serif; background: linear-gradient(135deg, #1A202C, #2D3748); color: #fff; margin: 0; }
-        .header { background: #2c3e50; padding: 20px 0; text-align: center; }
-        .nav-tabs { display: flex; justify-content: center; gap: 20px; padding: 10px 0; background: #34495e; }
-        .nav-tab { color: white; text-decoration: none; padding: 5px 15px; transition: background 0.3s; font-weight: bold; text-shadow: 0 0 5px rgba(255, 107, 107, 0.5); }
-        .nav-tab:hover, .nav-tab.active { background: #3498db; border-radius: 5px; }
-        .calculator-content { max-width: 600px; margin: 20px auto; padding: 20px; background: rgba(45, 55, 72, 0.9); border-radius: 10px; box-shadow: 0 0 15px rgba(0,0,0,0.5); }
-        .calculator-box { background: #e0e0e0; color: #333; padding: 20px; border-radius: 5px; text-align: center; }
-        .input-row { display: flex; justify-content: space-between; margin-bottom: 15px; }
-        .input-row label { font-weight: bold; }
-        input { border: 1px solid #ccc; padding: 5px; border-radius: 3px; width: 150px; }
-        input.invalid { border-color: #ff6b6b; }
-        button { background: linear-gradient(135deg, #ff6b6b, #e63946); color: white; padding: 12px 24px; border: none; border-radius: 5px; cursor: pointer; font-weight: bold; font-size: 1.1rem; box-shadow: 0 3px 6px rgba(0,0,0,0.4); transition: transform 0.2s, background 0.2s; text-transform: uppercase; }
-        button:hover { background: linear-gradient(135deg, #e63946, #c0392b); transform: scale(1.05); }
-        .ads-section { margin-top: 10px; padding: 10px; background: #34495e; border-radius: 5px; text-align: center; }
-        .ads-section p { font-size: 1.2rem; font-weight: bold; color: #1e90ff; }
-        .ads-section a { color: #1e90ff; text-decoration: underline; }
-        .voice-icon { display: inline-block; padding: 10px; cursor: pointer; font-size: 2rem; color: #00cec9; transition: color 0.2s, transform 0.2s; visibility: visible; }
-        .voice-icon:hover { color: #00b7b3; transform: scale(1.1); }
-        .button-container { display: flex; justify-content: center; align-items: center; gap: 15px; margin: 20px 0; }
-        .result-table { width: 100%; margin-top: 20px; border-collapse: collapse; }
-        .result-table th, .result-table td { border: 1px solid #ccc; padding: 10px; text-align: left; }
-        .result-table th { background: #3498db; color: white; }
-        .result-table tr:nth-child(even) { background: #f0f0f0; }
-        @media (max-width: 600px) { 
-            .input-row { flex-direction: column; } 
-            input { width: 100%; margin-bottom: 10px; } 
-            .button-container { flex-direction: row; gap: 10px; } 
-            .voice-icon { display: inline-block; visibility: visible; } 
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Tip Calculator India & USA | Bill Split & Gratuity Calculator | SMART AI CALCULATOR</title>
+
+<meta name="description" content="Free Tip Calculator for India & USA. Calculate tip amount, total bill, and per-person split using custom tip percentages.">
+
+<meta name="keywords" content="tip calculator india, tip calculator usa, gratuity calculator, bill split calculator, smart ai calculator">
+
+<link rel="canonical" href="https://smartaicalculator.com/tip.html"/>
+
+<!-- Google tag -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-FEQ7R89CFG"></script>
+<script>
+window.dataLayer=window.dataLayer||[];
+function gtag(){dataLayer.push(arguments);}
+gtag('js',new Date());
+gtag('config','G-FEQ7R89CFG');
+</script>
+
+<script type="application/ld+json">
+{
+"@context":"https://schema.org",
+"@type":"WebApplication",
+"name":"Tip Calculator",
+"url":"https://smartaicalculator.com/tip-calculator.html",
+"applicationCategory":"UtilityApplication",
+"provider":{"@type":"Organization","name":"SMART AI CALCULATOR"}
+}
+</script>
+
+<style>
+body{font-family:Segoe UI;background:#f8fafc;max-width:1100px;margin:auto;padding:20px;line-height:1.7}
+h1{text-align:center;color:#065f46}
+h2{color:#065f46;border-bottom:2px solid #bbf7d0}
+.box{background:#fff;padding:25px;border-radius:14px;box-shadow:0 10px 25px rgba(0,0,0,.08)}
+input,select{width:100%;padding:12px;margin:8px 0;border-radius:6px;border:1px solid #bbf7d0}
+button{background:#16a34a;color:#fff;border:none;padding:12px;width:100%;border-radius:6px}
+#result{margin-top:20px;background:#ecfdf5;padding:15px;border-left:4px solid #16a34a}
+.ads{margin:25px 0;background:#e5e7eb;padding:15px;text-align:center;border-radius:8px}
+.related{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:15px;margin-top:20px}
+.related div{background:#fff;padding:15px;border-radius:8px;box-shadow:0 4px 10px rgba(0,0,0,.08)}
+footer{text-align:center;margin-top:40px;font-size:14px}
+footer a{color:#065f46;margin:0 6px;text-decoration:none}
+.speaker{float:right;cursor:pointer}
+</style>
 </head>
+
 <body>
-    <header class="header">
-        <h1>Smart AI Calculator</h1>
-        <h2>Tip Calculator</h2>
-    </header>
-    <nav class="nav-tabs">
-        <a href="index.html#home" class="nav-tab">HOME</a>
-        <a href="index.html#miscellaneous" class="nav-tab active">MISCELLANEOUS</a>
-    </nav>
-    <div class="calculator-content">
-        <div class="calculator-box">
-            <h2>Enter Bill Details</h2>
-            <div class="input-row">
-                <label>Bill Amount (₹)</label>
-                <input type="number" id="bill-amount" min="0" step="0.01" oninput="validateInput(this)">
-            </div>
-            <div class="input-row">
-                <label>Tip Percentage (%)</label>
-                <input type="number" id="tip-percentage" min="0" max="100" step="0.1" oninput="validateInput(this)">
-            </div>
-            <div class="button-container">
-                <button onclick="calculateTip()">Calculate <span id="spinner" style="display:none;">⏳</span></button>
-                <span class="voice-icon" onclick="toggleSpeech()" title="Toggle Speech"><i class="fas fa-volume-up"></i></span>
-            </div>
-            <div id="tip-result" class="mt-4 font-semibold"></div>
-            <table class="result-table" id="result-table" style="display: none;">
-                <thead>
-                    <tr>
-                        <th>Detail</th>
-                        <th>Value</th>
-                    </tr>
-                </thead>
-                <tbody id="result-table-body"></tbody>
-            </table>
-            <p style="margin-top: 10px;">You May Also Like:</p>
-<ul style="list-style: none; padding-left: 0;">
-  <li><a href="car-loan.html" style="font-weight: bold; color: #4f46e5; text-decoration: none;">CAR LOAN Calculator</a></li>
-  <li><a href="emi.html" style="font-weight: bold; color: #4f46e5; text-decoration: none;">EMI Calculator</a></li>
+
+<h1><b>SMART AI CALCULATOR</b><br><b>Tip Calculator (India & USA)</b></h1>
+
+<p>
+The <b>Tip Calculator</b> helps you quickly calculate the <b>gratuity (tip)</b>,
+<b>total bill</b>, and <b>per-person share</b> when dining out or paying for services
+in <b>India and the USA</b>.
+</p>
+
+<h2>What is a Tip?</h2>
+<p>
+A tip (or gratuity) is an additional amount paid to service staff as appreciation
+for good service. Tip percentages vary by country and service quality.
+</p>
+
+<div class="box">
+<h2>Tip Calculator <span class="speaker" onclick="speak()">🔊</span></h2>
+
+<label>Bill Amount</label>
+<input type="number" id="bill" placeholder="Example: 2500">
+
+<label>Tip Percentage</label>
+<select id="tip">
+<option value="5">5%</option>
+<option value="10">10%</option>
+<option value="12">12%</option>
+<option value="15">15%</option>
+<option value="18">18%</option>
+<option value="20">20%</option>
+</select>
+
+<label>Number of People</label>
+<input type="number" id="people" value="1">
+
+<button onclick="calculateTip()">Calculate Tip</button>
+
+<div id="result"></div>
+</div>
+
+<div class="ads">📢 Google Adsense Ad Space</div>
+
+<h2>Tip Calculation Formula</h2>
+<ul>
+<li><b>Tip Amount = Bill Amount × Tip %</b></li>
+<li><b>Total Bill = Bill Amount + Tip</b></li>
+<li><b>Per Person = Total Bill ÷ Number of People</b></li>
 </ul>
-            <div class="ads-section">
-                <p>Contact for Ads: <a href="mailto:first4bencher@gmail.com">first4bencher@gmail.com</a></p>
-            </div>
-            <div id="seo-content" class="mt-4 text-sm">
-                <h3>About Tip Calculator</h3>
-                <p>Our Smart AI Tip Calculator computes tip amount and total bill based on bill amount and tip percentage. It’s user-friendly, responsive, and SEO-optimized with keywords like 'tip calculator' and 'bill calculator.' Perfect for dining out!</p>
-            </div>
-        </div>
-    </div>
-    <footer class="bg-gray-800 text-white text-center py-4 mt-8">
-        <p style="font-weight: bold;">2025 © Smart AI Calculator. All rights reserved.</p>
-        <a href="privacy.html" class="text-blue-400 ml-2">Privacy Policy</a> |
-        <a href="contactus.html" class="text-blue-400 ml-2">Contact Us</a> |
-        <a href="howto.html" class="text-blue-400 ml-2">How to Use</a>
-    </footer>
-    <script>
-        let isSpeaking = false;
-        let utterance = null;
-        function validateInput(input) {
-            let value = parseFloat(input.value);
-            if (input.id === "bill-amount" && (value < 0 || isNaN(value))) {
-                input.classList.add("invalid");
-            } else if (input.id === "tip-percentage" && (value < 0 || value > 100 || isNaN(value))) {
-                input.classList.add("invalid");
-            } else {
-                input.classList.remove("invalid");
-            }
-        }
-        function calculateTip() {
-            document.getElementById("spinner").style.display = "inline";
-            setTimeout(() => {
-                let billAmount = parseFloat(document.getElementById("bill-amount").value);
-                let tipPercentage = parseFloat(document.getElementById("tip-percentage").value);
-                let resultDiv = document.getElementById("tip-result");
-                let tableBody = document.getElementById("result-table-body");
-                let table = document.getElementById("result-table");
-                tableBody.innerHTML = "";
-                if (isNaN(billAmount) || billAmount < 0 || isNaN(tipPercentage) || tipPercentage < 0 || tipPercentage > 100) {
-                    resultDiv.innerText = "Invalid input. Check bill amount or tip percentage.";
-                    table.style.display = "none";
-                    document.getElementById("spinner").style.display = "none";
-                    return;
-                }
-                let tipAmount = billAmount * (tipPercentage / 100);
-                let totalBill = billAmount + tipAmount;
-                resultDiv.innerText = `Tip Amount: ₹${tipAmount.toFixed(2)}`;
-                tableBody.innerHTML = `
-                    <tr><td>Bill Amount</td><td>₹${billAmount.toFixed(2)}</td></tr>
-                    <tr><td>Tip Amount</td><td>₹${tipAmount.toFixed(2)}</td></tr>
-                    <tr><td>Total Bill</td><td>₹${totalBill.toFixed(2)}</td></tr>
-                `;
-                table.style.display = "table";
-                document.getElementById("spinner").style.display = "none";
-            }, 500);
-        }
-        function toggleSpeech() {
-            const result = document.getElementById("tip-result").innerText;
-            if (!result || result.includes("Invalid")) {
-                console.log("No valid result to speak");
-                return;
-            }
-            if (isSpeaking) {
-                window.speechSynthesis.cancel();
-                isSpeaking = false;
-            } else {
-                utterance = new SpeechSynthesisUtterance(result);
-                utterance.lang = "en";
-                utterance.onend = () => { isSpeaking = false; };
-                window.speechSynthesis.speak(utterance);
-                isSpeaking = true;
-            }
-        }
-        function stopSpeech() {
-            if (isSpeaking) {
-                window.speechSynthesis.cancel();
-                isSpeaking = false;
-            }
-        }
-        window.onpagehide = stopSpeech;
-        window.onbeforeunload = stopSpeech;
-    </script>
+
+<h2>Why Use a Tip Calculator?</h2>
+<ul>
+<li>Quick and accurate tip calculation</li>
+<li>Fair bill splitting</li>
+<li>Avoids mental math errors</li>
+<li>Useful for dining & services</li>
+</ul>
+
+<h2>Frequently Asked Questions (FAQ)</h2>
+<p><b>Is tipping mandatory?</b><br>No, it depends on country and service.</p>
+<p><b>What is standard tip?</b><br>10–15% is common in many places.</p>
+<p><b>Can I split the bill?</b><br>Yes, per-person split is included.</p>
+
+<h2>Related Calculators</h2>
+<div class="related">
+<div><a href="percentage.html">Percentage Calculator</a></div>
+<div><a href="goal-score.html">Goal Score Calculator</a></div>
+</div>
+
+<footer>
+<a href="privacy-policy.html">Privacy Policy</a> |
+<a href="disclaimer.html">Disclaimer</a> |
+<a href="contact-us.html">Contact Us</a>
+<p>© 2025–2026 SMART AI CALCULATOR</p>
+</footer>
+
+<script>
+function calculateTip(){
+let b=+bill.value;
+let t=+tip.value/100;
+let p=+people.value||1;
+
+let tipAmt=b*t;
+let total=b+tipAmt;
+let per=total/p;
+
+result.innerHTML=
+`<b>Tip Amount:</b> ₹ / $ ${tipAmt.toFixed(2)}<br>
+<b>Total Bill:</b> ₹ / $ ${total.toFixed(2)}<br>
+<b>Per Person:</b> ₹ / $ ${per.toFixed(2)}`;
+}
+
+function speak(){
+let s=new SpeechSynthesisUtterance(result.innerText);
+speechSynthesis.speak(s);
+}
+</script>
+
+</body>
 </html>
