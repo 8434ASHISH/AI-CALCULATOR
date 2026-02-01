@@ -1,19 +1,255 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Coming Soon - Smart AI Calculator</title>
-    <link rel="canonical" href="https://smartaicalculator.com/coming-soon">
-    <style>
-body{font-family:Arial,sans-serif;margin:0;padding:0;background:#e8ecef;display:flex;justify-content:center;align-items:center;height:100vh;text-align:center}h1{font-size:3em;color:#333;margin-bottom:20px}h2{font-size:1.5em;color:#555;margin-bottom:30px}button{display:inline-block;padding:12px 30px;background:#007bff;color:#fff;border:none;border-radius:5px;font-size:1.2em;cursor:pointer;text-decoration:none}button:hover{background:#0056b3}
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Pregnancy Weight Gain Calculator India & USA | Healthy Pregnancy Weight Gain | SMART AI CALCULATOR</title>
+
+<meta name="description" content="Free Pregnancy Weight Gain Calculator for India & USA. Calculate healthy pregnancy weight gain by trimester using kg or lbs based on pre-pregnancy BMI.">
+
+<meta name="keywords" content="pregnancy weight gain calculator india, pregnancy weight gain calculator usa, pregnancy bmi calculator, trimester weight gain, healthy pregnancy weight gain, smart ai calculator">
+
+<link rel="canonical" href="https://smartaicalculator.com/pregnancy-weight-gain-calculator.html"/>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-FEQ7R89CFG"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-FEQ7R89CFG');
+</script>
+
+<!-- Schema.org -->
+<script type="application/ld+json">
+{
+"@context":"https://schema.org",
+"@type":"WebApplication",
+"name":"Pregnancy Weight Gain Calculator",
+"url":"https://smartaicalculator.com/pregnancy-weight-gain.html",
+"applicationCategory":"HealthApplication",
+"provider":{"@type":"Organization","name":"SMART AI CALCULATOR"}
+}
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<style>
+body{
+font-family:Segoe UI,Arial;
+background:#fff7ed;
+color:#1e293b;
+max-width:1000px;
+margin:auto;
+padding:20px;
+line-height:1.7
+}
+h1{text-align:center;color:#c2410c;font-size:2.3em}
+h2{color:#c2410c;border-bottom:2px solid #fed7aa;padding-bottom:8px}
+.intro{text-align:center;color:#374151;margin-bottom:40px}
+
+.calculator-box{
+background:#ffffff;
+border-radius:14px;
+padding:25px;
+box-shadow:0 12px 30px rgba(0,0,0,0.08);
+margin:40px 0;
+border-left:6px solid #f97316
+}
+
+label{font-weight:600;color:#9a3412}
+input,select{
+width:100%;
+padding:12px;
+margin:10px 0;
+border-radius:6px;
+border:1px solid #fed7aa
+}
+
+button{
+background:#f97316;
+color:white;
+border:none;
+padding:14px;
+width:100%;
+font-size:16px;
+border-radius:6px;
+cursor:pointer
+}
+button:hover{background:#c2410c}
+
+#result{
+margin-top:20px;
+background:#fff7ed;
+padding:15px;
+border-radius:8px;
+border-left:4px solid #f97316
+}
+
+.ads{
+background:#e5e7eb;
+padding:15px;
+text-align:center;
+border-radius:8px;
+margin:25px 0;
+color:#475569
+}
+
+.chart-box{margin:30px 0}
+
+footer{
+margin-top:60px;
+padding:20px;
+text-align:center;
+font-size:14px;
+color:#475569;
+border-top:1px solid #e2e8f0
+}
+footer a{color:#c2410c;text-decoration:none;margin:0 6px}
+
+.speaker{cursor:pointer;float:right;font-size:20px}
+</style>
 </head>
+
 <body>
-    <div>
-        <h1>Coming Soon</h1>
-        <h2>A Warm Welcome on my website</h2>
-        <a href="https://smartaicalculator.com/"><button>Home</button></a>
-    </div>
+
+<h1><b>SMART AI CALCULATOR</b><br><b>Pregnancy Weight Gain Calculator (India & USA)</b></h1>
+
+<!-- INTRO -->
+<p class="intro">
+The <b>Pregnancy Weight Gain Calculator</b> by SMART AI CALCULATOR helps expecting
+mothers in <b>India & USA</b> estimate healthy weight gain during pregnancy
+based on pre-pregnancy BMI using <b>kg or lbs</b>.
+</p>
+
+<!-- WHAT IS -->
+<h2>What is Pregnancy Weight Gain?</h2>
+<p>
+Pregnancy weight gain refers to the healthy amount of weight a woman gains
+during pregnancy to support the baby’s growth, placenta, amniotic fluid,
+and maternal health. Recommended weight gain depends on pre-pregnancy BMI.
+</p>
+
+<!-- CALCULATOR -->
+<div class="calculator-box">
+<h2>Pregnancy Weight Gain Calculator <span class="speaker" onclick="speakResult()">🔊</span></h2>
+
+<label>Unit System</label>
+<select id="unit">
+<option value="metric">Metric (kg / cm)</option>
+<option value="imperial">Imperial (lbs / inches)</option>
+</select>
+
+<label>Pre-Pregnancy Weight</label>
+<input type="number" id="weight" placeholder="Example: 60">
+
+<label>Height</label>
+<input type="number" id="height" placeholder="Example: 160">
+
+<button onclick="calculatePWG()">Calculate</button>
+
+<div id="result"></div>
+</div>
+
+<div class="ads">📢 Google Adsense Ad Space</div>
+
+<div class="chart-box">
+<canvas id="pwgChart"></canvas>
+</div>
+
+<!-- HOW -->
+<h2>How Pregnancy Weight Gain is Calculated</h2>
+<p>
+First, pre-pregnancy BMI is calculated. Based on BMI category, recommended
+total pregnancy weight gain ranges are applied.
+</p>
+
+<ul>
+<li><b>BMI &lt; 18.5:</b> 12.5 – 18 kg</li>
+<li><b>BMI 18.5 – 24.9:</b> 11.5 – 16 kg</li>
+<li><b>BMI 25 – 29.9:</b> 7 – 11.5 kg</li>
+<li><b>BMI ≥ 30:</b> 5 – 9 kg</li>
+</ul>
+
+<!-- IMPORTANCE -->
+<h2>Why Pregnancy Weight Gain is Important?</h2>
+<ul>
+<li>Supports baby’s healthy growth</li>
+<li>Reduces risk of low birth weight</li>
+<li>Helps prevent pregnancy complications</li>
+<li>Supports maternal health</li>
+</ul>
+
+<!-- FAQ -->
+<h2>Frequently Asked Questions (FAQ)</h2>
+
+<div class="faq-item">
+<b>Is too much weight gain harmful?</b>
+<p>Yes, excess gain may increase pregnancy and delivery risks.</p>
+</div>
+
+<div class="faq-item">
+<b>Is weight gain same for all trimesters?</b>
+<p>No, most gain happens in the second and third trimester.</p>
+</div>
+
+<div class="faq-item">
+<b>Is this calculator medical advice?</b>
+<p>No, consult your doctor for personalized guidance.</p>
+</div>
+
+<footer>
+<a href="privacy-policy.html">Privacy Policy</a> |
+<a href="disclaimer.html">Disclaimer</a> |
+<a href="contact-us.html">Contact Us</a>
+<p>© 2026 SMART AI CALCULATOR</p>
+</footer>
+
+<script>
+let chart;
+
+function calculatePWG(){
+let w = +weight.value;
+let h = +height.value;
+
+if(unit.value==="imperial"){
+w = w * 0.453592;
+h = h * 2.54;
+}
+
+let bmi = w / Math.pow(h/100,2);
+let min,max,label;
+
+if(bmi<18.5){min=12.5;max=18;label="Underweight";}
+else if(bmi<25){min=11.5;max=16;label="Normal";}
+else if(bmi<30){min=7;max=11.5;label="Overweight";}
+else{min=5;max=9;label="Obese";}
+
+result.innerHTML =
+`<p><b>Your BMI:</b> ${bmi.toFixed(2)} (${label})</p>
+<p><b>Recommended Weight Gain:</b> ${min} – ${max} kg</p>`;
+
+if(chart) chart.destroy();
+chart = new Chart(pwgChart,{
+type:"bar",
+data:{
+labels:["Minimum","Maximum"],
+datasets:[{
+data:[min,max],
+backgroundColor:["#fb923c","#22c55e"]
+}]
+}
+});
+}
+
+function speakResult(){
+if(!result.innerText) return;
+let s=new SpeechSynthesisUtterance(result.innerText);
+s.lang="en-US";
+speechSynthesis.speak(s);
+}
+</script>
+
 </body>
 </html>
