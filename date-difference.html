@@ -1,189 +1,142 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Smart AI Calculator | Date Difference Calculator</title>
-    <meta name="description" content="Calculate the difference between two dates in years, months, and days with our free calculator. Use the calendar picker for easy input. Try now!">
-    <meta name="keywords" content="date difference calculator, date calculator, time difference">
-    <meta name="robots" content="index, follow">
-   <link rel="canonical" href="https://smartaicalculator.com/date-difference-calculator.html">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-    <style>
-        body { font-family: Arial, sans-serif; background: linear-gradient(135deg, #1A202C, #2D3748); color: #fff; margin: 0; }
-        .header { background: #2c3e50; padding: 20px 0; text-align: center; }
-        .nav-tabs { display: flex; justify-content: center; gap: 20px; padding: 10px 0; background: #34495e; }
-        .nav-tab { color: white; text-decoration: none; padding: 5px 15px; transition: background  spills 0.3s; font-weight: bold; text-shadow: 0 0 5px rgba(255, 107, 107, 0.5); }
-        .nav-tab:hover, .nav-tab.active { background: #3498db; border-radius: 5px; }
-        .calculator-content { max-width: 600px; margin: 20px auto; padding: 20px; background: rgba(45, 55, 72, 0.9); border-radius: 10px; box-shadow: 0 0 15px rgba(0,0,0,0.5); }
-        .calculator-box { background: #e0e0e0; color: #333; padding: 20px; border-radius: 5px; text-align: center; }
-        .input-row { display: flex; justify-content: space-between; margin-bottom: 15px; }
-        .input-row label { font-weight: bold; }
-        input { border: 1px solid #ccc; padding: 5px; border-radius: 3px; width: 150px; }
-        input.invalid { border-color: #ff6b6b; }
-        button { background: linear-gradient(135deg, #ff6b6b, #e63946); color: white; padding: 12px 24px; border: none; border-radius: 5px; cursor: pointer; font-weight: bold; font-size: 1.1rem; box-shadow: 0 3px 6px rgba(0,0,0,0.4); transition: transform 0.2s, background 0.2s; text-transform: uppercase; }
-        button:hover { background: linear-gradient(135deg, #e63946, #c0392b); transform: scale(1.05); }
-        .ads-section { margin-top: 10px; padding: 10px; background: #34495e; border-radius: 5px; text-align: center; }
-        .ads-section p { font-size: 1.2rem; font-weight: bold; color: #1e90ff; }
-        .ads-section a { color: #1e90ff; text-decoration: underline; }
-        .voice-icon { display: inline-block; padding: 10px; cursor: pointer; font-size: 2rem; color: #00cec9; transition: color 0.2s, transform 0.2s; visibility: visible; }
-        .voice-icon:hover { color: #00b7b3; transform: scale(1.1); }
-        .button-container { display: flex; justify-content: center; align-items: center; gap: 15px; margin: 20px 0; }
-        .suggestions { margin-top: 20px; padding: 15px; background: #f0f0f0; border-radius: 5px; text-align: left; display: none; }
-        .suggestions h3 { font-size: 1.2rem; font-weight: bold; margin-bottom: 10px; }
-        .suggestions ul { list-style-type: disc; padding-left: 20px; }
-        .suggestions li { margin-bottom: 8px; }
-        .result-table { width: 100%; margin-top: 20px; border-collapse: collapse; }
-        .result-table th, .result-table td { border: 1px solid #ccc; padding: 10px; text-align: left; }
-        .result-table th { background: #3498db; color: white; }
-        .result-table tr:nth-child(even) { background: #f0f0f0; }
-        @media (max-width: 600px) { 
-            .input-row { flex-direction: column; } 
-            input { width: 100%; margin-bottom: 10px; } 
-            .button-container { flex-direction: row; gap: 10px; } 
-            .voice-icon { display: inline-block; visibility: visible; } 
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Date Difference Calculator India & USA | Days Between Dates | SMART AI CALCULATOR</title>
+
+<meta name="description" content="Free Date Difference Calculator for India & USA. Calculate difference between two dates in days, months and years accurately.">
+
+<meta name="keywords" content="date difference calculator india, days between dates calculator, date duration calculator usa, smart ai calculator">
+
+<link rel="canonical" href="https://smartaicalculator.com/date-difference.html"/>
+
+<!-- Google tag -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-FEQ7R89CFG"></script>
+<script>
+window.dataLayer=window.dataLayer||[];
+function gtag(){dataLayer.push(arguments);}
+gtag('js',new Date());
+gtag('config','G-FEQ7R89CFG');
+</script>
+
+<script type="application/ld+json">
+{
+"@context":"https://schema.org",
+"@type":"WebApplication",
+"name":"Date Difference Calculator",
+"url":"https://smartaicalculator.com/date-difference.html",
+"applicationCategory":"UtilityApplication",
+"provider":{"@type":"Organization","name":"SMART AI CALCULATOR"}
+}
+</script>
+
+<style>
+body{font-family:Segoe UI;background:#f8fafc;max-width:1100px;margin:auto;padding:20px;line-height:1.7}
+h1{text-align:center;color:#1e293b}
+h2{color:#1e293b;border-bottom:2px solid #cbd5e1}
+.box{background:#fff;padding:25px;border-radius:14px;box-shadow:0 10px 25px rgba(0,0,0,.08)}
+input{width:100%;padding:12px;margin:8px 0;border-radius:6px;border:1px solid #cbd5e1}
+button{background:#1e293b;color:#fff;border:none;padding:12px;width:100%;border-radius:6px}
+#result{margin-top:20px;background:#f1f5f9;padding:15px;border-left:4px solid #1e293b}
+.ads{margin:25px 0;background:#e5e7eb;padding:15px;text-align:center;border-radius:8px}
+.related{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:15px;margin-top:20px}
+.related div{background:#fff;padding:15px;border-radius:8px;box-shadow:0 4px 10px rgba(0,0,0,.08)}
+footer{text-align:center;margin-top:40px;font-size:14px}
+footer a{color:#1e293b;margin:0 6px;text-decoration:none}
+.speaker{float:right;cursor:pointer}
+</style>
 </head>
+
 <body>
-    <header class="header">
-        <h1>Smart AI Calculator</h1>
-        <h2>Date Difference Calculator</h2>
-    </header>
-    <nav class="nav-tabs">
-        <a href="index.html#home" class="nav-tab">HOME</a>
-        <a href="index.html#miscellaneous" class="nav-tab active">MISCELLANEOUS</a>
-    </nav>
-    <div class="calculator-content">
-        <div class="calculator-box">
-            <h2>Enter Dates</h2>
-            <div class="input-row">
-                <label>Start Date</label>
-                <input type="date" id="start-date" oninput="validateInput(this)">
-            </div>
-            <div class="input-row">
-                <label>End Date</label>
-                <input type="date" id="end-date" oninput="validateInput(this)">
-            </div>
-            <div class="button-container">
-                <button onclick="calculateDateDifference()">Calculate <span id="spinner" style="display:none;">⏳</span></button>
-                <span class="voice-icon" onclick="toggleSpeech()" title="Toggle Speech"><i class="fas fa-volume-up"></i></span>
-            </div>
-            <div id="date-result" class="mt-4 font-semibold"></div>
-            <table class="result-table" id="result-table" style="display: none;">
-                <thead>
-                    <tr>
-                        <th>Detail</th>
-                        <th>Value</th>
-                    </tr>
-                </thead>
-                <tbody id="result-table-body"></tbody>
-            </table>
-            <div class="suggestions" id="suggestions">
-                <h3>Suggestions for Date Difference</h3>
-                <ul>
-                    <li>Ensure the start date is earlier than the end date for positive results.</li>
-                    <li>Verify dates for accuracy in planning or tracking.</li>
-                    <li>Use for project timelines or event planning.</li>
-                </ul>
-            </div>
-            <p style="margin-top: 10px;">You May Also Like:</p>
-<ul style="list-style: none; padding-left: 0;">
-  <li><a href="age.html" style="font-weight: bold; color: #4f46e5; text-decoration: none;">AGE Calculator</a></li>
-  <li><a href="retirement.html" style="font-weight: bold; color: #4f46e5; text-decoration: none;">RETIREMENT MONEY Calculator</a></li>
+
+<h1><b>SMART AI CALCULATOR</b><br><b>Date Difference Calculator (India & USA)</b></h1>
+
+<p>
+The <b>Date Difference Calculator</b> helps users calculate the exact
+<b>difference between two dates</b> in days, months, and years.
+It is useful for planning, legal work, education, and personal tracking.
+</p>
+
+<h2>What is Date Difference?</h2>
+<p>
+Date difference refers to the time interval between two calendar dates.
+It can be measured in days, months, or years depending on requirement.
+</p>
+
+<div class="box">
+<h2>Date Difference Calculator <span class="speaker" onclick="speak()">🔊</span></h2>
+
+<label>Start Date</label>
+<input type="date" id="start">
+
+<label>End Date</label>
+<input type="date" id="end">
+
+<button onclick="calculateDateDiff()">Calculate Difference</button>
+
+<div id="result"></div>
+</div>
+
+<div class="ads">📢 Google Adsense Ad Space</div>
+
+<h2>Date Difference Calculation Method</h2>
+<ul>
+<li>Convert both dates into timestamps</li>
+<li>Find absolute difference in milliseconds</li>
+<li>Convert difference into days, months and years</li>
 </ul>
-            <div class="ads-section">
-                <p>Contact for Ads: <a href="mailto:first4bencher@gmail.com">first4bencher@gmail.com</a></p>
-            </div>
-            <div id="seo-content" class="mt-4 text-sm">
-                <h3>About Date Difference Calculator</h3>
-                <p>Our Smart AI Date Difference Calculator computes the difference between two dates in years, months, and days. Use the calendar picker for easy input. It’s user-friendly, responsive, and SEO-optimized with keywords like 'date difference calculator' and 'time difference.' Perfect for planning and tracking!</p>
-            </div>
-        </div>
-    </div>
-    <footer class="bg-gray-800 text-white text-center py-4 mt-8">
-        <p style="font-weight: bold;">2025 © Smart AI Calculator. All rights reserved.</p>
-        <a href="privacy.html" class="text-blue-400 ml-2">Privacy Policy</a> |
-        <a href="contactus.html" class="text-blue-400 ml-2">Contact Us</a> |
-        <a href="howto.html" class="text-blue-400 ml-2">How to Use</a>
-    </footer>
-    <script>
-        let isSpeaking = false;
-        let utterance = null;
-        function validateInput(input) {
-            let value = input.value;
-            if (!value) {
-                input.classList.add("invalid");
-            } else {
-                input.classList.remove("invalid");
-            }
-        }
-        function calculateDateDifference() {
-            document.getElementById("spinner").style.display = "inline";
-            setTimeout(() => {
-                let startDate = document.getElementById("start-date").value;
-                let endDate = document.getElementById("end-date").value;
-                let resultDiv = document.getElementById("date-result");
-                let tableBody = document.getElementById("result-table-body");
-                let suggestionsDiv = document.getElementById("suggestions");
-                let table = document.getElementById("result-table");
-                tableBody.innerHTML = "";
-                if (!startDate || !endDate || new Date(startDate) > new Date(endDate)) {
-                    resultDiv.innerText = "Invalid input. Start date must be earlier than end date.";
-                    table.style.display = "none";
-                    suggestionsDiv.style.display = "none";
-                    document.getElementById("spinner").style.display = "none";
-                    return;
-                }
-                let start = new Date(startDate);
-                let end = new Date(endDate);
-                let years = end.getFullYear() - start.getFullYear();
-                let months = end.getMonth() - start.getMonth();
-                let days = end.getDate() - start.getDate();
-                if (days < 0) {
-                    months--;
-                    days += new Date(end.getFullYear(), end.getMonth(), 0).getDate();
-                }
-                if (months < 0) {
-                    years--;
-                    months += 12;
-                }
-                resultDiv.innerText = `Difference: ${years} Years, ${months} Months, ${days} Days`;
-                tableBody.innerHTML = `
-                    <tr><td>Years</td><td>${years}</td></tr>
-                    <tr><td>Months</td><td>${months}</td></tr>
-                    <tr><td>Days</td><td>${days}</td></tr>
-                `;
-                table.style.display = "table";
-                suggestionsDiv.style.display = "block";
-                document.getElementById("spinner").style.display = "none";
-            }, 500);
-        }
-        function toggleSpeech() {
-            const result = document.getElementById("date-result").innerText;
-            if (!result || result.includes("Invalid")) {
-                console.log("No valid result to speak");
-                return;
-            }
-            if (isSpeaking) {
-                window.speechSynthesis.cancel();
-                isSpeaking = false;
-            } else {
-                utterance = new SpeechSynthesisUtterance(result);
-                utterance.lang = "en";
-                utterance.onend = () => { isSpeaking = false; };
-                window.speechSynthesis.speak(utterance);
-                isSpeaking = true;
-            }
-        }
-        function stopSpeech() {
-            if (isSpeaking) {
-                window.speechSynthesis.cancel();
-                isSpeaking = false;
-            }
-        }
-        window.onpagehide = stopSpeech;
-        window.onbeforeunload = stopSpeech;
-    </script>
+
+<h2>Why Use Date Difference Calculator?</h2>
+<ul>
+<li>Helps track deadlines and durations</li>
+<li>Useful for age gap & service period</li>
+<li>Important for exams & project planning</li>
+<li>Saves manual calculation time</li>
+</ul>
+
+<h2>Frequently Asked Questions (FAQ)</h2>
+<p><b>Can end date be earlier?</b><br>Yes, calculator handles it automatically.</p>
+<p><b>Is leap year considered?</b><br>Yes, browser date engine handles it.</p>
+<p><b>Is this accurate?</b><br>Yes, uses standard date difference logic.</p>
+
+<h2>Related Calculators</h2>
+<div class="related">
+<div><a href="age-calculator.html">Age Calculator</a></div>
+<div><a href="time.html">Time Converter</a></div>
+</div>
+
+<footer>
+<a href="privacy-policy.html">Privacy Policy</a> |
+<a href="disclaimer.html">Disclaimer</a> |
+<a href="contact-us.html">Contact Us</a>
+<p>© 2025–2026 SMART AI CALCULATOR</p>
+</footer>
+
+<script>
+function calculateDateDiff(){
+let s=new Date(start.value);
+let e=new Date(end.value);
+if(!start.value||!end.value){
+result.innerHTML="Please select both dates.";
+return;
+}
+let diff=Math.abs(e-s);
+let days=Math.floor(diff/(1000*60*60*24));
+let years=Math.floor(days/365);
+let months=Math.floor((days%365)/30);
+
+result.innerHTML=
+`<b>Total Difference:</b><br>
+${years} Years, ${months} Months, ${days} Days`;
+}
+
+function speak(){
+let s=new SpeechSynthesisUtterance(result.innerText);
+speechSynthesis.speak(s);
+}
+</script>
+
+</body>
 </html>
