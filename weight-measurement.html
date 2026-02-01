@@ -1,589 +1,255 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <!-- Google tag (gtag.js) -->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Ideal Weight Calculator India & USA | Male Female Weight Calculator | SMART AI CALCULATOR</title>
+
+<meta name="description" content="Free Ideal Weight Calculator for India & USA. Calculate ideal body weight for men and women using kg or lbs. Learn ideal weight formula, healthy weight range and importance.">
+
+<meta name="keywords" content="ideal weight calculator india, ideal weight calculator usa, weight calculator male female, ideal body weight formula, healthy weight range calculator, smart ai calculator">
+
+<link rel="canonical" href="https://smartaicalculator.com/weight.html"/>
+
+<!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-FEQ7R89CFG"></script>
 <script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-FEQ7R89CFG');
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-FEQ7R89CFG');
 </script>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Weight Health Calculator 2024 | BMI & Weight Classification</title>
-    <meta name="description" content="Gender-specific weight calculator with kg (India) and lbs (USA) options. Check if you're underweight, normal, overweight or obese with personalized health recommendations.">
-    <meta name="keywords" content="weight calculator, healthy weight calculator, BMI calculator, kg to lbs, weight classification">
-    <style>
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.7;
-            color: #333;
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 20px;
-            background-color: #f9f9f9;
-        }
-        h1 {
-            color: #2c7be5;
-            text-align: center;
-            margin-bottom: 30px;
-            font-size: 2.2em;
-        }
-        .intro {
-            font-size: 1.1em;
-            text-align: center;
-            margin-bottom: 40px;
-            color: #555;
-        }
-        .calculator-container {
-            background: white;
-            border-radius: 10px;
-            padding: 25px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-            margin: 40px auto;
-            border: 1px solid #e0e0e0;
-        }
-        .calculator-title {
-            color: #2c7be5;
-            margin-top: 0;
-            text-align: center;
-            font-size: 1.5em;
-        }
-        .input-group {
-            margin-bottom: 20px;
-        }
-        label {
-            display: block;
-            margin-bottom: 8px;
-            font-weight: 600;
-            color: #444;
-        }
-        input, select {
-            width: 100%;
-            padding: 12px;
-            border: 1px solid #ddd;
-            border-radius: 6px;
-            font-size: 16px;
-            box-sizing: border-box;
-        }
-        .radio-group {
-            margin-bottom: 15px;
-        }
-        .radio-option {
-            margin-bottom: 8px;
-        }
-        button {
-            background-color: #2c7be5;
-            color: white;
-            border: none;
-            padding: 14px;
-            width: 100%;
-            border-radius: 6px;
-            font-size: 16px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
-        button:hover {
-            background-color: #1a68d1;
-        }
-        #result {
-            margin-top: 25px;
-            padding: 20px;
-            background-color: #f0f7ff;
-            border-radius: 6px;
-            border-left: 4px solid #2c7be5;
-        }
-        .weight-status {
-            padding: 15px;
-            border-radius: 8px;
-            margin: 15px 0;
-            font-weight: bold;
-        }
-        .underweight {
-            background-color: #ffebee;
-            border-left: 4px solid #f44336;
-        }
-        .normal {
-            background-color: #e8f5e9;
-            border-left: 4px solid #4caf50;
-        }
-        .overweight {
-            background-color: #fff3e0;
-            border-left: 4px solid #ff9800;
-        }
-        .obese {
-            background-color: #fce4ec;
-            border-left: 4px solid #e91e63;
-        }
-        .recommendation {
-            margin-top: 15px;
-            padding: 15px;
-            background-color: #e3f2fd;
-            border-radius: 8px;
-        }
-        .article-section {
-            margin: 50px 0;
-        }
-        h2 {
-            color: #2c7be5;
-            font-size: 1.8em;
-            margin-bottom: 20px;
-            padding-bottom: 10px;
-            border-bottom: 2px solid #eee;
-        }
-        h3 {
-            color: #2c7be5;
-            font-size: 1.4em;
-            margin: 30px 0 15px 0;
-        }
-        p {
-            margin-bottom: 20px;
-            font-size: 1.05em;
-        }
-        ul, ol {
-            margin-bottom: 25px;
-            padding-left: 20px;
-        }
-        li {
-            margin-bottom: 10px;
-        }
-        .highlight-box {
-            background-color: #f0f7ff;
-            padding: 20px;
-            border-radius: 8px;
-            margin: 25px 0;
-            border-left: 4px solid #2c7be5;
-        }
-        .note {
-            background-color: #fff8e1;
-            padding: 15px;
-            border-left: 4px solid #ffc107;
-            margin: 20px 0;
-        }
-        .faq {
-            margin: 40px 0;
-        }
-        .faq-item {
-            margin-bottom: 25px;
-        }
-        .faq-question {
-            font-weight: 600;
-            color: #2c7be5;
-            margin-bottom: 8px;
-            font-size: 1.1em;
-        }
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 25px 0;
-        }
-        table, th, td {
-            border: 1px solid #ddd;
-        }
-        th, td {
-            padding: 12px;
-            text-align: left;
-        }
-        th {
-            background-color: #f1f1f1;
-        }
-        .related-calculators {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 15px;
-            margin: 30px 0;
-        }
-        .calculator-card {
-            background: white;
-            border-radius: 8px;
-            padding: 15px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-            flex: 1 1 200px;
-            border: 1px solid #e0e0e0;
-        }
-        .calculator-card h4 {
-            margin-top: 0;
-            color: #2c7be5;
-        }
-        @media (max-width: 600px) {
-            body {
-                padding: 15px;
-            }
-            h1 {
-                font-size: 1.8em;
-            }
-            .related-calculators {
-                flex-direction: column;
-            }
-        }
-    </style>
+
+<!-- Schema.org -->
+<script type="application/ld+json">
+{
+"@context":"https://schema.org",
+"@type":"WebApplication",
+"name":"Ideal Weight Calculator",
+"url":"https://smartaicalculator.com/weight.html",
+"applicationCategory":"HealthApplication",
+"provider":{"@type":"Organization","name":"SMART AI CALCULATOR"}
+}
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<style>
+body{
+font-family:Segoe UI,Arial;
+background:#f8fafc;
+color:#1e293b;
+max-width:1000px;
+margin:auto;
+padding:20px;
+line-height:1.7
+}
+h1{text-align:center;color:#4f46e5;font-size:2.3em}
+h2{color:#4f46e5;border-bottom:2px solid #c7d2fe;padding-bottom:8px}
+.intro{text-align:center;color:#334155;margin-bottom:40px}
+
+.calculator-box{
+background:#ffffff;
+border-radius:14px;
+padding:25px;
+box-shadow:0 12px 30px rgba(0,0,0,0.08);
+margin:40px 0;
+border-left:6px solid #6366f1
+}
+
+label{font-weight:600;color:#3730a3}
+input,select{
+width:100%;
+padding:12px;
+margin:10px 0;
+border-radius:6px;
+border:1px solid #c7d2fe
+}
+
+button{
+background:#6366f1;
+color:white;
+border:none;
+padding:14px;
+width:100%;
+font-size:16px;
+border-radius:6px;
+cursor:pointer
+}
+button:hover{background:#4f46e5}
+
+#result{
+margin-top:20px;
+background:#eef2ff;
+padding:15px;
+border-radius:8px;
+border-left:4px solid #6366f1
+}
+
+.ads{
+background:#e5e7eb;
+padding:15px;
+text-align:center;
+border-radius:8px;
+margin:25px 0;
+color:#475569
+}
+
+.chart-box{margin:30px 0}
+
+footer{
+margin-top:60px;
+padding:20px;
+text-align:center;
+font-size:14px;
+color:#475569;
+border-top:1px solid #e2e8f0
+}
+footer a{color:#4f46e5;text-decoration:none;margin:0 6px}
+
+.speaker{cursor:pointer;float:right;font-size:20px}
+</style>
 </head>
+
 <body>
-    <h1>Weight Health Calculator 2024</h1>
-    <p class="intro">Check if your weight is healthy based on gender and height. Uses kg for India and lbs for USA with personalized recommendations.</p>
-    
-    <div class="calculator-container">
-        <h2 class="calculator-title">Weight Assessment Calculator</h2>
-        
-        <div class="input-group">
-            <label for="country">Select Your Country:</label>
-            <select id="country" onchange="changeWeightUnit()">
-                <option value="india">India (kg)</option>
-                <option value="usa">USA (lbs)</option>
-            </select>
-        </div>
-        
-        <div class="input-group">
-            <label for="gender">Gender:</label>
-            <select id="gender">
-                <option value="male">Male</option>
-                <option value="female">Female</option>
-            </select>
-        </div>
-        
-        <div class="input-group">
-            <label for="age">Age (years):</label>
-            <input type="number" id="age" placeholder="Enter your age" min="18" max="100">
-        </div>
-        
-        <div class="input-group">
-            <label for="height">Height:</label>
-            <div style="display: flex; gap: 10px;">
-                <input type="number" id="feet" placeholder="Feet" style="flex: 1;" min="0">
-                <input type="number" id="inches" placeholder="Inches" style="flex: 1;" min="0" max="11">
-            </div>
-        </div>
-        
-        <div class="input-group">
-            <label id="weight-label" for="weight">Weight (kg):</label>
-            <input type="number" id="weight" placeholder="Enter your weight" step="0.1" min="0">
-        </div>
-        
-        <button onclick="calculateWeightHealth()">Check Weight Status</button>
-        <div id="result"></div>
-    </div>
 
-    <div class="article-section">
-        <h2>Understanding Healthy Weight Ranges</h2>
-        <p>Healthy weight varies by gender, height, and age. We use BMI (Body Mass Index) as a screening tool to classify weight status:</p>
-        
-        <div class="highlight-box">
-            <h3>BMI Formula:</h3>
-            <p><strong>BMI = weight(kg) / (height(m) × height(m))</strong></p>
-            <p>Or for imperial: <strong>BMI = (weight(lbs) / (height(in) × height(in))) × 703</strong></p>
-        </div>
-        
-        <h2>BMI Classification for Adults</h2>
-        <table>
-            <tr>
-                <th>BMI Range</th>
-                <th>Classification</th>
-                <th>Health Risk</th>
-            </tr>
-            <tr>
-                <td>Below 18.5</td>
-                <td>Underweight</td>
-                <td>Increased risk of nutritional deficiencies and osteoporosis</td>
-            </tr>
-            <tr>
-                <td>18.5 - 24.9</td>
-                <td>Normal weight</td>
-                <td>Lowest risk (healthy range)</td>
-            </tr>
-            <tr>
-                <td>25.0 - 29.9</td>
-                <td>Overweight</td>
-                <td>Moderate risk of developing health problems</td>
-            </tr>
-            <tr>
-                <td>30.0 and Above</td>
-                <td>Obese</td>
-                <td>High risk of developing serious health conditions</td>
-            </tr>
-        </table>
-        
-        <div class="note">
-            <p><strong>Note:</strong> BMI is a screening tool but not a diagnostic of body fatness or health. Athletes may have high BMI due to muscle mass, and older adults may have normal BMI but reduced muscle mass.</p>
-        </div>
-        
-        <h2>Gender Differences in Weight Standards</h2>
-        <p>Men and women have different healthy weight ranges due to body composition:</p>
-        
-        <h3>For Men</h3>
-        <ul>
-            <li>Typically have more muscle mass at the same BMI</li>
-            <li>Higher metabolic rate (burn more calories at rest)</li>
-            <li>Healthy body fat percentage: 8-19%</li>
-            <li>Weight distributed more in abdomen (apple shape)</li>
-        </ul>
-        
-        <h3>For Women</h3>
-        <ul>
-            <li>Typically have higher body fat percentage at the same BMI</li>
-            <li>Healthy body fat percentage: 21-33%</li>
-            <li>Weight distributed more in hips and thighs (pear shape)</li>
-            <li>Weight fluctuations during menstrual cycle (1-5 lbs)</li>
-        </ul>
-        
-        <h2>Weight Recommendations by Country</h2>
-        
-        <h3>For Indians (using kg)</h3>
-        <ul>
-            <li>Average male weight: 60-75 kg</li>
-            <li>Average female weight: 50-65 kg</li>
-            <li>Lower BMI thresholds may apply (Asian populations tend to have higher body fat at lower BMI)</li>
-        </ul>
-        
-        <h3>For Americans (using lbs)</h3>
-        <ul>
-            <li>Average male weight: 170-200 lbs</li>
-            <li>Average female weight: 140-170 lbs</li>
-            <li>Higher BMI thresholds may be more appropriate for muscular individuals</li>
-        </ul>
-        
-        <h2>Health Recommendations by Weight Status</h2>
-        
-        <div class="weight-status underweight">
-            <h3>Underweight (BMI < 18.5)</h3>
-            <ul>
-                <li>Gradually increase calorie intake with nutrient-dense foods</li>
-                <li>Focus on healthy fats (nuts, avocados, olive oil)</li>
-                <li>Strength training to build muscle mass</li>
-                <li>Consult doctor if unintentional weight loss occurs</li>
-            </ul>
-        </div>
-        
-        <div class="weight-status normal">
-            <h3>Normal Weight (BMI 18.5-24.9)</h3>
-            <ul>
-                <li>Maintain balanced diet and regular exercise</li>
-                <li>Focus on body composition (muscle vs fat)</li>
-                <li>Monitor weight monthly for changes</li>
-                <li>Continue healthy lifestyle habits</li>
-            </ul>
-        </div>
-        
-        <div class="weight-status overweight">
-            <h3>Overweight (BMI 25-29.9)</h3>
-            <ul>
-                <li>Aim for gradual weight loss (1-2 lbs per week)</li>
-                <li>Increase physical activity (150+ minutes/week)</li>
-                <li>Reduce processed foods and added sugars</li>
-                <li>Focus on portion control</li>
-            </ul>
-        </div>
-        
-        <div class="weight-status obese">
-            <h3>Obese (BMI 30+)</h3>
-            <ul>
-                <li>Consult healthcare provider for personalized plan</li>
-                <li>Consider professional nutrition counseling</li>
-                <li>Start with modest activity, gradually increase</li>
-                <li>Address emotional eating if present</li>
-            </ul>
-        </div>
-        
-        <h2>Frequently Asked Questions</h2>
-        <div class="faq">
-            <div class="faq-item">
-                <div class="faq-question">Q: Why are there different weight standards for men and women?</div>
-                <p>A: Men typically have more muscle mass and less essential body fat than women. Women naturally carry more body fat for reproductive functions, leading to different healthy weight ranges.</p>
-            </div>
-            <div class="faq-item">
-                <div class="faq-question">Q: Is BMI accurate for muscular individuals?</div>
-                <p>A> BMI may overestimate body fat in muscular athletes because muscle weighs more than fat. Additional measurements like body fat percentage or waist circumference provide better assessment.</p>
-            </div>
-            <div class="faq-item">
-                <div class="faq-question">Q: Should Indians use different BMI thresholds?</div>
-                <p>A> Research suggests Asians may have higher health risks at lower BMI levels. Some organizations recommend overweight classification starting at BMI 23 (vs 25) for Indian populations.</p>
-            </div>
-            <div class="faq-item">
-                <div class="faq-question">Q: How often should I check my weight?</div>
-                <p>A> For most adults, weekly weighing is sufficient. Daily fluctuations (2-5 lbs) are normal due to water retention, food intake, and other factors. Track long-term trends rather than daily changes.</p>
-            </div>
-        </div>
-        
-        <h2>Related Health Calculators</h2>
-        <p>You may also find these health tools useful:</p>
-        <div class="related-calculators">
-            <div class="calculator-card">
-                <h4>Body Fat Calculator</h4>
-                <p>Estimate your body fat percentage using multiple methods.</p>
-                <a href="/body-fat.html" style="color: #2c7be5; font-weight: 600;">Try Body Fat Calculator →</a>
-            </div>
-            <div class="calculator-card">
-                <h4>Calorie Calculator</h4>
-                <p>Determine your daily calorie needs for weight goals.</p>
-                <a href="/calories.html" style="color: #2c7be5; font-weight: 600;">Try Calorie Calculator →</a>
-            </div>
-            <div class="calculator-card">
-                <h4>Ideal Weight Calculator</h4>
-                <p>Find your healthy weight range based on body frame.</p>
-                <a href="/weight-measurement.html" style="color: #2c7be5; font-weight: 600;">Try Ideal Weight Calculator →</a>
-            </div>
-            
-        </div>
-    </div>
+<h1><b>SMART AI CALCULATOR</b><br><b>Ideal Weight Calculator (Male / Female)</b></h1>
 
-    <script>
-        // Change weight unit based on country selection
-        function changeWeightUnit() {
-            const country = document.getElementById('country').value;
-            const weightLabel = document.getElementById('weight-label');
-            const weightInput = document.getElementById('weight');
-            
-            if (country === 'india') {
-                weightLabel.textContent = 'Weight (kg):';
-                weightInput.placeholder = 'Enter your weight in kg';
-            } else {
-                weightLabel.textContent = 'Weight (lbs):';
-                weightInput.placeholder = 'Enter your weight in lbs';
-            }
-        }
-        
-        // Calculate weight health status
-        function calculateWeightHealth() {
-            const country = document.getElementById('country').value;
-            const gender = document.getElementById('gender').value;
-            const age = parseInt(document.getElementById('age').value);
-            const feet = parseInt(document.getElementById('feet').value) || 0;
-            const inches = parseInt(document.getElementById('inches').value) || 0;
-            const weight = parseFloat(document.getElementById('weight').value);
-            
-            // Validate inputs
-            if (isNaN(age) || age < 18 || age > 100) {
-                alert('Please enter a valid age (18-100)');
-                return;
-            }
-            if (isNaN(feet) || feet < 0 || isNaN(inches) || inches < 0 || inches >= 12) {
-                alert('Please enter valid height in feet and inches');
-                return;
-            }
-            if (isNaN(weight) || weight <= 0) {
-                alert('Please enter a valid weight');
-                return;
-            }
-            
-            // Convert height to inches and meters
-            const heightInches = (feet * 12) + inches;
-            const heightM = heightInches * 0.0254;
-            
-            // Calculate BMI based on country selection
-            let bmi;
-            if (country === 'india') {
-                // Metric BMI formula (kg/m²)
-                bmi = weight / (heightM * heightM);
-            } else {
-                // Imperial BMI formula
-                bmi = (weight / (heightInches * heightInches)) * 703;
-            }
-            
-            // Round BMI to 1 decimal place
-            bmi = Math.round(bmi * 10) / 10;
-            
-            // Determine weight status
-            let status, statusClass, statusDescription;
-            if (bmi < 18.5) {
-                status = "Underweight";
-                statusClass = "underweight";
-                statusDescription = "Your weight is below the healthy range for your height.";
-            } else if (bmi >= 18.5 && bmi <= 24.9) {
-                status = "Normal Weight";
-                statusClass = "normal";
-                statusDescription = "Your weight is within the healthy range for your height.";
-            } else if (bmi >= 25 && bmi <= 29.9) {
-                status = "Overweight";
-                statusClass = "overweight";
-                statusDescription = "Your weight is above the healthy range for your height.";
-            } else {
-                status = "Obese";
-                statusClass = "obese";
-                statusDescription = "Your weight is significantly above the healthy range for your height.";
-            }
-            
-            // Calculate ideal weight range (using Devine formula)
-            let idealMin, idealMax;
-            if (gender === 'male') {
-                idealMin = 50 + (2.3 * (heightInches - 60));
-                idealMax = 56 + (2.3 * (heightInches - 60));
-            } else {
-                idealMin = 45.5 + (2.3 * (heightInches - 60));
-                idealMax = 51.5 + (2.3 * (heightInches - 60));
-            }
-            
-            // Convert ideal weight to kg if India
-            if (country === 'india') {
-                idealMin = Math.round(idealMin * 0.453592);
-                idealMax = Math.round(idealMax * 0.453592);
-            } else {
-                idealMin = Math.round(idealMin);
-                idealMax = Math.round(idealMax);
-            }
-            
-            // Generate recommendations based on status
-            let recommendations = [];
-            if (status === "Underweight") {
-                recommendations = [
-                    "Gradually increase calorie intake with nutrient-dense foods",
-                    "Include healthy fats like nuts, seeds, and avocados",
-                    "Strength training to build muscle mass",
-                    "Consult a doctor if weight loss is unintentional"
-                ];
-            } else if (status === "Normal Weight") {
-                recommendations = [
-                    "Maintain your current healthy habits",
-                    "Continue regular physical activity",
-                    "Monitor your weight monthly",
-                    "Focus on body composition rather than just weight"
-                ];
-            } else if (status === "Overweight") {
-                recommendations = [
-                    "Aim for gradual weight loss (1-2 lbs per week)",
-                    "Increase physical activity (150+ minutes/week)",
-                    "Reduce processed foods and added sugars",
-                    "Practice portion control at meals"
-                ];
-            } else {
-                recommendations = [
-                    "Consult with a healthcare provider for guidance",
-                    "Consider working with a nutritionist",
-                    "Start with moderate physical activity",
-                    "Address emotional eating patterns if present"
-                ];
-            }
-            
-            // Display results
-            document.getElementById('result').innerHTML = `
-                <h3>Your Weight Assessment</h3>
-                <p><strong>BMI:</strong> ${bmi}</p>
-                <div class="weight-status ${statusClass}">
-                    <strong>Status:</strong> ${status}<br>
-                    ${statusDescription}
-                </div>
-                
-                <div class="recommendation">
-                    <h4>Ideal Weight Range for Your Height:</h4>
-                    <p>${idealMin} - ${idealMax} ${country === 'india' ? 'kg' : 'lbs'}</p>
-                    
-                    <h4>Recommendations:</h4>
-                    <ul>
-                        ${recommendations.map(rec => `<li>${rec}</li>`).join('')}
-                    </ul>
-                </div>
-                
-                <div class="note">
-                    <p><strong>Note:</strong> This assessment is based on BMI which has limitations. For more accurate health evaluation, consider body fat percentage measurements and consultation with a healthcare professional.</p>
-                </div>
-            `;
-        }
-        
-        // Initialize with default values
-        document.addEventListener('DOMContentLoaded', function() {
-            document.getElementById('feet').value = 5;
-            document.getElementById('inches').value = 9;
-        });
-    </script>
+<!-- INTRO -->
+<p class="intro">
+The <b>Ideal Weight Calculator</b> by SMART AI CALCULATOR helps men and women in
+<b>India & USA</b> estimate their <b>healthy ideal body weight</b> using
+internationally accepted formulas with <b>kg or lbs</b>.
+</p>
+
+<!-- WHAT IS -->
+<h2>What is Ideal Body Weight?</h2>
+<p>
+Ideal Body Weight (IBW) is an estimate of the healthiest weight range based
+on height and gender. It is widely used by doctors and fitness experts to
+assess weight-related health risks.
+</p>
+
+<!-- CALCULATOR -->
+<div class="calculator-box">
+<h2>Ideal Weight Calculator <span class="speaker" onclick="speakResult()">🔊</span></h2>
+
+<label>Gender</label>
+<select id="gender">
+<option value="male">Male</option>
+<option value="female">Female</option>
+</select>
+
+<label>Unit System</label>
+<select id="unit">
+<option value="metric">Metric (cm)</option>
+<option value="imperial">Imperial (inches)</option>
+</select>
+
+<label>Height</label>
+<input type="number" id="height" placeholder="Example: 170">
+
+<button onclick="calculateWeight()">Calculate Ideal Weight</button>
+
+<div id="result"></div>
+</div>
+
+<div class="ads">📢 Google Adsense Ad Space</div>
+
+<div class="chart-box">
+<canvas id="weightChart"></canvas>
+</div>
+
+<!-- HOW -->
+<h2>How Ideal Weight is Calculated (Formula)</h2>
+<ul>
+<li><b>Male:</b> 50 kg + 2.3 kg for each inch over 5 feet</li>
+<li><b>Female:</b> 45.5 kg + 2.3 kg for each inch over 5 feet</li>
+</ul>
+
+<p>
+This calculator uses the <b>Devine Formula</b>, widely accepted in India and
+the USA for estimating ideal body weight.
+</p>
+
+<!-- IMPORTANCE -->
+<h2>Why Knowing Ideal Weight is Important?</h2>
+<ul>
+<li>Helps maintain healthy weight range</li>
+<li>Supports fitness and nutrition goals</li>
+<li>Reduces risk of obesity-related diseases</li>
+<li>Useful for medical and health assessments</li>
+</ul>
+
+<!-- FAQ -->
+<h2>Frequently Asked Questions (FAQ)</h2>
+
+<div class="faq-item">
+<b>Is ideal weight same for everyone?</b>
+<p>No, it depends on height, gender, and body frame.</p>
+</div>
+
+<div class="faq-item">
+<b>Is this different from BMI?</b>
+<p>Yes, BMI uses weight & height, ideal weight gives target range.</p>
+</div>
+
+<div class="faq-item">
+<b>Is this calculator accurate?</b>
+<p>It provides close estimates using standard medical formulas.</p>
+</div>
+
+<footer>
+<a href="privacy-policy.html">Privacy Policy</a> |
+<a href="disclaimer.html">Disclaimer</a> |
+<a href="contact-us.html">Contact Us</a>
+<p>© 2026 SMART AI CALCULATOR</p>
+</footer>
+
+<script>
+let chart;
+
+function calculateWeight(){
+let h = +height.value;
+if(unit.value==="metric"){
+h = h / 2.54;
+}
+
+let inchesOver = h - 60;
+if(inchesOver < 0) inchesOver = 0;
+
+let ideal;
+if(gender.value==="male"){
+ideal = 50 + 2.3*inchesOver;
+}else{
+ideal = 45.5 + 2.3*inchesOver;
+}
+
+result.innerHTML =
+`<p><b>Ideal Body Weight:</b> ${ideal.toFixed(2)} kg</p>
+<p><b>Healthy Range:</b> ±10% of ideal weight</p>`;
+
+if(chart) chart.destroy();
+chart = new Chart(weightChart,{
+type:"bar",
+data:{
+labels:["Ideal Weight"],
+datasets:[{
+data:[ideal],
+backgroundColor:["#6366f1"]
+}]
+}
+});
+}
+
+function speakResult(){
+if(!result.innerText) return;
+let s=new SpeechSynthesisUtterance(result.innerText);
+s.lang="en-US";
+speechSynthesis.speak(s);
+}
+</script>
+
 </body>
 </html>
