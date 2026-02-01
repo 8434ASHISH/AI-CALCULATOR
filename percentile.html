@@ -1,205 +1,149 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Smart AI Calculator - Percentile Calculator | Free Online Tool</title>
-    <meta name="description" content="Calculate percentile rank with our free AI-powered Percentile Calculator. Available in English, Hindi, Tamil, Telugu, Spanish, Bengali, Arabic, Mandarin, and French. Try now!">
-    <meta name="keywords" content="percentile calculator, ai percentile calculator, free percentile calculator, online percentile calculator, statistics calculator">
-    <meta name="robots" content="index, follow">
-  <link rel="canonical" href="https://smartaicalculator.com/percentile.html">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background: linear-gradient(135deg, #1A202C, #2D3748);
-            color: #fff;
-            margin: 0;
-        }
-        .header { background: #2c3e50; padding: 20px 0; text-align: center; position: relative; }
-        .nav-tabs { display: flex; justify-content: center; gap: 20px; padding: 10px 0; background: #34495e; }
-        .nav-tab { color: white; text-decoration: none; padding: 5px 15px; transition: background 0.3s; }
-        .nav-tab:hover, .nav-tab.active { background: #3498db; border-radius: 5px; }
-        .calculator-content { max-width: 600px; margin: 20px auto; padding: 20px; background: rgba(45, 55, 72, 0.9); border-radius: 10px; box-shadow: 0 0 15px rgba(0,0,0,0.5); }
-        .calculator-box { background: #e0e0e0; color: #333; padding: 20px; border-radius: 5px; text-align: center; }
-        .input-row { display: flex; justify-content: space-between; margin-bottom: 15px; }
-        .input-row label { font-weight: bold; }
-        input, select { border: 1px solid #ccc; padding: 5px; border-radius: 3px; width: 100%; }
-        button { 
-            background: linear-gradient(135deg, #ff6b6b, #e63946); 
-            color: white; 
-            padding: 12px 24px; 
-            border: none; 
-            border-radius: 5px; 
-            cursor: pointer; 
-            font-weight: bold; 
-            font-size: 1.1rem; 
-            box-shadow: 0 3px 6px rgba(0,0,0,0.4); 
-            transition: transform 0.2s, background 0.2s; 
-            text-transform: uppercase; 
-        }
-        button:hover { 
-            background: linear-gradient(135deg, #e63946, #c0392b); 
-            transform: scale(1.05); 
-        }
-        .ads-section { margin-top: 10px; padding: 10px; background: #34495e; border-radius: 5px; text-align: center; box-shadow: 0 0 5px rgba(0,0,0,0.3); }
-        .ads-section p { font-size: 1.2rem; font-weight: bold; color: #1e90ff; }
-        .ads-section a { color: #1e90ff; text-decoration: underline; }
-        .voice-icon { 
-            display: inline-block; 
-            padding: 10px; 
-            cursor: pointer; 
-            font-size: 2rem; 
-            color: #00cec9; 
-            transition: color 0.2s, transform 0.2s; 
-            visibility: visible; 
-        }
-        .voice-icon:hover { 
-            color: #00b7b3; 
-            transform: scale(1.1); 
-        }
-        .button-container { 
-            display: flex; 
-            justify-content: center; 
-            align-items: center; 
-            gap: 15px; 
-            margin: 20px 0; 
-        }
-        @media (max-width: 600px) { 
-            .input-row { flex-direction: column; } 
-            input, select { width: 100%; margin-bottom: 10px; } 
-            .button-container { flex-direction: row; gap: 10px; } 
-            .voice-icon { display: inline-block; visibility: visible; } 
-        }
-        @media (min-width: 601px) { 
-            .voice-icon { display: inline-block; visibility: visible; } 
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Percentile Calculator India & USA | Statistics & Exam Percentile | SMART AI CALCULATOR</title>
+
+<meta name="description" content="Free Percentile Calculator for India & USA. Calculate percentile rank using exact statistical formula. Useful for exams, ranking systems and data analysis.">
+
+<meta name="keywords" content="percentile calculator india, percentile calculator usa, percentile rank calculator, exam percentile calculator, statistics percentile, smart ai calculator">
+
+<link rel="canonical" href="https://smartaicalculator.com/percentile.html"/>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-FEQ7R89CFG"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-FEQ7R89CFG');
+</script>
+
+<!-- Schema.org -->
+<script type="application/ld+json">
+{
+"@context":"https://schema.org",
+"@type":"WebApplication",
+"name":"Percentile Calculator",
+"url":"https://smartaicalculator.com/percentile.html",
+"applicationCategory":"EducationalApplication",
+"provider":{"@type":"Organization","name":"SMART AI CALCULATOR"}
+}
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<style>
+body{font-family:Segoe UI,Arial;background:#f8fafc;color:#1e293b;max-width:1000px;margin:auto;padding:20px;line-height:1.7}
+h1{text-align:center;color:#0f766e;font-size:2.3em}
+h2{color:#0f766e;border-bottom:2px solid #99f6e4;padding-bottom:8px}
+.intro{text-align:center;color:#334155;margin-bottom:40px}
+.calculator-box{background:#fff;border-radius:14px;padding:25px;box-shadow:0 12px 30px rgba(0,0,0,0.08);margin:40px 0;border-left:6px solid #14b8a6}
+label{font-weight:600;color:#115e59}
+input,textarea{width:100%;padding:12px;margin:10px 0;border-radius:6px;border:1px solid #99f6e4}
+button{background:#14b8a6;color:#fff;border:none;padding:14px;width:100%;font-size:16px;border-radius:6px;cursor:pointer}
+button:hover{background:#0f766e}
+#result{margin-top:20px;background:#ecfeff;padding:15px;border-radius:8px;border-left:4px solid #14b8a6}
+.ads{background:#e5e7eb;padding:15px;text-align:center;border-radius:8px;margin:25px 0;color:#475569}
+.chart-box{margin:30px 0}
+.related{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:15px}
+.related div{background:#fff;padding:15px;border-radius:8px;box-shadow:0 4px 10px rgba(0,0,0,0.08)}
+footer{margin-top:60px;padding:20px;text-align:center;font-size:14px;color:#475569;border-top:1px solid #e2e8f0}
+footer a{color:#0f766e;text-decoration:none;margin:0 6px}
+.speaker{cursor:pointer;float:right;font-size:20px}
+</style>
 </head>
+
 <body>
-    <header class="header">
-        <h1 id="header-title">Smart AI Calculator</h1>
-        <p id="tagline">Percentile Calculator</p>
-    </header>
-    <nav class="nav-tabs">
-        
-        <a href="index.html#health" class="nav-tab" onclick="showCategory('home')">HOME</a>
-        <a href="index.html#math" class="nav-tab" onclick="showCategory('mathematics')">MATHEMATICS</a>
-       
-    </nav>
-    <div class="calculator-content">
-        <div class="calculator-box">
-            <h2 id="calc-title">Enter numbers (comma-separated) and target value to calculate percentile</h2>
-            <div class="input-row">
-                <label id="numbers-label">Numbers</label>
-                <input type="text" id="numbers" placeholder="e.g., 1,2,3,4,5">
-            </div>
-            <div class="input-row">
-                <label id="target-label">Target Value</label>
-                <input type="number" id="target" step="any" placeholder="e.g., 4">
-            </div>
-            <div class="button-container">
-                <button onclick="calculatePercentile()">Calculate <span id="spinner" style="display:none;">⏳</span></button>
-                <span class="voice-icon" onclick="toggleSpeech()" title="Toggle Speech"><i class="fas fa-volume-up"></i></span>
-            </div>
-            <div id="percentile-result" class="mt-4 font-semibold"></div>
-            <p style="margin-top: 10px;">You May Also Like:</p>
-<ul style="list-style: none; padding-left: 0;">
-  <li><a href="percentile.html" style="font-weight: bold; color: #4f46e5; text-decoration: none;">PERCENTILE Calculator</a></li>
-  <li><a href="scientific.html" style="font-weight: bold; color: #4f46e5; text-decoration: none;">SCIENTIFIC Calculator</a></li>
+
+<h1><b>SMART AI CALCULATOR</b><br><b>Percentile Calculator (India & USA)</b></h1>
+
+<p class="intro">
+The <b>Percentile Calculator</b> by SMART AI CALCULATOR helps students and professionals in
+<b>India & USA</b> calculate percentile rank used in exams, statistics, and performance analysis.
+</p>
+
+<h2>What is Percentile?</h2>
+<p>
+Percentile indicates the value below which a given percentage of observations falls.
+For example, if you are in the 90th percentile, you scored better than 90% of candidates.
+</p>
+
+<div class="calculator-box">
+<h2>Percentile Calculator <span class="speaker" onclick="speakResult()">🔊</span></h2>
+
+<label>Your Rank</label>
+<input type="number" id="rank" placeholder="Example: 2500">
+
+<label>Total Number of Candidates</label>
+<input type="number" id="total" placeholder="Example: 100000">
+
+<button onclick="calculatePercentile()">Calculate Percentile</button>
+<div id="result"></div>
+</div>
+
+<div class="ads">📢 Google Adsense Ad Space</div>
+
+<div class="chart-box">
+<canvas id="perChart"></canvas>
+</div>
+
+<h2>How Percentile is Calculated (Formula)</h2>
+<ul>
+<li><b>Percentile Formula:</b> ((Total − Rank) ÷ Total) × 100</li>
 </ul>
-            <div class="ads-section">
-                <p>Contact for Ads: <a href="mailto:first4bencher@gmail.com">first4bencher@gmail.com</a></p>
-            </div>
-            <div id="seo-content" class="mt-4 text-sm">
-                <h3>About Percentile Calculator</h3>
-                <p>Welcome to the AI Percentile Calculator, a free online tool designed to help you calculate percentile rank with ease. Whether you’re a student or a data analyst, this calculator leverages advanced AI technology to provide accurate and instant results. Available in multiple languages including English, Hindi, Tamil, Telugu, Spanish, Bengali, Arabic, Mandarin, and French, it caters to a diverse global audience. Simply enter your numbers (comma-separated) and target value, then click "Calculate" to get your percentile rank.</p>
-                <p>Why choose our Percentile Calculator? It’s user-friendly, fast, and optimized for all devices, making it perfect for statistics and data analysis. The tool calculates percentile rank using the formula (number of values below target / total values) × 100. Our AI integration ensures precision and offers suggestions for statistical analysis. This calculator stands out due to its multilingual support and modern design, setting it apart from traditional percentile calculators.</p>
-                <p>SEO optimization is crucial for this tool to rank high on search engines like Google. We’ve included meta tags, a canonical URL, and keywords such as "percentile calculator online," "free percentile calculator," and "AI statistics tool" to boost visibility. To enhance ranking, consider adding backlinks from educational or data analysis blogs or submitting the site to directories. Regular updates and user feedback can further improve its performance. Ideal for statistical calculations, this calculator is a must-try for anyone seeking clarity on percentiles. Explore it today and take control of your data analysis!</p>
-            </div>
-        </div>
-    </div>
-    <footer class="bg-gray-800 text-white text-center py-4 mt-8">
-        <p style="font-weight: bold;">2025 © Smart AI Calculator. All rights reserved.</p>
-        <a href="privacy.html" class="text-blue-400 ml-2">Privacy Policy</a> |
-        <a href="contactus.html" class="text-blue-400 ml-2">Contact Us</a> |
-        <a href="howto.html" class="text-blue-400 ml-2">How to Use</a>
-    </footer>
-    <script>
-        let lang = 'en';
-        let isSpeaking = false;
-        let utterance = null;
-        const translations = {
-            en: { header: "Smart AI Calculator", tagline: "Percentile Calculator", calcTitle: "Enter numbers (comma-separated) and target value to calculate percentile", numbersLabel: "Numbers", targetLabel: "Target Value", resultPrefix: "Percentile Rank: " },
-            hi: { header: "स्मार्ट एआई कैलकुलेटर", tagline: "प्रतिशतक कैलकुलेटर", calcTitle: "प्रतिशतक की गणना के लिए संख्याएँ (अल्पविराम से अलग) और लक्ष्य मान दर्ज करें", numbersLabel: "संख्याएँ", targetLabel: "लक्ष्य मान", resultPrefix: "प्रतिशतक रैंक: " },
-            ta: { header: "ஸ்மார்ட் AI கால்குலேட்டர்", tagline: "பெர்சென்டைல் கால்குலேட்டர்", calcTitle: "பெர்சென்டைல் கணக்கிட எண்களை (கமாவால் பிரிக்கப்பட்டவை) மற்றும் இலக்கு மதிப்பை உள்ளிடவும்", numbersLabel: "எண்கள்", targetLabel: "இலக்கு மதிப்பு", resultPrefix: "பெர்சென்டைல் ரேங்க்: " },
-            te: { header: "స్మార్ట్ AI కాల్కులేటర్", tagline: "పర్సెంటైల్ కాల్కులేటర్", calcTitle: "పర్సెంటైల్‌ను లెక్కించడానికి సంఖ్యలను (కామాతో వేరు చేయబడినవి) మరియు లక్ష్య విలువను నమోదు చేయండి", numbersLabel: "సంఖ్యలు", targetLabel: "లక్ష్య విలువ", resultPrefix: "పర్సెంటైల్ ర్యాంక్: " },
-            es: { header: "Calculadora de IA Inteligente", tagline: "Calculadora de Percentiles", calcTitle: "Ingrese números (separados por comas) y el valor objetivo para calcular el percentil", numbersLabel: "Números", targetLabel: "Valor Objetivo", resultPrefix: "Rango Percentil: " },
-            bn: { header: "স্মার্ট এআই ক্যালকুলেটর", tagline: "পার্সেন্টাইল ক্যালকুলেটর", calcTitle: "পার্সেন্টাইল গণনার জন্য সংখ্যা (কমা দিয়ে পৃথক) এবং লক্ষ্য মান লিখুন", numbersLabel: "সংখ্যা", targetLabel: "লক্ষ্য মান", resultPrefix: "পার্সেন্টাইল র‌্যাঙ্ক: " },
-            ar: { header: "حاسبة الذكاء الاصطناعي الذكية", tagline: "حاسبة النسبة المئوية", calcTitle: "أدخل الأرقام (مفصولة بفواصل) والقيمة المستهدفة لحساب النسبة المئوية", numbersLabel: "الأرقام", targetLabel: "القيمة المستهدفة", resultPrefix: "ترتيب النسبة المئوية: " },
-            zh: { header: "智能人工智能计算器", tagline: "百分位计算器", calcTitle: "输入数字（以逗号分隔）和目标值以计算百分位", numbersLabel: "数字", targetLabel: "目标值", resultPrefix: "百分位排名: " },
-            fr: { header: "Calculateur IA Intelligent", tagline: "Calculateur de Percentile", calcTitle: "Entrez les nombres (séparés par des virgules) et la valeur cible pour calculer le percentile", numbersLabel: "Nombres", targetLabel: "Valeur Cible", resultPrefix: "Rang Percentile: " }
-        };
-        function calculatePercentile() {
-            document.getElementById("spinner").style.display = "inline";
-            setTimeout(() => {
-                let resultDiv = document.getElementById("percentile-result");
-                let input = document.getElementById("numbers").value;
-                let target = parseFloat(document.getElementById("target").value);
-                let numbers = input.split(",").map(num => parseFloat(num.trim())).filter(num => !isNaN(num));
-                if (numbers.length > 0 && !isNaN(target)) {
-                    let belowCount = numbers.filter(num => num < target).length;
-                    let percentile = (belowCount / numbers.length) * 100;
-                    resultDiv.innerHTML = `${translations[lang].resultPrefix} ${percentile.toFixed(2)}%`;
-                } else {
-                    resultDiv.innerText = lang === 'en' ? "Please enter valid numbers and target value" : lang === 'hi' ? "कृपया वैध संख्याएँ और लक्ष्य मान दर्ज करें" : lang === 'ta' ? "சரியான எண்களையும் இலக்கு மதிப்பையும் உள்ளிடவும்" : lang === 'te' ? "దయచేసి సరైన సంఖ్యలను మరియు లక్ష్య విలువను నమోదు చేయండి" : lang === 'es' ? "Por favor, ingrese números válidos y un valor objetivo" : lang === 'bn' ? "দয়া করে বৈধ সংখ্যা এবং লক্ষ্য মান লিখুন" : lang === 'ar' ? "يرجى إدخال أرقام صحيحة وقيمة مستهدفة" : lang === 'zh' ? "请输入有效数字和目标值" : "Veuillez entrer des nombres valides et une valeur cible";
-                }
-                document.getElementById("spinner").style.display = "none";
-            }, 1000);
-        }
-        function toggleSpeech() {
-            console.log("Toggling speech for result");
-            const result = document.getElementById("percentile-result").innerHTML;
-            if (!result) {
-                console.log("No result to speak");
-                return;
-            }
-            if (isSpeaking) {
-                window.speechSynthesis.cancel();
-                isSpeaking = false;
-                console.log("Speech stopped");
-            } else {
-                utterance = new SpeechSynthesisUtterance(result);
-                utterance.lang = lang === 'zh' ? 'zh-CN' : lang === 'ar' ? 'ar-SA' : lang;
-                utterance.onend = () => {
-                    isSpeaking = false;
-                    console.log("Speech ended");
-                };
-                window.speechSynthesis.speak(utterance);
-                isSpeaking = true;
-                console.log("Speech started");
-            }
-        }
-        function stopSpeech() {
-            if (isSpeaking) {
-                window.speechSynthesis.cancel();
-                isSpeaking = false;
-                console.log("Speech stopped on page exit");
-            }
-        }
-        function showCategory(category) {
-            // No action needed here as navigation is handled by index.html
-        }
-        window.onload = () => {
-            document.getElementById('header-title').textContent = translations[lang].header;
-            document.getElementById('tagline').textContent = translations[lang].tagline;
-            document.getElementById('calc-title').textContent = translations[lang].calcTitle;
-            document.getElementById('numbers-label').textContent = translations[lang].numbersLabel;
-            document.getElementById('target-label').textContent = translations[lang].targetLabel;
-            console.log("Voice icon loaded");
-        };
-        window.onpagehide = stopSpeech;
-        window.onbeforeunload = stopSpeech;
-    </script>
-<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'934ab0e65a83454b',t:'MTc0NTM4MzMxMi4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></html>
+
+<h2>Why Percentile is Important?</h2>
+<ul>
+<li>Used in competitive exams</li>
+<li>Standardizes performance comparison</li>
+<li>Removes score difficulty bias</li>
+<li>Accepted across India & USA education systems</li>
+</ul>
+
+<h2>Frequently Asked Questions (FAQ)</h2>
+<p><b>Is percentile same as percentage?</b><br>No, percentile compares relative performance.</p>
+<p><b>Can percentile be 100?</b><br>Yes, for top rank.</p>
+<p><b>Is this calculator accurate?</b><br>Yes, it uses the standard formula.</p>
+
+<h2>Related Calculators</h2>
+<div class="related">
+<div><a href="standard-deviation.html">Standard Deviation</a></div>
+<div><a href="percentage.html">Percentage Calculator</a></div>
+<div><a href="gpa.html">GPA Calculator</a></div>
+<div><a href="iq.html">IQ Calculator</a></div>
+</div>
+
+<footer>
+<a href="privacy-policy.html">Privacy Policy</a> |
+<a href="disclaimer.html">Disclaimer</a> |
+<a href="contact-us.html">Contact Us</a>
+<p>© 2026 SMART AI CALCULATOR</p>
+</footer>
+
+<script>
+let chart;
+function calculatePercentile(){
+let r = +rank.value;
+let t = +total.value;
+let p = ((t-r)/t)*100;
+
+result.innerHTML = `<p><b>Your Percentile:</b> ${p.toFixed(2)}</p>`;
+
+if(chart) chart.destroy();
+chart = new Chart(perChart,{
+type:"bar",
+data:{labels:["Percentile"],datasets:[{data:[p],backgroundColor:"#14b8a6"}]},
+options:{scales:{y:{beginAtZero:true,max:100}}}
+});
+}
+function speakResult(){
+if(!result.innerText) return;
+let s=new SpeechSynthesisUtterance(result.innerText); s.lang="en-US"; speechSynthesis.speak(s);
+}
+</script>
+
+</body>
+</html>
